@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Sample Feed</title>
+    <link>https://example.com/blog</link>
+    <description>Fixture feed for fetch_feeds.py --parse-file self-test</description>
+    <item>
+      <title>Model X released</title>
+      <link>https://Example.com/blog/model-x/?utm_source=rss&amp;utm_medium=feed</link>
+      <pubDate>Fri, 31 Jul 2026 09:00:00 +0000</pubDate>
+      <description>&lt;p&gt;Example Corp releases &lt;b&gt;Model X&lt;/b&gt;, a new frontier model.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Pricing update</title>
+      <link>https://example.com/blog/pricing-update</link>
+      <pubDate>Thu, 30 Jul 2026 15:30:00 +0000</pubDate>
+      <description>API pricing drops 20% across all tiers.</description>
+    </item>
+    <item>
+      <title>Old post outside any recent window</title>
+      <link>https://example.com/blog/old-post</link>
+      <pubDate>Mon, 05 Jan 2026 12:00:00 +0000</pubDate>
+      <description>This one should be filtered out by --since.</description>
+    </item>
+  </channel>
+</rss>

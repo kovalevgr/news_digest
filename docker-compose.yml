@@ -1,0 +1,104 @@
+# web / bot / poller are the same image, different commands.
+# `migrate` is a one-shot that runs Alembic once before the long-running services start.
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: content
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U app -d content"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    restart: unless-stopped
+
+  migrate:                  # one-shot: CREATE EXTENSION vector + alembic upgrade head
+    build: .
+    command: alembic upgrade head
+    environment:
+      DATABASE_URL: postgresql+psycopg2://app:${DB_PASSWORD}@db:5432/content
+    env_file: .env
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: "no"
+
+  web:                      # editor + status (the one always-on HTTP surface)
+    build: .
+    command: uvicorn app.web:app --host 0.0.0.0 --port 8000
+    environment:
+      DATABASE_URL: postgresql+psycopg2://app:${DB_PASSWORD}@db:5432/content
+    env_file: .env
+    volumes:
+      - ./config.yaml:/app/config.yaml:ro
+      - ./content:/app/content:ro
+      # Vertex ADC (local only): the editor embeds during KB-search / Gate-2 / mark-published, so
+      # the web service needs ADC too. On the prod GCP VM the attached service account supplies ADC
+      # automatically — drop this mount there (same as the poller's).
+      - ${HOME}/.config/gcloud:/root/.config/gcloud:ro
+    depends_on:
+      db:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+    restart: unless-stopped
+
+  bot:                      # Telegram triage (Gate 1) + digest delivery (later phases)
+    build: .
+    command: python -m app.bot
+    environment:
+      DATABASE_URL: postgresql+psycopg2://app:${DB_PASSWORD}@db:5432/content
+    env_file: .env
+    volumes:
+      - ./config.yaml:/app/config.yaml:ro
+    depends_on:
+      db:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+    restart: unless-stopped
+
+  poller:                   # the researcher, driven by an in-process scheduler (later phases)
+    build: .
+    command: python -m app.poller
+    environment:
+      DATABASE_URL: postgresql+psycopg2://app:${DB_PASSWORD}@db:5432/content
+    # EMBEDDING_PROVIDER + GOOGLE_CLOUD_PROJECT/LOCATION come from env_file: .env;
+    # not duplicated here. The poller embeds on ingest, so it needs Vertex ADC.
+    env_file: .env
+    volumes:
+      - ./config.yaml:/app/config.yaml:ro
+      # Vertex ADC: mount host user creds read-only at the container's default ADC
+      # path so vertexai resolves them. Local only — on the prod GCP VM the attached
+      # service account supplies ADC automatically (drop this mount there).
+      # The web service will need the same mount once the editor embeds published
+      # articles (later phase); poller is the only embedder for now.
+      - ${HOME}/.config/gcloud:/root/.config/gcloud:ro
+    depends_on:
+      db:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+    restart: unless-stopped
+
+  proxy:                    # TLS termination + basic auth in front of web
+    image: caddy:2
+    ports: ["80:80", "443:443"]
+    environment:
+      SITE_ADDRESS: ${SITE_ADDRESS:-:80}
+    env_file: .env          # WEB_AUTH_USER / WEB_AUTH_HASH for basic_auth
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddydata:/data
+      - caddyconfig:/config
+    depends_on: [web]
+    restart: unless-stopped
+
+volumes:
+  dbdata:
+  caddydata:
+  caddyconfig:

@@ -1,0 +1,100 @@
+{
+  "companies": [
+    {
+      "slug": "openai",
+      "name": "OpenAI",
+      "aliases": ["Open AI"],
+      "sources": [
+        {"kind": "rss", "url": "https://openai.com/news/rss.xml", "verified": "2026-08-01"}
+      ]
+    },
+    {
+      "slug": "anthropic",
+      "name": "Anthropic",
+      "aliases": ["Claude"],
+      "sources": [
+        {"kind": "fetch", "url": "https://www.anthropic.com/news", "verified": "2026-08-01", "note": "no feed exists"}
+      ]
+    },
+    {
+      "slug": "google-deepmind",
+      "name": "Google DeepMind",
+      "aliases": ["DeepMind", "Gemini"],
+      "sources": [
+        {"kind": "rss", "url": "https://deepmind.google/blog/rss.xml", "verified": "2026-08-01"}
+      ]
+    },
+    {
+      "slug": "google-research",
+      "name": "Google Research",
+      "aliases": ["Google AI"],
+      "sources": [
+        {"kind": "rss", "url": "https://research.google/blog/rss/", "verified": "2026-08-01", "note": "trailing slash REQUIRED, /blog/rss.xml is 404"}
+      ]
+    },
+    {
+      "slug": "microsoft",
+      "name": "Microsoft",
+      "aliases": ["MSFT", "Copilot"],
+      "sources": [
+        {"kind": "rss", "url": "https://news.microsoft.com/source/feed/", "verified": "2026-08-01", "note": "fresher than blogs.microsoft.com/feed/"}
+      ]
+    },
+    {
+      "slug": "nvidia",
+      "name": "NVIDIA",
+      "aliases": ["Nvidia"],
+      "sources": [
+        {"kind": "rss", "url": "https://blogs.nvidia.com/feed/", "verified": "2026-08-01"}
+      ]
+    },
+    {
+      "slug": "xai",
+      "name": "xAI",
+      "aliases": ["Grok"],
+      "sources": [
+        {"kind": "jina", "url": "https://x.ai/news", "verified": "2026-08-01", "note": "Cloudflare blocks direct fetch; Jina-only"}
+      ]
+    },
+    {
+      "slug": "mistral",
+      "name": "Mistral AI",
+      "aliases": ["Mistral"],
+      "sources": [
+        {"kind": "rss", "url": "https://mistral.ai/rss.xml", "verified": "2026-08-01"}
+      ]
+    },
+    {
+      "slug": "huggingface",
+      "name": "Hugging Face",
+      "aliases": ["HF", "HuggingFace"],
+      "sources": [
+        {"kind": "rss", "url": "https://huggingface.co/blog/feed.xml", "verified": "2026-08-01", "note": "do NOT use Jina for HF — 451"}
+      ]
+    },
+    {
+      "slug": "cursor",
+      "name": "Cursor",
+      "aliases": ["Anysphere"],
+      "sources": [
+        {"kind": "rss", "url": "https://cursor.com/changelog/rss.xml", "verified": "2026-08-01", "note": "cursor.com/rss.xml is an HTML TRAP, never use"}
+      ]
+    },
+    {
+      "slug": "perplexity",
+      "name": "Perplexity",
+      "aliases": ["Perplexity AI"],
+      "sources": [
+        {"kind": "jina", "url": "https://www.perplexity.ai/hub/blog", "verified": "2026-08-01", "note": "anonymous Jina -> 403 AbuseAlleviation; needs JINA_API_KEY, else WebSearch fallback"}
+      ]
+    },
+    {
+      "slug": "cohere",
+      "name": "Cohere",
+      "aliases": [],
+      "sources": [
+        {"kind": "fetch", "url": "https://cohere.com/blog", "verified": "2026-08-01", "note": "cohere.com/blog/rss.xml is an HTML TRAP returning 200"}
+      ]
+    }
+  ]
+}

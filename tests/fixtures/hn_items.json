@@ -1,0 +1,51 @@
+{
+  "40001": {
+    "id": 40001,
+    "type": "story",
+    "by": "alice",
+    "time": 1749900000,
+    "score": 250,
+    "descendants": 88,
+    "title": "New LLM beats GPT-4 on reasoning benchmarks",
+    "url": "https://example.com/llm-beats-gpt4"
+  },
+  "40002": {
+    "id": 40002,
+    "type": "story",
+    "by": "bob",
+    "time": 1749890000,
+    "score": 40,
+    "descendants": 5,
+    "title": "A small LLM experiment on my laptop"
+  },
+  "40003": {
+    "id": 40003,
+    "type": "story",
+    "by": "carol",
+    "time": 1749880000,
+    "score": 500,
+    "descendants": 210,
+    "title": "Ask HN: How do you manage Postgres backups?"
+  },
+  "40004": {
+    "id": 40004,
+    "type": "story",
+    "by": "dave",
+    "time": 1749870000,
+    "score": 320,
+    "descendants": 12,
+    "title": "Rust 2.0 release notes",
+    "url": "https://example.com/rust-2-0"
+  },
+  "40005": {
+    "id": 40005,
+    "type": "story",
+    "by": "eve",
+    "time": 1749860000,
+    "score": 1000,
+    "descendants": 400,
+    "title": "Deleted spam post",
+    "url": "https://spam.example.com/x",
+    "dead": true
+  }
+}
