@@ -1,9 +1,0 @@
-# SITE_ADDRESS: local ":80" (plain HTTP) or a domain (Caddy auto-provisions TLS).
-# WEB_AUTH_USER / WEB_AUTH_HASH come from .env (the hash via `caddy hash-password`);
-# this file stays free of secrets and can live in git.
-{$SITE_ADDRESS} {
-	basic_auth {
-		{$WEB_AUTH_USER} {$WEB_AUTH_HASH}
-	}
-	reverse_proxy web:8000
-}

@@ -1,9 +1,0 @@
-# Dev/test-only deps (not installed in the runtime image).
-# Install ad hoc for test runs:  pip install -r requirements-dev.txt
--r requirements.txt
-
-pytest>=8.0
-# Async test support. NiceGUI's headless `user` fixture (nicegui.testing.user_plugin) is an
-# async fixture, so the suite runs under pytest-asyncio in "auto" mode (see pytest.ini). No-op
-# for the existing sync tests.
-pytest-asyncio>=0.23
