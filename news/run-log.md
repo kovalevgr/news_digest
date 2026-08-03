@@ -63,3 +63,22 @@ not yet written). Only the missing xAI card (KOV-11) was created this run; no du
 
 Totals: 0 items, 0 companies fresh, 0 errors (12 gap-scrapes attempted, all empty in-window;
 1 rejected unconfirmed candidate — HF future-dated claim not corroborated by the source).
+
+## 2026-08-03 06:10 UTC — daily — ok
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss, websearch | 0 | websearch | no in-window post confirmed beyond prior Aug 1 capture |
+| anthropic | fetch | 0 | fetch | latest post Jul 30 (cybersecurity evals incidents), predates window |
+| google-deepmind | rss, websearch | 0 | websearch | no confirmed in-window post (websearch returned only a relative-dated, unverifiable result) |
+| google-research | rss, websearch | 0 | websearch | latest post (Science One Framework) Jul 30, predates window |
+| microsoft | rss, websearch | 0 | websearch | no in-window post with confirmed URL |
+| nvidia | rss, websearch | 0 | websearch | latest post Jul 30 (Agent Toolkit expansion), predates window |
+| xai | jina | 0 | jina | latest post Jul 31 (Imagine Video 1.5), already captured, predates window |
+| mistral | rss, websearch | 0 | websearch | no in-window post with confirmed URL |
+| huggingface | rss, websearch | 0 | websearch | no in-window post with confirmed URL |
+| cursor | rss, websearch | 0 | websearch | no in-window changelog entry confirmed |
+| perplexity | jina | 0 | jina | latest post Jul 30 (Spaces are now Projects), predates window; anonymous Jina worked, no 403 |
+| cohere | fetch | 0 | fetch | latest post Jul 31 (EU Code of Practice), already captured, predates window |
+
+Totals: 0 items, 0 companies fresh, 0 errors (12 gap-scrapes attempted, all empty in-window).
