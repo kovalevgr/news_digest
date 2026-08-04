@@ -82,3 +82,28 @@ Totals: 0 items, 0 companies fresh, 0 errors (12 gap-scrapes attempted, all empt
 | cohere | fetch | 0 | fetch | latest post Jul 31 (EU Code of Practice), already captured, predates window |
 
 Totals: 0 items, 0 companies fresh, 0 errors (12 gap-scrapes attempted, all empty in-window).
+
+## 2026-08-04 06:10 UTC — daily — ok
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss | 2 | - | - |
+| anthropic | fetch | 0 | fetch | no in-window post confirmed (latest still Jul 30) |
+| google-deepmind | rss, websearch | 0 | websearch | no confirmed in-window post with URL |
+| google-research | rss, websearch | 0 | websearch | latest post (Science One Framework) Jul 30, predates window |
+| microsoft | rss | 0 | - | 2 candidates excluded (Xbox anniversary post, general security threat-intel post — not AI product/company news) |
+| nvidia | rss, websearch | 0 | websearch | websearch surfaced unlinked developer.nvidia.com titles for Aug 3, no confirmed URL — rejected as unconfirmed |
+| xai | jina | 0 | jina | latest post Jul 31 (Imagine Video 1.5), already captured, predates window |
+| mistral | rss, websearch | 0 | websearch | no in-window post with confirmed URL (results were older Mistral 3/Emmi AI/Tesco items) |
+| huggingface | rss, websearch | 0 | websearch | no in-window post with confirmed URL |
+| cursor | rss, websearch | 0 | websearch | no in-window changelog entry confirmed (latest still Jul 28) |
+| perplexity | jina | 0 | jina | latest post Jul 30 (Spaces are now Projects), predates window; anonymous Jina worked, no 403 |
+| cohere | fetch | 0 | fetch | no in-window post confirmed |
+
+Totals: 2 items, 1 company fresh, 0 errors (11 gap-scrapes attempted, all empty in-window;
+1 rejected unconfirmed candidate — NVIDIA developer-blog titles not corroborated by a source URL).
+
+Note: prior daily-run commits (2026-08-01 through 2026-08-03) existed only on a detached
+local HEAD at session start — `origin/main` appeared stale until a fresh `git fetch`
+resolved it; no data was lost, `origin/main` already had all commits. Session then moved
+off detached HEAD onto `main` before this run's commit.
