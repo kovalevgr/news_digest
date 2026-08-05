@@ -107,3 +107,26 @@ Note: prior daily-run commits (2026-08-01 through 2026-08-03) existed only on a 
 local HEAD at session start — `origin/main` appeared stale until a fresh `git fetch`
 resolved it; no data was lost, `origin/main` already had all commits. Session then moved
 off detached HEAD onto `main` before this run's commit.
+
+## 2026-08-05 06:15 UTC — daily — ok
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss | 1 | - | - |
+| anthropic | fetch | 1 | fetch | - |
+| google-deepmind | rss, websearch | 0 | websearch | no confirmed in-window post with URL |
+| google-research | rss, websearch | 0 | websearch | latest post (Science One Framework) Jul 30, predates window |
+| microsoft | rss | 1 | - | - |
+| nvidia | rss | 4 | - | - |
+| xai | jina | 0 | jina | latest post Jul 31 (Imagine Video 1.5), already captured, predates window |
+| mistral | rss | 1 | - | - |
+| huggingface | rss | 1 | - | - |
+| cursor | rss, websearch | 0 | websearch | no in-window changelog entry confirmed (closest was Aug 3 Google Workspace Plugins, unconfirmed by URL and predates window anyway) |
+| perplexity | jina→websearch | 0 | websearch | no dated in-window post confirmed (no JINA_API_KEY set) |
+| cohere | fetch | 0 | fetch | no in-window post confirmed |
+
+Totals: 9 items, 6 companies fresh, 0 errors (7 gap-scrapes attempted, 1 confirmed hit —
+anthropic exec-hire announcement — 6 came up empty in-window).
+
+Linear: 9 issues created (KOV-15..KOV-23), all new stories, none duplicate (searched
+project "News digest" by URL/title first, no matches found).

@@ -5,10 +5,14 @@ aliases:
   - Copilot
 sources:
   - https://news.microsoft.com/source/feed/
-updated: 2026-08-01
+updated: 2026-08-05
 ---
 
 MOC page for **Microsoft** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W32
+
+- **2026-08-04** — [Teaching AI to speak the language of pathology](https://news.microsoft.com/signal/articles/teaching-ai-to-speak-the-language-of-pathology) — Microsoft describes work teaching AI systems the specialized language of pathology.
 
 ## 2026-W31
 
