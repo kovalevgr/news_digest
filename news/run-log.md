@@ -130,3 +130,29 @@ anthropic exec-hire announcement — 6 came up empty in-window).
 
 Linear: 9 issues created (KOV-15..KOV-23), all new stories, none duplicate (searched
 project "News digest" by URL/title first, no matches found).
+
+## 2026-08-06 06:15 UTC — daily — ok
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss, websearch | 0 | websearch | no in-window post with confirmed URL |
+| anthropic | fetch | 0 | fetch | latest post still Aug 4 (Tino Cuéllar), already captured, predates window |
+| google-deepmind | rss, websearch | 1 | websearch | RSS empty; WebSearch surfaced the Hassabis/Kavukcuoglu/Dean leadership reshuffle, confirmed via the official blog.google post (WebFetch got 403, Jina retry succeeded) |
+| google-research | rss, websearch | 0 | websearch | latest post (Science One Framework) Jul 30, predates window |
+| microsoft | rss | 1 | - | - |
+| nvidia | rss | 1 | - | - |
+| xai | jina | 0 | jina | latest post Jul 31 (Imagine Video 1.5), already captured, predates window |
+| mistral | rss, websearch | 0 | websearch | latest post (Shieldstral) Aug 4, already captured, predates window |
+| huggingface | rss, websearch | 0 | websearch | no in-window post with confirmed URL |
+| cursor | rss, websearch | 0 | websearch | no in-window changelog entry confirmed |
+| perplexity | jina→websearch | 0 | websearch | no dated in-window post confirmed (no JINA_API_KEY set) |
+| cohere | fetch | 0 | fetch | no in-window post confirmed |
+
+Totals: 3 items, 3 companies fresh, 0 errors (10 gap-scrapes attempted, 1 confirmed hit —
+Google DeepMind leadership reshuffle — 9 came up empty in-window).
+
+Note: session started on a detached HEAD identical to `origin/main` (3b21c71); checked
+out `main` and fast-forwarded before this run's commit — no data lost.
+
+Linear: 3 issues created (KOV-24..KOV-26), all new stories, none duplicate (searched
+project "News digest" by URL/title first, no matches found).
