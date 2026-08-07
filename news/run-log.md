@@ -179,3 +179,6 @@ anthropic, huggingface, perplexity, cohere — 4 came up empty in-window).
 
 Linear: 8 issues created (KOV-27..KOV-34), all new stories, none duplicate (searched
 project "News digest" by URL/title first, no matches found).
+
+Note: session started on a detached HEAD identical to `origin/main` (786ce2d); checked
+out `main` and fast-forwarded before this run's commit — no data lost.
