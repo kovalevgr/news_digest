@@ -156,3 +156,26 @@ out `main` and fast-forwarded before this run's commit — no data lost.
 
 Linear: 3 issues created (KOV-24..KOV-26), all new stories, none duplicate (searched
 project "News digest" by URL/title first, no matches found).
+
+## 2026-08-07 06:15 UTC — daily — ok
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss | 1 | - | - |
+| anthropic | fetch | 1 | fetch | - |
+| google-deepmind | rss | 1 | - | - |
+| google-research | rss, websearch | 0 | websearch | latest post (Science One Framework) Jul 30, predates window |
+| microsoft | rss | 1 | - | - |
+| nvidia | rss | 1 | - | 1 candidate excluded (GeForce NOW weekly games list — gaming content, not AI news) |
+| xai | jina | 0 | jina | latest post Jul 31 (Imagine Video 1.5), already captured, predates window |
+| mistral | rss, websearch | 0 | websearch | 304 not modified on RSS; no in-window post confirmed via websearch |
+| huggingface | rss, fetch | 1 | fetch | RSS empty; direct blog fetch confirmed Baseten inference-providers post |
+| cursor | rss, websearch | 0 | websearch | latest changelog entry Aug 3 (Google Workspace Plugins), predates window |
+| perplexity | jina | 1 | jina | RSS N/A; anonymous Jina worked, confirmed "Computer for Builders" post |
+| cohere | fetch | 1 | fetch | - |
+
+Totals: 8 items, 8 companies fresh, 0 errors (8 gap-scrapes attempted, 4 confirmed hits —
+anthropic, huggingface, perplexity, cohere — 4 came up empty in-window).
+
+Linear: 8 issues created (KOV-27..KOV-34), all new stories, none duplicate (searched
+project "News digest" by URL/title first, no matches found).
