@@ -83,9 +83,16 @@ After the daily run on Sunday:
 
 1. Read this week's sections of all `topics/*.md`.
 2. Write `weeks/<ISO-week>/summary.md` **IN UKRAINIAN**:
+   - Frontmatter: `week`, `items`, `companies_fresh`, `companies_tracked`, `generated`.
    - Header `Підсумок тижня` with counts (items, companies).
-   - Per-company sections: date + title + one-line `Коротко:` + link;
-     `[duplicate]` markers preserved.
+   - `## Що це означає` — a short narrative tying the week's stories into threads;
+     factual only, no invented takes.
+   - Per-company sections (ordered by item count, desc): each item —
+     `- **date** — [title](url)` + the artifact's `**Що сталося:**` text as an
+     indented paragraph. High-priority stories (per the Linear priority rubric)
+     get a `⭐` marker and their `**Деталі:**` bullets (trim to the 3–4 most
+     telling). Items without a card block fall back to the one-line topics
+     summary. `[duplicate]` markers preserved.
    - A coverage line:
      `Покриття: <companies with fresh items>. Без свіжого: <silent companies>.`
    - **NO stale filler** — a silent company is REPORTED silent, never padded with old
