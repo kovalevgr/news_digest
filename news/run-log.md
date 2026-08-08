@@ -210,3 +210,29 @@ behind); stashed the in-progress `cursors.json` update from the TIER-1 fetch, ch
 
 Linear: 4 issues created (KOV-35..KOV-38), all new stories, none duplicate (searched
 project "News digest" by URL/title first, no matches found).
+
+## 2026-08-08 16:27 UTC — daily — ok
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss, websearch | 0 | websearch | no in-window post with confirmed URL |
+| anthropic | fetch | 0 | fetch | latest post still Aug 7 (Fable 5 biology safeguards), already captured, predates window |
+| google-deepmind | rss, websearch | 0 | websearch | no in-window post beyond prior Aug 5/6 captures |
+| google-research | rss, websearch | 0 | websearch | latest post (Science One Framework) Jul 30, predates window |
+| microsoft | rss, websearch | 0 | websearch | latest post still Aug 7 (India datacenter), already captured, predates window |
+| nvidia | rss | 1 | - | - |
+| xai | jina | 0 | jina | latest post Aug 7 (Imagine Image 2.0), already captured, predates window; anonymous Jina worked, no 403 |
+| mistral | rss, websearch | 0 | websearch | 304 not modified on RSS; websearch surfaced "Robostral Navigate" but direct fetch confirmed it's Jul 8 — rejected as not in-window |
+| huggingface | rss, websearch | 0 | websearch | 304 not modified on RSS; no in-window post with confirmed URL |
+| cursor | rss, websearch | 0 | websearch | 304 not modified on RSS; no in-window changelog entry confirmed |
+| perplexity | jina | 0 | jina | latest post still Aug 6 (Computer for Builders), already captured, predates window; anonymous Jina worked, no 403 |
+| cohere | fetch | 0 | fetch | latest post still Aug 6 (Waterloo partnership), already captured, predates window |
+
+Totals: 1 item, 1 company fresh, 0 errors (11 gap-scrapes attempted, all empty in-window;
+1 rejected unconfirmed/out-of-window candidate — Mistral "Robostral Navigate" dated Jul 8).
+
+Note: second run today — window is short (~10h, since the 06:10 UTC run this same day), so
+most companies had no new content yet; this is expected, not a failure.
+
+Linear: 1 issue created (KOV-39), new story, none duplicate (searched project "News digest"
+by URL/title first, no matches found).
