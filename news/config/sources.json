@@ -5,7 +5,7 @@
       "name": "OpenAI",
       "aliases": ["Open AI"],
       "sources": [
-        {"kind": "rss", "url": "https://openai.com/news/rss.xml", "verified": "2026-08-01"}
+        {"kind": "rss", "url": "https://openai.com/news/rss.xml", "verified": "2026-08-08", "category_keep": ["Product", "Engineering", "Research", "Publication", "Release"], "note": "technical-first filter (audit 2026-08-08): drops Company/Global Affairs/Security AND uncategorized items (fail-closed — all 148 uncategorized were customer stories / influence-ops reports). Product stays: that is where model launches live"}
       ]
     },
     {
@@ -37,7 +37,7 @@
       "name": "Microsoft",
       "aliases": ["MSFT", "Copilot"],
       "sources": [
-        {"kind": "rss", "url": "https://news.microsoft.com/source/feed/", "verified": "2026-08-01", "note": "fresher than blogs.microsoft.com/feed/"}
+        {"kind": "rss", "url": "https://www.microsoft.com/en-us/research/feed/", "verified": "2026-08-08", "headers": {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36", "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "en-US,en;q=0.9"}, "note": "SWAP 2026-08-08 (audit): replaces news.microsoft.com/source/feed/ — Source's technical items were syndicated from here with PR chaff on top. TRAP: 403 without full browser headers (hence the headers block)"}
       ]
     },
     {
@@ -45,7 +45,7 @@
       "name": "NVIDIA",
       "aliases": ["Nvidia"],
       "sources": [
-        {"kind": "rss", "url": "https://blogs.nvidia.com/feed/", "verified": "2026-08-01"}
+        {"kind": "rss", "url": "https://developer.nvidia.com/blog/feed", "verified": "2026-08-08", "note": "SWAP 2026-08-08 (audit): replaces corporate blogs.nvidia.com/feed/ (0.29 technical — AI-factory/partnership PR). Developer blog is ~100% engineering. TRAPS: 736KB/100-entry feed ordered by <updated> not <published>; ~1.45 items/day — the agent should keep only genuine announcements/major posts, not every tutorial"}
       ]
     },
     {
@@ -87,14 +87,9 @@
       "sources": [
         {"kind": "jina", "url": "https://www.perplexity.ai/hub/blog", "verified": "2026-08-01", "note": "anonymous Jina -> 403 AbuseAlleviation; needs JINA_API_KEY, else WebSearch fallback"}
       ]
-    },
-    {
-      "slug": "cohere",
-      "name": "Cohere",
-      "aliases": [],
-      "sources": [
-        {"kind": "fetch", "url": "https://cohere.com/blog", "verified": "2026-08-01", "note": "cohere.com/blog/rss.xml is an HTML TRAP returning 200"}
-      ]
     }
-  ]
+  ],
+  "removed": {
+    "cohere": "CUT 2026-08-08 (technical-first audit: 0.0 technical ratio — pure enterprise/policy PR). topics/cohere.md stays as history. Candidate replacement if ever wanted: Cohere Labs research (unverified). cohere.com/blog/rss.xml remains an HTML TRAP returning 200."
+  }
 }

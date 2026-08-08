@@ -1,0 +1,68 @@
+{
+  "note": "Operational config for the technical radar (news/scripts/fetch_radar.py). Derived from radar-candidates.json after the 2026-08-08 cloud validation (see research/connectivity/2026-08-08-final-matrix.md). Company-core sources live in sources.json — NVIDIA dev blog and Microsoft Research moved THERE as swaps; this file is everything else. enabled:false = known-blocked in cloud, kept for the day the blocker clears.",
+  "defaults": {"max_items": 15},
+  "sources": [
+    {"id": "anthropic-engineering", "category": "lab-engineering", "name": "Anthropic Engineering", "kind": "html", "adapter": "anthropic_engineering", "url": "https://www.anthropic.com/engineering", "state": {"seen_dedup": true}, "notes": "no feed; slugs from href=/engineering/<slug>; ~2-3/mo"},
+    {"id": "apple-ml", "category": "lab-engineering", "name": "Apple ML Research", "kind": "rss", "url": "https://machinelearning.apple.com/rss.xml", "filters": {"max_items": 5}, "notes": "academic paper drops ~0.9/day"},
+
+    {"id": "modal", "category": "inference-infra", "name": "Modal blog", "kind": "rss", "url": "https://modal.com/blog/atom.xml", "filters": {"drop_title_re": ["now available on Modal"]}},
+    {"id": "together", "category": "inference-infra", "name": "Together AI blog", "kind": "rss", "url": "https://www.together.ai/blog/rss.xml", "filters": {"drop_title_re": ["^Together AI announces", "^Together AI and .+ partner"]}},
+    {"id": "baseten", "category": "inference-infra", "name": "Baseten blog", "kind": "html", "adapter": "baseten", "url": "https://www.baseten.co/blog/", "state": {"seen_dedup": true}, "notes": "no feed; titles in h3/h4 server-side"},
+
+    {"id": "vllm-blog", "category": "oss-ml-systems", "name": "vLLM blog", "kind": "rss", "url": "https://vllm.ai/blog/rss.xml", "notes": "TRAP: old blog.vllm.ai 404-as-200"},
+    {"id": "lmsys-sglang", "category": "oss-ml-systems", "name": "LMSYS / SGLang blog", "kind": "html", "adapter": "lmsys_flight", "url": "https://lmsys.org/blog/", "state": {"seen_dedup": true}, "notes": "posts array in Next.js flight data inside <script>"},
+    {"id": "pytorch-blog", "category": "oss-ml-systems", "name": "PyTorch blog", "kind": "rss", "url": "https://pytorch.org/blog/feed/", "filters": {"drop_title_re": ["Conference", "Foundation", "Meetup", "Contest", "Keynote", "Community Design"]}},
+    {"id": "eleuther", "category": "oss-ml-systems", "name": "EleutherAI blog", "kind": "rss", "url": "https://blog.eleuther.ai/index.xml", "notes": "~6 posts/yr; control chars stripped globally"},
+    {"id": "vllm-releases", "category": "oss-ml-systems", "name": "vLLM releases (git tags)", "kind": "git-tags", "url": "https://github.com/vllm-project/vllm", "filters": {"drop_rc": true}, "notes": "REST API blocked in cloud; git ls-remote --tags via session git proxy (verified cloud5)"},
+
+    {"id": "github-ai", "category": "bigtech-eng", "name": "GitHub blog — AI & ML", "kind": "rss", "url": "https://github.blog/ai-and-ml/feed/", "filters": {"drop_title_re": ["for Beginners", "[Gg]uide to", "[Gg]etting started"]}},
+    {"id": "netflix", "category": "bigtech-eng", "name": "Netflix TechBlog", "kind": "rss", "url": "https://netflixtechblog.com/feed"},
+    {"id": "cloudflare-ai", "category": "bigtech-eng", "name": "Cloudflare blog — tag/ai", "kind": "rss", "url": "https://blog.cloudflare.com/tag/ai/rss/", "filters": {"max_items": 3}, "notes": "Innovation Weeks burst ~5/day — hard cap"},
+
+    {"id": "bair", "category": "research-institutes", "name": "BAIR blog", "kind": "rss", "url": "https://bair.berkeley.edu/blog/feed.xml"},
+    {"id": "ai2", "category": "research-institutes", "name": "Allen AI (Ai2)", "kind": "rss", "url": "https://allenai.org/rss.xml", "notes": "use /rss.xml directly; /blog 302s to app shell"},
+    {"id": "answerai", "category": "research-institutes", "name": "answer.ai", "kind": "rss", "url": "https://www.answer.ai/index.xml", "notes": "dormant since 2026-03; feed has raw control chars — stripped globally"},
+
+    {"id": "cameron-wolfe", "category": "technical-newsletters", "name": "Deep (Learning) Focus", "kind": "rss", "url": "https://cameronrwolfe.substack.com/feed", "notes": "~5.9MB feed — global 8MB cap handles it"},
+    {"id": "semianalysis", "category": "technical-newsletters", "name": "SemiAnalysis", "kind": "rss", "url": "https://semianalysis.substack.com/feed", "notes": "NEVER semianalysis.com/feed/ (11mo-stale trap). Finance-vs-tech triage is the agent's job"},
+
+    {"id": "simonwillison", "category": "practitioner-blogs", "name": "Simon Willison (entries)", "kind": "rss", "url": "https://simonwillison.net/atom/entries/"},
+    {"id": "latent-space", "category": "practitioner-blogs", "name": "Latent.Space", "kind": "rss", "url": "https://www.latent.space/feed", "filters": {"drop_title_re": ["^\\[AINews"]}},
+    {"id": "interconnects", "category": "practitioner-blogs", "name": "Interconnects", "kind": "rss", "url": "https://www.interconnects.ai/feed"},
+    {"id": "raschka", "category": "practitioner-blogs", "name": "Ahead of AI (Raschka)", "kind": "rss", "url": "https://magazine.sebastianraschka.com/feed"},
+    {"id": "eugeneyan", "category": "practitioner-blogs", "name": "Eugene Yan", "kind": "rss", "url": "https://eugeneyan.com/rss/", "notes": "full archive in feed — window filter handles first ingest"},
+    {"id": "huyenchip", "category": "practitioner-blogs", "name": "Chip Huyen", "kind": "rss", "url": "https://huyenchip.com/feed.xml", "notes": "dormant ~19mo, passive"},
+    {"id": "lilianweng", "category": "practitioner-blogs", "name": "Lilian Weng", "kind": "rss", "url": "https://lilianweng.github.io/index.xml", "notes": "bogus year-0001 date at feed tail — unparseable dates are tolerated"},
+    {"id": "hamel", "category": "practitioner-blogs", "name": "Hamel Husain", "kind": "rss", "url": "https://hamel.dev/index.xml"},
+    {"id": "karpathy-blog", "category": "practitioner-blogs", "name": "Andrej Karpathy (bearblog)", "kind": "rss", "url": "https://karpathy.bearblog.dev/feed/", "enabled": false, "notes": "Cloudflare-blocked in cloud (direct+anon-Jina+WebFetch, verified). Enable when JINA_API_KEY exists (then switch to jina route). Interim coverage: HN + smol.ai"},
+    {"id": "jxnl", "category": "practitioner-blogs", "name": "Jason Liu", "kind": "rss", "url": "https://jxnl.co/feed_rss_created.xml"},
+    {"id": "vickiboykis", "category": "practitioner-blogs", "name": "Vicki Boykis", "kind": "rss", "url": "https://vickiboykis.com/index.xml"},
+
+    {"id": "yt-ai-engineer", "category": "youtube", "name": "AI Engineer", "kind": "rss", "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCLKPca3kwwd-B59HNr-_lvA", "filters": {"max_items": 5}},
+    {"id": "yt-gpu-mode", "category": "youtube", "name": "GPU MODE", "kind": "rss", "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCJgIbYl6C5no72a0NUAPcTA", "filters": {"max_items": 5}, "notes": "livestream + edited cut duplicates — agent dedups by title similarity"},
+    {"id": "yt-karpathy", "category": "youtube", "name": "Karpathy (YT)", "kind": "rss", "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCXUPKJO5MZQN11PqgIvyuvQ"},
+    {"id": "yt-latent-space", "category": "youtube", "name": "Latent Space (YT)", "kind": "rss", "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCxBcwypKK-W3GHd_RZ9FZrQ"},
+    {"id": "yt-mlst", "category": "youtube", "name": "ML Street Talk", "kind": "rss", "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCMLtBahI5DMrt0NPvDSoIRQ"},
+    {"id": "yt-sentdex", "category": "youtube", "name": "sentdex", "kind": "rss", "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCfzlCWGWYyIQ0aLC5w48gBQ"},
+    {"id": "yt-umar-jamil", "category": "youtube", "name": "Umar Jamil", "kind": "rss", "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCtAcpQcYerN8xxZJYTfWBMw", "notes": "dormant; any upload is radar-worthy"},
+
+    {"id": "hn-show-ai50", "category": "community", "name": "HN Show HN: AI, >50pts", "kind": "json", "adapter": "algolia", "url": "https://hn.algolia.com/api/v1/search_by_date?tags=show_hn&query=AI&numericFilters=points%3E50,created_at_i%3E{since_epoch}&hitsPerPage=30"},
+    {"id": "hn-show-inference", "category": "community", "name": "HN Show HN: inference", "kind": "json", "adapter": "algolia", "url": "https://hn.algolia.com/api/v1/search_by_date?tags=show_hn&query=inference&numericFilters=points%3E10,created_at_i%3E{since_epoch}&hitsPerPage=30"},
+    {"id": "hn-show-quantization", "category": "community", "name": "HN Show HN: quantization", "kind": "json", "adapter": "algolia", "url": "https://hn.algolia.com/api/v1/search_by_date?tags=show_hn&query=quantization&numericFilters=points%3E10,created_at_i%3E{since_epoch}&hitsPerPage=30"},
+    {"id": "hn-show-rag", "category": "community", "name": "HN Show HN: RAG", "kind": "json", "adapter": "algolia", "url": "https://hn.algolia.com/api/v1/search_by_date?tags=show_hn&query=RAG&numericFilters=points%3E10,created_at_i%3E{since_epoch}&hitsPerPage=30"},
+    {"id": "hn-show-mcp", "category": "community", "name": "HN Show HN: MCP", "kind": "json", "adapter": "algolia", "url": "https://hn.algolia.com/api/v1/search_by_date?tags=show_hn&query=MCP&numericFilters=points%3E10,created_at_i%3E{since_epoch}&hitsPerPage=30"},
+    {"id": "hn-show-agents", "category": "community", "name": "HN Show HN: agents", "kind": "json", "adapter": "algolia", "url": "https://hn.algolia.com/api/v1/search_by_date?tags=show_hn&query=agents&numericFilters=points%3E10,created_at_i%3E{since_epoch}&hitsPerPage=30"},
+    {"id": "hn-trend-llm", "category": "community", "name": "HN trend: LLM-titled >100pts", "kind": "json", "adapter": "algolia", "url": "https://hn.algolia.com/api/v1/search_by_date?query=%22LLM%22&tags=story&numericFilters=points%3E100,created_at_i%3E{since_epoch}&restrictSearchableAttributes=title&hitsPerPage=30"},
+    {"id": "reddit", "category": "community", "name": "Reddit r/LocalLLaMA+LLMDevs top/day", "kind": "rss", "url": "https://www.reddit.com/r/LocalLLaMA+LLMDevs/top/.rss?t=day&limit=25", "headers": {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"}, "filters": {"max_items": 25}, "notes": "ONE fetch/day only; browser UA mandatory; 429 => log and move on, never retry-loop"},
+    {"id": "lobsters", "category": "community", "name": "Lobsters /t/ai", "kind": "json", "adapter": "lobsters", "url": "https://lobste.rs/t/ai.json", "filters": {"drop_tags": ["culture", "philosophy", "video", "historical"]}, "notes": "never filter by score — high scores select opinion essays"},
+    {"id": "hf-daily-papers", "category": "community", "name": "HF daily papers", "kind": "json", "adapter": "hf_papers", "url": "https://huggingface.co/api/daily_papers?limit=50", "filters": {"top_n_by_upvotes": 3, "require_github_repo": true}, "notes": "score yesterday's batch — upvotes lag a day"},
+    {"id": "hf-trending-models", "category": "community", "name": "HF trending models (diff)", "kind": "json", "adapter": "hf_trending", "url": "https://huggingface.co/api/models?sort=trendingScore&limit=20", "state": {"snapshot_diff": true}, "notes": "leaderboard snapshot — emit only new entrants vs yesterday"},
+    {"id": "hf-trending-spaces", "category": "community", "name": "HF trending spaces (diff)", "kind": "json", "adapter": "hf_trending", "url": "https://huggingface.co/api/spaces?sort=trendingScore&limit=20", "state": {"snapshot_diff": true}},
+    {"id": "smolai", "category": "community", "name": "AI News (smol.ai)", "kind": "rss", "url": "https://news.smol.ai/rss.xml", "filters": {"max_items": 2}, "notes": "feed = full 2.1MB archive, pubDates regenerated — cap 2 newest, dedup by URL slug downstream"},
+    {"id": "github-trending", "category": "community", "name": "GitHub trending (mirror)", "kind": "rss", "url": "https://mshibanami.github.io/GitHubTrendingRSS/daily/all.xml", "filters": {"max_items": 10}, "state": {"seen_dedup": true}, "notes": "no per-item pubDate — seen-URL dedup across days; item bodies embed READMEs, summary truncation handles it"},
+
+    {"id": "mistral-hf-org", "category": "mistral-watch", "name": "Mistral HF org: new models", "kind": "json", "adapter": "hf_org_models", "url": "https://huggingface.co/api/models?author=mistralai&sort=createdAt&direction=-1&limit=10"},
+    {"id": "mistral-releases", "category": "mistral-watch", "name": "mistral-inference releases (git tags)", "kind": "git-tags", "url": "https://github.com/mistralai/mistral-inference", "filters": {"drop_rc": true}},
+    {"id": "mistral-docs-changelog", "category": "mistral-watch", "name": "Mistral docs changelog (change detector)", "kind": "html", "adapter": "page_hash", "url": "https://docs.mistral.ai/getting-started/changelog/", "state": {"seen_dedup": true}, "notes": "1.3MB HTML — emits one 'changelog updated' item when content hash changes"}
+  ]
+}
