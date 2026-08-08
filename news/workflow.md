@@ -1,14 +1,18 @@
 # news workflow — the routine's single source of truth
 
 - **Status:** active
-- **Owner:** news routine (scheduled Claude Code cloud agent; its live prompt is just
-  "Run the daily research using news/workflow.md")
+- **Owner:** THREE scheduled Claude Code cloud routines, each running its section of
+  this file: **daily-ai-news** (06:00 UTC — THE DAILY RUN), **daily-radar**
+  (05:00 UTC — THE RADAR), **weekly-ai-digest** (Sunday 07:00 UTC — THE WEEKLY
+  DIGEST). Live prompts are one-liners pointing here; format details live ONLY here.
 - **Scope:** everything under `news/` only. Never touch `app/`, `tests/`, `migrations/`,
   `config.yaml`, `content/`, or anything outside `news/`.
 
 ## GOAL
 
-Daily per-company AI-news collection into `news/topics/`, plus a weekly digest on Sunday.
+Daily per-company AI-news collection into `news/topics/` AND technical-radar
+collection into `news/radar/` (practitioner signal: builds, techniques, trends),
+plus a weekly digest on Sunday with a radar-ideas section.
 
 - Agent-facing instructions (this file, run-log entries, item summaries in topics files)
   are in **ENGLISH**.
@@ -77,6 +81,76 @@ Daily per-company AI-news collection into `news/topics/`, plus a weekly digest o
    - Then make **ONE** git commit:
      `news: daily run YYYY-MM-DD (+N items, M companies fresh)` — and push.
 
+## THE RADAR (its own daily routine — **daily-radar**, 05:00 UTC)
+
+The radar runs in a SEPARATE cloud routine from the company core (live prompt:
+"Run the daily radar using news/workflow.md") — either routine can be disabled
+without touching the other. It collects TECHNICAL practitioner signal (what people
+build, techniques to try, trends) into `radar/*.md` and surfaces **0–3 daily
+highlights**. Config: `config/radar.json`; interest profile: `config/interests.md`.
+Volume budget: **≤ ~15 confirmed items/day total** — when in doubt, drop.
+
+1. **Fetch.** Run `python3 news/scripts/fetch_radar.py` (deterministic, stdlib-only).
+   Output: JSON with `fresh` candidates per source, grouped by category. The script
+   owns `state/radar-cursors.json` — never edit it by hand. Source errors are
+   reported in-band; **NO gap-scrape ladder for radar sources** — a silent radar
+   source today just means no items today (log and move on).
+
+2. **TRIAGE (judgement, two passes).**
+   - Pass 1 — technical bar: keep only items a technical builder would care about
+     (real engineering/technique/benchmark/release content). Drop: product marketing
+     that survived the config filters, memes/appreciation posts (Reddit),
+     consumer-app launches (HN), finance/markets posts (SemiAnalysis),
+     tutorial-grade Copilot education (GitHub). GPU MODE videos appear twice
+     (livestream + edited cut) — keep one. smol.ai issues titled "not much happened
+     today" → skip that day.
+   - Pass 2 — owner fit: score each survivor **high / medium / low** against
+     `config/interests.md` ("is this THE OWNER's material and could it seed an
+     article?"). The score drives highlight selection; low-fit items still land in
+     the radar files if they cleared pass 1.
+
+3. **VERIFY SUBSTANCE (highlight candidates only).** For up to 5 highest-scored
+   candidates, WebFetch the actual page and confirm the content delivers what the
+   title promises (real technique, numbers, code — not clickbait or a marketing
+   shell). A candidate that fails verification stays a regular radar item but is
+   out of highlight consideration. WebFetch error → same: keep item, skip highlight.
+
+4. **DEDUP.** By canonical URL vs the target `radar/<category>.md` file, then
+   judgement vs this week's radar titles ("same story?"). An item already covered in
+   a COMPANY topics file is not re-added to radar (link the company page instead if
+   the radar angle adds something).
+
+5. **WRITE.** Append confirmed items to `radar/<category>.md` under this week's
+   `## YYYY-Www` heading, uniform item format (same as topics) with an optional
+   signal suffix: `(123 pts)` for HN, `(45 upvotes)` for HF papers. Категорії:
+   `lab-engineering`, `inference-infra`, `oss-ml-systems`, `bigtech-eng`,
+   `research-institutes`, `technical-newsletters`, `practitioner-blogs`, `youtube`,
+   `community`, `mistral-watch`. No artifacts for radar items.
+
+6. **DAILY HIGHLIGHTS (0–3).** From the verified candidates pick at most 3 the
+   owner should see TODAY. **Zero on quiet days — never pad.** When ≥1:
+   - Write `radar/daily/YYYY-MM-DD.md` **IN UKRAINIAN**: per highlight —
+     `- **[<title>](<url>)**` + `**Що це:**` 1–2 sentences + `**Чому сьогодні:**`
+     1 sentence (the hook — factual, no invented takes). No file on zero-highlight
+     days (run-log records the quiet day).
+   - **Linear cards** (if the connector is available; else skip silently): project
+     "Radar" (team "Kovalevgr"), status Todo, label `highlight`, title
+     `[Highlight] <original title>`, description = the Ukrainian highlight card +
+     `Джерело: <url>`. Search the project by URL/title first — never duplicate
+     (an item already carded as a highlight or an `[Idea]` is skipped).
+   - Highlight cards are ephemeral attention pointers — the Sunday run closes the
+     stale ones (see THE WEEKLY DIGEST).
+
+7. **LOG + COMMIT.** Append a radar run entry to `run-log.md` (per-category counts,
+   highlight count, errors). Then ONE git commit:
+   `news: radar run YYYY-MM-DD (+N items, H highlights)` — and push.
+
+Expected/known behaviors (do not treat as failures): `karpathy-blog` is disabled
+(Cloudflare; needs JINA_API_KEY); Reddit 429 → skip, never retry-loop; first run of
+a seen-dedup source seeds silently and yields nothing; `mistral-docs-changelog`
+emits a single "page updated" item — fetch the page for what actually changed
+before writing the item line.
+
 ## THE WEEKLY DIGEST (Sunday run)
 
 After the daily run on Sunday:
@@ -97,12 +171,30 @@ After the daily run on Sunday:
      `Покриття: <companies with fresh items>. Без свіжого: <silent companies>.`
    - **NO stale filler** — a silent company is REPORTED silent, never padded with old
      or invented items.
-3. **Close the board week** (if the Linear connector is available; else skip silently):
-   every card in project "News digest" still in status Todo whose story is in this
-   week's digest → status Done. Leave In Progress / Canceled / Duplicate cards
-   untouched — those are the owner's states.
-4. Commit + push.
-5. Delivery to Telegram / a Linear doc: a later step — **TODO**, not part of this run.
+3. **RADAR IDEAS (the week's harvest).** Read this week's sections of all
+   `radar/*.md`. Select **5–10 ideas** worth the owner's hands-on time — favor items
+   that are reproducible (code available, clear technique) and could seed an article.
+   Add a `## Radar: ідеї тижня` section to `weeks/<ISO-week>/summary.md` — each idea
+   IN UKRAINIAN as a card:
+   - `**Що це:**` 1–2 sentences — the thing itself;
+   - `**Чому цікаво:**` 1 sentence — the technical hook (facts only, no invented takes);
+   - `**Мінімальний експеримент:**` 1–2 sentences — the smallest hands-on try;
+   - `**Тип статті:**` `tech_explainer` | `project_post`;
+   - source link(s) on every card — **never invent; every claim carries its URL**.
+4. **RADAR LINEAR CARDS** (if the Linear connector is available; else skip silently).
+   Project "Radar" (team "Kovalevgr") — search by title first, never duplicate. One
+   issue per idea card, status Todo: title `[Idea] <short name>`, description = the
+   idea card verbatim + `Джерела:` links. Board semantics: Todo = idea backlog;
+   In Progress / Done / Canceled are the OWNER's states — never move cards out of
+   them. Cards not taken by the owner just stay in Todo (no auto-close for Radar).
+5. **Close the news board week** (if the Linear connector is available; else skip
+   silently): every card in project "News digest" still in status Todo whose story is
+   in this week's digest → status Done. Also in project "Radar": cards with label
+   `highlight` still in Todo → Done (attention pointers expire with the week);
+   NEVER touch `[Idea]` cards or anything in owner states (In Progress / Done /
+   Canceled).
+6. Commit + push.
+7. Delivery to Telegram / a Linear doc: a later step — **TODO**, not part of this run.
 
 ## PRINCIPLES
 
@@ -127,6 +219,9 @@ After the daily run on Sunday:
 | Failure | Symptom | Action |
 | --- | --- | --- |
 | Feed 4xx/5xx | fetch_feeds.py reports the source in `source_errors` | One fallback via the company's ladder; log in run-log; move on |
+| Radar source error | fetch_radar.py reports it in `errors` | NO fallback ladder for radar — log in run-log, move on (a quiet radar source is normal) |
+| Reddit 429 | fetch_radar reports HTTP 429 | Skip for this run; never retry-loop; never add a second reddit call |
+| microsoft.com 403 | company feed error despite headers in config | The edge rotated its bot rules — do NOT strip the headers; log and move on |
 | Feed content-type trap | URL returns 200 but body is HTML, not RSS/Atom (known: `cursor.com/rss.xml`, `cohere.com/blog/rss.xml`) | fetch_feeds.py logs "TRAP/not-a-feed" and skips; never add these URLs to config |
 | Jina 403 AbuseAlleviation | Perplexity via anonymous Jina | Needs `JINA_API_KEY`; if absent → WebSearch fallback |
 | WebFetch target-403 | Site blocks the direct fetch | Retry ONCE via Jina (`https://r.jina.ai/<url>`) |

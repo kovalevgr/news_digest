@@ -148,8 +148,12 @@ def parse_feed_xml(body: str) -> list[dict]:
 
     Security note: stdlib-only is a hard constraint here (no defusedxml), so instead
     we refuse any body carrying a DTD/entity declaration — real feeds never have one,
-    and this blocks XXE / billion-laughs payloads before they reach the parser."""
-    if "<!DOCTYPE" in body or "<!ENTITY" in body:
+    and this blocks XXE / billion-laughs payloads before they reach the parser.
+    Scope: the document PROLOGUE only — a real DTD must precede the root element;
+    '<!DOCTYPE' deeper in the body is post content inside CDATA (e.g. a code sample
+    in github.blog's feed) and is harmless text, not a DTD."""
+    prologue = body[:2048]
+    if "<!DOCTYPE" in prologue or "<!ENTITY" in prologue:
         raise ET.ParseError("DTD/entity declaration refused (not a plain feed)")
     root = ET.fromstring(body)
     entries = []
@@ -164,6 +168,7 @@ def parse_feed_xml(body: str) -> list[dict]:
         published_raw = None
         updated_raw = None
         summary_raw = None
+        categories: list[str] = []
         for child in el:
             name = _local(child.tag)
             text = (child.text or "").strip()
@@ -185,6 +190,11 @@ def parse_feed_xml(body: str) -> list[dict]:
                 updated_raw = updated_raw or text
             elif name in ("description", "summary", "content"):
                 summary_raw = summary_raw or text
+            elif name == "category":
+                # RSS: <category>Text</category>; Atom: <category term="..."/>
+                cat = text or child.get("term") or ""
+                if cat:
+                    categories.append(cat)
         url = link or atom_link_fallback
         if not url:
             continue  # an item without a link is unusable — every item must carry its URL
@@ -193,17 +203,21 @@ def parse_feed_xml(body: str) -> list[dict]:
             "url": url,
             "published": _parse_date(published_raw or updated_raw),
             "summary": _clean_summary(summary_raw),
+            "categories": categories,
         })
     return parsed
 
 
-def fetch_one(url: str, cursor: dict, now_iso: str) -> tuple[str | None, dict, str | None]:
+def fetch_one(url: str, cursor: dict, now_iso: str,
+              extra_headers: dict | None = None) -> tuple[str | None, dict, str | None]:
     """Conditional GET of one feed URL. Returns (body_text|None, new_cursor, error|None).
     body_text is None on 304 (not modified) or on error. new_cursor is ALWAYS seeded
     from the old cursor so a 200 without ETag/Last-Modified headers never wipes the
-    existing breadcrumb."""
+    existing breadcrumb. extra_headers come from the source config — some edges
+    (microsoft.com) 403 anything that does not look like a real browser."""
     new_cursor = dict(cursor)  # seed from the old one — never wipe breadcrumbs
     headers = {"User-Agent": USER_AGENT, "Accept": "application/rss+xml, application/atom+xml, application/xml, text/xml, */*"}
+    headers.update(extra_headers or {})
     if cursor.get("etag"):
         headers["If-None-Match"] = cursor["etag"]
     if cursor.get("last_modified"):
@@ -326,7 +340,7 @@ def main(argv: list[str] | None = None) -> int:
             url = source["url"]
             cursor = cursors.get(url, {})
             since = _window_start(args_since, cursor, now)
-            body, new_cursor, err = fetch_one(url, cursor, now_iso)
+            body, new_cursor, err = fetch_one(url, cursor, now_iso, source.get("headers"))
             if err is not None:
                 log(f"[{slug}] {url}: {err}")
                 entry["source_errors"].append({"source_url": url, "error": err})
@@ -345,6 +359,13 @@ def main(argv: list[str] | None = None) -> int:
                 log(f"[{slug}] {url}: XML parse error: {exc}")
                 entry["source_errors"].append({"source_url": url, "error": f"XML parse error: {exc}"})
                 continue
+            keep = source.get("category_keep")
+            if keep:
+                # FAIL-CLOSED: uncategorized items are dropped too — in the OpenAI feed
+                # all 148 uncategorized items were customer stories / influence-ops
+                # reports (verified 2026-08-09), exactly the noise this filter exists for
+                keep_set = set(keep)
+                parsed = [e for e in parsed if keep_set & set(e.get("categories", []))]
             entry["fresh"].extend(_to_output_items(parsed, since, url))
 
     if not args.no_save_cursors:

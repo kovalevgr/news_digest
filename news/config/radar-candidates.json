@@ -1,0 +1,473 @@
+{
+  "note": "Candidate sources for the technical radar expansion. Verified locally 2026-08-08 (see news/research/2026-08-08-technical-sources.md). Status 'candidate' until the cloud connectivity test passes (news/scripts/test_sources.py); then promoted into a proper radar config. cloud_risk marks sources that may behave differently from datacenter IPs / behind the Test-env domain allowlist.",
+  "decisions": {
+    "2026-08-08": "Owner: adopt ALL candidates, re-evaluate after ~2-3 weeks of collection; keep Perplexity in company sources; cut Cohere; add a deeper Mistral watch pack.",
+    "2026-08-08-final": "Cloud validation done (45/55 green, cloud5). GitHub REST/search/org = impossible in cloud sessions (gateway); releases via git ls-remote --tags; karpathy pending JINA_API_KEY; lmsys.org + semianalysis.substack.com pending allowlist propagation (added after the run started)."
+  },
+  "sources": [
+    {
+      "id": "anthropic-engineering",
+      "category": "lab-engineering",
+      "name": "Anthropic Engineering",
+      "url": "https://www.anthropic.com/engineering",
+      "method": "fetch",
+      "expect": "/engineering/",
+      "cloud_risk": "possible bot protection on datacenter IPs",
+      "notes": "no feed; grep href=\"/engineering/<slug>\", dedup by slug; ~2-3/mo, tech 1.0"
+    },
+    {
+      "id": "nvidia-dev-blog",
+      "category": "lab-engineering",
+      "name": "NVIDIA Technical Blog",
+      "url": "https://developer.nvidia.com/blog/feed",
+      "method": "rss",
+      "notes": "replaces blogs.nvidia.com. 736KB/100 entries, ordered by <updated> not <published> — sort client-side; filter by category tags (genAI/agents/inference); ~1.45/day raw, tech ~1.0"
+    },
+    {
+      "id": "microsoft-research",
+      "category": "lab-engineering",
+      "name": "Microsoft Research blog",
+      "url": "https://www.microsoft.com/en-us/research/feed/",
+      "method": "rss",
+      "headers": {
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.9"
+      },
+      "cloud_risk": "403 without full browser headers; edge may also block datacenter IPs",
+      "notes": "replaces news.microsoft.com/source. tech 1.0, ~0.25/day"
+    },
+    {
+      "id": "apple-ml",
+      "category": "lab-engineering",
+      "name": "Apple ML Research",
+      "url": "https://machinelearning.apple.com/rss.xml",
+      "method": "rss",
+      "notes": "academic paper drops, tech 1.0, ~0.9/day"
+    },
+    {
+      "id": "modal",
+      "category": "inference-infra",
+      "name": "Modal blog",
+      "url": "https://modal.com/blog/atom.xml",
+      "method": "rss",
+      "notes": "filter title 'now available on Modal'; tech 0.65, ~0.3/day"
+    },
+    {
+      "id": "together",
+      "category": "inference-infra",
+      "name": "Together AI blog",
+      "url": "https://www.together.ai/blog/rss.xml",
+      "method": "rss",
+      "notes": "filter titles starting 'Together AI announces/partners'; tech 0.7, ~0.55/day"
+    },
+    {
+      "id": "baseten",
+      "category": "inference-infra",
+      "name": "Baseten blog",
+      "url": "https://www.baseten.co/blog/",
+      "method": "fetch",
+      "expect": "/blog/",
+      "cloud_risk": "Next.js page; title scrape from h3/h4 — fragile",
+      "notes": "no feed (real 404s); deepest content in niche; tech 0.65, ~0.8/day"
+    },
+    {
+      "id": "vllm-blog",
+      "category": "oss-ml-systems",
+      "name": "vLLM blog",
+      "url": "https://vllm.ai/blog/rss.xml",
+      "method": "rss",
+      "notes": "TRAP: old blog.vllm.ai serves 404-as-200; use vllm.ai. tech 0.9, ~0.45/day"
+    },
+    {
+      "id": "lmsys-sglang",
+      "category": "oss-ml-systems",
+      "name": "LMSYS / SGLang blog",
+      "url": "https://lmsys.org/blog/",
+      "method": "fetch",
+      "expect": "slug",
+      "cloud_risk": "Next.js flight-data scrape (posts array as escaped JSON inside <script>)",
+      "notes": "no feed; regex raw HTML, do NOT strip script tags. tech 0.9, ~0.4/day"
+    },
+    {
+      "id": "pytorch-blog",
+      "category": "oss-ml-systems",
+      "name": "PyTorch blog",
+      "url": "https://pytorch.org/blog/feed/",
+      "method": "rss",
+      "notes": "drop Foundation/conference/community by WP category+keywords; tech 0.5 raw → ~0.9 filtered"
+    },
+    {
+      "id": "eleuther",
+      "category": "oss-ml-systems",
+      "name": "EleutherAI blog",
+      "url": "https://blog.eleuther.ai/index.xml",
+      "method": "rss",
+      "notes": "passive slot; ~6 posts/yr, tech 0.9 (interp/safety flavor)"
+    },
+    {
+      "id": "github-ai",
+      "category": "bigtech-eng",
+      "name": "GitHub blog — AI & ML",
+      "url": "https://github.blog/ai-and-ml/feed/",
+      "method": "rss",
+      "notes": "category-scoped WP feed; filter 'for Beginners'/'guide to'; tech 0.6, ~2-3/wk"
+    },
+    {
+      "id": "netflix",
+      "category": "bigtech-eng",
+      "name": "Netflix TechBlog",
+      "url": "https://netflixtechblog.com/feed",
+      "method": "rss",
+      "cloud_risk": "Medium feeds sometimes block datacenter IPs",
+      "notes": "tech 1.0, ~40% AI, ~1.4/wk; content:encoded truncated"
+    },
+    {
+      "id": "cloudflare-ai",
+      "category": "bigtech-eng",
+      "name": "Cloudflare blog — tag/ai",
+      "url": "https://blog.cloudflare.com/tag/ai/rss/",
+      "method": "rss",
+      "notes": "Innovation Weeks burst to ~5/day — cap items/source/day; normal weeks <1/day"
+    },
+    {
+      "id": "bair",
+      "category": "research-institutes",
+      "name": "BAIR blog",
+      "url": "https://bair.berkeley.edu/blog/feed.xml",
+      "method": "rss",
+      "notes": "tech 0.9, ~1/mo, author-written deep dives"
+    },
+    {
+      "id": "ai2",
+      "category": "research-institutes",
+      "name": "Allen AI (Ai2)",
+      "url": "https://allenai.org/rss.xml",
+      "method": "rss",
+      "notes": "TRAP: /blog 302s to app shell — use /rss.xml directly; dedup by URL; tech 0.8, ~0.24/day"
+    },
+    {
+      "id": "answerai",
+      "category": "research-institutes",
+      "name": "answer.ai",
+      "url": "https://www.answer.ai/index.xml",
+      "method": "rss",
+      "notes": "dormant since 2026-03; zero-cost passive slot; tech 0.6. TRAP: feed embeds raw terminal output with control chars — ILLEGAL XML 1.0; strip 0x00-0x1F (except tab/LF/CR) before parsing"
+    },
+    {
+      "id": "cameron-wolfe",
+      "category": "technical-newsletters",
+      "name": "Deep (Learning) Focus (Cameron Wolfe)",
+      "url": "https://cameronrwolfe.substack.com/feed",
+      "method": "rss",
+      "cloud_risk": "Substack sometimes challenges datacenter IPs",
+      "notes": "tech 1.0, ~1/mo, full bodies free. TRAP: feed is ~5.9MB (250-360KB full-body per item) — stream/cap-aware parsing needed"
+    },
+    {
+      "id": "semianalysis",
+      "category": "technical-newsletters",
+      "name": "SemiAnalysis (Substack feed)",
+      "url": "https://semianalysis.substack.com/feed",
+      "method": "rss",
+      "cloud_risk": "Substack sometimes challenges datacenter IPs",
+      "notes": "TRAP: semianalysis.com/feed/ is 11mo stale but looks valid — never use it. Per-item finance filter needed; tech 0.4, ~2-3/wk"
+    },
+    {
+      "id": "simonwillison",
+      "category": "practitioner-blogs",
+      "name": "Simon Willison (entries)",
+      "url": "https://simonwillison.net/atom/entries/",
+      "method": "rss",
+      "notes": "entries-only variant (NOT /everything/); ~2/wk"
+    },
+    {
+      "id": "latent-space",
+      "category": "practitioner-blogs",
+      "name": "Latent.Space",
+      "url": "https://www.latent.space/feed",
+      "method": "rss",
+      "cloud_risk": "Substack",
+      "notes": "filter titles starting '[AINews' (cross-posts); ~0.2/day after filter"
+    },
+    {
+      "id": "interconnects",
+      "category": "practitioner-blogs",
+      "name": "Interconnects (Nathan Lambert)",
+      "url": "https://www.interconnects.ai/feed",
+      "method": "rss",
+      "cloud_risk": "Substack",
+      "notes": "~1.3/wk"
+    },
+    {
+      "id": "raschka",
+      "category": "practitioner-blogs",
+      "name": "Ahead of AI (Sebastian Raschka)",
+      "url": "https://magazine.sebastianraschka.com/feed",
+      "method": "rss",
+      "cloud_risk": "Substack",
+      "notes": "~1.5/mo; ~2.5MB body (full articles inline)"
+    },
+    {
+      "id": "eugeneyan",
+      "category": "practitioner-blogs",
+      "name": "Eugene Yan",
+      "url": "https://eugeneyan.com/rss/",
+      "method": "rss",
+      "notes": "exact path /rss/ (others 404); full archive in feed — date-filter on first ingest"
+    },
+    {
+      "id": "huyenchip",
+      "category": "practitioner-blogs",
+      "name": "Chip Huyen",
+      "url": "https://huyenchip.com/feed.xml",
+      "method": "rss",
+      "notes": "dormant ~19mo; passive slot"
+    },
+    {
+      "id": "lilianweng",
+      "category": "practitioner-blogs",
+      "name": "Lilian Weng (Lil'Log)",
+      "url": "https://lilianweng.github.io/index.xml",
+      "method": "rss",
+      "notes": "2-4/yr, every item High; guard bogus year-0001 date at feed tail"
+    },
+    {
+      "id": "hamel",
+      "category": "practitioner-blogs",
+      "name": "Hamel Husain",
+      "url": "https://hamel.dev/index.xml",
+      "method": "rss",
+      "notes": "exact path /index.xml"
+    },
+    {
+      "id": "karpathy-blog",
+      "category": "practitioner-blogs",
+      "name": "Andrej Karpathy (bearblog)",
+      "url": "https://karpathy.bearblog.dev/feed/",
+      "method": "rss",
+      "notes": "CLOUD-BLOCKED: Cloudflare challenge on direct, anonymous Jina AND WebFetch (all verified). Unlock = JINA_API_KEY secret. Interim: his posts reliably surface via hn-algolia + smolai."
+    },
+    {
+      "id": "jxnl",
+      "category": "practitioner-blogs",
+      "name": "Jason Liu (jxnl.co)",
+      "url": "https://jxnl.co/feed_rss_created.xml",
+      "method": "rss",
+      "notes": "~1-2/mo, agent/structured-output engineering"
+    },
+    {
+      "id": "vickiboykis",
+      "category": "practitioner-blogs",
+      "name": "Vicki Boykis",
+      "url": "https://vickiboykis.com/index.xml",
+      "method": "rss",
+      "notes": "~1.5/mo"
+    },
+    {
+      "id": "karpathy-blog-jina",
+      "category": "practitioner-blogs",
+      "name": "Karpathy bearblog via Jina (cloud fallback)",
+      "url": "https://r.jina.ai/https://karpathy.bearblog.dev/feed/",
+      "method": "fetch",
+      "expect": "karpathy",
+      "notes": "Blocked until JINA_API_KEY exists in env (anonymous r.jina.ai hits Cloudflare challenge)."
+    },
+    {
+      "id": "yt-ai-engineer",
+      "category": "youtube",
+      "name": "AI Engineer (conf talks)",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCLKPca3kwwd-B59HNr-_lvA",
+      "method": "rss",
+      "cloud_risk": "consent wall is geo-based; feeds endpoint should bypass it — verify",
+      "notes": "conference-burst shaped; media:description + views present"
+    },
+    {
+      "id": "yt-gpu-mode",
+      "category": "youtube",
+      "name": "GPU MODE",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCJgIbYl6C5no72a0NUAPcTA",
+      "method": "rss",
+      "notes": "dedup livestream + edited 'Lecture N' duplicates by title similarity; tech 1.0"
+    },
+    {
+      "id": "yt-karpathy",
+      "category": "youtube",
+      "name": "Andrej Karpathy (YT)",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCXUPKJO5MZQN11PqgIvyuvQ",
+      "method": "rss",
+      "notes": "rare; always worth it"
+    },
+    {
+      "id": "yt-latent-space",
+      "category": "youtube",
+      "name": "Latent Space (YT)",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCxBcwypKK-W3GHd_RZ9FZrQ",
+      "method": "rss",
+      "notes": "~2/wk"
+    },
+    {
+      "id": "yt-mlst",
+      "category": "youtube",
+      "name": "Machine Learning Street Talk",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCMLtBahI5DMrt0NPvDSoIRQ",
+      "method": "rss",
+      "notes": "~1/wk, research-flavored"
+    },
+    {
+      "id": "yt-sentdex",
+      "category": "youtube",
+      "name": "sentdex",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCfzlCWGWYyIQ0aLC5w48gBQ",
+      "method": "rss",
+      "notes": "local-inference experimentation arc; tech 0.7"
+    },
+    {
+      "id": "yt-umar-jamil",
+      "category": "youtube",
+      "name": "Umar Jamil",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCtAcpQcYerN8xxZJYTfWBMw",
+      "method": "rss",
+      "notes": "dormant 19mo; passive slot — any upload is radar-worthy"
+    },
+    {
+      "id": "hn-algolia-keyword",
+      "category": "community",
+      "name": "HN Algolia (Show HN, query=inference)",
+      "url": "https://hn.algolia.com/api/v1/search_by_date?tags=show_hn&query=inference&numericFilters=points%3E10&hitsPerPage=30",
+      "method": "api",
+      "notes": "one of a 4-6 keyword union (inference, quantization, RAG, MCP, fine-tuning, agents); dedup objectID; re-query 2-day window for late risers"
+    },
+    {
+      "id": "hn-algolia-ai50",
+      "category": "community",
+      "name": "HN Algolia (Show HN, query=AI, points>50)",
+      "url": "https://hn.algolia.com/api/v1/search_by_date?tags=show_hn&query=AI&numericFilters=points%3E50&hitsPerPage=30",
+      "method": "api",
+      "notes": "high-points general AI feed complementing the keyword union"
+    },
+    {
+      "id": "reddit-multireddit",
+      "category": "community",
+      "name": "Reddit r/LocalLLaMA+LLMDevs top/day",
+      "url": "https://www.reddit.com/r/LocalLLaMA+LLMDevs/top/.rss?t=day&limit=25",
+      "method": "rss",
+      "cloud_risk": "HIGH: anonymous rate limiting is aggressive; datacenter IPs may be blocked outright. Browser UA mandatory; ONE call/day; back off 60s on 429",
+      "notes": "narrowed from 4 subs: ClaudeAI ~75% memes, ChatGPTCoding contributed 0"
+    },
+    {
+      "id": "lobsters",
+      "category": "community",
+      "name": "Lobsters /t/ai (JSON)",
+      "url": "https://lobste.rs/t/ai.json",
+      "method": "api",
+      "notes": "do NOT filter by score (selects opinion); drop culture/philosophy/video co-tags; dedup URL; ~0.6/day"
+    },
+    {
+      "id": "hf-daily-papers",
+      "category": "community",
+      "name": "HF daily papers",
+      "url": "https://huggingface.co/api/daily_papers?limit=30",
+      "method": "api",
+      "notes": "top 2-3/day by upvotes, REQUIRE paper.githubRepo non-empty; score yesterday's batch (upvotes lag); keyword-bias agent/LLM/inference over robotics/3D"
+    },
+    {
+      "id": "hf-trending-models",
+      "category": "community",
+      "name": "HF trending models",
+      "url": "https://huggingface.co/api/models?sort=trendingScore&limit=20",
+      "method": "api",
+      "notes": "leaderboard snapshot — diff vs yesterday's top-20; dedup quant/LoRA derivatives by base name"
+    },
+    {
+      "id": "hf-trending-spaces",
+      "category": "community",
+      "name": "HF trending spaces",
+      "url": "https://huggingface.co/api/spaces?sort=trendingScore&limit=20",
+      "method": "api",
+      "notes": "snapshot diff; try-the-demo material"
+    },
+    {
+      "id": "smolai",
+      "category": "community",
+      "name": "AI News (smol.ai)",
+      "url": "https://news.smol.ai/rss.xml",
+      "method": "rss",
+      "notes": "TRAP: 2.1MB full archive — parse ONLY first item; pubDates regenerated identical — cursor by issue URL slug, never pubDate; 'not much happened today' titles = skip signal"
+    },
+    {
+      "id": "github-search",
+      "category": "community",
+      "name": "GitHub search: rising AI repos",
+      "url": "https://api.github.com/search/repositories?q=topic:llm+created:%3E2026-08-01+stars:%3E100&sort=stars&order=desc&per_page=10",
+      "method": "api",
+      "cloud_risk": "unauth 10 req/min PER IP — shared cloud egress IPs may exhaust it; check X-RateLimit headers in cloud",
+      "notes": "CLOUD-IMPOSSIBLE: session GitHub gateway blocks /search — replaced by github-trending-mirror (+ optional api.ossinsight.io later). Keep only for local runs."
+    },
+    {
+      "id": "github-trending-mirror",
+      "category": "community",
+      "name": "GitHubTrendingRSS daily/all",
+      "url": "https://mshibanami.github.io/GitHubTrendingRSS/daily/all.xml",
+      "method": "rss",
+      "notes": "no per-item pubDate — dedup by repo link across days; parse titles+links only (README HTML embedded, 470-714KB)"
+    },
+    {
+      "id": "github-releases-vllm",
+      "category": "community",
+      "name": "vLLM releases.atom (github.com pattern)",
+      "url": "https://github.com/vllm-project/vllm/releases.atom",
+      "method": "rss",
+      "notes": "CLOUD: use `git ls-remote --tags https://github.com/vllm-project/vllm` via the session git proxy (verified cloud5); parse+version-sort tags, diff vs cursor set (ls-remote order is lexical, NOT chronological). atom feed works locally only."
+    },
+    {
+      "id": "github-releases-vllm-api",
+      "category": "community",
+      "name": "vLLM releases via API (token)",
+      "url": "https://api.github.com/repos/vllm-project/vllm/releases?per_page=10",
+      "method": "api",
+      "notes": "CLOUD-IMPOSSIBLE (gateway repo-scope). Superseded by git ls-remote mechanism — see github-releases-vllm."
+    },
+    {
+      "id": "mistral-hf-org",
+      "category": "mistral-watch",
+      "name": "Mistral HF org: new models",
+      "url": "https://huggingface.co/api/models?author=mistralai&sort=createdAt&direction=-1&limit=10",
+      "method": "api",
+      "notes": "new model drops by org, sorted by createdAt — catches releases before/without blog posts"
+    },
+    {
+      "id": "mistral-gh-org",
+      "category": "mistral-watch",
+      "name": "Mistral GitHub org: active repos",
+      "url": "https://api.github.com/orgs/mistralai/repos?sort=pushed&per_page=10",
+      "method": "api",
+      "cloud_risk": "same unauth GitHub API IP budget as github-search",
+      "notes": "CLOUD-IMPOSSIBLE (gateway blocks /orgs). Mistral activity covered by mistral-hf-org (green) + mistral-releases tags + mistral-docs-changelog."
+    },
+    {
+      "id": "mistral-releases",
+      "category": "mistral-watch",
+      "name": "mistral-inference releases.atom",
+      "url": "https://github.com/mistralai/mistral-inference/releases.atom",
+      "method": "rss",
+      "notes": "CLOUD: use `git ls-remote --tags https://github.com/mistralai/mistral-inference` (verified cloud5); version-sort + cursor-diff. atom feed local only."
+    },
+    {
+      "id": "mistral-releases-api",
+      "category": "mistral-watch",
+      "name": "mistral-inference releases via API (token)",
+      "url": "https://api.github.com/repos/mistralai/mistral-inference/releases?per_page=10",
+      "method": "api",
+      "notes": "CLOUD-IMPOSSIBLE (gateway repo-scope). Superseded by git ls-remote — see mistral-releases."
+    },
+    {
+      "id": "mistral-docs-changelog",
+      "category": "mistral-watch",
+      "name": "Mistral docs changelog",
+      "url": "https://docs.mistral.ai/getting-started/changelog/",
+      "method": "fetch",
+      "expect": "hangelog",
+      "cloud_risk": "1.3MB HTML; possible bot protection",
+      "notes": "API/platform changes that never hit the blog"
+    }
+  ]
+}
