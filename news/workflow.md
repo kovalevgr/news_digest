@@ -1,8 +1,10 @@
 # news workflow — the routine's single source of truth
 
 - **Status:** active
-- **Owner:** news routine (scheduled Claude Code cloud agent; its live prompt is just
-  "Run the daily research using news/workflow.md")
+- **Owner:** THREE scheduled Claude Code cloud routines, each running its section of
+  this file: **daily-ai-news** (06:00 UTC — THE DAILY RUN), **daily-radar**
+  (05:00 UTC — THE RADAR), **weekly-ai-digest** (Sunday 07:00 UTC — THE WEEKLY
+  DIGEST). Live prompts are one-liners pointing here; format details live ONLY here.
 - **Scope:** everything under `news/` only. Never touch `app/`, `tests/`, `migrations/`,
   `config.yaml`, `content/`, or anything outside `news/`.
 
@@ -79,12 +81,14 @@ plus a weekly digest on Sunday with a radar-ideas section.
    - Then make **ONE** git commit:
      `news: daily run YYYY-MM-DD (+N items, M companies fresh)` — and push.
 
-## THE RADAR (daily, after the company core)
+## THE RADAR (its own daily routine — **daily-radar**, 05:00 UTC)
 
-The radar collects TECHNICAL practitioner signal (what people build, techniques to
-try, trends) — a different content type from company news, kept in separate files.
-Config: `config/radar.json`. Volume budget: **≤ ~15 confirmed items/day total** —
-when in doubt, drop.
+The radar runs in a SEPARATE cloud routine from the company core (live prompt:
+"Run the daily radar using news/workflow.md") — either routine can be disabled
+without touching the other. It collects TECHNICAL practitioner signal (what people
+build, techniques to try, trends) into `radar/*.md` and surfaces **0–3 daily
+highlights**. Config: `config/radar.json`; interest profile: `config/interests.md`.
+Volume budget: **≤ ~15 confirmed items/day total** — when in doubt, drop.
 
 1. **Fetch.** Run `python3 news/scripts/fetch_radar.py` (deterministic, stdlib-only).
    Output: JSON with `fresh` candidates per source, grouped by category. The script
@@ -92,27 +96,54 @@ when in doubt, drop.
    reported in-band; **NO gap-scrape ladder for radar sources** — a silent radar
    source today just means no items today (log and move on).
 
-2. **TRIAGE (judgement).** For each candidate keep it only if a technical builder
-   would care: real engineering/technique/benchmark/release content. Drop: product
-   marketing that survived the config filters, memes/appreciation posts (Reddit),
-   consumer-app launches (HN), finance/markets posts (SemiAnalysis), tutorial-grade
-   Copilot education (GitHub). GPU MODE videos appear twice (livestream + edited
-   cut) — keep one. smol.ai issues titled "not much happened today" → skip that day.
+2. **TRIAGE (judgement, two passes).**
+   - Pass 1 — technical bar: keep only items a technical builder would care about
+     (real engineering/technique/benchmark/release content). Drop: product marketing
+     that survived the config filters, memes/appreciation posts (Reddit),
+     consumer-app launches (HN), finance/markets posts (SemiAnalysis),
+     tutorial-grade Copilot education (GitHub). GPU MODE videos appear twice
+     (livestream + edited cut) — keep one. smol.ai issues titled "not much happened
+     today" → skip that day.
+   - Pass 2 — owner fit: score each survivor **high / medium / low** against
+     `config/interests.md` ("is this THE OWNER's material and could it seed an
+     article?"). The score drives highlight selection; low-fit items still land in
+     the radar files if they cleared pass 1.
 
-3. **DEDUP.** By canonical URL vs the target `radar/<category>.md` file, then
+3. **VERIFY SUBSTANCE (highlight candidates only).** For up to 5 highest-scored
+   candidates, WebFetch the actual page and confirm the content delivers what the
+   title promises (real technique, numbers, code — not clickbait or a marketing
+   shell). A candidate that fails verification stays a regular radar item but is
+   out of highlight consideration. WebFetch error → same: keep item, skip highlight.
+
+4. **DEDUP.** By canonical URL vs the target `radar/<category>.md` file, then
    judgement vs this week's radar titles ("same story?"). An item already covered in
    a COMPANY topics file is not re-added to radar (link the company page instead if
    the radar angle adds something).
 
-4. **WRITE.** Append confirmed items to `radar/<category>.md` under this week's
+5. **WRITE.** Append confirmed items to `radar/<category>.md` under this week's
    `## YYYY-Www` heading, uniform item format (same as topics) with an optional
    signal suffix: `(123 pts)` for HN, `(45 upvotes)` for HF papers. Категорії:
    `lab-engineering`, `inference-infra`, `oss-ml-systems`, `bigtech-eng`,
    `research-institutes`, `technical-newsletters`, `practitioner-blogs`, `youtube`,
-   `community`, `mistral-watch`. No artifacts and NO Linear cards for daily radar
-   items — the radar surfaces weekly (see below).
+   `community`, `mistral-watch`. No artifacts for radar items.
 
-5. **LOG.** Add a `radar:` line to the run-log entry: per-category counts + errors.
+6. **DAILY HIGHLIGHTS (0–3).** From the verified candidates pick at most 3 the
+   owner should see TODAY. **Zero on quiet days — never pad.** When ≥1:
+   - Write `radar/daily/YYYY-MM-DD.md` **IN UKRAINIAN**: per highlight —
+     `- **[<title>](<url>)**` + `**Що це:**` 1–2 sentences + `**Чому сьогодні:**`
+     1 sentence (the hook — factual, no invented takes). No file on zero-highlight
+     days (run-log records the quiet day).
+   - **Linear cards** (if the connector is available; else skip silently): project
+     "Radar" (team "Kovalevgr"), status Todo, label `highlight`, title
+     `[Highlight] <original title>`, description = the Ukrainian highlight card +
+     `Джерело: <url>`. Search the project by URL/title first — never duplicate
+     (an item already carded as a highlight or an `[Idea]` is skipped).
+   - Highlight cards are ephemeral attention pointers — the Sunday run closes the
+     stale ones (see THE WEEKLY DIGEST).
+
+7. **LOG + COMMIT.** Append a radar run entry to `run-log.md` (per-category counts,
+   highlight count, errors). Then ONE git commit:
+   `news: radar run YYYY-MM-DD (+N items, H highlights)` — and push.
 
 Expected/known behaviors (do not treat as failures): `karpathy-blog` is disabled
 (Cloudflare; needs JINA_API_KEY); Reddit 429 → skip, never retry-loop; first run of
@@ -158,8 +189,10 @@ After the daily run on Sunday:
    them. Cards not taken by the owner just stay in Todo (no auto-close for Radar).
 5. **Close the news board week** (if the Linear connector is available; else skip
    silently): every card in project "News digest" still in status Todo whose story is
-   in this week's digest → status Done. Leave In Progress / Canceled / Duplicate
-   cards untouched — those are the owner's states.
+   in this week's digest → status Done. Also in project "Radar": cards with label
+   `highlight` still in Todo → Done (attention pointers expire with the week);
+   NEVER touch `[Idea]` cards or anything in owner states (In Progress / Done /
+   Canceled).
 6. Commit + push.
 7. Delivery to Telegram / a Linear doc: a later step — **TODO**, not part of this run.
 
