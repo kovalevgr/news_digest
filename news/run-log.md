@@ -182,3 +182,31 @@ project "News digest" by URL/title first, no matches found).
 
 Note: session started on a detached HEAD identical to `origin/main` (786ce2d); checked
 out `main` and fast-forwarded before this run's commit — no data lost.
+
+## 2026-08-08 06:10 UTC — daily — ok
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss | 1 | - | 1 candidate excluded (HSP GRUPPE customer case-study/marketing post) |
+| anthropic | fetch | 0 | fetch | latest post Aug 7 (Fable 5 biology safeguards), already captured, predates window |
+| google-deepmind | rss, websearch | 0 | websearch | no new in-window post beyond prior Aug 5/6 captures |
+| google-research | rss, websearch | 0 | websearch | no in-window post with confirmed URL |
+| microsoft | rss | 1 | - | 1 candidate excluded (Indonesia digital-careers human-interest/CSR feature) |
+| nvidia | rss, websearch | 0 | websearch | no in-window post with confirmed URL |
+| xai | jina | 1 | jina | anonymous Jina worked, no 403; confirmed "Imagine Image 2.0" |
+| mistral | rss, websearch | 0 | websearch | RSS 304 not modified; no in-window post with confirmed URL |
+| huggingface | rss | 1 | - | - |
+| cursor | rss, websearch | 0 | websearch | no in-window changelog entry confirmed |
+| perplexity | jina | 0 | jina | latest post Aug 6 (Computer for Builders), already captured, predates window; anonymous Jina worked, no 403 |
+| cohere | fetch | 0 | fetch | latest post Aug 6 (Waterloo partnership), already captured, predates window |
+
+Totals: 4 items, 4 companies fresh, 0 errors (9 gap-scrapes attempted, 1 confirmed hit —
+xai — 8 came up empty in-window; 2 candidates rejected as non-news: OpenAI customer
+case-study, Microsoft human-interest feature).
+
+Note: session started on a detached HEAD identical to `origin/main` (3a2e7bd, 10 commits
+behind); stashed the in-progress `cursors.json` update from the TIER-1 fetch, checked out
+`main`, fast-forwarded, then reapplied the stash — no data lost.
+
+Linear: 4 issues created (KOV-35..KOV-38), all new stories, none duplicate (searched
+project "News digest" by URL/title first, no matches found).

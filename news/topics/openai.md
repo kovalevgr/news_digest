@@ -4,13 +4,14 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-08-07
+updated: 2026-08-08
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W32
 
+- **2026-08-07** — [Responding to the next frontier of critical cyber capabilities](https://openai.com/index/responding-next-frontier-critical-cyber-capabilities) — OpenAI shares preliminary cybersecurity evaluations for Astra and outlines steps to strengthen safeguards and security controls against emerging critical cyber capabilities.
 - **2026-08-06** — [Improving GPT‑5.6 Sol in ChatGPT—and expanding access to GPT-5.6 Luna for free users](https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt) — ChatGPT introduces an improved GPT-5.6 Sol with better accuracy and consistency, plus expands access to GPT-5.6 Luna for free users with unlimited everyday chats.
 - **2026-08-04** — [Third-party cyber evaluations involving OpenAI models](https://openai.com/index/third-party-cyber-evaluations-involving-openai-models) — OpenAI explains recent third-party cybersecurity evaluation incidents and outlines new safeguards to strengthen AI model testing and evaluation.
 - **2026-08-03** — [Apple is getting this wrong](https://openai.com/index/apple-is-getting-this-wrong) — OpenAI responds to Apple's lawsuit, disputing claims about its employees and sharing messages documenting what happened.
