@@ -1,0 +1,47 @@
+{
+  "date": "2026-08-08",
+  "label": "cloud4",
+  "total": 3,
+  "passed": 0,
+  "results": [
+    {
+      "id": "karpathy-blog-jina",
+      "category": "practitioner-blogs",
+      "url": "https://r.jina.ai/https://karpathy.bearblog.dev/feed/",
+      "method": "fetch",
+      "ok": false,
+      "status": 403,
+      "items": null,
+      "size": null,
+      "ms": null,
+      "error": "HTTP 403 Forbidden :: <!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta nam",
+      "detail": ""
+    },
+    {
+      "id": "github-releases-vllm-api",
+      "category": "community",
+      "url": "https://api.github.com/repos/vllm-project/vllm/releases?per_page=10",
+      "method": "api",
+      "ok": false,
+      "status": 403,
+      "items": null,
+      "size": null,
+      "ms": null,
+      "error": "HTTP 403 Forbidden :: {\"message\":\"GitHub access to this repository is not enabled for this session. Use add_repo to request access. If add_repo answers that read access is already available and you need GitHub API or write",
+      "detail": ""
+    },
+    {
+      "id": "mistral-releases-api",
+      "category": "mistral-watch",
+      "url": "https://api.github.com/repos/mistralai/mistral-inference/releases?per_page=10",
+      "method": "api",
+      "ok": false,
+      "status": 403,
+      "items": null,
+      "size": null,
+      "ms": null,
+      "error": "HTTP 403 Forbidden :: {\"message\":\"GitHub access to this repository is not enabled for this session. Use add_repo to request access. If add_repo answers that read access is already available and you need GitHub API or write",
+      "detail": ""
+    }
+  ]
+}
