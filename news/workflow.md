@@ -12,7 +12,8 @@ Daily per-company AI-news collection into `news/topics/`, plus a weekly digest o
 
 - Agent-facing instructions (this file, run-log entries, item summaries in topics files)
   are in **ENGLISH**.
-- All reader-facing digest/summary TEXT (`weeks/<ISO-week>/summary.md`) is in **UKRAINIAN**.
+- All reader-facing TEXT — `weeks/<ISO-week>/summary.md`, the `## card` block in
+  artifacts, Linear card descriptions — is in **UKRAINIAN**.
 
 ## THE DAILY RUN
 
@@ -49,10 +50,26 @@ Daily per-company AI-news collection into `news/topics/`, plus a weekly digest o
    - Append confirmed items to `topics/<company>.md` under this week's heading
      (`## YYYY-Www`), using the item format in OBSIDIAN CONVENTIONS below.
    - Write one raw artifact file per NEW item to
-     `artifacts/YYYY-MM-DD-<company>-<slug>.md` (frontmatter + the fetched
-     summary/excerpt).
-   - Update the Linear card per story if the Linear connector is available
-     (board: Backlog → In Review); else skip silently.
+     `artifacts/YYYY-MM-DD-<company>-<slug>.md`: frontmatter + a one-two sentence
+     English excerpt (feeds the topics line), then a `## card` block IN UKRAINIAN
+     (feeds the Linear card and the weekly digest):
+       - `**Що сталося:**` 2–3 sentences — the story itself;
+       - `**Контекст:**` 1–2 sentences of FACTUAL context only (related prior
+         announcements, what this supersedes or continues) — no opinions, no takes;
+       - `**Деталі:**` bullet list of key facts (numbers, dates, availability, pricing).
+     Everything in the card block must come from the fetched source — never pad.
+   - **LINEAR CARDS** (if the Linear connector is available; else skip silently).
+     Search project "News digest" by URL/title first — never duplicate. Then create
+     one issue per NEW story (team "Kovalevgr", project "News digest", status Todo):
+       - title: `[<Company>] <original English title>`;
+       - description: the artifact's `## card` block verbatim, then a footer line
+         `Джерело: <url> · Опубліковано: YYYY-MM-DD · Артефакт: news/artifacts/<file>`;
+       - priority: High(2) = major model/product launch or major org news,
+         Medium(3) = regular announcement, Low(4) = minor update;
+       - exactly ONE type label: `model-release` | `product` | `research` |
+         `policy-safety` | `business` | `infra`;
+       - `[duplicate]` stories → status Duplicate, marked duplicateOf the owning card.
+     Never move cards out of In Progress / Done / Canceled — those are the owner's.
 
 6. **LOG + COMMIT.**
    - Append a run entry to `run-log.md`: per company — searched / found / fell-back /
@@ -73,8 +90,12 @@ After the daily run on Sunday:
      `Покриття: <companies with fresh items>. Без свіжого: <silent companies>.`
    - **NO stale filler** — a silent company is REPORTED silent, never padded with old
      or invented items.
-3. Commit + push.
-4. Delivery to Telegram / a Linear doc: a later step — **TODO**, not part of this run.
+3. **Close the board week** (if the Linear connector is available; else skip silently):
+   every card in project "News digest" still in status Todo whose story is in this
+   week's digest → status Done. Leave In Progress / Canceled / Duplicate cards
+   untouched — those are the owner's states.
+4. Commit + push.
+5. Delivery to Telegram / a Linear doc: a later step — **TODO**, not part of this run.
 
 ## PRINCIPLES
 
