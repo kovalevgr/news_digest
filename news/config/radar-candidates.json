@@ -40,6 +40,7 @@
     {"id": "karpathy-blog", "category": "practitioner-blogs", "name": "Andrej Karpathy (bearblog)", "url": "https://karpathy.bearblog.dev/feed/", "method": "rss", "notes": "sporadic; zero noise"},
     {"id": "jxnl", "category": "practitioner-blogs", "name": "Jason Liu (jxnl.co)", "url": "https://jxnl.co/feed_rss_created.xml", "method": "rss", "notes": "~1-2/mo, agent/structured-output engineering"},
     {"id": "vickiboykis", "category": "practitioner-blogs", "name": "Vicki Boykis", "url": "https://vickiboykis.com/index.xml", "method": "rss", "notes": "~1.5/mo"},
+    {"id": "karpathy-blog-jina", "category": "practitioner-blogs", "name": "Karpathy bearblog via Jina (cloud fallback)", "url": "https://r.jina.ai/https://karpathy.bearblog.dev/feed/", "method": "fetch", "expect": "karpathy", "notes": "bearblog.dev 403s datacenter IPs — cloud must use this Jina route; local/direct route stays primary"},
 
     {"id": "yt-ai-engineer", "category": "youtube", "name": "AI Engineer (conf talks)", "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCLKPca3kwwd-B59HNr-_lvA", "method": "rss", "cloud_risk": "consent wall is geo-based; feeds endpoint should bypass it — verify", "notes": "conference-burst shaped; media:description + views present"},
     {"id": "yt-gpu-mode", "category": "youtube", "name": "GPU MODE", "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCJgIbYl6C5no72a0NUAPcTA", "method": "rss", "notes": "dedup livestream + edited 'Lecture N' duplicates by title similarity; tech 1.0"},
