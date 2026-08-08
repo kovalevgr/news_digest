@@ -124,7 +124,14 @@ def test_source(src):
                 result["error"] = f"HTTP {status} but marker '{marker}' NOT in body (trap?)"
     except urllib.error.HTTPError as e:
         result["status"] = e.code
-        result["error"] = f"HTTP {e.code} {e.reason}"
+        try:
+            snippet = " ".join(e.read(500).decode("utf-8", errors="replace").split())[:200]
+        except Exception:
+            snippet = ""
+        rl = e.headers.get("x-ratelimit-limit") if e.headers else None
+        rr = e.headers.get("x-ratelimit-remaining") if e.headers else None
+        extra = f" [ratelimit {rr}/{rl}]" if rl else ""
+        result["error"] = f"HTTP {e.code} {e.reason}{extra} :: {snippet}"
     except urllib.error.URLError as e:
         # DNS failure / connection refused usually means the env allowlist blocks the domain
         result["error"] = f"connection failed (allowlist?): {e.reason}"
