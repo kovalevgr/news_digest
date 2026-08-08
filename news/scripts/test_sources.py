@@ -18,9 +18,11 @@ import datetime
 import gzip
 import io
 import json
+import os
 import sys
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -39,6 +41,11 @@ DELAY = 0.5  # politeness between requests
 def fetch(url, headers):
     req_headers = {"User-Agent": UA, "Accept-Encoding": "identity"}
     req_headers.update(headers or {})
+    # GitHub blocks anonymous datacenter IPs; a token lifts that (and raises API limits)
+    host = urllib.parse.urlsplit(url).hostname or ""
+    token = os.environ.get("GITHUB_TOKEN")
+    if token and host in ("github.com", "api.github.com"):
+        req_headers["Authorization"] = f"Bearer {token}"
     req = urllib.request.Request(url, headers=req_headers)
     start = time.time()
     with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
