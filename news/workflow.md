@@ -207,14 +207,22 @@ After the daily run on Sunday:
    Board semantics: Todo = idea backlog; In Progress / Done / Canceled are the
    OWNER's states — never move cards out of them. Cards not taken by the owner just
    stay in Todo (no auto-close for `[Idea]` cards).
-5. **Close the news board week** (if the Linear connector is available; else skip
+5. **DIGEST CARD** (if the Linear connector is available; else skip silently).
+   Project "News digest" (team "Kovalevgr"): search by title
+   `📰 Тижневий дайджест <ISO-week>` first — **update it if it exists, create it
+   otherwise, never duplicate**. Status Todo; description = the full digest text
+   from `weeks/<ISO-week>/summary.md` (drop the frontmatter, keep everything else
+   including the Radar section) + a footer line `Артефакт: news/weeks/<ISO-week>/summary.md`.
+   This card IS the owner's phone-readable delivery of the digest — it is not
+   optional. The card stays in Todo until the owner reads it (owner's state).
+6. **Close the news board week** (if the Linear connector is available; else skip
    silently): every card in project "News digest" still in status Todo whose story is
-   in this week's digest → status Done. Also in project "Radar": cards with label
-   `highlight` still in Todo → Done (attention pointers expire with the week);
-   NEVER touch `[Idea]` cards or anything in owner states (In Progress / Done /
-   Canceled).
-6. Commit + push.
-7. Delivery to Telegram / a Linear doc: a later step — **TODO**, not part of this run.
+   in this week's digest → status Done (the digest card itself from step 5 stays
+   Todo). Also in project "Radar": cards with label `highlight` still in Todo →
+   Done (attention pointers expire with the week); NEVER touch `[Idea]` cards or
+   anything in owner states (In Progress / Done / Canceled).
+7. Commit + push.
+8. Delivery to Telegram: a later step — **TODO**, not part of this run.
 
 ## PRINCIPLES
 
