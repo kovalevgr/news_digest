@@ -59,3 +59,12 @@ inside the daily routine's dedicated "Test" custom-network environment reference
 environment, this result does not rule that out — it only shows these two domains are not
 blocked from *this* session's egress path. The 307/301 redirects themselves may still need
 `-L` (follow redirects) in the fetch script, or indicate the feed URLs have moved.
+
+## 2026-08-09 second probe: new hostnames
+
+Quick allowlist probe for two newly added hostnames:
+
+- `curl -sS -m 15 -A "Mozilla/5.0" -o /dev/null -w "%{http_code}" https://www.lmsys.org/blog/` → **www.lmsys.org: 200**
+- `curl -sS -m 15 -A "Mozilla/5.0" -o /dev/null -w "%{http_code}" https://newsletter.semianalysis.com/feed` → **newsletter.semianalysis.com: 200**
+
+Both green — no curl/proxy errors, no "Tunnel connection failed: 403". The allowlist has propagated for both hostnames in this session's environment.
