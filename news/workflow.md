@@ -1,18 +1,21 @@
 # news workflow — the routine's single source of truth
 
 - **Status:** active
-- **Owner:** THREE scheduled Claude Code cloud routines, each running its section of
-  this file: **daily-ai-news** (06:00 UTC — THE DAILY RUN), **daily-radar**
-  (05:00 UTC — THE RADAR), **weekly-ai-digest** (Sunday 07:00 UTC — THE WEEKLY
-  DIGEST). Live prompts are one-liners pointing here; format details live ONLY here.
+- **Owner:** FOUR scheduled Claude Code cloud routines, each running its section of
+  this file: **daily-radar** (05:00 UTC — THE RADAR, the system's core), **daily-ai-news**
+  (06:00 UTC — THE DAILY RUN), **radar-deep-dive** (Mon+Thu 07:00 UTC — THE DEEP
+  DIVE, Fable), **weekly-ai-digest** (Sunday 07:00 UTC — THE WEEKLY DIGEST).
+  Live prompts are one-liners pointing here; format details live ONLY here.
 - **Scope:** everything under `news/` only. Never touch `app/`, `tests/`, `migrations/`,
   `config.yaml`, `content/`, or anything outside `news/`.
 
 ## GOAL
 
-Daily per-company AI-news collection into `news/topics/` AND technical-radar
-collection into `news/radar/` (practitioner signal: builds, techniques, trends),
-plus a weekly digest on Sunday with a radar-ideas section.
+The radar is the product core: daily technical-signal collection into
+`news/radar/` + an owner review queue in Linear ("Ready to Review" → owner marks
+`hot`) + Fable deep dives of approved items twice a week (`radar/deep/`) — the
+pipeline that ends in the owner's own experiments and articles. Company news
+(`news/topics/`) runs alongside as a secondary daily, plus the Sunday digest.
 
 - Agent-facing instructions (this file, run-log entries, item summaries in topics files)
   are in **ENGLISH**.
@@ -86,9 +89,11 @@ plus a weekly digest on Sunday with a radar-ideas section.
 The radar runs in a SEPARATE cloud routine from the company core (live prompt:
 "Run the daily radar using news/workflow.md") — either routine can be disabled
 without touching the other. It collects TECHNICAL practitioner signal (what people
-build, techniques to try, trends) into `radar/*.md` and surfaces **0–3 daily
-highlights**. Config: `config/radar.json`; interest profile: `config/interests.md`.
-Volume budget: **≤ ~15 confirmed items/day total** — when in doubt, drop.
+build, techniques to try, trends) into `radar/*.md` and fills the owner's
+**review queue** in Linear (every confirmed item → a "Ready to Review" card; the
+owner approves deep-dive candidates with the `hot` label). Config:
+`config/radar.json`; interest profile: `config/interests.md`. Volume budget:
+**≤ ~15 confirmed items/day total** — when in doubt, drop.
 
 1. **Fetch.** Run `python3 news/scripts/fetch_radar.py` (deterministic, stdlib-only).
    Output: JSON with `fresh` candidates per source, grouped by category. The script
@@ -136,23 +141,27 @@ Volume budget: **≤ ~15 confirmed items/day total** — when in doubt, drop.
    `research-institutes`, `technical-newsletters`, `practitioner-blogs`, `youtube`,
    `community`, `mistral-watch`. No artifacts for radar items.
 
-6. **DAILY HIGHLIGHTS (0–3).** From the verified candidates pick at most 3 the
-   owner should see TODAY. **Zero on quiet days — never pad.** When ≥1:
-   - Write `radar/daily/YYYY-MM-DD.md` **IN UKRAINIAN**: per highlight —
-     `- **[<title>](<url>)**` + `**Що це:**` 1–2 sentences + `**Чому сьогодні:**`
-     1 sentence (the hook — factual, no invented takes). No file on zero-highlight
-     days (run-log records the quiet day).
-   - **Linear cards** (if the connector is available; else skip silently): project
-     "Radar" (team "Kovalevgr"), status Todo, label `highlight` **plus exactly ONE
-     source label from the `src` group** (`reddit`, `hn`, `github`, `hf`, `blog`,
-     `newsletter`, `youtube`, `lobsters`, `smolai`, `docs` — pick by the item's
-     source platform; if none fits, create the missing label INSIDE the `src`
-     group, never at top level), title `[Highlight] <original title>`, description
-     = the Ukrainian highlight card + `Джерело: <url>`. Search the project by
-     URL/title first — never duplicate (an item already carded as a highlight or
-     an `[Idea]` is skipped).
-   - Highlight cards are ephemeral attention pointers — the Sunday run closes the
-     stale ones (see THE WEEKLY DIGEST).
+6. **REVIEW QUEUE (Linear; if the connector is available, else skip silently).**
+   EVERY confirmed item becomes a card — the owner reviews the queue daily and
+   approves items for deep-dive with the `hot` label (see THE DEEP DIVE).
+   - Project "Radar" (team "Kovalevgr"), status **"Ready to Review"** (if that
+     state does not exist in the team, fall back to Todo and note it in the
+     run-log — never invent states).
+   - Title = the original item title (no prefix); description IN UKRAINIAN:
+     `**Що це:**` 1–2 sentences + `**Чому цікаво:**` 1 sentence (factual hook, no
+     invented takes) + `Джерело: <url>` + signal line (points/upvotes/score if
+     present).
+   - Exactly ONE source label from the `src` group (`reddit`, `hn`, `github`,
+     `hf`, `blog`, `newsletter`, `youtube`, `lobsters`, `smolai`, `docs`; if none
+     fits, create it INSIDE the `src` group, never at top level).
+   - Additionally mark **at most 3 top picks** of the day with the `highlight`
+     label (the best verified, highest owner-fit items — helps the owner scan the
+     queue). Zero top picks on a weak day is fine — never pad.
+   - Search the project by URL/title first — NEVER duplicate a card that already
+     exists in any state.
+   - Board semantics: Ready to Review = awaiting the owner's verdict; `hot` label
+     = approved for deep-dive; In Progress / Done / Canceled are OWNER/deep-dive
+     states — the daily run never moves cards out of them.
 
 7. **LOG + COMMIT.** Append a radar run entry to `run-log.md`: per-category table
    with `raw candidates` = the EXACT count of items in fetch_radar.py's `fresh`
@@ -167,6 +176,40 @@ Expected/known behaviors (do not treat as failures): `karpathy-blog` is disabled
 a seen-dedup source seeds silently and yields nothing; `mistral-docs-changelog`
 emits a single "page updated" item — fetch the page for what actually changed
 before writing the item line.
+
+## THE DEEP DIVE (its own routine — **radar-deep-dive**, Mon+Thu 07:00 UTC, Fable)
+
+Takes the owner-approved (`hot`-labeled) radar cards and turns each into a deep
+analysis the owner can build an experiment and an article on. Live prompt:
+"Run the radar deep dive using news/workflow.md (section THE DEEP DIVE)."
+
+1. **PICK.** In project "Radar", find cards with label `hot` in status
+   "Ready to Review" (fallback Todo). Process up to **3 per run**, oldest first —
+   leftovers wait for the next run. Zero hot cards → log "no approved cards" and
+   exit quietly (no commit needed beyond the log).
+2. **RESEARCH (per card).** Read the primary source IN FULL using the transports
+   that work in this env (curl with browser UA; GitHub repos via
+   `git clone --depth 1` through the git proxy — NOT WebFetch for github/reddit).
+   Then go wide: WebSearch for context, related work, prior art, criticism; read
+   the 2–4 most relevant finds. **Never invent — every claim carries its URL.**
+3. **WRITE `radar/deep/<YYYY-MM-DD>-<slug>.md` IN UKRAINIAN:**
+   - frontmatter: `title`, `source_url`, `card` (Linear issue id), `date`;
+   - `## Що це` — the thing itself, precisely;
+   - `## Як воно працює` — the mechanism/technique, with the technical meat;
+   - `## Контекст` — related work, what it builds on or competes with (facts only);
+   - `## Експеримент` — a concrete hands-on plan for the owner: steps, hardware
+     needs, expected effort, what numbers to capture;
+   - `## Кут для статті` — 2–3 possible angles + type (`tech_explainer` /
+     `project_post`) — PROPOSED to the owner, never asserted as his take;
+   - `## Джерела` — every URL used.
+4. **CLOSE THE LOOP (Linear).** Post the full analysis as a COMMENT on the card
+   (or, if comments are unavailable, append to the description under
+   `## Deep dive`), add a footer line `Файл: news/radar/deep/<file>` — then move
+   the card to **Done** (per the owner's flow: processed hot cards land in Done;
+   the analysis stays readable on the card, the file is the working material).
+5. **LOG + COMMIT.** Append a deep-dive entry to `run-log.md` (cards processed,
+   files written, leftovers). ONE commit: `news: deep dive YYYY-MM-DD (N cards)`
+   — and push.
 
 ## THE WEEKLY DIGEST (Sunday run)
 
@@ -188,26 +231,14 @@ After the daily run on Sunday:
      `Покриття: <companies with fresh items>. Без свіжого: <silent companies>.`
    - **NO stale filler** — a silent company is REPORTED silent, never padded with old
      or invented items.
-3. **RADAR IDEAS (the week's harvest).** Read this week's sections of all
-   `radar/*.md`. Select **5–10 ideas** worth the owner's hands-on time — favor items
-   that are reproducible (code available, clear technique) and could seed an article.
-   Add a `## Radar: ідеї тижня` section to `weeks/<ISO-week>/summary.md` — each idea
-   IN UKRAINIAN as a card:
-   - `**Що це:**` 1–2 sentences — the thing itself;
-   - `**Чому цікаво:**` 1 sentence — the technical hook (facts only, no invented takes);
-   - `**Мінімальний експеримент:**` 1–2 sentences — the smallest hands-on try;
-   - `**Тип статті:**` `tech_explainer` | `project_post`;
-   - source link(s) on every card — **never invent; every claim carries its URL**.
-4. **RADAR LINEAR CARDS** (if the Linear connector is available; else skip silently).
-   Project "Radar" (team "Kovalevgr") — search by title first, never duplicate. One
-   issue per idea card, status Todo: title `[Idea] <short name>`, description = the
-   idea card verbatim + `Джерела:` links, **exactly ONE source label from the `src`
-   group** (`reddit`, `hn`, `github`, `hf`, `blog`, `newsletter`, `youtube`,
-   `lobsters`, `smolai`, `docs`; if none fits, create it INSIDE the `src` group).
-   Board semantics: Todo = idea backlog; In Progress / Done / Canceled are the
-   OWNER's states — never move cards out of them. Cards not taken by the owner just
-   stay in Todo (no auto-close for `[Idea]` cards).
-5. **DIGEST CARD** (if the Linear connector is available; else skip silently).
+3. **RADAR WEEK SUMMARY.** Read this week's sections of all `radar/*.md` and this
+   week's `radar/deep/*.md`. Add a `## Radar: підсумок тижня` section to
+   `weeks/<ISO-week>/summary.md` IN UKRAINIAN: item counts per category, the
+   week's top-3 stories in one line each, deep dives done this week (title +
+   file link), and how many review cards the owner approved (`hot`) vs expired.
+   Text only — NO `[Idea]` Linear cards (retired 2026-08-09: the daily review
+   queue + deep-dive flow replaced them).
+4. **DIGEST CARD** (if the Linear connector is available; else skip silently).
    Project "News digest" (team "Kovalevgr"): search by title
    `📰 Тижневий дайджест <ISO-week>` first — **update it if it exists, create it
    otherwise, never duplicate**. Status Todo; description = the full digest text
@@ -215,14 +246,18 @@ After the daily run on Sunday:
    including the Radar section) + a footer line `Артефакт: news/weeks/<ISO-week>/summary.md`.
    This card IS the owner's phone-readable delivery of the digest — it is not
    optional. The card stays in Todo until the owner reads it (owner's state).
-6. **Close the news board week** (if the Linear connector is available; else skip
-   silently): every card in project "News digest" still in status Todo whose story is
-   in this week's digest → status Done (the digest card itself from step 5 stays
-   Todo). Also in project "Radar": cards with label `highlight` still in Todo →
-   Done (attention pointers expire with the week); NEVER touch `[Idea]` cards or
-   anything in owner states (In Progress / Done / Canceled).
-7. Commit + push.
-8. Delivery to Telegram: a later step — **TODO**, not part of this run.
+5. **Close the board week** (if the Linear connector is available; else skip
+   silently):
+   - project "News digest": every card still in status Todo whose story is in
+     this week's digest → status Done (the digest card itself from step 4 stays
+     Todo);
+   - project "Radar": review cards ("Ready to Review", fallback Todo) **older
+     than 7 days WITHOUT the `hot` label** → status Done (the queue must not
+     pile up; the items stay in the radar files). Cards WITH `hot` are left for
+     the deep-dive routine; NEVER touch anything in owner states (In Progress /
+     Done / Canceled).
+6. Commit + push.
+7. Delivery to Telegram: a later step — **TODO**, not part of this run.
 
 ## PRINCIPLES
 
