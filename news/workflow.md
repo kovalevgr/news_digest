@@ -110,10 +110,19 @@ Volume budget: **≤ ~15 confirmed items/day total** — when in doubt, drop.
      the radar files if they cleared pass 1.
 
 3. **VERIFY SUBSTANCE (highlight candidates only).** For up to 5 highest-scored
-   candidates, WebFetch the actual page and confirm the content delivers what the
-   title promises (real technique, numbers, code — not clickbait or a marketing
-   shell). A candidate that fails verification stays a regular radar item but is
-   out of highlight consideration. WebFetch error → same: keep item, skip highlight.
+   candidates, read the actual content and confirm it delivers what the title
+   promises (real technique, numbers, code — not clickbait or a marketing shell).
+   **Transport per platform — WebFetch is BLOCKED for github.com and reddit.com in
+   the cloud env (verified 2026-08-09):**
+   - reddit.com → bash `curl -sS -A "Mozilla/5.0 ..."` on the post URL (browser UA
+     mandatory, same as the fetcher); the feed entry's own body text is also a
+     valid basis if curl 429s;
+   - github.com repos → read the README via the git proxy:
+     `git clone --depth 1 <repo-url> /tmp/verify-<name>` (REST API and web pages
+     are gateway-blocked; anonymous git reads of public repos work);
+   - everything else → WebFetch, with ONE curl retry on failure.
+   A candidate that fails verification stays a regular radar item but is out of
+   highlight consideration. Transport error → same: keep item, skip highlight.
 
 4. **DEDUP.** By canonical URL vs the target `radar/<category>.md` file, then
    judgement vs this week's radar titles ("same story?"). An item already covered in
@@ -134,15 +143,23 @@ Volume budget: **≤ ~15 confirmed items/day total** — when in doubt, drop.
      1 sentence (the hook — factual, no invented takes). No file on zero-highlight
      days (run-log records the quiet day).
    - **Linear cards** (if the connector is available; else skip silently): project
-     "Radar" (team "Kovalevgr"), status Todo, label `highlight`, title
-     `[Highlight] <original title>`, description = the Ukrainian highlight card +
-     `Джерело: <url>`. Search the project by URL/title first — never duplicate
-     (an item already carded as a highlight or an `[Idea]` is skipped).
+     "Radar" (team "Kovalevgr"), status Todo, label `highlight` **plus exactly ONE
+     source label from the `src` group** (`reddit`, `hn`, `github`, `hf`, `blog`,
+     `newsletter`, `youtube`, `lobsters`, `smolai`, `docs` — pick by the item's
+     source platform; if none fits, create the missing label INSIDE the `src`
+     group, never at top level), title `[Highlight] <original title>`, description
+     = the Ukrainian highlight card + `Джерело: <url>`. Search the project by
+     URL/title first — never duplicate (an item already carded as a highlight or
+     an `[Idea]` is skipped).
    - Highlight cards are ephemeral attention pointers — the Sunday run closes the
      stale ones (see THE WEEKLY DIGEST).
 
-7. **LOG + COMMIT.** Append a radar run entry to `run-log.md` (per-category counts,
-   highlight count, errors). Then ONE git commit:
+7. **LOG + COMMIT.** Append a radar run entry to `run-log.md`: per-category table
+   with `raw candidates` = the EXACT count of items in fetch_radar.py's `fresh`
+   arrays for that category (count from the JSON — the table and the triage prose
+   must agree on the same numbers), `confirmed`, errors; then triage detail prose
+   (what was dropped and WHY — this is the conversion audit trail), highlight
+   count. Then ONE git commit:
    `news: radar run YYYY-MM-DD (+N items, H highlights)` — and push.
 
 Expected/known behaviors (do not treat as failures): `karpathy-blog` is disabled
@@ -184,9 +201,12 @@ After the daily run on Sunday:
 4. **RADAR LINEAR CARDS** (if the Linear connector is available; else skip silently).
    Project "Radar" (team "Kovalevgr") — search by title first, never duplicate. One
    issue per idea card, status Todo: title `[Idea] <short name>`, description = the
-   idea card verbatim + `Джерела:` links. Board semantics: Todo = idea backlog;
-   In Progress / Done / Canceled are the OWNER's states — never move cards out of
-   them. Cards not taken by the owner just stay in Todo (no auto-close for Radar).
+   idea card verbatim + `Джерела:` links, **exactly ONE source label from the `src`
+   group** (`reddit`, `hn`, `github`, `hf`, `blog`, `newsletter`, `youtube`,
+   `lobsters`, `smolai`, `docs`; if none fits, create it INSIDE the `src` group).
+   Board semantics: Todo = idea backlog; In Progress / Done / Canceled are the
+   OWNER's states — never move cards out of them. Cards not taken by the owner just
+   stay in Todo (no auto-close for `[Idea]` cards).
 5. **Close the news board week** (if the Linear connector is available; else skip
    silently): every card in project "News digest" still in status Todo whose story is
    in this week's digest → status Done. Also in project "Radar": cards with label

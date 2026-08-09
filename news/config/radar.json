@@ -10,7 +10,7 @@
     {"id": "baseten", "category": "inference-infra", "name": "Baseten blog", "kind": "html", "adapter": "baseten", "url": "https://www.baseten.co/blog/", "state": {"seen_dedup": true}, "notes": "no feed; titles in h3/h4 server-side"},
 
     {"id": "vllm-blog", "category": "oss-ml-systems", "name": "vLLM blog", "kind": "rss", "url": "https://vllm.ai/blog/rss.xml", "notes": "TRAP: old blog.vllm.ai 404-as-200"},
-    {"id": "lmsys-sglang", "category": "oss-ml-systems", "name": "LMSYS / SGLang blog", "kind": "html", "adapter": "lmsys_flight", "url": "https://lmsys.org/blog/", "state": {"seen_dedup": true}, "notes": "posts array in Next.js flight data inside <script>"},
+    {"id": "lmsys-sglang", "category": "oss-ml-systems", "name": "LMSYS / SGLang blog", "kind": "html", "adapter": "lmsys_flight", "url": "https://www.lmsys.org/blog/", "state": {"seen_dedup": true}, "notes": "posts array in Next.js flight data inside <script>. bare lmsys.org 307s to www — use www directly (www.lmsys.org must be in the env allowlist). Post dates live in the slugs (YYYY-MM-DD-...)"},
     {"id": "pytorch-blog", "category": "oss-ml-systems", "name": "PyTorch blog", "kind": "rss", "url": "https://pytorch.org/blog/feed/", "filters": {"drop_title_re": ["Conference", "Foundation", "Meetup", "Contest", "Keynote", "Community Design"]}},
     {"id": "eleuther", "category": "oss-ml-systems", "name": "EleutherAI blog", "kind": "rss", "url": "https://blog.eleuther.ai/index.xml", "notes": "~6 posts/yr; control chars stripped globally"},
     {"id": "vllm-releases", "category": "oss-ml-systems", "name": "vLLM releases (git tags)", "kind": "git-tags", "url": "https://github.com/vllm-project/vllm", "filters": {"drop_rc": true}, "notes": "REST API blocked in cloud; git ls-remote --tags via session git proxy (verified cloud5)"},
@@ -24,7 +24,7 @@
     {"id": "answerai", "category": "research-institutes", "name": "answer.ai", "kind": "rss", "url": "https://www.answer.ai/index.xml", "notes": "dormant since 2026-03; feed has raw control chars — stripped globally"},
 
     {"id": "cameron-wolfe", "category": "technical-newsletters", "name": "Deep (Learning) Focus", "kind": "rss", "url": "https://cameronrwolfe.substack.com/feed", "notes": "~5.9MB feed — global 8MB cap handles it"},
-    {"id": "semianalysis", "category": "technical-newsletters", "name": "SemiAnalysis", "kind": "rss", "url": "https://semianalysis.substack.com/feed", "notes": "NEVER semianalysis.com/feed/ (11mo-stale trap). Finance-vs-tech triage is the agent's job"},
+    {"id": "semianalysis", "category": "technical-newsletters", "name": "SemiAnalysis", "kind": "rss", "url": "https://newsletter.semianalysis.com/feed", "notes": "canonical live feed (the substack subdomain 301s here; verified fresh 2026-08-09, 20 items). NEVER semianalysis.com/feed/ (11mo-stale trap). newsletter.semianalysis.com must be in the env allowlist. Finance-vs-tech triage is the agent's job"},
 
     {"id": "simonwillison", "category": "practitioner-blogs", "name": "Simon Willison (entries)", "kind": "rss", "url": "https://simonwillison.net/atom/entries/"},
     {"id": "latent-space", "category": "practitioner-blogs", "name": "Latent.Space", "kind": "rss", "url": "https://www.latent.space/feed", "filters": {"drop_title_re": ["^\\[AINews"]}},
