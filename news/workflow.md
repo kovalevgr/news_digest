@@ -147,10 +147,26 @@ owner approves deep-dive candidates with the `hot` label). Config:
    - Project "Radar" (team "Kovalevgr"), status **"Ready to Review"** (if that
      state does not exist in the team, fall back to Todo and note it in the
      run-log — never invent states).
-   - Title = the original item title (no prefix); description IN UKRAINIAN:
-     `**Що це:**` 1–2 sentences + `**Чому цікаво:**` 1 sentence (factual hook, no
-     invented takes) + `Джерело: <url>` + signal line (points/upvotes/score if
-     present).
+   - Title = the original item title, no prefix.
+   - **Priority = triage fit** (this makes the queue self-sorting): HIGH fit →
+     High(2), MED → Medium(3), LOW → Low(4).
+   - Description IN UKRAINIAN — the CARD TEMPLATE, one phone screen (≤700 chars),
+     built to answer "hot чи ні" in 10 seconds:
+
+     ```
+     > **Fit: HIGH** · <signal: 916 pts HN / 45 upvotes / —> · <category>
+
+     **Що це:** 1–2 речення — сам факт.
+     **Чому цікаво:** 1 речення — технічний хук, чим відрізняється (facts only).
+     **Потенціал:** експеримент S|M|L — <одне речення>; стаття `tech_explainer|project_post` — <кут одним рядком>.
+
+     ---
+     Джерело: <url>
+     Радар: news/radar/<category>.md · YYYY-MM-DD
+     ```
+
+     Every claim from the fetched source — never pad; if there is no honest
+     "Потенціал", write `Потенціал: read-only` (a valid verdict, not a failure).
    - Exactly ONE source label from the `src` group (`reddit`, `hn`, `github`,
      `hf`, `blog`, `newsletter`, `youtube`, `lobsters`, `smolai`, `docs`; if none
      fits, create it INSIDE the `src` group, never at top level).
