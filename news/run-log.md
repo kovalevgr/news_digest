@@ -272,3 +272,28 @@ regular radar item, out of highlight consideration. Net: 0 highlights today — 
 no `radar/daily/2026-08-09.md` written, nothing padded.
 
 Linear: skipped (0 highlights — nothing to card).
+
+## 2026-08-09 06:11 UTC — daily — ok
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss, websearch | 0 | websearch | no in-window post on openai.com/news (latest still Aug 7, already captured); 1 candidate rejected unconfirmed — NextSlide acquisition (no openai.com source page exists, only third-party press; techcrunch.com/nextslide.ai both blocked by egress proxy for corroboration) |
+| anthropic | fetch | 0 | fetch | latest post still Aug 7 (Fable 5 biology safeguards), already captured, predates window |
+| google-deepmind | rss, websearch | 0 | websearch | no in-window post beyond prior Aug 5/6 captures |
+| google-research | rss, websearch | 0 | websearch | latest post (Science One Framework) Jul 30, predates window |
+| microsoft | rss, websearch | 0 | websearch | latest post (Orchard) Aug 3, predates window |
+| nvidia | rss, websearch | 0 | websearch | no in-window post beyond prior Aug 8 capture; SSI/NVIDIA partnership confirmed dated Jul 27, predates window — rejected |
+| xai | jina | 0 | jina | latest post still Aug 7 (Imagine Image 2.0), already captured, predates window; anonymous Jina worked, no 403 |
+| mistral | rss, websearch | 0 | websearch | 304 not modified on RSS; latest post (Shieldstral) Aug 4, already captured, predates window |
+| huggingface | rss, websearch | 0 | websearch | 304 not modified on RSS; latest post (TutorMoments) Aug 7, already captured, predates window |
+| cursor | rss, websearch | 0 | websearch | latest changelog entry Aug 3 (Google Workspace Plugins), predates window |
+| perplexity | jina | 0 | jina | latest post still Aug 6 (Computer for Builders), already captured, predates window; anonymous Jina worked, no 403 |
+
+Totals: 0 items, 0 companies fresh, 0 errors (10 gap-scrapes attempted, all empty in-window;
+1 rejected unconfirmed candidate — OpenAI/NextSlide acquisition, no company-domain source
+reachable).
+
+Note: window since last successful daily run (2026-08-08 16:27 UTC) was short (~14h); quiet
+run across the board, consistent with the previous same-day run's pattern.
+
+Linear: skipped (0 new stories — nothing to card).
