@@ -192,21 +192,18 @@ analysis the owner can build an experiment and an article on. Live prompt:
    `git clone --depth 1` through the git proxy — NOT WebFetch for github/reddit).
    Then go wide: WebSearch for context, related work, prior art, criticism; read
    the 2–4 most relevant finds. **Never invent — every claim carries its URL.**
-3. **WRITE `radar/deep/<YYYY-MM-DD>-<slug>.md` IN UKRAINIAN:**
-   - frontmatter: `title`, `source_url`, `card` (Linear issue id), `date`;
-   - `## Що це` — the thing itself, precisely;
-   - `## Як воно працює` — the mechanism/technique, with the technical meat;
-   - `## Контекст` — related work, what it builds on or competes with (facts only);
-   - `## Експеримент` — a concrete hands-on plan for the owner: steps, hardware
-     needs, expected effort, what numbers to capture;
-   - `## Кут для статті` — 2–3 possible angles + type (`tech_explainer` /
-     `project_post`) — PROPOSED to the owner, never asserted as his take;
-   - `## Джерела` — every URL used.
-4. **CLOSE THE LOOP (Linear).** Post the full analysis as a COMMENT on the card
-   (or, if comments are unavailable, append to the description under
-   `## Deep dive`), add a footer line `Файл: news/radar/deep/<file>` — then move
-   the card to **Done** (per the owner's flow: processed hot cards land in Done;
-   the analysis stays readable on the card, the file is the working material).
+3. **WRITE `radar/deep/<YYYY-MM-DD>-<slug>.md` IN UKRAINIAN, following
+   `radar/deep/TEMPLATE.md` EXACTLY** — structured frontmatter (verdict / effort /
+   hardware / article_odds feed later analytics), TL;DR + Вердикт first (the
+   phone-decision layer), then Що це насправді / Як воно працює / Контекст /
+   Експеримент / Кути для статті / Джерела. Numbers in tables, red flags
+   explicit, community pushback quoted from real threads.
+4. **CLOSE THE LOOP (Linear).** Post the PHONE-SIZED cut as a COMMENT on the card
+   (per TEMPLATE.md: TL;DR + Вердикт table + the experiment's Мета line + footer
+   `Файл: news/radar/deep/<file>`; if comments are unavailable, append the same
+   under `## Deep dive` in the description) — then move the card to **Done**
+   (processed hot cards land in Done; the card carries the decision layer, the
+   file is the working material).
 5. **LOG + COMMIT.** Append a deep-dive entry to `run-log.md` (cards processed,
    files written, leftovers). ONE commit: `news: deep dive YYYY-MM-DD (N cards)`
    — and push.
