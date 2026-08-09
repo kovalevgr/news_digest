@@ -236,3 +236,39 @@ most companies had no new content yet; this is expected, not a failure.
 
 Linear: 1 issue created (KOV-39), new story, none duplicate (searched project "News digest"
 by URL/title first, no matches found).
+
+## 2026-08-09 05:05 UTC — radar — ok
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | - |
+| inference-infra | 0 | 0 | - |
+| oss-ml-systems | 0 | 0 | lmsys-sglang: 403 Forbidden (tunnel) |
+| bigtech-eng | 0 | 0 | - |
+| research-institutes | 0 | 0 | - |
+| technical-newsletters | 0 | 0 | semianalysis: 403 Forbidden (tunnel) |
+| practitioner-blogs | 0 | 0 | - |
+| youtube | 0 | 0 | - |
+| community | 8 | 5 | - |
+| mistral-watch | 0 | 0 | - |
+
+Community triage detail: hn-show-mcp (1 raw) dropped — consumer-app marketing (DOCX editor
+using MCP as a hook, 13 pts). reddit (6 raw) → 4 confirmed (custom Metal kernel by a local
+agent, Kimi K3 quantization 711GB→478GB, Qwen-vs-Gemma tokenizer observation) + 2 dropped
+(RTX 5090 Alibaba listing — hardware-market rumor; Intel Optane thread — speculative, no
+technique/data). github-trending (6 raw) → 2 confirmed (google/skills — Agent Skills for
+Google Cloud, MCP/agent-tooling fit; TauricResearch/TradingAgents v0.3.1 — multi-agent
+orchestration release notes) + 4 dropped (ChinaTextbook PDFs, google/guava, Ladybird
+browser, denoland/celld — none AI-related).
+
+Totals: 5 items, 0 highlights, 2 source errors (lmsys-sglang, semianalysis — both known
+403-Forbidden-in-cloud pattern, no fallback ladder for radar sources per workflow).
+
+Highlight verification: attempted WebFetch on the 3 top-scored (HIGH-fit) candidates —
+google/skills, Kimi K3 quantization post, custom-Metal-kernel post. All three failed:
+github.com is blocked by the network egress proxy; reddit.com is unreachable via WebFetch
+in this environment. Per workflow (§THE RADAR step 3): WebFetch error → item stays a
+regular radar item, out of highlight consideration. Net: 0 highlights today — quiet day,
+no `radar/daily/2026-08-09.md` written, nothing padded.
+
+Linear: skipped (0 highlights — nothing to card).
