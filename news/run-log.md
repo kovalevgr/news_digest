@@ -374,3 +374,30 @@ Linear: 15 review-queue cards created in project "Radar" (team Kovalevgr), statu
 Review" — KOV-46 through KOV-60. Priorities set by fit (HIGH→High, MEDIUM→Medium). Source labels
 applied per item (newsletter/blog/youtube/github/reddit); `highlight` label on KOV-46, KOV-52,
 KOV-56.
+
+## 2026-08-10 06:12 UTC — daily — ok
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss, websearch | 0 | websearch | 2 WebSearch candidates (OpenAI $122B raise, ChatGPT Futures Class of 2026) could not be confirmed — both openai.com/index/* pages Cloudflare-challenge-blocked via WebFetch (403) and Jina retry; RSS (tier-1, applies the Company-category filter) reported zero fresh, giving no corroboration either is a new in-window Product/Engineering/Research item |
+| anthropic | fetch | 0 | fetch | latest post still Aug 7 (Fable 5 biology safeguards), already captured, predates window |
+| google-deepmind | rss, websearch | 0 | websearch | 2 candidates checked via WebFetch and rejected as out-of-window — Gemma Scope 2 (Dec 2025), multi-agent safety funding call (Jun 2026) |
+| google-research | rss, websearch | 0 | websearch | latest post (Science One Framework) Jul 30, predates window |
+| microsoft | rss, websearch | 0 | websearch | no in-window Research-blog post confirmed (Aug 4 ChainDrop post is Security blog, off-scope) |
+| nvidia | rss, websearch | 0 | websearch | RSS 304 not modified; no in-window post beyond prior Aug 8 capture confirmed |
+| xai | jina | 0 | jina | r.jina.ai returned a Cloudflare JS-challenge page (not the usual clean fetch); x.ai itself is egress-blocked for WebFetch — could not verify WebSearch candidate "Grok Voice Think Fast 2.0"'s date, transport error only, no fallback beyond the one jina attempt per workflow |
+| mistral | rss, websearch | 0 | websearch | RSS 304 not modified; no in-window post with confirmed URL |
+| huggingface | rss, websearch | 0 | websearch | RSS 304 not modified; no in-window post with confirmed URL |
+| cursor | rss, websearch | 0 | websearch | no in-window changelog entry confirmed |
+| perplexity | jina, websearch | 0 | jina→websearch | anonymous Jina hit the same Cloudflare JS-challenge page (no JINA_API_KEY set); websearch fallback found no in-window post either |
+
+Totals: 0 items, 0 companies fresh, 2 errors (11 gap-scrapes attempted, all empty in-window;
+xai's and perplexity's Jina calls both hit a Cloudflare JS-challenge page today instead of the
+usual clean anonymous fetch — a transport error, not a content finding; 2 rejected out-of-window
+candidates on Google DeepMind; 2 unconfirmed OpenAI candidates whose source pages could not be
+reached through either verification transport).
+
+Note: fully quiet day across all 11 companies — consistent with the pattern seen on 2026-08-02/03.
+Window per fetch_feeds.py: since 2026-08-09T04:12 UTC (default ~26h, script-computed).
+
+Linear: skipped (0 new stories — nothing to card).
