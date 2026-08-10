@@ -297,3 +297,80 @@ Note: window since last successful daily run (2026-08-08 16:27 UTC) was short (~
 run across the board, consistent with the previous same-day run's pattern.
 
 Linear: skipped (0 new stories — nothing to card).
+
+## 2026-08-10 05:22 UTC — radar — ok
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | - |
+| inference-infra | 0 | 0 | - |
+| oss-ml-systems | 0 | 0 | - |
+| bigtech-eng | 0 | 0 | - |
+| research-institutes | 0 | 0 | - |
+| technical-newsletters | 1 | 1 | - |
+| practitioner-blogs | 1 | 1 | - |
+| youtube | 4 | 4 | - |
+| community | 45 | 9 | - |
+| mistral-watch | 0 | 0 | - |
+
+Totals: 15 items, 3 highlights, 0 source errors.
+
+Technical-newsletters/practitioner-blogs/youtube: all raw candidates confirmed as-is — SemiAnalysis
+TileRT InferenceX article (inference-infra technique, HIGH fit), Interconnects "Lessons from the
+hacks" (alignment/safety essay, MEDIUM fit), 4 AI Engineer conference-talk uploads (agentic
+engineering / production agents, HIGH/MEDIUM fit).
+
+Community triage detail (45 raw → 9 confirmed):
+- HN Show HN (11 raw across inference/rag/mcp/agents queries, 6 unique after cross-query dedup) →
+  0 confirmed. Dropped: DOCX editor w/ MCP server (revise.io, consumer-app marketing — same item
+  rejected 2026-08-09, resurfaced by the Algolia time-window query outside the actual 26h window;
+  not re-added); voice-driven murder-mystery app and Alphabet Soup word game (consumer
+  apps/non-AI); "replayable A2A jury" trace tool and "Tura" agent framework (marketing-shell Show
+  HNs, no benchmark/repro shown); open-source agent red-team playground (landing-page pitch, no
+  visible technical depth).
+- Reddit (25 raw) → 8 confirmed: KLQ training-free rotation quantization, Ling-3.0-flash DGX Spark
+  tuning (20.8→38.7 tok/s), AMD llama.cpp MTP buffer fix (64K→149K context), Colibrì→Lumabri MoE
+  swarm engine, OneRingAI v1 TS agent runtime, 300b-on-32gb MoE-streaming findings, independent
+  DeepSeek V4 Flash Terminal-Bench 2.1 verification (Ante harness), Lophius LM-research workbench.
+  Dropped 17: meta/community complaint thread; ByteDance distillation statement + KPMG AI-agent-cost
+  Forbes repost (business/policy, not engineering); 3 support/Q&A threads (DeepSeek OpenCode
+  stall report, "best local setup" and "best embedding model" questions); SupraElegans-500K
+  (unverifiable novel-architecture claim from an unknown lab, no recoverable repo link) and
+  BigBang-v1 finetune (post is skeptical of its own benchmark claims, not a technique); MiniMax H3
+  video-gen report and Tencent WorldClaw 3D-gen (real content but video/3D-gen is explicit LOW fit
+  per interests.md, dropped for volume budget); Google WeatherNext 2 (company-track overlap —
+  already in topics/google-deepmind.md); Gemma Aug-20 event teaser (speculative, no technical
+  content); omlab/VLX-Seek-1.5-10B embodied-vision model (off stated interest categories); updated
+  SlopCodeBench benchmark post (redundant with the confirmed independent Terminal-Bench item, same
+  underlying model).
+- HF trending models (1 raw) → 0 confirmed: Kijai/MiniMax-H3-experimental is the same MiniMax H3
+  release as the dropped Reddit report above (LOW-fit video-gen), not double-counted.
+- HF trending spaces (2 raw) → 0 confirmed: Wan 2.2 LoRA demo space (low-substance personal demo);
+  LiquidAI/LFM2.5-2.6B-WebGPU is the same model already covered in topics/huggingface.md
+  (2026-08-04 deploy guide) — company-track overlap, not re-added per dedup rule.
+- GitHub trending (6 raw) → 1 confirmed (vitali87/code-graph-rag — Tree-sitter + Memgraph
+  code-knowledge-graph RAG, mature project). Dropped 5: agency-agents (marketing-flavored agent
+  personas template, no real substance); witr (general devops tool, not AI-related); WeatherNext
+  repo (company-track overlap, same as above); daily_stock_analysis (finance-flavored LLM app);
+  ComfyUI (long-established tool resurfacing on trending, not fresh/notable).
+
+Highlight verification: attempted on the 5 highest-scored HIGH-fit candidates — Colibrì/Lumabri
+(verified via `git clone` of github.com/JustVugg/colibri: real, mature MoE-on-consumer-hardware
+inference engine with measured findings), Lophius (verified via `git clone` of
+github.com/p-e-w/lophius: real notebook-based LM research workbench), code-graph-rag (verified via
+`git clone`: CI/PyPI/active-release project, substantive README beyond badges), SemiAnalysis
+TileRT article (verified via WebFetch: concrete B200 throughput numbers vs Cerebras/Groq/
+SambaNova), and the DeepSeek Terminal-Bench/Ante claim (verified via the feed entry's own
+substantive body — trial counts, accuracy, author disclosure; already reads as a full write-up,
+not a marketing shell). All 5 passed. Reddit direct-fetch (curl w/ browser UA) hit a JS-challenge
+page (403, not the usual 429) on every attempt today — KLQ, AMD llama.cpp MTP fix and OneRingAI
+were confirmed on their own substantive feed-body text but were not spent on the 5-candidate
+verification budget, so they stayed regular items, out of highlight consideration.
+
+3 top picks marked `highlight`: TileRT InferenceX (SemiAnalysis), code-graph-rag, Colibrì/Lumabri —
+spread across inference-infra, RAG/agent-tooling, and local-hardware MoE.
+
+Linear: 15 review-queue cards created in project "Radar" (team Kovalevgr), status "Ready to
+Review" — KOV-46 through KOV-60. Priorities set by fit (HIGH→High, MEDIUM→Medium). Source labels
+applied per item (newsletter/blog/youtube/github/reddit); `highlight` label on KOV-46, KOV-52,
+KOV-56.
