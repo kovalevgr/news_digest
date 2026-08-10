@@ -401,3 +401,9 @@ Note: fully quiet day across all 11 companies — consistent with the pattern se
 Window per fetch_feeds.py: since 2026-08-09T04:12 UTC (default ~26h, script-computed).
 
 Linear: skipped (0 new stories — nothing to card).
+
+## 2026-08-10 — deep-dive — ok (no approved cards)
+
+Project "Radar" checked: 0 cards with `hot` label (15 in Ready to Review, 5 legacy [Idea] cards
+in Todo — none approved). Review queue is fresh (created today 05:22 UTC), owner has not triaged
+yet. No research, no files written, no card moves. Exiting quietly per workflow.
