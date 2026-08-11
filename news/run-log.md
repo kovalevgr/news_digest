@@ -478,3 +478,31 @@ Review" — KOV-61 through KOV-74. Priorities by fit (HIGH→High, MEDIUM→Medi
 today). Source labels applied per item (blog/github/newsletter/hn/reddit/hf); `highlight` on
 KOV-66 (Ante), KOV-69 ($200 LLM), KOV-73 (Evo-Bench). Searched the project by title first — no
 collisions with the 15 existing Ready-to-Review cards or the 5 legacy [Idea] cards.
+
+## 2026-08-11 06:12 UTC — daily — ok
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss, websearch | 0 | websearch | no in-window Product/Engineering/Research/Publication/Release item confirmed — WebSearch surfaced Astra (Aug 1), GPT-5.6 (Aug 4), ChatGPT Work/Codex (Aug 6), all predate window |
+| anthropic | fetch | 0 | fetch | WebFetch of anthropic.com/news confirms latest post still Aug 7 (Fable 5 biology safeguards), predates window |
+| google-deepmind | rss, websearch | 0 | websearch | RSS 304 not modified; WebSearch's only lead (Pichai/Hassabis/Dean leadership post, "The next chapter of our AI momentum") is dated Aug 5 on blog.google — predates window and is off the configured deepmind.google/blog source anyway |
+| google-research | rss, websearch | 0 | websearch | RSS 304 not modified; latest post (Science One Framework) Jul 30, predates window |
+| microsoft | rss, websearch | 0 | websearch | RSS 304 not modified; no Research-blog post newer than Aug 3 confirmed |
+| nvidia | rss, websearch | 0 | websearch | RSS 304 not modified; developer.nvidia.com posts found (Alpamayo 2 Super, Kubernetes-on-shared-GPU, World Action Models, Vera Storage) all Aug 3–4, predate window |
+| xai | jina | 0 | jina | curl r.jina.ai clean 200 this time (no Cloudflare challenge); full news list confirms latest post "Imagine Image 2.0" Aug 7, predates window |
+| mistral | rss, websearch | 0 | websearch | RSS 304 not modified; only dated lead (Shieldstral) is Aug 4, predates window |
+| huggingface | rss, websearch | 0 | websearch | RSS 304 not modified (deterministic signal trusted over WebFetch); WebFetch surfaced 3 Aug-10 posts but one is the Meta Muse Glimmer story already owned by today's radar run, the other two (NVIDIA Magpie TTS, Multiverse Computing distillation) are guest posts with no clear company-channel ownership — not carried as company items given the RSS 304 |
+| cursor | rss, websearch | 0 | websearch | RSS 304 not modified; WebFetch of the changelog confirms latest entry Aug 3 (Google Workspace Plugins), predates window |
+| perplexity | jina, websearch | 0 | jina→websearch | anonymous Jina hit AbuseAlleviationError 403 again (same as 2026-08-10); WebSearch's only Aug lead (Aug 6 update) predates window |
+
+Totals: 0 items, 0 companies fresh, 1 error (11 gap-scrapes attempted, all empty in-window;
+Perplexity's Jina call hit the same anonymous-abuse 403 as yesterday — a transport error, not a
+content finding).
+
+Note: second fully quiet day in a row across all 11 companies (following 2026-08-10) — the
+window (since 2026-08-10T04:12 UTC, script-computed) sits between two clusters of activity:
+several companies' most recent posts land Aug 3–7 (just before the window opens), and today's
+big AI story (Meta's Muse Glimmer release) belongs to a company outside this list and was
+already captured by the daily radar run.
+
+Linear: skipped (0 new stories — nothing to card).
