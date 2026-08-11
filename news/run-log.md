@@ -407,3 +407,74 @@ Linear: skipped (0 new stories — nothing to card).
 Project "Radar" checked: 0 cards with `hot` label (15 in Ready to Review, 5 legacy [Idea] cards
 in Todo — none approved). Review queue is fresh (created today 05:22 UTC), owner has not triaged
 yet. No research, no files written, no card moves. Exiting quietly per workflow.
+
+## 2026-08-11 05:14 UTC — radar — ok
+
+Window: since 2026-08-10T03:06 UTC (fetch_radar.py, ~26h default). `fetch_radar.py` ran clean
+(exit 0); all 7 `yt-*` sources (ai-engineer, gpu-mode, karpathy, latent-space, mlst, sentdex,
+umar-jamil) returned HTTP 404 on their `youtube.com/feeds/videos.xml` URLs today — confirmed via
+direct curl (not a per-channel issue, looks like a platform-side change to that endpoint). No
+gap-scrape ladder for radar sources per workflow — logged, moved on, zero youtube items today.
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | — |
+| inference-infra | 0 | 0 | — |
+| oss-ml-systems | 3 | 3 | — |
+| bigtech-eng | 2 | 0 | — |
+| research-institutes | 0 | 0 | — |
+| technical-newsletters | 1 | 1 | — |
+| practitioner-blogs | 1 | 0 | — |
+| youtube | 0 | 0 | 7 sources HTTP 404 |
+| community | 58 | 10 | — |
+| mistral-watch | 0 | 0 | — |
+| **Total** | **65** | **14** | **7 source errors** |
+
+**Triage detail.** The day was dominated by one story: Meta released **Muse Glimmer**, a 30B
+dense open-weight (Apache 2.0) multimodal model built for local agentic workflows — it drove
+SGLang day-0 support, PyTorch/ExecuTorch on-device support, a vLLM release cycle, an official-style
+Reddit announcement, and most of today's 25 raw r/LocalLLaMA candidates. Kept 3 ecosystem-support
+angles (SGLang, ExecuTorch, the anchor announcement post) plus 2 hands-on hardware-fit reports
+(RTX 3090 fit, 1M-context-in-24GB); dropped ~16 other Muse-Glimmer reddit threads as thin
+appreciation/hype/question posts (no real technical content beyond "I tried it and here's my
+vibe") or as duplicates of an already-kept item (e.g. the Unsloth GGUF Reddit repost duplicates
+the `hf-trending-models` entry for the same resource).
+
+Dropped explicitly per workflow rules: `github-ai`'s "GitHub Copilot SDK for Java" post
+(tutorial-grade Copilot education); `cloudflare-ai`'s "Agents Week" recap (verified via WebFetch —
+20+ initiatives, one sentence each, no architecture/benchmarks — marketing recap, not engineering
+content); `interconnects`' "5 useful things from my post-training textbook" (verified via WebFetch
+— confirmed primarily a book-promo post, chapter summaries only, "reserves technical explanation
+for the book"); `smolai`'s "not much happened today" (explicit skip rule). Off-topic HN Show-HN
+noise (climbing-gym photogrammetry, a word game, a murder-mystery voice app) dropped as
+non-AI/consumer-app. `hf-trending-spaces` (4 items: two AI-humanizer/detector spaces, two thin
+demo spaces) dropped — no summary content, can't confirm real substance. `github-trending` kept
+only `paperclipai/paperclip` (agent-orchestration platform); dropped MediaCrawler (general
+scraper, not AI-specific), RuView (RF/hardware sensing, not LLM/agent), LifeOS (personal-productivity
+app, weaker fit than paperclip), and firecrawl (established tool resurfacing on trending, same
+"not fresh" call as ComfyUI on 2026-08-10).
+
+**Highlight verification** (budget: up to 5). `cactuscompute.com/needle` (Needle2) — both WebFetch
+(EGRESS_BLOCKED) and curl retry (CONNECT tunnel 403) failed; kept as a regular item on its
+substantive HN feed-body text (14MB/45M-param/2-bit specifics), out of highlight consideration
+per workflow. `AntigmaLabs/ante` — verified via `git clone`: real alpha-stage Rust coding-agent
+harness, binary-only by design, publishes its own Terminal-Bench numbers — passed. Reddit's
+"$200 1B LLM from scratch" and "GGUF quant comparison" — direct curl hit the same Cloudflare
+JS-challenge 403 seen on 2026-08-09/08-10 (systemic, not per-post); both confirmed instead on
+their own detailed feed-body methodology text, consistent with the 2026-08-09 precedent for
+curl-blocked Reddit items. `huggingface.co/papers/2608.09096` (Evo-Bench) — verified via WebFetch:
+real benchmark methodology (fixed policy model + evolver LLM, budgeted iterations), github repo
+in the source metadata (RUCAIBox/Evo-Bench) though not visible on the fetched page itself.
+`blog.cloudflare.com` Agents Week — verified and dropped (see above), so not spent as a highlight.
+
+3 top picks marked `highlight`: Ante (coding-agent harness — directly in the "agent harnesses"
+HIGH-fit lane, and adjacent to this project's own harness), Evo-Bench (agent-harness-evolution
+research, same lane), "$200 1B LLM from scratch" (fully reproducible train-from-scratch recipe
+with a real cost number — strong `project_post` seed). Spread: oss-ml-systems untouched by
+highlights today (solid but institutional/expected content), community carries all 3.
+
+Linear: 14 review-queue cards created in project "Radar" (team Kovalevgr), status "Ready to
+Review" — KOV-61 through KOV-74. Priorities by fit (HIGH→High, MEDIUM→Medium; no LOW-fit survivors
+today). Source labels applied per item (blog/github/newsletter/hn/reddit/hf); `highlight` on
+KOV-66 (Ante), KOV-69 ($200 LLM), KOV-73 (Evo-Bench). Searched the project by title first — no
+collisions with the 15 existing Ready-to-Review cards or the 5 legacy [Idea] cards.
