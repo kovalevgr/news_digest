@@ -506,3 +506,84 @@ big AI story (Meta's Muse Glimmer release) belongs to a company outside this lis
 already captured by the daily radar run.
 
 Linear: skipped (0 new stories — nothing to card).
+
+## 2026-08-12 05:05 UTC — radar — ok
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | 0 |
+| inference-infra | 0 | 0 | 0 |
+| oss-ml-systems | 3 | 3 | 0 |
+| bigtech-eng | 0 | 0 | 0 |
+| research-institutes | 0 | 0 | 0 |
+| technical-newsletters | 0 | 0 | 0 |
+| practitioner-blogs | 1 | 0 | 0 |
+| youtube | 0 | 0 | 7 (all 7 sources HTTP 404/500) |
+| community | 57 | 12 | 0 |
+| mistral-watch | 0 | 0 | 0 |
+
+Totals: 61 raw candidates, 15 confirmed, 7 source errors (youtube only).
+
+**youtube**: all 7 configured channel feeds (yt-ai-engineer, yt-gpu-mode, yt-karpathy,
+yt-latent-space, yt-mlst, yt-umar-jamil → HTTP 404; yt-sentdex → HTTP 500) failed today —
+systemic, not per-channel; no fallback ladder for radar per workflow, logged and moved on.
+
+**oss-ml-systems** (3/3 confirmed): SGLang's day-0 Nemotron 3.5 Lightning support and vLLM
+v0.27.1 are routine-release items (MEDIUM fit). Unified Radix Cache — verified via WebFetch:
+substantial systems writeup (component-based radix tree unifying full/SWA/Mamba prefix reuse,
+multi-tier GPU/host/L3 caching, concrete DeepSeek-V4-Flash and SWE-bench numbers) — HIGH fit,
+marked `highlight`.
+
+**practitioner-blogs** (0/1 confirmed): Latent.Space's Chai Discovery BioAI interview cleared
+pass 1 (real content) but dropped in pass 2 — biotech/protein-design angle sits outside
+`config/interests.md`'s HIGH/MEDIUM lanes, and today's community volume already filled the
+≤15/day budget with stronger owner-fit items.
+
+**community** (12/57 confirmed) — heaviest-volume category today (Reddit r/LocalLLaMA alone
+had 25 fresh items, a big Local-LLaMA news day). Triage dropped, in order: two items already
+covered in this week's radar (`cactuscompute.com/needle` Needle2 and `AntigmaLabs/ante`, both
+2026-08-10 — re-surfaced today via different HN "Show HN" queries, same URLs, skipped as
+duplicates); off-topic HN "Show HN" false positives from broad query terms (TermDOM — a
+terminal-DOM library, not AI; a climbing-gym photogrammetry tour) — not real AI content, dropped;
+novelty/gimmick posts (AI Pulse LED-strip macOS dock indicator; thin protocol pitch `ojcp.dev`,
+11 pts) — dropped for weak signal; policy/business content (EU AI-content-transparency signing)
+— company-news territory, not radar; marketplace/anecdote/rumor/meme Reddit threads (hardware
+for-sale, "fgn manifesto" hype, VRAM-poor discussion, 8B-12B-dropped discussion, Rubin Ultra
+memory rumor, Qwen-3.8 "coming this week" rumor, thin "all tests passed" Muse Glimmer repost,
+duplicate HF-model-page repost of the already-covered Nemotron model) — dropped, no concrete
+technique/release; a `stolen-thoughts.com`/Reddit reasoning-trace-extraction pair judged same
+story — kept the higher-signal HN item (558 pts), dropped the Reddit repost as duplicate angle;
+a second Muse-Glimmer-vs-Qwen coding-specific benchmark thread judged same story as the broader
+3-way local benchmark — kept the broader one, dropped the narrower repost; thin HF-trending
+model/space entries (video-gen model, LoRA demo space, one NSFW image space) — LOW fit
+(robotics/3D/video per interests.md), dropped; GitHub-trending mirror items (non-AI false
+positives `nvm-sh/nvm`, `3b1b/manim`, `cathrynlavery/diagram-design`; `anthropics/skills` judged
+company-core territory not radar signal; `HKUDS/DeepTutor` — no reliable freshness signal from
+this no-pubDate mirror source) — dropped for the day given stronger candidates elsewhere.
+
+VERIFY SUBSTANCE (5 highest-scored candidates): `trycua/cua` GPU-passthrough post — verified via
+`git clone`: detailed, reproducible Metal-capability-shim writeup with raw benchmark logs
+(11–16× llama.cpp speedup on M1 Ultra) — passed, `highlight`. `activeing123/mcptoon` — verified
+via `git clone`: real, working MCP-token-compaction CLI with concrete before/after token counts
+— passed, `highlight`. `lmsys.org` Unified Radix Cache — verified via WebFetch (see
+oss-ml-systems above) — passed, `highlight`. Reddit "Revision Prompting" — curl hit the same
+Cloudflare JS-challenge as prior days; confirmed instead on the feed's own detailed body text
+(explains the diff-based patch mechanism, external write-up link) — passed verification, not
+selected for one of the 3 highlight slots. `stolen-thoughts.com` "Stealing Reasoning Traces" —
+WebFetch EGRESS_BLOCKED, curl 403 tunnel fail, and news.ycombinator.com itself also
+EGRESS_BLOCKED — no transport worked and the HN API metadata carries no body text; kept as a
+regular (title-only, explicitly flagged unverified) radar item per workflow, out of highlight
+consideration.
+
+3 top picks marked `highlight`: Cua's macOS-VM Metal-capability shim (directly actionable on the
+owner's own Mac, reproducible with published scripts/logs — strongest `project_post` seed today),
+mcptoon (MCP-ecosystem tool, trivial to try in the owner's own agent setup), Unified Radix Cache
+(deepest systems-engineering content of the day, `tech_explainer` seed). Spread: mistral-watch,
+lab-engineering, inference-infra, bigtech-eng, research-institutes and technical-newsletters were
+silent today (0 raw candidates each).
+
+Linear: 15 review-queue cards created in project "Radar" (team Kovalevgr), status "Ready to
+Review" — KOV-75 through KOV-89. Priorities by fit (HIGH→High, MEDIUM→Medium; no LOW-fit
+survivors today). Source labels applied per item (hn/blog/github/reddit/hf/lobsters); `highlight`
+on KOV-76 (Cua), KOV-77 (mcptoon), KOV-78 (Unified Radix Cache). Searched the project by title
+first — no collisions with the 24 existing Ready-to-Review cards or the 5 legacy [Idea] cards.
