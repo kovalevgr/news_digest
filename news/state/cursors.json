@@ -8,21 +8,21 @@
     "last_run": "2026-08-11T06:12:15.487727+00:00"
   },
   "https://deepmind.google/blog/rss.xml": {
-    "etag": "\"Opzp7g\"",
-    "last_run": "2026-08-11T06:12:15.487727+00:00"
+    "etag": "\"b8PfjQ\"",
+    "last_run": "2026-08-12T06:12:02.556697+00:00"
   },
   "https://developer.nvidia.com/blog/feed": {
-    "etag": "\"44812c79911281dc1338de0eebc43a69\"",
-    "last_modified": "Mon, 10 Aug 2026 19:48:05 GMT",
-    "last_run": "2026-08-11T06:12:15.487727+00:00"
+    "etag": "\"6deb45395c44784f24501934bc274563\"",
+    "last_modified": "Tue, 11 Aug 2026 22:32:11 GMT",
+    "last_run": "2026-08-12T06:12:02.556697+00:00"
   },
   "https://huggingface.co/blog/feed.xml": {
-    "etag": "W/\"3c43b-M1tNUOqiEIih5m6mvAs+CrEoKBs\"",
-    "last_run": "2026-08-11T06:12:15.487727+00:00"
+    "etag": "W/\"3c56c-qedi346ph8miRyAzGK4c8NA/RXU\"",
+    "last_run": "2026-08-12T06:12:02.556697+00:00"
   },
   "https://mistral.ai/rss.xml": {
-    "etag": "W/\"62966521ed90cfdc831c5df1e9f59573-ssl-df\"",
-    "last_run": "2026-08-11T06:12:15.487727+00:00"
+    "etag": "W/\"74afbd1dfc55f52583c9a11db5078800-ssl-df\"",
+    "last_run": "2026-08-12T06:12:02.556697+00:00"
   },
   "https://news.microsoft.com/source/feed/": {
     "etag": "W/\"76d6f012764bed16bc53f3ae441962f1\"",
@@ -30,15 +30,15 @@
     "last_run": "2026-08-08T16:27:06.940454+00:00"
   },
   "https://openai.com/news/rss.xml": {
-    "last_run": "2026-08-11T06:12:15.487727+00:00"
+    "last_run": "2026-08-12T06:12:02.556697+00:00"
   },
   "https://research.google/blog/rss/": {
-    "last_modified": "Thu, 30 Jul 2026 20:36:36 GMT",
-    "last_run": "2026-08-11T06:12:15.487727+00:00"
+    "last_modified": "Tue, 11 Aug 2026 17:04:00 GMT",
+    "last_run": "2026-08-12T06:12:02.556697+00:00"
   },
   "https://www.microsoft.com/en-us/research/feed/": {
-    "etag": "\"4c429a6a153efb43d42d30b8f801afdc\"",
-    "last_modified": "Tue, 11 Aug 2026 00:36:33 GMT",
-    "last_run": "2026-08-11T06:12:15.487727+00:00"
+    "etag": "\"cbf065d35adda9ce3ca52fb1db2a094a\"",
+    "last_modified": "Wed, 12 Aug 2026 05:19:34 GMT",
+    "last_run": "2026-08-12T06:12:02.556697+00:00"
   }
 }

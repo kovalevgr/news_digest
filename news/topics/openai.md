@@ -4,10 +4,14 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-08-08
+updated: 2026-08-12
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W33
+
+- **2026-08-11** — [Daybreak models are now available on AWS](https://openai.com/index/daybreak-models-are-now-available-on-aws) — OpenAI and AWS make Daybreak cybersecurity models (Daybreak Blue, Daybreak Red) available through Amazon Bedrock for enterprise security teams.
 
 ## 2026-W32
 

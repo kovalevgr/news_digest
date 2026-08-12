@@ -5,10 +5,14 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-08-08
+updated: 2026-08-12
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W33
+
+- **2026-08-11** — [Thinking of ACE? We Can Do It with Fewer Tokens](https://huggingface.co/blog/ibm-research/altk-evolve-sldd) — IBM Research compares its ALTK-Evolve agentic-memory framework against ACE, reaching comparable-or-better accuracy at 15-40% of ACE's inference token cost.
 
 ## 2026-W32
 

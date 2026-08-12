@@ -587,3 +587,40 @@ Review" — KOV-75 through KOV-89. Priorities by fit (HIGH→High, MEDIUM→Medi
 survivors today). Source labels applied per item (hn/blog/github/reddit/hf/lobsters); `highlight`
 on KOV-76 (Cua), KOV-77 (mcptoon), KOV-78 (Unified Radix Cache). Searched the project by title
 first — no collisions with the 24 existing Ready-to-Review cards or the 5 legacy [Idea] cards.
+
+## 2026-08-12 06:12 UTC — daily — ok
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss | 1 | - | - |
+| anthropic | fetch | 0 | fetch | latest post still Aug 7 (Fable 5 biology safeguards), predates window |
+| google-deepmind | rss, fetch | 0 | fetch | RSS empty; direct fetch of deepmind.google/blog confirms latest post still WeatherNext (Aug 6, already captured), predates window |
+| google-research | rss | 1 | - | - |
+| microsoft | rss | 1 | - | - |
+| nvidia | rss | 3 | - | - |
+| xai | jina | 1 | jina | anonymous Jina clean 200, no 403 — confirmed "Introducing Grok Bot" |
+| mistral | rss | 1 | - | - |
+| huggingface | rss | 1 | - | - |
+| cursor | rss (timeout), fetch | 0 | fetch | RSS: `_ssl.c:999` handshake timeout on cursor.com/changelog/rss.xml; direct fetch of cursor.com/changelog confirms latest entry still Aug 3 (Google Workspace Plugins), predates window |
+| perplexity | jina | 0 | jina | anonymous Jina hit AbuseAlleviationError 403 again (no JINA_API_KEY set); WebSearch corroborates latest post still Aug 6 (Computer for Builders), already captured, predates window |
+
+Totals: 9 items, 7 companies fresh, 0 errors (5 gap-scrapes attempted, 1 confirmed hit — xai
+Grok Bot — 4 came up empty in-window; cursor's RSS transport error was resolved via one direct
+fetch of the changelog page, confirming no in-window entry rather than leaving it unconfirmed).
+
+NVIDIA's developer.nvidia.com/blog fed 3 distinct genuine posts today (Nemotron 3.5 Lightning
+model release, NeMo Switchyard routing SDK, JetPack 7.2.1) — all kept per the "genuine
+announcements/major posts" trap-note bar, none were tutorial filler.
+
+Window: since last successful daily run (2026-08-11 06:12 UTC).
+
+Note: session started on a detached HEAD identical to `origin/main` (df39235); stashed the
+in-progress `cursors.json` update from the TIER-1 fetch, checked out `main` (fast-forwarded 13
+commits — yesterday's radar run + workflow.md rewrite), then reapplied the stash — no data lost.
+
+Linear: 9 issues created (KOV-90..KOV-98), all new stories, none duplicate (searched project
+"News digest" by URL/title first, no matches found). Priorities: High — Mistral sovereign-AI
+initiative, NVIDIA Nemotron 3.5 Lightning, xAI Grok Bot; Medium — OpenAI Daybreak/AWS, Google
+Research AMIE video, Microsoft CARE-X, NVIDIA NeMo Switchyard, Hugging Face ALTK-Evolve; Low —
+NVIDIA JetPack 7.2.1. Type labels: business, research (x3), infra (x2), model-release, product
+(x2).

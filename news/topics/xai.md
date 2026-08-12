@@ -4,10 +4,14 @@ aliases:
   - Grok
 sources:
   - https://x.ai/news
-updated: 2026-08-08
+updated: 2026-08-12
 ---
 
 MOC page for **xAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W33
+
+- **2026-08-11** — [Introducing Grok Bot](https://x.ai/news/introducing-grok-bot) — xAI launches Grok Bot, AI teammates with their own cloud computer that log into existing tools and run multi-step jobs end-to-end, in beta for SuperGrok Heavy and Cursor Ultra/Teams Premium subscribers.
 
 ## 2026-W32
 
