@@ -624,3 +624,101 @@ initiative, NVIDIA Nemotron 3.5 Lightning, xAI Grok Bot; Medium — OpenAI Daybr
 Research AMIE video, Microsoft CARE-X, NVIDIA NeMo Switchyard, Hugging Face ALTK-Evolve; Low —
 NVIDIA JetPack 7.2.1. Type labels: business, research (x3), infra (x2), model-release, product
 (x2).
+
+## 2026-08-13 05:06 UTC — radar — ok
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | 0 |
+| inference-infra | 0 | 0 | 0 |
+| oss-ml-systems | 1 | 1 | 0 |
+| bigtech-eng | 1 | 0 | 0 |
+| research-institutes | 0 | 0 | 0 |
+| technical-newsletters | 0 | 0 | 0 |
+| practitioner-blogs | 1 | 1 | 1 (hamel XML parse error) |
+| youtube | 0 | 0 | 7 (all 7 sources HTTP 404/500) |
+| community | 47 | 10 | 0 |
+| mistral-watch | 0 | 0 | 0 |
+
+Totals: 50 raw candidates, 12 confirmed, 8 source errors (hamel XML parse + 7 youtube).
+
+**youtube**: same systemic failure as prior days (yt-ai-engineer, yt-gpu-mode, yt-latent-space,
+yt-mlst, yt-umar-jamil → HTTP 404; yt-karpathy, yt-sentdex → HTTP 500) — no fallback ladder for
+radar sources, logged and moved on.
+
+**bigtech-eng** (0/1 confirmed): GitHub blog's "Write your first prompt with the GitHub Copilot
+app" is tutorial-grade Copilot education — explicit pass-1 drop per workflow.
+
+**practitioner-blogs** (1/1 confirmed, 1 error): `hamel.dev`'s feed hit an XML parse error
+("junk after document element") — logged, no fallback ladder for radar, moved on. Interconnects'
+"I wrote an AI textbook" essay cleared pass 1 but is general capability-trajectory reflection
+rather than one of `config/interests.md`'s HIGH/MEDIUM lanes — kept as a LOW-fit item (still
+radar-file-worthy, not review-queue highlight).
+
+**oss-ml-systems** (1/1 confirmed): SGLang+Miles day-0 support for Qwen3.8-2.4T-A95B — verified
+via WebFetch: substantial systems writeup (hybrid-state handling for KV cache/GDN/conv windows,
+ReplaySSM for speculative-decode recovery, prefill-decode disaggregation) with concrete GB300
+numbers (5,126 tok/s/GPU peak, 334 tok/s low-latency, 346 tok/s w/ MTP) — HIGH fit, `highlight`.
+
+**community** (10/47 confirmed) — Reddit r/LocalLLaMA again heaviest (25 fresh; the whole sub is
+mid Qwen3.8-2.4T-A95B release-day hype). Triage dropped, in order: pure hype/rumor/poll threads
+about the Qwen3.8 release date and sizes (6 threads: "release date took down?", "MTP or DFlash?",
+"which size do you want most", "exact release date and time", "final countdown", "How do you plan
+to run it locally?") — no technique, discussion-only, dropped; the bare "Qwen3.8-2.4T-A95B
+Released" repost and the matching HF-trending-models leaderboard entry — same story as the
+SGLang/Miles day-0 post above (which carries far more technical detail), dropped as duplicate
+angle; NVIDIA Nemotron-3.5-Lightning-NVFP4 HF-trending entry — same story already covered in
+`topics/nvidia.md` (2026-08-11) and `radar/oss-ml-systems.md`'s day-0 SGLang post, dropped per
+"already covered in a company topics file"; `inclusionAI/Ling-3.0-tiny` and
+`endless-frontier/BigBang-v1` HF-trending entries — no model-card text available from the
+adapter, too thin to write an honest card, dropped; two "reasoning trace stealing" repost/meme
+threads ("All your reasoning are belong to us", "Hidden Reasoning from Claude and GPT are
+Decoded") — same story as `stolen-thoughts.com` already in this week's radar, dropped as
+duplicate; `DeepSeek V4 Flash 0731 uncensored (jailbreak pt2)` — jailbreak content, off-focus for
+`config/interests.md`, dropped; `LFM2.5-VL-3B recognizes Steve from Minecraft` and the matching
+bare `LiquidAI/LFM2.5-VL-3B` HF-page repost — cute demo, no real technique/numbers beyond timing,
+dropped as gimmick; `CohereLabs/North-Micro-Vision-Instruct` — thin HF-model-card repost, no
+independent commentary, dropped (same pattern as prior days); two NVIDIA RTX PRO 6000 price-hike
+posts (duplicates of each other) and the AMD/Arm/Microsoft CPU:GPU-ratio conference-punditry
+post — hardware-market/business analysis, explicit LOW bucket in `config/interests.md`, no
+benchmark/release/technique, dropped; `RAG for regular users?` (help-request thread) and `FYI:
+Muse Glimmer Chat Template Got Updated` (too thin, no real change described) — dropped; `Today is
+Models Day` — meme, dropped. HN Show-HN false positives from broad query terms: `Woxi`
+(Mathematica/Wolfram reimplementation — not AI, matched on "inference" query) appeared twice
+(hn-show-inference, hn-show-rag), dropped both; `Tokyo Trains` (a Claude-built 3D map demo, no
+AI-technique content) and `OJCP` (thin agent-data protocol pitch, 11 pts — dropped again, same as
+2026-08-12) — dropped. `Ballet` (workflow-automation HN post, 26 pts, no body text to verify
+against) — too thin to confirm, dropped. Lobsters' `blog.comma.ai/chestnut` ("Introducing
+chestnut", score 1) — both WebFetch and curl hit EGRESS_BLOCKED/403 on blog.comma.ai, and the
+feed carried no summary text at all (unlike prior title-only keeps such as `stolen-thoughts.com`
+or `ngrok.com`, which had a legible AI-relevant title) — dropped rather than write an
+unsubstantiated card, per "never invent facts."
+
+VERIFY SUBSTANCE (5 highest-scored candidates): `lmsys.org` SGLang/Miles Qwen3.8 day-0 post —
+verified via WebFetch (see oss-ml-systems above) — passed, `highlight`. Reddit "Meta's Muse
+Glimmer 30B now runs up to ~3.3x faster on Mac with mlx-dspark" — reddit `.json` curl hit HTTP
+403 (Cloudflare); confirmed instead on the feed's own detailed body text (concrete before/after
+tok/s, per-domain speedup multipliers, byte-identical-output claim) — passed, `highlight`.
+`Spark-to-Paper` (hf-daily-papers, 33 upvotes) — verified via `git clone` of
+`spark-to-paper-skills`: real, substantial 14-skill Claude Code pipeline (LaTeX build, citation
+verification, figure engine, deterministic gates), MIT-licensed, 7 showcased generated papers —
+passed, not selected for a highlight slot. `stablyai/orca` — verified via `git clone`: real,
+actively developed desktop agent-orchestrator app (parallel git-worktree agents, mobile
+companion, Design Mode) — passed, not selected for a highlight slot. `Tura-AI/tura` (Show HN, 11
+pts) — verified via `git clone`: real MIT-licensed agent-runtime harness with published DeepSWE
+v1.1 benchmark artifacts (77.5% fewer tokens vs Codex CLI at comparable success rate, or +16.7pp
+success rate at 31.1% fewer tokens) — passed, `highlight`.
+
+3 top picks marked `highlight`: SGLang/Miles day-0 Qwen3.8 support (deepest systems-engineering
+content of the day, directly tied to the release the whole community is reacting to —
+`tech_explainer` seed), Tura-AI/tura (concrete, reproducible token-reduction benchmark, trivial to
+try in the owner's own agent setup via npm — strongest `project_post` seed today), Muse Glimmer
+mlx-dspark speedup (author's own OSS project, directly reproducible on the owner's own Mac
+hardware). Spread: lab-engineering, inference-infra, research-institutes, technical-newsletters
+and mistral-watch were silent today (0 raw candidates each).
+
+Linear: 12 review-queue cards created in project "Radar" (team Kovalevgr), status "Ready to
+Review" — KOV-99 through KOV-110. Priorities by fit (HIGH→High ×6, MEDIUM→Medium ×5, LOW→Low
+×1). Source labels applied per item (blog/hn/reddit/hf/github); `highlight` on KOV-99
+(SGLang/Miles Qwen3.8), KOV-101 (Tura), KOV-102 (Muse Glimmer mlx-dspark). Searched the project by
+title first — no collisions with the 41 existing cards across all states.
