@@ -760,3 +760,9 @@ announcements, none rising to a major model/product launch or major org news). T
 product ×2 (Google DeepMind SL2T, HF OlmoEarth embeddings), research ×2 (Google Research
 parametric-factuality, Microsoft MindTopo), infra ×1 (NVIDIA Qwen3.8 GB300 serving),
 model-release ×1 (HF LFM2.5-VL-3B).
+
+## 2026-08-13 07:02 UTC — deep-dive — ok (no approved cards)
+
+Searched project "Radar" for cards with label `hot` in status "Ready to Review", then the
+Todo fallback, then all states as a sanity check — zero hot cards anywhere in the project.
+No cards processed, no files written, no leftovers. Exiting quietly per workflow.
