@@ -5,10 +5,14 @@ aliases:
   - Gemini
 sources:
   - https://deepmind.google/blog/rss.xml
-updated: 2026-08-07
+updated: 2026-08-13
 ---
 
 MOC page for **Google DeepMind** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W33
+
+- **2026-08-12** — [Putting sign language AI into users' hands](https://deepmind.google/blog/putting-sign-language-ai-into-users-hands/) — Google DeepMind introduces SL2T, an on-device sign-language-to-text model now powering Gboard/Live Transcribe on Pixel 11, trained on 100,000+ hours across 50+ sign languages.
 
 ## 2026-W32
 

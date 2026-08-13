@@ -5,13 +5,15 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-08-12
+updated: 2026-08-13
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W33
 
+- **2026-08-12** — [LFM2.5-VL-3B for Better and Faster Vision Capabilities for the Edge](https://huggingface.co/blog/LiquidAI/lfm2-5-vl-3b) — Liquid AI releases LFM2.5-VL-3B, a 3.1B-parameter vision-language model for edge deployment with strong screen/UI understanding and 228 tok/s on M5 Max.
+- **2026-08-12** — [Introducing OlmoEarth embeddings: Custom embedding exports from OlmoEarth Studio for downstream analysis](https://huggingface.co/blog/allenai/olmoearth-embeddings) — Allen AI adds custom embedding exports (Nano/Tiny/Base encoders) to OlmoEarth Studio for downstream satellite-imagery analysis.
 - **2026-08-11** — [Thinking of ACE? We Can Do It with Fewer Tokens](https://huggingface.co/blog/ibm-research/altk-evolve-sldd) — IBM Research compares its ALTK-Evolve agentic-memory framework against ACE, reaching comparable-or-better accuracy at 15-40% of ACE's inference token cost.
 
 ## 2026-W32

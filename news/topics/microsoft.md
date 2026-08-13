@@ -5,13 +5,14 @@ aliases:
   - Copilot
 sources:
   - https://news.microsoft.com/source/feed/
-updated: 2026-08-12
+updated: 2026-08-13
 ---
 
 MOC page for **Microsoft** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W33
 
+- **2026-08-12** — [MindTopo reveals VLMs' spatial reasoning abilities](https://www.microsoft.com/en-us/research/blog/mindtopo-reveals-vlms-spatial-reasoning-abilities/) — Microsoft Research introduces MindTopo, a benchmark for topological (non-Euclidean) spatial reasoning in VLMs; models lag well behind humans, especially on interactive planning.
 - **2026-08-11** — [Introducing CARE-X: Towards Clinically Useful Radiology VLMs with Auxiliary Supervision, Reward-Aligned Learning, and Tool-Augmented Measurement](https://www.microsoft.com/en-us/research/blog/introducing-care-x-towards-clinically-useful-radiology-vlms-with-auxiliary-supervision-reward-aligned-learning-and-tool-augmented-measurement/) — Microsoft Research introduces CARE-X, a unified vision-language model for chest X-ray interpretation reaching first place on the ReXVQA leaderboard.
 
 ## 2026-W32

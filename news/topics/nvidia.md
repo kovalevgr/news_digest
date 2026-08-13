@@ -4,13 +4,14 @@ aliases:
   - Nvidia
 sources:
   - https://blogs.nvidia.com/feed/
-updated: 2026-08-12
+updated: 2026-08-13
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W33
 
+- **2026-08-12** — [Serve Qwen3.8-2.4T-A95B, a 2.4T-Parameter Model, with Configurable Reasoning on NVIDIA GB300 NVL72](https://developer.nvidia.com/blog/serve-qwen3-8-2-4t-a95b-a-2-4t-parameter-model-with-configurable-reasoning-on-nvidia-gb300-nvl72/) — NVIDIA details day-0 serving of Alibaba's Qwen3.8-2.4T-A95B (its largest open-weight model) on GB300 NVL72, reaching 4K+ tok/s per GPU in FP8.
 - **2026-08-11** — [NVIDIA Nemotron 3.5 Lightning Delivers Fast, Accurate Specialized Task Execution for Long-Running Agents](https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/) — NVIDIA releases Nemotron 3.5 Lightning, an open-weight 30B (3B-active) MoE model built for the fast execution layer of long-running agents.
 - **2026-08-11** — [Route AI Agent Workloads Across Models with NVIDIA NeMo Switchyard](https://developer.nvidia.com/blog/route-ai-agent-workloads-across-models-with-nvidia-nemo-switchyard/) — NVIDIA open-sources NeMo Switchyard, a provider-agnostic SDK routing agent workloads across models by capability, cost, and infra signals.
 - **2026-08-11** — [NVIDIA JetPack 7.2.1 Adds Agentic Video Skills and T3000 Emulation](https://developer.nvidia.com/blog/nvidia-jetpack-7-2-1-adds-agentic-video-skills-and-t3000-emulation/) — NVIDIA releases JetPack 7.2.1 for Jetson, adding an agentic video-skills layer and T3000-performance emulation on Thor AGX T5000.

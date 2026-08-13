@@ -722,3 +722,41 @@ Review" — KOV-99 through KOV-110. Priorities by fit (HIGH→High ×6, MEDIUM�
 ×1). Source labels applied per item (blog/hn/reddit/hf/github); `highlight` on KOV-99
 (SGLang/Miles Qwen3.8), KOV-101 (Tura), KOV-102 (Muse Glimmer mlx-dspark). Searched the project by
 title first — no collisions with the 41 existing cards across all states.
+
+## 2026-08-13 06:20 UTC — daily — ok
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss | 0 | - | - |
+| anthropic | fetch | 0 | fetch | latest post still Aug 7 (Fable 5 biology safeguards), predates window |
+| google-deepmind | rss | 1 | - | - |
+| google-research | rss | 1 | - | - |
+| microsoft | rss | 1 | - | - |
+| nvidia | rss | 1 | - | - |
+| xai | jina, websearch | 0 | jina (401 invalid key), websearch | JINA_API_KEY present but rejected (401 AuthenticationFailedError, not the usual anonymous 403) — worth rotating the key; WebSearch turned up only stale/speculative third-party aggregator content (Grok 4.6, Voice Think Fast 2.0) with no dated primary x.ai URL in-window, so no item added |
+| mistral | rss | 0 | - | - |
+| huggingface | rss | 2 | - | - |
+| cursor | rss | 0 | fetch | direct fetch of cursor.com/changelog confirms latest entry still Aug 3 (Google Workspace Plugins), predates window |
+| perplexity | jina, websearch | 0 | jina (401 invalid key), websearch | same JINA_API_KEY 401 as xai; WebSearch turned up only undated/speculative aggregator content (Personal Computer, Comet Enterprise), no primary hub.perplexity.ai post confirmed in-window — no item added |
+
+Totals: 6 items, 5 companies fresh, 0 errors (5 gap-scrapes attempted — anthropic/cursor via
+direct fetch (both predate window, confirmed), xai/perplexity via Jina-then-WebSearch (Jina hard
+401'd on both — API key present but invalid, distinct from the usual anonymous AbuseAlleviation
+403 — flagging for the owner to check/rotate JINA_API_KEY; WebSearch found no dated primary-source
+announcement for either company in-window), mistral needed no gap-scrape (rss ran clean, 0 in
+window, Aug 11 sovereign-AI post already captured yesterday)).
+
+NVIDIA developer blog surfaced 2 posts; kept the Qwen3.8-2.4T-A95B GB300 serving write-up
+(genuine technical content tied to Alibaba's day-0 open-weight release) and dropped "How to
+Choose Full-Stack Observability for NVIDIA AI Factories" as a generic best-practices guide, not
+an announcement — per the NVIDIA trap note ("keep only genuine announcements/major posts, not
+every tutorial").
+
+Window: since last successful daily run (2026-08-12 06:12 UTC).
+
+Linear: 6 issues created (KOV-111..KOV-116), all new stories, none duplicate (searched project
+"News digest" by title/URL first, no matches found). All Medium priority (regular technical
+announcements, none rising to a major model/product launch or major org news). Type labels:
+product ×2 (Google DeepMind SL2T, HF OlmoEarth embeddings), research ×2 (Google Research
+parametric-factuality, Microsoft MindTopo), infra ×1 (NVIDIA Qwen3.8 GB300 serving),
+model-release ×1 (HF LFM2.5-VL-3B).
