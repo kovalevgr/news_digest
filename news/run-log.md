@@ -766,3 +766,83 @@ model-release ×1 (HF LFM2.5-VL-3B).
 Searched project "Radar" for cards with label `hot` in status "Ready to Review", then the
 Todo fallback, then all states as a sanity check — zero hot cards anywhere in the project.
 No cards processed, no files written, no leftovers. Exiting quietly per workflow.
+
+## 2026-08-14 05:24 UTC — radar — ok
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | - |
+| inference-infra | 0 | 0 | - |
+| oss-ml-systems | 1 | 1 | - |
+| bigtech-eng | 0 | 0 | - |
+| research-institutes | 0 | 0 | - |
+| technical-newsletters | 0 | 0 | - |
+| practitioner-blogs | 0 | 0 | - |
+| youtube | 2 (1 fresh source + 3 source errors) | 1 | yt-ai-engineer HTTP 404, yt-gpu-mode HTTP 500, yt-latent-space HTTP 500, yt-umar-jamil HTTP 404 |
+| community | 56 | 12 | see triage below |
+| mistral-watch | 0 | 0 | - |
+
+Totals: 58 raw candidates across all sources, 14 confirmed, 4 youtube source errors (no
+fallback ladder for radar sources per workflow — logged, moved on).
+
+TRIAGE (pass 1 technical bar): heavy community day, driven by yesterday's Qwen3.8 release and
+today's DeepSeek-V4-Pro / DeepSeek Harness launches. Dropped as hype/meme/no-content: 5 separate
+"Qwen3.8-27B countdown" posts (r/LocalLLaMA — no technical content, pure hype), "Is waiting for
+Qwen 3.8 27B like waiting for Star Wars Episode 1?", "OpenAI vs. Anthropic" (rant, no content).
+Dropped as off-topic for a technical radar: "The White House is going to expand its AI policy"
+(policy, not engineering — belongs in company/policy coverage if anywhere, not here). Dropped as
+thin/unsubstantiated (repeat offenders from prior days, same verdict): `OJCP` (agent job-data
+protocol, dropped again — same as 2026-08-12/13), `Ballet` (workflow automation, dropped again —
+too thin, same as 2026-08-13). Dropped as off-topic (not AI/ML): `Woxi` (Wolfram Language
+reimplementation), `Stackdome` (Railway alternative on K8s), `A Rosetta Stone for UI component
+libraries`, `megadose/holehe` and `smicallef/spiderfoot` (OSINT tools, no AI angle),
+`altic-dev/FluidVoice` (macOS dictation app — consumer product, not engineering technique).
+Dropped as low-signal/no-body-text: "Show HN: Posts grew 6x since ChatGPT..." (11 pts, no
+summary). Dropped as secondary aggregation (not a standalone technique/announcement): "Open
+Models - July 2026" monthly roundup. Dropped for LOW owner-fit under volume budget (robotics/3D/
+video/audio-gen — technically clean but off the owner's core interests, and budget was tight
+today): `DreamX-Phi 1.0` (robotic-manipulation world model, 55 upvotes), `PlayWorld` (world-model
+benchmark, 19 upvotes), `MiniMax-Music3` (audio-gen release — 3 duplicate mentions across
+reddit/hf-trending-models/hf-trending-spaces collapsed to one drop), `dots-studio/dots3-note-prev`
+(280B MoE, HF page came back 401/gated — dropped on weak sourcing rather than guess a canonical
+URL). Dropped `MCP-stama` (Rust MCP server, 71 pts but zero comments and empty summary — too thin
+to confirm without spending a verify slot). Dropped as company-topics duplicates (already covered
+there, not re-added to radar per workflow): `cactus-compute/needle` (GitHub-trending repo — same
+project as the Needle2 Show HN post already on the radar 2026-08-10), `unslothai/unsloth`
+(GitHub-trending — same Unsloth Desktop app already on the radar 2026-08-11),
+`NVIDIA-NeMo/Switchyard` (GitHub-trending — already in `topics/nvidia.md` 2026-08-11, linked
+instead of re-added).
+
+VERIFY SUBSTANCE (5 highest-scored candidates): `deepseek-ai/deepseek-harness` — verified via
+`git clone`: real, substantial monorepo (apps/packages/docs/examples), MIT-licensed, Cordis
+plugin architecture, matches the reddit summaries — passed, `highlight`. `DeepSeek-V4-Pro-0813` —
+verified via WebFetch of the HF model page: real 1.7T MoE release, MIT license, concrete
+benchmark numbers (Terminal-Bench 2.1 87.9, Cybergym 83.3, DeepSWE 62.7) — passed, `highlight`.
+Gemma 4 12B Q3 tensor-quant post, "Doom running on an LLM", and the 1.5B shell-command model —
+all three reddit `.json` curls hit HTTP 403 (Cloudflare, consistent with recent days); confirmed
+on each feed entry's own detailed body text per workflow fallback — all three passed on that
+basis, none selected for a highlight slot (Doom-on-LLM was, see below). `fellowgeek/mcp-memory`
+(not one of the 5, but checked anyway given thin auto-fetched summary) — verified via `git
+clone`: real, substantial MCP server (OKF v0.2 + SQLite FTS5), matches the HN title exactly —
+passed.
+
+2 highlight-tier candidates transport-blocked, kept without highlight per workflow: `/show-me`
+agent skill (humanlayer.com — WebFetch egress-blocked, curl hit a 403 tunnel failure) — kept on
+HN submission text only. `yt-mlst` Wyart interview (YouTube page fetch hit a Google bot-check
+redirect) — kept on title/channel only.
+
+3 top picks marked `highlight`: DeepSeek Harness (KOV-125 — first public release of the agent
+harness DeepSeek only referenced obliquely before, directly on the owner's #1 HIGH-interest line;
+`tech_explainer` seed), Doom running on an LLM (KOV-122 — most distinctive "weights as program"
+trick of the day, fully reproducible via the published HF checkpoint; `tech_explainer`/
+`project_post` seed), DeepSeek-V4-Pro-0813 (KOV-124 — today's biggest model release, MIT-licensed,
+Unsloth GGUF quants already up day-0). Spread: lab-engineering, inference-infra, bigtech-eng,
+research-institutes, technical-newsletters, practitioner-blogs and mistral-watch were silent
+today (0 raw candidates each) — an unusually community/agent-heavy day.
+
+Linear: 14 review-queue cards created in project "Radar" (team Kovalevgr), status "Ready to
+Review" — KOV-117 through KOV-130. Priorities by fit (HIGH→High ×9, MEDIUM→Medium ×2, LOW→Low
+×2 — top-heavy today given the DeepSeek/agent-harness/quantization news mix matches
+`config/interests.md`'s HIGH bullets closely). Source labels applied per item (hn ×2, reddit ×6,
+hf ×3, github ×1, blog ×1, youtube ×1); `highlight` on KOV-122, KOV-124, KOV-125. Searched the
+project by title first — no collisions with the 113 existing cards across all states.

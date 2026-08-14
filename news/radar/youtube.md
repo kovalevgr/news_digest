@@ -1,6 +1,6 @@
 ---
 category: youtube
-updated: 2026-08-10
+updated: 2026-08-14
 ---
 
 # Radar: youtube
@@ -14,3 +14,4 @@ Appended by the daily routine under weekly headings; format matches topics files
 - **2026-08-09** — [Guide, Verify, Solve — Anirban Chatterjee, Sonar](https://www.youtube.com/watch?v=03l29gJXpCE) — AI Engineer conference talk proposing a guide/verify/solve pattern for agent problem-solving.
 - **2026-08-09** — [Velocity Sickness: What Happens When Your Whole Team Gets 10x Faster — Matt Dailey, Ref.](https://www.youtube.com/watch?v=Kz4QJmNrVXU) — AI Engineer conference talk on the team and process effects of AI-driven 10x engineering velocity.
 - **2026-08-09** — [Always-on agents run production without the on-call tax — Justin Smith, Resolve AI](https://www.youtube.com/watch?v=vSx5IULvBns) — AI Engineer conference talk on always-on production agents replacing traditional on-call rotations.
+- **2026-08-10** — [AI Is Learning at the Wrong Level of Abstraction — Matthieu Wyart](https://www.youtube.com/watch?v=revreN8LZ_M) — Machine Learning Street Talk interview; verification blocked today (YouTube page fetch hit a bot-check redirect) — title/channel only, content unverified.
