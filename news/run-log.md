@@ -846,3 +846,41 @@ Review" — KOV-117 through KOV-130. Priorities by fit (HIGH→High ×9, MEDIUM�
 `config/interests.md`'s HIGH bullets closely). Source labels applied per item (hn ×2, reddit ×6,
 hf ×3, github ×1, blog ×1, youtube ×1); `highlight` on KOV-122, KOV-124, KOV-125. Searched the
 project by title first — no collisions with the 113 existing cards across all states.
+
+## 2026-08-14 06:19 UTC — daily — ok
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss | 1 | - | - |
+| anthropic | fetch | 0 | fetch | latest post still Aug 7 (Fable 5 biology safeguards), predates window |
+| google-deepmind | rss | 1 | - | - |
+| google-research | rss, websearch | 0 | websearch | latest post still Aug 12 (parametric-factuality), no newer post confirmed in-window |
+| microsoft | rss, websearch | 0 | websearch | latest post still Aug 12 (MindTopo), no newer post confirmed in-window |
+| nvidia | rss | 0 | - | 304 not modified, no gap-scrape needed |
+| xai | jina | 0 | jina | anonymous Jina worked (no 401 this time — JINA_API_KEY still unset); latest post still Aug 12 (Grok 4.6), predates window |
+| mistral | rss | 0 | - | 304 not modified, no gap-scrape needed |
+| huggingface | rss | 1 | - | - |
+| cursor | rss, fetch | 1 | fetch | RSS returned 0 fresh but missed a same-day changelog entry — direct fetch of cursor.com/changelog caught "Cloud Agents Start 3x Faster with Builds" (Aug 13), not yet captured |
+| perplexity | jina | 1 | jina | anonymous Jina worked (no 401/403 this time); found new Aug 13 post not yet captured |
+
+Totals: 6 items, 6 companies fresh, 0 errors (6 gap-scrapes attempted: anthropic via fetch
+(predates window), google-research/microsoft via WebSearch (nothing newer confirmed), xai/
+perplexity via anonymous Jina (worked cleanly this run — no 401/403, unlike 2026-08-13's hard
+401s; JINA_API_KEY remains unset), cursor via direct fetch of the changelog page (RSS missed a
+same-day entry, direct fetch caught it) — nvidia and mistral skipped gap-scrape entirely on a
+clean 304 not-modified from TIER-1).
+
+Window: since last successful daily run (2026-08-13 06:20 UTC).
+
+Note: cursor's RSS feed (cursor.com/changelog/rss.xml) returned 0 fresh candidates for
+"Cloud Agents Start 3x Faster with Builds" (published same day, Aug 13) despite it being live
+on the changelog page — feed lag or a missed entry; worth a spot-check on a future run if the
+pattern repeats.
+
+Linear: 5 issues created (KOV-131..KOV-135), all new stories, none duplicate (searched project
+"News digest" by title/URL first — 50 most recent issues checked, no matches). Priorities: High
+×2 (Google DeepMind Gemini 3.7 Flash — major model release; Perplexity Agent API — major product
+platform shift replacing Sonar), Medium ×3 (OpenAI Ultrafast preview, HF Strands/LeRobot data
+loop, Cursor builds — regular technical announcements). Type labels: model-release ×1 (Gemini 3.7
+Flash), product ×3 (OpenAI Ultrafast, Cursor builds, Perplexity Agent API), infra ×1 (HF Strands/
+LeRobot).

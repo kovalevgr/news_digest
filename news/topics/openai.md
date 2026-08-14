@@ -4,13 +4,14 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-08-12
+updated: 2026-08-14
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W33
 
+- **2026-08-13** — [Previewing Ultrafast mode: GPT-5.6 Sol at up to 14X the speed](https://openai.com/index/previewing-ultrafast) — OpenAI previews Ultrafast, a new API service tier running GPT-5.6 Sol up to 14× faster via Cerebras (up to 750 tok/s), limited preview.
 - **2026-08-11** — [Daybreak models are now available on AWS](https://openai.com/index/daybreak-models-are-now-available-on-aws) — OpenAI and AWS make Daybreak cybersecurity models (Daybreak Blue, Daybreak Red) available through Amazon Bedrock for enterprise security teams.
 
 ## 2026-W32
