@@ -884,3 +884,82 @@ platform shift replacing Sonar), Medium ×3 (OpenAI Ultrafast preview, HF Strand
 loop, Cursor builds — regular technical announcements). Type labels: model-release ×1 (Gemini 3.7
 Flash), product ×3 (OpenAI Ultrafast, Cursor builds, Perplexity Agent API), infra ×1 (HF Strands/
 LeRobot).
+
+## 2026-08-15 05:05 UTC — radar — ok
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | - |
+| inference-infra | 0 | 0 | - |
+| oss-ml-systems | 0 | 0 | vllm-blog URL error: Connection reset by peer |
+| bigtech-eng | 3 | 1 | - |
+| research-institutes | 0 | 0 | - |
+| technical-newsletters | 0 | 0 | - |
+| practitioner-blogs | 1 | 1 | - |
+| youtube | 0 | 0 | yt-ai-engineer HTTP 404, yt-gpu-mode HTTP 404, yt-karpathy HTTP 404, yt-latent-space HTTP 404, yt-mlst HTTP 404, yt-umar-jamil HTTP 404 (yt-sentdex clean, 0 fresh) |
+| community | 49 | 9 | - |
+| mistral-watch | 0 | 0 | - |
+
+Totals: 53 raw candidates across all sources, 11 confirmed, 7 source errors (1 oss-ml-systems,
+6 youtube — no fallback ladder for radar sources per workflow, logged, moved on).
+
+Note: 6 of 7 YouTube sources 404d today (only `yt-sentdex` returned cleanly) — a broader failure
+than the usual 1-2 channel blips seen on prior days; worth a spot-check if it persists tomorrow,
+but per workflow a quiet/erroring radar source is not itself a failure.
+
+TRIAGE (pass 1 technical bar): `bigtech-eng` — kept Cloudflare's MCP traffic-detection post
+(real protocol mechanism); dropped Cloudflare's "Secure all your internal vibe-coded applications"
+(Access-for-Workers feature announcement, marketing copy — "in one click" — no real engineering
+content) and GitHub's "bring your software delivery workflow into GitHub with agent apps" (tutorial-
+grade Copilot/agent-apps product education, explicitly the kind of GitHub content the workflow says
+to drop). `community` — HN Show queries for "RAG" and "MCP" pulled a lot of keyword-coincidence
+noise with no AI content: dropped `sandbox.bio` terminal embed, `LuaCAD` (parametric CAD in Lua),
+`Mininote` (note-taking app), `Rdio` (internet radio suite), `Stackdome` (Railway alternative on
+K8s), `A Rosetta Stone for UI component libraries` (UI-framework mapper) — none AI/ML-related.
+Reddit was dominated by Qwen3.8-27B release-day hype (25 posts, one query): dropped ~20 meme/
+appreciation/pure-hype posts ("IT'S OUT", "Stop shitting on 9B models", benchmark-screenshot posts
+with no technique, poll-results nostalgia, etc.) and kept only the two posts with real technical
+content (Apple Silicon speedup, bitsandbytes quantization tease) plus the model card itself as
+release context. `hf-trending-spaces` — dropped `2i/pornmaster-krea2` (NSFW), two video/image-gen
+demo spaces (`Lightricks/LTX-2.5`, `jimmycarter/krea2-turbo-bbox-canvas` — LOW per interests.md,
+robotics/video-gen), `zai-org/OpenVuln` and `akhaliq/MiniMax-H3-Turbo-Lora` (both too thin — no
+summary beyond the title, not enough to confirm). `github-trending` — dropped `lightningpixel/
+modly` (local image-to-3D desktop app — LOW, robotics/3D). Dropped as duplicate (already on the
+radar from 2026-08-13): `fellowgeek/mcp-memory` (MCP Memory — same URL as KOV-117, caught by both
+file-grep dedup and Linear project search; the source's own dedup cursor resurfaced it, feed
+window issue worth watching but not actionable today). `hf-trending-models`: kept only the base
+`Qwen/Qwen3.8-27B` card as release context; dropped the same-day `unsloth/Qwen3.8-27B-GGUF` and
+`Qwen/Qwen3.8-27B-FP8` quant listings as the same story (quantized artifacts of an already-covered
+release, no independent technique).
+
+VERIFY SUBSTANCE (5 highest-scored candidates): Cloudflare MCP security post — verified via
+WebFetch: real protocol-level detection mechanism (MCP-Protocol-Version / Mcp-Method headers), new
+policy selector, explicit stated limitations (no local stdio, no private-network servers yet) —
+passed, `highlight`. Interconnects GLM-5.3 post — verified via WebFetch: substantive technical
+argument with real benchmark comparisons (GLM-5.3 vs Kimi K3, ~750B vs ~2.2T) and a specific,
+falsifiable claim (post-training execution, not distillation) — passed, `highlight`. NanoRL —
+verified via `git clone`: real ~1,800-line codebase, README backs every claim with numbers (0.391→
+0.609 held-out accuracy, 102K sequences/90min, 0/1,603 batches dropped), 44 CPU tests — passed,
+`highlight`. Apple Silicon mlx-dspark post — reddit `.json` curl hit HTTP 403 (Cloudflare);
+confirmed on the feed's own detailed body text (concrete M4 Pro numbers, byte-identical output) per
+workflow fallback — passed, not selected for a highlight slot (3 slots already used). holaOS —
+verified via `git clone`: real, working open-source project (Electron/TS, CI badge, shared local-
+file memory) but the README itself reads as product marketing (trend badges, Discord/X CTAs, "your
+holaOS plan" language) — kept as a confirmed item, explicitly NOT a highlight per the "not a
+marketing shell" bar.
+
+3 top picks marked `highlight`: Cloudflare MCP security (KOV-136 — concrete, verifiable mechanism
+for the owner's #1 HIGH-interest line, MCP ecosystem, `tech_explainer` seed), GLM-5.3 analysis
+(KOV-137 — Nathan Lambert's specific post-training argument, evals-in-practice angle, `tech_explainer`
+seed), NanoRL (KOV-139 — reproducible RL codebase with code and real numbers, direct `project_post`
+seed — the strongest "own experiment" candidate of the day). Spread: inference-infra, lab-
+engineering, oss-ml-systems, research-institutes, technical-newsletters, youtube and mistral-watch
+were silent today (0 confirmed each).
+
+Linear: 11 review-queue cards created in project "Radar" (team Kovalevgr), status "Ready to
+Review" — KOV-136 through KOV-146. Priorities by fit (HIGH→High ×6, MEDIUM→Medium ×5). Source
+labels applied per item (blog ×2, hn ×3, reddit ×2, hf ×1, github ×3); `highlight` on KOV-136,
+KOV-137, KOV-139. Searched the project first — one collision found and skipped (`fellowgeek/
+mcp-memory`, already KOV-117), no other duplicates against the 46 existing cards checked.
+
+Commit: `news: radar run 2026-08-15 (+11 items, 3 highlights)`.
