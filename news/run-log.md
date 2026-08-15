@@ -963,3 +963,46 @@ KOV-137, KOV-139. Searched the project first — one collision found and skipped
 mcp-memory`, already KOV-117), no other duplicates against the 46 existing cards checked.
 
 Commit: `news: radar run 2026-08-15 (+11 items, 3 highlights)`.
+
+## 2026-08-15 06:20 UTC — daily — ok
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss, websearch, jina(listing) | 0 | websearch, jina | no in-window Product/Engineering/Research/Publication/Release item confirmed on openai.com/news (latest still Aug 13, Builder's guide to GPT-5.6); WebSearch surfaced an IBM strategic-partnership story but no primary openai.com/news/index page could be found to confirm it as a Company-blog item |
+| anthropic | fetch | 1 | - | - |
+| google-deepmind | rss, websearch, direct listing | 0 | websearch, direct fetch | latest post still Aug 13 (Gemini 3.7 Flash, already captured), no newer post confirmed |
+| google-research | rss, websearch, direct listing | 0 | websearch, direct fetch | latest post still Aug 12 (parametric-factuality, already captured), no newer post confirmed |
+| microsoft | rss, websearch, direct listing | 0 | websearch, direct fetch | latest post still Aug 12 (MindTopo, already captured), no newer post confirmed |
+| nvidia | rss, websearch, direct listing | 0 | websearch, direct fetch | latest post still Aug 12 (Qwen3.8 GB300 serving, already captured); one WebSearch hit ("open-models-data-tools-accelerate-ai") verified via WebFetch as a stale Jan 5 2026 article resurfacing in search, correctly excluded |
+| xai | jina | 2 | jina | anonymous Jina worked cleanly (no 401/403 this run; JINA_API_KEY still unset) — found Aug 14 GitHub Copilot integration AND backfilled the Aug 12 Grok 4.6 main release, which the 2026-08-13 run had flagged as an unconfirmed WebSearch-only candidate (Jina 401'd that day) |
+| mistral | rss, websearch, direct listing | 0 | websearch, direct fetch | latest post still Aug 11 (sovereign-AI, already captured), no newer post confirmed |
+| huggingface | rss, direct listing | 1 | direct fetch | RSS reported 0 fresh but the blog's own listing showed an Aug 14 post ("State of Open Models: Summer 2026 Observations") not yet in the feed — direct fetch confirmed and captured it |
+| cursor | rss, fetch | 0 | fetch | direct fetch of cursor.com/changelog confirms latest entry still Aug 13 (Cloud Agents Builds, already captured), predates window |
+| perplexity | jina, websearch | 0 | jina (403 AbuseAlleviation, then 401 bad-IP-reputation on retry), websearch | no JINA_API_KEY; WebSearch turned up only undated/aggregator content, no primary hub.perplexity.ai post confirmed in-window |
+
+Totals: 4 items, 3 companies fresh, 0 errors (11 gap-scrapes attempted — all TIER-1 RSS reported
+zero fresh candidates today, a mistral 304 not-modified aside; anthropic fetch caught a genuine
+new post; xai's anonymous Jina worked cleanly and both confirmed a same-day item and backfilled a
+previously-flagged-unconfirmed one from two days ago; huggingface's own blog listing caught a post
+its RSS feed hadn't surfaced yet; google-deepmind/google-research/microsoft/nvidia/mistral/openai/
+cursor/perplexity all gap-scraped clean with nothing new confirmed in-window).
+
+Window: since last successful daily run (2026-08-14 06:19 UTC).
+
+Note: xAI backfill — "Introducing Grok 4.6" (published 2026-08-12) was noticed via WebSearch in
+the 2026-08-13 run but could not be confirmed then (Jina hard-401'd, no primary x.ai/news URL
+found). Today's anonymous Jina fetch of x.ai/news surfaced it as the primary featured story with a
+confirmed URL and date, so it was added to close the gap rather than left permanently missing —
+flagged explicitly here and in the item line/artifact/Linear card for traceability.
+
+Note: Hugging Face's RSS feed (huggingface.co/blog/feed.xml) reported zero fresh candidates for
+"State of Open Models: Summer 2026 Observations" (published same day, Aug 14) despite it being
+live on the blog listing — same feed-lag pattern seen before with Cursor's changelog RSS; worth a
+spot-check if it recurs.
+
+Linear: 4 issues created (KOV-147..KOV-150), all new stories, none duplicate (searched project
+"News digest" by title first — no matches for "watermark", "Grok 4.6", or "State of Open Models").
+Priorities: High ×1 (xAI Grok 4.6 — major model release), Medium ×3 (Anthropic watermark, xAI
+GitHub Copilot integration, HF ecosystem report — regular technical announcements). Type labels:
+model-release ×1 (Grok 4.6), product ×1 (Grok 4.6 GitHub Copilot), policy-safety ×1 (Claude
+watermark), research ×1 (HF State of Open Models).

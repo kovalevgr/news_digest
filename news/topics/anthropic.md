@@ -4,10 +4,14 @@ aliases:
   - Claude
 sources:
   - https://www.anthropic.com/news
-updated: 2026-08-07
+updated: 2026-08-15
 ---
 
 MOC page for **Anthropic** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W33
+
+- **2026-08-14** — [How Claude's text watermark works](https://www.anthropic.com/news/claude-text-watermark) — Anthropic details an invisible text watermark for Claude's output (based on Google DeepMind's SynthID-Text) that biases word-choice randomness with a cryptographic key, adopted to comply with the EU AI Act's AI-generated-content marking requirement.
 
 ## 2026-W32
 
