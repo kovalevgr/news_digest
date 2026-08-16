@@ -1083,3 +1083,30 @@ today. Searched the project first — one collision found and skipped (Mole, alr
 other duplicates against the existing cards checked.
 
 Commit: `news: radar run 2026-08-16 (+14 items, 2 highlights)`.
+
+## 2026-08-16 06:13 UTC — daily — ok
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss.xml, websearch | 0 | websearch | rss.xml fetched cleanly, latest still Aug 13 (Ultrafast + builder's guide, already captured); openai.com/news/ 403'd on direct fetch (excluded via one-fallback rule); websearch confirmed no Product/Engineering/Research/Publication/Release item after Aug 13 |
+| anthropic | fetch, websearch | 0 | websearch | anthropic.com/news listing still tops out at Aug 14 (text watermark, already captured); no newer post confirmed |
+| google-deepmind | rss, direct listing, websearch | 0 | direct fetch, websearch | latest still Aug 13 (Gemini 3.7 Flash, already captured); RSS reported 304 |
+| google-research | rss, direct listing, websearch | 0 | direct fetch, websearch | latest still Aug 12 (parametric-factuality recall, already captured) |
+| microsoft | rss, direct listing | 0 | direct fetch | latest still Aug 12 (MindTopo, already captured); no 403 this run, listing fetched cleanly |
+| nvidia | rss, direct listing, websearch | 0 | direct fetch, websearch | RSS reported 304; listing's newest entries both dated Aug 12 (Qwen3.8 GB300 serving — already captured — and an observability post same day, not strictly newer) |
+| xai | jina | 0 | - | anonymous Jina worked cleanly (no 401/403); latest still Aug 14 (GitHub Copilot integration, already captured) |
+| mistral | rss, direct listing, websearch | 0 | direct fetch, websearch | RSS reported 304; listing + 6 websearch hits all confirmed no post after Aug 11 (sovereign-AI, already captured) |
+| huggingface | rss, direct listing, websearch | 0 | direct fetch, websearch | RSS reported 304; listing + websearch confirm latest still Aug 14 (State of Open Models, already captured) |
+| cursor | rss (connection reset), direct listing, websearch | 0 | direct fetch, websearch | rss.xml connection reset by peer; direct fetch + websearch both confirm latest still Aug 13 (Cloud Agents Builds, already captured) |
+| perplexity | jina, websearch | 0 | jina (401 bad-IP-reputation), websearch | no JINA_API_KEY; anonymous Jina hard-401'd; websearch found no confirmable primary perplexity.ai/hub/blog post after Aug 13 — worth a manual check once the key is set |
+
+Totals: 0 items, 0 companies fresh, 1 transport error (cursor rss.xml connection reset — recovered
+cleanly via direct-fetch gap-scrape, no data lost). All 11 TIER-1 sources reported zero fresh
+candidates (10 via 304-not-modified/empty, 1 via connection reset); all 11 companies were
+gap-scraped one fallback attempt each per the ladder, and all 11 independently confirmed their
+respective topics/*.md files already hold the latest available post — a fully quiet news day
+across the tracked company set.
+
+Window: since last successful daily run (2026-08-15 06:20 UTC).
+
+Linear: no new stories to file — nothing created, nothing skipped as duplicate.
