@@ -1006,3 +1006,80 @@ Priorities: High ×1 (xAI Grok 4.6 — major model release), Medium ×3 (Anthrop
 GitHub Copilot integration, HF ecosystem report — regular technical announcements). Type labels:
 model-release ×1 (Grok 4.6), product ×1 (Grok 4.6 GitHub Copilot), policy-safety ×1 (Claude
 watermark), research ×1 (HF State of Open Models).
+
+## 2026-08-16 05:06 UTC — radar — ok
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | - |
+| inference-infra | 0 | 0 | - |
+| oss-ml-systems | 0 | 0 | - |
+| bigtech-eng | 0 | 0 | - |
+| research-institutes | 0 | 0 | - |
+| technical-newsletters | 0 | 0 | - |
+| practitioner-blogs | 2 | 2 | - |
+| youtube | 9 | 6 | - |
+| community | 25 | 6 | reddit HTTP 429 (skipped, no retry) |
+| mistral-watch | 0 | 0 | mistral-docs-changelog SSL handshake timeout |
+
+Totals: 14 items, 0 errors blocking a whole category (2 source-level errors logged and skipped
+per no-fallback-ladder rule), 2 highlights.
+
+Window: since last successful radar run (2026-08-15, per run-log). Note: an earlier invocation
+of `fetch_radar.py` this run was accidentally executed twice in sequence, advancing
+`state/radar-cursors.json` past several items before the second run's output was inspected —
+caught before any write, `git checkout -- news/state/radar-cursors.json` reset it, then the
+script was re-run once cleanly; the JSON used for triage below is from that single clean run.
+
+TRIAGE (pass 1, technical bar): dropped 2 `yt-ai-engineer` AI Engineer-conf talks as vendor
+marketing despite real-sounding titles — Oxylabs' "How Web Data Infrastructure Powers the Next
+Generation of AI" and Bright Data's "The Rise of CaaS: Context-as-a-Service for Agentic AI", both
+data-scraping/proxy vendors pitching buzzword-coined categories. `yt-gpu-mode` livestream +
+edited-cut duplicate (Spectral Compute: Compile CUDA everywhere) collapsed to one item, kept the
+edited Lecture 111 cut. In `community`, the four HN Show-HN queries (`inference`/`rag`/`mcp`/
+`agents`) turned up heavy cross-query overlap plus several completely off-topic submissions that
+only matched on incidental keyword hits — dropped as non-AI: a Rust/Tauri bookmarking app, a mock
+API server (`Mocktail`), a Linux-terminal-embed widget, `LuaCAD`, `Mininote`, and an internet-radio
+suite (`Rdio`). Two `hf-trending-spaces` entries (a video-gen space, a FLUX LoRA space) dropped as
+LOW-interest video/image-gen per `config/interests.md`. Three `github-trending` entries dropped:
+`cordiverse/cordis` (not clearly AI-specific), `cursor/plugins` (company-core territory — Cursor is
+a tracked company, belongs in `topics/cursor.md` not radar), `public-apis/public-apis` (general
+dev list, no AI content).
+
+DEDUP: `Show HN: Mole – Deep research agent for your terminal` (github.com/lajosdeme/mole) is
+already on the radar (2026-08-14, KOV-138) — re-surfaced today because it was still fresh in the
+HN `agents` query window; skipped as a duplicate (file grep + Linear project search both caught
+it before any write).
+
+VERIFY SUBSTANCE (5 highest-scored candidates + 2 extra attempts): `lajosdeme/mole` — moot (dup,
+see above), but its README was read anyway as part of the clone: confirms the existing radar
+entry's claims (enforced budget, verified quotes) hold up. `MakazhanAlpamys/Soup` — verified via
+`git clone`: real, actively maintained (CI, PyPI, DOI) fine-tuning CLI; README backs its headline
+claim (8B model on 4GB laptop GPU) with a specific measurement (119.6 tok/s, 3.32GB peak, bit-exact
+vs resident run, reproduced on H100) and is unusually honest about caveats (a prior tok/s figure
+predates a correctness fix and hasn't been re-measured; a Colab notebook lets the reader verify the
+4GB claim themselves) — passed, `highlight`. Latent Space "Flue 2" — verified via WebFetch: real
+architectural content (React-style Agent Hooks: `useSkill`/`useTool`/`useSubagent`, a concrete
+dynamic-tool-loading example) though framed as an interview rather than deep documentation —
+passed, `highlight`. Raschka "AI Text Detector From Scratch" — verified via WebFetch: legitimate
+end-to-end project (DistilBERT classifier, RLVR verifier use) but the post is paywalled past the
+intro, no numbers/dataset/code visible in the free preview — kept as a confirmed item, NOT a
+highlight (verification incomplete, not failed). Two more attempts beyond the base 5, both hit
+transport errors on both legs (WebFetch egress-blocked + curl 403 CONNECT-tunnel-fail — counts as
+the one allowed curl retry): `chenxiachan.github.io/thoughtdag` (ThoughtDAG, 115 pts/55 comments —
+today's strongest raw community signal) and `app.deltix.ai` (Deltix). Two more items with the same
+domain pattern (`waku.sh`, `pinglin.tw`) were spot-checked for the same reason and hit identical
+egress blocks. All four stay confirmed regular items, explicitly out of highlight consideration
+per the "transport error → keep item, skip highlight" rule — worth a revisit if the egress
+allowlist changes, since ThoughtDAG in particular reads as the day's most-discussed item by a wide
+margin.
+
+Linear: 14 review-queue cards created in project "Radar" (team Kovalevgr), status "Ready to
+Review" — KOV-151 through KOV-164. Priorities by fit (HIGH→High ×8, MEDIUM→Medium ×5, LOW→Low ×1).
+Source labels applied per item (blog ×2, youtube ×6, hn ×4, lobsters ×1, github ×1); `highlight` on
+KOV-151 (Flue 2) and KOV-164 (Soup) — 2 highlights, not the max 3, since the day's strongest
+community-signal item (ThoughtDAG) and two other high-fit HN items couldn't clear verification
+today. Searched the project first — one collision found and skipped (Mole, already KOV-138), no
+other duplicates against the existing cards checked.
+
+Commit: `news: radar run 2026-08-16 (+14 items, 2 highlights)`.
