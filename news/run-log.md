@@ -1187,3 +1187,33 @@ project first — two collisions found (waku.sh = KOV-160, pinglin.tw = KOV-161)
 other duplicates against the existing board.
 
 Commit: `news: radar run 2026-08-17 (+11 items, 2 highlights)`.
+
+## 2026-08-17 06:11 UTC — daily — ok
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss.xml, WebFetch, websearch | 0 | WebFetch, websearch | rss.xml 304-not-modified; openai.com/news/ 403'd on direct fetch (excluded via one-fallback rule); websearch confirmed no Product/Engineering/Research/Publication/Release item after Aug 13 (Ultrafast, already captured) — only consumer ChatGPT app features and a stale Aug 10 Daybreak recap turned up |
+| anthropic | fetch, websearch | 0 | WebFetch | anthropic.com/news listing still tops out at Aug 14 (text watermark, already captured); no newer post confirmed |
+| google-deepmind | rss, WebFetch, verify | 0 | WebFetch | rss.xml 304-not-modified; listing's newest three posts (Gemini 3.7 Flash Aug 13, sign-language SL2T Aug 12, WeatherNext Aug 6) all already captured — verified the SL2T post specifically since it wasn't in the first screenful, confirmed already on file |
+| google-research | rss, WebFetch | 0 | WebFetch | rss.xml 304-not-modified; listing tops out at Aug 12 (parametric-factuality recall, already captured) |
+| microsoft | rss, WebFetch | 0 | WebFetch | listing's newest three (MindTopo Aug 12, CARE-X Aug 11, Orchard Aug 3) all older than or equal to the latest captured item — none fresh |
+| nvidia | rss, WebFetch | 0 | WebFetch | rss.xml 304-not-modified; listing's newest entries (GB300 serving + observability post, both Aug 12) and JetPack 7.2.1 (Aug 11) are same-day-or-older than the latest captured item — none strictly newer |
+| xai | jina, websearch | 0 | websearch | anonymous Jina worked cleanly; websearch confirms Grok 4.6 (Aug 12) and GitHub Copilot integration (Aug 14) both already captured, Grok Bot (Aug 11) predates the window — no post after Aug 14 |
+| mistral | rss, WebFetch | 0 | WebFetch | rss.xml 304-not-modified; listing tops out at Aug 11 (sovereign-AI infrastructure, already captured) |
+| huggingface | rss, WebFetch | 0 | WebFetch | rss.xml 304-not-modified; listing tops out at Aug 14 (State of Open Models, already captured); next-newest (icml reproductions, Aug 13) older |
+| cursor | rss, WebFetch | 0 | WebFetch | rss.xml 304-not-modified; changelog tops out at Aug 13 (Cloud Agents Builds, already captured) |
+| perplexity | jina, websearch | 0 | jina (no key, skipped), websearch | no JINA_API_KEY, anonymous Jina not attempted given prior hard-401 pattern; websearch surfaced only undated/no-URL mentions (Grok 4.6 in Agent API, Vercel AI SDK compat) — not confirmable against a primary post, not added; latest captured item (Aug 13 Agent API launch) stands |
+
+Totals: 0 items, 0 companies fresh, 0 transport errors beyond the expected openai.com/news/ 403
+(excluded via the one-fallback rule, rss.xml already covered that source). All 11 TIER-1 sources
+reported zero fresh candidates (10 via 304-not-modified, 1 — openai — via clean rss fetch with no
+new items); all 11 companies were gap-scraped one fallback attempt each per the ladder, and all 11
+independently confirmed their respective topics/*.md files already hold the latest available post
+— another fully quiet news day across the tracked company set, continuing the streak since
+2026-08-15.
+
+Window: since last successful daily run (2026-08-16 06:13 UTC).
+
+Linear: no new stories to file — nothing created, nothing skipped as duplicate.
+
+Commit: `news: daily run 2026-08-17 (+0 items, 0 companies fresh)`.
