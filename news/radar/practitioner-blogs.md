@@ -1,6 +1,6 @@
 ---
 category: practitioner-blogs
-updated: 2026-08-16
+updated: 2026-08-17
 ---
 
 # Radar: practitioner-blogs
@@ -15,3 +15,7 @@ Appended by the daily routine under weekly headings; format matches topics files
 - **2026-08-14** — [GLM-5.3: How Chinese labs keep stride with the frontier](https://www.interconnects.ai/p/glm-53-how-chinese-labs-keep-stride) — Verified via WebFetch: argues GLM-5.3 (same ~750B base as GLM-5.2, "scaling post-training is all we did") beats Kimi K3 despite being a third its size on post-training execution, not distillation ("cannot distill RL environments, infra, or algorithms"); credits faster release cycles, narrower coding/text focus, and access to China's growing RL-data industry.
 - **2026-08-15** — [React for Agents: Astro Creator Brings Hooks to his Meta-Harness, Flue](https://www.latent.space/p/flue-2) — Verified via WebFetch: Fred Schott (Astro creator) rebuilds Flue atop the minimal Pi harness around React-style "Agent Hooks" (`useSkill()`, `useTool()`, `useSubagent()`) — TypeScript functions letting an agent manage its own state and attach resources dynamically at runtime instead of static file-based routing, e.g. a support agent loading an account-management tool only after user verification.
 - **2026-08-15** — [Building an AI Text Detector From Scratch](https://magazine.sebastianraschka.com/p/ai-detector-from-scratch) — End-to-end project (dataset construction, DistilBERT classifier training, local deployment) then using the trained detector as a verifier to RLVR-train a small model to produce text that evades detection; verification partial today (post is paywalled past the intro — no accuracy numbers or dataset specifics visible in the free preview).
+
+## 2026-W34
+
+- **2026-08-16** — [Qwen 3.8 27B is excellent, but it defaults to wildly overthinking things](https://simonwillison.net/2026/Aug/16/qwen-38-27b/) — Verified via WebFetch: Simon Willison tests Qwen 3.8 27B across SVG generation, vision/bounding-box tasks, tool building and coding-agent loops (Pi framework); the model defaults to `xhigh` reasoning effort, taking 21 minutes and 22,276 reasoning tokens to produce a 3,223-token pelican SVG and blowing through its 8,192-token default limit on mundane prompts — turning reasoning off for the same SVG cut generation time to 137 seconds at some quality cost.

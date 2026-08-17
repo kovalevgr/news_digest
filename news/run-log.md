@@ -1110,3 +1110,80 @@ across the tracked company set.
 Window: since last successful daily run (2026-08-15 06:20 UTC).
 
 Linear: no new stories to file — nothing created, nothing skipped as duplicate.
+
+## 2026-08-17 05:17 UTC — radar — ok
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| bigtech-eng | 0 | 0 | none |
+| community | 45 | 10 | none |
+| inference-infra | 0 | 0 | none |
+| lab-engineering | 0 | 0 | none |
+| mistral-watch | 0 | 0 | none |
+| oss-ml-systems | 0 | 0 | none |
+| practitioner-blogs | 1 | 1 | none |
+| research-institutes | 0 | 0 | none |
+| technical-newsletters | 1 | 0 | none |
+| youtube | 0 | 0 | none |
+
+Totals: 47 raw candidates, 11 confirmed, 0 source errors.
+
+TRIAGE (pass 1, technical bar): `reddit` (25 raw) was almost entirely Qwen 3.8 27B release-day
+chatter on r/LocalLLaMA — dropped ~15 low-effort chat/question/opinion threads with no technique
+or numbers (e.g. "I'm still running Qwen 3.5 122B, should I switch?", "The dream is to reach
+200GB VRAM", "Why are RTX 6000 PROs still getting bought", "Let's all thank Georgi Gerganov",
+"Anyone else get a kick out of Qwen 3.8 27B Reasoning Dialogue?", a meme-titled post, several
+quant/hardware questions with no answer given). Kept 6 reddit items with real technique or
+numbers (see WRITE below). HN Show queries (`rag`/`mcp`/`agents`) had heavy cross-query overlap
+(waku.sh, pinglin.tw, and the DeepSeek-V4-Flash-Coder post each matched 2 queries — deduped to one
+each) plus two off-topic drops: `shelf-bookmarks` (Rust+Tauri bookmarking app, no AI) and
+`wheres-my-muni` (SF transit live map, no AI). `github-trending` (3) all dropped as not
+AI-specific: `basecamp/omarchy` (Linux distro), `OpenCut-app/OpenCut` (video editor), `ToolJet/
+ToolJet` (low-code app builder, AI mentioned only as one feature). `hf-trending-models` (2) and
+`hf-trending-spaces` (2) all dropped as LOW-interest video/image-gen or low-novelty community
+fine-tunes per `config/interests.md` (a realism LoRA, two video-gen Spaces, an "uncensored" FP8
+quant with no notable technique). `technical-newsletters`: SemiAnalysis's PJM/ratepayer piece
+dropped per the standing rule (finance/markets post, not engineering). One HN Show item —
+`wildstatic.com`, "A public AI whose memory is shared across all users" (69 pts) — was held back
+entirely: empty body text, a marketing-shell-sounding title, and (see VERIFY below) no way to
+confirm it delivers real technique; dropped rather than padded into the file.
+
+DEDUP: `waku.sh` (Show HN: native coding-agent app, Rust+GPUI) and `pinglin.tw/blog/the-shapes-
+of-agent-memory` (Show HN: agent-memory framework comparison) both resurfaced today across
+multiple HN Show queries — both are already on the radar from yesterday (KOV-160, KOV-161,
+2026-08-16) — skipped as duplicates, no re-add, no new cards.
+
+VERIFY SUBSTANCE (5 highest-scored + 2 extra attempts): `steadfastgaze/DeepSeek-V4-Flash-...-
+MoEspressoV2` (HF) — verified via WebFetch: real expert-pruned coding quant of DeepSeek-V4-Flash-
+0731 with honest published numbers (code perplexity 2.7665 vs 2.4250, 88.55% token agreement,
+16/16 coding tests, WikiText perplexity trade-off 11.2043 vs 5.5548) — passed, `highlight`.
+`simonwillison.net` Qwen 3.8 27B review — verified via WebFetch: real hands-on testing with
+concrete numbers (21 min / 22,276 reasoning tokens for one SVG at the `xhigh` default, cut to 137s
+with reasoning off) — passed, `highlight`. `developer.nvidia.com` GB300 NVL72 serving post —
+verified via WebFetch: real first-party numbers (4K+ tok/s/GPU, 350+ tok/s/user, FP8) — passed,
+but same model+hardware pairing already on the radar with higher NVFP4 numbers from SGLang/Miles
+(`oss-ml-systems`, 2026-08-12); confirmed as a regular item, not a highlight (re-confirmation, not
+a fresh story). Three attempts hit the same transport pattern as recent days — WebFetch egress-
+blocked + curl 403 CONNECT-tunnel-fail (the one allowed retry) — on `pinglin.tw`, `waku.sh` (both
+moot, see DEDUP above, but attempted since they were today's top-scored candidates before the dup
+check) and `littlelearner-ll.github.io`; `wildstatic.com` hit the identical block and, combined
+with its empty body text, was dropped rather than kept unverified (see TRIAGE above). All items
+that failed verification and were still net-new stay confirmed regular items, out of highlight
+consideration, per the "transport error → keep item, skip highlight" rule — except wildstatic.com,
+held back entirely for insufficient signal.
+
+WRITE: 10 items to `radar/community.md`, 1 to `radar/practitioner-blogs.md` under `## 2026-W34`.
+Community: DeepSeek-V4-Flash-Coder-57GB (highlight), Qwen3.8-27b RTX 3090 82tps, Qwen3.8-2.4T
+GB300 NVL72 (NVIDIA blog), audio.cpp 0.6, Koboldcpp v1.119, PyScrappy MCP server, Grafana Hermes
+observability, RL-1-3%-tokens paper claim, Genie-style world model on a 5090, "LLM never sees
+beyond fifth grade". Practitioner-blogs: Simon Willison's Qwen 3.8 27B review (highlight).
+
+Linear: 11 review-queue cards created in project "Radar" (team Kovalevgr), status "Ready to
+Review" — KOV-166 through KOV-176. Priorities by fit (HIGH→High ×5, MEDIUM→Medium ×5, LOW→Low
+×1). Source labels applied per item (reddit ×6, hn ×4, blog ×1); `highlight` on KOV-166
+(DeepSeek-V4-Flash-Coder) and KOV-176 (Simon Willison) — 2 highlights, not the max 3, since the
+day's other verified item (GB300) was a re-confirmation rather than fresh news. Searched the
+project first — two collisions found (waku.sh = KOV-160, pinglin.tw = KOV-161) and skipped, no
+other duplicates against the existing board.
+
+Commit: `news: radar run 2026-08-17 (+11 items, 2 highlights)`.
