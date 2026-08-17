@@ -1217,3 +1217,11 @@ Window: since last successful daily run (2026-08-16 06:13 UTC).
 Linear: no new stories to file — nothing created, nothing skipped as duplicate.
 
 Commit: `news: daily run 2026-08-17 (+0 items, 0 companies fresh)`.
+
+## 2026-08-17 07:07 UTC — deep-dive — ok (no approved cards)
+
+Searched project "Radar" for cards with label `hot` across all states (single query, no
+state filter, archived included) — zero hot cards anywhere in the project. The 11 review
+cards filed this morning (KOV-166–KOV-176) are all still awaiting the owner's verdict in
+"Ready to Review". No cards processed, no files written, no leftovers. Exiting quietly per
+workflow.
