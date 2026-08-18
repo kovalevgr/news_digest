@@ -1287,3 +1287,32 @@ project by title keyword for every candidate first — no collisions found, noth
 duplicate.
 
 Commit: `news: radar run 2026-08-18 (+13 items, 3 highlights)`.
+
+## 2026-08-18 06:14 UTC — daily — ok
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss.xml, WebFetch, websearch | 0 | WebFetch (403), websearch | openai.com/news/ direct fetch 403'd (one-fallback rule); websearch confirmed no Product/Engineering/Research/Publication/Release item after Aug 11 Daybreak/AWS (already captured) — only GPT-5.6 August-update recap, Astra math results (Aug 1, predates window), and Dali Rajic CRO hire turned up, all older or non-qualifying |
+| anthropic | fetch, websearch | 0 | none needed | anthropic.com/news listing tops out at Aug 14 (text watermark, already captured); confirmed via WebFetch, no fallback required |
+| google-deepmind | rss, WebFetch | 0 | WebFetch | rss.xml no change; listing's newest three (Gemini 3.7 Flash Aug 13, sign-language SL2T Aug 12, WeatherNext Aug 6) all already captured |
+| google-research | rss, confirmed | 1 | none | rss.xml TIER-1 hit: "Seeing beyond BMI" (PhotoScan cardiometabolic-risk model), 2026-08-17 — new, confirmed via WebFetch |
+| microsoft | rss, WebFetch | 0 | WebFetch | listing's newest three (MindTopo Aug 12, CARE-X Aug 11, Orchard Aug 3) all already captured, none fresh |
+| nvidia | rss, confirmed | 1 | none | rss.xml TIER-1 hit: "Developing Nemotron 3.5 Lightning NVFP4 with QAD Using NVIDIA Model Optimizer", 2026-08-17 — new, confirmed via WebFetch |
+| xai | jina (curl), websearch | 0 | jina (Cloudflare challenge, failed), websearch | curl-via-Jina hit a Cloudflare "Just a moment..." challenge page (no content); websearch confirmed Grok 4.6 (Aug 12) and GitHub Copilot integration (Aug 14) both already captured, nothing newer |
+| mistral | rss.xml (304), WebFetch | 0 | WebFetch | rss.xml 304-not-modified; listing tops out at Aug 11 (sovereign-AI infrastructure, already captured) |
+| huggingface | rss, confirmed | 1 | none | rss.xml TIER-1 hit: "Same Cluster, 33 Points More Utilization: What Changed Was the Order" (Dharma AI, GPU-management pt. 2), 2026-08-17 — new, confirmed via WebFetch |
+| cursor | rss.xml (304), WebFetch | 1 | WebFetch | rss.xml showed no diff but WebFetch of the changelog page surfaced "Origin Code Hosting" (Aug 17) — new, not yet in feed cache; confirmed via WebFetch, exact permalink found on second attempt |
+| perplexity | jina (blocked), websearch | 0 | websearch | no JINA_API_KEY, direct www.perplexity.ai fetch and Jina both egress-blocked; websearch confirmed no post after Aug 13 Agent API (already captured) — Grok 4.6 support and Vercel AI SDK compat mentions are undated sub-features, not a standalone dated post, not added |
+
+Totals: 4 items, 4 companies fresh (google-research, nvidia, huggingface, cursor), 0 transport errors beyond
+the expected xai Cloudflare-challenge and openai/perplexity direct-fetch blocks (all covered by the
+one-fallback rule).
+
+Window: since last successful daily run (2026-08-17 06:11 UTC).
+
+Linear: 4 new stories filed — KOV-190 [Google Research] PhotoScan (Medium, research), KOV-191 [NVIDIA]
+Nemotron 3.5 Lightning NVFP4 QAD (Medium, model-release), KOV-192 [Hugging Face] Dharma AI GPU management
+pt.2 (Medium, infra), KOV-193 [Cursor] Origin Code Hosting (High, product). Searched project "News digest"
+by title/keyword for each before creating — no collisions, nothing skipped as duplicate.
+
+Commit: `news: daily run 2026-08-18 (+4 items, 4 companies fresh)`.

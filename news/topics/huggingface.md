@@ -5,13 +5,14 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-08-15
+updated: 2026-08-17
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W33
 
+- **2026-08-17** — [Same Cluster, 33 Points More Utilization: What Changed Was the Order](https://huggingface.co/blog/Dharma-AI/gpu-management-pt2) — Dharma AI's constraint-aware GPU allocator lifts cluster utilization by up to 33pp over FIFO scheduling and priority-weighted output by 52% on average, part 2 of a GPU-management series.
 - **2026-08-14** — [State of Open Models: Summer 2026 Observations](https://huggingface.co/blog/state-of-open-models-summer-2026) — Hugging Face publishes a data-driven ecosystem analysis: Chinese labs now dominate frontier-scale releases, Qwen dominates the Hub's derivative ecosystem (151K+ derivatives), and small/quantized models capture the overwhelming majority of real-world downloads.
 - **2026-08-13** — [Record, train, and deploy from one place with Strands Agents, LeRobot, and Hugging Face Storage Buckets](https://huggingface.co/blog/amazon/strands-lerobot-streaming-data-loop) — AWS Strands Robots SDK closes the full robot-learning data loop with Hugging Face Storage Buckets and streaming LeRobot training.
 - **2026-08-12** — [LFM2.5-VL-3B for Better and Faster Vision Capabilities for the Edge](https://huggingface.co/blog/LiquidAI/lfm2-5-vl-3b) — Liquid AI releases LFM2.5-VL-3B, a 3.1B-parameter vision-language model for edge deployment with strong screen/UI understanding and 228 tok/s on M5 Max.
