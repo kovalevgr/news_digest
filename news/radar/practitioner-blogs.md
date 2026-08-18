@@ -1,6 +1,6 @@
 ---
 category: practitioner-blogs
-updated: 2026-08-17
+updated: 2026-08-18
 ---
 
 # Radar: practitioner-blogs
@@ -19,3 +19,4 @@ Appended by the daily routine under weekly headings; format matches topics files
 ## 2026-W34
 
 - **2026-08-16** — [Qwen 3.8 27B is excellent, but it defaults to wildly overthinking things](https://simonwillison.net/2026/Aug/16/qwen-38-27b/) — Verified via WebFetch: Simon Willison tests Qwen 3.8 27B across SVG generation, vision/bounding-box tasks, tool building and coding-agent loops (Pi framework); the model defaults to `xhigh` reasoning effort, taking 21 minutes and 22,276 reasoning tokens to produce a 3,223-token pelican SVG and blowing through its 8,192-token default limit on mundane prompts — turning reasoning off for the same SVG cut generation time to 137 seconds at some quality cost.
+- **2026-08-17** — [Teaching Everyone to Fish for Tokens](https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens) — Verified via WebFetch: Nathan Lambert argues NVIDIA is funding open-model training (~$26B reported spend, releasing data/code/weights) not to compete with Anthropic/OpenAI but to seed demand for inference chips — the strategy only pays off if profits flow back to NVIDIA within a few years or open-model builders monetize via fine-tuning/specialization; framed as analysis/prediction (open models forking toward "efficiency, modifiability, specialization" rather than frontier performance), not reported fact.

@@ -1225,3 +1225,65 @@ state filter, archived included) — zero hot cards anywhere in the project. The
 cards filed this morning (KOV-166–KOV-176) are all still awaiting the owner's verdict in
 "Ready to Review". No cards processed, no files written, no leftovers. Exiting quietly per
 workflow.
+
+## 2026-08-18 05:11 UTC — radar — ok
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| oss-ml-systems | 1 | 1 | 0 |
+| practitioner-blogs | 1 | 1 | 0 |
+| bigtech-eng | 1 | 0 | 0 |
+| community | 60 | 11 | 0 |
+| inference-infra | 0 | 0 | 0 |
+| lab-engineering | 0 | 0 | 0 |
+| mistral-watch | 0 | 0 | 0 |
+| research-institutes | 0 | 0 | 0 |
+| technical-newsletters | 0 | 0 | 0 |
+| youtube | 0 | 0 | 7 (yt-ai-engineer 404, yt-gpu-mode 500, yt-karpathy 404, yt-latent-space 404, yt-mlst 404, yt-sentdex 404, yt-umar-jamil 404 — all expected/known transport errors) |
+
+Totals: 63 raw candidates across 52 sources, 13 confirmed, 3 highlights.
+
+TRIAGE pass 1 (technical bar): dropped github-ai's Copilot "canvases" post (tutorial-grade Copilot
+product content); dropped smolai's "not much happened today" issue (explicit skip rule); dropped a
+long tail of non-AI HN Show submissions cross-listed under multiple radar queries (Visimer mermaid
+editor, Saggar terminal, Flynt.js, PageSieve scraper — general dev tools, not AI/ML-specific)
+despite matching keyword filters; dropped consumer/marketing GitHub-trending repos (MoneyPrinterTurbo
+ad-laden README, career-ops, immich, nautilus_trader — no AI angle) and one likely content-farm repo
+(mukul975/Anthropic-Cybersecurity-Skills — mass-generated-skills pattern). DEDUP: 5 items were same-
+story repeats already on the radar from 2026-08-16 (DeepSeek-V4-Flash-Coder-57GB, PyScrappy, Grafana
+Hermes agent-observability ×2 listings, the fifth-grade-LLM HN thread, wildstatic.com — the last was
+explicitly dropped yesterday for thin content and stays dropped) — skipped, no re-add. Reddit
+r/LocalLLaMA carried heavy Qwen3.8-27B chatter (25 raw items) — pass 1 dropped memes/appreciation/
+speculation threads ("wen", "overthinking" hot takes, "unpopular opinion", quant-level petition,
+"Ling 3.0 Tiny" anecdote) per the explicit meme-drop rule, keeping only threads with concrete
+technical content (PR details, benchmark numbers, hardware configs, real papers).
+
+TRIAGE pass 2 (owner fit): 10 HIGH (SGLang CUDA graph, interconnects Nvidia-strategy piece, llama.cpp
+adaptive MTP PR, unsloth NVFP4 quant, two "runs on my hardware" Qwen3.8-27B posts, akitaonrails/ai-
+memory, AlexsJones/llmfit, HarnessEval-W, ClawGym II — all land directly on interests.md HIGH bullets:
+local/self-hosted inference, agent memory, agent-harness RL, evals-in-practice, reproducible
+techniques), 3 MEDIUM (usestrix/strix — agent harness applied to security; Stripe/OpenRouter
+acquisition — business but high ecosystem impact on routing tooling; DeepMind "LLMs can't jump" paper
+— research-institutes, no code).
+
+VERIFY SUBSTANCE (5 highest-scored): SGLang CUDA graph post — WebFetch, passed (concrete BCG/full/
+piecewise benchmarks: 3.8–5.2× build speedup, 1.45–1.93× replay speedup, memory/latency numbers) →
+highlight. interconnects "Teaching Everyone to Fish for Tokens" — WebFetch, passed (real $26B figure,
+clearly framed as analysis not fact) → regular item, not a highlight (opinion-heavy). akitaonrails/
+ai-memory — git clone, passed (mature cross-platform project, real CI/support matrix, MCP + lifecycle
+hooks) → highlight. AlexsJones/llmfit — git clone, passed (active CI, crates.io release, community-
+verified-benchmark feature) → highlight. llama.cpp adaptive MTP PR reddit post — curl hit HTTP 403
+(Cloudflare, one retry per rule); kept as a regular item on the feed's own body text per the
+transport-error rule, out of highlight consideration.
+
+WRITE: 1 item to `radar/oss-ml-systems.md`, 1 to `radar/practitioner-blogs.md`, 11 to
+`radar/community.md`, all under `## 2026-W34`.
+
+Linear: 13 review-queue cards created in project "Radar" (team Kovalevgr), status "Ready to Review" —
+KOV-177 through KOV-189. Priorities by fit (HIGH→High ×10, MEDIUM→Medium ×3). Source labels applied
+per item (github ×3, hf ×3, reddit ×5, blog ×2); `highlight` on KOV-177 (SGLang CUDA graph), KOV-183
+(akitaonrails/ai-memory), KOV-184 (AlexsJones/llmfit) — 3 highlights, the daily max. Searched the
+project by title keyword for every candidate first — no collisions found, nothing skipped as
+duplicate.
+
+Commit: `news: radar run 2026-08-18 (+13 items, 3 highlights)`.
