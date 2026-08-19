@@ -5,10 +5,14 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-08-17
+updated: 2026-08-19
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W34
+
+- **2026-08-18** — [How Much Memory Does Your Agent Actually Need?](https://huggingface.co/blog/ibm-research/altk-evolve-hmm) — IBM Research's ALTK-Evolve framework finds optimal agent memory strategy depends on model strength: curated retrieval helps weak models most, full guideline injection helps strong models, saturated models see no gain.
 
 ## 2026-W33
 

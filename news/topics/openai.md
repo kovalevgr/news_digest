@@ -4,10 +4,15 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-08-14
+updated: 2026-08-19
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W34
+
+- **2026-08-18** — [Introducing ChatGPT for Teens: Built for learning, backed by protections](https://openai.com/index/chatgpt-for-teens) — OpenAI launches ChatGPT for Teens, a dedicated experience with built-in safety protections, healthy-use features (Study Mode, homework reminders), and parental controls.
+- **2026-08-18** — [ChatGPT Ads expands across Europe](https://openai.com/index/chatgpt-ads-expands-across-europe) — OpenAI expands ChatGPT Ads to 31 European markets, its largest expansion to date; ads remain limited to Free/Go users.
 
 ## 2026-W33
 

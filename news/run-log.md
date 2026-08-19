@@ -1345,3 +1345,27 @@ WRITE: 13 items to `radar/community.md`, 1 to `radar/oss-ml-systems.md`, 1 to `r
 Linear: 15 review-queue cards created in project "Radar" (team Kovalevgr), status "Ready to Review" — KOV-194 through KOV-208. Priorities by fit (HIGH→High(2) ×10, MEDIUM→Medium(3) ×5). Source labels applied per item (github ×2, hf ×2, hn ×1, reddit ×9, blog ×2 — includes ai2's blog-adapter source); `highlight` on KOV-195 (munder-difflin), KOV-196 (OpenViking), KOV-204 (Miles v0.1) — 3 highlights, the daily max. Searched the project by title keyword for every candidate first — no collisions found, nothing skipped as duplicate.
 
 Commit: `news: radar run 2026-08-19 (+15 items, 3 highlights)`.
+
+## 2026-08-19 06:14 UTC — daily — ok
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss.xml (TIER-1) | 2 | none needed | none |
+| anthropic | fetch (WebFetch) | 0 | none needed | listing tops out at Aug 14 (text watermark, already captured) |
+| google-deepmind | rss, WebFetch | 0 | WebFetch | rss.xml no fresh entries; listing's newest three (Gemini 3.7 Flash Aug 13, SL2T Aug 12, WeatherNext Aug 6) all already captured |
+| google-research | rss.xml (TIER-1) | 0 | none needed | rss.xml no fresh entries beyond PhotoScan (Aug 17, already captured in prior run) |
+| microsoft | rss, WebFetch | 0 | WebFetch | listing's newest three (MindTopo Aug 12, CARE-X Aug 11, Orchard Aug 3) all already captured, none fresh |
+| nvidia | rss.xml (TIER-1) | 2 raw, 1 kept | none needed | ALCHEMI toolkit post kept as genuine toolkit/agent-integration announcement; UMAP multi-GPU post dropped as tutorial-grade technique content (existing cuML/cuVS 25.06 library, no new release) per the NVIDIA "keep only genuine announcements/major posts" note |
+| xai | jina (curl, anonymous — worked) | 0 | none needed | listing's newest (Grok 4.6 in GitHub Copilot, Aug 14) already captured, nothing newer |
+| mistral | rss.xml (304 not modified), WebFetch | 0 | WebFetch | listing tops out at Aug 11 (sovereign-AI infrastructure, already captured) |
+| huggingface | rss.xml (TIER-1) | 1 | none needed | none |
+| cursor | rss.xml (304 not modified), WebFetch | 0 | WebFetch | listing's newest (Origin Code Hosting, Aug 17) already captured from prior run, nothing newer |
+| perplexity | jina (curl, anonymous — worked this run) | 0 | none needed | listing's visible recent entries (Jul 29 Research post) predate the already-captured Aug 13 Agent API post; no new item |
+
+Totals: 4 items kept (1 dropped as tutorial-grade), 3 companies fresh (openai, nvidia, huggingface), 0 transport errors — xai and perplexity jina both succeeded anonymously this run (no JINA_API_KEY needed today).
+
+Window: since last successful daily run (2026-08-18 06:14 UTC).
+
+Linear: 4 new stories filed — KOV-209 [OpenAI] ChatGPT for Teens (High, product), KOV-210 [OpenAI] ChatGPT Ads expands across Europe (Medium, business), KOV-211 [NVIDIA] ALCHEMI Toolkit for AI coding agents (Medium, infra), KOV-212 [Hugging Face] How Much Memory Does Your Agent Actually Need (Medium, research). Searched project "News digest" by title/keyword for each before creating — no collisions, nothing skipped as duplicate.
+
+Commit: `news: daily run 2026-08-19 (+4 items, 3 companies fresh)`.
