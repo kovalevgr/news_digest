@@ -1,6 +1,6 @@
 ---
 category: oss-ml-systems
-updated: 2026-08-18
+updated: 2026-08-19
 ---
 
 # Radar: oss-ml-systems
@@ -22,3 +22,4 @@ Appended by the daily routine under weekly headings; format matches topics files
 ## 2026-W34
 
 - **2026-08-18** — [Advanced CUDA Graph Techniques in SGLang](https://lmsys.org/blog/2026-08-17-advanced-cuda-graph) — Verified via WebFetch: SGLang's three CUDA-graph backends — full-graph capture, Breakable CUDA Graph (BCG, segments capture with eager breaks around incompatible ops instead of paying torch.compile cost), and TC Piecewise (torch.compile trace+split) — with measured numbers: BCG builds 3.8–5.2× faster than compiler-based piecewise (torch.compile alone was 78–86% of prefill-graph prep time), replay-latency speedups of 1.93× (full capture), 1.70× (BCG) and 1.45× (TC piecewise) vs eager, activation-memory peaks cut from 0.56GB to 0.001GB via chunked-prefill-size capture, and end-to-end diffusion latency down from 6.48s to 2.45s.
+- **2026-08-18** — [Miles v0.1: Production-level Post-training](https://lmsys.org/blog/2026-08-18-miles-v0-1) — Verified via WebFetch: full-stack RL post-training system (rollout via SGLang, training via Megatron-LM/FSDP) with Token-In-Token-Out fidelity, Rollout Routing Replay for MoE numerical stability, NVFP4/MXFP8/FP8 training, and NVMe optimizer-state offload. Concrete numbers: GLM-5.2 744B trains on 64 GB300 GPUs at 96% prefix-cache hit rate; on-policy distillation cut Qwen3.5-35B rollout length 18.6K→~6K tokens while improving held-out accuracy 84.6%→89.5%; P2P weight sync for Kimi-K2 1T cut update time 53.3s→7.2s (disk-delta payload 62.4GB→0.69–0.83GB); day-0 support across NVIDIA A100–GB300 and AMD MI300X–MI355X.

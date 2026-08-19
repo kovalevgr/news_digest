@@ -1316,3 +1316,32 @@ pt.2 (Medium, infra), KOV-193 [Cursor] Origin Code Hosting (High, product). Sear
 by title/keyword for each before creating — no collisions, nothing skipped as duplicate.
 
 Commit: `news: daily run 2026-08-18 (+4 items, 4 companies fresh)`.
+
+## 2026-08-19 05:14 UTC — radar — ok
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | none |
+| inference-infra | 0 | 0 | none |
+| oss-ml-systems | 1 | 1 | none |
+| bigtech-eng | 0 | 0 | none |
+| research-institutes | 2 | 1 | none |
+| technical-newsletters | 1 | 0 | none |
+| practitioner-blogs | 1 | 0 | none |
+| youtube | 0 | 0 | all 7 sources errored (6× HTTP 404, 1× HTTP 500 on yt-latent-space) — YouTube RSS endpoints unreachable today, no fallback ladder for radar, logged and moved on |
+| community | 52 | 13 | none |
+| mistral-watch | 0 | 0 | mistral-docs-changelog: SSL handshake timeout, logged and moved on |
+
+Totals: 57 raw candidates, 15 confirmed, 2 source-error groups (youtube×7, mistral-watch×1) — all within FAILURE MODES (no fallback ladder for radar sources).
+
+TRIAGE pass 1 (technical bar): dropped the bulk of today's 57 candidates — off-topic HN Show HN posts (Sokoban solver, game reverse-engineering, Mermaid editor, macOS keychain tool, Mac terminal, fiction-writing UI — none AI/ML-engineering), vanity/trending noise (HF trending-models: 3 uncensored Qwen3.8-27B finetunes farming likes + 1 chat-template fix, dropped as a group; HF trending-spaces: humanizer/face-search/TRELLIS.2, dropped — 3D-gen is explicitly LOW per interests.md), memes/appreciation (Reddit: "local models fear my tests", "and here we are", KV-cache joke, "Is Ling 3 tiny underrated" opinion thread), a bare rumor (Qwen midsize-model Discord leak, no confirmed facts), a vanity-metric post (HF "3 million models" milestone), a market-price post (DDR5 price climb — hardware-market is explicitly LOW), a CEO-interview/marketing piece (Latent.Space "model routing" — Glean-sponsored framing), and two GitHub-trending non-AI repos (Motrix download manager, PLFM_RADAR literal hardware radar). Also dropped: PantheonGPU (HN, 13pts/0 comments — too weak a signal to spend budget on), semianalysis Cerebras CS-4 (real technical content but crowded out at the volume cap by stronger owner-fit items), answer.ai code-simplicity essay (same), Embodied-Navigator paper (robotics — LOW), ASI-Bench paper (swapped out for the stronger-attributed ai2 interpretability piece at the volume cap), OpenCode sampler bug and Linux VRAM kernel post (both legitimate but cut at the ≤15 budget in favor of higher owner-fit items).
+
+TRIAGE pass 2 (owner fit): of the ~30 items clearing pass 1, kept the top 15 against interests.md — 10 HIGH (Shoehorn quantizer, munder-difflin multi-agent harness, OpenViking agent-memory DB, Agentic ESOpt, 5 Qwen3.8-27B/DeepSeek-V4 "runs on my hardware" reproducible-technique reddit posts, DFlash2 hands-on test, Miles v0.1, tencent UI-Mate-27B), 5 MEDIUM (Ling-3.0 llama.cpp mainline, Bitnet/Ternary tracker, Alibaba RISC-V CPU, ai2 drug-morphology interpretability). Same-story dedup: 3 Reddit posts about DFlash2 (r/1vs2tz1, r/1vs2tsn, r/1vs43av) collapsed to the one hands-on test with real numbers; "Show HN: Openleetcode" and "Show HN: Saggar"/"1667" appeared under multiple HN-query source IDs (rag/mcp/agents) as the same underlying story — deduped to zero (off-topic, not kept) rather than counted twice.
+
+VERIFY SUBSTANCE (7 attempts total against the 5-highest-scored-candidates guidance, widened after 3 transport failures): munder-difflin — `git clone`, passed (MIT, v0.4.4 working prototype, real README/CI structure) → highlight. volcengine/OpenViking — `git clone`, passed (AGPLv3, Trendshift-listed, active releases/contributors, docs site) → highlight. lmsys-sglang Miles v0.1 — WebFetch, passed (concrete P2P weight-sync 53.3s→7.2s, distillation 84.6%→89.5%, day-0 AMD+NVIDIA support) → highlight. tencent/UI-Mate-27B — WebFetch on the HF model card, passed (OSWorld-Verified 77.0, WindowsAgentArena 66.2, honest documented limitations) → strong regular item, not a highlight (cap already at 3). Shoehorn (github.io) — WebFetch + curl retry both hit EGRESS_BLOCKED (domain not allowlisted); kept as regular item on the HN submission's own text, out of highlight consideration. Agentic ESOpt (arxiv.org + HF paper page) — both WebFetch attempts returned no usable full text (egress-blocked / image-only render); kept as regular item on the radar fetch's own abstract excerpt, out of highlight consideration. Reddit "124 tps on a RTX 3090" — curl (browser UA) hit HTTP 403; kept as regular item on the feed's own body text per the transport-error rule, out of highlight consideration.
+
+WRITE: 13 items to `radar/community.md`, 1 to `radar/oss-ml-systems.md`, 1 to `radar/research-institutes.md`, all under `## 2026-W34`.
+
+Linear: 15 review-queue cards created in project "Radar" (team Kovalevgr), status "Ready to Review" — KOV-194 through KOV-208. Priorities by fit (HIGH→High(2) ×10, MEDIUM→Medium(3) ×5). Source labels applied per item (github ×2, hf ×2, hn ×1, reddit ×9, blog ×2 — includes ai2's blog-adapter source); `highlight` on KOV-195 (munder-difflin), KOV-196 (OpenViking), KOV-204 (Miles v0.1) — 3 highlights, the daily max. Searched the project by title keyword for every candidate first — no collisions found, nothing skipped as duplicate.
+
+Commit: `news: radar run 2026-08-19 (+15 items, 3 highlights)`.
