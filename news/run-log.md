@@ -1426,3 +1426,11 @@ Note: fetch_feeds.py was run twice this session before the window stabilized (fi
 Linear: 3 new stories filed — KOV-227 [NVIDIA] SkillEvaluator (Medium, infra), KOV-228 [Hugging Face] LFM2.5 Q4_0 QAD checkpoints (Medium, model-release), KOV-229 [Cursor] Cloud Agents and Cursor Harness Improvements (High, product). Searched project "News digest" by title/keyword for each before creating — no collisions, nothing skipped as duplicate.
 
 Commit: `news: daily run 2026-08-20 (+3 items, 3 companies fresh)`.
+
+## 2026-08-20 07:02 UTC — deep-dive — ok (no approved cards)
+
+Searched project "Radar" for cards with label `hot` — zero hot cards anywhere in the project
+(52+ cards in Ready to Review carry only source labels: reddit/hf/github/blog/hn/lobsters +
+highlight). The queue includes fresh cards from today's radar run (KOV-213–226, created 05:15 UTC)
+the owner has not triaged yet. No cards processed, no files written, no leftovers. Exiting
+quietly per workflow.
