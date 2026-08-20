@@ -1369,3 +1369,34 @@ Window: since last successful daily run (2026-08-18 06:14 UTC).
 Linear: 4 new stories filed — KOV-209 [OpenAI] ChatGPT for Teens (High, product), KOV-210 [OpenAI] ChatGPT Ads expands across Europe (Medium, business), KOV-211 [NVIDIA] ALCHEMI Toolkit for AI coding agents (Medium, infra), KOV-212 [Hugging Face] How Much Memory Does Your Agent Actually Need (Medium, research). Searched project "News digest" by title/keyword for each before creating — no collisions, nothing skipped as duplicate.
 
 Commit: `news: daily run 2026-08-19 (+4 items, 3 companies fresh)`.
+
+## 2026-08-20 05:15 UTC — radar — ok
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | none |
+| inference-infra | 0 | 0 | none |
+| oss-ml-systems | 1 | 1 | none |
+| bigtech-eng | 0 | 0 | none |
+| research-institutes | 0 | 0 | none |
+| technical-newsletters | 0 | 0 | none |
+| practitioner-blogs | 1 | 1 | none |
+| youtube | 0 | 0 | all 7 sources errored (HTTP 404) — YouTube RSS endpoints unreachable today, same as 2026-08-19, no fallback ladder for radar, logged and moved on |
+| community | 54 | 12 | none |
+| mistral-watch | 0 | 0 | none |
+
+Totals: 56 raw candidates, 14 confirmed, 1 source-error group (youtube×7) — within FAILURE MODES (no fallback ladder for radar sources).
+
+TRIAGE pass 1 (technical bar): dropped off-topic HN Show HN posts (age-verification passkey tool, Sierra-games walking-dead detector, macOS Electron keychain store, LeetCode-runner CLI — none AI/ML-engineering); repeat/thin signal (Show HN "Shoehorn" quantizer and "PantheonGPU" GPU benchmarking, both already assessed and cut yesterday for the same reasons — thin signal, egress-blocked verification — treated as same-story repeats rather than re-litigated); "Open Bot"/"Frugal Tokens" Show HN posts (12/29 pts, thin — a Grok-harness wrapper and a cost-tracking demo, neither open enough or substantive enough to spend budget on); memes/appreciation/opinion Reddit threads (knowledge-vs-3.6 anecdote, "highest agency I've seen", "anyone NOT on full auto", "waiting for a 122B", "am I doing something wrong" troubleshooting post, minimax-music UI appreciation); a business/marketing post (Ramp's Router.com launch); routine/vanity quant releases (Unsloth "Dynamic v3" and "updated" GGUF reposts of Qwen3.8-27B, redundant with NVFP4 quant already covered 2026-08-18); a thin unlinked essay ("Build a modern LLM from scratch" — no repo/body text captured); a thin analysis post ("Stop Anthropomorphisizing Intermediate Tokens" — references unspecified "research they linked", no citation); an essay without a clear technical/reproducible angle ("Thoughts About Scaling Law — Z.ai", cut at the volume cap despite legitimate content); HF trending-models (Ridge-GGUF quant farming likes, MiniMax-Music-3 audio-gen) and ALL of HF trending-spaces (image/video-gen demos + UGI-Leaderboard) dropped as a group — vanity/trending noise + explicitly-LOW image/video-gen, consistent with prior days' pattern; smol.ai "not much happened today" skipped per the explicit workflow rule; Lobsters "Bongard Problems" (essay, no LLM experiment/code, unclear direct fit) dropped.
+
+Same-story dedup: 4 Reddit posts about the new Ornith-1.5 model family (9B/35B-A3B/397B) collapsed to one item citing the most detailed post, cross-checked against the HF model cards. 2 new DFlash2 posts (RTX 6000 controlled comparison, RTX 3090 continuation of the 2026-08-18 optimization series) collapsed to one item covering both. 2 AntLing Ling-3.0-checkpoint posts collapsed to one.
+
+TRIAGE pass 2 (owner fit): of the ~20 items clearing pass 1, kept all as HIGH/MEDIUM/LOW against interests.md — 8 HIGH (SGLang DeepSeek-V4-Pro serving, v100-skinny NVFP4-on-Volta, FM-Bench, Ornith-1.5, SemaPLC, llama.cpp --n-cpu-ffn PR, DFlash2 comparison, Simon Willison lines-of-code essay), 5 MEDIUM (Qwen3.8-23B-Mini-Me depth-pruning, AntLing Ling-3.0 checkpoints, Co-RL, LFM 2.5 QAD, Liquid Types agent sandbox), 1 LOW (AscendNPU-IR — kept for technical-radar-file-worthiness despite low owner fit per the LOW-tier rule).
+
+VERIFY SUBSTANCE (11 attempts against the 5-highest-scored-candidates guidance, widened given strong community volume today): SGLang DeepSeek-V4-Pro post — WebFetch, passed (concrete Humming/Online-C128/DSpark numbers: +31.8% prefill, -74.8–78% decode latency, ×2.20 per-GPU throughput) → highlight. dnv2003/v100-skinny — `git clone`, passed (extensive honest README, AIME-2026 parity numbers with explicit non-claims) → highlight. Analogy-AI/fm-bench — `git clone`, passed (deterministic engine, real quickstart, documented long-horizon failure modes) → highlight. Ornith-1.5-397B and -9B — WebFetch on HF model cards, passed (MIT, weights available, benchmark numbers cross-checked against the reddit claim — confirmed comparable-to-Opus-4.8 framing) → strong regular item, not a highlight (cap already at 3). midea-ai/SemaPLC — `git clone`, passed (working MCP server + CLI, real OpenPLC Docker integration) → strong regular item, not a highlight (cap already at 3). DrStranded/Co-RL — `git clone`, passed (Apache-2.0, real training code + configs) → regular item. simonwillison.net post — WebFetch, passed (clear argument, concrete numbers) → regular item, not a highlight (cap already at 3; essay not a technique/data point). AscendNPU-IR (gitcode.com) — WebFetch + curl retry both hit EGRESS_BLOCKED/tunnel-403 (gitcode.com not allowlisted); kept as regular item on the lobsters listing's own title/tags, out of highlight consideration. Liquid Types/AeonBox (wiki.alcidesfonseca.com) — WebFetch + curl retry both hit EGRESS_BLOCKED/tunnel-403; kept as regular item on the lobsters listing's own title/tags, out of highlight consideration. matthodges.com Bongard Problems — WebFetch + curl retry both hit EGRESS_BLOCKED/tunnel-403; dropped in pass 1 anyway (thin fit), not pursued further. huggingface.co/papers/2608.18565 (SemaPLC) and arxiv.org/abs/2608.18565 — both returned insufficient rendered content; superseded by the successful `git clone` of the linked repo above.
+
+WRITE: 12 items to `radar/community.md`, 1 to `radar/oss-ml-systems.md`, 1 to `radar/practitioner-blogs.md`, all under `## 2026-W34`.
+
+Linear: 14 review-queue cards created in project "Radar" (team Kovalevgr), status "Ready to Review" — KOV-213 through KOV-226. Priorities by fit (HIGH→High(2) ×8, MEDIUM→Medium(3) ×5, LOW→Low(4) ×1). Source labels applied per item (blog ×2, github ×1, hf ×3, reddit ×6, lobsters ×2); `highlight` on KOV-213 (SGLang DeepSeek-V4-Pro), KOV-214 (v100-skinny), KOV-215 (FM-Bench) — 3 highlights, the daily max. Searched the project by title keyword for every candidate first — no collisions found; noted (not re-created) that "Shoehorn" and "PantheonGPU" already exist from 2026-08-19 (KOV-194 and a dropped-not-filed item respectively) as the same recurring candidates.
+
+Commit: `news: radar run 2026-08-20 (+14 items, 3 highlights)`.
