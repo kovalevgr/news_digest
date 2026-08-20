@@ -1400,3 +1400,29 @@ WRITE: 12 items to `radar/community.md`, 1 to `radar/oss-ml-systems.md`, 1 to `r
 Linear: 14 review-queue cards created in project "Radar" (team Kovalevgr), status "Ready to Review" — KOV-213 through KOV-226. Priorities by fit (HIGH→High(2) ×8, MEDIUM→Medium(3) ×5, LOW→Low(4) ×1). Source labels applied per item (blog ×2, github ×1, hf ×3, reddit ×6, lobsters ×2); `highlight` on KOV-213 (SGLang DeepSeek-V4-Pro), KOV-214 (v100-skinny), KOV-215 (FM-Bench) — 3 highlights, the daily max. Searched the project by title keyword for every candidate first — no collisions found; noted (not re-created) that "Shoehorn" and "PantheonGPU" already exist from 2026-08-19 (KOV-194 and a dropped-not-filed item respectively) as the same recurring candidates.
 
 Commit: `news: radar run 2026-08-20 (+14 items, 3 highlights)`.
+
+## 2026-08-20 06:15 UTC — daily — ok
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss.xml (TIER-1), WebSearch | 0 | WebSearch | listing's newest (ChatGPT Ads Europe, Aug19) already captured; CRO personnel announcement (Aug17) filtered — Company category dropped per source config, not an outage |
+| anthropic | fetch (WebFetch) | 0 | none needed | listing tops out at Aug14 (text watermark, already captured), nothing newer |
+| google-deepmind | rss, WebFetch | 0 | WebFetch | rss.xml no fresh entries; listing's newest three (Gemini 3.7 Flash Aug13, SL2T Aug12, WeatherNext Aug6) all already captured |
+| google-research | rss.xml (TIER-1), WebFetch | 0 | WebFetch | rss.xml no fresh entries; listing's newest (PhotoScan Aug17) already captured |
+| microsoft | rss, WebFetch | 0 | WebFetch | rss.xml no fresh entries; listing's newest (MindTopo Aug12) already captured, nothing newer |
+| nvidia | rss.xml (TIER-1) | 4 raw, 1 kept | none needed | SkillEvaluator kept as genuine tool release with substantive benchmark data; Holoscan CLI/skills, FLARE federated-workflow, and Cosmos-3-Edge-robot-control posts all dropped as tutorial-grade how-to content reusing existing SDKs/models, per the NVIDIA "genuine announcements/major posts only" note |
+| xai | jina (curl, Cloudflare-challenged — expected, no JINA_API_KEY), WebSearch | 0 | WebSearch | listing's newest (Grok 4.6 in GitHub Copilot, Aug14) already captured, nothing newer |
+| mistral | rss.xml (304 not modified), WebFetch | 0 | WebFetch | listing's newest (regional inference, Aug11) already captured, nothing newer |
+| huggingface | rss.xml (TIER-1) | 1 | none needed | none |
+| cursor | rss.xml (304 not modified), WebFetch/WebSearch | 1 | WebFetch | rss.xml showed no diff but changelog page surfaced "Cloud Agents and Cursor Harness Improvements" (Aug19) — new, not yet in feed cache; confirmed via WebFetch of the full changelog entry |
+| perplexity | jina (curl, Cloudflare-challenged — expected, no JINA_API_KEY), WebSearch | 0 | WebSearch | WebSearch surfaced two candidate titles ("Computer now works in email" Aug18, "Brain: Agentic Memory as a Knowledge Wiki" Aug19) but third-party coverage dates "Brain" to a June 2026 launch and no primary-source URL/date could be confirmed (perplexity.ai and hub-prod.perplexity.ai both egress-blocked for WebFetch) — dropped both per the never-invent-facts rule rather than add unverifiable dates |
+
+Totals: 6 items kept (3 dropped as tutorial-grade), 3 companies fresh (nvidia, huggingface, cursor), 0 transport errors beyond the expected xai/perplexity Jina Cloudflare-challenge (no JINA_API_KEY) and openai direct-fetch 403 (all covered by the one-fallback rule).
+
+Window: since last successful daily run (2026-08-19 06:14 UTC).
+
+Note: fetch_feeds.py was run twice this session before the window stabilized (first run advanced HTTP cursors; a stray combined-stream capture corrupted the JSON log). `news/state/cursors.json` was reverted to its committed state and the script re-run once cleanly — the totals/items above reflect that single clean run.
+
+Linear: 3 new stories filed — KOV-227 [NVIDIA] SkillEvaluator (Medium, infra), KOV-228 [Hugging Face] LFM2.5 Q4_0 QAD checkpoints (Medium, model-release), KOV-229 [Cursor] Cloud Agents and Cursor Harness Improvements (High, product). Searched project "News digest" by title/keyword for each before creating — no collisions, nothing skipped as duplicate.
+
+Commit: `news: daily run 2026-08-20 (+3 items, 3 companies fresh)`.

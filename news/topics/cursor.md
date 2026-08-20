@@ -4,10 +4,14 @@ aliases:
   - Anysphere
 sources:
   - https://cursor.com/changelog/rss.xml
-updated: 2026-08-17
+updated: 2026-08-20
 ---
 
 MOC page for **Cursor** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W34
+
+- **2026-08-19** — [Cloud Agents and Cursor Harness Improvements](https://cursor.com/changelog/08-19-26) — Cursor ships event-driven subscriptions (PRs, Slack threads, scheduled tasks), pinned custom modes, subagents on isolated cloud VMs, a `/goal` command for long-lived objectives, and non-interrupting steering.
 
 ## 2026-W33
 
