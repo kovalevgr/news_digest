@@ -1434,3 +1434,32 @@ Searched project "Radar" for cards with label `hot` — zero hot cards anywhere 
 highlight). The queue includes fresh cards from today's radar run (KOV-213–226, created 05:15 UTC)
 the owner has not triaged yet. No cards processed, no files written, no leftovers. Exiting
 quietly per workflow.
+
+## 2026-08-21 05:05 UTC — radar — ok
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | none |
+| inference-infra | 0 | 0 | none |
+| oss-ml-systems | 2 | 2 | none |
+| bigtech-eng | 0 | 0 | none |
+| research-institutes | 0 | 0 | none |
+| technical-newsletters | 0 | 0 | none |
+| practitioner-blogs | 1 | 0 | none |
+| youtube | 0 | 0 | all 7 sources errored (HTTP 404) — YouTube RSS endpoints unreachable today, same as 2026-08-19/20, no fallback ladder for radar, logged and moved on |
+| community | 23 | 4 | reddit source-group HTTP 429, skipped (no retry-loop per rule); does not affect the raw-candidate count above since it contributed zero fresh items |
+| mistral-watch | 0 | 0 | none |
+
+Totals: 26 raw candidates, 6 confirmed, 2 source-error groups (youtube×7, reddit×1) — within FAILURE MODES (no fallback ladder for radar sources; Reddit 429 → skip, never retry-loop).
+
+TRIAGE pass 1 (technical bar): dropped non-AI HN Show HN posts (WaveHouse "Supabase for ClickHouse", a weather-balloon chase blog, an unclaimed-royalties checker, Omacosy macOS tiling desktop, LilScript JS-bundle shrinker — appeared under two source IDs as the same story, counted once); a repeat off-topic candidate (age-verification passkey tool, already dropped 2026-08-20 under the same reasoning); two repeat thin-signal candidates from 2026-08-19/20 ("Open Bot" Grok-harness wrapper, 12pts; "Frugal Tokens" cost-tracking demo, 36pts — both re-surfaced today, dropped again for the same reasons: too thin/not open enough to spend budget on). HF trending-models (OBLITERATUS/orcarouter — uncensored Qwen3.8-27B finetunes farming likes) dropped as vanity noise, consistent with the daily pattern; ornith-ai/Ornith-1.5-35B-A3B (HF trending) is the same model family already covered 2026-08-19 — not re-added. HF trending-spaces (amisima LTX-2.3 I2V demo) and one HF daily paper (4DAnyone, monocular-video 4D reconstruction) and another (WithEveryone, group image generation) dropped as a group — video/3D-gen and image-gen are explicitly LOW per interests.md, consistent with prior days' pattern of dropping HF vanity/trending image-video content. Two GitHub-trending repos dropped: AprilNEA/OpenLogi (Logitech-mouse remapper, not AI at all) and modular/modular (Modular Platform/Mojo — legitimate AI infra, but "trending" carried no dated news peg or specific new release to hang an item on; already a well-known project, so dropped for lacking discrete signal rather than for low quality). latent-space "/wayfinder Skill" post verified via WebFetch and found to be a marketing/interview piece about Matt Pocock's AI Skills project — no code, no reproducible detail, explicitly promotional framing; dropped per the "product marketing that survived config filters" pass-1 rule (same treatment as the Latent.Space Glean-sponsored piece dropped 2026-08-19).
+
+TRIAGE pass 2 (owner fit): of the 7 items clearing pass 1, all scored HIGH against interests.md (agents in practice / coding agents / agent harnesses / reproducible technique with code / local inference engines) — Huzzah, Vomit, EnvHarness, agent-substrate/substrate, lmsys-sglang Mooncake-for-Miles, pytorch-blog Day-One Model Enablement. No same-story dedup needed beyond the LilScript HN cross-listing noted above.
+
+VERIFY SUBSTANCE (6 attempts against the 5-highest-scored-candidates guidance, widened to cover all HIGH-fit survivors): lmsys-sglang Mooncake-for-Miles — WebFetch, passed (concrete Ray-vs-Mooncake numbers: GET ~10–14× faster, PUT ~1.2–1.6× faster) → highlight candidate. pytorch-blog Day-One Model Enablement — WebFetch, passed (13 adapters cover 7,960/10,000 HF embedding models, 6,804 pass on-device, concrete code examples, GitHub repos linked) → highlight candidate. huggingface.co/papers/2608.19880 (EnvHarness) — WebFetch, passed (9.0-pt improvement / 9.8% fewer steps across 5 benchmarks, code + project site live) → highlight candidate. github.com/agent-substrate/substrate — `git clone`, passed (Apache-2.0, real Google-affiliated infra project, 30x+ oversubscription demo, dedicated Claude Code multiplex demo, extensive docs) → highlight candidate. github.com/zachahn/vomit — `git clone`, passed (GPLv3, working Go binary, honest limitations disclosed in its own README) → strong regular item, not a highlight (cap already at 3 once the above four were ranked). danielvaughn.dev/posts/huzzah (Show HN) — WebFetch + curl retry both hit EGRESS_BLOCKED/tunnel-403 (domain not allowlisted); kept as regular item on the HN submission's own body text, out of highlight consideration. Four candidates cleared verification as genuine highlight material against a 3-slot cap; ranked by owner-fit specificity (Claude Code / coding-agent tooling relevance) — agent-substrate, pytorch Day-One, and EnvHarness selected; Mooncake-for-Miles (a solid but incremental follow-up to the already-highlighted Miles v0.1/DeepSeek-V4-Pro posts) held back as a strong regular item instead.
+
+WRITE: 4 items to `radar/community.md`, 2 to `radar/oss-ml-systems.md`, all under `## 2026-W34`.
+
+Linear: 6 review-queue cards created in project "Radar" (team Kovalevgr), status "Ready to Review" — KOV-230 through KOV-235. All 6 scored HIGH fit → Priority High(2). Source labels applied per item (hn ×1, github ×2, hf ×1, blog ×2); `highlight` on KOV-232 (agent-substrate/substrate), KOV-233 (EnvHarness), KOV-235 (Harnessing AI for Day-One Model Enablement) — 3 highlights, the daily max. Searched the project by title keyword for every candidate first — no collisions found, nothing skipped as duplicate.
+
+Commit: `news: radar run 2026-08-21 (+6 items, 3 highlights)`.
