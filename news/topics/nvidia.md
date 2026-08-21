@@ -4,13 +4,14 @@ aliases:
   - Nvidia
 sources:
   - https://blogs.nvidia.com/feed/
-updated: 2026-08-20
+updated: 2026-08-21
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W34
 
+- **2026-08-20** — [How Generative Recommenders Are Redefining RecSys at Scale](https://developer.nvidia.com/blog/how-generative-recommenders-are-redefining-recsys-at-scale/) — NVIDIA details generative recommenders (HSTU, Semantic IDs) that reframe recommendation as sequence prediction, with production-scale H100 training/inference numbers and two open-source repos.
 - **2026-08-19** — [Evaluating AI Agent Skill Performance with NVIDIA SkillEvaluator](https://developer.nvidia.com/blog/evaluating-ai-agent-skill-performance-with-nvidia-skillevaluator/) — NVIDIA releases SkillEvaluator, an open-source three-tier framework (static checks, distinctiveness analysis, live agent evaluation) measuring AI agent skill impact, benchmarked at +31 avg Skill Lift across 300+ verified skills in 30+ NVIDIA products.
 - **2026-08-18** — [How AI Coding Agents Can Unlock Materials Simulation with NVIDIA ALCHEMI Toolkit](https://developer.nvidia.com/blog/how-ai-coding-agents-can-unlock-materials-simulation-with-nvidia-alchemi-toolkit/) — NVIDIA pairs its ALCHEMI Toolkit (GPU-accelerated MLIP framework) with an Agent Skills Library so coding agents generate correct atomistic-simulation code, validated across 45 benchmark pipelines.
 

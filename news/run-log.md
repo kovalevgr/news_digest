@@ -1463,3 +1463,27 @@ WRITE: 4 items to `radar/community.md`, 2 to `radar/oss-ml-systems.md`, all unde
 Linear: 6 review-queue cards created in project "Radar" (team Kovalevgr), status "Ready to Review" — KOV-230 through KOV-235. All 6 scored HIGH fit → Priority High(2). Source labels applied per item (hn ×1, github ×2, hf ×1, blog ×2); `highlight` on KOV-232 (agent-substrate/substrate), KOV-233 (EnvHarness), KOV-235 (Harnessing AI for Day-One Model Enablement) — 3 highlights, the daily max. Searched the project by title keyword for every candidate first — no collisions found, nothing skipped as duplicate.
 
 Commit: `news: radar run 2026-08-21 (+6 items, 3 highlights)`.
+
+## 2026-08-21 06:15 UTC — daily — ok
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss.xml (TIER-1), WebSearch | 0 | WebSearch | listing's newest confirmed items (ChatGPT Ads Europe Aug18) already captured; WebSearch surfaced a "security training pause" and ChatGPT-for-Teens/restaurant-booking items with no confirmed openai.com URL/date in-window — dropped as unconfirmed |
+| anthropic | fetch (WebFetch) | 0 | none needed | listing tops out at Aug14 (text watermark, already captured), nothing newer |
+| google-deepmind | rss.xml (TIER-1), WebSearch | 0 | WebSearch | rss.xml no fresh entries; WebSearch found nothing newer than the Aug13 Gemini 3.7 Flash post (already captured) |
+| google-research | rss.xml (TIER-1), WebSearch | 0 | WebSearch | rss.xml no fresh entries; WebSearch confirms latest post still Jul30 (Science One Framework), predates window |
+| microsoft | rss.xml (TIER-1) | 1 | none needed | none |
+| nvidia | rss.xml (TIER-1) | 1 | none needed | none |
+| xai | jina (curl, Cloudflare-challenged — expected, no JINA_API_KEY), WebSearch | 0 | WebSearch | listing's newest (Grok 4.6 in GitHub Copilot, Aug14) already captured, nothing newer confirmed |
+| mistral | rss.xml (TIER-1) | 1 | none needed | none |
+| huggingface | rss.xml (TIER-1) | 1 | none needed | none |
+| cursor | rss.xml (TIER-1), WebSearch | 0 | WebSearch | rss.xml no fresh entries; WebSearch's "Origin rolling out Aug20" is the same Origin Code Hosting story already captured Aug17, not a distinct changelog entry |
+| perplexity | jina (curl, Cloudflare-challenged — expected, no JINA_API_KEY), WebSearch | 0 | WebSearch | WebSearch surfaced "Brain: Agentic Memory" (Aug19) and "Computer now works in email" (Aug18) — both predate the window and "Brain" was already rejected 2026-08-20 as unconfirmed (third-party coverage dated it to a June 2026 launch, no primary-source date confirmable) |
+
+Totals: 4 items, 4 companies fresh (microsoft, nvidia, mistral, huggingface), 0 transport errors beyond the expected xai/perplexity Jina Cloudflare-challenge (no JINA_API_KEY).
+
+Window: since last successful daily run (2026-08-20 06:15 UTC).
+
+Linear: 4 new stories filed — KOV-236 [Microsoft] Broadening access to Skala creates a faster path to predictive DFT (Medium, research), KOV-237 [NVIDIA] How Generative Recommenders Are Redefining RecSys at Scale (Medium, infra), KOV-238 [Mistral AI] Agentic Search (High, product), KOV-239 [Hugging Face] Up to 3.2x Faster Inference with LFM2.5-DSpark (Medium, model-release). Searched project "News digest" by title/keyword for each before creating — no collisions, nothing skipped as duplicate.
+
+Commit: `news: daily run 2026-08-21 (+4 items, 4 companies fresh)`.

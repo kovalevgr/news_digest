@@ -5,13 +5,14 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-08-20
+updated: 2026-08-21
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W34
 
+- **2026-08-20** — [Up to 3.2x Faster Inference with LFM2.5-DSpark](https://huggingface.co/blog/LiquidAI/lfm25-dspark) — Liquid AI releases LFM2.5-DSpark draft-model checkpoints using speculative decoding, speeding up decoding up to 2.87x on H100 and 2.54x on MacBook M4 Max with identical output quality.
 - **2026-08-19** — [LFM2.5 Q4_0 Checkpoints from Quantization-Aware Distillation](https://huggingface.co/blog/LiquidAI/qad) — Liquid AI releases QAD Q4_0 checkpoints for four LFM2.5 models (230M–2.6B), recovering ~96.5–97.4% of BF16 accuracy at 3–33% higher decode throughput on MacBook Pro, NucBox EVO-X2, Galaxy S26 Ultra, and Raspberry Pi 5.
 - **2026-08-18** — [How Much Memory Does Your Agent Actually Need?](https://huggingface.co/blog/ibm-research/altk-evolve-hmm) — IBM Research's ALTK-Evolve framework finds optimal agent memory strategy depends on model strength: curated retrieval helps weak models most, full guideline injection helps strong models, saturated models see no gain.
 

@@ -5,10 +5,14 @@ aliases:
   - Copilot
 sources:
   - https://news.microsoft.com/source/feed/
-updated: 2026-08-13
+updated: 2026-08-20
 ---
 
 MOC page for **Microsoft** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W34
+
+- **2026-08-20** — [Broadening access to Skala creates a faster path to predictive DFT](https://www.microsoft.com/en-us/research/blog/broadening-access-to-skala-creates-a-faster-path-to-predictive-dft/) — Microsoft Research releases Skala 1.1, an updated DFT exchange-correlation functional trained on 2.5x more data, now integrated into CP2K with more packages in progress.
 
 ## 2026-W33
 

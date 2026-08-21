@@ -4,10 +4,14 @@ aliases:
   - Mistral
 sources:
   - https://mistral.ai/rss.xml
-updated: 2026-08-12
+updated: 2026-08-20
 ---
 
 MOC page for **Mistral AI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W34
+
+- **2026-08-20** — [Agentic Search. More accurate and efficient results from your AI systems.](https://mistral.ai/news/agentic-search/) — Mistral launches Agentic Search, a multi-step retrieval layer (search, open, navigate, read, grep) that lifted FinanceBench accuracy from 26.7% to 86% with Mistral Medium 3.5.
 
 ## 2026-W33
 
