@@ -4,13 +4,15 @@ aliases:
   - Nvidia
 sources:
   - https://blogs.nvidia.com/feed/
-updated: 2026-08-21
+updated: 2026-08-22
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W34
 
+- **2026-08-21** — [NVIDIA AVO Reaches 100% on ARC-AGI-3, Demonstrating a Frontier-Level General-Purpose Architecture for Long-Horizon Autonomous Agents](https://developer.nvidia.com/blog/nvidia-avo-reaches-100-on-arc-agi-3-demonstrating-a-frontier-level-general-purpose-architecture-for-long-horizon-autonomous-agents/) — NVIDIA's AVO agent architecture (built on Claude Opus 5) hits a perfect 100.00 RHAE score on ARC-AGI-3's public set, up from Claude Opus 5's 30% baseline alone, showing architecture — not just the model — drives frontier agent performance.
+- **2026-08-21** — [Maximizing AI Factory Performance per Watt with NVIDIA DSX MaxLPS](https://developer.nvidia.com/blog/maximizing-ai-factory-performance-per-watt-with-nvidia-dsx-maxlps/) — NVIDIA details DSX MaxLPS, combining dynamic power allocation, perf-per-watt optimization, and 45°C liquid cooling for up to 40% more Rubin GPU capacity in the same power budget.
 - **2026-08-20** — [How Generative Recommenders Are Redefining RecSys at Scale](https://developer.nvidia.com/blog/how-generative-recommenders-are-redefining-recsys-at-scale/) — NVIDIA details generative recommenders (HSTU, Semantic IDs) that reframe recommendation as sequence prediction, with production-scale H100 training/inference numbers and two open-source repos.
 - **2026-08-19** — [Evaluating AI Agent Skill Performance with NVIDIA SkillEvaluator](https://developer.nvidia.com/blog/evaluating-ai-agent-skill-performance-with-nvidia-skillevaluator/) — NVIDIA releases SkillEvaluator, an open-source three-tier framework (static checks, distinctiveness analysis, live agent evaluation) measuring AI agent skill impact, benchmarked at +31 avg Skill Lift across 300+ verified skills in 30+ NVIDIA products.
 - **2026-08-18** — [How AI Coding Agents Can Unlock Materials Simulation with NVIDIA ALCHEMI Toolkit](https://developer.nvidia.com/blog/how-ai-coding-agents-can-unlock-materials-simulation-with-nvidia-alchemi-toolkit/) — NVIDIA pairs its ALCHEMI Toolkit (GPU-accelerated MLIP framework) with an Agent Skills Library so coding agents generate correct atomistic-simulation code, validated across 45 benchmark pipelines.

@@ -4,10 +4,14 @@ aliases:
   - Grok
 sources:
   - https://x.ai/news
-updated: 2026-08-15
+updated: 2026-08-21
 ---
 
 MOC page for **xAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W34
+
+- **2026-08-21** — [Grok Bot is now included with more plans](https://x.ai/news/grok-bot-more-plans) — xAI expands Grok Bot beyond its Aug 11 beta to SuperGrok Plus, SuperGrok Heavy, Cursor Pro+, Cursor Ultra, and Cursor Teams, plus a free trial for other users.
 
 ## 2026-W33
 

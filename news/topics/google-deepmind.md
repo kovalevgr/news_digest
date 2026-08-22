@@ -5,10 +5,14 @@ aliases:
   - Gemini
 sources:
   - https://deepmind.google/blog/rss.xml
-updated: 2026-08-14
+updated: 2026-08-21
 ---
 
 MOC page for **Google DeepMind** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W34
+
+- **2026-08-21** — [From Atari to EVE Online: Building on 15 Years of AI Research in Games](https://deepmind.google/blog/from-atari-to-eve-online-building-on-15-years-of-ai-research-in-games/) — Google DeepMind partners with Fenris Creations to develop AI agents for the EVE Universe (EVE Online, EVE Vanguard, EVE Frontier), building on 15 years of games research from DQN to AlphaStar.
 
 ## 2026-W33
 

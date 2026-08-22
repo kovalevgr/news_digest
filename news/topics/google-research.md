@@ -4,10 +4,15 @@ aliases:
   - Google AI
 sources:
   - https://research.google/blog/rss/
-updated: 2026-08-17
+updated: 2026-08-21
 ---
 
 MOC page for **Google Research** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W34
+
+- **2026-08-21** — [An AI tool for prioritizing candidate biomarkers from wearable sensor data](https://research.google/blog/an-ai-tool-for-prioritizing-candidate-biomarkers-from-wearable-sensor-data/) — Google Research introduces an AI tool that prioritizes candidate biomarkers derived from wearable sensor data.
+- **2026-08-21** — [How mobility gives language models a deeper understanding of place](https://research.google/blog/how-mobility-gives-language-models-a-deeper-understanding-of-place/) — Google Research explores how human mobility data deepens language models' understanding of place.
 
 ## 2026-W33
 

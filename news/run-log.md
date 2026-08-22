@@ -1516,3 +1516,27 @@ WRITE: 8 items to `radar/community.md`, 2 to `radar/oss-ml-systems.md`, 1 to `ra
 Linear: 13 review-queue cards created in project "Radar" (team Kovalevgr), status "Ready to Review" — KOV-240 through KOV-252. 9 HIGH fit → Priority High(2); 4 MEDIUM fit → Priority Medium(3). Source labels applied per item (hn ×3, reddit ×4, lobsters ×1, blog ×4, newsletter ×1); `highlight` on KOV-240 (Proliferate), KOV-249 (Ling-3.0-flash spec decode), KOV-250 (Fast Engine Recovery) — 3 highlights, the daily max. Searched the project by title keyword for every candidate first — no collisions found, nothing skipped as duplicate.
 
 Commit: `news: radar run 2026-08-22 (+13 items, 3 highlights)`.
+
+## 2026-08-22 06:14 UTC — daily — ok
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss.xml (TIER-1), WebSearch | 0 | WebSearch | rss.xml no fresh entries; WebSearch surfaced only retirement/deprecation notices (o3, DALL·E GPT) and community-forum posts, nothing newer than the Aug03 items already captured |
+| anthropic | fetch (WebFetch) | 0 | none needed | listing tops out at Aug14 (text watermark, already captured), nothing newer |
+| google-deepmind | rss.xml (TIER-1) | 1 | none needed | none |
+| google-research | rss.xml (TIER-1) | 2 | none needed | none |
+| microsoft | rss.xml (TIER-1), WebSearch | 0 | WebSearch | rss.xml no fresh entries; WebSearch found only generic fellowship/CFP/partner-program pages, nothing newer than Aug20 (Skala 1.1, already captured) |
+| nvidia | rss.xml (TIER-1) | 2 (of 4 raw) | none needed | "GPU-Accelerated Clustering for Financial Instruments at Scale" verified via WebFetch as a pure technique tutorial (no product tie) — dropped per the developer-blog trap guidance (keep announcements/major posts, not every tutorial); "Where Security Fits in an AI Agent Stack" verified via WebFetch as generic thought-leadership/educational content referencing an existing product (OpenShell), not a new announcement — dropped for the same reason |
+| xai | jina (curl, Cloudflare-challenged — expected, no JINA_API_KEY), WebSearch | 1 | WebSearch | curl-jina hit the expected Cloudflare challenge (403); WebSearch surfaced "Grok Bot is now included with more plans" (x.ai/news/grok-bot-more-plans, Aug21) — primary URL identified but page itself not fetchable (Cloudflare + no JINA_API_KEY); confirmed via three independent secondary sources (InfoQ, Seeking Alpha, AI Weekly) plus a direct quote from the official Grok Bot X account |
+| mistral | rss.xml (TIER-1, 304 not modified), WebSearch | 0 | WebSearch | no fresh entries; WebSearch found only the Jul21 Microsoft-partnership story and AI Now Summit recap items, nothing newer than Aug20 (Agentic Search, already captured) |
+| huggingface | rss.xml (TIER-1) | 0 | WebSearch | rss.xml no fresh entries; WebSearch found only the general "State of Open Models: Summer 2026" report with no specific Aug21/22 post confirmable |
+| cursor | rss.xml (TIER-1 — connection reset by peer), WebSearch | 0 | WebSearch | rss.xml transport error (`[Errno 104] Connection reset by peer`); WebSearch confirms latest changelog entry still Aug19 (Cloud Agents/Harness improvements, already captured), nothing newer |
+| perplexity | jina (curl, Cloudflare-challenged — expected, no JINA_API_KEY), WebSearch | 0 | WebSearch | curl-jina hit the expected Cloudflare challenge (403); WebSearch resurfaced "Brain" (Aug19, already rejected 2026-08-20 as unconfirmed) and "Computer now works in email" (Aug18, predates window) — nothing new confirmed |
+
+Totals: 6 items, 4 companies fresh (google-deepmind, google-research, nvidia, xai), 1 transport error (cursor rss.xml connection reset) beyond the expected xai/perplexity Jina Cloudflare-challenge (no JINA_API_KEY).
+
+Window: since last successful daily run (2026-08-21 06:15 UTC).
+
+Linear: 6 new stories filed — KOV-253 [Google DeepMind] From Atari to EVE Online (Medium, research), KOV-254 [Google Research] An AI tool for prioritizing candidate biomarkers from wearable sensor data (Medium, research), KOV-255 [Google Research] How mobility gives language models a deeper understanding of place (Medium, research), KOV-256 [NVIDIA] NVIDIA AVO Reaches 100% on ARC-AGI-3 (High, research), KOV-257 [NVIDIA] Maximizing AI Factory Performance per Watt with NVIDIA DSX MaxLPS (Medium, infra), KOV-258 [xAI] Grok Bot is now included with more plans (Low, product). Searched project "News digest" by title/keyword for each before creating — no collisions, nothing skipped as duplicate.
+
+Commit: `news: daily run 2026-08-22 (+6 items, 4 companies fresh)`.
