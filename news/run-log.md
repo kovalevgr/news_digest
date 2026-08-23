@@ -1569,3 +1569,27 @@ WRITE: 9 items to `radar/community.md`, 2 to `radar/practitioner-blogs.md`, 1 to
 Linear: 13 review-queue cards created in project "Radar" (team Kovalevgr), status "Ready to Review" — KOV-259 through KOV-271. 10 HIGH fit → Priority High(2); 3 MEDIUM fit → Priority Medium(3). Source labels applied per item (reddit ×9, blog ×3, youtube ×1); `highlight` on KOV-260 (Single RTX 5090 Qwen3.8-27B NVFP4 262K), KOV-268 (Evolution of the Agent Harness), KOV-270 (Speculative Decoding in vLLM on AMD GPUs) — 3 highlights, the daily max. Searched the project by title keyword for every candidate first — no collisions found, nothing skipped as duplicate.
 
 Commit: `news: radar run 2026-08-23 (+13 items, 3 highlights)`.
+
+## 2026-08-23 06:10 UTC — daily — ok
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss.xml (TIER-1), WebSearch | 0 | WebSearch | rss.xml no fresh entries; WebSearch surfaced only ChatGPT UI/feature updates and the Preparedness-team leadership story, nothing confirmable as a distinct in-window blog post beyond the Aug18 items already captured |
+| anthropic | fetch (WebFetch) | 0 | none needed | listing still tops out at Aug14 (text watermark, already captured), nothing newer |
+| google-deepmind | rss.xml (TIER-1), WebSearch | 0 | WebSearch | rss.xml no fresh entries; WebSearch surfaced only the Aug5-6 leadership-reshuffle story (already captured) and the general blog index, nothing newer than Aug21 (already captured) |
+| google-research | rss.xml (TIER-1), WebSearch | 0 | WebSearch | rss.xml no fresh entries; WebSearch's newest indexed post is Aug11 (already captured), nothing newer than Aug21 (already captured) |
+| microsoft | rss.xml (TIER-1), WebSearch | 0 | WebSearch | rss.xml no fresh entries; WebSearch found nothing newer than Aug20 (Skala 1.1, already captured) |
+| nvidia | rss.xml (TIER-1), WebSearch | 0 | WebSearch | rss.xml no fresh entries; WebSearch's newest indexed items (Aug20 Generative Recommenders, Aug18 UMAP) predate or match items already captured, nothing newer than Aug21 (already captured) |
+| xai | jina (curl, Cloudflare-challenged — expected, no JINA_API_KEY), WebSearch | 0 | WebSearch | curl-jina hit the expected Cloudflare challenge (403); WebSearch found nothing newer than Aug21 (Grok Bot more plans, already captured) |
+| mistral | rss.xml (TIER-1, 304 not modified), WebSearch | 0 | WebSearch | no fresh entries; WebSearch surfaced only earlier-August items (Vibe agent update, Les Ulis data center, industrial-engineering partnerships), nothing newer than Aug20 (Agentic Search, already captured) |
+| huggingface | rss.xml (TIER-1, 304 not modified), WebSearch | 0 | WebSearch | no fresh entries; WebSearch's closest new item ("State of Open Models: Summer 2026") is a biannual ecosystem report, not a dated announcement — nothing newer than Aug20 (already captured) |
+| cursor | rss.xml (TIER-1), WebSearch | 0 | WebSearch | no fresh entries; WebSearch confirms latest changelog entry still Aug19 (Cloud Agents/Harness improvements, already captured) |
+| perplexity | jina (curl, Cloudflare-challenged — expected, no JINA_API_KEY), WebSearch | 0 | WebSearch | curl-jina hit the expected Cloudflare challenge (403); WebSearch resurfaced "Brain" (Aug19, already rejected 2026-08-20 as unconfirmed) and "Computer now works in email" (Aug18, predates window) — nothing new confirmed |
+
+Totals: 0 items, 0 companies fresh, 0 errors (11 gap-scrapes attempted, all empty in-window; 2 expected Cloudflare-challenged jina attempts — xai, perplexity — no JINA_API_KEY set).
+
+Window: since last successful daily run (2026-08-22 06:14 UTC).
+
+Linear: no new stories to file (0 confirmed items across all 11 companies) — nothing created or searched for.
+
+Commit: `news: daily run 2026-08-23 (+0 items, 0 companies fresh)`.
