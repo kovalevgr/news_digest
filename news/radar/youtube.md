@@ -1,6 +1,6 @@
 ---
 category: youtube
-updated: 2026-08-16
+updated: 2026-08-23
 ---
 
 # Radar: youtube
@@ -21,3 +21,7 @@ Appended by the daily routine under weekly headings; format matches topics files
 - **2026-08-14** — [Lecture 111: Spectral Compute: Compile CUDA everywhere](https://www.youtube.com/watch?v=eujKd0lHegA) — GPU MODE lecture on compiling CUDA source for non-NVIDIA hardware; livestream + edited-cut duplicate (kept the edited lecture, dropped the raw stream at watch?v=_wkQYk0ZbNw).
 - **2026-08-15** — [Exo: Harnesses should see their own code and logs — Alex Krentsel](https://www.youtube.com/watch?v=5lFD-34dhqE) — Latent Space talk arguing agent harnesses should be able to introspect their own source and execution logs as context, not just the task at hand.
 - **2026-08-11** — [They Thought the Model Was Broken — Matt McPartlon & Neil Patil, Chai Discovery](https://www.youtube.com/watch?v=Qp5xklyJySI) — Latent Space engineering post-mortem from Chai Discovery (protein-structure AI) on a bug that looked like a broken model.
+
+## 2026-W34
+
+- **2026-08-22** — [Agent Frameworks Considered Harmful — Rémi Louf, .txt](https://www.youtube.com/watch?v=KHudyx5wW3U) — AI Engineer conference talk arguing against heavyweight agent frameworks — a counterpoint companion to the harness-evolution debate (radar, practitioner-blogs, 2026-08-22). Feed sources recovered today after ~3 days of all-7-channels 404s (2026-08-19 to 2026-08-22).
