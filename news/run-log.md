@@ -1622,3 +1622,25 @@ WRITE: 1 item to `radar/technical-newsletters.md` (new `## 2026-W35` heading).
 Linear: 1 review-queue card created in project "Radar" (team Kovalevgr), status "Ready to Review" — KOV-273. HIGH fit → Priority High(2), label `newsletter`, `highlight` (the day's only confirmed item, verified). Searched the project by title first — no collision found.
 
 Commit: `news: radar run 2026-08-24 (+1 item, 1 highlight)`.
+
+## 2026-08-24 06:19 UTC — daily — ok
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss.xml (TIER-1, empty), WebFetch (403), curl-jina (403 Cloudflare), WebSearch | 4 | WebSearch | rss.xml no fresh entries; direct WebFetch and jina both 403'd on openai.com (edge rotated bot rules, same as Microsoft's known trap) — fell back to WebSearch, which surfaced 4 in-window Product/Publication/policy-safety items missed by the prior two daily runs' WebSearch passes: "Introducing AI Futures" (Aug20), "Offering Zero Data Retention for frontier models" (Aug19), "Pacing model development in an era of cyber-critical capabilities" (Aug18, a follow-up to KOV-35/2026-08-07 with new facts — RL-training pause, OpenAI-Hugging Face incident link), "OpenAI joins PORTS-Pike project" (Aug17, 8GW/20yr Ohio data-center deal); each confirmed via 2+ independent secondary sources since primary openai.com pages are unfetchable; "Dali Rajic CRO" appointment dropped (Company category, excluded per config filter) |
+| anthropic | fetch (WebFetch) | 0 | none needed | listing still tops out at Aug14 (text watermark, already captured), nothing newer |
+| google-deepmind | rss.xml (TIER-1, empty), WebSearch | 0 | WebSearch | WebSearch's "Exploring new frontiers of AI and games research" resolves to the same URL as the already-captured Aug21 Atari-to-EVE-Online item (dedup); nothing newer confirmed |
+| google-research | rss.xml (TIER-1, empty), WebSearch | 0 | WebSearch | nothing newer than Aug21 (already captured); MedGemma health-AI post surfaced but undated/older, not confirmable as in-window |
+| microsoft | rss.xml (TIER-1, empty), WebSearch | 0 | WebSearch | nothing newer than Aug20 (Skala 1.1, already captured) |
+| nvidia | rss.xml (TIER-1, 304 not modified), WebSearch | 0 | WebSearch | SkillEvaluator (Aug18/19) already captured (KOV-227); nothing newer than Aug21 (AVO/DSX MaxLPS, already captured) |
+| xai | curl-jina (403 Cloudflare, no JINA_API_KEY), WebSearch | 1 | WebSearch | curl-jina expected Cloudflare block; WebSearch surfaced "Grok 4.6 on Google Enterprise Agent Platform" (x.ai/news/grok-4-6-vertex-ai, Aug21) — missed by the prior two daily runs' WebSearch passes, confirmed via 4 independent secondary sources + Google Cloud docs |
+| mistral | rss.xml (TIER-1, 304 not modified), WebSearch | 0 | WebSearch | nothing newer than Aug20 (Agentic Search, already captured); Leanstral 1.5 and OCRv4 mentions both predate window (late June/July) |
+| huggingface | rss.xml (TIER-1, 304 not modified), WebSearch | 0 | WebSearch | nothing newer than Aug20 (LFM2.5-DSpark, already captured) |
+| cursor | rss.xml (TIER-1, empty), WebSearch | 0 | WebSearch | nothing newer than Aug19 (Cloud Agents/Harness, already captured) |
+| perplexity | curl-jina (403 Cloudflare, no JINA_API_KEY), WebFetch (EGRESS_BLOCKED), WebSearch | 0 | WebSearch | WebFetch on perplexity.ai now hard-blocked by the network egress proxy (new failure mode, not just Cloudflare); WebSearch resurfaced "Brain" (Aug19, already rejected 2026-08-20/2026-08-22 as unconfirmed) and "Computer now works in email" (Aug18, predates window) — nothing new confirmed |
+
+Totals: 5 items, 2 companies fresh (openai, xai). Window: since last successful daily run (2026-08-23 06:10 UTC), widened by direct-fetch gap-scrape to catch up on several days of OpenAI/xAI items missed by prior WebSearch-only passes.
+
+Linear: attempted 5 new-story cards in project "News digest" (team Kovalevgr, status Todo) — searched by title/keyword first, no duplicates found. KOV-274 [OpenAI] Introducing AI Futures (Medium, policy-safety) and KOV-275 [OpenAI] Offering Zero Data Retention for frontier models (Medium, product) created successfully. The 3rd attempt ([OpenAI] Pacing model development in an era of cyber-critical capabilities) and all subsequent attempts (PORTS-Pike, Grok 4.6 on Vertex AI) failed with `"You've exceeded the free issue limit for this workspace"` — the Kovalevgr Linear workspace has hit its plan's issue cap. **Owner action needed: upgrade the Linear plan (or free up/archive old issues) — until then, no new cards can be created in ANY project (News digest or Radar), which will also block tomorrow's radar run and the Sunday digest card.** The 3 uncarded stories remain fully written in `topics/openai.md`, `topics/xai.md`, and their artifact files — no data lost, only the Linear mirror is behind.
+
+Commit: `news: daily run 2026-08-24 (+5 items, 2 companies fresh)`.

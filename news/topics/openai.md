@@ -4,15 +4,19 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-08-19
+updated: 2026-08-24
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W34
 
+- **2026-08-20** — [Introducing AI Futures](https://openai.com/index/introducing-ai-futures/) — OpenAI launches AI Futures, a new blog from its Strategic Futures team exploring how transformative AI could reshape power, governance, the economy, and individual freedom.
+- **2026-08-19** — [Offering Zero Data Retention for frontier models](https://openai.com/index/offering-zero-data-retention-for-frontier-models/) — OpenAI reaffirms Zero Data Retention for eligible API customers on frontier models and previews Private Safety Processing, detecting multi-session misuse without routine staff review of prompts.
 - **2026-08-18** — [Introducing ChatGPT for Teens: Built for learning, backed by protections](https://openai.com/index/chatgpt-for-teens) — OpenAI launches ChatGPT for Teens, a dedicated experience with built-in safety protections, healthy-use features (Study Mode, homework reminders), and parental controls.
 - **2026-08-18** — [ChatGPT Ads expands across Europe](https://openai.com/index/chatgpt-ads-expands-across-europe) — OpenAI expands ChatGPT Ads to 31 European markets, its largest expansion to date; ads remain limited to Free/Go users.
+- **2026-08-18** — [Pacing model development in an era of cyber-critical capabilities](https://openai.com/index/pacing-model-development-cyber-capabilities/) — OpenAI slows frontier model scaling (incl. a two-week RL-training pause) after the OpenAI–Hugging Face security incident and preliminary evidence Astra may meet the Critical cybersecurity threshold under its Preparedness Framework.
+- **2026-08-17** — [OpenAI joins PORTS-Pike project](https://openai.com/index/openai-joins-ports-pike-project/) — OpenAI secures ~8 GW-IT of capacity at the PORTS-Pike Technology Campus in Ohio in a 20-year deal with SB Energy, NVIDIA, and the U.S. Department of Energy; 35,000 construction jobs expected.
 
 ## 2026-W33
 

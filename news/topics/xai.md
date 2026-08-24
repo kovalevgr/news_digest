@@ -4,13 +4,14 @@ aliases:
   - Grok
 sources:
   - https://x.ai/news
-updated: 2026-08-21
+updated: 2026-08-24
 ---
 
 MOC page for **xAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W34
 
+- **2026-08-21** — [Grok 4.6 on Google Enterprise Agent Platform](https://x.ai/news/grok-4-6-vertex-ai) — Grok 4.6 becomes available in preview through Model Garden on Google's Enterprise Agent Platform (Vertex AI), giving enterprise developers Google Cloud access to the 500k-context flagship model.
 - **2026-08-21** — [Grok Bot is now included with more plans](https://x.ai/news/grok-bot-more-plans) — xAI expands Grok Bot beyond its Aug 11 beta to SuperGrok Plus, SuperGrok Heavy, Cursor Pro+, Cursor Ultra, and Cursor Teams, plus a free trial for other users.
 
 ## 2026-W33
