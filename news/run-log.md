@@ -1593,3 +1593,32 @@ Window: since last successful daily run (2026-08-22 06:14 UTC).
 Linear: no new stories to file (0 confirmed items across all 11 companies) — nothing created or searched for.
 
 Commit: `news: daily run 2026-08-23 (+0 items, 0 companies fresh)`.
+
+## 2026-08-24 05:14 UTC — radar — ok
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | none |
+| inference-infra | 0 | 0 | none |
+| oss-ml-systems | 0 | 0 | none |
+| bigtech-eng | 0 | 0 | none |
+| research-institutes | 0 | 0 | none |
+| technical-newsletters | 1 | 1 | none |
+| practitioner-blogs | 0 | 0 | none |
+| youtube | 0 | 0 | none |
+| community | 13 | 0 | none |
+| mistral-watch | 0 | 0 | none |
+
+Totals: 14 raw candidates, 1 confirmed, 1 source-error group (reddit HTTP 429 — expected known failure mode, skipped without retry per FAILURE MODES, no fallback attempted). A quiet day across the rest of the roster: 20 of the other 51 sources returned nothing fresh in-window; the 13 community candidates all came from a handful of low-signal feeds (hn-show-*, hf-trending-*, github-trending, lobsters).
+
+TRIAGE pass 1 (technical bar): dropped as a group — github-trending's 5 candidates (freestylefly/awesome-gpt-image-2 prompt-template repo, block/buzz and apache/maka agent-workspace projects, Alishahryar1/free-claude-code ToS-workaround token-sharing tool, tinyhumansai/openhuman personal-AI vanity project) — none carry a discrete dated news peg, same reasoning as prior days (a trending snapshot, not a story). hf-trending-models: ornith-ai/Ornith-1.5-9B dropped as dedup (thoroughly covered already — 2026-08-19 launch item, 2026-08-22 MTP-head fix in `radar/community.md`); LBH-123-AI/Minimax_h3_latent_Upscaler dropped as a vanity/low-effort-naming model with no changelog content. hf-trending-spaces: Rchoks/wan555 dropped as off-focus (image-to-image generation, not in interest profile). hn-show-rag/hn-show-mcp: "Show HN: Make your logo extra bright on HDR screens" (soverybright.com, same item surfaced by both feeds) dropped as non-AI (HDR gain-map trick, consistent with the prior drop of this exact item). hn-show-rag: "Show HN: Structural code grep across public GitHub repositories" (grep.codemod.com) dropped as off-focus — ast-grep-based structural code search, no LLM/AI tie. hn-trend-llm: "Why your local LLM feels dumber than it is" (forum.level1techs.com) — same URL flagged and dropped yesterday (2026-08-23) for an empty feed summary plus transport-blocked verification; today's attempt hit the identical wall (WebFetch EGRESS_BLOCKED, curl CONNECT-tunnel-403) with still no summary text — dropped again rather than invented. lobsters: "AI Chip Architectures" (jepeake.com) — empty feed summary, WebFetch EGRESS_BLOCKED and curl CONNECT-tunnel-403 on retry — too thin to write an honest line from title alone, dropped.
+
+TRIAGE pass 2 (owner fit): the 1 survivor — SemiAnalysis "AgentX - InferenceXv3: Does CUDA Moat Hold up in Agentic Inferencing?" — scored HIGH (AI-agents-in-practice + local/inference-infra overlap, reproducible open-source benchmark).
+
+VERIFY SUBSTANCE (1 highlight candidate checked): newsletter.semianalysis.com/p/agentx-inferencexv3-does-cuda-moat — WebFetch, passed (quantified: 393 anonymized Claude Code traces, up to 1M-token context, KV-cache hit rate >95% for sub-agent bursts, B300 vLLM DEP8 91% HBM hit rate under 384 concurrent traces, tested across GB300/GB200 NVL72/B300/B200/H200/MI355X/MI325/MI300X, Apache-2.0 open-source with public dataset + REST API) → highlight (only confirmed item today, clearly the day's best).
+
+WRITE: 1 item to `radar/technical-newsletters.md` (new `## 2026-W35` heading).
+
+Linear: 1 review-queue card created in project "Radar" (team Kovalevgr), status "Ready to Review" — KOV-273. HIGH fit → Priority High(2), label `newsletter`, `highlight` (the day's only confirmed item, verified). Searched the project by title first — no collision found.
+
+Commit: `news: radar run 2026-08-24 (+1 item, 1 highlight)`.
