@@ -1644,3 +1644,9 @@ Totals: 5 items, 2 companies fresh (openai, xai). Window: since last successful 
 Linear: attempted 5 new-story cards in project "News digest" (team Kovalevgr, status Todo) — searched by title/keyword first, no duplicates found. KOV-274 [OpenAI] Introducing AI Futures (Medium, policy-safety) and KOV-275 [OpenAI] Offering Zero Data Retention for frontier models (Medium, product) created successfully. The 3rd attempt ([OpenAI] Pacing model development in an era of cyber-critical capabilities) and all subsequent attempts (PORTS-Pike, Grok 4.6 on Vertex AI) failed with `"You've exceeded the free issue limit for this workspace"` — the Kovalevgr Linear workspace has hit its plan's issue cap. **Owner action needed: upgrade the Linear plan (or free up/archive old issues) — until then, no new cards can be created in ANY project (News digest or Radar), which will also block tomorrow's radar run and the Sunday digest card.** The 3 uncarded stories remain fully written in `topics/openai.md`, `topics/xai.md`, and their artifact files — no data lost, only the Linear mirror is behind.
 
 Commit: `news: daily run 2026-08-24 (+5 items, 2 companies fresh)`.
+
+## 2026-08-24 07:04 UTC — deep-dive — ok (no approved cards)
+
+No cards with label `hot` in project "Radar" (checked both the label query workspace-wide and a manual scan of all 88 cards in "Ready to Review" — zero hot). Nothing to process; no files written, no cards moved. Leftovers: n/a.
+
+Commit: `news: deep dive 2026-08-24 (0 cards)`.
