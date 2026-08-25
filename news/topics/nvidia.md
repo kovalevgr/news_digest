@@ -4,10 +4,18 @@ aliases:
   - Nvidia
 sources:
   - https://blogs.nvidia.com/feed/
-updated: 2026-08-22
+updated: 2026-08-25
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W35
+
+- **2026-08-24** — [NVIDIA Vera Rubin and Blackwell Set a New Standard for Agentic AI Performance per Watt](https://developer.nvidia.com/blog/nvidia-vera-rubin-and-blackwell-set-a-new-standard-for-agentic-ai-performance-per-watt/) — NVIDIA publishes SemiAnalysis AgentX benchmark results: Vera Rubin NVL72 up to 30x higher AI-factory throughput/MW than GB300 NVL72 on DeepSeek V4-Pro; GB300 up to 15x over H200 NVL8.
+- **2026-08-24** — [NVIDIA BlueField-4 Powers New Scale-In Network Infrastructure for Agentic AI Factories](https://developer.nvidia.com/blog/nvidia-bluefield-4-powers-new-scale-in-network-infrastructure-for-agentic-ai-factories/) — NVIDIA introduces Scale-In, a fifth AI-networking pillar built on the BlueField-4 DPU (800 Gb/s, 4x memory/2x network bandwidth over BlueField-3), offloading security/storage/telemetry from host CPUs.
+- **2026-08-24** — [How NVIDIA Groq 3 LPX Unlocks Ultrafast Interactivity at Long Context on NVIDIA Vera Rubin](https://developer.nvidia.com/blog/how-nvidia-groq-3-lpx-unlocks-ultrafast-interactivity-at-long-context-on-nvidia-vera-rubin/) — NVIDIA publishes benchmarks for its Groq 3 LPX inference accelerator on Vera Rubin NVL72: 3,431 tok/s on Artificial Analysis 100K-context, 4,767 tok/s median on SPEED-Bench.
+- **2026-08-24** — [Giga-Scale AI and the Ethernet Evolution: How Spectrum-X Ethernet Rewrites the Rules](https://developer.nvidia.com/blog/giga-scale-ai-ethernet-evolution-spectrum-x-ethernet-rewrites-rules/) — NVIDIA details Spectrum-X Ethernet architecture for giga-scale AI factories, claiming 98% line-rate throughput and 400x faster failover recovery (2.68ms vs 1.08s) at up to 512,000 GPUs.
+- **2026-08-24** — [Solving Agentic AI Fleet Challenges with NVIDIA Vera CPU](https://developer.nvidia.com/blog/solving-agentic-ai-fleet-challenges-with-nvidia-vera-cpu/) — NVIDIA details Vera CPU for agentic workloads, citing telemetry from 163,000+ agentic sessions (97%+ unique profiles) and up to 1.5x per-core performance over AMD Venice CPUs.
 
 ## 2026-W34
 

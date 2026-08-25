@@ -4,10 +4,14 @@ aliases:
   - Mistral
 sources:
   - https://mistral.ai/rss.xml
-updated: 2026-08-20
+updated: 2026-08-25
 ---
 
 MOC page for **Mistral AI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W35
+
+- **2026-08-24** — [Mistral x HUMAIN](https://mistral.ai/news/mistral-x-humain/) — Mistral AI announces a strategic collaboration with HUMAIN (hundreds of millions of euros) to advance sovereign AI in Saudi Arabia and the Middle East, starting with cybersecurity and Arabic-language voice applications.
 
 ## 2026-W34
 

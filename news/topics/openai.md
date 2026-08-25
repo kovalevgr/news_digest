@@ -4,10 +4,14 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-08-24
+updated: 2026-08-25
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W35
+
+- **2026-08-24** — [Advancing price-performance for developers with GPT‑5.6 in Kiro](https://openai.com/index/gpt-5-6-in-kiro) — GPT‑5.6 is now available in Kiro, helping developers plan, build, review, and test software with better price-performance.
 
 ## 2026-W34
 

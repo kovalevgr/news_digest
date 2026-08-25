@@ -5,10 +5,14 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-08-21
+updated: 2026-08-25
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W35
+
+- **2026-08-25** — [Wire It, Run It, Deploy It: AI Workflows in Gradio](https://huggingface.co/blog/gradio-workflow-guide) — Hugging Face announces gr.Workflow, a new Gradio feature turning multi-step AI pipelines into a visual drag-and-drop interface with automatic REST-endpoint generation and one-command Spaces deployment.
 
 ## 2026-W34
 

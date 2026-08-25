@@ -1679,3 +1679,31 @@ WRITE: 8 items written — 1 to `radar/oss-ml-systems.md` (new `## 2026-W35` hea
 **Linear: BLOCKED — same issue-limit cap reported 2026-08-24 is still in effect, now confirmed on a second consecutive day.** All 8 `save_issue` calls (OCR It, agent.md, Apodex 1.1, Prime Agent, ReWorld, lite-LPU, vllm v0.28.0, cameron-wolfe RL guide) failed identically: `"You've exceeded the free issue limit for this workspace. Please upgrade or contact sales@linear.app for a free trial."` Zero review-queue cards created. All 8 items are fully written in the radar files above — no data lost, only the Linear review queue is behind. **Owner action still needed: upgrade the Linear plan or free up/archive old issues** — until resolved, this will keep blocking the daily radar queue, tomorrow's company-news cards, and the Sunday digest card.
 
 Commit: `news: radar run 2026-08-25 (+8 items, 1 highlight, Linear blocked)`.
+
+## 2026-08-25 06:10 UTC — daily — ok (Linear blocked)
+
+Window: since 2026-08-24T04:10:43 UTC (fetch_feeds.py, ~26h default). `fetch_feeds.py` ran clean (exit 0, no source_errors for any company).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss | 1 | - | - |
+| anthropic | fetch (WebFetch) | 0 | fetch | listing still tops out at Aug14 (text watermark, already captured), nothing newer |
+| google-deepmind | rss, websearch | 0 | websearch | no in-window post with a confirmed URL surfaced |
+| google-research | rss, websearch | 0 | websearch | latest post (Science One Framework) still Jul30, predates window |
+| microsoft | rss, websearch | 0 | websearch | no Research-blog post newer than Aug11 confirmed |
+| nvidia | rss | 5 | - | 1 candidate excluded — "Maximizing AI Factory Performance per Watt with NVIDIA DSX MaxLPS" re-surfaced with the exact URL already captured 2026-08-21 (KOV-257); the known feed trap (ordered by `<updated>` not `<published>`, per sources.json note) resurfacing an old entry, not a new story |
+| xai | jina (anonymous) | 0 | jina | anonymous curl clean 200 (no Cloudflare challenge today); latest post still Aug21 (Grok Bot more plans), predates window. First attempt sent `Authorization: Bearer` with an unset `$JINA_API_KEY`, which Jina correctly rejected as 401 invalid-key rather than the usual anonymous 403 — re-ran without the header per the "only if the env var exists" rule; not a real transport failure |
+| mistral | rss | 1 | - | - |
+| huggingface | rss | 1 | - | - |
+| cursor | rss, websearch | 0 | websearch | WebSearch's only Aug24 lead was a billing/usage-limit email notice, not a changelog entry — rejected as not a story; latest confirmed changelog entry still Aug19 |
+| perplexity | jina (anonymous) | 0 | jina | anonymous curl clean 200; latest post still Aug19 (Brain: Agentic Memory as a Knowledge Wiki), predates window; same header-fix as xai above, not a real transport failure |
+
+Totals: 8 items, 4 companies fresh (openai, nvidia, mistral, huggingface), 0 source errors (9 gap-scrapes attempted, all empty in-window; 1 rejected duplicate candidate — NVIDIA DSX MaxLPS feed-ordering trap).
+
+**Note on `$JINA_API_KEY`:** the env var is currently unset (confirmed via shell check), same underlying condition noted in prior run-log entries ("no JINA_API_KEY set" → anonymous Jina, which works most days but occasionally 403s with AbuseAlleviationError). Today anonymous Jina worked cleanly for both xAI and Perplexity once the malformed empty-Bearer header was dropped.
+
+NVIDIA volume note: 6 raw TIER-1 candidates, all published 2026-08-24 15:00–15:08 UTC as a coordinated technical cluster around the Vera Rubin platform (Spectrum-X Ethernet, BlueField-4 Scale-In, Vera CPU, Groq 3 LPX inference accelerator, Vera Rubin/Blackwell perf-per-watt benchmarks) — each is substantive engineering content with concrete numbers, not tutorial filler, so kept per the "genuine announcements/major posts" bar; the 6th (DSX MaxLPS) was the duplicate dropped above.
+
+Linear: attempted 1 new-story card ([OpenAI] Advancing price-performance for developers with GPT‑5.6 in Kiro) to test whether the issue-limit cap from 2026-08-24/2026-08-25 (radar) had cleared. **It has not — same error: `"You've exceeded the free issue limit for this workspace. Please upgrade or contact sales@linear.app for a free trial."`** Did not attempt the remaining 7 (NVIDIA ×5, Mistral, Hugging Face) since the block is confirmed workspace-wide, not per-issue. All 8 items are fully written in `topics/*.md` and their artifact files — no data lost, only the Linear mirror is behind, now on its third consecutive blocked run (radar 08-24, radar 08-25, daily 08-25). **Owner action still needed: upgrade the Linear plan or free up/archive old issues.**
+
+Commit: `news: daily run 2026-08-25 (+8 items, 4 companies fresh, Linear blocked)`.
