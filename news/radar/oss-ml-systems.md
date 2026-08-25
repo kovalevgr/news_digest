@@ -1,6 +1,6 @@
 ---
 category: oss-ml-systems
-updated: 2026-08-23
+updated: 2026-08-25
 ---
 
 # Radar: oss-ml-systems
@@ -29,3 +29,7 @@ Appended by the daily routine under weekly headings; format matches topics files
 - **2026-08-21** — [Chasing the Batch-1 Floor: Ling-3.0-flash Speculative Decode on Blackwell](https://lmsys.org/blog/2026-08-21-ling3-flash-spec-decode-blackwell) — Verified via WebFetch: optimization campaign for batch-1 decode of a hybrid linear-attention MoE (42 layers, 35 KDA + 7 MLA, 512 routed experts) on 4×Blackwell — host run-ahead pipelining (removes per-step GPU sync), fused/graph-captured metadata rebuild, PDL-chained kernel launches across MoE/router/KDA paths, SwiGLU-fused MoE epilogue, bf16 router+lm_head, and a DSpark speculative-decode variant (distribution-aligned draft training, host-fed FlashInfer plans). Numbers: NEXTN single-request throughput 288→606 tok/s (2.1×), TPOT 3.33→1.53ms (-54%); DSpark at 1000 concurrent requests hits 1120 tok/s mean / 1945 tok/s peak, TPOT 0.78ms (1.9× lower than tuned NEXTN), accept length 9.95 tokens — weight bandwidth dominates the 5.1ms steady-state step (MoE GEMMs ~1.2ms, all-reduce ~950µs).
 - **2026-08-21** — [Fast Engine Recovery: Sub-Second Engine Restart for SGLang via Weight Cache Daemon](https://lmsys.org/blog/2026-08-21-sglang-fast-recovery) — Verified via WebFetch: a persistent GPU daemon keeps post-quantized weights resident in memory; new engine instances map them via CUDA IPC zero-copy instead of reloading/dequantizing from disk (daemon/client/off modes, with config-compatibility checks — model path, TP size, quant method, GPU capability — and automatic disk-load fallback on mismatch). Numbers: weight loading Ling-2.6-1T FP8 ~495s→~0.63s (~785×), Qwen3-235B FP8 ~500×; end-to-end engine startup 8.8min→0.528min (-93.9%); targets active-standby failover under 1s and cold restarts under 10s.
 - **2026-08-23** — [Exploring Speculative Decoding in vLLM on AMD GPUs](https://vllm.ai/blog/2026-08-23-speculative-decoding-amd-gpus) — Verified via WebFetch: vLLM compares five drafting methods (native MTP, Gemma-4 MTP, EAGLE-3, DFlash, DSpark) on AMD hardware — DFlash reaches up to 2.87× on Gemma-4-26B-A4B-it (MATH500) and up to 2.68× on Kimi-K2.5; native MTP hits up to 2.20× on Qwen3.5-122B (MATH500); DSpark on Qwen3-8B lands 1.15×–1.63× depending on workload; proposal length (N) matters as much as method choice, with N=7 frequently near-optimal for DFlash but not universally.
+
+## 2026-W35
+
+- **2026-08-23** — [vllm release v0.28.0](https://github.com/vllm-project/vllm/releases/tag/v0.28.0) — Routine vLLM release (tag v0.28.0); no release-note text available at fetch time (GitHub releases page not fetchable in this env — confirmed via git tag only).

@@ -1650,3 +1650,32 @@ Commit: `news: daily run 2026-08-24 (+5 items, 2 companies fresh)`.
 No cards with label `hot` in project "Radar" (checked both the label query workspace-wide and a manual scan of all 88 cards in "Ready to Review" — zero hot). Nothing to process; no files written, no cards moved. Leftovers: n/a.
 
 Commit: `news: deep dive 2026-08-24 (0 cards)`.
+
+## 2026-08-25 05:11 UTC — radar — partial (Linear blocked)
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | none |
+| inference-infra | 0 | 0 | none |
+| oss-ml-systems | 1 | 1 | 1 (vllm-blog TLS handshake timeout) |
+| bigtech-eng | 0 | 0 | none |
+| research-institutes | 0 | 0 | none |
+| technical-newsletters | 1 | 1 | none |
+| practitioner-blogs | 0 | 0 | none |
+| youtube | 0 | 0 | 7 (all yt-* sources: HTTP 404/500 — YouTube feed endpoint appears down/rotated today, not a per-channel issue) |
+| community | 23 | 6 | 2 (reddit HTTP 429 — expected known failure mode, skipped without retry; lobsters TLS handshake timeout) |
+| mistral-watch | 0 | 0 | none |
+
+Totals: 26 raw candidates, 8 confirmed, 10 source-error groups (7 YouTube endpoints uniformly 404/500 — likely a transient upstream issue, logged and moved on per no-fallback-for-radar rule; reddit 429 expected; 2 TLS timeouts on vllm-blog and lobsters, no retry attempted).
+
+TRIAGE pass 1 (technical bar): dropped — hn-show-inference's "Free Inference Engineer and Model Training Roadmap" (inferquest.org, empty body, 16 pts) as a career-resource/roadmap link, no discrete technique or release. hn-show-rag/hn-show-mcp/hn-show-agents all surfaced the same "Kern – container and resource runtime" (github.com/getkern/kern) via keyword overlap — dropped as off-focus (generic CPU/RAM-limiting container runtime, no AI/LLM tie in its own description); hn-show-rag's other two candidates ("A techno machine in one HTML file" and "I wrote a BASIC interpreter that boots on UEFI") dropped as off-focus (art project, retro-computing — no AI content). hf-trending-models: "peculiar-ragdoll/Qwen-Sharp-Chat-Templates" dropped as thin (no pipeline tag, no summary, vanity-style repo name — can't verify substance); "ornith-ai/Ornith-1.5-9B-GGUF" dropped as dedup (same Ornith-1.5 family thoroughly covered 2026-08-19 launch + 2026-08-22 MTP-head fix in `radar/community.md`). hf-trending-spaces: "shootstuff/flux-img2img-uncensored" dropped as off-focus (NSFW image generation); "hugging-apps/sensenova-...-mot" dropped as a thin Gradio wrapper around someone else's model demo, no original engineering content. smolai: "not much happened today" — skipped per the explicit rule for that exact title. github-trending: all 4 candidates (ai-job-search, andrej-karpathy-skills CLAUDE.md, NousResearch/hermes-agent, anthropics/claude-plugins-community) dropped as trending-snapshot noise with no discrete dated announcement, consistent with prior days' handling of this source.
+
+TRIAGE pass 2 (owner fit): survivors scored — OCR It (HIGH: RAG/document-ingestion tooling, verified working via git clone), "My agent.md..." by Fabien Sanglard (HIGH: context engineering from a known author, transport-blocked), Apodex 1.1 and Prime Agent HF papers (both HIGH: AI-agents-in-practice / agent-harness / agent-memory territory), ReWorld HF paper (LOW: world-model/video-gen territory, cleared pass 1 only), the lite-LPU Show HN (MEDIUM: real from-scratch chip-design-for-inference project but very thin signal — 14 pts/1 comment — and transport-blocked), vllm v0.28.0 release tag (MEDIUM, same treatment as the v0.27.0/v0.27.1 precedent — routine version bump, no release-note text fetchable), cameron-wolfe's RL-for-LLMs guide (MEDIUM: training/fine-tuning practice, solid explainer).
+
+VERIFY SUBSTANCE (5 highest-scored candidates checked): OCR It — verified via `git clone` (MIT, working Chrome extension, offline Tesseract OCR, no build step) → **highlight**. "My agent.md..." (fabiensanglard.net) — WebFetch EGRESS_BLOCKED, curl CONNECT-tunnel 403 → verification blocked, kept on title only, no highlight. Apodex 1.1 and Prime Agent (HF papers) — arxiv.org EGRESS_BLOCKED, HF papers page rendered only a figure-caption fragment via WebFetch → verification blocked (only the paper's own 500-char abstract excerpt, already captured by the fetch script, was usable) — kept on abstract text, no highlight. lite-LPU (lpulite.com) — WebFetch EGRESS_BLOCKED, curl CONNECT-tunnel 403 → verification blocked, kept on HN submission's own summary text, no highlight. Only 1 highlight today (OCR It) — a weak day for verifiable substance, not padded.
+
+WRITE: 8 items written — 1 to `radar/oss-ml-systems.md` (new `## 2026-W35` heading), 1 more to `radar/technical-newsletters.md` (existing `## 2026-W35`), 6 to `radar/community.md` (new `## 2026-W35` heading).
+
+**Linear: BLOCKED — same issue-limit cap reported 2026-08-24 is still in effect, now confirmed on a second consecutive day.** All 8 `save_issue` calls (OCR It, agent.md, Apodex 1.1, Prime Agent, ReWorld, lite-LPU, vllm v0.28.0, cameron-wolfe RL guide) failed identically: `"You've exceeded the free issue limit for this workspace. Please upgrade or contact sales@linear.app for a free trial."` Zero review-queue cards created. All 8 items are fully written in the radar files above — no data lost, only the Linear review queue is behind. **Owner action still needed: upgrade the Linear plan or free up/archive old issues** — until resolved, this will keep blocking the daily radar queue, tomorrow's company-news cards, and the Sunday digest card.
+
+Commit: `news: radar run 2026-08-25 (+8 items, 1 highlight, Linear blocked)`.

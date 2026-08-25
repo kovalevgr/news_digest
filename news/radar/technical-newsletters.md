@@ -1,6 +1,6 @@
 ---
 category: technical-newsletters
-updated: 2026-08-24
+updated: 2026-08-25
 ---
 
 # Radar: technical-newsletters
@@ -20,3 +20,4 @@ Appended by the daily routine under weekly headings; format matches topics files
 ## 2026-W35
 
 - **2026-08-24** — [AgentX - InferenceXv3: Does CUDA Moat Hold up in Agentic Inferencing?](https://newsletter.semianalysis.com/p/agentx-inferencexv3-does-cuda-moat) — Verified via WebFetch: open-source (Apache 2.0) inference benchmark suite adds AgentX, a multi-turn agentic-coding scenario built from 393 anonymized Claude Code traces (up to 1M-token context), complementing the existing fixed-length 8k1k/1k1k/1k8k scenarios; run across ~2MW of continuously operated compute on 1000+ chips (NVIDIA GB300/GB200 NVL72, B300, B200, H200; AMD MI355X/MI325/MI300X; RTX Pro Servers, TPUs incoming). Reports KV-cache hit rates >95% for sub-agent bursts (B300 vLLM DEP8: 91% HBM hit rate under 384 concurrent traces) and a DeepSeek V4 Pro p50 input length of 88k tokens. Full dashboard, dataset and REST API published with CI-verified accuracy provenance per benchmark point.
+- **2026-08-24** — [Reinforcement Learning for LLMs: The Complete Guide](https://cameronrwolfe.substack.com/p/llm-rl) — Explainer tracing the evolution of RL for LLMs from first principles through to frontier post-training practice.
