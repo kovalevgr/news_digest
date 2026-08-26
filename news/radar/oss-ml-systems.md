@@ -1,6 +1,6 @@
 ---
 category: oss-ml-systems
-updated: 2026-08-25
+updated: 2026-08-26
 ---
 
 # Radar: oss-ml-systems
@@ -33,3 +33,4 @@ Appended by the daily routine under weekly headings; format matches topics files
 ## 2026-W35
 
 - **2026-08-23** — [vllm release v0.28.0](https://github.com/vllm-project/vllm/releases/tag/v0.28.0) — Routine vLLM release (tag v0.28.0); no release-note text available at fetch time (GitHub releases page not fetchable in this env — confirmed via git tag only).
+- **2026-08-25** — [What We Learned Trying to Catch AI Liars: An Aletheia's Quest Retrospective](https://blog.eleuther.ai/aletheia-retrospective/) — Verified via WebFetch: EleutherAI's month-long deception-detection competition retrospective — a 4-pass black-box judge pipeline (0.926 mean AUROC) nearly matched white-box linear activation probes (0.945), while the probes proved highly situational (statistically significant sign-inversions on out-of-distribution data) and trusted judges could leak suspect-model knowledge through shared-training correlations (~0.82 AUROC detecting lies even on identical replies); code, best-performing methods and a 28-dataset/6,168-example "gauntlet" benchmark released at `github.com/EleutherAI/how-to-catch-an-ai-liar`.
