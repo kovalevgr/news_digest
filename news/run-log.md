@@ -1736,3 +1736,31 @@ WRITE: 13 items written — 1 to `radar/oss-ml-systems.md` (existing `## 2026-W3
 **Linear: BLOCKED — same free-issue-limit cap first reported 2026-08-24, now confirmed on a FOURTH consecutive run (radar 08-24, radar 08-25, daily 08-25, radar 08-26).** Attempted 1 test card (the Recuris highlight, to re-check whether the cap had cleared overnight) — identical error: `"You've exceeded the free issue limit for this workspace. Please upgrade or contact sales@linear.app for a free trial."` Did not attempt the remaining 12 review-queue cards since the block is confirmed workspace-wide. All 13 items are fully written in the radar files above — no data lost, only the Linear review queue (and tomorrow's daily-news cards, and the weekly digest card) stay blocked until this clears. **Owner action needed: upgrade the Linear plan or free up/archive old issues in the Kovalevgr workspace** — this has now blocked every run for 3 straight days.
 
 Commit: `news: radar run 2026-08-26 (+13 items, 3 highlights, Linear blocked)`.
+
+## 2026-08-26 06:12 UTC — daily — ok (Linear blocked)
+
+Window: since 2026-08-25T04:12:34 UTC (fetch_feeds.py, ~26h default; last successful daily run was 2026-08-25 06:10 UTC). `fetch_feeds.py` ran clean (exit 0, no source_errors for any company; mistral rss returned 304 not-modified).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss | 1 | - | - |
+| anthropic | fetch (WebFetch) | 1 | fetch | - |
+| google-deepmind | rss, websearch | 0 | websearch | only lead was a multi-agent-safety funding post from Jun 11 2026, already predates window by months — rejected |
+| google-research | rss | 1 | - | - |
+| microsoft | rss, websearch | 0 | websearch | no Research-blog post newer than Aug11 confirmed |
+| nvidia | rss | 2 | - | - |
+| xai | jina (anonymous) | 0 | jina | anonymous Jina 403'd today (Cloudflare) — one attempt per MAX ONE fallback rule, logged and moved on |
+| mistral | rss | 0 | - | 304 not-modified — no fresh candidates, no gap-scrape needed (not a zero-fresh-vs-error case, cursor confirms nothing changed) |
+| huggingface | rss | 2 | - | - |
+| cursor | rss, websearch | 0 | websearch | WebSearch surfaced an uncorroborated "Cursor acquired by SpaceX" claim alongside a correctly-dated Aug14 Grok-in-Copilot item (an xAI story, not Cursor's) — rejected both as unconfirmed/off-target; latest confirmed changelog entry still Aug19 |
+| perplexity | jina (anonymous) | 0 | jina | anonymous Jina 403'd today (Cloudflare) — one attempt per MAX ONE fallback rule, logged and moved on |
+
+Totals: 7 items, 5 companies fresh (openai, anthropic, google-research, nvidia, huggingface), 0 source errors (7 gap-scrapes attempted: 1 confirmed via WebFetch (anthropic), 2 Cloudflare-blocked on Jina (xai, perplexity), 4 empty/rejected via WebSearch (google-deepmind, microsoft, cursor) — mistral had no gap-scrape trigger, it was a clean 304).
+
+Note on OpenAI's Jalapeño item: WebFetch on the source page 403'd (Cloudflare challenge), and the one Jina retry per the WebFetch-403 failure mode also 403'd — the item is still confirmed via the TIER-1 rss feed itself (title/URL/date/summary), with supplementary benchmark numbers (1.5–1.9x perf/watt, 1.7–3.6x lower latency vs Nvidia GB200/GB300) sourced via WebSearch and cited as such in the artifact.
+
+Cross-file note: Hugging Face's "Quantization-Aware Healing" post is the same story radar captured yesterday (2026-08-26 05:14 UTC run) via a Reddit repost in `radar/community.md`; today's item carries the primary huggingface.co URL and OWNS the story per the cross-source dedup rule — no changes made to the existing radar entry.
+
+Linear: attempted 1 new-story card ([OpenAI] Jalapeño's first results...) to re-check whether the free-issue-limit cap had cleared overnight. **It has not — same error: `"You've exceeded the free issue limit for this workspace. Please upgrade or contact sales@linear.app for a free trial."`** Did not attempt the remaining 6 cards (Anthropic, google-research, NVIDIA ×2, Hugging Face ×2) since the block is confirmed workspace-wide. All 7 items are fully written in `topics/*.md` and their artifact files — no data lost, only the Linear mirror is behind, now on its FIFTH consecutive blocked run (radar 08-24, radar 08-25, daily 08-25, radar 08-26, daily 08-26). **Owner action still needed: upgrade the Linear plan or free up/archive old issues in the Kovalevgr workspace** — this has now blocked every run for 3 straight days running into a 4th.
+
+Commit: `news: daily run 2026-08-26 (+7 items, 5 companies fresh, Linear blocked)`.

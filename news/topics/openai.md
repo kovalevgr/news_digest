@@ -4,13 +4,14 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-08-25
+updated: 2026-08-26
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W35
 
+- **2026-08-25** — [Jalapeño's first results show industry-leading speed and efficiency in AI inference](https://openai.com/index/jalapeno-first-results) — OpenAI publishes first benchmarks from working Jalapeño silicon (its custom inference chip): 1.5–1.9x more work per watt and 1.7–3.6x lower latency than Nvidia GB200/GB300 across GPT-OSS 120B, DeepSeek R1, and Kimi K2.5.
 - **2026-08-24** — [Advancing price-performance for developers with GPT‑5.6 in Kiro](https://openai.com/index/gpt-5-6-in-kiro) — GPT‑5.6 is now available in Kiro, helping developers plan, build, review, and test software with better price-performance.
 
 ## 2026-W34

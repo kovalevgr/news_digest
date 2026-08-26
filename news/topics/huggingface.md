@@ -5,13 +5,15 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-08-25
+updated: 2026-08-26
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W35
 
+- **2026-08-25** — [Granite 4.2 LLMs: How They're Built](https://huggingface.co/blog/ibm-granite/granite-4-2) — IBM releases Granite 4.2, its first family of dense decoder-only reasoning LLMs (3B/8B/30B) with a thinking/non-thinking toggle, agentic RL training, and native tool calling, under Apache 2.0.
+- **2026-08-25** — [Quantization-Aware Healing: a compressed, 4-bit model that outperforms its full-precision original](https://huggingface.co/blog/MultiverseComputingCAI/quantization-aware-healing) — Multiverse Computing distills a 4-bit MXFP4 student directly from the full-precision teacher, compressing GPT-OSS 120B to 60B while beating its own 16-bit original on 7 of 9 benchmarks.
 - **2026-08-25** — [Wire It, Run It, Deploy It: AI Workflows in Gradio](https://huggingface.co/blog/gradio-workflow-guide) — Hugging Face announces gr.Workflow, a new Gradio feature turning multi-step AI pipelines into a visual drag-and-drop interface with automatic REST-endpoint generation and one-command Spaces deployment.
 
 ## 2026-W34

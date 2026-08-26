@@ -4,10 +4,14 @@ aliases:
   - Claude
 sources:
   - https://www.anthropic.com/news
-updated: 2026-08-15
+updated: 2026-08-26
 ---
 
 MOC page for **Anthropic** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W35
+
+- **2026-08-25** — [Funding better evaluations of AI's impact on wellbeing](https://www.anthropic.com/news/wellbeing-research-grants) — Anthropic launches a $5M grant program funding independent researchers to build open-source evaluations of AI's impact on user wellbeing, focused on mental-health-crisis and companionship-seeking scenarios.
 
 ## 2026-W33
 

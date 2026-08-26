@@ -4,13 +4,15 @@ aliases:
   - Nvidia
 sources:
   - https://blogs.nvidia.com/feed/
-updated: 2026-08-25
+updated: 2026-08-26
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W35
 
+- **2026-08-25** — [Restore LLM Inference Capacity in Seconds with Shadow Engine Recovery in NVIDIA Dynamo](https://developer.nvidia.com/blog/restore-llm-inference-capacity-in-seconds-with-shadow-engine-recovery-in-nvidia-dynamo/) — NVIDIA introduces Shadow Engine Recovery, a pre-warmed standby inference engine sharing GPU weights via a GPU Memory Service, cutting failover from a 283s cold restart to 7.3s (~39x faster).
+- **2026-08-25** — [CUDA Python 1.0: Stable APIs, One Foundation, Full Platform Access](https://developer.nvidia.com/blog/cuda-python-1-0-stable-apis-one-foundation-full-platform-access/) — NVIDIA ships CUDA Python 1.0 with CUDA 13.3, unifying cuda.core/cuda.compute/cuda.bindings/nvmath-python under semantic versioning as the first stable, officially supported way to access the full CUDA platform from Python.
 - **2026-08-24** — [NVIDIA Vera Rubin and Blackwell Set a New Standard for Agentic AI Performance per Watt](https://developer.nvidia.com/blog/nvidia-vera-rubin-and-blackwell-set-a-new-standard-for-agentic-ai-performance-per-watt/) — NVIDIA publishes SemiAnalysis AgentX benchmark results: Vera Rubin NVL72 up to 30x higher AI-factory throughput/MW than GB300 NVL72 on DeepSeek V4-Pro; GB300 up to 15x over H200 NVL8.
 - **2026-08-24** — [NVIDIA BlueField-4 Powers New Scale-In Network Infrastructure for Agentic AI Factories](https://developer.nvidia.com/blog/nvidia-bluefield-4-powers-new-scale-in-network-infrastructure-for-agentic-ai-factories/) — NVIDIA introduces Scale-In, a fifth AI-networking pillar built on the BlueField-4 DPU (800 Gb/s, 4x memory/2x network bandwidth over BlueField-3), offloading security/storage/telemetry from host CPUs.
 - **2026-08-24** — [How NVIDIA Groq 3 LPX Unlocks Ultrafast Interactivity at Long Context on NVIDIA Vera Rubin](https://developer.nvidia.com/blog/how-nvidia-groq-3-lpx-unlocks-ultrafast-interactivity-at-long-context-on-nvidia-vera-rubin/) — NVIDIA publishes benchmarks for its Groq 3 LPX inference accelerator on Vera Rubin NVL72: 3,431 tok/s on Artificial Analysis 100K-context, 4,767 tok/s median on SPEED-Bench.
