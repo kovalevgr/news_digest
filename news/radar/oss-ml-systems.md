@@ -1,6 +1,6 @@
 ---
 category: oss-ml-systems
-updated: 2026-08-26
+updated: 2026-08-27
 ---
 
 # Radar: oss-ml-systems
@@ -34,3 +34,4 @@ Appended by the daily routine under weekly headings; format matches topics files
 
 - **2026-08-23** — [vllm release v0.28.0](https://github.com/vllm-project/vllm/releases/tag/v0.28.0) — Routine vLLM release (tag v0.28.0); no release-note text available at fetch time (GitHub releases page not fetchable in this env — confirmed via git tag only).
 - **2026-08-25** — [What We Learned Trying to Catch AI Liars: An Aletheia's Quest Retrospective](https://blog.eleuther.ai/aletheia-retrospective/) — Verified via WebFetch: EleutherAI's month-long deception-detection competition retrospective — a 4-pass black-box judge pipeline (0.926 mean AUROC) nearly matched white-box linear activation probes (0.945), while the probes proved highly situational (statistically significant sign-inversions on out-of-distribution data) and trusted judges could leak suspect-model knowledge through shared-training correlations (~0.82 AUROC detecting lies even on identical replies); code, best-performing methods and a 28-dataset/6,168-example "gauntlet" benchmark released at `github.com/EleutherAI/how-to-catch-an-ai-liar`.
+- **2026-08-26** — [Qwen3.8-Flash-Next: Day-0 Support in SGLang](https://lmsys.org/blog/2026-08-26-qwen-flash-next) — Verified via WebFetch: SGLang ships day-0 support for Qwen3.8-Flash-Next's hybrid architecture (36 Gated DeltaNet linear-attention layers + 12 Qwen Sparse Attention/QSA layers), with a compressed KV index (one BF16 key per 4 tokens, -80% overhead), an IndexShare MTP mode that reuses QSA selections across speculative-decode draft steps, custom HyperConnection kernels (2.05× Mix / 1.96× Combine speedup, +7.6%/+5.49% end-to-end throughput), and the 51.2B-parameter n-gram embedding table offloaded to pinned host memory (-23.46 GiB GPU weights, +78.54% KV capacity, negligible perf hit). Numbers: 540 tok/s at batch size 1 with MTP on 4×B200 (3.3 accept length).
