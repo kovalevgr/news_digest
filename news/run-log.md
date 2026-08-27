@@ -1793,3 +1793,31 @@ WRITE: 1 item to `radar/oss-ml-systems.md` (existing `## 2026-W35`), 1 item to `
 **Linear: UNAVAILABLE this run — the Linear MCP connector requires re-authorization (not the free-issue-limit cap reported 2026-08-24 through 2026-08-26; this run's tool listing shows no Linear tools loaded at all).** No review-queue cards attempted. All 10 confirmed items are fully written in the radar files above — no data lost, only the Linear review queue is behind. **Owner action needed: reconnect the Linear connector (claude.ai Settings → Connectors) or confirm/clear the prior free-issue-limit block** — until resolved, the daily review queue stays behind.
 
 Commit: `news: radar run 2026-08-27 (+10 items, 3 highlights, Linear unavailable)`.
+
+## 2026-08-27 06:12 UTC — daily — ok (Linear unavailable)
+
+Window: since 2026-08-26T04:12:40 UTC (fetch_feeds.py; last successful daily run 2026-08-26 06:12 UTC). `fetch_feeds.py` ran clean (exit 0, no source_errors for any company).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss | 2 | - | 2 candidate pages 403'd on direct WebFetch (Cloudflare); confirmed via the one Jina retry per the WebFetch-403 failure mode |
+| anthropic | fetch (WebFetch) | 0 | fetch | latest post (wellbeing-research-grants) Aug 25, already captured, predates window |
+| google-deepmind | rss | 1 | - | source page 403'd on WebFetch and a curl retry (redirects to egress-blocked blog.google) — item confirmed on the RSS feed's own title/URL/date/summary per standing fallback |
+| google-research | rss | 1 | - | - |
+| microsoft | rss, websearch | 0 | websearch | no Research-blog post newer than Aug20 (Skala 1.1) confirmed |
+| nvidia | rss | 3 | - | - |
+| xai | jina (anonymous) | 0 | jina | anonymous Jina 403'd today (Cloudflare) — one attempt per MAX ONE fallback rule, logged and moved on |
+| mistral | rss, websearch | 0 | websearch | latest post (Mistral x HUMAIN) Aug24, already captured, predates window |
+| huggingface | rss, websearch | 0 | websearch | no Hugging Face blog post newer than Aug25 (already captured) confirmed |
+| cursor | rss, websearch | 0 | websearch | no changelog entry newer than Aug19 confirmed |
+| perplexity | jina (anonymous) | 0 | jina | anonymous Jina 403'd today (Cloudflare); WebSearch surfaced "Portable Computer for local-first AI" (Aug25) and "Computer now works in email" (Aug18) — both predate window, rejected; latest confirmed remains Aug13 (Agent API) |
+
+Totals: 7 items, 4 companies fresh (openai, google-deepmind, google-research, nvidia), 0 source errors (7 gap-scrapes attempted: 1 confirmed via WebFetch+Jina text extraction for OpenAI's two 403'd pages counted under openai row, 1 confirmed via RSS-summary fallback for google-deepmind, 2 Cloudflare-blocked on anonymous Jina (xai, perplexity), 4 empty/rejected via WebSearch (microsoft, mistral, huggingface, cursor)).
+
+Note: OpenAI's two new items ("Bringing ChatGPT for Teachers to more U.S. school districts", "Learning never stops") both 403'd on direct WebFetch (Cloudflare challenge) — confirmed via the one allowed Jina retry per the WebFetch-403 failure mode, full text extracted successfully both times.
+
+Note: Google DeepMind's "Intelligent transcription with Gemini 3.5 Transcribe" 403'd on WebFetch, and its 302 redirect target (blog.google) is blocked by the network egress proxy; a direct curl also failed the CONNECT tunnel. Item is confirmed and written on the RSS feed's own title/URL/date/summary alone — flagged in its artifact as thin on detail.
+
+**Linear: UNAVAILABLE this run — no Linear MCP tools were loaded in this session's tool search (the connector requires re-authorization; same state as the 2026-08-27 05:05 UTC radar run, not the free-issue-limit cap reported 2026-08-24 through 2026-08-26).** No cards attempted. All 7 items are fully written in `topics/*.md` and their artifact files — no data lost, only the Linear mirror is behind, now on its SIXTH consecutive affected run (radar 08-24, radar 08-25, daily 08-25, radar 08-26, daily 08-26, radar 08-27) and the SECOND run in a row where the connector doesn't load at all (vs. the earlier free-issue-limit error). **Owner action still needed: reconnect the Linear connector (claude.ai Settings → Connectors) and/or clear the free-issue-limit cap** — until resolved, the daily review queue and News digest board stay behind.
+
+Commit: `news: daily run 2026-08-27 (+7 items, 4 companies fresh, Linear unavailable)`.

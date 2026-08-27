@@ -4,13 +4,14 @@ aliases:
   - Google AI
 sources:
   - https://research.google/blog/rss/
-updated: 2026-08-26
+updated: 2026-08-27
 ---
 
 MOC page for **Google Research** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W35
 
+- **2026-08-26** — [GlucoFM: Foundation model for continuous glucose monitoring](https://research.google/blog/glucofm-foundation-model-for-continuous-glucose-monitoring/) — Google Research introduces GlucoFM, a self-supervised dual-stream foundation model for CGM data, beating competing approaches by 5.8 PR-AUC points with strong cross-dataset transfer.
 - **2026-08-25** — [AgentHands: Generating interactive hand gestures for spatially grounded agent conversations in XR](https://research.google/blog/agenthands-generating-interactive-hand-gestures-for-spatially-grounded-agent-conversations-in-xr/) — Google Research introduces AgentHands, an LLM-powered XR prototype synchronizing agent speech with hand gestures for spatially grounded guidance, showing statistically significant gains over speech-only baselines in a 12-person study.
 
 ## 2026-W34

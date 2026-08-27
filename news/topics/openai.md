@@ -4,13 +4,15 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-08-26
+updated: 2026-08-27
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W35
 
+- **2026-08-26** — [Bringing ChatGPT for Teachers to more U.S. school districts](https://openai.com/index/bringing-chatgpt-for-teachers-to-more-us-school-districts) — OpenAI expands ChatGPT for Teachers to 55 more school systems across 20 states (100,000+ more educators), plus a 16-state student data privacy agreement.
+- **2026-08-26** — [Learning never stops: How AI makes learning continuous](https://openai.com/index/learning-never-stops) — OpenAI publishes a back-to-school report: up to 70M weekly self-testing conversations and 460M+ weekly U.S. classwork/homework messages in-term.
 - **2026-08-25** — [Jalapeño's first results show industry-leading speed and efficiency in AI inference](https://openai.com/index/jalapeno-first-results) — OpenAI publishes first benchmarks from working Jalapeño silicon (its custom inference chip): 1.5–1.9x more work per watt and 1.7–3.6x lower latency than Nvidia GB200/GB300 across GPT-OSS 120B, DeepSeek R1, and Kimi K2.5.
 - **2026-08-24** — [Advancing price-performance for developers with GPT‑5.6 in Kiro](https://openai.com/index/gpt-5-6-in-kiro) — GPT‑5.6 is now available in Kiro, helping developers plan, build, review, and test software with better price-performance.
 
