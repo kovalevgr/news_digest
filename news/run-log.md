@@ -1821,3 +1821,13 @@ Note: Google DeepMind's "Intelligent transcription with Gemini 3.5 Transcribe" 4
 **Linear: UNAVAILABLE this run — no Linear MCP tools were loaded in this session's tool search (the connector requires re-authorization; same state as the 2026-08-27 05:05 UTC radar run, not the free-issue-limit cap reported 2026-08-24 through 2026-08-26).** No cards attempted. All 7 items are fully written in `topics/*.md` and their artifact files — no data lost, only the Linear mirror is behind, now on its SIXTH consecutive affected run (radar 08-24, radar 08-25, daily 08-25, radar 08-26, daily 08-26, radar 08-27) and the SECOND run in a row where the connector doesn't load at all (vs. the earlier free-issue-limit error). **Owner action still needed: reconnect the Linear connector (claude.ai Settings → Connectors) and/or clear the free-issue-limit cap** — until resolved, the daily review queue and News digest board stay behind.
 
 Commit: `news: daily run 2026-08-27 (+7 items, 4 companies fresh, Linear unavailable)`.
+
+## 2026-08-27 07:03 UTC — deep-dive — blocked (Linear unavailable)
+
+First firing of the radar-deep-dive routine (Mon+Thu 07:00 UTC). **Run blocked at step 1 (PICK): the Linear MCP connector is unavailable in this session — no Linear tools loaded (connector requires re-authorization; same state as today's 05:05 radar and 06:12 daily runs).** Unlike the daily/radar runs, where Linear is only the review-queue mirror, the deep dive has NO repo-side fallback: the `hot` label on cards in project "Radar" is the routine's sole input, so with Linear unreachable there is no way to know which cards the owner approved. Verified there is no alternate read path this session (Notion connected-source search fell back to workspace-only mode — Linear not connected there either).
+
+Cards processed: 0. Files written: 0 (`radar/deep/` still holds only TEMPLATE.md). Leftovers: unknown — any `hot`-labeled cards are waiting in Linear untouched; they will be picked up oldest-first on the next run once the connector is restored. Note the review queue itself is also behind (no cards created since the 2026-08-24 free-issue-limit block, connector unavailable since 2026-08-27), so the owner may not have had cards to approve at all.
+
+**Owner action needed (same as flagged since 2026-08-24): reconnect the Linear connector (claude.ai Settings → Connectors) and/or clear the free-issue-limit cap in the Kovalevgr workspace.** Until then both the review queue and the deep-dive flow are stalled.
+
+Commit: `news: deep dive 2026-08-27 (0 cards, Linear unavailable)`.
