@@ -4,13 +4,15 @@ aliases:
   - Claude
 sources:
   - https://www.anthropic.com/news
-updated: 2026-08-26
+updated: 2026-08-28
 ---
 
 MOC page for **Anthropic** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W35
 
+- **2026-08-27** — [Previewing the Model Hardware Standard](https://www.anthropic.com/news/model-hardware-standard-research-preview) — Anthropic opens a research preview of the Model Hardware Standard, a shared spec letting AI agents safely operate physical lab/manufacturing devices, developed with HHMI Janelia and piloted with Genentech, UW, CMU, QuEra, and Tetsuwan Scientific.
+- **2026-08-27** — [Expanding our support for scientists](https://www.anthropic.com/news/expanding-support-for-scientists) — Anthropic offers 10,000 free/discounted Claude subscription seats for a year plus up to $50,000 in AI for Science project credits, broadening support beyond biology to fields like the Riemann zeta function and protein design.
 - **2026-08-25** — [Funding better evaluations of AI's impact on wellbeing](https://www.anthropic.com/news/wellbeing-research-grants) — Anthropic launches a $5M grant program funding independent researchers to build open-source evaluations of AI's impact on user wellbeing, focused on mental-health-crisis and companionship-seeking scenarios.
 
 ## 2026-W33

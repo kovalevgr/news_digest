@@ -1862,3 +1862,31 @@ WRITE: 15 items written — 1 to `radar/oss-ml-systems.md` (existing `## 2026-W3
 **Linear: UNAVAILABLE this run — no Linear MCP tools loaded in this session (connector requires re-authorization; unchanged since 2026-08-27).** No review-queue cards attempted. All 15 confirmed items are fully written in the radar files above — no data lost, only the Linear review queue and `highlight`/priority labels are behind. **This is now the SEVENTH consecutive affected run (radar 08-24 free-issue-limit → radar 08-25, daily 08-25 free-issue-limit → radar 08-26, daily 08-26 free-issue-limit → radar 08-27, daily 08-27, deep-dive 08-27, radar 08-28 all connector-unavailable) — a full week with no working review queue, and the Mon/Thu deep-dive routine has now missed its only scheduled run this week with zero cards processed.** Owner action needed: reconnect the Linear connector (claude.ai Settings → Connectors) and/or clear the free-issue-limit cap in the Kovalevgr workspace.
 
 Commit: `news: radar run 2026-08-28 (+15 items, 3 highlights, Linear unavailable)`.
+
+## 2026-08-28 06:18 UTC — daily — ok (Linear unavailable)
+
+Window: since 2026-08-27T04:10:20 UTC (fetch_feeds.py; last successful daily run 2026-08-27 06:12 UTC). `fetch_feeds.py` ran clean (exit 0, no source_errors for any company; huggingface's feed returned 304 not-modified, correctly surfaced as zero fresh).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss, websearch+jina | 0 | websearch, jina | jina page confirmed 3 new posts (Aug26-27) but all fall in categories excluded by the technical-first filter (Company/Security) — correctly zero per config |
+| anthropic | fetch (WebFetch) | 2 | fetch | Model Hardware Standard research preview + expanded scientist support, both Aug 27 |
+| google-deepmind | rss | 2 | - | - |
+| google-research | rss | 1 | - | - |
+| microsoft | rss, websearch+fetch | 0 | websearch, fetch | Research blog confirmed no post newer than Aug20 (Skala 1.1, already captured) |
+| nvidia | rss, websearch+fetch | 0 | websearch, fetch | developer blog confirmed no post newer than Aug26 (already captured) |
+| xai | jina | 2 | jina | jina worked today (no 403, unlike recent days): Grok 4.6 on Microsoft Foundry (Aug26, new); Grok 4.6 on Amazon Bedrock (Aug19, backfilled — missed by prior 403'd gap-scrapes) |
+| mistral | rss, websearch+fetch | 0 | websearch, fetch | news page confirmed no post newer than Aug24 (Mistral x HUMAIN, already captured) |
+| huggingface | rss, fetch | 1 | fetch | 304 not-modified on rss; direct fetch confirmed one new post (Aug26, multi-vector embedding guide) the feed hadn't surfaced yet |
+| cursor | rss, websearch+fetch | 1 | websearch, fetch | Start from scratch, without a repo (Aug27, new) |
+| perplexity | jina | 4 | jina | jina worked today (no 403, unlike recent days): backfilled 4 posts missed across Aug18-25 (Computer in Email, Brain agentic memory, Portable Computer, Computer finance data sources); dropped "How to use AI in a small business" (Aug18) as generic educational content, not an announcement; treated "A Local-First Agent..." (Aug25) as the same story as "Introducing Portable Computer..." (Aug25) — kept one item |
+
+Totals: 13 items, 7 companies fresh (google-deepmind, google-research, anthropic, xai, huggingface, cursor, perplexity), 0 source errors, 4 companies confirmed silent (openai, microsoft, nvidia, mistral).
+
+Note: OpenAI's rss tier returned zero fresh, but the Aug26-27 gap-scrape (jina on openai.com/news) surfaced three candidate posts ("What students gain from ChatGPT and critical-thinking training" — Company, "Expanding OpenAI's presence in Brazil" — Company, "The Hugging Face incident and the road ahead" — Security). All three carry categories explicitly excluded by the 2026-08-08 technical-first filter (`category_keep: Product/Engineering/Research/Publication/Release`, fail-closed on Company/Security) — correctly dropped, not written. This also confirms the RSS-tier filter is behaving as designed.
+
+Note: Both xAI and Perplexity's anonymous Jina calls returned HTTP 200 today for the first time in several days (prior runs 2026-08-24 through 2026-08-27 all hit 403 AbuseAlleviation) — still no `JINA_API_KEY` set, so this looks like a transient relaxation upstream rather than a fix; used the opportunity to backfill Perplexity's 12-day gap (last captured item was 2026-08-13) and xAI's one missed Aug19 item. Perplexity backfill volume (4 items across 3 weeks) reflects that gap, not a single-day spike.
+
+**Linear: UNAVAILABLE this run — no Linear MCP tools loaded in this session's tool search (connector requires re-authorization; unchanged since 2026-08-27).** No cards attempted. All 13 items are fully written in `topics/*.md` and their artifact files — no data lost, only the Linear mirror is behind. **This is now the TENTH consecutive affected run** (radar 08-24, radar 08-25, daily 08-25, radar 08-26, daily 08-26, radar 08-27, daily 08-27, deep-dive 08-27, radar 08-28, daily 08-28) since the free-issue-limit cap first appeared 2026-08-24, now compounded by the connector not loading at all — a full week and a half with no working review queue or News digest board. Owner action still needed: reconnect the Linear connector (claude.ai Settings → Connectors) and/or clear the free-issue-limit cap in the Kovalevgr workspace — until resolved, Sunday's weekly digest card (workflow step 4 of THE WEEKLY DIGEST) will also be blocked.
+
+Commit: `news: daily run 2026-08-28 (+13 items, 7 companies fresh, Linear unavailable)`.

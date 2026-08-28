@@ -4,15 +4,20 @@ aliases:
   - Grok
 sources:
   - https://x.ai/news
-updated: 2026-08-24
+updated: 2026-08-28
 ---
 
 MOC page for **xAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W35
+
+- **2026-08-26** — [Grok 4.6 on Microsoft Foundry](https://x.ai/news/grok-4-6-microsoft-foundry) — xAI brings Grok 4.6 to Microsoft Foundry, letting organizations evaluate, deploy, and govern the model alongside other frontier models with enterprise security controls.
 
 ## 2026-W34
 
 - **2026-08-21** — [Grok 4.6 on Google Enterprise Agent Platform](https://x.ai/news/grok-4-6-vertex-ai) — Grok 4.6 becomes available in preview through Model Garden on Google's Enterprise Agent Platform (Vertex AI), giving enterprise developers Google Cloud access to the 500k-context flagship model.
 - **2026-08-21** — [Grok Bot is now included with more plans](https://x.ai/news/grok-bot-more-plans) — xAI expands Grok Bot beyond its Aug 11 beta to SuperGrok Plus, SuperGrok Heavy, Cursor Pro+, Cursor Ultra, and Cursor Teams, plus a free trial for other users.
+- **2026-08-19** — [Grok 4.6 on Amazon Bedrock](https://x.ai/news/grok-4-6-amazon-bedrock) — Grok 4.6 becomes generally available on Amazon Bedrock for all developers in supported AWS regions, at $2/M input and $6/M output tokens. Backfilled: missed by prior gap-scrapes (anonymous Jina 403'd), confirmed today via primary source.
 
 ## 2026-W33
 

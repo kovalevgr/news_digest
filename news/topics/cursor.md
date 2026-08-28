@@ -4,10 +4,14 @@ aliases:
   - Anysphere
 sources:
   - https://cursor.com/changelog/rss.xml
-updated: 2026-08-20
+updated: 2026-08-28
 ---
 
 MOC page for **Cursor** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W35
+
+- **2026-08-27** — [Start from scratch, without a repo](https://cursor.com/changelog/start-from-scratch) — Cursor Cloud Agents can now start new projects without a connected GitHub repo, beginning work immediately in a live browser preview with an Origin repo created automatically to save later.
 
 ## 2026-W34
 

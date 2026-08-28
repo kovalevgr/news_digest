@@ -5,13 +5,15 @@ aliases:
   - Gemini
 sources:
   - https://deepmind.google/blog/rss.xml
-updated: 2026-08-27
+updated: 2026-08-28
 ---
 
 MOC page for **Google DeepMind** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W35
 
+- **2026-08-27** — [Gemini Omni 1.1 Flash lets you build with more control](https://deepmind.google/blog/gemini-omni-1-1-flash-lets-you-build-with-more-control/) — Google DeepMind ships production-ready generative-video controls for Gemini Omni 1.1 Flash (scene extension, first/last-frame interpolation, 4K upscaling) via the Gemini API in Google AI Studio.
+- **2026-08-27** — [Piloting the world's first double-blind AI evaluations](https://deepmind.google/blog/piloting-the-worlds-first-double-blind-ai-evaluations/) — Google DeepMind pilots the first double-blind evaluation of a proprietary frontier model, using Confidential Computing so evaluator and lab neither see each other's weights nor prompts.
 - **2026-08-26** — [Intelligent transcription with Gemini 3.5 Transcribe](https://deepmind.google/blog/intelligent-transcription-with-gemini-3-5-transcribe/) — Google DeepMind introduces Gemini 3.5 Transcribe, a new speech-to-text model for more intelligent transcription.
 
 ## 2026-W34
