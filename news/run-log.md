@@ -1921,3 +1921,29 @@ WRITE: 14 items written — 1 to `radar/bigtech-eng.md`, 1 to `radar/oss-ml-syst
 **Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow).** No review-queue cards attempted. All 14 confirmed items are fully written in the radar files above — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now an EIGHTH consecutive affected run since 2026-08-24. Owner action needed: reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: radar run 2026-08-29 (+14 items, 3 highlights, Linear unavailable)`.
+
+## 2026-08-29 06:09 UTC — daily — ok (Linear unavailable)
+
+Window: since 2026-08-28T04:09:51 UTC (last successful daily run 2026-08-28 ~06:xx UTC per prior commit). `fetch_feeds.py` ran clean (exit 0, no source_errors); `mistral.ai/rss.xml` returned 304 not modified (cursor-cached, no new entries). Only `nvidia` had a fresh TIER-1 candidate; all other 10 companies had zero fresh candidates, triggering gap-scrape (MAX ONE fallback attempt each, per the ladder in `sources.json`).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss, websearch | 0 | websearch | no in-window (since Aug 28 04:09 UTC) post confirmed; nearest dated items (Intelligence Age launch, Jalapeño chip) predate window |
+| anthropic | fetch | 0 | fetch | 3 posts confirmed on anthropic.com/news (MHS preview, scientist-support expansion — both Aug 27; wellbeing grants — Aug 25), all predate window |
+| google-deepmind | rss, websearch | 0 | websearch | nearest posts (double-blind evals, games research — Aug 27/21) predate window |
+| google-research | rss, websearch | 0 | websearch | nearest posts (AgentHands Aug 25, mobility/BMI Aug 21/17) predate window |
+| microsoft | rss, websearch | 0 | websearch | nearest dated items (radiology AI, MindTopo — Aug 11) predate window; no undated item confirmable in-window |
+| nvidia | rss | 1 | - | - |
+| xai | jina | 0 | jina | Jina reader (`r.jina.ai`) hit a Cloudflare interactive-challenge page instead of content — transport failure, not a content result; logged and moved on (no second attempt) |
+| mistral | rss, websearch | 0 | websearch | 304 not-modified on rss; websearch results (HUMAIN, Agentic Search, Leanstral 1.5, etc.) carried no confirmable dates — none verifiable as in-window |
+| huggingface | rss, websearch | 0 | websearch | websearch surfaced only undated items (Transformers v5.16.1) and an unconfirmed NVIDIA-acquisition rumor (Aug 27, not an HF blog post) — nothing in-window confirmed |
+| cursor | rss, websearch | 0 | websearch | nearest dated entry (GitHub-optional cloud agents, Aug 27) predates window |
+| perplexity | jina→websearch | 0 | websearch | no `JINA_API_KEY` set; websearch results carried no confirmable dates — none verifiable as in-window |
+
+Totals: 1 item, 1 company fresh, 0 hard errors (10 gap-scrapes attempted, all 10 came up empty in-window; 1 transport failure on xAI's Jina fallback).
+
+WRITE: 1 item to `topics/nvidia.md` (2026-08-28, TensorRT Model Connect) under the existing `## 2026-W35` heading; artifact written to `artifacts/2026-08-29-nvidia-tensorrt-model-connect.md`.
+
+**Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow).** No card attempted for the NVIDIA item. This is now a NINTH consecutive affected run since 2026-08-24 (radar + daily runs combined). Owner action needed: reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-08-29 (+1 item, 1 company fresh, Linear unavailable)`.

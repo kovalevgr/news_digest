@@ -4,13 +4,14 @@ aliases:
   - Nvidia
 sources:
   - https://blogs.nvidia.com/feed/
-updated: 2026-08-27
+updated: 2026-08-29
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W35
 
+- **2026-08-28** — [Deploy an Open Model from Checkpoint to Inference in Two Commands with NVIDIA TensorRT Model Connect](https://developer.nvidia.com/blog/deploy-an-open-model-from-checkpoint-to-inference-in-two-commands-with-nvidia-tensorrt-model-connect/) — NVIDIA releases TensorRT Model Connect, an open-source toolkit deploying open Hugging Face models to native C++ apps in two commands (build + run), no PyTorch/Python at runtime, 80+ model families supported.
 - **2026-08-26** — [NVIDIA NVLink Fusion Brings NVHBM to Next-Generation AI Infrastructure](https://developer.nvidia.com/blog/nvidia-nvlink-fusion-brings-nvhbm-to-next-generation-ai-infrastructure/) — NVIDIA details NVHBM, custom HBM for NVLink Fusion enabling hyperscaler XPUs: up to 30% more bandwidth/stack and a 30% overall per-XPU performance gain.
 - **2026-08-26** — [How to Train a Cross-Embodiment Robot Navigation Policy with AI Agents](https://developer.nvidia.com/blog/how-to-train-a-cross-embodiment-robot-navigation-policy-with-ai-agents/) — NVIDIA introduces COMPASS, an agent-driven residual-RL workflow adapting the pretrained X-Mobility navigation policy to new robots/environments without training from scratch.
 - **2026-08-26** — [Experiment with Qwen3.8-Flash-Next on NVIDIA GB300 NVL72 for Agentic Coding](https://developer.nvidia.com/blog/experiment-with-qwen3-8-flash-next-on-nvidia-gb300-nvl72-for-agentic-coding/) — NVIDIA guide for running Alibaba's Qwen3.8-Flash-Next (125B MoE, 262K–1M context) on GB300 NVL72: 16K+ tok/s per GPU, 8.6x prefill throughput at 1M context.
