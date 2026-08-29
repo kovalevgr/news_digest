@@ -1,6 +1,6 @@
 ---
 category: bigtech-eng
-updated: 2026-08-26
+updated: 2026-08-29
 ---
 
 # Radar: bigtech-eng
@@ -19,3 +19,4 @@ Appended by the daily routine under weekly headings; format matches topics files
 ## 2026-W35
 
 - **2026-08-25** — [How to evaluate LLMs before production](https://github.blog/ai-and-ml/llms/how-to-evaluate-llms-before-production/) — Verified via WebFetch: GitHub's eight-stage LLM eval lifecycle for their secret-scanning use case — product-first success metrics, offline evals treated as integration tests (versioned prompts/models/datasets), production-close pipelines, manual review of ambiguous labels, synthetic data for edge cases, manual error categorization by failure source, and LLM-as-judge triage routing low-confidence/high-impact cases to humans; reports a 95% false-positive reduction while holding recall within their guardrail.
+- **2026-08-28** — [MAPS: Netflix's Multimodal Asset Personalization at Scale](https://netflixtechblog.com/maps-netflixs-multimodal-asset-personalization-at-scale-32f96320785e) — Verified via Jina (direct WebFetch 403'd): Netflix adds multimodal embeddings (image/video content, not just interaction IDs) to its asset-personalization models so new artwork/preview assets carry taste signal from day one instead of needing accumulated interaction data — targets the classic cold-start problem where freshly-launched titles fall back to popularity heuristics.
