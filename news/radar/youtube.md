@@ -25,3 +25,14 @@ Appended by the daily routine under weekly headings; format matches topics files
 ## 2026-W34
 
 - **2026-08-22** — [Agent Frameworks Considered Harmful — Rémi Louf, .txt](https://www.youtube.com/watch?v=KHudyx5wW3U) — AI Engineer conference talk arguing against heavyweight agent frameworks — a counterpoint companion to the harness-evolution debate (radar, practitioner-blogs, 2026-08-22). Feed sources recovered today after ~3 days of all-7-channels 404s (2026-08-19 to 2026-08-22).
+
+## 2026-W35
+
+- **2026-08-24** — [Lecture 113: Every Microsecond Matters: Achieving Near Speed-of-Light Latency in GPU Collectives](https://www.youtube.com/watch?v=TZnJYRTSGVk) — GPU MODE lecture on minimizing latency in GPU collective-communication ops; livestream + edited-cut duplicate (kept the edited cut, dropped the raw stream at watch?v=J7-uvBSG7ho).
+- **2026-08-25** — [⏭️ Forward Deployed: Voice AI on what works in 2026](https://www.youtube.com/watch?v=MwNvowwcZOo) — Latent Space talk on what's actually working in production voice-AI deployments in 2026.
+- **2026-08-26** — [🔬 Why Transformers Hit a Wall the Moment Physics Shows Up — Anima Anandkumar, Caltech](https://www.youtube.com/watch?v=79mIutht1f4) — Latent Space talk on where transformer architectures break down when applied to physics-governed problems.
+- **2026-08-29** — [Tribal Dungeons of Global Shipping: AI Agents at Global Scale — Dmitry Buykin, Maersk](https://www.youtube.com/watch?v=dQ-_i1tZiws) — AI Engineer conference talk on running AI agents at global operational scale in shipping/logistics.
+- **2026-08-29** — [Agents Are Where Microservices Were in 2015 — Roberto Milev & Uday Kanagala, Navan](https://www.youtube.com/watch?v=32nrHU6zHU8) — AI Engineer conference talk drawing an architecture-maturity parallel between today's agent systems and microservices circa 2015.
+- **2026-08-29** — [Tell the Robot What You Want — Sandhya Subramani, AWS](https://www.youtube.com/watch?v=S6aSoQ6_u5A) — AI Engineer conference talk on natural-language instruction-following for robotics.
+- **2026-08-29** — [The Signal Layer: What to Build When Anything Can Be Built — Lena Hall, Akamai](https://www.youtube.com/watch?v=1KOdiGgMtpY) — AI Engineer conference talk on what to build/prioritize once AI removes traditional build constraints.
+- **2026-08-29** — [Agentic Sites: Building Hyper Personalized Websites — Carlos Sanchez, Adobe](https://www.youtube.com/watch?v=jebp4V0vh30) — AI Engineer conference talk on agent-driven, per-visitor personalized website generation.

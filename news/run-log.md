@@ -1947,3 +1947,34 @@ WRITE: 1 item to `topics/nvidia.md` (2026-08-28, TensorRT Model Connect) under t
 **Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow).** No card attempted for the NVIDIA item. This is now a NINTH consecutive affected run since 2026-08-24 (radar + daily runs combined). Owner action needed: reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: daily run 2026-08-29 (+1 item, 1 company fresh, Linear unavailable)`.
+
+## 2026-08-30 05:04 UTC — radar — ok (Linear unavailable)
+
+Window: since 2026-08-29T03:04:25 UTC. `fetch_radar.py` ran clean except `bair` (connection reset by peer — transient network error, not a config/URL problem; logged, no fallback per FAILURE MODES).
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | - |
+| inference-infra | 0 | 0 | - |
+| oss-ml-systems | 0 | 0 | - |
+| bigtech-eng | 0 | 0 | - |
+| research-institutes | 0 | 0 | bair: connection reset |
+| technical-newsletters | 0 | 0 | - |
+| practitioner-blogs | 0 | 0 | - |
+| youtube | 9 | 8 | - |
+| community | 33 | 1 | - |
+| mistral-watch | 0 | 0 | - |
+
+Totals: 42 raw candidates, 9 confirmed, 1 source-error (bair, transient) — a genuinely quiet day across every blog/newsletter/engineering-blog source; all signal today came from YouTube and community (HN/Reddit/HF).
+
+TRIAGE pass 1/2: `yt-ai-engineer` (5 fresh, all 2026-08-29 conference-talk uploads) all cleared the technical bar and kept — no summaries available from the feed (YouTube RSS carries none), titles alone are specific enough (agent architecture, agentic web, robot instruction-following); owner-fit MEDIUM/HIGH per `interests.md` (agents in practice). `yt-gpu-mode`: Lecture 113 posted twice (livestream `J7-uvBSG7ho` 08-24 + edited cut `TZnJYRTSGVk` 08-25) — kept the edited cut only, per standing dedup rule. `yt-latent-space` (2 fresh): both kept (voice-AI production talk, transformers-vs-physics talk — MEDIUM/HIGH fit). `hn-show-rag`: dropped `SubSmith` (consumer video→language-learning app, no LLM/agent engineering content — same item, same reasoning as the 2026-08-29 run) and `Talos` (agent permission-kernel pitch, topically HIGH-fit but re-verified today and `talos-agent.ch` is still egress-blocked; only 14 pts/8 comments and no feed summary text to fall back on — dropped again rather than padded, consistent with 2026-08-29). `hn-show-agents`: same `Talos` post (dedup within today's fetch, not double-counted). `hn-show-mcp`: dropped `Conduct` (github.com/sseshachala/conductai) — duplicate of the item already written to `community.md` on 2026-08-28 (`sseshachala/conductai`, ⭐). `hn-trend-llm`: kept `pwning.systems`'s "I accidentally turned LLM memory into program analysis" (283 pts/76 comments — strong crowd signal, specific technical title) despite both the article and the HN discussion page being transport-blocked today (WebFetch egress-blocked, curl CONNECT-tunnel-403 on retry) — kept on the HN submission's own title, out of highlight consideration per the transport-error rule. `hf-trending-models` (2): dropped `FastVideo/FastVideo-FastH3-...` (video generation, LOW/off-focus per `interests.md`) and `Qwen/Qwen3.8-Flash-Next-FP8` (redundant — the base model has been covered repeatedly all week via reddit/HF items; this FP8 variant carries no new-signal text, cut for volume/dedup). `hf-trending-spaces` (1): dropped `FLUX.2-Klein-Multi-LoRA` (image-gen Gradio demo, off-focus).
+
+VERIFY SUBSTANCE: attempted 2 (`pwning.systems`, `talos-agent.ch`) — both hard-blocked (WebFetch EGRESS_BLOCKED + curl CONNECT-tunnel-403, and the HN discussion page for the pwning.systems post was also blocked). No highlight candidates cleared verification today.
+
+**Highlights: 0 (weak day, per the workflow — never pad).** All AI Engineer / Latent Space talks are un-transcribed video with no verifiable substance beyond title, and the one strong community signal (`pwning.systems`, 283 pts) is transport-blocked — none meet the "read the actual content" bar for a highlight.
+
+WRITE: 9 items written — 8 to `radar/youtube.md` (new `## 2026-W35` heading), 1 to `radar/community.md` (existing `## 2026-W35` heading).
+
+**Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow).** No review-queue cards attempted. All 9 confirmed items are fully written in the radar files above. This is now a TENTH consecutive affected run since 2026-08-24. Owner action needed: reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: radar run 2026-08-30 (+9 items, 0 highlights, Linear unavailable)`.
