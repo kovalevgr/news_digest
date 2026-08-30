@@ -1978,3 +1978,29 @@ WRITE: 9 items written — 8 to `radar/youtube.md` (new `## 2026-W35` heading), 
 **Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow).** No review-queue cards attempted. All 9 confirmed items are fully written in the radar files above. This is now a TENTH consecutive affected run since 2026-08-24. Owner action needed: reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: radar run 2026-08-30 (+9 items, 0 highlights, Linear unavailable)`.
+
+## 2026-08-30 06:10 UTC — daily — ok (Linear unavailable)
+
+Window: since 2026-08-29T04:10:37 UTC (26h default; `fetch_feeds.py` cursor last_run was 2026-08-29T06:09:51 for most rss sources). `fetch_feeds.py` ran clean: nvidia/mistral/huggingface reported 304-not-modified, the rest 200 with zero fresh entries — every company's TIER-1 came back empty, triggering gap-scrape for all 11.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss.xml (TIER-1, 0 fresh), WebFetch, jina | 0 | WebFetch→jina | openai.com/news/ 403'd on direct WebFetch (documented failure mode); Jina retry (anonymous, no key needed) returned cleanly — newest items Aug28 (Cursor/SpaceX decision, Thailand startups), Aug27 (Brazil, ChatGPT for Teachers), all predate the window and are Company-category (excluded by the RSS filter anyway) |
+| anthropic | fetch (WebFetch) | 0 | none needed | anthropic.com/news listing tops out at Aug27 (Model Hardware Standard, Expanding support for scientists) and Aug25 (AI-wellbeing evaluations funding) — all predate window; note: these three plus an Aug14 post never made it into `topics/anthropic.md` in prior runs (file still shows Aug7/Aug4 as latest) — a pre-existing gap outside this run's window, flagged for the owner, not backfilled here per the window rule |
+| google-deepmind | rss.xml (TIER-1, 0 fresh), WebFetch | 0 | WebFetch | listing tops out at Aug6 (WeatherNext, already captured); nothing newer confirmed |
+| google-research | rss.xml (TIER-1, 0 fresh), WebFetch | 0 | WebFetch | listing tops out at Aug27 (Planetary prediction engine / Earth AI), predates window |
+| microsoft | rss.xml (TIER-1, 0 fresh), WebFetch | 0 | WebFetch | Research-blog listing tops out at Aug20 (Skala DFT access), predates window |
+| nvidia | rss.xml (TIER-1, 304 not modified), WebFetch | 0 | WebFetch | Technical-blog listing tops out at Aug28 (TensorRT Model Connect, already captured), nothing newer |
+| xai | jina (curl, 401 invalid-key — no JINA_API_KEY set), WebSearch | 0 | WebSearch | anonymous Jina hard-401'd; WebSearch found Grok Bot expansion (Aug26), Grok 4.6 GA (Aug12), voice model update (Aug5) — nothing after Aug26, predates window |
+| mistral | rss.xml (TIER-1, 304 not modified), WebFetch | 0 | WebFetch | listing tops out at Aug24 (Mistral x HUMAIN), predates window |
+| huggingface | rss.xml (TIER-1, 304 not modified), WebFetch | 0 | WebFetch | blog listing tops out at Aug28 (Open ASR Leaderboard Global South language), predates window |
+| cursor | rss.xml (TIER-1, 0 fresh), WebFetch | 0 | WebFetch | changelog tops out at Aug27 ("Start from scratch, without a repo"), predates window |
+| perplexity | jina (curl, 401 invalid-key — no JINA_API_KEY set), WebSearch | 0 | WebSearch | anonymous Jina hard-401'd; WebSearch found local-first Computer + finance-data sources (Aug25), email integration (Aug18), Agent API GA (Aug13) — nothing after Aug25, predates window |
+
+Totals: 0 items, 0 companies fresh, 0 hard errors (11 gap-scrapes attempted, all 11 came up empty in-window; 1 documented 403→Jina-retry on openai, 2 expected Jina 401s — xai, perplexity — no `JINA_API_KEY` set).
+
+A genuinely quiet 26h across every tracked company — the most recent confirmed posts cluster Aug24–28, all just outside this run's window.
+
+**Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow).** Moot regardless — 0 confirmed items, nothing to file. This is now an ELEVENTH consecutive affected run since 2026-08-24. Owner action needed: reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-08-30 (+0 items, 0 companies fresh, Linear unavailable)`.
