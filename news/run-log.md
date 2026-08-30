@@ -2004,3 +2004,17 @@ A genuinely quiet 26h across every tracked company — the most recent confirmed
 **Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow).** Moot regardless — 0 confirmed items, nothing to file. This is now an ELEVENTH consecutive affected run since 2026-08-24. Owner action needed: reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: daily run 2026-08-30 (+0 items, 0 companies fresh, Linear unavailable)`.
+
+## 2026-08-30 07:20 UTC — weekly digest — partial (Linear unavailable)
+
+Wrote `news/weeks/2026-W35/summary.md` (regenerated from scratch; no prior file existed for W35).
+
+Sources: this week's `## 2026-W35` sections of all 12 `topics/*.md` (33 items, 10 companies fresh), the matching 33 `artifacts/2026-08-2[4-9]*.md` card blocks (every item had one — no fallback to the one-line topics summary was needed), and the `## 2026-W35` sections of all 10 `radar/*.md`.
+
+Digest totals: 33 items / 10 companies fresh / 12 tracked. Silent: cohere, microsoft (reported silent, not padded). Per-company order by item count desc — nvidia 11, openai 4, huggingface 4, anthropic 3, google-deepmind 3, google-research 3, perplexity 2, mistral 1, xai 1, cursor 1. ⭐ (High per the Linear priority rubric) on 10 stories; each carries its trimmed `**Деталі:**` bullets.
+
+Radar week: 71 confirmed items — community 53, youtube 8, oss-ml-systems 5, bigtech-eng 2, technical-newsletters 2, research-institutes 1; inference-infra / lab-engineering / mistral-watch / practitioner-blogs silent all week. 14 highlights across the seven radar runs (1/1/3/3/3/3/0). Deep dives this week: 0 — `radar/deep/` holds only TEMPLATE.md (24.08 run found no approved cards; 27.08 run was blocked by the Linear outage).
+
+**Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive; cannot run the OAuth flow).** Skipped per workflow: no `📰 Тижневий дайджест 2026-W35` card created/updated in project "News digest", and the "Close the board week" step (News digest Todo→Done for this week's stories; Radar review cards older than 7 days without `hot` → Done) did NOT run. Nothing was moved on the board. Consequence for the digest itself: the review-queue line in the Radar section reports the data as unavailable rather than guessing at `hot`/expired counts. This is the TWELFTH consecutive affected run since 2026-08-24 and the FIRST weekly digest the owner will not receive on the phone. Owner action needed: reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp` / `/mcp` in an interactive session; the board week for W35 will then need a manual (or one-off re-run) close-out.
+
+Commit: `news: weekly digest 2026-W35`.
