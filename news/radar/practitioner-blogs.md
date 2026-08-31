@@ -1,12 +1,16 @@
 ---
 category: practitioner-blogs
-updated: 2026-08-23
+updated: 2026-08-31
 ---
 
 # Radar: practitioner-blogs
 
 Technical-radar items for this category (sources in [`config/radar.json`](../config/radar.json)).
 Appended by the daily routine under weekly headings; format matches topics files.
+
+## 2026-W35
+
+- **2026-08-30** — ⭐ [Understanding ChatGPT Work](https://simonwillison.net/2026/Aug/30/understanding-chatgpt-work/) — Verified via WebFetch: Simon Willison reverse-engineers OpenAI's ChatGPT Work ($20/mo+) into its two distinct products — "Work Cloud" (chatgpt.com/mobile apps: code execution with full internet access unlike Chat's restricted container, a headless-Chrome browser tool, a persistent `/workspace/scratch` filesystem across sessions, GPT-5.6 Sol/Luna/Terra models, scheduled automation, sub-agent delegation, Cloudflare Workers site deploys) vs. "Work Local" (the desktop app formerly called Codex, direct local file/program access — "regular Codex re-skinned to be less intimidating to non-software-developers"). Counts ~223 registered tools and 44 skills available to Work sessions — a rare concrete inventory of what a shipping frontier-lab agent product actually exposes.
 
 ## 2026-W33
 

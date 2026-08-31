@@ -1,6 +1,6 @@
 ---
 category: youtube
-updated: 2026-08-23
+updated: 2026-08-31
 ---
 
 # Radar: youtube
@@ -36,3 +36,4 @@ Appended by the daily routine under weekly headings; format matches topics files
 - **2026-08-29** — [Tell the Robot What You Want — Sandhya Subramani, AWS](https://www.youtube.com/watch?v=S6aSoQ6_u5A) — AI Engineer conference talk on natural-language instruction-following for robotics.
 - **2026-08-29** — [The Signal Layer: What to Build When Anything Can Be Built — Lena Hall, Akamai](https://www.youtube.com/watch?v=1KOdiGgMtpY) — AI Engineer conference talk on what to build/prioritize once AI removes traditional build constraints.
 - **2026-08-29** — [Agentic Sites: Building Hyper Personalized Websites — Carlos Sanchez, Adobe](https://www.youtube.com/watch?v=jebp4V0vh30) — AI Engineer conference talk on agent-driven, per-visitor personalized website generation.
+- **2026-08-30** — [SOTA Generative Media Panel — Dumitru Erhan, Shane Gu & Nicole Brichtova, Google DeepMind](https://www.youtube.com/watch?v=KLDdXOw6jIc) — AI Engineer conference panel on the state of generative-media models; off-focus for the owner profile (video/image generation, LOW interest bucket per `interests.md`) — kept on title only, YouTube feed carries no summary text.

@@ -2018,3 +2018,34 @@ Radar week: 71 confirmed items — community 53, youtube 8, oss-ml-systems 5, bi
 **Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive; cannot run the OAuth flow).** Skipped per workflow: no `📰 Тижневий дайджест 2026-W35` card created/updated in project "News digest", and the "Close the board week" step (News digest Todo→Done for this week's stories; Radar review cards older than 7 days without `hot` → Done) did NOT run. Nothing was moved on the board. Consequence for the digest itself: the review-queue line in the Radar section reports the data as unavailable rather than guessing at `hot`/expired counts. This is the TWELFTH consecutive affected run since 2026-08-24 and the FIRST weekly digest the owner will not receive on the phone. Owner action needed: reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp` / `/mcp` in an interactive session; the board week for W35 will then need a manual (or one-off re-run) close-out.
 
 Commit: `news: weekly digest 2026-W35`.
+
+## 2026-08-31 05:05 UTC — radar — ok (Linear unavailable)
+
+Window: since 2026-08-30T03:05:14 UTC. `fetch_radar.py` ran clean except `bair` (connection reset by peer — transient network error, no fallback per FAILURE MODES) and `reddit` (HTTP 429 — skipped, no retry-loop per standing rule).
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | - |
+| inference-infra | 0 | 0 | - |
+| oss-ml-systems | 0 | 0 | - |
+| bigtech-eng | 0 | 0 | - |
+| research-institutes | 0 | 0 | bair: connection reset |
+| technical-newsletters | 1 | 1 | - |
+| practitioner-blogs | 1 | 1 | - |
+| youtube | 1 | 1 | - |
+| community | 12 | 5 | reddit: HTTP 429 |
+| mistral-watch | 0 | 0 | - |
+
+Totals: 15 raw candidates, 8 confirmed, 2 source-errors (bair transient; reddit 429) — quiet across most blog/newsletter/engineering categories again, all signal from technical-newsletters/practitioner-blogs/youtube (1 each) and community (HN Show HN, HF trending, GitHub trending).
+
+TRIAGE pass 1/2: `semianalysis` kept (`Most Neoclouds Suck At Security` — GPU-cloud infra security engineering, not a finance piece — cleared the finance-vs-tech triage). `simonwillison` kept (ChatGPT Work architecture breakdown — HIGH fit, agents in practice). `yt-ai-engineer` (1 fresh, DeepMind generative-media panel) kept as a radar item but LOW fit (video/image-gen is an explicit LOW bucket in `interests.md`) — no highlight. `hn-show-rag`: dropped "Academa" (LLM-generated STEM lecture videos) — reads as a consumer edtech product launch, not a RAG/retrieval technique despite the query match; weak signal (28 pts). `hn-show-mcp`: dropped "mcdview.dev" (SQL-schema→ER-diagram tool) — no actual MCP/AI content, keyword-match false positive, 13 pts/5 comments. `hn-show-agents`: dropped "remove-your-data" (data-broker opt-out repo) — agent-adjacent framing but a consumer privacy tool, not agent engineering/technique; 22 pts. `hf-trending-models` (2 fresh): kept both — `pipecat-ai/phonellm-alpha-1` (HIGH fit: voice-agent LLM, local/self-hosted models + agents-in-practice) and `thomsonreuters/Thomson-1.0-Small` (MEDIUM fit: notable non-lab company shipping a small VLM). `hf-trending-spaces` (2 fresh): dropped `chrisssut/testground2` (junk/test space, no real content — trending-manipulation artifact) and kept `MiniMaxAI/MiniMax-H3-Turbo-Lora` (MEDIUM fit, real model demo, 309 likes). `github-trending` (5 fresh): dropped `tailscale/tailcat` (not AI-related) and `bigskysoftware/htmx` (general web dev, off-focus); kept `THU-MAIC/OpenMAIC` (HIGH fit: multi-agent orchestration, v1.0.0 released Aug 27), `p-e-w/heretic` (HIGH fit: reproducible technique WITH CODE — directional-ablation abliteration + Optuna auto-tuning), and initially considered `ComposioHQ/awesome-claude-skills` (MCP/agent-tool-ecosystem angle) — dropped after verification, see below.
+
+VERIFY SUBSTANCE: attempted 5 (`p-e-w/heretic`, `THU-MAIC/OpenMAIC`, `ComposioHQ/awesome-claude-skills` via `git clone`; `simonwillison` ChatGPT Work, `pipecat-ai/phonellm-alpha-1` via WebFetch) — all 5 transports worked cleanly today, no blocks. `heretic`: confirmed — real benchmarked technique (KL-divergence table vs. two existing abliteration tools), 5,000+ community-built models, one-command reproducible. `OpenMAIC`: confirmed — substantial LangGraph-based multi-agent classroom project, v1.0.0 changelog checks out. `simonwillison`: confirmed — concrete numbers (223 tools, 44 skills) backing the architecture claims. `pipecat phonellm`: confirmed — concrete model card (30B/3.5B-active Mamba-Transformer MoE, PhoneBench v1 72.06, latency/cost numbers). `awesome-claude-skills`: FAILED verification — the README is a Composio product-marketing shell (MCP Gateway upsell, plugin install funnel) wrapped in awesome-list format, not genuine community curation; dropped entirely (not just out of highlight) per the "product marketing that survived filters" pass-1 rule.
+
+**Highlights (3): `p-e-w/heretic`** (reproducible technique with code, direct experiment potential — `project_post` candidate), **`simonwillison`'s ChatGPT Work breakdown** (deep agent-product architecture analysis, `tech_explainer` candidate), **`pipecat-ai/phonellm-alpha-1`** (deployable/benchmarkable voice model, `project_post` candidate). `THU-MAIC/OpenMAIC` scored HIGH-fit too but was passed over for a highlight slot — full-stack webapp with its own infra, weaker "own experiment" potential than the other three per the article-lens tie-breaker in `interests.md`.
+
+WRITE: 8 items written — 1 to `radar/technical-newsletters.md`, 1 to `radar/practitioner-blogs.md` (new `## 2026-W35` heading), 1 to `radar/youtube.md`, 5 to `radar/community.md` (all under existing `## 2026-W35` headings). No cross-company overlap with today's `topics/*.md` items (daily-news routine runs separately).
+
+**Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow).** No review-queue cards attempted. All 8 confirmed items are fully written in the radar files above — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now a THIRTEENTH consecutive affected run since 2026-08-24. Owner action needed: reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: radar run 2026-08-31 (+8 items, 3 highlights, Linear unavailable)`.
