@@ -2075,3 +2075,13 @@ A second consecutive genuinely quiet 26h across every tracked company — the mo
 **Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization (this session's tool listing shows no Linear tools loaded; non-interactive session, cannot run the OAuth flow).** Moot regardless — 0 confirmed items, nothing to file. This is now a FOURTEENTH consecutive affected run since 2026-08-24. Owner action needed: reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: daily run 2026-08-31 (+0 items, 0 companies fresh, Linear unavailable)`.
+
+## 2026-08-31 07:05 UTC — deep-dive — blocked (Linear unavailable)
+
+Second consecutive fully-blocked deep-dive run. **Blocked at step 1 (PICK): the Linear MCP connector still requires re-authorization — no Linear tools loaded in this session (non-interactive; cannot run the OAuth flow). Same state as the 2026-08-27 deep dive and every daily/radar run since 2026-08-24 (this is the FIFTEENTH consecutive affected run).** The `hot` label on cards in project "Radar" is this routine's sole input; with Linear unreachable there is no way to know which cards the owner approved, and no repo-side fallback exists. Re-verified today that no alternate read path is available: a Notion connected-source search returned only unrelated workspace pages — Linear is not connected there.
+
+Cards processed: 0. Files written: 0 (`radar/deep/` still holds only TEMPLATE.md). Leftovers: unknown — any `hot`-labeled cards wait untouched in Linear and will be picked up oldest-first once the connector is restored. Note the review queue has received no new cards since 2026-08-24, so the owner has likely had nothing recent to approve; 7 days of radar items (Aug 24–31) exist only in the `radar/*.md` files, not on the board.
+
+**Owner action needed (unchanged since 2026-08-24): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session; also clear the free-issue-limit cap in the Kovalevgr workspace if still in place.** Until then both the review queue and the deep-dive flow are stalled end-to-end.
+
+Commit: `news: deep dive 2026-08-31 (0 cards, Linear unavailable)`.
