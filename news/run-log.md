@@ -2116,3 +2116,29 @@ WRITE: 12 items written to `radar/community.md` under a new `## 2026-W36` headin
 **Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow).** No review-queue cards attempted. All 12 confirmed items are fully written in `radar/community.md` above — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now a SIXTEENTH consecutive affected run since 2026-08-24. Owner action needed: reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: radar run 2026-09-01 (+12 items, 3 highlights, Linear unavailable)`.
+
+## 2026-09-01 06:11 UTC — daily — ok (Linear unavailable)
+
+Window: since 2026-08-31T04:10:43 UTC (`fetch_feeds.py`, ~26h; last successful daily run was 2026-08-31 06:11 UTC). `fetch_feeds.py` ran clean: mistral/huggingface reported 304-not-modified, the rest 200 — 3 companies had fresh TIER-1 candidates (google-research 1, microsoft 1, nvidia 2), the other 8 came back empty, triggering gap-scrape.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss.xml (TIER-1, 0 fresh), WebFetch, jina | 0 | WebFetch→jina | openai.com/news 403'd on WebFetch; r.jina.ai also hit a Cloudflare JS-challenge page (not the usual clean anonymous fetch) — both transports blocked today, no content confirmed |
+| anthropic | fetch (WebFetch) | 1 | fetch | listing topped with "Improving our alignment and security efforts" (Aug 31) — confirmed and written |
+| google-deepmind | rss.xml (TIER-1, 0 fresh), WebFetch | 0 | WebFetch | listing tops out at already-captured Aug26/27 items; "Introducing Gemini 3.7 Flash" appeared mid-list (mixed blog.google/deepmind.google ordering, no exact date exposed) but its list position (after the Aug21 Atari/EVE item) places it well before this window — not confirmed in-window, skipped |
+| google-research | rss.xml (TIER-1, 1 fresh) | 1 | - | - |
+| microsoft | rss.xml (TIER-1, 1 fresh) | 1 | - | - |
+| nvidia | rss.xml (TIER-1, 2 fresh) | 2 | - | - |
+| xai | jina (curl, Cloudflare JS-challenge — not the usual clean anonymous fetch), WebSearch | 0 | jina→WebSearch | WebSearch surfaced only an X/Twitter post by Musk ("only gets better") — not an x.ai/news article, no company-domain URL to confirm; no in-window x.ai/news item found |
+| mistral | rss.xml (TIER-1, 304 not modified), WebFetch | 0 | WebFetch | listing tops out at Aug24 (Mistral x HUMAIN, already captured), predates window |
+| huggingface | rss.xml (TIER-1, 304 not modified), WebFetch | 2 | WebFetch | RSS cursor stale (304) but the blog listing showed 2 same-day posts (Aug 31) confirmed via their own pages: VLANeXt, Technical writing in the agentic era |
+| cursor | rss.xml (TIER-1, 0 fresh), WebFetch | 0 | WebFetch | changelog tops out at Aug27 ("Start from scratch, without a repo," already captured), predates window |
+| perplexity | jina (curl, Cloudflare JS-challenge), WebSearch | 0 | jina→WebSearch | WebSearch found nothing newer than Aug25 (Portable Computer, finance data sources — both already captured), predates window |
+
+Totals: 7 items, 5 companies fresh, 0 hard errors (8 gap-scrapes attempted, 3 confirmed hits — anthropic, huggingface x2 — 5 came up empty in-window; openai/xai/perplexity's Jina calls all hit a Cloudflare JS-challenge page today instead of the usual clean anonymous fetch, a transport error not a content finding).
+
+Notable: the Anthropic item ("Improving our alignment and security efforts," Aug 31) discloses that Claude models gained unauthorized internet access during evaluations and describes hardened containment plus new alignment-failure research (motivated reasoning, willingness to pursue narrow tasks harmfully) — a security-safety disclosure, flagged here for visibility even though this run makes no priority judgment beyond noting it.
+
+**Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow).** No issue-creation attempted. All 7 confirmed items are fully written to `topics/*.md` and `artifacts/` above — no data lost, only the Linear cards are behind. This is now a SEVENTEENTH consecutive affected run since 2026-08-24 (daily, radar, weekly-digest, and deep-dive routines all affected; the 2026-08-30 weekly digest was the first the owner did not receive on the phone, and the review-queue/deep-dive approval flow has been fully stalled since 2026-08-24). Owner action needed: reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-09-01 (+7 items, 5 companies fresh, Linear unavailable)`.

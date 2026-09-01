@@ -5,10 +5,14 @@ aliases:
   - Copilot
 sources:
   - https://news.microsoft.com/source/feed/
-updated: 2026-08-20
+updated: 2026-09-01
 ---
 
 MOC page for **Microsoft** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W36
+
+- **2026-08-31** — [GigaPath-Flash and GigaTIME-Flash: Toward population-scale discovery with efficient pathology foundation models](https://www.microsoft.com/en-us/research/blog/gigapath-flash-and-gigatime-flash-toward-population-scale-discovery-with-efficient-pathology-foundation-models/) — Microsoft Research releases two efficient pathology foundation models: GigaPath-Flash (~97% of GigaPath's accuracy at ~50x less compute) and GigaTIME-Flash (~6x faster, ~8x less memory), both open-weight (Apache 2.0).
 
 ## 2026-W34
 

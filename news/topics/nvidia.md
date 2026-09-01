@@ -4,10 +4,15 @@ aliases:
   - Nvidia
 sources:
   - https://blogs.nvidia.com/feed/
-updated: 2026-08-29
+updated: 2026-09-01
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W36
+
+- **2026-08-31** — [Run NVIDIA BioNeMo NIM Microservices for Protein Structure Prediction in Claude Science](https://developer.nvidia.com/blog/run-nvidia-bionemo-nim-microservices-for-protein-structure-prediction-in-claude-science/) — NVIDIA and Anthropic integrate the BioNeMo Agent Toolkit into Claude Science, letting agents orchestrate protein-structure-prediction workflows (OpenFold3, Boltz-2) via NVIDIA NIM microservices.
+- **2026-08-31** — [Scale AV Perception Across Vehicle Platforms with NVIDIA Omniverse NuRec](https://developer.nvidia.com/blog/scale-av-perception-across-vehicle-platforms-with-nvidia-omniverse-nurec/) — NVIDIA releases Omniverse NuRec, reconstructing real-world driving scenes via 3D Gaussian splatting so AV perception models can be adapted to new vehicle platforms without new data collection.
 
 ## 2026-W35
 

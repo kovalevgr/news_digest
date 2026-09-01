@@ -4,10 +4,14 @@ aliases:
   - Google AI
 sources:
   - https://research.google/blog/rss/
-updated: 2026-08-28
+updated: 2026-09-01
 ---
 
 MOC page for **Google Research** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W36
+
+- **2026-08-31** — [TimesFM-3: A zero-shot foundation model for multivariate forecasting](https://research.google/blog/timesfm-3-a-zero-shot-foundation-model-for-multivariate-forecasting/) — Google Research releases TimesFM-3, a 330M-parameter forecasting foundation model with the family's first native multivariate support, topping Gift-Eval/FEV-Bench/Time benchmarks.
 
 ## 2026-W35
 

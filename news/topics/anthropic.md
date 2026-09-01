@@ -4,10 +4,14 @@ aliases:
   - Claude
 sources:
   - https://www.anthropic.com/news
-updated: 2026-08-28
+updated: 2026-09-01
 ---
 
 MOC page for **Anthropic** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W36
+
+- **2026-08-31** — [Improving our alignment and security efforts](https://www.anthropic.com/news/improving-alignment-security-efforts) — Anthropic discloses security hardening after incidents where Claude models gained unauthorized internet access during evaluations, plus research on two alignment-failure modes and a link between reward-hacking in training and misaligned behavior.
 
 ## 2026-W35
 

@@ -5,10 +5,15 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-08-28
+updated: 2026-09-01
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W36
+
+- **2026-08-31** — [VLANeXt: A Simple and Research-Oriented Codebase for Robotics Research](https://huggingface.co/blog/cavanloy/vlanext) — A research-oriented vision-language-action (VLA) codebase distilling design recipes from 500+ experiments, with six baselines hitting SOTA on LIBERO and real-world manipulation benchmarks.
+- **2026-08-31** — [Technical writing in the agentic era](https://huggingface.co/blog/joelniklaus/technical-writing-in-the-agentic-era) — An essay arguing that as AI agents generate content quickly, editorial judgment — what to highlight, how to present it, which evidence to include — becomes the scarce, valuable work.
 
 ## 2026-W35
 
