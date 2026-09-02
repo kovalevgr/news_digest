@@ -4,10 +4,16 @@ aliases:
   - Perplexity AI
 sources:
   - https://www.perplexity.ai/hub/blog
-updated: 2026-08-28
+updated: 2026-09-02
 ---
 
 MOC page for **Perplexity** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W36
+
+- **2026-09-01** — [PII-TRACE: Detecting Personal Data Before It Leaves the Device](https://www.perplexity.ai/hub/blog/pii-trace-detecting-personal-data-before-it-leaves-the-device) — Perplexity releases PII-TRACE, a 13-language/13,148-conversation benchmark for multi-turn PII detection, plus PII-Tracer, a compact 0.6B Qwen3-based detector scoring highest (0.629 char-F1) among 12 evaluated systems; both to be released soon.
+- **2026-09-01** — [Introducing Hybrid Compute on Mac](https://www.perplexity.ai/hub/blog/introducing-hybrid-compute-on-mac) — Perplexity launches Hybrid Compute on Mac, splitting tasks between cloud reasoning and local on-device processing (Gemma 4 E4B, Qwen3.6 35B-A3B, a Perplexity model) with a privacy gate controlling what leaves the machine; requires Apple silicon, macOS 15+, 24GB+ RAM, Pro/Max/Enterprise plans.
+- **2026-09-01** — [Optimizing On-Device Inference for Apple Silicon](https://www.perplexity.ai/hub/blog/optimizing-on-device-inference-for-apple-silicon) — Perplexity details Lily, a custom Rust/Metal inference engine for Qwen3.6-35B-A3B on Apple silicon, reaching 1.23x MLX-LM's prefill throughput and 1.35x decode throughput on an M5 Max; to be open-sourced soon.
 
 ## 2026-W35
 

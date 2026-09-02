@@ -4,13 +4,15 @@ aliases:
   - Nvidia
 sources:
   - https://blogs.nvidia.com/feed/
-updated: 2026-09-01
+updated: 2026-09-02
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W36
 
+- **2026-09-01** — [Building an Adaptive Agentic Cybersecurity System with NVIDIA Nemotron](https://developer.nvidia.com/blog/building-an-adaptive-agentic-cybersecurity-system-with-nvidia-nemotron/) — NVIDIA and CrowdStrike build a closed-loop red/blue-agent detection pipeline on Nemotron 3 Ultra/Super, lifting backtested detection rates from 16.5% to 41.9% and generalizing to 45% of unseen attacks vs. 29% for a frontier system.
+- **2026-09-01** — [How to Size GPUs for AI Inference and TCO Without Overspending](https://developer.nvidia.com/blog/how-to-size-gpus-for-ai-inference-and-tco-without-overspending/) — NVIDIA publishes a GPU-sizing framework for inference TCO across four workload categories (chatbots, agents, content generation, translation), covering core-and-flex capacity planning and quantization/pruning/distillation levers (FP8 cuts Llama-3.1-8B memory 43.5%).
 - **2026-08-31** — [Run NVIDIA BioNeMo NIM Microservices for Protein Structure Prediction in Claude Science](https://developer.nvidia.com/blog/run-nvidia-bionemo-nim-microservices-for-protein-structure-prediction-in-claude-science/) — NVIDIA and Anthropic integrate the BioNeMo Agent Toolkit into Claude Science, letting agents orchestrate protein-structure-prediction workflows (OpenFold3, Boltz-2) via NVIDIA NIM microservices.
 - **2026-08-31** — [Scale AV Perception Across Vehicle Platforms with NVIDIA Omniverse NuRec](https://developer.nvidia.com/blog/scale-av-perception-across-vehicle-platforms-with-nvidia-omniverse-nurec/) — NVIDIA releases Omniverse NuRec, reconstructing real-world driving scenes via 3D Gaussian splatting so AV perception models can be adapted to new vehicle platforms without new data collection.
 

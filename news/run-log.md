@@ -2173,3 +2173,31 @@ WRITE: 10 items written — 2 to `radar/research-institutes.md`, 2 to `radar/pra
 **Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow).** No review-queue cards attempted. All 10 confirmed items are fully written in the radar files above — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now an EIGHTEENTH consecutive affected run since 2026-08-24 (daily, radar, weekly-digest, and deep-dive routines all affected — a full nine days with no working review queue or News digest board). Owner action needed: reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: radar run 2026-09-02 (+10 items, 3 highlights, Linear unavailable)`.
+
+## 2026-09-02 06:15 UTC — daily — ok (Linear unavailable)
+
+Window: since 2026-09-01T04:12:04 UTC (`fetch_feeds.py`, ~26h; last successful daily run was 2026-09-01 06:11 UTC). `fetch_feeds.py` ran clean — only mistral reported 304-not-modified; openai/google-deepmind/google-research/nvidia/huggingface all had genuine fresh TIER-1 candidates. (Note: the script was run twice early in this session — the first accidental run advanced HTTP cursors before its output was captured, losing that JSON; `state/cursors.json` was reverted via `git checkout` to the pre-run committed state and the script re-run once cleanly, recovering the same fresh set with no data lost and no double-counted cursor advance.)
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss.xml (TIER-1, 1 fresh) | 1 | - | - |
+| anthropic | fetch (WebFetch) | 2 | fetch | - |
+| google-deepmind | rss.xml (TIER-1, 1 fresh) | 1 | - | - |
+| google-research | rss.xml (TIER-1, 1 fresh) | 1 | - | - |
+| microsoft | rss.xml (TIER-1, 0 fresh), WebFetch | 0 | WebFetch | research-blog listing tops out at Aug 31 (GigaPath-Flash/GigaTIME-Flash, already captured), predates window |
+| nvidia | rss.xml (TIER-1, 2 fresh) | 2 | - | - |
+| xai | jina (curl via r.jina.ai, clean anonymous fetch today — no Cloudflare challenge) | 1 | jina | - |
+| mistral | rss.xml (TIER-1, 304 not modified), WebFetch | 0 | WebFetch | news listing tops out at Aug 24 (Mistral x HUMAIN, already captured), predates window |
+| huggingface | rss.xml (TIER-1, 1 fresh) | 1 | - | - |
+| cursor | rss.xml (TIER-1, 0 fresh), WebFetch | 0 | WebFetch | changelog tops out at Aug 27 ("Start from scratch, without a repo," already captured), predates window |
+| perplexity | jina (curl via r.jina.ai, clean anonymous fetch today — no Cloudflare/403) | 3 | jina | 5 candidates found, 2 dropped (see below) |
+
+Totals: 12 items, 8 companies fresh (openai, anthropic, google-deepmind, google-research, nvidia, xai, huggingface, perplexity), 3 silent (microsoft, mistral, cursor — all confirmed predates-window via one gap-scrape fallback each, no hard errors).
+
+Notable — Anthropic gap-scrape (WebFetch on anthropic.com/news, since it has no feed) surfaced TWO same-day items not yet in `topics/anthropic.md`: **Claude Fable 5.1 / Claude Mythos 5.1** (major model release — Fable 5.1 GA for coding/knowledge work, Mythos 5.1 same model with reduced safeguards for trusted-access cybersecurity/life-sciences use, Terminal-Bench-Science 24.7%→52.6%, ~25% cost cut) and **Enterprise Frontier Safeguards** (zero-data-retention architecture co-developed with 100+ enterprise customers, rolling out from fall 2026). Both confirmed and written — a bigger-than-usual gap-scrape haul, flagged since the model release in particular is a high-priority story.
+
+DEDUP+CONFIRM note — Perplexity's jina gap-scrape returned 5 candidates; 2 were dropped as generic educational/explainer content rather than announcements ("AI Personal Assistants: What Digital Helpers Can and Can't Do", "How to Spot AI Hallucinations: 7 Red Flags" — both confirmed via source read to be evergreen how-to content mentioning existing Perplexity features in passing, not new-feature announcements). The 3 kept (PII-TRACE benchmark + PII-Tracer model, Hybrid Compute on Mac, the Lily on-device inference engine) all carry concrete new technical facts/numbers and were written. Hugging Face's BenchMIRT item (published under `allenai`, sourced via the HF TIER-1 feed) is the same underlying research previously seen as a radar highlight sourced directly from ai2 (2026-09-02 radar run) — different URLs/companies (huggingface.co/blog vs. ai2's own channel), no dedup rule requires cross-checking company topics against radar in this direction, so both stand; noted here for the owner's awareness rather than acted on.
+
+**Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow).** No issue-creation attempted. All 12 confirmed items are fully written to `topics/*.md` and `artifacts/` above — no data lost, only the Linear cards are behind. This is now a NINETEENTH consecutive affected run since 2026-08-24 (daily, radar, weekly-digest, and deep-dive routines all affected — ten days with no working review queue or News digest board). Owner action needed: reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-09-02 (+12 items, 8 companies fresh, Linear unavailable)`.

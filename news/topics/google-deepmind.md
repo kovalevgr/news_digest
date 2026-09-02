@@ -5,10 +5,14 @@ aliases:
   - Gemini
 sources:
   - https://deepmind.google/blog/rss.xml
-updated: 2026-08-28
+updated: 2026-09-02
 ---
 
 MOC page for **Google DeepMind** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W36
+
+- **2026-09-01** — [Introducing agentic video understanding with Gemini](https://deepmind.google/blog/introducing-agentic-video-in-gemini/) — Gemini gains agentic video understanding (dynamic search over video instead of fixed-rate frame processing), cutting token use up to 88% and cost up to 66% with up to 7% higher accuracy, across Gemini 3.7/3.6 Flash and 3.5 Flash-Lite.
 
 ## 2026-W35
 

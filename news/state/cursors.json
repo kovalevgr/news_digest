@@ -5,24 +5,25 @@
     "last_run": "2026-08-08T16:27:06.940454+00:00"
   },
   "https://cursor.com/changelog/rss.xml": {
-    "last_run": "2026-09-01T06:10:43.851075+00:00"
+    "last_run": "2026-09-02T06:12:04.106636+00:00"
   },
   "https://deepmind.google/blog/rss.xml": {
     "etag": "\"POUWOA\"",
-    "last_run": "2026-09-01T06:10:43.851075+00:00"
+    "last_modified": "Tue, 01 Sep 2026 17:08:51 GMT",
+    "last_run": "2026-09-02T06:12:04.106636+00:00"
   },
   "https://developer.nvidia.com/blog/feed": {
-    "etag": "\"bf50ae58b20c1bad6fbe320a768e6933\"",
-    "last_modified": "Mon, 31 Aug 2026 22:07:34 GMT",
-    "last_run": "2026-09-01T06:10:43.851075+00:00"
+    "etag": "\"f4fe61350bc14b0411197991c4a6b0f1\"",
+    "last_modified": "Tue, 01 Sep 2026 21:19:54 GMT",
+    "last_run": "2026-09-02T06:12:04.106636+00:00"
   },
   "https://huggingface.co/blog/feed.xml": {
-    "etag": "W/\"3d5fc-v1rOja+i4VAcqfTsFkw1XATS+CM\"",
-    "last_run": "2026-09-01T06:10:43.851075+00:00"
+    "etag": "W/\"3d841-mAXLNa13Qu82FIXt8vdq0fYpIK0\"",
+    "last_run": "2026-09-02T06:12:04.106636+00:00"
   },
   "https://mistral.ai/rss.xml": {
     "etag": "W/\"c3a2f70b460cfb2538391a2482814ec7-ssl-df\"",
-    "last_run": "2026-09-01T06:10:43.851075+00:00"
+    "last_run": "2026-09-02T06:12:04.106636+00:00"
   },
   "https://news.microsoft.com/source/feed/": {
     "etag": "W/\"76d6f012764bed16bc53f3ae441962f1\"",
@@ -30,15 +31,15 @@
     "last_run": "2026-08-08T16:27:06.940454+00:00"
   },
   "https://openai.com/news/rss.xml": {
-    "last_run": "2026-09-01T06:10:43.851075+00:00"
+    "last_run": "2026-09-02T06:12:04.106636+00:00"
   },
   "https://research.google/blog/rss/": {
-    "last_modified": "Mon, 31 Aug 2026 17:19:40 GMT",
-    "last_run": "2026-09-01T06:10:43.851075+00:00"
+    "last_modified": "Tue, 01 Sep 2026 18:40:06 GMT",
+    "last_run": "2026-09-02T06:12:04.106636+00:00"
   },
   "https://www.microsoft.com/en-us/research/feed/": {
-    "etag": "\"3d0bc79341a37884c822b22bf90b83bd\"",
-    "last_modified": "Tue, 01 Sep 2026 05:22:28 GMT",
-    "last_run": "2026-09-01T06:10:43.851075+00:00"
+    "etag": "\"1b5762b73babf5e50a17479754df5f80\"",
+    "last_modified": "Tue, 01 Sep 2026 22:42:46 GMT",
+    "last_run": "2026-09-02T06:12:04.106636+00:00"
   }
 }

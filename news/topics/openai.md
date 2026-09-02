@@ -4,10 +4,14 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-08-27
+updated: 2026-09-02
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W36
+
+- **2026-09-01** — [Healthcare organizations can now connect EHR and additional industry data to ChatGPT](https://openai.com/index/chatgpt-connects-health-records-and-healthcare-sources) — ChatGPT for Healthcare adds read-only Epic EHR integration plus a Healthcare Public Data plugin linking nine sources (PubMed, DailyMed, CMS Coverage); UCSF Health is the pilot partner.
 
 ## 2026-W35
 

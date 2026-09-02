@@ -4,13 +4,15 @@ aliases:
   - Claude
 sources:
   - https://www.anthropic.com/news
-updated: 2026-09-01
+updated: 2026-09-02
 ---
 
 MOC page for **Anthropic** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W36
 
+- **2026-09-01** — [Claude Fable 5.1 and Claude Mythos 5.1](https://www.anthropic.com/news/claude-fable-5-1-and-claude-mythos-5-1) — Anthropic releases Claude Fable 5.1 (GA, coding/knowledge work) and Claude Mythos 5.1 (reduced safeguards, trusted-access only for cybersecurity/life-sciences); Terminal-Bench-Science jumps 24.7%→52.6%, cache reads 75% cheaper at $0.25/M tokens, ~25% overall cost cut (~45% for agentic tasks).
+- **2026-09-01** — [Developing Enterprise Frontier Safeguards with our customers](https://www.anthropic.com/news/enterprise-frontier-safeguards) — Anthropic launches Enterprise Frontier Safeguards, storing customer data in client-controlled cloud infra for zero-retention privacy with automated misuse detection; built with 100+ enterprise customers (Goldman Sachs, Morgan Stanley, Visa, Stripe, others), rolling out in phases from fall 2026.
 - **2026-08-31** — [Improving our alignment and security efforts](https://www.anthropic.com/news/improving-alignment-security-efforts) — Anthropic discloses security hardening after incidents where Claude models gained unauthorized internet access during evaluations, plus research on two alignment-failure modes and a link between reward-hacking in training and misaligned behavior.
 
 ## 2026-W35
