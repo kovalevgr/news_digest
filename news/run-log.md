@@ -2236,3 +2236,31 @@ WRITE: 13 items written — 1 to `radar/oss-ml-systems.md`, 1 to `radar/bigtech-
 **Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow).** No review-queue cards attempted. All 13 confirmed items are fully written in the radar files above — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now a TWENTIETH consecutive affected run since 2026-08-24 (daily, radar, weekly-digest, and deep-dive routines all affected — eleven days with no working review queue or News digest board). Owner action needed: reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: radar run 2026-09-03 (+13 items, 3 highlights, Linear unavailable)`.
+
+## 2026-09-03 06:15 UTC — daily — ok (Linear unavailable)
+
+Window: since 2026-09-02T04:10:38 UTC (`fetch_feeds.py`; last successful daily run was 2026-09-02 06:15 UTC). `fetch_feeds.py` ran clean — only mistral reported 304-not-modified; google-deepmind, nvidia, and huggingface all had genuine fresh TIER-1 candidates; openai/anthropic/google-research/microsoft/xai/cursor/perplexity all reported zero fresh, triggering gap-scrape for all seven.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss.xml (TIER-1, 0 fresh), WebSearch + jina (openai.com/news/ via r.jina.ai) | 0 | WebSearch, jina | direct WebFetch of openai.com/news/ 403'd (known trap); jina succeeded — newest items (Sep 1) are either category-filtered (Safety/AI Adoption/Company, not in keep list) or already captured (ChatGPT healthcare EHR); one Product item (ChatGPT Ads milestone) dated Aug 31, predates window |
+| anthropic | fetch (WebFetch) | 0 | fetch | anthropic.com/news listing tops out at Sep 1 (Enterprise Frontier Safeguards), already captured — nothing newer |
+| google-deepmind | rss.xml (TIER-1, 2 fresh) | 2 | - | - |
+| google-research | rss.xml (TIER-1, 0 fresh), WebFetch | 0 | WebFetch | research.google/blog listing tops out at Sep 1 (methane-emissions MAPL-EMIT post), already captured — nothing newer |
+| microsoft | rss.xml (TIER-1, 0 fresh), WebFetch | 0 | WebFetch | research blog listing tops out at Aug 31 (GigaPath-Flash/GigaTIME-Flash), already captured, predates window |
+| nvidia | rss.xml (TIER-1, 2 fresh) | 2 | - | - |
+| xai | jina (curl via r.jina.ai, clean anonymous fetch — no Cloudflare challenge) | 0 | jina | listing tops out at Sep 1 (Biosecurity at the frontier), already captured — nothing newer |
+| mistral | rss.xml (TIER-1, 304 not modified), WebFetch | 0 | WebFetch | news listing tops out at Aug 24 (Mistral x HUMAIN), already captured, predates window |
+| huggingface | rss.xml (TIER-1, 1 fresh) | 1 | - | - |
+| cursor | rss.xml (TIER-1, 0 fresh), WebFetch on /changelog | 1 | WebFetch | rss.xml's own `pubDate` for "Self-hosted machines" is Sep 2 00:00 UTC (inside the prior run's window) yet fetch_feeds.py's cursor logic reported it 0-fresh both yesterday and today — caught via the WebFetch fallback listing today; written as a one-off backfill, no duplicate risk (not previously in topics) |
+| perplexity | jina (curl via r.jina.ai, clean anonymous fetch — no Cloudflare/403) | 0 | jina | listing tops out at Sep 1 (three items already captured) — nothing newer |
+
+Totals: 6 items, 4 companies fresh (google-deepmind, nvidia, huggingface, cursor), 7 silent (openai, anthropic, google-research, microsoft, xai, mistral, perplexity — all confirmed predates-window/already-captured/category-filtered via one gap-scrape fallback each, no hard transport errors beyond the expected openai.com/news/ 403).
+
+Notable — **Google DeepMind major release**: Gemini 3.8 Flash + Gemini 3.8 Flash Cyber (third Flash release in six weeks, same price as 3.7 Flash) launched alongside the new **Fairwind Program** (limited-access cyber-defense offering pairing Flash Cyber with the CodeMender harness for trusted government/enterprise defenders) — both confirmed via `r.jina.ai` after `deepmind.google` redirected to the egress-blocked `blog.google` domain (WebFetch on `blog.google` failed with EGRESS_BLOCKED; jina reader succeeded on the original `deepmind.google` URLs, which server-redirect but jina resolved content anyway).
+
+DEDUP+CONFIRM note — Hugging Face's IBM Research × Confluent item (`ibm-research/real-time-intelligence`) reads more marketing-forward than the two prior IBM Research posts on the HF blog (business-outcome framing over technical depth) but carries concrete technical facts (4 named models, SQL-function integration path, zero extra ML infra) — kept per the same "real technical facts, not padded" bar used for the two prior IBM Research × HF posts, flagged here for the owner's awareness given the tone shift. NVIDIA's two fresh items were both "how-to"-titled but verified substantive (CUDA toolbox post: 2,717x/300x measured speedups with code evolution; speculative-decoding post: concrete draft-length formulas + SPEED-Bench numbers) — kept per the existing bar (prior "how to"-titled NVIDIA posts have consistently been kept when they carry real numbers/tools, not generic tutorials).
+
+**Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow).** No issue-creation attempted. All 6 confirmed items are fully written to `topics/*.md` and `artifacts/` above — no data lost, only the Linear cards are behind. This is now a TWENTY-FIRST consecutive affected run since 2026-08-24 (daily, radar, weekly-digest, and deep-dive routines all affected — twelve days with no working review queue or News digest board). Owner action needed: reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-09-03 (+6 items, 4 companies fresh, Linear unavailable)`.

@@ -4,13 +4,15 @@ aliases:
   - Nvidia
 sources:
   - https://blogs.nvidia.com/feed/
-updated: 2026-09-02
+updated: 2026-09-03
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W36
 
+- **2026-09-02** — [Co-Designing AI Models Using Speculative Decoding for Faster LLM Inference](https://developer.nvidia.com/blog/co-designing-ai-models-using-speculative-decoding-for-faster-llm-inference/) — NVIDIA's third co-design series post gives concrete guidelines for tuning speculative-decoding draft length across hardware/workload profiles, with SPEED-Bench numbers showing 5-6 token acceptance lengths at draft length 9-11.
+- **2026-09-02** — [The Modern CUDA Toolbox in Practice: A Step-by-Step Optimization Walkthrough](https://developer.nvidia.com/blog/the-modern-cuda-toolbox-in-practice-a-step-by-step-optimization-walkthrough/) — NVIDIA applies six modern CUDA optimization tools to an image-processing pipeline, cutting median compute time from 2.1s to 773μs (2,717x) and total pipeline time from 6.8s to 23ms (~300x).
 - **2026-09-01** — [Building an Adaptive Agentic Cybersecurity System with NVIDIA Nemotron](https://developer.nvidia.com/blog/building-an-adaptive-agentic-cybersecurity-system-with-nvidia-nemotron/) — NVIDIA and CrowdStrike build a closed-loop red/blue-agent detection pipeline on Nemotron 3 Ultra/Super, lifting backtested detection rates from 16.5% to 41.9% and generalizing to 45% of unseen attacks vs. 29% for a frontier system.
 - **2026-09-01** — [How to Size GPUs for AI Inference and TCO Without Overspending](https://developer.nvidia.com/blog/how-to-size-gpus-for-ai-inference-and-tco-without-overspending/) — NVIDIA publishes a GPU-sizing framework for inference TCO across four workload categories (chatbots, agents, content generation, translation), covering core-and-flex capacity planning and quantization/pruning/distillation levers (FP8 cuts Llama-3.1-8B memory 43.5%).
 - **2026-08-31** — [Run NVIDIA BioNeMo NIM Microservices for Protein Structure Prediction in Claude Science](https://developer.nvidia.com/blog/run-nvidia-bionemo-nim-microservices-for-protein-structure-prediction-in-claude-science/) — NVIDIA and Anthropic integrate the BioNeMo Agent Toolkit into Claude Science, letting agents orchestrate protein-structure-prediction workflows (OpenFold3, Boltz-2) via NVIDIA NIM microservices.

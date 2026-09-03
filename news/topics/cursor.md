@@ -4,10 +4,14 @@ aliases:
   - Anysphere
 sources:
   - https://cursor.com/changelog/rss.xml
-updated: 2026-08-28
+updated: 2026-09-03
 ---
 
 MOC page for **Cursor** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W36
+
+- **2026-09-02** — [Self-hosted machines](https://cursor.com/changelog/self-hosted-machines) — Cursor adds self-hosted machines for Cloud Agents, keeping codebases/secrets in a team's own infrastructure (My Machines for individuals, Team Pools with dynamic scaling/hibernation), with AWS Lambda/Coder/Cloudflare/Vercel/E2B integrations and Linux/Mac computer-use support.
 
 ## 2026-W35
 
