@@ -1,6 +1,6 @@
 ---
 category: practitioner-blogs
-updated: 2026-08-31
+updated: 2026-09-03
 ---
 
 # Radar: practitioner-blogs
@@ -32,3 +32,4 @@ Appended by the daily routine under weekly headings; format matches topics files
 
 - **2026-09-01** — ⭐ [PRs NOT Welcome: How Top AI Open Source Projects Are Managing Thousands of Contributors](https://www.latent.space/p/pr-not-welcome) — Verified via WebFetch: Vercel AI SDK, Astro, Flue and tldraw all replace drive-by community PRs with agent-run "software factories." Vercel's setup (specialized agents to reproduce/fix/review bugs) authors 25–35% of merged PRs and closes 70–80% of issues within four weeks; Astro's auto-triage agents handle reproduction before human review; Flue and tldraw go furthest, auto-closing all external PRs and converting them to issues/discussions instead ("Drive-by AI slop PRs"), routing contributors toward agent-implementable, well-specified issues instead of code.
 - **2026-09-01** — [Claude Fable 5.1 made me a really nice animated pelican](https://simonwillison.net/2026/Sep/1/claude-fable-5-1/) — Verified via WebFetch: Simon Willison's pelican-SVG benchmark across Fable 5.1's reasoning-effort levels — low/medium barely reason (1,977–1,998 tokens, <24s), high engages lightly (2,612 tokens, ~30s), xhigh jumps to 36,767 tokens/7:51/$1.83, and max to 65,927 tokens/13:54/$3.30 for the best result; notes the benchmark's predictive value has faded and now mainly shows relative improvement within a model family (Anthropic separately reports 52.6% on the new Terminal-Bench-Science 0.1, up from 24.7% for Fable 5).
+- **2026-09-02** — ⭐ [Claude's new system prompt really doesn't want to reproduce song lyrics](https://simonwillison.net/2026/Sep/2/claudes-new-system-prompt/) — Verified via WebFetch: Simon Willison on Fable 5.1's newly-published system prompt, which now explicitly bars reproducing song lyrics/poems/book-and-article passages "in whole or in part — including the last lines, a chorus or hook" and persistently declines reworded retries within a conversation — timed shortly after Sony Music Publishing and Warner Chappell sued Anthropic. The prompt also bars code-generated (e.g. SVG) images of copyrighted characters/logos/artwork, instructing Claude to recognize characters by description alone, decline without explanation, and offer a genuinely unrelated alternative rather than a disguised variant; knowledge cutoff confirmed June 2026, and harm-reduction sites are now explicitly recommended for substance-related queries.
