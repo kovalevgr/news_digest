@@ -2307,3 +2307,29 @@ WRITE: 10 items written — 1 to `radar/practitioner-blogs.md`, 9 to `radar/comm
 **Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow).** No review-queue cards attempted. All 10 confirmed items are fully written in the radar files above — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now a TWENTY-THIRD consecutive affected run since 2026-08-24 (daily, radar, weekly-digest, and deep-dive routines all affected — thirteen days with no working review queue or News digest board). Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: radar run 2026-09-04 (+10 items, 3 highlights, Linear unavailable)`.
+
+## 2026-09-04 06:15 UTC — daily — ok (Linear unavailable)
+
+Window: since 2026-09-03T04:11:14 UTC (`fetch_feeds.py`; last successful daily run was 2026-09-03 06:15 UTC). `fetch_feeds.py` ran clean — only mistral reported 304-not-modified; google-deepmind, google-research, nvidia, and huggingface all had genuine fresh TIER-1 candidates; openai/anthropic/microsoft/xai/mistral/cursor/perplexity all reported zero fresh, triggering gap-scrape for all seven.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss.xml (TIER-1, 0 fresh), jina (r.jina.ai on openai.com/news/, WebFetch 403'd) | 0 | jina | jina succeeded; three Sep 3 items found (Daybreak for Frontline Defenders, Safety overview: GPT-6 Astra, GPT-6 Astra System Card) but all category-filtered — Security/Safety, not in the keep list `{Product, Engineering, Research, Publication, Release}` — fail-closed per config, none written |
+| anthropic | fetch (WebFetch) | 0 | fetch | anthropic.com/news listing tops out at Sep 1 (Claude Fable 5.1/Mythos 5.1, Enterprise Frontier Safeguards), already captured — nothing newer |
+| google-deepmind | rss.xml (TIER-1, 1 fresh) | 1 | - | - |
+| google-research | rss.xml (TIER-1, 2 fresh) | 2 | - | - |
+| microsoft | rss.xml (TIER-1, 0 fresh), WebFetch | 0 | WebFetch | research blog listing tops out at Aug 31 (GigaPath-Flash/GigaTIME-Flash), already captured, predates window |
+| nvidia | rss.xml (TIER-1, 2 fresh) | 2 | - | - |
+| xai | jina (curl via r.jina.ai, clean anonymous fetch) | 2 | jina | listing showed two Sep 3 items (Grok Bot for Enterprise, Designing Grok Bot) not yet captured; both WebFetch-blocked directly (x.ai egress-blocked) but confirmed via jina reader |
+| mistral | rss.xml (TIER-1, 304 not modified), WebFetch | 0 | WebFetch | news listing tops out at Aug 24 (Mistral x HUMAIN), already captured, predates window |
+| huggingface | rss.xml (TIER-1, 1 fresh) | 1 | - | - |
+| cursor | rss.xml (TIER-1, 0 fresh), WebFetch on /changelog | 0 | WebFetch | changelog tops out at Sep 2 (Self-hosted machines), already captured (2026-09-03 backfill) — nothing newer |
+| perplexity | jina (r.jina.ai — 403 AbuseAlleviationError, anonymous block, matches known behavior), WebSearch | 0 | jina, WebSearch | WebSearch surfaced only continued third-party coverage of the Lily inference engine going open-source on GitHub (`pplx-garden`) — same story already captured 2026-09-01 ("to be open-sourced soon") and already flagged as a company-topics duplicate in the 2026-09-03 radar run; no new primary-source blog post found, nothing written |
+
+Totals: 8 items, 5 companies fresh (google-deepmind, google-research, nvidia, huggingface, xai), 6 silent (openai, anthropic, microsoft, mistral, cursor, perplexity — all confirmed predates-window/already-captured/category-filtered via one gap-scrape fallback each, no hard transport errors beyond the expected anonymous-Jina block on perplexity and the openai.com/news/ 403 on direct WebFetch).
+
+Notable — **possible GPT-6 Astra launch signal (not written, category-filtered)**: OpenAI published a "Safety overview: GPT-6 Astra" post and a GPT-6 Astra System Card (deploymentsafety.openai.com) on Sep 3, both Safety-category and excluded by the fail-closed category filter (no Product-category launch post exists yet). "Astra" previously appeared only as a pre-launch cybersecurity-eval codename in `topics/openai.md` (2026-08-07/08-18) and was independently flagged by the 2026-09-04 radar run via a Latent Space first-look piece. Flagging here for the owner's awareness — worth a manual check of openai.com/news/ if a Product-category Astra launch post appears, since the category filter will keep it once it does.
+
+**Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow).** No issue-creation attempted. All 8 confirmed items are fully written to `topics/*.md` and `artifacts/` above — no data lost, only the Linear cards are behind. This is now a TWENTY-FOURTH consecutive affected run since 2026-08-24 (daily, radar, weekly-digest, and deep-dive routines all affected — thirteen days with no working review queue or News digest board). Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-09-04 (+8 items, 5 companies fresh, Linear unavailable)`.

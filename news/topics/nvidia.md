@@ -4,13 +4,15 @@ aliases:
   - Nvidia
 sources:
   - https://blogs.nvidia.com/feed/
-updated: 2026-09-03
+updated: 2026-09-04
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W36
 
+- **2026-09-03** — [How to Carry User Identity Across Federated Kubernetes and AI Platforms](https://developer.nvidia.com/blog/how-to-carry-user-identity-across-federated-kubernetes-and-ai-platforms/) — NVIDIA details a centralized identity-gateway pattern for federated Kubernetes/AI platforms, cutting repeated logins 55% on its internal AWS/OCI developer platforms.
+- **2026-09-03** — [NVIDIA PAIR Virtual Inference Router Expands Available Compute on Your Local Network](https://developer.nvidia.com/blog/nvidia-pair-virtual-inference-router-expands-available-compute-on-your-local-network/) — NVIDIA open-sources PAIR (Personal AI Router) beta, distributing multi-agent inference requests across Ollama/LM Studio nodes on a local network; a 3-device cluster cut a 5-subagent test from 18 min to 8m48s.
 - **2026-09-02** — [Co-Designing AI Models Using Speculative Decoding for Faster LLM Inference](https://developer.nvidia.com/blog/co-designing-ai-models-using-speculative-decoding-for-faster-llm-inference/) — NVIDIA's third co-design series post gives concrete guidelines for tuning speculative-decoding draft length across hardware/workload profiles, with SPEED-Bench numbers showing 5-6 token acceptance lengths at draft length 9-11.
 - **2026-09-02** — [The Modern CUDA Toolbox in Practice: A Step-by-Step Optimization Walkthrough](https://developer.nvidia.com/blog/the-modern-cuda-toolbox-in-practice-a-step-by-step-optimization-walkthrough/) — NVIDIA applies six modern CUDA optimization tools to an image-processing pipeline, cutting median compute time from 2.1s to 773μs (2,717x) and total pipeline time from 6.8s to 23ms (~300x).
 - **2026-09-01** — [Building an Adaptive Agentic Cybersecurity System with NVIDIA Nemotron](https://developer.nvidia.com/blog/building-an-adaptive-agentic-cybersecurity-system-with-nvidia-nemotron/) — NVIDIA and CrowdStrike build a closed-loop red/blue-agent detection pipeline on Nemotron 3 Ultra/Super, lifting backtested detection rates from 16.5% to 41.9% and generalizing to 45% of unseen attacks vs. 29% for a frontier system.

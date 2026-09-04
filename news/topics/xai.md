@@ -4,13 +4,15 @@ aliases:
   - Grok
 sources:
   - https://x.ai/news
-updated: 2026-09-02
+updated: 2026-09-04
 ---
 
 MOC page for **xAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W36
 
+- **2026-09-03** — [Grok Bot for Enterprise](https://x.ai/news/grok-bot-for-enterprise) — xAI adds enterprise access/network/audit governance controls to Grok Bot; thousands of orgs (Legora, Supermicro, ServiceTitan) already use it, mostly outside engineering.
+- **2026-09-03** — [Designing Grok Bot for a world of persistent agents](https://x.ai/news/designing-grok-bot) — xAI explains Grok Bot's interface design: five core objects (Bots, Chats, Prompts, Tools, Artifacts) organizing the product around persistent "Bots" instead of disposable chat sessions.
 - **2026-09-01** — [Biosecurity at the frontier](https://x.ai/news/biosafety-at-the-frontier) — xAI publishes LatchBio's independent biosecurity evaluation of Grok 4.6: highest score among tested frontier models on BioSecBench-Refusal (only system above 50% on both refusal and routine-task metrics, 59.2%/64.8%), 53.5% average on BioSecBench-Surveillance pathogen workflows.
 
 ## 2026-W35

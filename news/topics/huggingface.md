@@ -5,13 +5,14 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-09-03
+updated: 2026-09-04
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W36
 
+- **2026-09-03** — [NeoMME: an efficient Multimodal-native and Multilingual Encoder](https://huggingface.co/blog/Hcompany/neomme) — H Company releases NeoMME (260M/800M), a unified encoder processing image patches and text in one transformer; the retrieval variant sets a new SOTA among sub-800M models on ViDoRe v3 with a 255x smaller index.
 - **2026-09-02** — [Real-Time Intelligence with IBM Time Series Models on Confluent](https://huggingface.co/blog/ibm-research/real-time-intelligence) — IBM Research and Confluent launch early access integrating IBM's Granite Time Series foundation models (PatchTST-FM, FlowState, TTM, TSPulse) into Confluent Cloud via Apache Flink SQL functions for real-time forecasting/anomaly detection.
 - **2026-09-01** — [BenchMIRT: What are LLM benchmarks actually measuring?](https://huggingface.co/blog/allenai/benchmirt) — Allen Institute for AI applies multidimensional Item Response Theory to 100 LLMs across 16 benchmarks (34,000+ questions), finding benchmarks often measure safety vs. general-reasoning dimensions differently than labeled (e.g. WMDP tracks reasoning, not safety); predicts held-out question performance 79% vs. 70% for baseline.
 - **2026-08-31** — [VLANeXt: A Simple and Research-Oriented Codebase for Robotics Research](https://huggingface.co/blog/cavanloy/vlanext) — A research-oriented vision-language-action (VLA) codebase distilling design recipes from 500+ experiments, with six baselines hitting SOTA on LIBERO and real-world manipulation benchmarks.
