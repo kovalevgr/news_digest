@@ -1,6 +1,6 @@
 ```yaml
 platform: linkedin
-chars: 1839          # plain text incl. hashtags; no links in the body (owner's call 2026-09-05)
+chars: 1842          # plain text incl. hashtags; no links in the body (owner's call 2026-09-05)
 playbook_checklist: pass — 0 links in body, 3 hashtags, take accepted by owner, 2 images to attach
 first_comment_links:   # owner posts these as the first comment, by hand
   - Fable 5.1: https://www.anthropic.com/claude-fable-and-mythos-5-1
@@ -11,7 +11,9 @@ first_comment_links:   # owner posts these as the first comment, by hand
   - AVO: https://developer.nvidia.com/blog/nvidia-avo-reaches-100-on-arc-agi-3-demonstrating-a-frontier-level-general-purpose-architecture-for-long-horizon-autonomous-agents/
 sources: pieces/coding-models-sept-2026-linkedin/sources/ (17 files; every number below traces to one of them)
 ```
-I spent this week reading three frontier coding model launches back to back. If you ship code with an agent, here is the part that actually touches your bill, with the leaderboard rank left out on purpose.
+Three coding model launches in three days. I read all of them. The leaderboard rank was the least useful number in every one.
+
+If you ship code with an agent, here is the part that actually touches your bill.
 
 Sept 1, Claude Fable 5.1: $10 in / $50 out per million tokens. Cache reads dropped to $0.25, which is the number that matters if your agent re-reads the same repo for hours.
 Sept 2, Gemini 3.8 Flash: $0.75 / $3.75, and that intro price runs out on Dec 31.
