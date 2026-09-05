@@ -1,0 +1,58 @@
+<!doctype html><html><head><meta charset='utf-8'><style>
+@page{size:1080px 1350px;margin:0}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:#1a1a19;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.s{width:1080px;height:1350px;position:relative;background:#fcfcfb;padding:96px 88px 120px;page-break-after:always;overflow:hidden}
+.s:last-child{page-break-after:auto}
+.c{display:flex;flex-direction:column;justify-content:center;padding-top:60px}
+.n{font-size:26px;color:#5f5e57;margin:-16px 0 40px 148px;line-height:1.3}
+.lbl{font-size:26px;color:#5f5e57;letter-spacing:.04em;text-transform:uppercase;margin-top:10px}
+.kicker{font-size:26px;letter-spacing:.08em;text-transform:uppercase;color:#5f5e57;font-weight:500;margin-bottom:36px}
+h1{font-size:74px;line-height:1.08;font-weight:700;margin:0 0 40px;letter-spacing:-.015em}
+h2{font-size:58px;line-height:1.1;font-weight:700;margin:0 0 36px;letter-spacing:-.01em}
+p{font-size:34px;line-height:1.38;margin:0 0 26px;color:#1a1a19}
+.muted{color:#5f5e57}
+.blue{color:#2a78d6}.orange{color:#eb6834}
+.big{font-size:150px;font-weight:700;line-height:1;letter-spacing:-.03em;margin:0}
+.row{display:flex;align-items:baseline;gap:28px;margin:0 0 34px}
+.row .d{font-size:26px;color:#5f5e57;width:120px;flex:none;letter-spacing:.04em}
+.row .m{font-size:40px;font-weight:600;width:420px;flex:none}
+.row .p{font-size:40px;font-weight:700;color:#2a78d6}
+
+.foot{position:absolute;left:88px;right:88px;bottom:56px;display:flex;justify-content:space-between;font-size:24px;color:#5f5e57}
+.bar{position:absolute;left:0;top:0;height:14px;width:100%;background:#2a78d6}
+.bar.o{background:#eb6834}
+img{width:904px;display:block;border:1px solid #e6e5e0;border-radius:8px}
+.swipe{font-size:28px;color:#2a78d6;font-weight:600}
+.dial{display:inline-block;font-size:24px;letter-spacing:.08em;text-transform:uppercase;color:#fcfcfb;background:#2a78d6;padding:10px 18px;border-radius:6px;margin-bottom:34px;font-weight:600}
+.dial.o{background:#eb6834}
+.c>.dial{align-self:flex-start}
+</style></head><body><div class="s c"><div class="bar"></div><div class="kicker">This week in coding models</div>
+<h1>Three coding model launches in three days.<br>The leaderboard rank was the least useful number in every one.</h1>
+<p class="muted">Fable 5.1, Gemini 3.8 Flash, GPT-6 Astra. What actually touches your bill if you ship code with an agent.</p>
+<p class="swipe">Swipe →</p><div class="foot"><span>This week in coding models · Sept 2026</span><span>1/6</span></div></div><div class="s c"><div class="bar"></div><div class="kicker">List price, per million tokens</div>
+<h2>Same job. 13x apart on price.</h2>
+<div class="row"><span class="d">Sept 1</span><span class="m">Claude Fable 5.1</span><span class="p">$10 / $50</span></div>
+<div class="n">cache reads down to $0.25, the number that matters when your agent re-reads the repo for hours</div>
+<div class="row"><span class="d">Sept 2</span><span class="m">Gemini 3.8 Flash</span><span class="p">$0.75 / $3.75</span></div>
+<div class="n">intro price, runs out on Dec 31</div>
+<div class="row"><span class="d">Sept 3</span><span class="m">GPT-6 Astra</span><span class="p">$10 / $50</span></div>
+<p style="margin-top:40px">On Terminal-Bench 2.1 they sit within two points of each other: 91.4 and 89.9 in Artificial Analysis' own runs, 89.4 self-reported for Flash.</p>
+<p class="muted">So the rank tells you almost nothing. Three other dials do.</p><div class="foot"><span>This week in coding models · Sept 2026</span><span>2/6</span></div></div><div class="s"><div class="bar"></div><div class="dial">Dial 1 · Effort</div>
+<h2>1 cent at low. $3.30 at max. Same model, same prompt.</h2>
+<img src="02-effort-cost-fable-5-1.png">
+<p style="margin-top:36px">Simon Willison ran one prompt through Fable 5.1 at every effort level. And Astra at its lowest setting beat every GPT-5.6 Sol setting on his test for under 10 cents.</p>
+<p class="muted">Your default effort level is now a line item.</p><div class="foot"><span>This week in coding models · Sept 2026</span><span>3/6</span></div></div><div class="s c"><div class="bar"></div><div class="dial">Dial 2 · Harness</div>
+<h2>Same weights. Different loop around them.</h2>
+<div style="display:flex;gap:90px;margin:30px 0 30px"><div><p class="big muted">30%</p><div class="lbl">Opus 5 alone</div></div><div><p class="big blue">100</p><div class="lbl">Opus 5 inside AVO</div></div></div>
+<p>Claude Opus 5 on ARC-AGI-3, before and after NVIDIA wrapped it in the AVO agent architecture. Not one weight changed.</p>
+<p style="margin-top:60px"><span class="blue" style="font-size:74px;font-weight:700">24 points</span></p>
+<p>The spread Harness-Bench shows for a single model, depending on who wrote the loop around it.</p><div class="foot"><span>This week in coding models · Sept 2026</span><span>4/6</span></div></div><div class="s"><div class="bar o"></div><div class="dial o">Dial 3 · Open weights</div>
+<h2>A few points, not a generation.</h2>
+<img src="01-terminal-bench-open-vs-closed.png">
+<p style="margin-top:36px">DeepSeek V4-Pro (MIT) 87.9, Ornith-1.5 86.1, Tencent Hy4 85.4 on the same Terminal-Bench. Vendor numbers, sure.</p>
+<p class="muted">And a 27B Qwen3.8 does 73 at full context on one RTX 5090 under your desk.</p><div class="foot"><span>This week in coding models · Sept 2026</span><span>5/6</span></div></div><div class="s c"><div class="bar"></div><div class="kicker">The decision</div>
+<h1>Price tier.<br>Effort default.<br>Harness.</h1>
+<p>Choosing a coding model in September 2026 means choosing those three. The leaderboard is the entry ticket. The decision happens on the other three.</p>
+<p style="margin-top:70px" class="blue"><b>Which dial would you turn first: effort, harness, or going open?</b></p>
+<p class="muted" style="font-size:28px;margin-top:60px">Sources in the first comment.</p><div class="foot"><span>This week in coding models · Sept 2026</span><span>6/6</span></div></div></body></html>

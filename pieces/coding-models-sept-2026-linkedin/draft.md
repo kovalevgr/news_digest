@@ -1,7 +1,7 @@
 ```yaml
 platform: linkedin
 chars: 1842          # plain text incl. hashtags; no links in the body (owner's call 2026-09-05)
-playbook_checklist: pass — 0 links in body, 3 hashtags, take accepted by owner, 2 images to attach
+playbook_checklist: pass — 0 links in body, 3 hashtags, take accepted by owner, carousel PDF to attach as a document post
 first_comment_links:   # owner posts these as the first comment, by hand
   - Fable 5.1: https://www.anthropic.com/claude-fable-and-mythos-5-1
   - Gemini 3.8 Flash: https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/
@@ -31,7 +31,6 @@ Choosing a coding model in September 2026 means choosing a price tier, an effort
 
 Which of the three dials would you turn first: effort, harness, or going open?
 
-[image 1: chart, Terminal-Bench 2.1 scores, open vs closed weights, independent runs hatched, list price on the closed models. File: assets/01-terminal-bench-open-vs-closed.png]
-[image 2: chart, Fable 5.1 cost per run at five effort levels on a log scale, 330x spread. File: assets/02-effort-cost-fable-5-1.png]
+[attach as a LinkedIn document post: assets/carousel.pdf, 6 slides 1080×1350 — hook / prices / effort chart / harness / open-weights chart / the decision. Rebuild with assets/carousel_build.py (headless Chrome). The two standalone charts stay in assets/ as fallback.]
 
 #LLM #AIAgents #Coding
