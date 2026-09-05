@@ -1,6 +1,6 @@
 ---
 category: bigtech-eng
-updated: 2026-09-03
+updated: 2026-09-05
 ---
 
 # Radar: bigtech-eng
@@ -24,3 +24,4 @@ Appended by the daily routine under weekly headings; format matches topics files
 ## 2026-W36
 
 - **2026-09-02** — [How we make AI coding more cost efficient without sacrificing task quality](https://github.blog/ai-and-ml/github-copilot/how-we-make-ai-coding-more-cost-efficient-without-sacrificing-task-quality/) — GitHub Copilot engineering post on why shorter model outputs can actually cost more (wasted re-work) and how Copilot restructured its coding-task pipeline to cut wasted output tokens without regressing task quality. Not independently verified beyond the feed's own summary today — out of highlight consideration.
+- **2026-09-04** — ⭐ [Project HydraFusion: Frontier quality via multi-model orchestration](https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/) — Verified via WebFetch: GitHub Copilot research preview that runtime-selects between three execution patterns (Single, Cascade, Critique) per coding task to trade off quality/cost/speed automatically. Matched or exceeded the evaluated Opus 5 baseline on TerminalBench 2.1 (+4.9pp quality at 67% lower cost) and CheckpointBench (65% lower cost, -0.1pt quality), and came within 1.5pts on DeepSWE at 36% reduced cost. Available now via GitHub Copilot CLI's `/experimental` mode on all paid Copilot plans, billed at standard token rates.
