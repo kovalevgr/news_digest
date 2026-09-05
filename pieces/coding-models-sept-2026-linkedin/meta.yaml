@@ -1,6 +1,6 @@
 piece_type: hot_news        # hot_news | tech_explainer | project_post | digest
 platform: linkedin          # linkedin | x | medium | reddit
-status: drafting
+status: pre_publish
 created: 2026-09-05
 posted:
   linkedin:
