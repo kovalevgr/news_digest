@@ -40,10 +40,10 @@ S.append(f'''<div class="s c"><div class="bar"></div><div class="kicker">This we
 S.append(f'''<div class="s c"><div class="bar"></div><div class="kicker">Output price, per million tokens</div>
 <div style="display:flex;gap:70px;align-items:flex-end;margin-bottom:60px"><div><p class="big blue">$3.75</p><div class="lbl">Gemini 3.8 Flash</div></div><div><p class="big">$50</p><div class="lbl">Fable 5.1 · Astra</div></div></div>
 <h2>13x apart on price.<br>2 points apart on the benchmark.</h2>
-<p class="muted">Terminal-Bench 2.1: 89.4 · 89.9 · 91.4</p>{foot(2)}</div>''')
+<p class="muted">Terminal-Bench 2.1: Flash 89.4 · Astra 89.9 · Fable 5.1 91.4</p>{foot(2)}</div>''')
 S.append(f'''<div class="s"><div class="bar"></div><div class="dial">Dial 1 · Effort</div>
-<h2>One dial. 330x on your bill.</h2>
-<img src="02-effort-cost-fable-5-1.png">
+<h2>One dial. 330x on the cost of one run.</h2>
+<img src="02-carousel.png">
 <div style="display:flex;gap:70px;align-items:flex-end;margin-top:60px"><div><p class="big blue" style="font-size:120px">1¢</p><div class="lbl">low · 24 s</div></div><div><p class="big" style="font-size:120px">$3.30</p><div class="lbl">max · 14 min</div></div></div>{foot(3)}</div>''')
 S.append(f'''<div class="s c"><div class="bar"></div><div class="dial">Dial 2 · Harness</div>
 <h2>Same weights. Different loop.</h2>
@@ -53,8 +53,8 @@ S.append(f'''<div class="s c"><div class="bar"></div><div class="dial">Dial 2 ·
 <p class="muted">Harness-Bench spread for one model across harnesses.</p>{foot(4)}</div>''')
 S.append(f'''<div class="s"><div class="bar o"></div><div class="dial o">Dial 3 · Open weights</div>
 <h2>A few points behind. Not a generation.</h2>
-<img src="01-terminal-bench-open-vs-closed.png">
-<div style="display:flex;gap:60px;align-items:flex-end;margin-top:60px"><div><p class="big orange" style="font-size:120px">87.9</p><div class="lbl">DeepSeek V4-Pro · MIT</div></div><div><p class="big orange" style="font-size:120px">73</p><div class="lbl">Qwen3.8-27B · one RTX 5090</div></div></div>{foot(5)}</div>''')
+<img src="01-carousel.png">
+<div style="display:flex;gap:60px;align-items:flex-end;margin-top:60px"><div><p class="big orange" style="font-size:120px">87.9</p><div class="lbl">DeepSeek V4-Pro · MIT</div></div><div><p class="big orange" style="font-size:120px">73</p><div class="lbl">Qwen3.8-27B · fits on one RTX 5090</div></div></div>{foot(5)}</div>''')
 S.append(f'''<div class="s c"><div class="bar"></div><div class="kicker">The decision</div>
 <h1>Price tier.<br>Effort default.<br>Harness.</h1>
 <p class="muted">The leaderboard is the entry ticket.</p>
