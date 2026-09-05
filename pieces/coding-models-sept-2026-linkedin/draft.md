@@ -1,7 +1,7 @@
 ```yaml
 platform: linkedin
-chars: 1857          # plain text incl. hashtags; no links in the body (owner's call 2026-09-05)
-playbook_checklist: pass — 0 links in body, 3 hashtags, take accepted by owner, carousel PDF to attach as a document post
+chars: 1888          # plain text incl. hashtags; no links in the body (owner's call 2026-09-05)
+playbook_checklist: pass — 0 links in body, 5 hashtags (owner's call, above the playbook's 0–3), take accepted by owner, carousel PDF to attach as a document post
 first_comment_links:   # owner posts these as the first comment, by hand
   - Fable 5.1: https://www.anthropic.com/claude-fable-and-mythos-5-1
   - Gemini 3.8 Flash: https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/
@@ -33,4 +33,4 @@ Which of the three dials would you turn first: effort, harness, or going open?
 
 [attach as a LinkedIn document post: assets/carousel.pdf, 6 slides 1080×1350 — hook / prices / effort chart / harness / open-weights chart / the decision. Rebuild with assets/carousel_build.py (headless Chrome). The two standalone charts stay in assets/ as fallback.]
 
-#LLM #AIAgents #Coding
+#LLM #AIAgents #AIEngineering #LocalLLM #OpenSourceAI
