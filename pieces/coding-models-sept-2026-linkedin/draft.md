@@ -1,6 +1,6 @@
 ```yaml
 platform: linkedin
-chars: 1888          # plain text incl. hashtags; no links in the body (owner's call 2026-09-05)
+chars: 1893          # plain text incl. hashtags; no links in the body (owner's call 2026-09-05)
 playbook_checklist: pass — 0 links in body, 5 hashtags (owner's call, above the playbook's 0–3), take accepted by owner, carousel PDF to attach as a document post
 first_comment_links:   # owner posts these as the first comment, by hand
   - Fable 5.1: https://www.anthropic.com/claude-fable-and-mythos-5-1
@@ -21,11 +21,11 @@ Sept 3, GPT-6 Astra: $10 / $50.
 
 Same job, 13x apart on price. On Terminal-Bench 2.1 they sit within two points of each other (91.4 and 89.9 in Artificial Analysis' own runs, 89.4 self-reported for Flash). So the rank tells you almost nothing. Three other dials do.
 
-1. The effort dial. Simon Willison ran one prompt through Fable 5.1 at every effort level: 1 cent and 24 seconds at low, $3.30 and 14 minutes at max. Same model. And Astra at its lowest setting beat every GPT-5.6 Sol setting on his test for under 10 cents. Your default effort level is now a line item.
+Dial 1: effort. Simon Willison ran one prompt through Fable 5.1 at every effort level: 1 cent and 24 seconds at low, $3.30 and 14 minutes at max. Same model. And Astra at its lowest setting beat every GPT-5.6 Sol setting on his test for under 10 cents. Your default effort level is now a line item.
 
-2. The harness. NVIDIA's AVO wrapped Claude Opus 5 in a better agent loop and went from 30% to a perfect 100 on ARC-AGI-3. Not one weight changed. Harness-Bench shows a 24-point spread for a single model depending on who wrote the loop around it.
+Dial 2: the harness. NVIDIA's AVO wrapped Claude Opus 5 in a better agent loop and went from 30% to a perfect 100 on ARC-AGI-3. Not one weight changed. Harness-Bench shows a 24-point spread for a single model depending on who wrote the loop around it.
 
-3. Open weights. DeepSeek V4-Pro (MIT) reports 87.9 on the same Terminal-Bench, Ornith-1.5 86.1, Tencent Hy4 85.4. Vendor numbers, sure, but that is a few points, not a generation. And a 27B Qwen3.8 scores 73 on its own card and fits, at full context, on one RTX 5090 under your desk.
+Dial 3: open weights. DeepSeek V4-Pro (MIT) reports 87.9 on the same Terminal-Bench, Ornith-1.5 86.1, Tencent Hy4 85.4. Vendor numbers, sure, but that is a few points, not a generation. And a 27B Qwen3.8 scores 73 on its own card and fits, at full context, on one RTX 5090 under your desk.
 
 Choosing a coding model in September 2026 means choosing a price tier, an effort default and a harness. The leaderboard is the entry ticket. The decision happens on the other three.
 
