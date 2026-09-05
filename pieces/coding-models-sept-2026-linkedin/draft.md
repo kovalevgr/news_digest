@@ -1,6 +1,6 @@
 ```yaml
 platform: linkedin
-chars: 1842          # plain text incl. hashtags; no links in the body (owner's call 2026-09-05)
+chars: 1857          # plain text incl. hashtags; no links in the body (owner's call 2026-09-05)
 playbook_checklist: pass — 0 links in body, 3 hashtags, take accepted by owner, carousel PDF to attach as a document post
 first_comment_links:   # owner posts these as the first comment, by hand
   - Fable 5.1: https://www.anthropic.com/claude-fable-and-mythos-5-1
@@ -25,7 +25,7 @@ Same job, 13x apart on price. On Terminal-Bench 2.1 they sit within two points o
 
 2. The harness. NVIDIA's AVO wrapped Claude Opus 5 in a better agent loop and went from 30% to a perfect 100 on ARC-AGI-3. Not one weight changed. Harness-Bench shows a 24-point spread for a single model depending on who wrote the loop around it.
 
-3. Open weights. DeepSeek V4-Pro (MIT) reports 87.9 on the same Terminal-Bench, Ornith-1.5 86.1, Tencent Hy4 85.4. Vendor numbers, sure, but that is a few points, not a generation. And a 27B Qwen3.8 does 73 while running at full context on one RTX 5090 under your desk.
+3. Open weights. DeepSeek V4-Pro (MIT) reports 87.9 on the same Terminal-Bench, Ornith-1.5 86.1, Tencent Hy4 85.4. Vendor numbers, sure, but that is a few points, not a generation. And a 27B Qwen3.8 scores 73 on its own card and fits, at full context, on one RTX 5090 under your desk.
 
 Choosing a coding model in September 2026 means choosing a price tier, an effort default and a harness. The leaderboard is the entry ticket. The decision happens on the other three.
 
