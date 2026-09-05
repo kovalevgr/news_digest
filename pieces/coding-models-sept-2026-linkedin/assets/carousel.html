@@ -28,31 +28,24 @@ img{width:904px;display:block;border:1px solid #e6e5e0;border-radius:8px}
 .dial.o{background:#eb6834}
 .c>.dial{align-self:flex-start}
 </style></head><body><div class="s c"><div class="bar"></div><div class="kicker">This week in coding models</div>
-<h1>Three coding model launches in three days.<br>The leaderboard rank was the least useful number in every one.</h1>
-<p class="muted">Fable 5.1, Gemini 3.8 Flash, GPT-6 Astra. What actually touches your bill if you ship code with an agent.</p>
-<p class="swipe">Swipe →</p><div class="foot"><span>This week in coding models · Sept 2026</span><span>1/6</span></div></div><div class="s c"><div class="bar"></div><div class="kicker">List price, per million tokens</div>
-<h2>Same job. 13x apart on price.</h2>
-<div class="row"><span class="d">Sept 1</span><span class="m">Claude Fable 5.1</span><span class="p">$10 / $50</span></div>
-<div class="n">cache reads down to $0.25, the number that matters when your agent re-reads the repo for hours</div>
-<div class="row"><span class="d">Sept 2</span><span class="m">Gemini 3.8 Flash</span><span class="p">$0.75 / $3.75</span></div>
-<div class="n">intro price, runs out on Dec 31</div>
-<div class="row"><span class="d">Sept 3</span><span class="m">GPT-6 Astra</span><span class="p">$10 / $50</span></div>
-<p style="margin-top:40px">On Terminal-Bench 2.1 they sit within two points of each other: 91.4 and 89.9 in Artificial Analysis' own runs, 89.4 self-reported for Flash.</p>
-<p class="muted">So the rank tells you almost nothing. Three other dials do.</p><div class="foot"><span>This week in coding models · Sept 2026</span><span>2/6</span></div></div><div class="s"><div class="bar"></div><div class="dial">Dial 1 · Effort</div>
-<h2>1 cent at low. $3.30 at max. Same model, same prompt.</h2>
+<h1>Three launches.<br>Three days.<br>One number to ignore.</h1>
+<p class="muted">Fable 5.1 · Gemini 3.8 Flash · GPT-6 Astra</p>
+<p class="swipe">Swipe →</p><div class="foot"><span>This week in coding models · Sept 2026</span><span>1/6</span></div></div><div class="s c"><div class="bar"></div><div class="kicker">Output price, per million tokens</div>
+<div style="display:flex;gap:70px;align-items:flex-end;margin-bottom:60px"><div><p class="big blue">$3.75</p><div class="lbl">Gemini 3.8 Flash</div></div><div><p class="big">$50</p><div class="lbl">Fable 5.1 · Astra</div></div></div>
+<h2>13x apart on price.<br>2 points apart on the benchmark.</h2>
+<p class="muted">Terminal-Bench 2.1: 89.4 · 89.9 · 91.4</p><div class="foot"><span>This week in coding models · Sept 2026</span><span>2/6</span></div></div><div class="s"><div class="bar"></div><div class="dial">Dial 1 · Effort</div>
+<h2>One dial. 330x on your bill.</h2>
 <img src="02-effort-cost-fable-5-1.png">
-<p style="margin-top:36px">Simon Willison ran one prompt through Fable 5.1 at every effort level. And Astra at its lowest setting beat every GPT-5.6 Sol setting on his test for under 10 cents.</p>
-<p class="muted">Your default effort level is now a line item.</p><div class="foot"><span>This week in coding models · Sept 2026</span><span>3/6</span></div></div><div class="s c"><div class="bar"></div><div class="dial">Dial 2 · Harness</div>
-<h2>Same weights. Different loop around them.</h2>
-<div style="display:flex;gap:90px;margin:30px 0 30px"><div><p class="big muted">30%</p><div class="lbl">Opus 5 alone</div></div><div><p class="big blue">100</p><div class="lbl">Opus 5 inside AVO</div></div></div>
-<p>Claude Opus 5 on ARC-AGI-3, before and after NVIDIA wrapped it in the AVO agent architecture. Not one weight changed.</p>
-<p style="margin-top:60px"><span class="blue" style="font-size:74px;font-weight:700">24 points</span></p>
-<p>The spread Harness-Bench shows for a single model, depending on who wrote the loop around it.</p><div class="foot"><span>This week in coding models · Sept 2026</span><span>4/6</span></div></div><div class="s"><div class="bar o"></div><div class="dial o">Dial 3 · Open weights</div>
-<h2>A few points, not a generation.</h2>
+<div style="display:flex;gap:70px;align-items:flex-end;margin-top:60px"><div><p class="big blue" style="font-size:120px">1¢</p><div class="lbl">low · 24 s</div></div><div><p class="big" style="font-size:120px">$3.30</p><div class="lbl">max · 14 min</div></div></div><div class="foot"><span>This week in coding models · Sept 2026</span><span>3/6</span></div></div><div class="s c"><div class="bar"></div><div class="dial">Dial 2 · Harness</div>
+<h2>Same weights. Different loop.</h2>
+<div style="display:flex;gap:90px;margin:40px 0 60px"><div><p class="big muted">30%</p><div class="lbl">Opus 5 alone</div></div><div><p class="big blue">100</p><div class="lbl">Opus 5 inside AVO</div></div></div>
+<p class="muted">ARC-AGI-3, NVIDIA AVO. Not one weight changed.</p>
+<p style="margin-top:50px"><span class="blue" style="font-size:90px;font-weight:700;letter-spacing:-.02em">24 points</span></p>
+<p class="muted">Harness-Bench spread for one model across harnesses.</p><div class="foot"><span>This week in coding models · Sept 2026</span><span>4/6</span></div></div><div class="s"><div class="bar o"></div><div class="dial o">Dial 3 · Open weights</div>
+<h2>A few points behind. Not a generation.</h2>
 <img src="01-terminal-bench-open-vs-closed.png">
-<p style="margin-top:36px">DeepSeek V4-Pro (MIT) 87.9, Ornith-1.5 86.1, Tencent Hy4 85.4 on the same Terminal-Bench. Vendor numbers, sure.</p>
-<p class="muted">And a 27B Qwen3.8 does 73 at full context on one RTX 5090 under your desk.</p><div class="foot"><span>This week in coding models · Sept 2026</span><span>5/6</span></div></div><div class="s c"><div class="bar"></div><div class="kicker">The decision</div>
+<div style="display:flex;gap:60px;align-items:flex-end;margin-top:60px"><div><p class="big orange" style="font-size:120px">87.9</p><div class="lbl">DeepSeek V4-Pro · MIT</div></div><div><p class="big orange" style="font-size:120px">73</p><div class="lbl">Qwen3.8-27B · one RTX 5090</div></div></div><div class="foot"><span>This week in coding models · Sept 2026</span><span>5/6</span></div></div><div class="s c"><div class="bar"></div><div class="kicker">The decision</div>
 <h1>Price tier.<br>Effort default.<br>Harness.</h1>
-<p>Choosing a coding model in September 2026 means choosing those three. The leaderboard is the entry ticket. The decision happens on the other three.</p>
-<p style="margin-top:70px" class="blue"><b>Which dial would you turn first: effort, harness, or going open?</b></p>
-<p class="muted" style="font-size:28px;margin-top:60px">Sources in the first comment.</p><div class="foot"><span>This week in coding models · Sept 2026</span><span>6/6</span></div></div></body></html>
+<p class="muted">The leaderboard is the entry ticket.</p>
+<p style="margin-top:70px" class="blue"><b>Which dial would you turn first?</b></p>
+<p class="muted" style="font-size:28px;margin-top:60px">Full argument in the post. Sources in the first comment.</p><div class="foot"><span>This week in coding models · Sept 2026</span><span>6/6</span></div></div></body></html>
