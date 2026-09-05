@@ -24,6 +24,8 @@ You are a formatter for a personal AI/IT content engine. The owner has already w
 - `pieces/<slug>/variants/<platform>.md` — the output of this skill
 - `published/<date>-<slug>.md` — frozen published canonicals (the voice KB)
 - `content/style_guide.md`, `content/anti_patterns.md` — voice files (read-only; never modify)
+- `content/platforms/reddit.md` — the reddit playbook: hard format constraints, structure, avoid-list,
+  pre-paste checklist (read-only; the owner maintains it)
 
 ## Procedure
 
@@ -32,7 +34,10 @@ You are a formatter for a personal AI/IT content engine. The owner has already w
    **STOP** and tell the owner to run /approve-piece first — variants come only after Gate 2.
 3. Read `pieces/<slug>/draft.md`. It is the ONLY input — do not read `sources/`, do not fetch
    anything, do not consult other files for facts.
-4. Produce the variant per the GROUNDING block and the platform brief below. May note the
+4. Read `content/platforms/reddit.md` (the playbook). Produce the variant per the GROUNDING block,
+   the platform brief below, and the playbook — the playbook's hard constraints and pre-paste
+   checklist override the brief where they are more specific; run the checklist before writing
+   the file and fix what fails. May note the
    canonical's `piece_type` as light context for tone (a hot_news vs project_post canonical
    reads differently) without changing the brief.
 5. Write it to `pieces/<slug>/variants/reddit.md` (`mkdir -p pieces/<slug>/variants`). The file
