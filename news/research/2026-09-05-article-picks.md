@@ -130,7 +130,7 @@ NVIDIA 16GB+.
 | 1 | Spec-driven + agent.md | project_post | picked | — |
 | 2 | Граф коду vs grep | project_post | picked | — |
 | 3 | Маленька модель під dev-задачу | project_post | picked | — |
-| 4 | Frontier coding-моделі 09/2026 | hot_news | drafting (LinkedIn-native) | `pieces/coding-models-sept-2026-linkedin/` |
+| 4 | Frontier coding-моделі 09/2026 | hot_news | approved, LinkedIn post scheduled 2026-09-07 09:00 | `pieces/coding-models-sept-2026-linkedin/` |
 
 Відхилені з топ-15, але поруч (на випадок, якщо звільниться слот): #4 токени
 coding-агента (tare/Mcptoon/Tura), #6 інциденти агентів, #7 пам'ять для агентів.
