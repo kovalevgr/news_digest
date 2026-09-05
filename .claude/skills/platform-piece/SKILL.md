@@ -28,7 +28,10 @@ edit-in-place contract, same gates afterwards. The result is TEXT for manual cop
 ## Procedure
 
 1. **Platform + piece_type + slug.** The platform must be one of `linkedin | x | medium |
-   reddit`; if the owner did not name one, ask — do not guess. `piece_type` defaults to
+   reddit`; if the owner did not name one, ask — do not guess. If the owner asks for a LinkedIn *article* (not a post), keep
+   `platform: linkedin`, add `format: article` to `meta.yaml`, and follow
+   `content/platforms/medium.md` for structure plus the "Sub-format: LinkedIn Article" section of
+   `content/platforms/linkedin.md` for the differences; the draft is Markdown in that case. `piece_type` defaults to
    `hot_news` for a news story, `project_post` when the owner is writing about their own
    experiment/build, `tech_explainer` for own-material teach-downs. Slug: short kebab-case from
    the working title, suffixed with the platform when a canonical piece with the same slug

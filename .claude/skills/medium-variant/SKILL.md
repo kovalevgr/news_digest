@@ -67,6 +67,14 @@ TARGET PLATFORM: Medium.
 Format the canonical as a clean, well-structured Markdown article: use headers, subheaders, bold/emphasis, code blocks where code appears, and proper Markdown links. This is roughly a PASSTHROUGH — PRESERVE the full length and substance of the canonical; do NOT condense, summarize, or cut. You are formatting, not rewriting: keep the wording and the argument intact and only impose Markdown structure on it. Keep every provenance link.
 ```
 
+## Doubles as the LinkedIn Article text
+
+A LinkedIn Article takes the same shape as a Medium piece. When the owner wants the piece as a
+LinkedIn article, hand them this Medium variant and point them to the "Sub-format: LinkedIn
+Article" section of `content/platforms/linkedin.md` for the paste-time differences (no
+Markdown parsing, no code blocks/tables, cover image, title length). Do not produce a separate
+file unless the owner asks.
+
 ## Shared conventions (all writing skills)
 
 - Never invent facts; a variant adds NOTHING the canonical does not already say.
