@@ -5,7 +5,7 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-09-04
+updated: 2026-09-05
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
@@ -13,6 +13,9 @@ MOC page for **Hugging Face** — AI-news items collected daily by the news rout
 ## 2026-W36
 
 - **2026-09-03** — [NeoMME: an efficient Multimodal-native and Multilingual Encoder](https://huggingface.co/blog/Hcompany/neomme) — H Company releases NeoMME (260M/800M), a unified encoder processing image patches and text in one transformer; the retrieval variant sets a new SOTA among sub-800M models on ViDoRe v3 with a 255x smaller index.
+- **2026-09-03** — [Give Your Coding Agents a Memory You Own](https://huggingface.co/blog/funes) — Hugging Face introduces funes, a local-first memory layer indexing coding-agent session traces into searchable datasets synced via private HF datasets; recall measured 4-8x cheaper than a written handoff. Backfilled: missed by the 2026-09-04 gap-scrape (feed showed 304-not-modified), confirmed today.
+- **2026-09-03** — [Fine-tuning a 350M Model for Better Structured Outputs in 100 GRPO Steps](https://huggingface.co/blog/grpo-with-trl-ifstruct) — Hugging Face and Liquid AI show GRPO fine-tuning of LFM2.5-350M lifting IFStruct accuracy 22.6%→29.7% in 100 steps on ~500 samples via a ~1.66%-of-model LoRA adapter. Backfilled: missed by the 2026-09-04 gap-scrape (feed showed 304-not-modified), confirmed today.
+- **2026-09-03** — [Training a coding model to paint watercolours with TRL and OpenEnv](https://huggingface.co/blog/train-to-paint-with-code) — Hugging Face reproduces an RL pipeline (TRL GRPO) training a 35B Qwen coding model to paint watercolours via p5.brush, scored against 178 curated reference paintings with a multi-component reward. Backfilled: missed by the 2026-09-04 gap-scrape (feed showed 304-not-modified), confirmed today.
 - **2026-09-02** — [Real-Time Intelligence with IBM Time Series Models on Confluent](https://huggingface.co/blog/ibm-research/real-time-intelligence) — IBM Research and Confluent launch early access integrating IBM's Granite Time Series foundation models (PatchTST-FM, FlowState, TTM, TSPulse) into Confluent Cloud via Apache Flink SQL functions for real-time forecasting/anomaly detection.
 - **2026-09-01** — [BenchMIRT: What are LLM benchmarks actually measuring?](https://huggingface.co/blog/allenai/benchmirt) — Allen Institute for AI applies multidimensional Item Response Theory to 100 LLMs across 16 benchmarks (34,000+ questions), finding benchmarks often measure safety vs. general-reasoning dimensions differently than labeled (e.g. WMDP tracks reasoning, not safety); predicts held-out question performance 79% vs. 70% for baseline.
 - **2026-08-31** — [VLANeXt: A Simple and Research-Oriented Codebase for Robotics Research](https://huggingface.co/blog/cavanloy/vlanext) — A research-oriented vision-language-action (VLA) codebase distilling design recipes from 500+ experiments, with six baselines hitting SOTA on LIBERO and real-world manipulation benchmarks.

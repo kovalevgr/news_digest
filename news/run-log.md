@@ -2370,3 +2370,31 @@ Flagging for the company-news routine (unchanged pattern from 2026-09-03/09-04):
 **Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow).** No review-queue cards attempted. All 6 confirmed items are fully written in the radar files above — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now a TWENTY-FIFTH consecutive affected run since 2026-08-24 (daily, radar, weekly-digest, and deep-dive routines all affected — fourteen days with no working review queue or News digest board). Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: radar run 2026-09-05 (+6 items, 3 highlights, Linear unavailable)`.
+
+## 2026-09-05 06:15 UTC — daily — ok (Linear unavailable)
+
+Window: since 2026-09-04T04:09:38 UTC (`fetch_feeds.py`; last successful daily run was 2026-09-04 06:15 UTC). `fetch_feeds.py` ran clean — mistral and huggingface reported 304-not-modified (no feed change since last cursor); nvidia had genuine fresh TIER-1 candidates; openai/anthropic/google-deepmind/google-research/microsoft/xai/mistral/huggingface/cursor/perplexity all reported zero fresh, triggering gap-scrape for all ten.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss.xml (TIER-1, 0 fresh), jina (r.jina.ai — Cloudflare "Just a moment" challenge, anonymous block), WebSearch | 0 | jina, WebSearch | jina blocked by Cloudflare challenge (no JINA_API_KEY); WebSearch confirmed only the already-known Sep 3 Safety-category Astra posts (category-filtered, not written) — nothing new |
+| anthropic | fetch (WebFetch) | 0 | fetch | anthropic.com/news listing tops out at Sep 1 (Claude Fable 5.1/Mythos 5.1, Enterprise Frontier Safeguards), already captured — nothing newer |
+| google-deepmind | rss.xml (TIER-1, 0 fresh), WebFetch | 0 | WebFetch | blog listing tops out at Sep 3 (WeatherNext 3), already captured, predates window |
+| google-research | rss.xml (TIER-1, 0 fresh), WebFetch | 0 | WebFetch | blog listing tops out at Sep 3 (fruit-fly connectome, genomic transfer learning), already captured, predates window |
+| microsoft | rss.xml (TIER-1, 0 fresh), WebFetch | 0 | WebFetch | research blog listing tops out at Aug 31 (GigaPath-Flash/GigaTIME-Flash), already captured, predates window |
+| nvidia | rss.xml (TIER-1, 2 fresh) | 2 | - | - |
+| xai | jina (r.jina.ai — Cloudflare "Just a moment" challenge), WebSearch | 0 | jina, WebSearch | jina blocked by Cloudflare challenge; WebSearch surfaced a "$100K vendor-spend savings" Grok Bot claim with no dated news URL — traced to undated product/use-case marketing copy (x.ai/bot/use-cases), not a real dated announcement — rejected as unconfirmed |
+| mistral | rss.xml (TIER-1, 304 not modified), WebFetch | 0 | WebFetch | news listing tops out at Aug 24 (Mistral x HUMAIN), already captured, predates window |
+| huggingface | rss.xml (TIER-1, 304 not modified), WebFetch | 3 | WebFetch | WebFetch of huggingface.co/blog surfaced 3 Sep 3 posts not in prior captures (funes memory layer, GRPO/IFStruct fine-tuning, TRL/OpenEnv watercolour-painting RL) — feed 304'd both yesterday and today despite these existing; confirmed via individual page reads, written as backfill |
+| cursor | rss.xml (TIER-1, 0 fresh), WebFetch on /changelog | 0 | WebFetch | changelog tops out at Sep 2 (Self-hosted machines), already captured, nothing newer |
+| perplexity | jina (r.jina.ai — Cloudflare "Just a moment" challenge, anonymous block), WebSearch | 0 | jina, WebSearch | jina blocked; WebSearch confirmed only already-captured Sep 1 posts — nothing new |
+
+Totals: 5 items, 2 companies fresh (nvidia, huggingface), 9 silent (openai, anthropic, google-deepmind, google-research, microsoft, xai, mistral, cursor, perplexity — all confirmed predates-window/already-captured/category-filtered/unconfirmed via one gap-scrape fallback each, no hard transport errors beyond the expected anonymous-Jina Cloudflare challenge on openai/xai/perplexity, now presenting as a JS challenge page rather than a plain 403/AbuseAlleviation error).
+
+Notable — **OpenAI GPT-6 Astra still not confirmed as a Product-category launch** (unchanged from 2026-09-04, now a second consecutive day): only Safety-category posts exist on openai.com/news/ (Sep 3 safety overview + system card), still fail-closed excluded by the category filter. Two independent radar signals (2026-09-04/09-05 practitioner-blogs: Latent Space first-look, Simon Willison's pelican comparison) now report live third-party access to GPT-6 Astra, reinforcing that an official launch post is imminent or already missed. Flagging again for the owner's awareness.
+
+Notable — **HuggingFace RSS 304 masking real content**: `huggingface.co/blog/feed.xml` returned 304-not-modified on both 2026-09-04 and 2026-09-05, yet three genuine Sep 3 posts existed on the blog and were confirmed only by today's WebFetch gap-scrape. Worth the owner's attention if this recurs — the ETag/Last-Modified cursor may be stale relative to blog content, undercounting TIER-1 candidates on this source.
+
+**Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow).** No issue-creation attempted. All 5 confirmed items are fully written to `topics/*.md` and `artifacts/` above — no data lost, only the Linear cards are behind. This is now a TWENTY-SIXTH consecutive affected run since 2026-08-24 (daily, radar, weekly-digest, and deep-dive routines all affected — fourteen days with no working review queue or News digest board). Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-09-05 (+5 items, 2 companies fresh, Linear unavailable)`.

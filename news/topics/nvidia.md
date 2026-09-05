@@ -4,13 +4,15 @@ aliases:
   - Nvidia
 sources:
   - https://blogs.nvidia.com/feed/
-updated: 2026-09-04
+updated: 2026-09-05
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W36
 
+- **2026-09-04** — [Building a Memory-Driven Agent with NVIDIA NemoClaw](https://developer.nvidia.com/blog/building-a-memory-driven-agent-with-nvidia-nemoclaw/) — NVIDIA details a memory-driven "Chief of Staff" agent on NemoClaw with a Markdown self-model and SQLite audit ledger; against an agentic-RAG baseline it lifted overall accuracy 82.8%→90.9% and changed-facts tracking 60.0%→100%.
+- **2026-09-04** — [Frontier Reasoning Reaches the Edge: How to Deploy and Optimize Models on NVIDIA Jetson](https://developer.nvidia.com/blog/frontier-reasoning-reaches-the-edge-how-to-deploy-and-optimize-models-on-nvidia-jetson/) — NVIDIA shows NVFP4 quantization plus speculative decoding (DSpark/DFlash2) deploying Nemotron 3.5 Lightning (30B MoE) and Qwen3.8-27B (dense) on Jetson edge hardware, up to 6.28x decode-throughput speedup over BF16.
 - **2026-09-03** — [How to Carry User Identity Across Federated Kubernetes and AI Platforms](https://developer.nvidia.com/blog/how-to-carry-user-identity-across-federated-kubernetes-and-ai-platforms/) — NVIDIA details a centralized identity-gateway pattern for federated Kubernetes/AI platforms, cutting repeated logins 55% on its internal AWS/OCI developer platforms.
 - **2026-09-03** — [NVIDIA PAIR Virtual Inference Router Expands Available Compute on Your Local Network](https://developer.nvidia.com/blog/nvidia-pair-virtual-inference-router-expands-available-compute-on-your-local-network/) — NVIDIA open-sources PAIR (Personal AI Router) beta, distributing multi-agent inference requests across Ollama/LM Studio nodes on a local network; a 3-device cluster cut a 5-subagent test from 18 min to 8m48s.
 - **2026-09-02** — [Co-Designing AI Models Using Speculative Decoding for Faster LLM Inference](https://developer.nvidia.com/blog/co-designing-ai-models-using-speculative-decoding-for-faster-llm-inference/) — NVIDIA's third co-design series post gives concrete guidelines for tuning speculative-decoding draft length across hardware/workload profiles, with SPEED-Bench numbers showing 5-6 token acceptance lengths at draft length 9-11.
