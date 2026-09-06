@@ -1,0 +1,11 @@
+piece_type: hot_news        # hot_news | tech_explainer | project_post | digest
+platform: linkedin          # linkedin | x | medium | reddit
+status: pre_publish
+created: 2026-09-05
+posted:
+  linkedin:
+  medium:
+  reddit:
+  x:
+scheduled:
+  linkedin: 2026-09-07 09:00 Europe/Warsaw   # scheduled by the owner in LinkedIn; first comment with sources still to be posted by hand

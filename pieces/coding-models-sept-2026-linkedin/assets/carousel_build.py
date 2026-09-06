@@ -1,0 +1,73 @@
+import sys, subprocess, pathlib
+A=pathlib.Path(sys.argv[1]); SP=pathlib.Path(sys.argv[2])
+CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+CSS="""
+@page{size:1080px 1350px;margin:0}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:#1a1a19;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.s{width:1080px;height:1350px;position:relative;background:#fcfcfb;padding:96px 88px 120px;page-break-after:always;overflow:hidden}
+.s:last-child{page-break-after:auto}
+.c{display:flex;flex-direction:column;justify-content:center;padding-top:60px}
+.n{font-size:26px;color:#5f5e57;margin:-16px 0 40px 148px;line-height:1.3}
+.lbl{font-size:26px;color:#5f5e57;letter-spacing:.04em;text-transform:uppercase;margin-top:10px}
+.kicker{font-size:26px;letter-spacing:.08em;text-transform:uppercase;color:#5f5e57;font-weight:500;margin-bottom:36px}
+h1{font-size:74px;line-height:1.08;font-weight:700;margin:0 0 40px;letter-spacing:-.015em}
+h2{font-size:58px;line-height:1.1;font-weight:700;margin:0 0 36px;letter-spacing:-.01em}
+p{font-size:34px;line-height:1.38;margin:0 0 26px;color:#1a1a19}
+.muted{color:#5f5e57}
+.blue{color:#2a78d6}.orange{color:#eb6834}
+.big{font-size:150px;font-weight:700;line-height:1;letter-spacing:-.03em;margin:0}
+.row{display:flex;align-items:baseline;gap:28px;margin:0 0 34px}
+.row .d{font-size:26px;color:#5f5e57;width:120px;flex:none;letter-spacing:.04em}
+.row .m{font-size:40px;font-weight:600;width:420px;flex:none}
+.row .p{font-size:40px;font-weight:700;color:#2a78d6}
+
+.foot{position:absolute;left:88px;right:88px;bottom:56px;display:flex;justify-content:space-between;font-size:24px;color:#5f5e57}
+.bar{position:absolute;left:0;top:0;height:14px;width:100%;background:#2a78d6}
+.bar.o{background:#eb6834}
+img{width:904px;display:block;border:1px solid #e6e5e0;border-radius:8px}
+.swipe{font-size:28px;color:#2a78d6;font-weight:600}
+.dial{display:inline-block;font-size:24px;letter-spacing:.08em;text-transform:uppercase;color:#fcfcfb;background:#2a78d6;padding:10px 18px;border-radius:6px;margin-bottom:34px;font-weight:600}
+.dial.o{background:#eb6834}
+.c>.dial{align-self:flex-start}
+"""
+foot=lambda i:f'<div class="foot"><span>This week in coding models · Sept 2026</span><span>{i}/6</span></div>'
+S=[]
+S.append(f'''<div class="s c"><div class="bar"></div><div class="kicker">This week in coding models</div>
+<h1>Three launches.<br>Three days.<br>One number to ignore.</h1>
+<p class="muted">Fable 5.1 · Gemini 3.8 Flash · GPT-6 Astra</p>
+<p class="swipe">Swipe →</p>{foot(1)}</div>''')
+S.append(f'''<div class="s c"><div class="bar"></div><div class="kicker">Output price, per million tokens</div>
+<div style="display:flex;gap:70px;align-items:flex-end;margin-bottom:60px"><div><p class="big blue">$3.75</p><div class="lbl">Gemini 3.8 Flash</div></div><div><p class="big">$50</p><div class="lbl">Fable 5.1 · Astra</div></div></div>
+<h2>13x apart on price.<br>2 points apart on the benchmark.</h2>
+<p class="muted">Terminal-Bench 2.1: Flash 89.4 · Astra 89.9 · Fable 5.1 91.4</p>{foot(2)}</div>''')
+S.append(f'''<div class="s"><div class="bar"></div><div class="dial">Dial 1 · Effort</div>
+<h2>One dial. 330x on the cost of one run.</h2>
+<img src="02-carousel.png">
+<div style="display:flex;gap:70px;align-items:flex-end;margin-top:60px"><div><p class="big blue" style="font-size:120px">1¢</p><div class="lbl">low · 24 s</div></div><div><p class="big" style="font-size:120px">$3.30</p><div class="lbl">max · 14 min</div></div></div>{foot(3)}</div>''')
+S.append(f'''<div class="s c"><div class="bar"></div><div class="dial">Dial 2 · Harness</div>
+<h2>Same weights. Different loop.</h2>
+<div style="display:flex;gap:90px;margin:40px 0 60px"><div><p class="big muted">30%</p><div class="lbl">Opus 5 alone</div></div><div><p class="big blue">100</p><div class="lbl">Opus 5 inside AVO</div></div></div>
+<p class="muted">ARC-AGI-3, NVIDIA AVO. Not one weight changed.</p>
+<p style="margin-top:50px"><span class="blue" style="font-size:90px;font-weight:700;letter-spacing:-.02em">24 points</span></p>
+<p class="muted">Harness-Bench spread for one model across harnesses.</p>{foot(4)}</div>''')
+S.append(f'''<div class="s"><div class="bar o"></div><div class="dial o">Dial 3 · Open weights</div>
+<h2>A few points behind. Not a generation.</h2>
+<img src="01-carousel.png">
+<div style="display:flex;gap:60px;align-items:flex-end;margin-top:60px"><div><p class="big orange" style="font-size:120px">87.9</p><div class="lbl">DeepSeek V4-Pro · MIT</div></div><div><p class="big orange" style="font-size:120px">73</p><div class="lbl">Qwen3.8-27B · fits on one RTX 5090</div></div></div>{foot(5)}</div>''')
+S.append(f'''<div class="s c"><div class="bar"></div><div class="kicker">The decision</div>
+<h1>Price tier.<br>Effort default.<br>Harness.</h1>
+<p class="muted">The leaderboard is the entry ticket.</p>
+<p style="margin-top:70px" class="blue"><b>Which dial would you turn first?</b></p>
+<p class="muted" style="font-size:28px;margin-top:60px">Full argument in the post. Sources in the first comment.</p>{foot(6)}</div>''')
+html=f"<!doctype html><html><head><meta charset='utf-8'><style>{CSS}</style></head><body>"+"".join(S)+"</body></html>"
+(A/"carousel.html").write_text(html)
+subprocess.run([CHROME,"--headless=new","--disable-gpu","--no-pdf-header-footer",f"--print-to-pdf={A/'carousel.pdf'}",str(A/"carousel.html")],capture_output=True)
+# per-slide previews
+prev=SP/"prev"; prev.mkdir(exist_ok=True)
+for i,s in enumerate(S,1):
+    h=f"<!doctype html><html><head><meta charset='utf-8'><style>{CSS}</style></head><body>{s}</body></html>"
+    f=A/f"_slide{i}.html"; f.write_text(h)
+    subprocess.run([CHROME,"--headless=new","--disable-gpu","--hide-scrollbars","--window-size=1080,1350",f"--screenshot={prev/f'slide{i}.png'}",str(f)],capture_output=True)
+    f.unlink()
+print("done")

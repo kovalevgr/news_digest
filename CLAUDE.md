@@ -7,7 +7,7 @@ This file guides Claude Code when working in this repository.
 A personal, file-based **AI-news engine + article-writing studio** for a single user (the **owner**). There is **no database, no web app, no deploy** — markdown files + git ARE the system. Two loosely-coupled halves:
 
 1. **News core (`news/`)** — a daily scheduled Claude Code cloud routine follows `news/workflow.md`: fetches 11 AI-company sources (deterministic feed script first, agentic gap-scrape only for holes) into per-company `news/topics/*.md`, PLUS a **technical radar** (`news/config/radar.json` → `news/scripts/fetch_radar.py` → `news/radar/*.md`): ~45 practitioner sources (engineering blogs, HN/Reddit/HF community signal, OSS-systems blogs, a Mistral deep-watch) collected quietly daily. Weekly (Sunday) it writes a Ukrainian per-company digest to `news/weeks/` + a `Radar: ідеї тижня` section (5–10 idea cards → Linear project "Radar").
-2. **Writing studio (`pieces/`, `published/`)** — the owner drafts interactively in Claude Code via skills: `/draft-piece` → iterate in-session → `/approve-piece` (Gate 2) → platform variants (`/linkedin-variant`, `/x-variant`, `/medium-variant`, `/reddit-variant`) → `/publish-piece` (bookkeeping only). `published/` is the voice knowledge base future drafts read.
+2. **Writing studio (`pieces/`, `published/`)** — the owner drafts interactively in Claude Code via skills: `/draft-piece` → iterate in-session → `/approve-piece` (Gate 2) → platform variants (`/linkedin-variant`, `/x-variant`, `/medium-variant`, `/reddit-variant`) → `/publish-piece` (bookkeeping only). Short path for a single-platform post: `/platform-piece` writes natively for one platform (linkedin/x/medium/reddit) from sources, following `content/platforms/<platform>.md`, then the same gates apply. `published/` is the voice knowledge base future drafts read.
 
 Viewers: **Obsidian** (this repo is the vault; wikilinks + frontmatter are load-bearing), **Linear** (board, written by the routine via connector), **GitHub** (sync hub — the cloud routine clones/pushes).
 
@@ -25,7 +25,7 @@ Viewers: **Obsidian** (this repo is the vault; wikilinks + frontmatter are load-
 news/            # news core: workflow.md (THE recipe), config/, scripts/, topics/, artifacts/, weeks/, state/, run-log.md
 pieces/          # working drafts: <slug>/{draft.md, meta.yaml, sources/, variants/}
 published/       # frozen published canonicals (the voice KB)
-content/         # owner voice files: style_guide.md, anti_patterns.md (read-only reference)
+content/         # owner voice files: style_guide.md, anti_patterns.md, platforms/<platform>.md playbooks (read-only reference)
 .claude/skills/  # the writing skills (draft/approve/4 variants/publish)
 ```
 

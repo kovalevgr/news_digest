@@ -9,7 +9,7 @@ How it relates to the rest of the repo:
 
 - `app/` — the legacy Postgres pipeline (poller/bot/web). Read-only reference; being retired.
 - `pieces/` + `published/` — article writing, driven by skills downstream of this module.
-- `content/` — the owner's voice files (style guide, anti-patterns); used by the writing side.
+- `content/` — the owner's voice files (style guide, anti-patterns) and per-platform playbooks (`platforms/`); used by the writing side.
 - `news/workflow.md` — the single source of truth the routine follows every run.
 
 The daily/weekly flow:

@@ -21,6 +21,8 @@ you produce; you propose, the owner decides.
 - `published/<date>-<slug>.md` — frozen published canonicals: the voice KB this skill mines
 - `content/style_guide.md`, `content/anti_patterns.md` — the owner's voice files (read-only;
   NEVER modify them)
+- `content/platforms/<platform>.md` — per-platform playbooks, used by the variant skills and by
+  `/platform-piece` (the short path when a story needs one platform post, not a canonical)
 
 ## Procedure
 
