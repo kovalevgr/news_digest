@@ -11,7 +11,7 @@ So the question was simple. If I hand converge the code I rejected, does it find
 
 Some context first, because the answer depends on how the specs were written.
 
-The project started on 2026-04-19. On the 18th I wrote an ADR choosing GitHub Spec Kit over two alternatives: informal English in PRs, or a custom in-house spec format. The reasoning line in that ADR still holds: "Without a disciplined spec-first workflow, AI assistance produces fast-but-wrong code that costs more to revert than to write by hand."
+The project started in mid-April. The day before the first commit I wrote an ADR choosing GitHub Spec Kit over two alternatives: informal English in PRs, or a custom in-house spec format. The reasoning line in that ADR still holds: "Without a disciplined spec-first workflow, AI assistance produces fast-but-wrong code that costs more to revert than to write by hand."
 
 What that looked like by early August:
 
@@ -29,7 +29,7 @@ The other thing that changed was who writes the spec. That is the rollback story
 
 ## The rollback
 
-Feature T20 is the interview orchestrator: a deterministic state machine that decides what happens next in a session while the LLMs only produce content. It is the biggest logic surface in the codebase, 21 named transition edges, an adjudication table, persistence with schema versioning. One of the project's invariants is "no LLM-driven flow control", so this module is where that invariant lives or dies.
+The module in question is the interview orchestrator: a deterministic state machine that decides what happens next in a session while the LLMs only produce content. It is the biggest logic surface in the codebase, 21 named transition edges, an adjudication table, persistence with schema versioning. One of the project's invariants is "no LLM-driven flow control", so this module is where that invariant lives or dies.
 
 The first implementation was done by a Sonnet sub-agent working from a contract and a spec. It ran for 58 minutes, used 196 tool calls and about 360k tokens, and came back with a completion report that included a section titled "Deviations, each with one-line rationale". Thirteen of them. Things like "`awaiting` promoted to a top-level field instead of nested" and "edges 10/12 issue one `ask_seed` call with the transition folded into a context note".
 
@@ -37,13 +37,13 @@ Some of those were good ideas. Eight of the thirteen were later folded into the 
 
 To be precise about what failed: not the model, the tier. Until the day before, background agents had silently inherited the session model and burned through limits three or four times a day, so I had just moved implementation to a cheaper tier and let the same agent author its own spec. That policy lived less than a day. The mistake was letting the implementing tier make design decisions at all.
 
-The fix was a policy, not a prompt. The stack has three tiers by role now. The main session, the "brain", writes every spec, plan, tasks file and contract itself, adjudicates review findings and never writes features. Four implementer sub-agents on Opus receive a finished design and translate it into code; open questions go into the spec's Clarifications section as "gap filled this way", never into a redesign. The cheapest tier runs tests, gates and one-line fixes. A read-only reviewer gate runs on the session model, because it catches the most expensive mistakes at a third to a half of implementation cost. Merge is always a human. The Opus re-implementation of T20 under that policy shipped with zero contract deviations and 26 gap-fill notes, went through the reviewer gate (one real bug, four contract-text corrections), and merged.
+The fix was a policy, not a prompt. The stack has three tiers by role now. The main session, the "brain", writes every spec, plan, tasks file and contract itself, adjudicates review findings and never writes features. Four implementer sub-agents on Opus receive a finished design and translate it into code; open questions go into the spec's Clarifications section as "gap filled this way", never into a redesign. The cheapest tier runs tests, gates and one-line fixes. A read-only reviewer gate runs on the session model, because it catches the most expensive mistakes at a third to a half of implementation cost. Merge is always a human. The Opus re-implementation of the orchestrator under that policy shipped with zero contract deviations and 26 gap-fill notes, went through the reviewer gate (one real bug, four contract-text corrections), and merged.
 
 The rejected round stayed in git as dangling commits. A month later it became a test fixture.
 
 ## The upgrade: 25 releases, 3 seconds
 
-The project was on Spec Kit 0.7.4, initialised in April. Between that and 1.0.4 (2026-09-02) there were about 25 releases and one breaking change (0.10.0 removed the legacy `--ai*` flags; we were already in skills mode, so it did not touch us). The full timeline is in the [changelog](https://raw.githubusercontent.com/github/spec-kit/main/CHANGELOG.md).
+The project was on Spec Kit 0.7.4, initialised in April. Between that and 1.0.4, released at the start of September, there were about 25 releases and one breaking change (0.10.0 removed the legacy `--ai*` flags; we were already in skills mode, so it did not touch us). The full timeline is in the [changelog](https://raw.githubusercontent.com/github/spec-kit/main/CHANGELOG.md).
 
 The 1.0 upgrade path is a real command now: `specify integration upgrade claude`, then `specify extension update`. It is manifest-aware: it refuses to overwrite a managed file you have edited locally unless you pass `--force`, and it never touches `specs/`, the constitution or git history ([upgrade docs](https://github.com/github/spec-kit/blob/main/docs/upgrade.md)).
 
@@ -59,7 +59,7 @@ In other words it is a reviewer that works from the spec side rather than the co
 
 ## The experiment
 
-Three git worktrees off the upgraded commit, each with the same T20 spec, plan and tasks:
+Three git worktrees off the upgraded commit, each with the same orchestrator spec, plan and tasks:
 
 | Run | Code | Contract |
 | --- | --- | --- |
