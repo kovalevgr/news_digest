@@ -823,7 +823,11 @@ Report, verbatim:
 
 ## K. Owner's notes (which arm you'd actually ship; where the threshold seems to be)
 
-_owner writes this_
+_Owner (Ihor), 2026-09-06, via the news_digest session:_
+
+> Для фічі такого розміру я б злив будь-яку з трьох після рев'ю. Spec Kit окупив себе не якістю коду, а тим, що змусив мене відповісти на п'ять питань до того, як хтось написав рядок, і одне з них виявилось протиріччям у моїх власних документах. agent.md несе правила, але не рішення на фічу. Поріг, як я його зараз бачу: спека потрібна там, де є розвилки, які reviewer не побачить у diff-і.
+
+EN: For a feature this size I would merge any of the three after review. Spec Kit paid for itself not in code quality but by making me answer five questions before anyone wrote a line, and one of them turned out to be a contradiction in my own docs. agent.md carries rules, not per-feature decisions. The threshold as I see it now: a spec is needed where there are forks the reviewer will not see in the diff.
 
 ## Appendix — evidence locations (all local, nothing pushed)
 
