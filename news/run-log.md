@@ -2371,6 +2371,41 @@ Flagging for the company-news routine (unchanged pattern from 2026-09-03/09-04):
 
 Commit: `news: radar run 2026-09-05 (+6 items, 3 highlights, Linear unavailable)`.
 
+## 2026-09-06 05:03 UTC — radar — ok (Linear unavailable)
+
+Window: since 2026-09-05T03:03:21 UTC. `fetch_radar.py` ran clean except `bair` (connection reset by peer — fourth consecutive day of this transient error, no fallback ladder per FAILURE MODES), all 7 YouTube sources (6× HTTP 404 + `yt-mlst` HTTP 500 — same now-fourteen-day-old blockage), and `smolai` (HTTP 402 Payment Required — third consecutive day, the paywall/plan-change confirmed 09-04/09-05 persists). `reddit` worked today (no 429) and returned its full 25-item window.
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | - |
+| inference-infra | 0 | 0 | - |
+| oss-ml-systems | 0 | 0 | - |
+| bigtech-eng | 0 | 0 | - |
+| research-institutes | 0 | 0 | bair: connection reset |
+| technical-newsletters | 0 | 0 | - |
+| practitioner-blogs | 1 | 1 | - |
+| youtube | 0 | 0 | 7 sources: 6×HTTP 404, yt-mlst HTTP 500 |
+| community | 40 | 6 | smolai: HTTP 402 |
+| mistral-watch | 0 | 0 | - |
+
+Totals: 41 raw candidates, 7 confirmed, 9 source-errors. Comfortably inside the ~15/day confirmed budget — reddit's clean fetch inflated raw volume (25 items) but nearly all of it was personal Qwen3.8-27B/Flash-Next hardware chatter, not engineering announcements.
+
+TRIAGE pass 1: dropped as off-topic or below the technical bar — `hn-show-ai50`'s "Open-Source eInk Bike Computer" (390 pts; AI mentioned only as a coding aid for an ESP32 protocol, product itself is bike hardware) and "TERMy" (explicitly *not* using LLMs/ML — the antithesis of a radar item, cross-posted into `hn-show-rag`/`hn-show-mcp` too, counted once); `hn-show-rag`'s "HyperCard to HTML Converter" (11 pts, no AI content at all — false-positive on the RAG query). `github-trending`'s `bikini/exploitarium` (raw exploit-PoC archive — off-topic, not AI/ML, and not the kind of repo this radar promotes). `hf-trending-models`'s two hits dropped: `DavidAU/...-Heretic-Uncensored-...-GGUF` (a merge-farm roleplay quant, not real engineering signal) and `openai/clip-vit-base-patch32` (a 2022 model, stale evergreen re-trending, no fresh release behind it). `r/LLMDevs`'s "Building an llm from scratch" dropped — a beginner's personal 1M-param toy project with admittedly weak, out-of-context output and no shared code/repo link. "The OpenAI Huggingface incident from an agents POV" dropped — self-text is a single unattributed credit line ("Full credits to @artificialisabel from X!") with no linked source and no way to confirm what incident it even refers to. `hn-show-agents`'s "Claude Skill – Interns must review" (12 pts) dropped as a low-substance gimmick tool. `hn-show-mcp`'s "Personal Context MCP" (22 pts) dropped — WebFetch and curl both egress-blocked on `lanes.sh` (org policy), empty feed summary, too thin to confirm without independent verification. `hn-show-rag`/`hn-show-mcp`/`hn-show-agents`'s **Moadim.io** re-surfaced across all three searches — SAME story already verified and written to `radar/community.md` on 2026-09-04, deduped, not re-added.
+
+Kept: `latent-space` (practitioner-blogs) contributed **"Five Days With Grok Bot"** — xAI's Grok Bot vs. OpenClaw, HIGH fit (agents in practice). `reddit` contributed five real engineering/community-signal items after triage: **Spanda hallucination detector** (r/LLMDevs, HIGH fit — reproducible technique with code), **NInfer vs llama.cpp vs vLLM** (r/LocalLLaMA, HIGH fit — inference-engine benchmark), **gfx906-llama-cpp gains** (r/LocalLLaMA, MEDIUM fit — GPU/kernel engineering on older AMD cards), **AA Update frontier + small-model rankings** (r/LocalLLaMA, two same-day posts same story, MEDIUM fit — evals in practice), and **LLVM developers debate AGENTS.md** (r/LocalLLaMA, MEDIUM/HIGH fit — agent-ecosystem standardization spreading to a major non-AI OSS project). `github-trending` contributed **magnitudedev/magnitude** (HIGH fit — local-model hardware-fit inference server plugging into existing agent harnesses).
+
+Pass 2 (owner fit): HIGH — Spanda, magnitude, NInfer comparison, Grok Bot piece, LLVM AGENTS.md debate. MEDIUM — gfx906 gains, AA Update rankings.
+
+VERIFY SUBSTANCE: attempted the 5 highest-scored candidates. Confirmed substantive: **Spanda** via `git clone` of the linked repo (`Adarshent/Spnda`) — real math, DOI, benchmark tables, `pip`-installable; **magnitudedev/magnitude** via `git clone` README — real functioning npm-distributed tool with docs/Discord (README embeds a growth-hacky agent-onboarding prompt, noted but not disqualifying); **Grok Bot piece** via WebFetch — genuine hands-on trial, though light on quantitative benchmarks (a first-look, not a teardown). Failed verification (transport, not content): `reddit.com/.json` returned HTTP 403 for all three remaining reddit candidates (NInfer comparison, gfx906 gains, LLVM AGENTS.md debate) — kept on the feed's own summary text per FAILURE MODES, out of highlight consideration. `lanes.sh` (Personal Context MCP) was egress-blocked outright and, combined with its thin signal, was dropped rather than kept-unverified.
+
+WRITE: 7 items written — 1 to `radar/practitioner-blogs.md`, 6 to `radar/community.md` (all under the existing `## 2026-W36` heading).
+
+**Highlights (3): Spanda hallucination detector** (verified via git clone, HIGH owner-fit, a genuinely novel zero-GPU technique with real benchmark numbers and a concrete safety finding — direct `project_post`/`tech_explainer` material), **magnitudedev/magnitude** (verified via git clone, HIGH owner-fit, a real tool squarely on the local/self-hosted-models interest), **Five Days With Grok Bot** (verified via WebFetch, HIGH owner-fit, a rare hands-on comparison of two agent-hosting philosophies — Mac-style managed vs. Linux-style self-owned).
+
+**Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow).** No review-queue cards attempted. All 7 confirmed items are fully written in the radar files above — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now a TWENTY-SIXTH consecutive affected run since 2026-08-24. Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: radar run 2026-09-06 (+7 items, 3 highlights, Linear unavailable)`.
+
 ## 2026-09-05 06:15 UTC — daily — ok (Linear unavailable)
 
 Window: since 2026-09-04T04:09:38 UTC (`fetch_feeds.py`; last successful daily run was 2026-09-04 06:15 UTC). `fetch_feeds.py` ran clean — mistral and huggingface reported 304-not-modified (no feed change since last cursor); nvidia had genuine fresh TIER-1 candidates; openai/anthropic/google-deepmind/google-research/microsoft/xai/mistral/huggingface/cursor/perplexity all reported zero fresh, triggering gap-scrape for all ten.
