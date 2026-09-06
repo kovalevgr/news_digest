@@ -1,6 +1,6 @@
 ---
 kind: owner
-title: "Spec Kit 1.0 /speckit.converge vs a 13-deviation implementation — TechScreen, 2026-09"
+title: "Spec Kit 1.0 — stage 1 (converge vs a 13-deviation implementation) + stage 2 (one feature three ways) — TechScreen, 2026-09-06"
 date: 2026-09-06
 ---
 
@@ -496,6 +496,335 @@ EN: The upgrade changed nothing in day-to-day work; converge did, in five minute
 
 Context the owner gave while reading the results: after running the protocol he "honestly did not see the difference" between 0.7.4 and 1.0.4 in daily use — which is accurate: the only visible change is the new `converge` step after `implement`; the rest of the workflow is unchanged. Keep converge on: yes.
 
+## H. Stage 2 setup (feature, base commit, prompt text, arm definitions, agent.md content)
+
+**Feature: T24 — Pre-Interview Planner agent wrapper** (`app/backend/agents/planner.py` + `tests/agents/test_planner.py` + one mock fixture). Why: next in the Tier-4 backlog; no DB, no cloud, offline against the mock Vertex backend; two committed siblings with the same pattern (Interviewer 256 lines, Assessor 399) so the "nothing" arm has a fair template and the Spec Kit arm has real things to clarify; prompt and schema already committed; T18-class size (the T18 spec was 79 lines). Genuine forks the task text leaves open: retry policy, structural validation against the rubric subset, version lockstep, how to obtain the fixture SHA, whether to append the Interviewer's level guide.
+
+**Base commit:** `770bba1` (tip of `036-speckit-1x-converge` after §G — includes Spec Kit 1.0.4 and stage-1 results). Three worktrees `036-arm-{A,B,C}` on branches of the same name; arm B additionally carries one commit `d035e86` adding `agent.md`. No arm can see another (sub-agents instructed never to read other worktrees or branches; each worktree has its own branch).
+
+**Implementer model:** `opus` in all three arms (CLAUDE.md model policy). **Design-model note:** in arm A the spec kit (spec/clarify/plan/tasks) was authored by the main loop (Fable 5.1) with the owner answering questions — exactly rev.2 practice; arm B's `agent.md` was also authored by Fable; arm C gets only CLAUDE.md. So the implementer is constant and what differs is the *form* in which the brain's intent reaches it: full spec kit (A), a standing rules file (B), the generic project file (C). Recorded in §K as a deliberate choice, not a confound to hide.
+
+**Shared setup for every arm (baseline):** "First read `<worktree>/CLAUDE.md` in full" (sub-agents launch from another cwd, so the project file would not auto-load); run tooling from the worktree root through the shared venv (`UV_PROJECT_ENVIRONMENT=…/.venv uv run …`); never install dependencies; commit on the arm branch; do not push; record start and first-all-green timestamps. Gates identical: `pytest app/backend/tests -q`, `ruff check`, `ruff format --check`, `mypy --strict`, `check-no-provider-sdk-imports.sh`.
+
+**Exact feature prompt (identical in all three arms):**
+
+```text
+Implement T24 from docs/engineering/implementation-plan.md — the Pre-Interview Planner agent wrapper.
+
+What: add `app/backend/agents/planner.py`, a thin typed adapter around `app.backend.llm.call_model` for the Planner, in the same shape as the existing Interviewer (`app/backend/agents/interviewer.py`) and Assessor (`app/backend/agents/assessor.py`) wrappers. The prompt already exists and is pinned: `prompts/planner/v0001/` (`system.md` describes the inputs in §3 and the output contract in §4; `schema.json` is the committed output schema; `configs/models.yaml` carries the planner model config). The wrapper takes the §3 inputs as typed models, assembles the system prompt from the version directory, makes the model call with the committed schema, and returns the plan as a typed output mirroring `schema.json`. Session id is needed for cost attribution and tracing, as in the siblings.
+
+Acceptance (from the implementation plan): a schema-valid plan is generated for a dummy position template against the mock Vertex backend (`LLM_BACKEND=mock`; fixtures live under `app/backend/tests/fixtures/llm_responses/` — read its README and `app/backend/llm/_mock_backend.py`). Plus a unit suite `app/backend/tests/agents/test_planner.py` in the style of the sibling suites (they monkeypatch `call_model` at the module boundary).
+
+Constraints: purely additive — do not modify `prompts/**`, `app/backend/llm/**`, `configs/**`, or the existing agent modules. No DB access in the wrapper. No new dependencies.
+
+Gates, all green before you stop: `uv run pytest app/backend/tests -q`, `uv run ruff check app/backend`, `uv run ruff format --check app/backend`, `uv run mypy --strict app/backend`, `bash scripts/check-no-provider-sdk-imports.sh`. When green, commit on your branch (do not push) and report: what you built, every decision you made where the inputs left a choice, and the gate output.
+```
+
+**Arm wrappers (the only difference between arms):**
+
+- **A — Spec Kit 1.0.4.** Main loop ran `speckit-specify` (with its own ≤3-question round), `speckit-clarify` (3 of max 5 questions asked), `speckit-plan` (plan.md, research.md, data-model.md, quickstart.md), `speckit-tasks` (18 tasks in 6 phases) — all committed on the arm branch; then an opus sub-agent was told to read CLAUDE.md and execute `.claude/skills/speckit-implement/SKILL.md` verbatim; then `speckit-converge` on the session model. Process warts observed: the core `create-new-feature.sh` created `specs/037-…`, and the git extension's script — run afterwards as the `before_specify` hook prescribes — numbered the branch `038-planner-agent-wrapper` (the skill says branch and directory numbering are independent; they were).
+- **B — `agent.md` only.** Prompt prefixed with "Read `agent.md` at the repo root first and follow it", plus "Do NOT use the Spec Kit skills and do NOT write anything under `specs/`". The file (43 lines, below) was written by the main loop from `docs/engineering/coding-conventions.md`, the CLAUDE.md invariants and the anti-patterns list, in Sanglard's spirit: terse imperative rules.
+- **C — nothing.** Prompt plus "Do NOT use the Spec Kit skills and do NOT write anything under `specs/`; implement directly".
+
+**Questions the owner answered in arm A (the interactive part):**
+
+| Step | Question | Answer |
+| --- | --- | --- |
+| specify Q1 | Which semantic guardrails beyond the JSON schema? (none / structural / structural+numeric) | **B — structural only**: node ids exist in the input subset; every required competency appears |
+| specify Q2 | Input typing: reuse `RubricSnapshot`/`PositionTemplateRead` or wrapper-local §3 models? | **B — wrapper-local models**; T25/T27 convert |
+| clarify Q1 | Return the plan alone, or plan + call metadata for T25's `generated_by`? | **A — plan alone** (recommended) |
+| clarify Q2 | Retry budget: once (siblings) vs "up to twice" (`vertex-integration.md`) vs twice + wrapper-side fallback | **B — three attempts, fallback is the caller's** (recommended) |
+| clarify Q3 | Append the Interviewer's level guide to the Planner prompt? | **A — no**, `system.md` + anchors only (recommended) |
+
+Clarify Q2 is the interesting one: the repo's own docs say the Planner retries up to twice, while both siblings retry once — a contradiction the spec author (Fable) had missed in the first draft and only surfaced because arm C's report cited the doc. The owner picked the documented policy.
+
+**`agent.md` content (arm B, verbatim):**
+
+```markdown
+# agent.md — standing rules for working in this backend
+
+Read this before writing any code. Rules, not preferences. When the codebase and this file disagree, this file wins.
+
+## The floor
+- LLMs produce content, never routing decisions. No `if` on model prose anywhere. (constitution §2)
+- Every model call goes through `app.backend.llm.call_model`. Never import a provider SDK outside `app/backend/llm/`.
+- Prompts are versioned directories under `prompts/<agent>/<vNNNN>/`. Never edit one in place; never read one you did not pin by version.
+- Hard caps on every call: 30 s timeout, 4096 output tokens max, cost tracked per session. The wrapper enforces them; you do not relax them.
+- No secret in source, tests, logs, fixtures, or prompts. `.env` locally, Secret Manager in prod.
+- Append-only audit tables: never `UPDATE`/`DELETE` them. Corrections are new rows.
+- Configs as code: model names, thresholds, prompt versions live in `configs/*.yaml`, never in Python literals.
+
+## Shape of an agent wrapper
+- One module in `app/backend/agents/`, one public `async def run_<agent>_<unit>(...)`. It executes; it does not decide.
+- Pin `PROMPT_VERSION` as a module constant; it must match `configs/models.yaml` and `prompts/<agent>/active.txt`. Test the lockstep.
+- Assemble the system prompt at runtime from the version directory exactly as the prompt's own §§ declare (appendices included). Cache the read; never cache mutable dicts you hand to callers — deep-copy.
+- Typed inputs and outputs are frozen pydantic models. Outputs mirror `schema.json` with `extra="forbid"` and the same field constraints, so "passes pydantic" means "satisfies the committed contract".
+- Serialize the user payload deterministically: `sort_keys=True`, `ensure_ascii=False`, total over legal inputs (`mode="json"`, `fallback=str`). Byte-stable payloads are what the mock backend's SHA-keyed fixtures depend on.
+- Retry policy is per agent, explicit, and bounded: retry ONCE on a schema-class failure, then raise a typed `<Agent>OutputInvalid` chaining the cause. Every other wrapper error propagates untouched. Never loop until success.
+- Validate what the schema cannot: ids must exist in the inputs they reference; enums echo back what was asked. A semantic mismatch is a contract failure, not a warning.
+- No DB access, no filesystem writes, no side effects beyond what `call_model` performs through its injected sink/ledger.
+
+## Python
+- 3.12, `mypy --strict`, `ruff` + `ruff format`. Every parameter and return annotated. No bare `dict`/`list`.
+- f-strings only. `logging` with structured `extra=`; never `print()`.
+- Specific exception classes; never bare `except:`; never swallow.
+- `async def` for anything that awaits; never block the loop.
+- Layering: `api → services → repositories / llm / orchestrator → domain / config / utils`. Agents sit beside `llm`; they import from `llm`, never from `api` or `services`.
+
+## Tests
+- `pytest` + `pytest-asyncio`. Test file mirrors the module: `tests/agents/test_planner.py` for `agents/planner.py`.
+- Mock only the LLM boundary (`call_model` monkeypatched at the module you test). Never mock the database; DB tests skip without `DATABASE_URL`.
+- Every branch of the retry policy has a test. Every boundary in the schema (min/max, enum edge) has a test. The lockstep of version pins has a test.
+- A test that passes because of a real side effect is a bug. Fixtures are deterministic files, checked in.
+- Never disable a failing test. If it is wrong, delete it and say why in the commit body.
+
+## Process
+- Read before writing: the sibling modules, the prompt's `system.md`, the schema, the mock backend's fixture format.
+- Purely additive changes unless the task says otherwise. Do not touch prompts, the llm package, or configs.
+- Where the inputs leave a choice, choose the simplest reading consistent with the siblings, and list every such choice in your final report. Do not redesign.
+- Gates before you stop: `pytest`, `ruff check`, `ruff format --check`, `mypy --strict`, the provider-SDK import guard. All green or you are not done.
+- Commit with an imperative, lower-case subject ≤ 72 chars; reference the task in the body. Do not push.
+```
+
+**Blind review:** three separate reviewer sub-agents on the session model, identical prompt, each given one worktree as "candidate X / Y / Z" (X = arm B, Y = arm C, Z = arm A), told to follow `.claude/agents/reviewer.md`, review only `git diff 770bba1...HEAD -- app/`, and never read `specs/`, `agent.md`, or git log. Then a fix-round in each arm by the same implementer agent (same model, same context), and a second measurement.
+
+**Timeline:** worktrees created 18:16:04; arms B and C launched 18:16; arm A specify started 18:17:27.
+
+## I. Per-arm logs (turns, gate runs, reviewer output) — A, B, C
+
+Reviewer identity per candidate: X = arm B, Y = arm C, Z = arm A. Fix-rounds were run by a **fresh** opus sub-agent per arm (the harness cannot resume a finished sub-agent in this session), given the same wrapper rules plus the reviewer report verbatim; same handicap for all three.
+
+### Arm A — Spec Kit 1.0.4 (worktree `036-arm-A`, branch `038-planner-agent-wrapper`, base `770bba1`)
+
+Process timeline (main loop = Fable 5.1, owner interactive): specify hook + spec draft 18:17:27–18:19:32 (2 specify questions → owner answered 18:2x); clarify 3 questions (owner answered; committed 18:37:26); plan + research + data-model + quickstart committed 18:39:18; tasks (18) committed 18:40:24. Spec-kit artifacts: 485 lines across 7 files. Owner turnaround included, brain-side wall clock ≈ 23 min (18:17 → 18:40).
+
+Implementer: opus (general-purpose sub-agent executing `speckit-implement` SKILL.md verbatim). 47 tool uses; 169,388 tokens; started 18:40:49, gates first all green 18:49:01 (8 min 12 s); total agent duration 9 min 24 s. Commit `387e847` "add the pre-interview planner agent wrapper (T24)".
+
+Report, verbatim:
+
+> **Extension Hooks:** Optional Hook `git` / `/speckit-git-commit` ("Commit implementation changes?") — not executed, `auto_commit: false`; committed by hand.
+>
+> **Checklist status (read-only gate):** `requirements.md` 16/16 checked → PASS; implementation proceeded automatically.
+>
+> **Tasks completed:** all 18 in `specs/037-planner-agent-wrapper/tasks.md` now `[x]`.
+>
+> **What was built:** `app/backend/agents/planner.py` (~390 lines) — public API `PROMPT_VERSION`, `PlannerOutputInvalid`, `PlannerPlanMismatch`, `CandidateProfile`, `PositionSpec`, `RubricNode`, `PlannerInputs`, `DepthProbe`, `SeedQuestion`, `CompetencyPlan`, `PlannerOutput`, `async run_planner(inputs, *, sink, ledger, settings) -> PlannerOutput`; private loaders/serializer/validator. `app/backend/tests/agents/test_planner.py` — 38 tests (unit + offline acceptance). Fixture `…/planner/46e97ce2…1f29.json` — hand-authored Ukrainian plan (2 competencies, 3 seeds, 4 probes) via the `_unrecorded/` promotion flow. Diff purely additive apart from tasks.md checkboxes.
+>
+> **Choices the artifacts left open:**
+> 1. `CompetencyPlan` vs `PlanCompetency` — spec.md says one, data-model.md/tasks.md the other; took the two-against-one name `CompetencyPlan`.
+> 2. Added `_AGENT_NAME: Final[str] = "planner"` (assessor has it, interviewer does not).
+> 3. `RubricNode.level_descriptors` left as plain `dict[str, str]` (data-model: no construction-time validation beyond field constraints).
+> 4. Retry loop as a single `for _attempt in range(3)` with `last_failure` (plan §3 prescribes it) rather than the siblings' unrolled try-blocks.
+> 5. Guardrail messages name node ids (not PII; assessor precedent); `PlannerOutputInvalid` stays PII-free.
+> 6. `_MAX_ATTEMPTS: Final[int] = 3` named constant.
+> 7. Prompt-assembly join in the interviewer's form (closer shape).
+> 8. Level-guide-absence test reads the guide's first heading rather than hard-coding a marker.
+> 9. Acceptance test reuses the shared `test_settings` conftest fixture (T011 allowed "the way existing mock-backend tests do").
+> 10. Only the no-`DATABASE_URL` pytest mode was runnable (155 skips = DB suites); the feature adds no DB tests.
+>
+> **Gate output:** pytest → 421 passed, 155 skipped in 8.02 s · ruff check → All checks passed! · ruff format --check → 127 files already formatted · mypy --strict → Success: no issues found in 127 source files · provider guard → exit 0. `git status --porcelain` empty after commit. All 28 pre-commit hooks passed. Not pushed.
+
+#### `speckit-converge` on arm A (Fable 5.1; 19 tool uses; 145,658 tokens; 18:51:10 → 18:54:25, 3 min 15 s)
+
+> Prerequisite script: `{"FEATURE_DIR":".../specs/037-planner-agent-wrapper","AVAILABLE_DOCS":["research.md","data-model.md","quickstart.md","tasks.md"]}`. Hooks: none. Read all seven feature artefacts, the full module and test file, the fixture, the prompt assets, the sibling wrappers and the llm/conftest references. No gates run, no git history.
+>
+> **Convergence Findings:** empty table — "No gaps found. Every FR, SC, acceptance scenario, edge case, plan decision, and applicable constitution principle in the intent inventory is satisfied by the present code", with an evidence line per inventory item (FR-001…FR-010, SC-001…SC-004, US1–US3 acceptance scenarios, five edge cases, research D1–D6, plan design items 1–5, tasks T001–T018 all `[x]` and present).
+>
+> **Summary metrics:** 28 requirements/acceptance criteria checked; 11 plan decisions; 8 applicable constitution principles (§2, §5, §11, §12, §14, §15, §16, §17 — all PASS; §9 N/A per plan); findings 0/0/0/0.
+>
+> Observation (not a finding, out of additive scope): `vertex-integration.md:129` still lacks the "see planner.py; fallback is the caller's" note the Assessor/Interviewer lines carry.
+>
+> **Outcome: `converged`** — "✅ Converged — the implementation satisfies the spec, plan, and tasks." tasks.md byte-for-byte unchanged; `git status --short` empty.
+
+First `converged` result in the whole experiment (stage 1's control run had found a stale docstring). The spec here was written before the code and the code was written to it, which is the case converge is built for.
+
+#### Reviewer report — candidate Z (= arm A), blind, Fable 5.1, 22 tool uses, 145,515 tokens, 18:50:58–18:54:06
+
+> **Status:** ⚠️ warnings
+>
+> **Blocks:** none.
+>
+> **Warnings**
+> - [planner.py:38–44, 404–415] Documented policy deviation: `vertex-integration.md` §JSON mode says "retry up to twice; on repeated failure, fall back to the previous rubric version's default plan template." The wrapper implements the two retries but on exhaustion raises `PlannerOutputInvalid` and delegates the fallback to "the caller (T25/T27)". Justification (no DB access) is sound and stated, but doc and code disagree on where the fallback lives; amend the doc in a follow-up and name the owning task.
+> - [planner.py:144–146, 204–210] Wrapper-invented input bounds not in the pinned §3 contract: `prior_role_notes` `max_length=600`, `expected_minutes` 10–90, `per_competency_minute_budget` 3–20 (the latter two copied from the *output* schema). A 25-minute per-competency budget or a 700-char note is rejected before any call. Defensible as "never spend tokens on an unanswerable request", but it narrows §3 — confirm against the T25/T27 conversion or relax.
+>
+> **Notes** (10): prompt-contract fidelity otherwise exact (schema mirrored field-for-field, deep-copied schema, §7.1/§8.1 guardrails enforced, §12 caps asserted, `session_id` attached, level guide deliberately excluded per §5 wording) · `required_competencies` read as node ids — if a caller passes labels every plan fails guardrail (b) and burns three Pro calls; worth a sentence in the T25/T27 conversion contract · `target_level` capped at 4 vs glossary's ranks 1–5 (prompt-level scale question, not a wrapper defect) · implementation-plan's `must_cover`/`nice_to_have` drift (schema is the source of truth) · docstrings cite "research D1/D2/D3", "owner decision 2026-09-06" without a path · `PlannerPlanMismatch(ValueError)` vs `AssessorEchoMismatch(Exception)` — small shape drift · exceptions module-local like siblings · `plan_version_seed` literal lockstep tested · 38 tests pass in 0.8 s, wider agents+llm run 185 passed / 25 skipped; acceptance unpatched through the mock; `_unrecorded/` clean; ruff/format/mypy clean; test file 1028 lines vs siblings 553/737 · §17 unverifiable blind, though tests reference FR-010 / SC-001 / User Stories 1–3.
+>
+> **Checked:** Constitution ✓ (§2, §5, §11, §12, §15, §16) · Secrets ✓ (gitleaks no leaks) · Tests ✓ (38) · Migrations n/a · Prompts n/a · Contract ✓ · Design / Visual n/a.
+>
+> COUNTS: blocks=0 warnings=2 notes=10
+
+Blindness leak: the reviewer noticed tests reference FR/SC/User-Story ids ("indicates a spec exists"). It did not name the process.
+
+**Owner adjudication before the fix-round (rev.2: contract text is the brain's):** warning 2 touched `data-model.md`, so the main loop amended it (keep the two schema-mirrored bounds with rationale; relax the notes cap to 2000) and added a Clarifications line naming T25/T27 as the fallback owner — commit `5e8e730`, ~2 min. The fix-round agent was told the resolutions, not asked to decide.
+
+#### Arm A fix-round (fresh opus agent, spec artifacts amended by the owner first — commit `5e8e730`; 44 tool uses; 109,825 tokens; 18:56:36 → gates green 19:01:08, 4 min 32 s). Commit `a1ed081`; `git diff --stat HEAD~1..HEAD` → planner.py +81ish, test_planner.py +68ish; **2 files, +128/−21**. Tests 38 → 42.
+
+> **Warning 1 (fallback ownership):** owner marker at the `PlannerOutputInvalid` raise site in the repo's TODO convention — `# TODO(@T25/T27, docs/engineering/implementation-plan.md): the default-plan-template fallback … is owned by the session-start caller … NOT by this wrapper …`; the module docstring's retry bullet points at it. Only TODO marker in `app/backend`.
+> **Warning 2 (input bounds):** kept 10–90 and 3–20 with the adjudicated rationale in the module docstring, both field docstrings and a header comment ("CONTRACT MIRRORS, not policy"); relaxed `prior_role_notes` to 2000 as a sanity ceiling. Four new tests, incl. `test_input_minute_bounds_mirror_the_committed_output_schema`, which reads `schema.json` and asserts the input bounds equal the output bounds — "turns 'they are mirrors' into an executable claim".
+> **Notes:** caller warning on `required_competencies` (ids, not labels); citations now carry `specs/037-planner-agent-wrapper/<file>` paths; `PlannerPlanMismatch(ValueError)` kept with a reason; the rest left.
+> Gates: 425 passed, 155 skipped in 7.55 s; ruff, format, mypy --strict, guard clean.
+
+### Arm B — `agent.md` only (worktree `036-arm-B`, base `770bba1` + `d035e86` agent.md)
+
+Implementer: opus (general-purpose sub-agent). 40 tool uses; 163,321 tokens; started 18:16:21, gates first all green 18:25:28 (9 min 7 s); total agent duration 9 min 57 s. Commit `7dc2511` "add planner agent wrapper".
+
+Report, verbatim:
+
+> **What I built (3 new files, purely additive)**
+> - `app/backend/agents/planner.py` — `run_planner_plan(inputs, *, sink, ledger, settings) -> PlannerOutput`. Pins `PROMPT_VERSION = "v0001"`; assembles the system prompt (cached `lru_cache`) from `prompts/planner/v0001/system.md` + `prompts/shared/ukrainian-anchors.md`; deep-copies the committed `schema.json` into `ModelCallRequest.json_schema`; serializes the §3 inputs with `model_dump(mode="json", exclude={"session_id"}, fallback=str)` + `json.dumps(sort_keys=True, ensure_ascii=False, default=str)`; §12 caps untouched. Typed inputs `PlannerInputs` (`CandidateProfile`, `PositionSpec`, permissive `rubric_snapshot` dicts, `expected_minutes`, `per_competency_minute_budget`); typed output `PlannerOutput` / `CompetencyPlan` / `SeedQuestion` / `DepthProbe`, all `frozen` + `extra="forbid"` mirroring `schema.json` (const, enums, `^q[0-9]+$`, all length/range bounds). Retry-once policy over `(VertexSchemaError, ValidationError, PlannerPlanMismatch)` → `PlannerOutputInvalid` chaining the second cause; everything else propagates. No DB, no writes.
+> - `app/backend/tests/agents/test_planner.py` — 52 tests, sibling style (`call_model` monkeypatched at the module boundary), plus the T24 acceptance test driving the **real** `call_model` with `LLM_BACKEND=mock`.
+> - `app/backend/tests/fixtures/llm_responses/planner/3869322…f7b.json` — the acceptance fixture, produced via the README's `_unrecorded/` promotion flow.
+>
+> **Decisions where the inputs left a choice**
+> 1. Prompt assembly = `system.md` + shared Ukrainian anchors only. Planner §6 binds all plan text to the anchors, so it is appended. §5's pointer at `prompts/interviewer/v0001/level-guide.md` is a cross-agent "see … for examples" reference — unlike the Interviewer's own §5 ("Pulled in as an appended section at runtime") — and §5 already carries the L1–L4 mapping inline, so I did not reach into another agent's version directory (that would also mean pinning a second agent's prompt version). A test asserts the guide is *not* inlined, so the choice is visible if you want it reversed.
+> 2. Function name `run_planner_plan` — literal `run_<agent>_<unit>` per agent.md; the Planner's unit is the plan.
+> 3. Semantic checks limited to three (`PlannerPlanMismatch`): unknown `rubric_node_id`, uncovered required competency, `expected_minutes` echo. Not enforced: §8 forbidden #2 (seed level ≤ target+1) or §7 guardrail #6 (±20% total minutes) — calibration-quality signals per the prompt's `notes.md`; making them hard failures would be a policy call beyond "ids exist / enums echo".
+> 4. `PositionSpec.required_competencies` holds rubric node ids, not labels — the only reading that makes the coverage check well-defined. Documented on the field.
+> 5. `rubric_snapshot` stays `tuple[dict[str, Any], ...]` (matching the Assessor's permissive `rubric_snapshot_subset`); the node-id check reads the `id` key §3 declares, ignores nodes without a string `id`. Did not validate `required_competencies ⊆ snapshot ids` at input construction (caller hygiene, not a model contract).
+> 6. Input bounds mirror the output schema (`expected_minutes` 10–90, `per_competency_minute_budget` 3–20) so an out-of-contract request is rejected before tokens are spent. `years_experience: int | None, ge=0`.
+> 7. Collection types follow the closest sibling: `tuple` in inputs, `list` in outputs.
+> 8. `plan_version_seed` is a static `Literal["planner-v0001"]`; a test asserts it equals `f"planner-{PROMPT_VERSION}"` and the schema's `const`.
+> 9. Fixture content is hand-written, deliberately not a copy of the unit-test payload (three seeds, three probes across two competencies) so the acceptance test is not tautological. Token counts are plausible placeholders.
+> 10. Retry flow uses the Assessor's nested `try` rather than the Interviewer's sequential form, because the failure message names both misses.
+>
+> **Gate output**
+> ```
+> uv run pytest app/backend/tests -q      → 435 passed, 155 skipped in 7.75s   (52 new)
+> uv run ruff check app/backend           → All checks passed!
+> uv run ruff format --check app/backend  → 127 files already formatted
+> uv run mypy --strict app/backend        → Success: no issues found in 127 source files
+> bash scripts/check-no-provider-sdk-imports.sh → exit 0
+> ```
+> Commit `7dc2511` "add planner agent wrapper" (pre-commit hooks all passed). Nothing pushed; `prompts/**`, `app/backend/llm/**`, `configs/**`, and the existing agent modules are untouched.
+
+#### Reviewer report — candidate X (= arm B), blind, Fable 5.1, 20 tool uses, 150,706 tokens, 18:41:35–18:44:30
+
+> **Status:** ⚠️ warnings
+>
+> **Blocks:** none.
+>
+> **Warnings**
+> - [planner.py:33–36, 417–429] Retry policy deviates from the documented per-agent Planner policy. `docs/engineering/vertex-integration.md:129` says "retry up to twice; on repeated failure, fall back to the previous rubric version's default plan template." The wrapper retries exactly once (mirroring the siblings) and raises `PlannerOutputInvalid` with no fallback. Defensible under "no DB access / purely additive", but the docstring presents "retry ONCE" as *the* policy without acknowledging the documented one. Cite the deviation (and who owns the fallback) or align the doc.
+> - [planner.py:329–352] Semantic enforcement is partial relative to the pinned prompt contract: enforces §8 #1 (no invented node ids), §7 #1 (required coverage) and an `expected_minutes` echo, but skips §8 #2 / §7 #2 (`seed_questions[].level` ≤ `target_level + 1`) and the per-competency `target_level` echo against the snapshot node (the Assessor does the analogous echo check, `assessor.py:386–398`). Add both to `_check_plan_against_inputs` or document why they are left to calibration.
+>
+> **Notes**
+> - Committed fixture's budgets sum to 15 min against `expected_minutes: 30` — outside §7 #6 (±20 %); passes because the wrapper doesn't enforce §7 #6, but the "known-good" artefact should model the prompt's rules.
+> - Neither schema nor model rejects duplicate `rubric_node_id` / duplicate seed ids; flagged for the T25/orchestrator owner.
+> - A pre-existing planner fixture from the base commit (`11c0…e21e.json`, T04-era placeholder) is now dead weight.
+> - Constitution §17 (spec reference for > 50 lines) not verifiable under blind rules.
+> - Test-run hygiene clean (`_unrecorded/` empty, `git status` clean after the suite).
+> - Verification: `test_planner.py` → 52 passed in 3.82 s; ruff, ruff format, mypy --strict clean.
+>
+> **Checked:** Constitution ✓ (§2, §5, §11, §12, §15, §16; §17 unverifiable) · Secrets ✓ (gitleaks on the diff: no leaks) · Tests ✓ (adjacent suite, sibling style, covers assembly, lockstep, caps, payload, every schema bound, all three semantic checks, retry paths, non-schema propagation, input rejection, acceptance through real `call_model` + mock) · Migrations n/a · Prompts n/a (nothing under `prompts/**` touched; level guide deliberately not appended, documented + tested) · Contract ✓ (`PlannerOutput` mirrors schema field-for-field) · Additivity ✓ ("three new files under `app/` — plus a root `agent.md`, not read") · Design / Visual n/a.
+>
+> COUNTS: blocks=0 warnings=2 notes=6
+
+Blindness leak: the reviewer ran `git diff --name-status` without the `app/` filter and saw that a root `agent.md` exists (it says it did not read it). It did not name the process in its report.
+
+#### Arm B fix-round (fresh opus agent, same wrapper rules; 34 tool uses; 119,846 tokens; 18:46:31 → gates green 18:52:27, 5 min 56 s). Commit `8d72e14`; `git diff --stat HEAD~1..HEAD` → planner.py +123/−10ish, test_planner.py +124, fixture 2 lines; **3 files, +239/−10**. Tests 52 → 58.
+
+> **Warning 1 (retry policy):** resolved on the docstring side; **retry-once kept deliberately** — the documented fallback is stored state (rubric-version lookup + template read) that a pure wrapper cannot own; T25 catches `PlannerOutputInvalid` and owns escalation; adopting only the "up to twice" half "would spend a third call on the same missed contract while breaking the single bounded-retry shape every wrapper shares". Docs-side reconciliation named as out of additive scope.
+> **Warning 2 (partial semantics):** both checks added to `_check_plan_against_inputs` on the `PlannerPlanMismatch` path — `target_level` echo against the snapshot node (nodes without an int `target_level` are skipped, not guessed; documented + tested) and seed-level ceiling `≤ target_level + 1`. Six new tests incl. boundary-valid params and retry recovery.
+> **Notes:** fixture budgets rebalanced 8+7 → 15+12 (within ±20 %; SHA unchanged since it keys on the request) and the acceptance test now asserts §7 #6 and the ceiling; duplicates left alone and recorded as out of scope in the docstring; T04 placeholder fixture untouched; §17 nothing to do.
+> Gates: 441 passed, 155 skipped in 7.53 s; ruff, format, mypy --strict, sdk guard all clean.
+
+### Arm C — nothing (worktree `036-arm-C`, base `770bba1`)
+
+Implementer: opus (general-purpose sub-agent). 40 tool uses; 169,251 tokens; started 18:16:34, gates first all green 18:25:26 (8 min 52 s); total agent duration 9 min 51 s. Commit `9a66315`.
+
+Report, verbatim:
+
+> **What I built (purely additive — 3 new files, nothing modified)**
+> - `app/backend/agents/planner.py`: `load_system_prompt()` (lru_cached), `load_output_schema()` (cached read + deepcopy per call, like the Interviewer). Typed §3 inputs: `PlannerInputs` (session_id, candidate_profile, position, rubric_snapshot, expected_minutes, per_competency_minute_budget) with `CandidateProfile` / `PositionSpec` sub-models and `to_user_payload()`. Typed output mirroring `schema.json`: `PlannerOutput` → `CompetencyPlan` → `SeedQuestion` → `DepthProbe`, all `frozen` + `extra="forbid"`, encoding the const, the 1–4 level enums, the `^q[0-9]+$` id pattern, and every length/range/cardinality bound. `run_planner(inputs, *, sink, ledger, settings)` + typed `PlannerOutputInvalid`.
+> - `app/backend/tests/agents/test_planner.py` — 39 tests in the sibling style (`call_model` monkeypatched), plus the T24 acceptance test which does *not* patch: it runs the real `call_model` against `LLM_BACKEND=mock` and asserts a schema-valid plan, one trace record (agent=planner, model=gemini-2.5-pro) and a non-zero ledger charge.
+> - `app/backend/tests/fixtures/llm_responses/planner/47d34a68…7505.json` — recorded through the documented `_unrecorded/` promotion flow (capture file deleted afterwards).
+>
+> **Decisions where the inputs left a choice**
+> 1. Prompt assembly = `system.md` + `prompts/shared/ukrainian-anchors.md`; the Interviewer level-guide is *not* inlined. §6 makes the anchors binding; §5 only says "See … for examples", already inlines its own L1–L4 mapping, and that guide is written against `current_competency.target_level` — an input the Planner never receives. A test pins this choice.
+> 2. **Retry budget = 3 attempts (retry up to twice), not the siblings' retry-once.** `docs/engineering/vertex-integration.md` § "JSON mode" states the per-agent policy explicitly: *"Planner: retry up to twice; on repeated failure, fall back to the previous rubric version's default plan template."*
+> 3. The documented fallback (previous rubric version's default plan template) is left to the caller — no such template exists in the repo and selecting one needs rubric/DB access. The wrapper raises `PlannerOutputInvalid` so T25's plan-generation service owns the escalation.
+> 4. `rubric_snapshot` stays a permissive `tuple[dict[str, Any], ...]` (min 1 node). §3's shape is a per-session *selection* and is **not** the repo's `RubricSnapshot`; typing it here would fork a contract T25 owns.
+> 5. Input bounds mirror the pinned output contract: `expected_minutes` 10–90, `per_competency_minute_budget` 3–20. Side effect noted: v0001 caps levels at 4, so a rubric node targeting level 5 is unrepresentable in this prompt version.
+> 6. **No semantic plan↔rubric cross-checks** (required-competency coverage §7.1, unknown `rubric_node_id` §8.1). With `rubric_snapshot` permissive, enforcing them would mean guessing a wire key name. Deferred to T25; documented on `CompetencyPlan.rubric_node_id`.
+> 7. Small tightening over `schema.json`: `rubric_node_id` gets `min_length=1`; absent `depth_probes` normalises to `[]`; absent optional profile fields serialize as explicit `null`.
+> 8. Naming: `run_planner` (not `run_planner_turn`) — the Planner runs once per session.
+>
+> Observation, out of scope: `prompts/planner/v0001/schema.json` and the orchestrator's `PlanSnapshot` are different shapes (`rubric_node_id`/`minute_budget`/`seed_questions[]` vs `node_id`/`minutes`/`seed_questions_uk`, target_level 1–4 vs 1–5). Translating is T25's job; noted in the module docstring.
+>
+> **Gate output (all green)**
+> ```
+> pytest → 422 passed, 155 skipped in 8.49s
+> ruff check → All checks passed!  ruff format → 127 files already formatted
+> mypy --strict → Success: no issues found in 127 source files
+> sdk guard → OK
+> ```
+> Pre-commit hooks all passed on commit. Nothing pushed.
+
+#### Reviewer report — candidate Y (= arm C), blind, Fable 5.1, 31 tool uses, 159,214 tokens, 18:41:44–18:44:40
+
+> **Status:** ⚠️ warnings
+>
+> **Blocks:** none.
+>
+> **Warnings**
+> - [planner.py:310–319, 322–340] Prompt guardrails are not enforced at the wrapper even though every operand is in hand: §7.1 (every required competency must appear), §8.1 (only ids from `rubric_snapshot`), §7.2/§8.2 (no seed above `target_level + 1`) are relational checks `schema.json` cannot express; `PlannerOutput` only checks `rubric_node_id` non-emptiness. The Assessor enforces the analogous integrity check in-wrapper (`assessor.py:367–399`). The candidate defers to T25 by docstring. Enforce on the retry-then-raise path or have the owner confirm the deferral — a hallucinated `rubric_node_id` reaching plan review/freeze is the risk.
+> - [planner.py:22–30, 398–402] `vertex-integration.md` §JSON mode: "Planner: retry up to twice; on repeated failure, fall back to the previous rubric version's default plan template." Retry count matches (`_MAX_ATTEMPTS = 3`), the fallback half is deferred to T25 by docstring only; nothing records it as a follow-up. Add a tracked marker or amend the doc.
+>
+> **Notes** (10): §17 unverifiable blind · `implementation-plan.md:531` describes T24 output with `must_cover`/`nice_to_have` that the pinned schema lacks (doc drift, not a defect) · `_MAX_ATTEMPTS` docstring says "stricter" where it is more lenient (wording) · level guide deliberately not appended, documented and pinned by test; a prompt-engineer should confirm intent · `PlannerOutputInvalid` in-module rather than `app/backend/exceptions.py` (file does not exist; siblings identical) · no wrapper-level language check on `text_uk` (siblings identical) · `prior_role_notes` uncapped vs "1–3 sentences" · public `load_*` names mirror the Assessor · verification: 39 passed in 0.91 s, ruff/format/mypy clean, gitleaks no leaks, `_unrecorded/` clean, fixture within all schema bounds (q2 at level 2 ≤ target 3+1), acceptance exercises real `call_model` → mock → SHA fixture · purely additive; §12 defaults asserted; `session_id` set; lockstep tested. `[escalation-candidate]`: none.
+>
+> **Checked:** Constitution ⚠ (§17 unverifiable; §2/§3/§5/§11/§12/§15/§16 ✓) · Secrets ✓ · Tests ✓ (39) · Migrations n/a · Prompts n/a · Contract ✓ (`json_schema` equals committed schema byte-for-byte per test) · Design / Visual n/a.
+>
+> COUNTS: blocks=0 warnings=2 notes=10
+
+#### Arm C fix-round (fresh opus agent, same wrapper rules; 30 tool uses; 117,353 tokens; 18:46:46 → gates green 18:53:24, 6 min 38 s). Commit `7689e7e`; `git diff --stat HEAD~1..HEAD` → planner.py +225ish, test_planner.py +317ish; **2 files, +513/−29**. Tests 39 → 50.
+
+> **Warning 1 (guardrails):** added `_check_guardrails(plan, inputs)` inside the retry loop — §8.1 unknown node id (checked first), §7.1 required coverage, §7.2/§8.2 seed level ≤ `target_level + 1` using the **frozen snapshot's** `target_level` as authority (echoed level only as fallback for permissive nodes). New `PlannerGuardrailViolation` on the contract-miss path; PII-free messages. Also a `model_validator` on `PlannerInputs` rejecting a required competency absent from the snapshot ("§7.1 and §8.1 are in direct conflict there — no legal plan exists; without it the wrapper would burn three Pro calls and blame the model for a caller bug").
+> **Warning 2 (fallback deferral):** explicit `TODO(T25, owner: backend-engineer, tracked as task T25 in docs/engineering/implementation-plan.md …)` at the raise site, per coding-conventions' "no TODO without owner and link" (no issue tracker wired). Docs untouched.
+> **Notes:** "stricter" wording fixed to "more lenient"; `prior_role_notes` capped at 1000 chars (tested 1000/1001); the rest left as no-ops per the reviewer's reading.
+> Tests: `_VALID_PARSED` now covers both required competencies; 11 new cases; acceptance fixture SHA intact.
+> Gates: 432 passed, 155 skipped in 7.55 s; ruff, format, mypy --strict, sdk guard clean; 27 pre-commit hooks passed.
+
+## J. Scorecard table (the metrics above, one column per arm)
+
+| Metric | A — Spec Kit 1.0.4 | B — `agent.md` | C — nothing |
+| --- | --- | --- | --- |
+| Implementer tool uses to first green gates | 47 (+ main loop: ~12 tool calls and 5 owner answers to author the spec kit) | 40 | 40 |
+| Implementer tokens, build | 169,388 | 163,321 | 169,251 |
+| Reviewer findings (blocks / warnings / notes) | 0 / 2 / 10 | 0 / 2 / 6 | 0 / 2 / 10 |
+| Reviewer verdict | ⚠️ warnings | ⚠️ warnings | ⚠️ warnings |
+| Fix-round tool uses / tokens | 44 / 109,825 | 34 / 119,846 | 30 / 117,353 |
+| **Lines changed after review** (`app/` diff, first green → post-review) | **+128 / −21** (2 files) | **+239 / −10** (3 files) | **+513 / −29** (2 files) |
+| Diff at first green (`app/`) | +1,451 (3 files) | +1,355 (3 files) | +1,174 (3 files) |
+| Diff at post-review (`app/`) | +1,558 | +1,584 | +1,658 |
+| `planner.py` / `test_planner.py` lines at end | 471 / 1,080 | 534 / 1,043 | 586 / 1,065 |
+| Tests at first green → end | 38 → 42 | 52 → 58 | 39 → 49 |
+| Tokens, implementer total (build + fix) | 279,213 | 283,167 | 286,604 |
+| Tokens, process extras | converge 145,658 (+ main-loop spec-kit authoring, not metered by the harness) | 0 | 0 |
+| Tokens, reviewer (identical role, not an arm cost) | 145,515 | 150,706 | 159,214 |
+| Wall clock, active (build + review + fix; A adds spec-kit authoring incl. owner turnaround, converge ran parallel to review) | ≈ 39 min (23 + 8:12 + 3:08 + 4:32) | ≈ 18 min (9:07 + 2:55 + 5:56) | ≈ 18 min (8:52 + 2:56 + 6:38) |
+| Wall clock, start → post-review green (incl. orchestration waits) | 18:17:27 → 19:01:08 = 43 min 41 s | 18:16:21 → 18:52:27 = 36 min 6 s | 18:16:34 → 18:53:24 = 36 min 50 s |
+| Spec / process artifact lines | 488 (7 files: spec 121, plan 89, research 31, data-model 63, quickstart 30, tasks 119, checklist 35) | 43 (`agent.md`) | 0 |
+| Converge result | ✅ Converged (0 findings) | not applicable | not applicable |
+| Retry policy shipped at first green | 3 attempts (from clarify Q2 → `vertex-integration.md`) | retry once (from `agent.md`) — kept after review, defended | 3 attempts (found `vertex-integration.md` unprompted) |
+| Semantic guardrails at first green | node ids + required coverage (spec) | node ids + required coverage + `expected_minutes` echo (`agent.md` "validate what the schema cannot") | none (deferred to T25 by docstring) |
+| What the fix-round had to add | docstrings, an owner marker, one relaxed cap, 4 tests | `target_level` echo + seed-level ceiling, fixture rebalance, 6 tests | all three guardrails + input validator + owner marker + notes cap, 11 tests |
+| Owner's subjective note (2–3 lines per arm) | _owner_ | _owner_ | _owner_ |
+
+**Main-loop observations (data, not the owner's verdict):**
+
+- All three arms reached mergeable code: zero blocks anywhere, and each reviewer raised exactly two warnings on the same two topics — the retry policy vs `vertex-integration.md`, and how much of the prompt's §7/§8 guardrails the wrapper enforces. The reviewer gate, not the process, is what equalised the arms.
+- The arms differ in **when** the design decisions got made. A made five of them before code (owner answered five questions), B carried three of them in a rules file (one of them wrong for this agent: `agent.md` says "retry ONCE", the repo doc says "up to twice" for the Planner, and the B agent obeyed the rules file, then defended it in the fix-round), C made none up front and discovered one on its own (it read the doc that the spec author had missed). Post-review churn follows that order exactly: +128 / +239 / +513.
+- The one thing only Spec Kit did: **clarify surfaced a contradiction inside the repo** (siblings retry once; the doc says the Planner retries twice) as an owner decision. Honest footnote: the spec author (Fable) noticed it only after arm C's report cited the doc; without the parallel arms the clarify round might have shipped FR-005 as "retry once".
+- Blind review leaked in small ways: reviewer X saw a root `agent.md` in an unfiltered `--name-status`; reviewer Z inferred a spec from FR/SC ids in test names. Neither named the process; none of the reports reads as biased.
+- Converge on A returned **Converged** — its first clean result in this experiment — because here the spec preceded the code, which is the case the tool is built for.
+- Cost: implementer tokens are flat across arms (~280 k each incl. fix-round). Spec Kit's extra cost is the brain's authoring (unmetered; ~23 min of wall clock including the owner's five answers) plus converge (146 k). The rules file cost 43 lines once and nothing per feature.
+- Threshold reading for this T18-sized feature: B and C ended within one review round of A's quality at roughly half the wall clock; A bought lower post-review churn and a decision record (spec Clarifications) with the owner's attention. Where the feature has more than a handful of real forks, or the forks are ones the reviewer would not catch, that trade flips; here it did not, because the reviewer caught every fork in every arm.
+
+## K. Owner's notes (which arm you'd actually ship; where the threshold seems to be)
+
+_owner writes this_
+
 ## Appendix — evidence locations (all local, nothing pushed)
 
 - Branch `036-speckit-1x-converge`: §A/§B commits, the upgrade commit `c04b19f`, this file.
@@ -504,3 +833,4 @@ Context the owner gave while reading the results: after running the protocol he 
   `specs/032-t20-state-machine/tasks.md` (diff = exactly the blocks quoted above).
 - Local tag `archive/032-t20-sonnet-attempt` → `d464a9a` (the attempt's four commits).
 - Scratch trial clone of the upgrade: session scratchpad only, disposable.
+- Stage 2 arms: worktrees `.claude/worktrees/036-arm-{A,B,C}` on branches `036-arm-A` → `038-planner-agent-wrapper` (A's git hook renamed it), `036-arm-B`, `036-arm-C`; base `770bba1`. Each holds its build commit, review fix-round commit, and (A) the spec-kit commits.
