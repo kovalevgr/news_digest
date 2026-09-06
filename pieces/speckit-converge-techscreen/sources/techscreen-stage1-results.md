@@ -488,7 +488,13 @@ is a spec↔plan↔tasks consistency pass (no code), so it would not add to §C/
 
 ## G. Owner's notes (what surprised, what was annoying, would you keep converge on?)
 
-_owner writes this_
+_Owner (Ihor), 2026-09-06, via the news_digest session:_
+
+> Апгрейд не змінив нічого в щоденній роботі, а converge за 5 хвилин зробив рев'ю, якого відкочена спроба ніколи не отримала, і знайшов 7 багів, про які імплементер змовчав.
+
+EN: The upgrade changed nothing in day-to-day work; converge did, in five minutes, the review the rolled-back attempt never got, and found 7 bugs the implementer had not declared.
+
+Context the owner gave while reading the results: after running the protocol he "honestly did not see the difference" between 0.7.4 and 1.0.4 in daily use — which is accurate: the only visible change is the new `converge` step after `implement`; the rest of the workflow is unchanged. Keep converge on: yes.
 
 ## Appendix — evidence locations (all local, nothing pushed)
 
