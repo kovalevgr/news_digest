@@ -4,13 +4,14 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-09-02
+updated: 2026-09-06
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W36
 
+- **2026-09-03** — [GPT-6 Astra: A new generation of intelligence](https://openai.com/index/gpt-6-astra) — OpenAI launches GPT-6 Astra, saturating FrontierMath Tier 4 (98%), ARC-AGI-3 (99.9%) and ExploitBench (100%); first model to reach the Critical cybersecurity threshold under its Preparedness Framework, rolling out today to a limited set of organizations with wider ChatGPT/API/Azure/Bedrock access over the coming days. Backfilled: category-filtered out of gap-scrapes on 2026-09-04/09-05 (only Safety-category Astra posts were visible then); confirmed today via WebSearch + the raw RSS feed (tagged "Research").
 - **2026-09-01** — [Healthcare organizations can now connect EHR and additional industry data to ChatGPT](https://openai.com/index/chatgpt-connects-health-records-and-healthcare-sources) — ChatGPT for Healthcare adds read-only Epic EHR integration plus a Healthcare Public Data plugin linking nine sources (PubMed, DailyMed, CMS Coverage); UCSF Health is the pilot partner.
 
 ## 2026-W35
