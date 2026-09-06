@@ -154,7 +154,7 @@ NVIDIA 16GB+.
 
 | # | Ідея | Тип | Статус | pieces/ |
 | --- | --- | --- | --- | --- |
-| 1 | Spec-driven + agent.md | project_post | picked | — |
+| 1 | Spec-driven + agent.md | project_post | stage 1 DONE 2026-09-06 (converge vs 13-deviation attempt); stage 2 pending; sources gathered | `pieces/speckit-converge-techscreen/` |
 | 2 | Граф коду vs grep | project_post | picked | — |
 | 3 | Маленька модель під dev-задачу | project_post | picked | — |
 | 4 | Frontier coding-моделі 09/2026 | hot_news | approved, LinkedIn post scheduled 2026-09-07 09:00 | `pieces/coding-models-sept-2026-linkedin/` |
