@@ -39,10 +39,37 @@ status: picked
 
 **Effort:** M. **Залізо:** тільки API (Claude Code / Codex).
 
+**Власний матеріал (додано 2026-09-06, з `~/project_new/TechScreen`, repo `kovalevgr/tech-screen-ai`):**
+власник уже 4 місяці живе на Spec Kit у реальному проєкті — це переводить статтю з
+«експеримент з нуля» в `project_post` на власних даних.
+
+| Факт | Значення |
+| --- | --- |
+| Старт / ADR-017 «Spec Kit замість informal / custom» | 2026-04-18 (ADR), перший коміт 2026-04-19 |
+| Версія Spec Kit у репо | 0.7.4 (upstream уже v1.0.4, 2026-09-02) |
+| Комітів / змерджених PR (до 2026-08-03) | 225 / 36 |
+| Фіч під Spec Kit (`specs/*`) | 26 |
+| Код (`app/**` py/ts/tsx) vs spec-артефакти (`specs/` + `docs/contracts/`) | 28,8k vs 20,5k рядків — 0.71 рядка спеки на рядок коду |
+| Обсяг артефактів на фічу: перші 19 фіч vs останні 8 | 340–1,897 рядків, повний набір (research, data-model, quickstart, checklists, contracts) vs 56–216 рядків, лише spec/plan/tasks |
+| Reviewer-gate | 13 комітів `fix(...): reviewer findings`, патерн PASS-WITH-FINDINGS майже на кожній фічі |
+| Constitution | 20 інваріантів, §14 contract-first перед паралельним fan-out; auto_commit вимкнено свідомо |
+| Model policy rev.2 (2026-08-03) | Brain (Fable) пише ВСІ spec-артефакти; перша спроба T20 на sonnet дала 13 задокументованих відхилень від дизайну і була відкочена; імплементація на opus |
+| Відомі болі | `tasks.md` чекбокси ненадійні (001–007, 017 не відмічені попри merge); stacked PR не ретаргетяться; ceremony для малих фіч |
+
+**Переглянутий кут.** Не «спека vs без спеки», а три полюси: важкий процес (Spec Kit v1.0
+з `/speckit.converge`) — легкий стоячий файл (`agent.md` Sanglard'а, 2026-08-21) — нічого.
+Плюс власне спостереження: за 4 місяці артефакти на фічу всохли у 5–10 разів, а якість
+тримає не спека сама по собі, а хто її пише (brain) і reviewer-gate.
+
+**Експеримент (оновлено).** (a) Підняти Spec Kit 0.7.4 → 1.0.x у TechScreen і прогнати
+`/speckit.converge` на вже змердженій T20: чи ловить він ті 13 відхилень з sonnet-спроби
+(є git-історія обох варіантів). (b) Одну малу фічу (розмір T23, ~56 рядків спеки) зробити
+тричі: повний Spec Kit / тільки `agent.md` + CLAUDE.md / нічого — таблиця з початкового плану.
+
 **Джерела:**
-- [github/spec-kit](https://github.com/github/spec-kit)
+- [github/spec-kit](https://github.com/github/spec-kit) — v1.0.0 2026-08-21 (річниця), v1.0.4 2026-09-02; 133.6k зірок; нові workflow bug-fix та idea-assessment, `/speckit.converge`; інтеграції DeepSeek Harness, Docker Agent, Mistral Vibe ([releases](https://github.com/github/spec-kit/releases))
 - [specfill (r/LLMDevs)](https://www.reddit.com/r/LLMDevs/comments/1vuu3mp/i_built_a_tui_that_interviews_you_on_missing_gaps/)
-- [Fabien Sanglard — agent.md](https://fabiensanglard.net/agent.md/index.html) (transport blocked під час збору, перечитати вручну)
+- [Fabien Sanglard — agent.md](https://fabiensanglard.net/agent.md/index.html) (2026-08-21; прочитано 2026-09-06: файл зі стандартами, який агент читає на старті сесії; «context dilution», короткі сесії на фічу)
 - [Simon Willison — Conceptual integrity and counting lines of code](https://simonwillison.net/2026/Aug/19/conceptual-integrity-and-counting-lines-of-code/)
 - [A Manifesto for Responsible Agentic Coding](https://www.techwerkers.nl/en/posts/manifesto-responsible-agentic-coding/)
 - [Huzzah — a novel approach to coding with AI](https://www.danielvaughn.dev/posts/huzzah/)
