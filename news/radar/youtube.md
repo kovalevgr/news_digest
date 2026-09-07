@@ -1,6 +1,6 @@
 ---
 category: youtube
-updated: 2026-08-31
+updated: 2026-09-07
 ---
 
 # Radar: youtube
@@ -37,3 +37,11 @@ Appended by the daily routine under weekly headings; format matches topics files
 - **2026-08-29** — [The Signal Layer: What to Build When Anything Can Be Built — Lena Hall, Akamai](https://www.youtube.com/watch?v=1KOdiGgMtpY) — AI Engineer conference talk on what to build/prioritize once AI removes traditional build constraints.
 - **2026-08-29** — [Agentic Sites: Building Hyper Personalized Websites — Carlos Sanchez, Adobe](https://www.youtube.com/watch?v=jebp4V0vh30) — AI Engineer conference talk on agent-driven, per-visitor personalized website generation.
 - **2026-08-30** — [SOTA Generative Media Panel — Dumitru Erhan, Shane Gu & Nicole Brichtova, Google DeepMind](https://www.youtube.com/watch?v=KLDdXOw6jIc) — AI Engineer conference panel on the state of generative-media models; off-focus for the owner profile (video/image generation, LOW interest bucket per `interests.md`) — kept on title only, YouTube feed carries no summary text.
+
+## 2026-W37
+
+All 7 YouTube sources recovered today after 14 days dead (6× HTTP 404 + `yt-mlst` HTTP 500 since 2026-08-24) — no config change made, the outage cleared on its own.
+
+- **2026-09-02** — [The Inference Frontier: from 100 to 10,000 tokens per second — Sean Lie, Cerebras CTO](https://www.youtube.com/watch?v=3uSI8q_RN-o) — Latent Space talk by Cerebras's CTO on scaling inference throughput; title/channel only, YouTube feed carries no summary text.
+- **2026-09-04** — [Why AI Agents Need Million-Token Context — Thomas Wolf & Olive Song, MiniMax](https://www.youtube.com/watch?v=5Cxe5dv2Xlw) — AI Engineer conference talk (Thomas Wolf, Hugging Face co-founder, with MiniMax) on long-context requirements for agentic workloads; title/channel only, YouTube feed carries no summary text.
+- **2026-09-04** — [Outperforming cuBLAS on NVFP4](https://www.youtube.com/watch?v=retNYlCxOJg) — GPU MODE lecture on beating cuBLAS performance for NVFP4 kernels; title/channel only, YouTube feed carries no summary text.
