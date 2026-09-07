@@ -2536,3 +2536,13 @@ Notable — **Perplexity "Fast Embeddings on GPUs" (Sep 4) — real story, prima
 **Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow).** No issue-creation attempted. All 3 confirmed items are fully written to `topics/*.md` and `artifacts/` above — no data lost, only the Linear cards are behind. This is now a THIRTIETH consecutive affected run since 2026-08-24 (daily, radar, weekly-digest, and deep-dive routines all affected — fifteen days with no working review queue or News digest board). Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: daily run 2026-09-07 (+3 items, 2 companies fresh, Linear unavailable)`.
+
+## 2026-09-07 07:14 UTC — deep-dive — blocked (Linear unavailable)
+
+Off-schedule note: the routine's configured slots are Mon+Thu 07:00 UTC; today is Sunday — this firing came outside the normal schedule (manual fire or schedule change). Run executed normally regardless.
+
+**Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow); ToolSearch confirms no Linear tools are loadable.** The deep dive cannot degrade gracefully: its ONLY input is the review queue in Linear project "Radar" (`hot`-labeled cards in "Ready to Review"), which can be neither read nor written. Cards processed: 0. Files written: 0. No leftovers known (the queue is unreadable, not empty — cards created before 2026-08-24 may carry approvals we cannot see).
+
+This is now a THIRTY-FIRST consecutive affected run since 2026-08-24, and the FOURTH deep-dive run in a row fully blocked (after Thu 2026-08-27, Mon 2026-08-31, Thu 2026-09-03) — the deep-dive pipeline has produced nothing since it went live; `radar/deep/` still holds only TEMPLATE.md. The review queue has received no new cards in 15 days. Owner action needed (unchanged since 2026-08-24): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session; also clear the free-issue-limit cap in the Kovalevgr workspace if still in place.
+
+Commit: `news: deep dive 2026-09-07 (0 cards, blocked — Linear unavailable)`.
