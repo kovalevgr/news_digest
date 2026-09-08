@@ -4,10 +4,14 @@ aliases:
   - Mistral
 sources:
   - https://mistral.ai/rss.xml
-updated: 2026-08-25
+updated: 2026-09-08
 ---
 
 MOC page for **Mistral AI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W37
+
+- **2026-09-08** — [Mistral raises €3B to make sovereign, open-weight AI the technology frontier](https://mistral.ai/news/mistral-makes-sovereign-open-weight-ai-to-frontier) — Mistral closes a €3 billion Series D at a post-money valuation over €21 billion — the largest equity raise by a European tech company — led by Samsung Electronics with Scaleup Europe Fund (EQT) and PSG Equity as co-leads.
 
 ## 2026-W35
 
