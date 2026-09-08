@@ -1,6 +1,6 @@
 ---
 category: oss-ml-systems
-updated: 2026-09-03
+updated: 2026-09-08
 ---
 
 # Radar: oss-ml-systems
@@ -41,3 +41,8 @@ Appended by the daily routine under weekly headings; format matches topics files
 ## 2026-W36
 
 - **2026-09-02** — ⭐ [PyTorch 2.14 Release Blog](https://pytorch.org/blog/pytorch-2-14-release-blog/) — Verified via WebFetch: headline feature is NVGEMM bringing CuTeDSL-generated CUTLASS kernels into Inductor (epilogue fusion, scaled + NVFP4 GEMM, grouped-reduction epilogues autotuned alongside Triton and ATen); also ships a new nccl2 c10d backend ported from torchcomms, fault tolerance as a first-class c10d concept (in-place process-group reconfiguration, one-sided RMA windows, backend-agnostic Flight Recorder), native Apple Silicon linear algebra (Jacobi-kernel SVD/eigh/QR/Cholesky), `torch.switch` generalizing `torch.cond` to multi-way branching, declarative dynamic shapes via `@dynamic_spec`, and experimental `torch.compile` support for complex-valued tensors.
+
+## 2026-W37
+
+- **2026-09-08** — ⭐ [GLM 5.3 Optimizations, Part 1: Hybrid HiSparse Offloading in vLLM](https://vllm.ai/blog/2026-09-08-glm53-part1-hybrid-sparse-offloading) — Verified via WebFetch: exploits GLM 5.3's sparse Multi-Head Latent Attention (top-K token attention) to offload only cold KV pages to CPU while keeping hot, frequently-accessed tokens in GPU-resident buffers refreshed via LRU — a resolver kernel serves both GPU-resident and hot-buffered tokens in one op, integrated as a tier of vLLM's Hybrid Memory Allocator rather than a bolt-on. On 8×H200 with a realistic OpenHands agentic workload (13-turn conversations, 74K-token first turn), reaches the full 1M context length "previously impossible on this hardware" and sustains higher concurrent-request occupancy than plain KV offloading; reproducible setup (FP8 KV cache, 0.92 GPU mem utilization, exact CLI args, dataset-generation scripts) included.
+- **2026-09-07** — [Serving LLMs on Tenstorrent Hardware: Inside the vLLM TT Plugin](https://vllm.ai/blog/2026-09-07-vllm-tt-plugin) — Verified via WebFetch: out-of-tree vLLM plugin for Tenstorrent mesh hardware — phase-based scheduling (each step is prefill-only or decode-only, never mixed, to match the hardware's traced fixed-batch-shape execution; chunked prefill splits long prompts across steps with decode interleaved), single-process "lane" data parallelism for Galaxy models (a `TTLaneCoordinator` runs independent schedulers per lane instead of multi-process ranks, reportedly faster by eliminating scatter/gather overhead), on-device sampling with automatic host-side fallback when logprobs/penalties/custom processors are requested, and async host-readback decode overlap. Broad model coverage (Llama 3.1–3.3, Qwen, Mistral, Gemma, DeepSeek V3, GPT-OSS, plus multimodal variants); the post explicitly withholds benchmark numbers ("current figures live on tenstorrent.com and GitHub") — architecture-only, out of highlight consideration for lacking measured numbers.

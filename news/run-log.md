@@ -2546,3 +2546,32 @@ Off-schedule note: the routine's configured slots are Mon+Thu 07:00 UTC; today i
 This is now a THIRTY-FIRST consecutive affected run since 2026-08-24, and the FOURTH deep-dive run in a row fully blocked (after Thu 2026-08-27, Mon 2026-08-31, Thu 2026-09-03) — the deep-dive pipeline has produced nothing since it went live; `radar/deep/` still holds only TEMPLATE.md. The review queue has received no new cards in 15 days. Owner action needed (unchanged since 2026-08-24): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session; also clear the free-issue-limit cap in the Kovalevgr workspace if still in place.
 
 Commit: `news: deep dive 2026-09-07 (0 cards, blocked — Linear unavailable)`.
+
+## 2026-09-08 05:04 UTC — radar — ok (Linear unavailable)
+
+Window: since 2026-09-07T03:04:46 UTC. `fetch_radar.py` ran with errors on `bair` (connection reset by peer, sixth consecutive day, `research-institutes`), all 7 YouTube sources (6× HTTP 404 + 2× HTTP 500 — `yt-karpathy`/`yt-umar-jamil` gave 500, the rest 404 — dead again one day after yesterday's full recovery), `reddit` (HTTP 429), and `smolai` (HTTP 402 Payment Required, fifth consecutive day). No gap-scrape ladder applies to radar sources per the workflow — logged and moved on for all four.
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | - |
+| inference-infra | 0 | 0 | - |
+| oss-ml-systems | 3 | 2 | - |
+| bigtech-eng | 0 | 0 | - |
+| research-institutes | 0 | 0 | bair: connection reset |
+| technical-newsletters | 1 | 1 | - |
+| practitioner-blogs | 1 | 1 | - |
+| youtube | 0 | 0 | 6× HTTP 404, 2× HTTP 500 (all 7 sources) |
+| community | 16 | 4 | reddit: HTTP 429; smolai: HTTP 402 |
+| mistral-watch | 0 | 0 | - |
+
+Totals: 21 raw candidates, 8 confirmed, 4 source-errors (1 bair transient, 7 youtube dead, 1 reddit 429, 1 smolai 402 — youtube counted once as a category-wide outage).
+
+TRIAGE pass 1: `oss-ml-systems` — kept both `vllm-blog` posts (real engineering: KV-cache/MLA offloading technique with reproducible benchmarks; a Tenstorrent hardware-backend plugin write-up, architecture-only, no numbers). Dropped `pytorch-blog`'s "PyTorch x Hugging Face in Bengaluru" as a community-meetup recap, not engineering content. `community` — dropped as off-topic/non-AI Show HN noise despite matching the saved search terms: `HomeCat` (backyard shed/office designer) and `VODForge` (YouTube downloader, cross-posted across `hn-show-rag`/`hn-show-mcp`, counted once). Dropped `Send flowers from your AI agent...` (MCP for flower delivery, 11 pts/7 comments, cross-posted across `hn-show-mcp`/`hn-show-agents`) as a thin marketing shell, not a real technique. Dropped `hn-trend-llm`'s "Your intellectual fly is open..." as an exact duplicate of the same URL already recorded in this week's `community.md` from the 2026-09-07 run. Dropped all 5 `hf-trending-spaces` diff entries (a NSFW LoRA demo, an "uncensored" chat demo, a joke fruit-fly-simulation space, `nanotron/ultrascale-playbook` re-surfacing from a 2024 publish date with no news hook, and a video-model finishing-preview space) as toy/demo/stale, below the technical bar. Dropped `github-trending`'s `llvm/llvm-project` as generic non-AI-specific trending noise (the mirror isn't AI-filtered). Kept `github-trending`'s `openai/skills` after verifying via `git clone`: real ecosystem signal (Codex's Skills catalog deprecated in favor of `openai/plugins`), not a technique but a verified, owner-relevant infra change. Kept both `hf-trending-models` entries (`openbmb/MiniCPM5-2B`, `dealignai/GLM-5.3-CYBERSECURITY-FP8`) as local-model signal per the interest profile, unverified beyond the HF listing (no accompanying posts found). `practitioner-blogs` — kept `latent-space`'s AEO tracker after verification confirmed real methodology (7 models × 161 categories) rather than pure marketing, scored MEDIUM fit (SEO-adjacent, outside the core interest list) and excluded from highlights on that basis. `technical-newsletters` — kept SemiAnalysis's TPU InferenceX piece; verification confirmed genuine technical content (Ironwood die redesign, FP8 hardware, cost/perf benchmarks vs. B200/B300) wrapped in business framing, not the pure finance/market piece pass 1 is meant to filter.
+
+VERIFY SUBSTANCE: attempted the day's 5 highest-scored HIGH-fit candidates — `interns-review-plugin`-style `git clone` for `Engrim` (github.com), WebFetch for both `vllm-blog` posts, the SemiAnalysis TPU piece, and the Latent.Space AEO tracker. All 5 cleared verification (see triage prose above for what each confirmed). No reddit or GitHub-README verification failures today — no reddit fresh items survived pass 1 (reddit's own fetch also 429'd), and both git-clone verifications (`Engrim`, `openai/skills`) succeeded cleanly via the git proxy.
+
+**Highlights: 3** — `Engrim` (universal local-first SQLite agent-memory engine, 85 pts, direct match on the owner's HIGH-interest "agent memory" line), vLLM's `GLM 5.3 Hybrid HiSparse Offloading` (concrete 1M-context result + reproducible benchmark methodology, vLLM named explicitly in the interest profile), and SemiAnalysis's `TPU InferenceX Full Steam Ahead` (hardest numbers of the day: Ironwood architecture detail plus a direct $/M-token comparison against B200/B300). The vLLM Tenstorrent plugin write-up was a close fourth but excluded for explicitly withholding benchmark numbers.
+
+**Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow); ToolSearch confirms no Linear tools are loadable.** No review-queue cards attempted. All 8 confirmed items are fully written in the radar files above — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now a THIRTY-SECOND consecutive affected run since 2026-08-24 (daily, radar, weekly-digest, and deep-dive routines all affected — sixteen days with no working review queue or News digest board, and the deep-dive pipeline has produced zero output since going live). Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: radar run 2026-09-08 (+8 items, 3 highlights, Linear unavailable)`.
