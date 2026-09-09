@@ -1,6 +1,6 @@
 ---
 category: practitioner-blogs
-updated: 2026-09-08
+updated: 2026-09-09
 ---
 
 # Radar: practitioner-blogs
@@ -41,3 +41,4 @@ Appended by the daily routine under weekly headings; format matches topics files
 ## 2026-W37
 
 - **2026-09-07** — [The Frontier AEO Tracker: What Astra Chooses (and every other frontier model, and what you can do about it)](https://www.latent.space/p/aeo) — Verified via WebFetch: systematic tracker of which tools/products/services frontier models recommend, run across 7 models × 161 product categories × 6 prompt variations, scored on first-choice/alternative/mention weighting (with negative weight for anti-recommendations). Finds self-preference bias (Claude models favor Claude Code, OpenAI models favor Cursor) alongside cross-company recommendations, 28 categories with unanimous first-choice agreement, and Astra showing less answer variation across paraphrased prompts than Sol (more "confident"/consistent). Real methodology and disclosed limitations rather than pure marketing, but SEO/marketing-adjacent framing and outside the owner's core interest list — MEDIUM fit, out of highlight consideration.
+- **2026-09-08** — [Latest open artifacts (#24): Motif-3, GLM-5.3, Hy4-preview and open model licenses](https://www.interconnects.ai/p/latest-open-artifacts-24-motif-3) — Interconnects' recurring open-model roundup covering the Motif-3, GLM-5.3, and Hy4-preview releases plus a discussion of open-model licensing terms across the current crop of open artifacts.

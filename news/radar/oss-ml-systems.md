@@ -1,6 +1,6 @@
 ---
 category: oss-ml-systems
-updated: 2026-09-08
+updated: 2026-09-09
 ---
 
 # Radar: oss-ml-systems
@@ -46,3 +46,4 @@ Appended by the daily routine under weekly headings; format matches topics files
 
 - **2026-09-08** — ⭐ [GLM 5.3 Optimizations, Part 1: Hybrid HiSparse Offloading in vLLM](https://vllm.ai/blog/2026-09-08-glm53-part1-hybrid-sparse-offloading) — Verified via WebFetch: exploits GLM 5.3's sparse Multi-Head Latent Attention (top-K token attention) to offload only cold KV pages to CPU while keeping hot, frequently-accessed tokens in GPU-resident buffers refreshed via LRU — a resolver kernel serves both GPU-resident and hot-buffered tokens in one op, integrated as a tier of vLLM's Hybrid Memory Allocator rather than a bolt-on. On 8×H200 with a realistic OpenHands agentic workload (13-turn conversations, 74K-token first turn), reaches the full 1M context length "previously impossible on this hardware" and sustains higher concurrent-request occupancy than plain KV offloading; reproducible setup (FP8 KV cache, 0.92 GPU mem utilization, exact CLI args, dataset-generation scripts) included.
 - **2026-09-07** — [Serving LLMs on Tenstorrent Hardware: Inside the vLLM TT Plugin](https://vllm.ai/blog/2026-09-07-vllm-tt-plugin) — Verified via WebFetch: out-of-tree vLLM plugin for Tenstorrent mesh hardware — phase-based scheduling (each step is prefill-only or decode-only, never mixed, to match the hardware's traced fixed-batch-shape execution; chunked prefill splits long prompts across steps with decode interleaved), single-process "lane" data parallelism for Galaxy models (a `TTLaneCoordinator` runs independent schedulers per lane instead of multi-process ranks, reportedly faster by eliminating scatter/gather overhead), on-device sampling with automatic host-side fallback when logprobs/penalties/custom processors are requested, and async host-readback decode overlap. Broad model coverage (Llama 3.1–3.3, Qwen, Mistral, Gemma, DeepSeek V3, GPT-OSS, plus multimodal variants); the post explicitly withholds benchmark numbers ("current figures live on tenstorrent.com and GitHub") — architecture-only, out of highlight consideration for lacking measured numbers.
+- **2026-09-09** — [vllm release v0.29.0](https://github.com/vllm-project/vllm/releases/tag/v0.29.0) — Routine vLLM release (tag v0.29.0); no release-note text available at fetch time.
