@@ -2632,3 +2632,29 @@ VERIFY SUBSTANCE: attempted 6 candidates (one over the usual 5, all scored HIGH 
 **Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow); ToolSearch confirms no Linear tools are loadable.** No review-queue cards attempted. All 14 confirmed items are fully written in the radar files above — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now a THIRTY-FOURTH consecutive affected run since 2026-08-24 (daily, radar, weekly-digest, and deep-dive routines all affected — seventeen days with no working review queue or News digest board, and the deep-dive pipeline has produced zero output since going live). Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: radar run 2026-09-09 (+14 items, 3 highlights, Linear unavailable)`.
+
+## 2026-09-09 06:10 UTC — daily — ok (Linear unavailable)
+
+Window: since 2026-09-08T04:10:23 UTC (`fetch_feeds.py`; last successful daily run was 2026-09-08 06:11 UTC). `fetch_feeds.py` ran clean — mistral reported 304-not-modified (no feed change since last cursor); openai/google-deepmind/nvidia/huggingface each had genuine fresh TIER-1 candidates; anthropic/google-research/microsoft/xai/mistral/cursor/perplexity all reported zero fresh, triggering gap-scrape for all seven zero-fresh companies.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss.xml (TIER-1, 2 fresh) | 2 | - | - |
+| anthropic | fetch (WebFetch) | 0 | fetch | anthropic.com/news tops out at Sep 1 (Enterprise Frontier Safeguards, Fable 5.1/Mythos 5.1), already captured — nothing newer |
+| google-deepmind | rss.xml (TIER-1, 1 fresh) | 1 | - | - |
+| google-research | rss.xml (TIER-1, 0 fresh), WebFetch | 0 | WebFetch | blog listing tops out at Sep 3 (connectome, genomic transfer learning), already captured, predates window |
+| microsoft | rss.xml (TIER-1, 0 fresh), WebFetch | 0 | WebFetch | research blog listing tops out at Aug 31 (GigaPath-Flash/GigaTIME-Flash), already captured, predates window |
+| nvidia | rss.xml (TIER-1, 1 fresh) | 1 | - | - |
+| xai | curl r.jina.ai (200, but content stale vs. our own record) | 0 | jina | jina's top item was Sep 3 ("Grok Bot for Enterprise"); our topics file already has a Sep 4 item ("Setting Grok Bot loose on procurement") newer than that — confirmed up to date, nothing new |
+| mistral | rss.xml (TIER-1, 304 not modified), WebFetch | 0 | WebFetch | news page tops out at Sep 8 (€3B Series D), already captured, predates window |
+| huggingface | rss.xml (TIER-1, 1 fresh) | 1 | - | - |
+| cursor | rss.xml (TIER-1, 0 fresh), WebFetch | 0 | WebFetch | changelog tops out at Sep 2 (Self-hosted machines), already captured, predates window |
+| perplexity | curl r.jina.ai (403 AbuseAlleviation, same DDoS-suspected block as prior runs), WebSearch | 0 | jina, WebSearch | WebSearch surfaced 3 Sep 1 posts (Hybrid Compute on Mac, Lily/Apple Silicon inference, PII-TRACE) — all 3 already backfilled into topics/perplexity.md and artifacts/ in a prior run; confirmed no new items |
+
+Totals: 5 items, 4 companies fresh (openai×2, google-deepmind, nvidia, huggingface), 7 silent (anthropic, google-research, microsoft, xai, mistral, cursor, perplexity — all confirmed predates-window/already-captured via one gap-scrape fallback each, no hard transport errors beyond the expected Cloudflare/AbuseAlleviation walls on xai/perplexity).
+
+Notable — **OpenAI: two unrelated stories same day** — "Introducing ChatGPT Images 2.5" (product/image-gen upgrade) and "On the Navier–Stokes Millennium Prize Problem" (an AI-generated proof of a 90-year-open math problem, produced by an unnamed internal model "significantly more capable than GPT-6 Astra"). Both cleared the category filter (`Product`/`Research`) and are unrelated stories, not duplicates.
+
+**Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow); ToolSearch confirms no Linear tools are loadable.** No issue-creation attempted. All 5 confirmed items are fully written to `topics/*.md` and `artifacts/` above — no data lost, only the Linear cards are behind. This is now a THIRTY-FIFTH consecutive affected run since 2026-08-24 (daily, radar, weekly-digest, and deep-dive routines all affected — seventeen days with no working review queue or News digest board, and the deep-dive pipeline has produced zero output since going live). Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-09-09 (+5 items, 4 companies fresh, Linear unavailable)`.

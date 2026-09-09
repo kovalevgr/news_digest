@@ -4,10 +4,15 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-09-07
+updated: 2026-09-09
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W37
+
+- **2026-09-08** — [Introducing ChatGPT Images 2.5](https://openai.com/index/introducing-chatgpt-images-2-5) — OpenAI ships ChatGPT Images 2.5 with sharper detail, more precise targeted editing, and up to 50% faster generation than Images 2.0, plus new API models GPT-Image-2.5 Flare/Sunburst.
+- **2026-09-08** — [On the Navier–Stokes Millennium Prize Problem](https://openai.com/index/navier-stokes-solution) — OpenAI shares an AI-generated proof (from an internal model "significantly more capable than GPT-6 Astra") that 3D incompressible Navier–Stokes equations can develop a finite-time singularity, with a writeup and a Lean formalization.
 
 ## 2026-W36
 

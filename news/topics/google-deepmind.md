@@ -5,10 +5,14 @@ aliases:
   - Gemini
 sources:
   - https://deepmind.google/blog/rss.xml
-updated: 2026-09-04
+updated: 2026-09-09
 ---
 
 MOC page for **Google DeepMind** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W37
+
+- **2026-09-08** — [AlphaGenome Atlas: A predictive map of every possible DNA letter change in the human genome](https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome) — Google DeepMind launches AlphaGenome Atlas, a free portal + API with AI-predicted molecular effects (AVI score) for all ~9 billion possible single-nucleotide variants in the human genome, ~1PB of data across hundreds of tissues.
 
 ## 2026-W36
 

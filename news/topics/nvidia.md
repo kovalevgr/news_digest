@@ -4,10 +4,14 @@ aliases:
   - Nvidia
 sources:
   - https://blogs.nvidia.com/feed/
-updated: 2026-09-05
+updated: 2026-09-09
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W37
+
+- **2026-09-08** — [Introducing CUDA Rust: Two Tracks for Writing GPU Kernels](https://developer.nvidia.com/blog/introducing-cuda-rust-two-tracks-for-writing-gpu-kernels) — NVIDIA introduces CUDA Rust, letting developers write GPU kernels natively in Rust (compiled to PTX) via two open-source tracks: cuda-oxide (SIMT, alpha) and cutile-rs (tile-based, stable Rust, already used in HuggingFace's Grout and mistral.rs).
 
 ## 2026-W36
 
