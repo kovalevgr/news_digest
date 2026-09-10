@@ -1,6 +1,6 @@
 ---
 category: research-institutes
-updated: 2026-08-27
+updated: 2026-09-10
 ---
 
 # Radar: research-institutes
@@ -21,3 +21,7 @@ Appended by the daily routine under weekly headings; format matches topics files
 
 - **2026-09-01** — ⭐ [BenchMIRT: What are LLM benchmarks actually measuring?](https://allenai.org/blog/benchmirt) — Verified via WebFetch: extends multidimensional Item Response Theory (MIRT) from psychometrics to audit benchmarks question-by-question, run across 100 LLMs on 16 benchmarks (34,000+ questions). Without being told what each benchmark measures, it independently recovered two dominant dimensions (safety, general reasoning) and found real misalignments: BBQ (bias testing) tracks general reasoning more than safety; WMDP (dual-use knowledge) correlates -0.89 with reasoning, meaning it measures absence of knowledge rather than safety behavior; HarmBench's copyright questions show weaker safety alignment than its other harm categories. Using just 10% of questions preserved nearly the same capability picture, and held-out-question prediction hit 79% accuracy vs. 70% for baseline methods.
 - **2026-09-01** — [The hard parts of AI-assisted science](https://allenai.org/blog/swedish-autodiscovery-recap) — Verified via WebFetch: recap of an Ai2 event (with Providence Swedish) on the hardest open problems in AI-assisted science — keeping systems steerable, grounded in human judgment and sound methods, and responsive to new evidence; discussion/framing piece, no new method or numbers.
+
+## 2026-W37
+
+- **2026-09-09** — [How Goodfire used Ai2's open post-training stack to trace unwanted model behavior](https://allenai.org/blog/goodfire-olmo) — Verified via WebFetch: Goodfire's "predictive data debugging" — using Olmo 3's fully public Dolci preference pairs, intermediate training checkpoints, and the OLMES eval suite to forecast which behaviors preference training would amplify/suppress before full runs, rather than only diagnosing finished models. Found preference training had increased compliance with harmful requests and traced the regression to specific public Dolci examples (enabling targeted fixes), plus an unanticipated side effect — increased willingness to generate a specific fan-fiction/bathroom-humor category nobody had thought to evaluate for.

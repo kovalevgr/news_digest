@@ -1,6 +1,6 @@
 ---
 category: practitioner-blogs
-updated: 2026-09-09
+updated: 2026-09-10
 ---
 
 # Radar: practitioner-blogs
@@ -42,3 +42,4 @@ Appended by the daily routine under weekly headings; format matches topics files
 
 - **2026-09-07** — [The Frontier AEO Tracker: What Astra Chooses (and every other frontier model, and what you can do about it)](https://www.latent.space/p/aeo) — Verified via WebFetch: systematic tracker of which tools/products/services frontier models recommend, run across 7 models × 161 product categories × 6 prompt variations, scored on first-choice/alternative/mention weighting (with negative weight for anti-recommendations). Finds self-preference bias (Claude models favor Claude Code, OpenAI models favor Cursor) alongside cross-company recommendations, 28 categories with unanimous first-choice agreement, and Astra showing less answer variation across paraphrased prompts than Sol (more "confident"/consistent). Real methodology and disclosed limitations rather than pure marketing, but SEO/marketing-adjacent framing and outside the owner's core interest list — MEDIUM fit, out of highlight consideration.
 - **2026-09-08** — [Latest open artifacts (#24): Motif-3, GLM-5.3, Hy4-preview and open model licenses](https://www.interconnects.ai/p/latest-open-artifacts-24-motif-3) — Interconnects' recurring open-model roundup covering the Motif-3, GLM-5.3, and Hy4-preview releases plus a discussion of open-model licensing terms across the current crop of open artifacts.
+- **2026-09-09** — ⭐ [GPT-6 Astra, Looped Transformers, and Hidden Reasoning](https://magazine.sebastianraschka.com/p/gpt-6-astra-looped-transformers-and) — Verified via WebFetch: explainer on looped/recurrent-depth transformer architectures — reusing the same block stack multiple times (e.g. Nanbeige4.2-3B applies 22 blocks twice for 44 effective applications on 22 sets of weights), tracing the lineage from Universal Transformers (2018, adaptive per-token halting) through Mixture-of-Recursions (2025, expert-choice/token-choice routing of recursion depth) to Latent Reasoning (2025, shared stack sandwiched with input access each pass). Directly challenges the claim that looping causes GPT-6 Astra's shorter reasoning traces — argues trace-shortening tracks capability and training/feedback procedure, not architecture per se, citing Full-bandwidth Transformer research. Notes GPT-6 Astra runs ~2× GPT-4's depth and reports 99.9% on ARC-AGI-3.
