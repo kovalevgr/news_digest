@@ -4,13 +4,14 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-09-09
+updated: 2026-09-10
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W37
 
+- **2026-09-09** — [GPT-6 Astra: The next generation in intelligence for work](https://openai.com/index/gpt-6-astra-next-generation-work) — OpenAI follows up last week's GPT-6 Astra launch with an enterprise-rollout post: Astra now live in ChatGPT Work/Codex/API, new admin controls and four launch plugins, $10/$50 per M tokens pricing.
 - **2026-09-08** — [Introducing ChatGPT Images 2.5](https://openai.com/index/introducing-chatgpt-images-2-5) — OpenAI ships ChatGPT Images 2.5 with sharper detail, more precise targeted editing, and up to 50% faster generation than Images 2.0, plus new API models GPT-Image-2.5 Flare/Sunburst.
 - **2026-09-08** — [On the Navier–Stokes Millennium Prize Problem](https://openai.com/index/navier-stokes-solution) — OpenAI shares an AI-generated proof (from an internal model "significantly more capable than GPT-6 Astra") that 3D incompressible Navier–Stokes equations can develop a finite-time singularity, with a writeup and a Lean formalization.
 

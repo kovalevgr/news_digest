@@ -2687,3 +2687,31 @@ VERIFY SUBSTANCE: attempted 5 candidates (the highlight shortlist). Reddit's `.j
 **Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow); ToolSearch confirms no Linear tools are loadable.** No review-queue cards attempted. All 15 confirmed items are fully written in the radar files above — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now a THIRTY-SIXTH consecutive affected run since 2026-08-24 (daily, radar, weekly-digest, and deep-dive routines all affected — eighteen days with no working review queue or News digest board, and the deep-dive pipeline has produced zero output since going live). Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: radar run 2026-09-10 (+15 items, 3 highlights, Linear unavailable)`.
+
+## 2026-09-10 06:11 UTC — daily — ok (Linear unavailable)
+
+Window: since 2026-09-09T04:11:29 UTC (`fetch_feeds.py`; last successful daily run was 2026-09-09 06:10 UTC). `fetch_feeds.py` ran clean except a transient SSL handshake timeout on `cursor.com/changelog/rss.xml` on the first attempt, resolved on retry; microsoft/nvidia/mistral/huggingface each reported 304-not-modified for TIER-1 (etag matched a stale local cursor snapshot from an earlier aborted attempt — reverted `state/cursors.json` to its last-committed version and re-ran cleanly once before writing this log, so the numbers below reflect one true fetch against the correct prior-run cursor). openai/nvidia/mistral/huggingface had genuine fresh TIER-1 candidates; anthropic/google-deepmind/google-research/microsoft/xai/cursor/perplexity all reported zero fresh, triggering gap-scrape for all seven.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss.xml (TIER-1, 1 fresh) | 1 | - | - |
+| anthropic | fetch (WebFetch) | 0 | fetch | anthropic.com/news tops out at Sep 1 (Fable 5.1/Mythos 5.1, Enterprise Frontier Safeguards), already captured, nothing newer |
+| google-deepmind | rss.xml (TIER-1, 0 fresh), WebFetch + raw feed cross-check | 0 | WebFetch | blog listing's newest unread items ("Gemini 3.8 Flash and Cyber", "agentic video understanding") turned out to be Sep 1–2 (confirmed via raw RSS pubDate), predates window; nothing new |
+| google-research | rss.xml (TIER-1, 0 fresh), WebFetch | 0 | WebFetch | blog listing tops out at Sep 3 (connectome, genomic transfer learning), already captured, predates window |
+| microsoft | rss.xml (TIER-1, 304 not modified), WebFetch | 0 | WebFetch | research blog listing tops out at Aug 31 (GigaPath-Flash/GigaTIME-Flash), already captured, predates window |
+| nvidia | rss.xml (TIER-1, 2 fresh) | 2 | - | - |
+| xai | curl r.jina.ai (Cloudflare "Just a moment" challenge, anonymous block), WebSearch | 0 | jina, WebSearch | WebSearch surfaced only already-captured Grok Bot Enterprise stories and an unconfirmed "tighter X integration" mention with no canonical x.ai/news URL — not written per no-invented-facts rule |
+| mistral | rss.xml (TIER-1, 1 fresh) | 1 | - | - |
+| huggingface | rss.xml (TIER-1, 1 fresh) | 1 | - | - |
+| cursor | rss.xml (TIER-1, transient SSL timeout then 0 fresh on retry), WebFetch | 0 | WebFetch | changelog tops out at Sep 2 (Self-hosted machines), already captured, predates window |
+| perplexity | curl r.jina.ai (Cloudflare "Just a moment" challenge), WebSearch, targeted follow-up WebSearch | 0 | jina, WebSearch | WebSearch surfaced a possible Sep 7 "AI integration: Getting ROI from your AI investment" post (and a "Numbat" agent-security post) but no confirmed canonical `perplexity.ai/hub/blog/...` URL for either after a targeted follow-up search — not written per no-invented-facts rule; flagged for a future run to catch once a URL surfaces |
+
+Totals: 5 items, 4 companies fresh (openai, nvidia×2, mistral, huggingface), 7 silent (anthropic, google-deepmind, google-research, microsoft, xai, cursor, perplexity — all confirmed predates-window/already-captured via one gap-scrape fallback each; xai and perplexity additionally hit the expected Cloudflare "Just a moment" wall on Jina, no hard transport errors elsewhere).
+
+Notable — **OpenAI: business-focused follow-up to GPT-6 Astra, distinct from the 09-03 launch** — "GPT-6 Astra: The next generation in intelligence for work" (different canonical URL, published 09-09) is an enterprise-rollout post: GA in ChatGPT Work/Codex/API, new admin controls, four launch plugins, and pricing/benchmark numbers not in the original launch post. Confirmed as a distinct story (not a duplicate) via content read (openai.com WebFetch/curl both 403'd; recovered via `r.jina.ai` anonymous, which worked cleanly for this domain).
+
+Notable — **Cursor cursor.com SSL handshake timeout, self-resolved** — the very first `fetch_feeds.py` invocation hit a `_ssl.c:999` handshake timeout on `cursor.com/changelog/rss.xml`; a clean re-run (after reverting an accidentally-double-advanced `state/cursors.json` back to its last-committed state) succeeded with 0 fresh. No data lost; noted for visibility only.
+
+**Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow); ToolSearch confirms no Linear tools are loadable.** No issue-creation attempted. All 5 confirmed items are fully written to `topics/*.md` and `artifacts/` above — no data lost, only the Linear cards are behind. This is now a THIRTY-SEVENTH consecutive affected run since 2026-08-24 (daily, radar, weekly-digest, and deep-dive routines all affected — nineteen days with no working review queue or News digest board, and the deep-dive pipeline has produced zero output since going live). Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-09-10 (+5 items, 4 companies fresh, Linear unavailable)`.

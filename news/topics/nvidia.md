@@ -4,13 +4,15 @@ aliases:
   - Nvidia
 sources:
   - https://blogs.nvidia.com/feed/
-updated: 2026-09-09
+updated: 2026-09-10
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W37
 
+- **2026-09-09** — [When to Use Encode-Prefill-Decode Disaggregation to Accelerate Multimodal Model Serving](https://developer.nvidia.com/blog/when-to-use-encode-prefill-decode-disaggregation-to-accelerate-multimodal-model-serving/) — NVIDIA Dynamo separates vision-encoder workers from LLM prefill/decode workers, delivering up to 5x faster time-to-first-token and up to 7x faster end-to-end response for image-heavy, quantized-model workloads.
+- **2026-09-09** — [CUDA Toolkit 13.4 Adds Windows on Arm Support and Greater Control over Shared GPUs](https://developer.nvidia.com/blog/cuda-toolkit-13-4-adds-windows-on-arm-support-and-greater-control-over-shared-gpus/) — NVIDIA ships CUDA Toolkit 13.4 with Windows on Arm support, an early Rubin-architecture preview, a modernized Multi-Process Service V3, and CCCL 3.4 performance gains on Blackwell.
 - **2026-09-08** — [Introducing CUDA Rust: Two Tracks for Writing GPU Kernels](https://developer.nvidia.com/blog/introducing-cuda-rust-two-tracks-for-writing-gpu-kernels) — NVIDIA introduces CUDA Rust, letting developers write GPU kernels natively in Rust (compiled to PTX) via two open-source tracks: cuda-oxide (SIMT, alpha) and cutile-rs (tile-based, stable Rust, already used in HuggingFace's Grout and mistral.rs).
 
 ## 2026-W36
