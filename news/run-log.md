@@ -2715,3 +2715,11 @@ Notable — **Cursor cursor.com SSL handshake timeout, self-resolved** — the v
 **Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow); ToolSearch confirms no Linear tools are loadable.** No issue-creation attempted. All 5 confirmed items are fully written to `topics/*.md` and `artifacts/` above — no data lost, only the Linear cards are behind. This is now a THIRTY-SEVENTH consecutive affected run since 2026-08-24 (daily, radar, weekly-digest, and deep-dive routines all affected — nineteen days with no working review queue or News digest board, and the deep-dive pipeline has produced zero output since going live). Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: daily run 2026-09-10 (+5 items, 4 companies fresh, Linear unavailable)`.
+
+## 2026-09-10 07:01 UTC — deep-dive — blocked (Linear unavailable)
+
+**Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow); ToolSearch confirms no Linear tools are loadable.** The deep dive cannot degrade gracefully: its ONLY input is the review queue in Linear project "Radar" (`hot`-labeled cards in "Ready to Review"), which can be neither read nor written. Cards processed: 0. Files written: 0. No leftovers known (the queue is unreadable, not empty — cards created before 2026-08-24 may carry approvals we cannot see).
+
+This is now a THIRTY-EIGHTH consecutive affected run since 2026-08-24, and the FIFTH deep-dive run in a row fully blocked (after Thu 2026-08-27, Mon 2026-08-31, Thu 2026-09-03, Sun 2026-09-07) — the deep-dive pipeline has produced nothing since it went live; `radar/deep/` still holds only TEMPLATE.md. The review queue has received no new cards in nineteen days. Owner action needed (unchanged since 2026-08-24): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session; also clear the free-issue-limit cap in the Kovalevgr workspace if still in place.
+
+Commit: `news: deep dive 2026-09-10 (0 cards, blocked — Linear unavailable)`.
