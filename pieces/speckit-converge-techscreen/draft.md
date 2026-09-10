@@ -103,12 +103,10 @@ Two calibration notes. Severity is noisy across runs: the same purity-guard evid
 
 My honest one-line verdict, written right after reading the results: the upgrade changed nothing in day-to-day work, and converge did, in five minutes, the review the rolled-back attempt never got, and found seven bugs the implementer had not declared.
 
-[proposed take: The thing to internalise is not "converge is a good reviewer". It is that converge is exactly as good as the spec it reads. On this project the specs are written by the strongest model in the loop, after a rollback taught us not to let implementers design. Feed converge a thin spec and it will have nothing to check against; feed it a spec written after the fact and it will grade against the answer key. The tool did not make our process better. Our process made the tool useful.]
+The thing to internalise is not "converge is a good reviewer". It is that converge is exactly as good as the spec it reads. On this project the specs are written by the strongest model in the loop, after a rollback taught us not to let implementers design. Feed converge a thin spec and it will have nothing to check against; feed it a spec written after the fact and it will grade against the answer key. The tool did not make our process better. Our process made the tool useful.
 
 Converge stays on. It goes after `implement` and before the reviewer gate, as a cheap first pass that reads from the other side of the contract.
 
 ## What's next
 
-This answers a narrow question: is the new step worth running? It does not answer the one I actually care about, which is where the threshold sits between a heavy spec process, a standing rules file in the spirit of Fabien Sanglard's [agent.md](https://fabiensanglard.net/agent.md/index.html), and nothing at all. Stage 2 built one small feature three ways, from the same commit, with the same model and a blind reviewer. That is the next post: "One feature, three ways: a full spec, a rules file, or nothing" [owner: link once published].
-
-[owner: the full results write-up (500 lines, all three converge outputs verbatim, the scorecard) lives in the project repo. Decide whether to publish it as a gist and link it here, or leave it private.]
+This answers a narrow question: is the new step worth running? It does not answer the one I actually care about, which is where the threshold sits between a heavy spec process, a standing rules file in the spirit of Fabien Sanglard's [agent.md](https://fabiensanglard.net/agent.md/index.html), and nothing at all. Stage 2 built one small feature three ways, from the same commit, with the same model and a blind reviewer. That is the next post: "One feature, three ways: a full spec, a rules file, or nothing".
