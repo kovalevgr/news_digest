@@ -5,13 +5,14 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-09-10
+updated: 2026-09-11
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W37
 
+- **2026-09-10** — [Rebuilding AUTOMATIC1111 with Gradio Workflow](https://huggingface.co/blog/gradio-workflow-1111) — Hugging Face releases Workflow1111, a Gradio-based reconstruction of AUTOMATIC1111's stable-diffusion-webui with 73 nodes across 11 media pipelines, exposed as a browser canvas that becomes a REST endpoint automatically.
 - **2026-09-09** — [IBM releases SOTA Granite Time Series PatchTST-FM-r2 model with commercial-friendly license](https://huggingface.co/blog/ibm-research/ibm-releases-sota-granite-time-series) — IBM Research releases Granite Time Series PatchTST-FM-r2, a ~385M-parameter zero-shot forecasting foundation model, ranking first among permissively-licensed models on GIFT-Eval.
 - **2026-09-08** — [Safety for Whom? Refusing the Right Subset of a Topic, Not the Whole Topic](https://huggingface.co/blog/MultiverseComputingCAI/safety-for-whom) — Multiverse Computing proposes "boundary-aware self-distillation," training refusal on paired prompts differing only in intent; on Qwen3-8B, political refusal rose 9.47%→84.75% and harmful-response rate fell 26.26%→0.14%, while boundary-pair training kept safe-prompt over-refusal at 4.16% instead of 74%.
 

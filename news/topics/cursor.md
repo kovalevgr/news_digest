@@ -4,10 +4,14 @@ aliases:
   - Anysphere
 sources:
   - https://cursor.com/changelog/rss.xml
-updated: 2026-09-03
+updated: 2026-09-11
 ---
 
 MOC page for **Cursor** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W37
+
+- **2026-09-10** — [Cursor Projects](https://cursor.com/changelog/projects) — Cursor launches Projects, a coordinator-agent system managing large-scale work (features, migrations, full apps), maintaining context over months and delegating to thousands of parallel subagents on cloud infra, with recurring-task support via Slack/PR integrations.
 
 ## 2026-W36
 

@@ -2752,3 +2752,29 @@ VERIFY SUBSTANCE: attempted 6 candidates (one over the usual 5; all close togeth
 **Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow); ToolSearch confirms no Linear tools are loadable.** No review-queue cards attempted. All 7 confirmed items are fully written in the radar files above — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now a THIRTY-NINTH consecutive affected run since 2026-08-24 (daily, radar, weekly-digest, and deep-dive routines all affected — nineteen-plus days with no working review queue or News digest board, and the deep-dive pipeline has produced zero output since going live). Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: radar run 2026-09-11 (+7 items, 3 highlights, Linear unavailable)`.
+
+## 2026-09-11 06:10 UTC — daily — ok (Linear unavailable)
+
+Window: since 2026-09-10T04:10:17 UTC (`fetch_feeds.py` cursor state; last successful daily run was 2026-09-10 06:11 UTC). `fetch_feeds.py` ran clean, no source errors.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss.xml (TIER-1, 2 fresh) | 2 | - | - |
+| anthropic | fetch (WebFetch), WebFetch on the specific post | 1 | fetch | - |
+| google-deepmind | rss.xml (TIER-1, 0 fresh), WebFetch + raw RSS cross-check | 0 | WebFetch | newest item (AlphaGenome Atlas) pubDate 2026-09-08, predates window; nothing new |
+| google-research | rss.xml (TIER-1, 1 fresh) | 1 | - | - |
+| microsoft | rss.xml (TIER-1, 0 fresh), WebFetch | 0 | WebFetch | research blog listing tops out at Aug 31 (GigaPath-Flash/GigaTIME-Flash), already captured, predates window |
+| nvidia | rss.xml (TIER-1, 3 fresh) | 3 | - | - |
+| xai | curl r.jina.ai (worked, no Cloudflare block this run) | 0 | jina | newest post (Setting Grok Bot loose on procurement, Sep 4) already captured 2026-09-04; nothing newer |
+| mistral | rss.xml (TIER-1, 1 fresh) | 1 | - | - |
+| huggingface | rss.xml (TIER-1, 0 fresh), raw feed.xml cross-check | 1 | - (raw feed had it; fetch_feeds.py cursor lagged) | one item (`gradio-workflow-1111`) present in the raw feed but not in the script's `fresh` list — same feed-outpaces-cursor pattern noted before; recovered and written |
+| cursor | rss.xml (TIER-1, 0 fresh), WebFetch | 1 | WebFetch | one new changelog entry (`Cursor Projects`, Sep 10) not yet in TIER-1 fresh; confirmed via WebFetch, written |
+| perplexity | curl r.jina.ai (403 AbuseAlleviation, anonymous block), WebSearch | 0 | jina, WebSearch | newest posts found (Sep 1: Hybrid Compute on Mac, PII-TRACE, Apple Silicon inference) already captured; nothing newer |
+
+Totals: 10 items, 7 companies fresh (openai×2, anthropic, google-research, nvidia×3, mistral, huggingface, cursor), 4 silent (google-deepmind, microsoft, xai, perplexity — all confirmed predates-window/already-captured via one gap-scrape fallback each; perplexity additionally hit the expected Jina AbuseAlleviation block, no hard transport errors elsewhere).
+
+Notable — **huggingface and cursor: TIER-1 feed lag, not source silence** — both companies' RSS feeds showed 0 fresh in `fetch_feeds.py`'s output, but a direct cross-check (raw `feed.xml` for HF, WebFetch on the changelog listing for Cursor) found one genuinely new item each already published within the window. Same pattern as prior "feed listing outpaced RSS" backfills — written this run via the fallback ladder rather than missed.
+
+**Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow); ToolSearch confirms no Linear tools are loadable.** No issue-creation attempted. All 10 confirmed items are fully written to `topics/*.md` and `artifacts/` above — no data lost, only the Linear cards are behind. This is now a FORTIETH consecutive affected run since 2026-08-24 (daily, radar, weekly-digest, and deep-dive routines all affected — twenty days with no working review queue or News digest board, and the deep-dive pipeline has produced zero output since going live). Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-09-11 (+10 items, 7 companies fresh, Linear unavailable)`.

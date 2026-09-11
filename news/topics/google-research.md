@@ -4,10 +4,14 @@ aliases:
   - Google AI
 sources:
   - https://research.google/blog/rss/
-updated: 2026-09-04
+updated: 2026-09-11
 ---
 
 MOC page for **Google Research** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W37
+
+- **2026-09-10** — [ToolGrad: Efficient tool-use dataset generation with textual "gradients"](https://research.google/blog/toolgrad-efficient-tool-use-dataset-generation-with-textual-gradients/) — Google Research introduces ToolGrad, an "answer-first" framework generating tool-use training data by building valid API workflows first, then matching queries; Gemma-3-12B fine-tuned on it scores 83.1, matching/exceeding Gemini 2.5-pro.
 
 ## 2026-W36
 

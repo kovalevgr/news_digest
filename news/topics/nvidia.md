@@ -4,13 +4,16 @@ aliases:
   - Nvidia
 sources:
   - https://blogs.nvidia.com/feed/
-updated: 2026-09-10
+updated: 2026-09-11
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W37
 
+- **2026-09-10** — [How Full-Stack NIM Optimizations Deliver 2.5x More Users on Nemotron 3 Ultra](https://developer.nvidia.com/blog/how-full-stack-nim-optimizations-deliver-2-5x-more-users-on-nemotron-3-ultra/) — NVIDIA combines autotuned kernels, tensor parallelism, prefix/state reuse, and MTP speculative decoding to reach 1,997 tok/s on 4xB200, a 2.5x throughput gain at the 50 tok/s-per-user target for agentic workloads.
+- **2026-09-10** — [High-Throughput Structure Prediction with BioNeMo Inference Runtime](https://developer.nvidia.com/blog/high-throughput-structure-prediction-with-bionemo-inference-runtime/) — NVIDIA's BioIR runtime accelerates proteome-scale structure prediction; Boltz-2 on BioIR folds 58.5K residues/GPU-hour vs. 20.2K open-source, a 2.90x gain with ~69% less energy at scale.
+- **2026-09-10** — [From Wafer-Out to First Token: Codifying Supply Chain Expertise with Nemotron and Palantir Foundry](https://developer.nvidia.com/blog/from-wafer-out-to-first-token-codifying-supply-chain-expertise-with-nemotron-and-palantir-foundry/) — NVIDIA's Palantir Foundry-based supply chain system with a post-trained 30B Nemotron 3.5 Lightning model hits 86.7% allocation-decision accuracy, 31.2 points above a larger Nemotron 3 Ultra model.
 - **2026-09-09** — [When to Use Encode-Prefill-Decode Disaggregation to Accelerate Multimodal Model Serving](https://developer.nvidia.com/blog/when-to-use-encode-prefill-decode-disaggregation-to-accelerate-multimodal-model-serving/) — NVIDIA Dynamo separates vision-encoder workers from LLM prefill/decode workers, delivering up to 5x faster time-to-first-token and up to 7x faster end-to-end response for image-heavy, quantized-model workloads.
 - **2026-09-09** — [CUDA Toolkit 13.4 Adds Windows on Arm Support and Greater Control over Shared GPUs](https://developer.nvidia.com/blog/cuda-toolkit-13-4-adds-windows-on-arm-support-and-greater-control-over-shared-gpus/) — NVIDIA ships CUDA Toolkit 13.4 with Windows on Arm support, an early Rubin-architecture preview, a modernized Multi-Process Service V3, and CCCL 3.4 performance gains on Blackwell.
 - **2026-09-08** — [Introducing CUDA Rust: Two Tracks for Writing GPU Kernels](https://developer.nvidia.com/blog/introducing-cuda-rust-two-tracks-for-writing-gpu-kernels) — NVIDIA introduces CUDA Rust, letting developers write GPU kernels natively in Rust (compiled to PTX) via two open-source tracks: cuda-oxide (SIMT, alpha) and cutile-rs (tile-based, stable Rust, already used in HuggingFace's Grout and mistral.rs).

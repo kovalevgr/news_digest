@@ -4,10 +4,14 @@ aliases:
   - Claude
 sources:
   - https://www.anthropic.com/news
-updated: 2026-09-02
+updated: 2026-09-11
 ---
 
 MOC page for **Anthropic** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W37
+
+- **2026-09-10** — [Detecting and countering misuse of AI: September 2026](https://www.anthropic.com/threat-intelligence-report-september-2026) — Anthropic's September threat-intelligence report documents disrupted operations (Dec 2025–Aug 2026) across seven harm categories, including a Russian espionage campaign (GTG-20006) and a ShinyHunters-affiliated breach exfiltrating 2,100+ Azure AD token sets in 34 hours.
 
 ## 2026-W36
 
