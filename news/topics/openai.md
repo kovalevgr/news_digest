@@ -4,13 +4,14 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-09-11
+updated: 2026-09-12
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W37
 
+- **2026-09-11** — [Rapidly scaling online storage to serve over 1 billion ChatGPT users](https://openai.com/index/scaling-storage-one-billion-users-part-one) — OpenAI details Habitat, its online storage platform: 70M+ requests/second for 1B+ weekly users across ~40 regions and 500+ PB of data, evolved from a small Python library (DevDay 2023) into a distributed service over Azure Cosmos DB.
 - **2026-09-10** — [Now everyone can put data to work](https://openai.com/index/put-data-to-work) — OpenAI introduces the Data agent in ChatGPT Work, connecting company data and turning natural-language questions into analysis, dashboards, and action.
 - **2026-09-10** — [Introducing ChatGPT for Financial Services](https://openai.com/index/introducing-chatgpt-financial-services) — OpenAI launches ChatGPT for Financial Services, combining built-in financial data (Daloopa, PitchBook, LSEG News, Crunchbase) with GPT-6 Astra for research, modeling, and client materials, shaped with Morgan Stanley and Evercore.
 - **2026-09-09** — [GPT-6 Astra: The next generation in intelligence for work](https://openai.com/index/gpt-6-astra-next-generation-work) — OpenAI follows up last week's GPT-6 Astra launch with an enterprise-rollout post: Astra now live in ChatGPT Work/Codex/API, new admin controls and four launch plugins, $10/$50 per M tokens pricing.

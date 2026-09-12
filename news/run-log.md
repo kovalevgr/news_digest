@@ -2807,3 +2807,29 @@ VERIFY SUBSTANCE: Reddit itself returned a bot-challenge page (200 OK, JS challe
 **Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow); ToolSearch confirms no Linear tools are loadable.** No review-queue cards attempted. All 13 confirmed items are fully written in the radar files above — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now a FORTY-FIRST consecutive affected run since 2026-08-24 (daily, radar, weekly-digest, and deep-dive routines all affected — twenty days with no working review queue or News digest board, and the deep-dive pipeline has produced zero output since going live). Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: radar run 2026-09-12 (+13 items, 3 highlights, Linear unavailable)`.
+
+## 2026-09-12 06:08 UTC — daily — ok (Linear unavailable)
+
+Window: since 2026-09-11T06:10:17 UTC (last successful daily run). `fetch_feeds.py` ran clean, no source errors (mistral and huggingface feeds returned 304 not-modified).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss.xml (TIER-1, 1 fresh) | 1 | - | - |
+| anthropic | fetch (WebFetch on the news listing) | 0 | fetch | newest post (Sep 10 threat-intelligence report) already captured; nothing newer |
+| google-deepmind | rss.xml (TIER-1, 0 fresh), WebFetch on blog listing | 0 | WebFetch | newest item (AlphaGenome Atlas, Sep 8) already captured; nothing newer |
+| google-research | rss.xml (TIER-1, 0 fresh), WebFetch on blog listing | 0 | WebFetch | newest item (ToolGrad, Sep 10) already captured; nothing newer |
+| microsoft | rss.xml (TIER-1, 0 fresh), WebFetch on research blog listing | 0 | WebFetch | listing still tops out at Aug 31 (GigaPath-Flash/GigaTIME-Flash), already captured; company remains silent |
+| nvidia | rss.xml (TIER-1, 0 fresh), WebFetch on developer blog listing | 0 | WebFetch | 10 posts visible back to Sep 3, all already captured in prior runs (up through Sep 10); nothing newer |
+| xai | curl r.jina.ai (401 AuthenticationRequiredError — anonymous IP blocked, new failure mode), WebSearch | 0 | jina, WebSearch | WebSearch summary named items ("Grok 4.1", "xAI For Government") that could not be corroborated by a fetchable primary source (x.ai itself is egress-blocked for WebFetch) and conflicted with already-confirmed facts (Grok 4.6 captured Sep 1); rejected as unconfirmed per the grounding rule rather than written speculatively |
+| mistral | rss.xml (TIER-1, 0 fresh — 304 not modified), WebFetch on news listing | 0 | WebFetch | newest item (Cloudera partnership, Sep 10) already captured; nothing newer |
+| huggingface | rss.xml (TIER-1, 0 fresh — 304 not modified), WebFetch on blog listing | 0 | WebFetch | newest item (gradio-workflow-1111, Sep 10) already captured; nothing newer |
+| cursor | rss.xml (TIER-1, 0 fresh), WebFetch on changelog listing | 0 | WebFetch | newest entry (Cursor Projects, Sep 10) already captured; nothing newer |
+| perplexity | curl r.jina.ai (403 AbuseAlleviationError — anonymous domain block, no JINA_API_KEY), WebSearch | 0 | jina, WebSearch | WebFetch on perplexity.ai is also egress-blocked; WebSearch results (Q2D-Web, Comet Plus) had no confirmable publish date matching an in-window post — rejected as unconfirmed |
+
+Totals: 1 item, 1 company fresh (openai), 0 errors (10 gap-scrapes attempted, all confirmed empty-in-window or unconfirmed; 2 hard transport blocks — xai jina 401, perplexity jina 403 — both companies' domains are also WebFetch-egress-blocked, so no fallback beyond WebSearch was possible; WebSearch itself did not surface a corroborated new item for either).
+
+Quiet day: NVIDIA's developer blog kept publishing on schedule (10 posts back to Sep 3) but every one of them was already captured in the Sep 10-Sep 11 runs — no backlog, just no *new* items past what's already in `topics/nvidia.md`. Same story for mistral/huggingface/cursor/google-research: all confirmed current as of their last-known item, nothing published since.
+
+**Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow); ToolSearch confirms no Linear tools are loadable.** No issue-creation attempted. The 1 confirmed item is fully written to `topics/openai.md` and `artifacts/` above — no data lost, only the Linear card is behind. This is now a FORTY-SECOND consecutive affected run since 2026-08-24 (daily, radar, weekly-digest, and deep-dive routines all affected — twenty-one days with no working review queue or News digest board, and the deep-dive pipeline has produced zero output since going live). Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-09-12 (+1 item, 1 company fresh, Linear unavailable)`.
