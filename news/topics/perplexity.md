@@ -4,10 +4,14 @@ aliases:
   - Perplexity AI
 sources:
   - https://www.perplexity.ai/hub/blog
-updated: 2026-09-08
+updated: 2026-09-13
 ---
 
 MOC page for **Perplexity** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W37
+
+- **2026-09-09** — [Q2D-Web: Evaluating First-Stage Retrievers at Scale](https://www.perplexity.ai/hub/blog/q2d-web) — Perplexity releases Q2D-Web, a 190-million-web-document / ~69,721-query benchmark and public leaderboard (Hugging Face-hosted) for retrieval in agentic RAG systems, extending the original Q2D benchmark with three independent relevance-judgment sets (agent citations, production web rankings, LLM judgments) across ten languages and 13 evaluated retrievers. Backfilled: primary source egress-blocked on every transport tried today (WebFetch: EGRESS_BLOCKED; anonymous Jina: 403 AbuseAlleviation); written on canonical-URL + content confirmation via WebSearch (corroborated by Perplexity's own community-forum announcement thread and independent coverage).
 
 ## 2026-W36
 
