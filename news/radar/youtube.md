@@ -1,6 +1,6 @@
 ---
 category: youtube
-updated: 2026-09-07
+updated: 2026-09-13
 ---
 
 # Radar: youtube
@@ -45,3 +45,4 @@ All 7 YouTube sources recovered today after 14 days dead (6× HTTP 404 + `yt-mls
 - **2026-09-02** — [The Inference Frontier: from 100 to 10,000 tokens per second — Sean Lie, Cerebras CTO](https://www.youtube.com/watch?v=3uSI8q_RN-o) — Latent Space talk by Cerebras's CTO on scaling inference throughput; title/channel only, YouTube feed carries no summary text.
 - **2026-09-04** — [Why AI Agents Need Million-Token Context — Thomas Wolf & Olive Song, MiniMax](https://www.youtube.com/watch?v=5Cxe5dv2Xlw) — AI Engineer conference talk (Thomas Wolf, Hugging Face co-founder, with MiniMax) on long-context requirements for agentic workloads; title/channel only, YouTube feed carries no summary text.
 - **2026-09-04** — [Outperforming cuBLAS on NVFP4](https://www.youtube.com/watch?v=retNYlCxOJg) — GPU MODE lecture on beating cuBLAS performance for NVFP4 kernels; title/channel only, YouTube feed carries no summary text.
+- **2026-09-07** — [Orbs: Shifting Coding to Cloud — Quinn Slack, Amp Code](https://www.youtube.com/watch?v=hvwtHZ5E27c) — Latent Space channel talk by Amp Code's Quinn Slack on moving coding workflows to the cloud ("Orbs"); verification blocked (WebFetch returned no page description, curl hit a consent-page redirect) — kept on title/channel only, YouTube feed carries no summary text.
