@@ -2959,3 +2959,11 @@ Notable — **OpenAI's fail-closed category filter dropped a third distinct patt
 **Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow); ToolSearch confirms no Linear tools are loadable.** No issue-creation attempted (moot today — 0 confirmed items). This is now a FORTY-SEVENTH consecutive affected run since 2026-08-24 (daily, radar, weekly-digest, and deep-dive routines all affected — twenty-three days with no working review queue or News digest board, and the deep-dive pipeline has produced zero output since going live). Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: daily run 2026-09-14 (+0 items, 0 companies fresh, Linear unavailable)`.
+
+## 2026-09-14 07:01 UTC — deep-dive — blocked (Linear unavailable)
+
+Cards processed: 0. Files written: 0. Leftovers: unknown — the pick list itself is unreadable.
+
+**Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization (connector state: `needs_reconnect`) and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow); ToolSearch confirms no Linear tools are loadable.** Unlike the daily/radar/weekly routines, the deep dive cannot degrade gracefully: its ONLY input is the set of `hot`-labeled cards in project "Radar" (workflow step 1), and the `hot` label lives nowhere but Linear — there is no file-based fallback to pick from. No research, no `radar/deep/` file, no card movement attempted. This is now a FORTY-EIGHTH consecutive affected run since 2026-08-24, and the FIFTH consecutive deep-dive run fully blocked — the deep-dive pipeline has produced zero output since going live. Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session. Once reconnected, the next Mon/Thu run will pick up any `hot` backlog automatically (up to 3 cards per run, oldest first).
+
+Commit: `news: deep dive 2026-09-14 (0 cards, Linear unavailable)`.
