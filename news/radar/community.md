@@ -1,6 +1,6 @@
 ---
 category: community
-updated: 2026-09-13
+updated: 2026-09-14
 ---
 
 # Radar: community
@@ -335,3 +335,9 @@ Appended by the daily routine under weekly headings; format matches topics files
 - **2026-09-13** — ⭐ [PI-Desktop — a local-first desktop workspace for AI coding agents](https://github.com/vastsa/PI-Desktop) — Verified via `git clone`: Electron + Rust host core + a "pi Agent Harness" with user-installable plugins; bring-your-own-model (OpenAI, Anthropic, local, or any OpenAI-compatible endpoint), no mandatory account or relay, projects/sessions/files stay on the local machine. CI-badged, tagged GitHub releases; Early Preview but described as already usable for real coding workflows.
 - **2026-09-13** — ⭐ [LLM Wiki — a personal knowledge base that builds itself](https://github.com/nashsu/llm_wiki) — Verified via `git clone`: cross-platform desktop app that ingests documents (PDF/Office/EPUB/web clips, with image captioning via a vision LLM) through a two-step chain-of-thought pipeline and incrementally builds/maintains a wiki instead of doing per-query retrieve-and-answer RAG — a 4-signal knowledge graph (direct links, source overlap, Adamic-Adar, type affinity) with Louvain community detection, optional vector search via LanceDB, and a Rust-backed tool-using chat agent over the wiki/sources/graph. Direct match on the owner's retrieval-engineering interest line — a genuinely different design (persistent, self-maintaining knowledge base) from standard re-embed-everything RAG.
 - **2026-09-13** — [Edge0/Edge0-35B-A3B-preview](https://huggingface.co/Edge0/Edge0-35B-A3B-preview) — New text-generation model entering HF's trending-models list (533 trending score, 552 likes); not independently verified beyond the listing this run, no accompanying writeup found.
+
+## 2026-W38
+
+- **2026-09-13** — ⭐ [system_prompts_leaks — verbatim leaked system prompts for every major chat product](https://github.com/asgeirtj/system_prompts_leaks) — Verified via `git clone`: continuously maintained archive of captured system prompts (Anthropic, OpenAI, Google, xAI, Meta and more), most recent additions dated 2026-09-13 (ChatGPT Work Codex local, Gemini 3.8 Flash); cited by The Washington Post and CEPS' AI World for downstream analysis. Direct hit on the owner's agent/context-engineering interest line — a primary source for how frontier products actually constrain their models.
+- **2026-09-13** — ⭐ [MathModelAgent — multi-agent pipeline that writes a submission-ready math-modeling paper](https://github.com/jihe520/MathModelAgent) — Verified via `git clone`: agentless multi-agent workflow (modeling agent, coding agent, writing agent) that analyzes a problem, runs a code interpreter (local Jupyter or E2B/Daytona sandboxes), and produces a formatted paper; model-agnostic via litellm, prompt-injectable per-subtask templates, packaged desktop app bundling Claude Code + skills. Concrete "AI agents in practice" architecture — a real multi-agent harness with a narrow, verifiable task, not a chatbot wrapper.
+- **2026-09-13** — [Marigold V2 — diffusion-transformer monocular depth estimation (HF Space)](https://huggingface.co/spaces/huawei-bayerlab/marigold-v2-web) — New entrant on HF's trending-spaces diff; "Revisiting Diffusion Transformers for Monocular Depth Estimation" from Huawei's Bayer Lab. Genuine technical release (named model version implies prior published work), but depth estimation/3D sits in the owner's LOW-interest bucket — kept for completeness, not independently benchmarked this run.
