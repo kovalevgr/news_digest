@@ -2996,3 +2996,29 @@ VERIFY SUBSTANCE: attempted 7 candidates. Two GitHub repos verified via `git clo
 **Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow); ToolSearch confirms no Linear tools are loadable.** No review-queue cards attempted. All 14 confirmed items are fully written in `radar/community.md` and `radar/technical-newsletters.md` above — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now a FORTY-NINTH consecutive affected run since 2026-08-24 (daily, radar, weekly-digest, and deep-dive routines all affected — twenty-four days with no working review queue or News digest board, and the deep-dive pipeline has produced zero output since going live). Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: radar run 2026-09-15 (+14 items, 3 highlights, Linear unavailable)`.
+
+## 2026-09-15 06:09 UTC — daily — ok (Linear unavailable)
+
+Window: since 2026-09-14T06:12 UTC (last successful daily run). `fetch_feeds.py` ran clean, no source errors; 10/11 companies reported zero fresh TIER-1 candidates (mistral: 304-not-modified; openai, anthropic, google-deepmind, google-research, microsoft, xai, huggingface, cursor, perplexity: 200 with nothing inside the window), triggering gap-scrape for those ten. NVIDIA's feed carried one fresh in-window item, no gap-scrape needed.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss.xml (TIER-1, 0 fresh), WebSearch | 0 | websearch | GPT-6 Astra / ChatGPT Images 2.5 items already captured; "Introducing the Agents API" (Sep 10, public beta) surfaced but predates the window by 4 days and was never on a prior gap-scrape's radar — left as an unclaimed historical gap, not backfilled (too stale for this run's window, would misplace the weekly digest week) |
+| anthropic | fetch (WebFetch on the news listing) | 0 | fetch | newest post (Sep 10 threat-intelligence report) already captured; nothing newer |
+| google-deepmind | rss.xml (TIER-1, 0 fresh), WebFetch on blog listing | 0 | WebFetch | listing tops out at AlphaGenome Atlas (Sep 8, already captured); nothing newer |
+| google-research | rss.xml (TIER-1, 0 fresh), WebFetch on blog listing | 0 | WebFetch | newest item (ToolGrad, Sep 10) already captured; nothing newer |
+| microsoft | rss.xml (TIER-1, 0 fresh), WebFetch on research blog listing | 0 | WebFetch | listing still tops out at Aug 31 (GigaPath-Flash/GigaTIME-Flash), already captured; company remains silent |
+| nvidia | rss.xml (TIER-1, 1 fresh) | 1 | - | - |
+| xai | curl r.jina.ai | 0 | jina | Cloudflare JS challenge page returned instead of content (not the usual anonymous-403 pattern) — transport fully blocked today; no WebSearch attempted per the single-fallback rule (xai's configured ladder is jina-only) |
+| mistral | rss.xml (TIER-1, 0 fresh — 304), WebFetch on news listing | 0 | WebFetch | newest item (Cloudera partnership, Sep 10) already captured; nothing newer |
+| huggingface | rss.xml (TIER-1, 0 fresh), WebFetch on blog listing | 2 | WebFetch | - |
+| cursor | rss.xml (TIER-1, 0 fresh), WebFetch on changelog listing | 0 | WebFetch | newest entry (Cursor Projects, Sep 10) already captured; nothing newer |
+| perplexity | curl r.jina.ai, WebSearch | 0 | jina, websearch | Jina returned a Cloudflare JS challenge page (no JINA_API_KEY); WebSearch confirmed newest genuine post is Sep 7 ("AI integration: Getting ROI"), predates window |
+
+Totals: 3 items, 2 companies fresh (nvidia, huggingface), 0 hard errors (10 gap-scrapes attempted; xai and perplexity's Jina transport hit a Cloudflare JS challenge rather than the usual anonymous-403 AbuseAlleviation — same practical outcome, blocked either way).
+
+New items: NVIDIA "Accelerating Dropless MoE Training in JAX with NVIDIA Transformer Engine" (10.4x TFLOPS/GPU on DeepSeek-V3 671B, 97% scaling to 1,024 GPUs); Hugging Face "ShadowPEFT" (new first-class PEFT method beating LoRA/DoRA on GSM8K and DreamBooth) and "Same bytes, closer to the original: two lines of AutoRound we had wrong" (two config fixes cut KL divergence 33-54% vs. unsloth's Qwen3-4B-Q4_K_M).
+
+**Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow); ToolSearch confirms no Linear tools are loadable.** No issue-creation attempted. All 3 confirmed items are fully written in `topics/nvidia.md` and `topics/huggingface.md` plus their artifacts — no data lost, only the News digest board is behind. This is now a FIFTIETH consecutive affected run since 2026-08-24 (daily, radar, weekly-digest, and deep-dive routines all affected — twenty-five days with no working review queue or News digest board, and the deep-dive pipeline has produced zero output since going live). Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-09-15 (+3 items, 2 companies fresh, Linear unavailable)`.

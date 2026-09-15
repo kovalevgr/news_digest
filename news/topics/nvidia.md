@@ -4,10 +4,14 @@ aliases:
   - Nvidia
 sources:
   - https://blogs.nvidia.com/feed/
-updated: 2026-09-11
+updated: 2026-09-15
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W38
+
+- **2026-09-14** — [Accelerating Dropless MoE Training in JAX with NVIDIA Transformer Engine](https://developer.nvidia.com/blog/accelerating-dropless-moe-training-in-jax-with-nvidia-transformer-engine/) — NVIDIA combines grouped GEMM kernels, NCCL-fused expert-parallel dispatch/combine, and MXFP8 quantization for dropless MoE training in JAX; 10.4x TFLOPS/GPU gain on DeepSeek-V3 671B (GB200), 97% scaling efficiency to 1,024 GPUs (GB300 NVL72).
 
 ## 2026-W37
 
