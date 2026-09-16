@@ -1,6 +1,6 @@
 ---
 category: bigtech-eng
-updated: 2026-09-05
+updated: 2026-09-16
 ---
 
 # Radar: bigtech-eng
@@ -25,3 +25,7 @@ Appended by the daily routine under weekly headings; format matches topics files
 
 - **2026-09-02** — [How we make AI coding more cost efficient without sacrificing task quality](https://github.blog/ai-and-ml/github-copilot/how-we-make-ai-coding-more-cost-efficient-without-sacrificing-task-quality/) — GitHub Copilot engineering post on why shorter model outputs can actually cost more (wasted re-work) and how Copilot restructured its coding-task pipeline to cut wasted output tokens without regressing task quality. Not independently verified beyond the feed's own summary today — out of highlight consideration.
 - **2026-09-04** — ⭐ [Project HydraFusion: Frontier quality via multi-model orchestration](https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/) — Verified via WebFetch: GitHub Copilot research preview that runtime-selects between three execution patterns (Single, Cascade, Critique) per coding task to trade off quality/cost/speed automatically. Matched or exceeded the evaluated Opus 5 baseline on TerminalBench 2.1 (+4.9pp quality at 67% lower cost) and CheckpointBench (65% lower cost, -0.1pt quality), and came within 1.5pts on DeepSWE at 36% reduced cost. Available now via GitHub Copilot CLI's `/experimental` mode on all paid Copilot plans, billed at standard token rates.
+
+## 2026-W38
+
+- **2026-09-16** — [Have it both ways: stay discoverable in search while disallowing AI training](https://blog.cloudflare.com/accountable-mixed-use-ai-crawlers/) — Verified via WebFetch: Cloudflare separates "Search," "Training," and "Agent" crawler behaviors at the policy level via a new "Disallow AI Training" robots.txt setting, plus an "Accountable" crawler classification (requiring opt-out mechanisms, URL-level visibility, and assurance that refusing training won't hurt search ranking) so sites can block AI-training crawlers without losing search-index discoverability. Google-Extended and Applebot-Extended already respect dedicated robots.txt directives; Bingbot uses NOARCHIVE meta tags today with robots.txt support planned early 2027. MEDIUM fit — crawler/protocol engineering rather than a core interest-line hit, out of highlight consideration.
