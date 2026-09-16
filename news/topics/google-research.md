@@ -4,10 +4,14 @@ aliases:
   - Google AI
 sources:
   - https://research.google/blog/rss/
-updated: 2026-09-11
+updated: 2026-09-16
 ---
 
 MOC page for **Google Research** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W38
+
+- **2026-09-15** — [Bypassing inference bottlenecks: Accelerating complex AI search with Retrieve-for-Train](https://research.google/blog/bypassing-inference-bottlenecks-accelerating-complex-ai-search-with-retrieve-for-train/) — Google Research trains a compact 53.9M-parameter diffusion model offline to map queries directly to full search-result sets in one pass, a 12-20x speedup over autoregressive fan-out approaches.
 
 ## 2026-W37
 

@@ -3051,3 +3051,29 @@ VERIFY SUBSTANCE: attempted 8 candidates. `ordewell/ordewell`, `pizza-bot-app/pi
 **Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow); ToolSearch confirms no Linear tools are loadable.** No review-queue cards attempted. All 15 confirmed items are fully written in `radar/community.md`, `radar/bigtech-eng.md`, and `radar/practitioner-blogs.md` above — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now a FIFTY-FIRST consecutive affected run since 2026-08-24 (daily, radar, weekly-digest, and deep-dive routines all affected — twenty-six days with no working review queue or News digest board, and the deep-dive pipeline has produced zero output since going live). Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: radar run 2026-09-16 (+15 items, 3 highlights, Linear unavailable)`.
+
+## 2026-09-16 06:09 UTC — daily — ok (Linear unavailable)
+
+Window: since 2026-09-15T06:09 UTC (last successful daily run). `fetch_feeds.py` ran clean, no source errors (mistral: 304-not-modified); 7/11 companies reported zero fresh TIER-1 candidates (openai, anthropic, microsoft, xai, mistral, cursor, perplexity), triggering gap-scrape for those seven. google-deepmind, google-research, nvidia, huggingface all carried fresh in-window items, no gap-scrape needed.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss.xml (TIER-1, 0 fresh), WebSearch | 0 | websearch | openai.com/news/ WebFetch 403; WebSearch surfaced only aggregator mentions of GPT-5.6/GPT-6 Astra items already captured or unconfirmable against a genuine openai.com URL — nothing verifiable added |
+| anthropic | fetch (WebFetch on the news listing) | 0 | fetch | listing's newest item (Sep 10 threat-intelligence report) already captured; older items on the page (Aug 27 Model Hardware Standard preview, Aug 25 wellbeing grants, etc.) all predate the window |
+| google-deepmind | rss.xml (TIER-1, 1 fresh) | 1 | - | - |
+| google-research | rss.xml (TIER-1, 1 fresh) | 1 | - | - |
+| microsoft | rss.xml (TIER-1, 0 fresh), WebFetch on research blog listing | 0 | WebFetch | listing tops out at GigaPath-Flash/GigaTIME-Flash (Aug 31, already captured); nothing newer |
+| nvidia | rss.xml (TIER-1, 4 fresh) | 4 | - | - |
+| xai | curl r.jina.ai | 0 | jina | Jina returned HTTP 401 AuthenticationFailedError (no JINA_API_KEY set, unauthenticated call rejected outright rather than the usual anonymous-403 AbuseAlleviation) — transport fully blocked; no WebSearch attempted per the single-fallback rule (xai's configured ladder is jina-only) |
+| mistral | rss.xml (TIER-1, 0 fresh — 304), WebFetch on news listing | 0 | WebFetch | listing tops out at Cloudera partnership (Sep 10, already captured); nothing newer |
+| huggingface | rss.xml (TIER-1, 1 fresh) | 1 | - | - |
+| cursor | rss.xml (TIER-1, 0 fresh), WebFetch on changelog listing | 0 | WebFetch | listing tops out at Cursor Projects (Sep 10, already captured); nothing newer |
+| perplexity | curl r.jina.ai, WebSearch | 0 | jina, websearch | Jina returned HTTP 401 AuthenticationFailedError (no JINA_API_KEY); WebSearch confirmed newest genuine post is still Q2D-Web (Sep 9, already captured), nothing newer |
+
+Totals: 7 items, 4 companies fresh (google-deepmind, google-research, nvidia, huggingface), 0 hard errors (7 gap-scrapes attempted; xai and perplexity's Jina calls failed with a hard 401 rather than the usual anonymous-403 — same practical outcome, blocked either way, worth noting if JINA_API_KEY was expected to be configured by now).
+
+New items: Google DeepMind "Introducing Gemini 3.8 Live and 3.8 Live Extended Thinking" (Extended Thinking tops Artificial Analysis' Speech to Speech Quality Index at 82.6%); Google Research "Retrieve-for-Train" (53.9M-param diffusion model replacing autoregressive search fan-out, 12-20x speedup); NVIDIA "Dense vs. MoE Models" comparison guide, "Groq 3 LPX Deterministic Execution" on Vera Rubin (up to 35x throughput/MW), "NVLink 6" multi-layer resiliency (Shadow Engine Recovery 39x faster failover), and "Scaling Federated Learning" with NVIDIA FLARE (adds Slurm support); Hugging Face/IBM Research "Your Agent Aced the Task. Will It Do It Again?" (agent consistency metric, Pass^5 53.0%→69.0% with guidelines).
+
+**Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow); ToolSearch confirms no Linear tools are loadable.** No issue-creation attempted. All 7 confirmed items are fully written in `topics/google-deepmind.md`, `topics/google-research.md`, `topics/nvidia.md`, and `topics/huggingface.md` plus their artifacts — no data lost, only the News digest board is behind. This is now a FIFTY-SECOND consecutive affected run since 2026-08-24 (daily, radar, weekly-digest, and deep-dive routines all affected — twenty-seven days with no working review queue or News digest board, and the deep-dive pipeline has produced zero output since going live). Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-09-16 (+7 items, 4 companies fresh, Linear unavailable)`.

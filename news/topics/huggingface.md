@@ -5,13 +5,14 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-09-15
+updated: 2026-09-16
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W38
 
+- **2026-09-15** — [Your Agent Aced the Task. Will It Do It Again?](https://huggingface.co/blog/ibm-research/altk-evolve-consistency) — IBM Research introduces an agent-consistency metric alongside accuracy (Pass^k vs. Mean@k); a ReAct agent on GPT-4.1 hit 77.4% Mean@5 but only 53.0% Pass^5, and auto-generated Consistency Guidelines closed the gap, lifting Pass^5 to 69.0%.
 - **2026-09-15** — [What If the Adaptation Were a Model? ShadowPEFT in 🤗 PEFT library](https://huggingface.co/blog/shadow-llm/shadowpeft-peft) — ShadowPEFT lands as a first-class PEFT method: a persistent cross-layer "shadow" hidden state instead of LoRA's scattered per-weight low-rank updates, beating LoRA/DoRA on GSM8K (48.1% vs 46.9%/46.2%) and DreamBooth (DINO 0.717 vs 0.671/0.682) with smaller checkpoints.
 - **2026-09-14** — [Same bytes, closer to the original: two lines of AutoRound we had wrong](https://huggingface.co/blog/FINAL-Bench/qwen-models) — FINAL-Bench finds two AutoRound quantization misconfigurations (scheme/format mismatch, `--enable_alg_ext` left off) cutting KL divergence vs. unsloth's Qwen3-4B-Q4_K_M by 54.4% (Korean), 33.2% (English), 52.9% (code) at identical file size.
 

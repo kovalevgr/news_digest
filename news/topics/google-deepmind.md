@@ -5,10 +5,14 @@ aliases:
   - Gemini
 sources:
   - https://deepmind.google/blog/rss.xml
-updated: 2026-09-09
+updated: 2026-09-16
 ---
 
 MOC page for **Google DeepMind** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W38
+
+- **2026-09-15** — [Introducing Gemini 3.8 Live and 3.8 Live Extended Thinking](https://deepmind.google/blog/introducing-gemini-3-8-live-and-3-8-live-extended-thinking/) — Google DeepMind launches Gemini 3.8 Live and 3.8 Live Extended Thinking; Extended Thinking tops Artificial Analysis' Speech to Speech Quality Index at 82.6%, ahead of GPT-Live-1 Astra and Grok Voice Think Fast 2.0.
 
 ## 2026-W37
 

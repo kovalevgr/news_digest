@@ -4,13 +4,17 @@ aliases:
   - Nvidia
 sources:
   - https://blogs.nvidia.com/feed/
-updated: 2026-09-15
+updated: 2026-09-16
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W38
 
+- **2026-09-15** — [How NVIDIA NVLink 6 Delivers Multi-Layer Resiliency for AI Factories](https://developer.nvidia.com/blog/how-nvidia-nvlink-6-delivers-multi-layer-resiliency-for-ai-factories/) — NVLink 6's four-layer resiliency architecture for Vera Rubin NVL72; Shadow Engine Recovery restores inference capacity in 7.3s vs. 283s cold restart (39x faster), 3x lower latency and 10x higher packet rates than generic Ethernet.
+- **2026-09-15** — [How NVIDIA Groq 3 LPX Deterministic Execution Drives Power-Efficient High-Interactivity Inference on NVIDIA Vera Rubin](https://developer.nvidia.com/blog/how-nvidia-groq-3-lpx-deterministic-execution-drives-power-efficient-high-interactivity-inference-on-nvidia-vera-rubin/) — Groq 3 LPX's cycle-exact deterministic schedule enables Preemptive Power and Clock Period Synthesis, cutting voltage droop 60%+ and delivering up to 35x higher throughput per megawatt vs. GB200 NVL72; ships H2 2026.
+- **2026-09-15** — [Dense vs. MoE Models: Active Parameters, Throughput, and When to Choose Each](https://developer.nvidia.com/blog/dense-vs-moe-models-active-parameters-throughput-and-when-to-choose-each/) — NVIDIA compares dense and MoE model economics; Nemotron 3.5 Lightning (30B/3B active) hits 235.7-494.2 tok/s at $0.22/M, 4-5x the throughput of dense Gemma 4 31B at lower cost.
+- **2026-09-15** — [Scaling Federated Learning Across Docker, Kubernetes, and Slurm with NVIDIA FLARE](https://developer.nvidia.com/blog/scaling-federated-learning-across-docker-kubernetes-and-slurm-with-nvidia-flare/) — NVIDIA FLARE 2.9 adds Slurm support alongside FLARE 2.8's Docker/Kubernetes, letting one federated-learning deployment span single-host, cloud, and HPC/shared-GPU environments.
 - **2026-09-14** — [Accelerating Dropless MoE Training in JAX with NVIDIA Transformer Engine](https://developer.nvidia.com/blog/accelerating-dropless-moe-training-in-jax-with-nvidia-transformer-engine/) — NVIDIA combines grouped GEMM kernels, NCCL-fused expert-parallel dispatch/combine, and MXFP8 quantization for dropless MoE training in JAX; 10.4x TFLOPS/GPU gain on DeepSeek-V3 671B (GB200), 97% scaling efficiency to 1,024 GPUs (GB300 NVL72).
 
 ## 2026-W37
