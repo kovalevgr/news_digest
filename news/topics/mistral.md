@@ -4,10 +4,14 @@ aliases:
   - Mistral
 sources:
   - https://mistral.ai/rss.xml
-updated: 2026-09-11
+updated: 2026-09-17
 ---
 
 MOC page for **Mistral AI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W38
+
+- **2026-09-16** — [Mistral and Mozilla are bringing open, private and multilingual AI to your web browser](https://mistral.ai/news/mistral-x-mozilla/) — Mistral models power Firefox Smart Window (beta), Mozilla's AI browsing assistant, with zero data retention; initial rollout in France and North America, UK/Germany planned later in 2026.
 
 ## 2026-W37
 

@@ -4,13 +4,16 @@ aliases:
   - Nvidia
 sources:
   - https://blogs.nvidia.com/feed/
-updated: 2026-09-16
+updated: 2026-09-17
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W38
 
+- **2026-09-16** — [Translating CUDA Tile Operations from Python to Rust Using Agentic AI](https://developer.nvidia.com/blog/translating-cuda-tile-operations-from-python-to-rust-using-agentic-ai/) — Multi-agent workflow (analysis/kernel-writing/host-FFI/benchmarking subagents, machine-checkable verdicts) ports all 24 public TileGym operators (~40 GPU kernels) from cuTile Python to cuTile Rust, reaching 99.5% of Python performance on DGX B200.
+- **2026-09-16** — [TensorRT Edge-LLM Completes the MLPerf Edge Agentic Benchmark 6.4x Faster on Jetson AGX Thor](https://developer.nvidia.com/blog/tensorrt-edge-llm-completes-the-mlperf-edge-agentic-benchmark-6-4x-faster-on-jetson-agx-thor/) — Record MLPerf Inference v6.1 Edge Agentic result on a single Jetson AGX Thor: 52.33 tok/s, 6.4x faster than llama.cpp reference, via NVFP4 quantization, FP8 KV cache, and tree-based multi-token prediction.
+- **2026-09-16** — [How to Use AI Agents to Prepare 3D Scenes for Simulation](https://developer.nvidia.com/blog/how-to-use-ai-agents-to-prepare-3d-scenes-for-simulation/) — Agentic workflow (Codex/Claude orchestrator, Hermes subagents via NVIDIA NemoClaw) converts Blender scenes to simulation-ready OpenUSD for Isaac Sim/Isaac Lab through an 8-stage pipeline.
 - **2026-09-15** — [How NVIDIA NVLink 6 Delivers Multi-Layer Resiliency for AI Factories](https://developer.nvidia.com/blog/how-nvidia-nvlink-6-delivers-multi-layer-resiliency-for-ai-factories/) — NVLink 6's four-layer resiliency architecture for Vera Rubin NVL72; Shadow Engine Recovery restores inference capacity in 7.3s vs. 283s cold restart (39x faster), 3x lower latency and 10x higher packet rates than generic Ethernet.
 - **2026-09-15** — [How NVIDIA Groq 3 LPX Deterministic Execution Drives Power-Efficient High-Interactivity Inference on NVIDIA Vera Rubin](https://developer.nvidia.com/blog/how-nvidia-groq-3-lpx-deterministic-execution-drives-power-efficient-high-interactivity-inference-on-nvidia-vera-rubin/) — Groq 3 LPX's cycle-exact deterministic schedule enables Preemptive Power and Clock Period Synthesis, cutting voltage droop 60%+ and delivering up to 35x higher throughput per megawatt vs. GB200 NVL72; ships H2 2026.
 - **2026-09-15** — [Dense vs. MoE Models: Active Parameters, Throughput, and When to Choose Each](https://developer.nvidia.com/blog/dense-vs-moe-models-active-parameters-throughput-and-when-to-choose-each/) — NVIDIA compares dense and MoE model economics; Nemotron 3.5 Lightning (30B/3B active) hits 235.7-494.2 tok/s at $0.22/M, 4-5x the throughput of dense Gemma 4 31B at lower cost.

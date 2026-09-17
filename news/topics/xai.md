@@ -4,10 +4,14 @@ aliases:
   - Grok
 sources:
   - https://x.ai/news
-updated: 2026-09-06
+updated: 2026-09-17
 ---
 
 MOC page for **xAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W38
+
+- **2026-09-16** — [Memory in Grok Build](https://x.ai/news/grok-build-memory) — xAI adds persistent memory to Grok Build (its coding agent): after each turn Grok records conventions, decisions, and durable project facts as notes, organized over time by a new `/dream` command; `/memory` browses them. Available now for new sessions.
 
 ## 2026-W36
 
