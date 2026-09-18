@@ -4,10 +4,15 @@ aliases:
   - Claude
 sources:
   - https://www.anthropic.com/news
-updated: 2026-09-11
+updated: 2026-09-18
 ---
 
 MOC page for **Anthropic** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W38
+
+- **2026-09-17** — [Introducing the Life Sciences Verification Program](https://www.anthropic.com/news/life-sciences-verification-program) — Anthropic launches LSVP, giving verified life-science professionals access to Claude (Mythos, Opus, Sonnet) with customized safeguards instead of blanket biology restrictions, moving from real-time blocking to offline monitoring.
+- **2026-09-17** — [Measurements for understanding the pace of AI development inside frontier labs](https://www.anthropic.com/institute/measuring-pace-of-ai-development) — Anthropic publishes three transparency frameworks: Claude "leads" 26% of Anthropic's AI R&D work (vs. <1% in Feb 2026), ~30,000 agents run under 100%-coverage online/offline oversight, and 6% of AI R&D compute is allocated to safety.
 
 ## 2026-W37
 
