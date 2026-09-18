@@ -1,6 +1,6 @@
 ---
 category: oss-ml-systems
-updated: 2026-09-11
+updated: 2026-09-18
 ---
 
 # Radar: oss-ml-systems
@@ -53,3 +53,7 @@ Appended by the daily routine under weekly headings; format matches topics files
 - **2026-09-12** — [vllm release proto-v0.1.0](https://github.com/vllm-project/vllm/releases/tag/proto-v0.1.0) — New tag on the tracked repo; verified real via `git ls-remote` but the "proto-" prefix breaks from vLLM's usual `vX.Y.Z` release cadence (most recent: v0.29.0) — unclear whether this marks an experimental sub-project or a new versioning scheme. No release-note text available at fetch time; flagged for a future run to clarify once more context surfaces.
 - **2026-09-17** — [vllm-proto v0.2.0 / v0.3.0](https://github.com/vllm-project/vllm/releases/tag/proto-v0.3.0) — Resolves 2026-09-12's open question: verified via `git clone`, `proto-vX` versions a separate Rust-crate track (`rust/proto/{control,inference}.proto`) for vLLM's new Rust frontend's gRPC-style control/inference protocol — unrelated to the main vLLM release cadence (still at v0.29.0). Two crate bumps landed this week; routine version bumps, no user-facing changelog text.
 - **2026-09-17** — [Low Precision Flash Attention 4: End-to-End Block-Scaled Attention for Blackwell](https://pytorch.org/blog/low-precision-flash-attention-4-end-to-end-block-scaled-attention-for-blackwell/) — PyTorch extends FlashAttention-4 with MXFP8 forward/backward, reaching 2.85 PF/s forward and 2 PF/s backward on LLM attention shapes on Blackwell (2.54 PF/s on their internal shapes) — deep GPU/kernel-engineering interest line.
+
+## 2026-W38
+
+- **2026-09-18** — [Scaling Multi-GPU Video Captioning with PyNvVideoCodec and vLLM](https://vllm.ai/blog/2026-09-18-pynvvideocodec) — vLLM blog post on using NVIDIA hardware video decoders (PyNvVideoCodec) to scale video captioning/description workloads across multiple GPUs. Verification blocked (vllm.ai egress-blocked — WebFetch 503, curl retry `SSL_ERROR_SYSCALL`) — kept on the feed's own summary text, out of highlight consideration.

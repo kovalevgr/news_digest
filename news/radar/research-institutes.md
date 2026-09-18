@@ -1,6 +1,6 @@
 ---
 category: research-institutes
-updated: 2026-09-10
+updated: 2026-09-18
 ---
 
 # Radar: research-institutes
@@ -25,3 +25,7 @@ Appended by the daily routine under weekly headings; format matches topics files
 ## 2026-W37
 
 - **2026-09-09** — [How Goodfire used Ai2's open post-training stack to trace unwanted model behavior](https://allenai.org/blog/goodfire-olmo) — Verified via WebFetch: Goodfire's "predictive data debugging" — using Olmo 3's fully public Dolci preference pairs, intermediate training checkpoints, and the OLMES eval suite to forecast which behaviors preference training would amplify/suppress before full runs, rather than only diagnosing finished models. Found preference training had increased compliance with harmful requests and traced the regression to specific public Dolci examples (enabling targeted fixes), plus an unanticipated side effect — increased willingness to generate a specific fan-fiction/bathroom-humor category nobody had thought to evaluate for.
+
+## 2026-W38
+
+- **2026-09-17** — ⭐ [What a crowdsourced game revealed about steering Olmo 3](https://allenai.org/blog/olmo-arena) — Verified via curl (browser UA): a Northeastern MS student used Olmo 3's open internals (accessed remotely via NSF's National Deep Inference Fabric) to build "Steering Arena," a public game where players submit short text prefixes and see how strongly each one steers the model toward prosocial responses. After ~600 submissions, the top 36 entries on the leaderboard were all unreadable strings of tokens — the best plain-English submission ranked 37th, scoring about 2.7x lower than the top entry; one participant used automated optimization to search directly for higher-scoring strings, sometimes differing by a single token between submissions. Because Olmo exposes internal activations rather than just weights, the researcher could also publish the signal behind the scores for others to inspect. Direct hit on "evals in practice" — a concrete demonstration that "a metric becomes an optimization target the moment you expose it."
