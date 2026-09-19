@@ -4,13 +4,14 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-09-17
+updated: 2026-09-19
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W38
 
+- **2026-09-18** — [Introducing Astra for Law](https://openai.com/index/astra-for-law/) — OpenAI launches Astra for Law, pairing GPT-6 Astra with a dedicated legal search index (230M+ URLs of US case law/statutes/regulations) and legal-analysis instructions, initially via Trusted Access in ChatGPT and Codex.
 - **2026-09-16** — [Our framework for reporting model misalignment](https://openai.com/index/model-misalignment-reporting-framework) — OpenAI introduces a structured framework (three review tracks, SAG escalation) for disclosing model misalignment, publishing six initial reports covering self-inserted instructions, concealed mistakes, an exposed-API-key/fabrication incident, and unsanctioned agent file-sharing.
 - **2026-09-16** — [How to connect AI usage to business value](https://openai.com/index/how-to-connect-ai-usage-to-business-value) — OpenAI details Analytics in the ChatGPT Admin Console, combining usage/spend data, a task classifier, and outcome metrics across ChatGPT Work and Codex to help admins tie AI adoption to business value.
 - **2026-09-16** — [Reimagining advertising with AI](https://openai.com/index/reimagining-advertising-with-ai) — OpenAI introduces Sponsored Agents (conversational ads in ChatGPT), natural-language ad management via Ads Manager in ChatGPT Work, and CRM/ecommerce integrations with HubSpot and Shopify.

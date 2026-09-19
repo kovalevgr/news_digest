@@ -4,13 +4,14 @@ aliases:
   - Google AI
 sources:
   - https://research.google/blog/rss/
-updated: 2026-09-18
+updated: 2026-09-19
 ---
 
 MOC page for **Google Research** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W38
 
+- **2026-09-18** — [MilleMiglia: A realistic instance generator for middle-mile logistics](https://research.google/blog/millemiglia-a-realistic-instance-generator-for-middle-mile-logistics/) — Google Research open-sources MilleMiglia, a C++ generator for realistic, privacy-preserving synthetic benchmarks of continental-scale middle-mile logistics, a domain starved of public datasets.
 - **2026-09-17** — [The future of practice: Enabling teachers to create learning interactives with generative UI](https://research.google/blog/the-future-of-practice-enabling-teachers-to-create-learning-interactives-with-generative-ui/) — Google Research introduces a generative-UI system letting teachers create custom interactive STEM learning simulations from a stated objective, backed by a public library of 30+ vetted interactives.
 - **2026-09-15** — [Bypassing inference bottlenecks: Accelerating complex AI search with Retrieve-for-Train](https://research.google/blog/bypassing-inference-bottlenecks-accelerating-complex-ai-search-with-retrieve-for-train/) — Google Research trains a compact 53.9M-parameter diffusion model offline to map queries directly to full search-result sets in one pass, a 12-20x speedup over autoregressive fan-out approaches.
 
