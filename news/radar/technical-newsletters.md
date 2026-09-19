@@ -1,6 +1,6 @@
 ---
 category: technical-newsletters
-updated: 2026-09-15
+updated: 2026-09-19
 ---
 
 # Radar: technical-newsletters
@@ -32,3 +32,4 @@ Appended by the daily routine under weekly headings; format matches topics files
 ## 2026-W38
 
 - **2026-09-14** — [A Brain Too Big to Carry — On-Device vs Datacenter Inference](https://newsletter.semianalysis.com/p/a-brain-too-big-to-carry-on-device) — Verified via WebFetch: robot cognition splits into a real-time onboard action/servo layer (100+ Hz) and an offloadable planning layer (5-20 Hz); crossover analysis puts datacenter serving ahead of onboard chips at ~7 robots/GPU for silicon efficiency and ~5 robots/GPU for memory efficiency. TCO for 96 robots on NVIDIA's RoboTTT: B300 datacenter $0.15/PFLOP vs. Jetson Thor onboard $0.16/PFLOP vs. RTX 6000 Pro $0.39/PFLOP — but datacenter offload drops to 46% of on-robot efficiency per PFLOP at 40% robot utilization. Technical-economic hybrid, not a pure finance piece. MEDIUM fit — infra/robotics-adjacent rather than core interest list, out of highlight consideration.
+- **2026-09-19** — ⭐ [Engrams Embedding Entendre: Codesign for Efficient DRAM/SSD Offloading](https://newsletter.semianalysis.com/p/engrams-embedding-entendre-codesign) — Verified via WebFetch: analysis of offloading Engram embedding tables (learned multi-token lookups keyed by token ID rather than hidden state, so rows can be prefetched during earlier-layer compute) to host DRAM or SSD via GPU Unified Virtual Addressing — the same dequantization kernel runs unmodified whether data sits in HBM, DRAM, or SSD-backed memory. For DeepSeek-V4.1-Flash (~189GiB of Engram tables, 24 rows fetched per Engram layer, ~12.4KiB/token position): DRAM offloading on B200 reaches 121M tokens/$ at ~125 tok/s/user, SSD offloading 52M tokens/$; freeing HBM from Engram storage let the deployment drop from TP4 to TP2, improving the throughput/latency curve up to 1.6x. AMD MI355X measured at 2–4x worse performance-per-dollar than B200 for this workload, with AMD's vLLM day-0 support delayed 23+ hours past release. Direct hit on "local/self-hosted models" and "serving cost/perf" with concrete reproducible numbers.

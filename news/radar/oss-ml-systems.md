@@ -1,6 +1,6 @@
 ---
 category: oss-ml-systems
-updated: 2026-09-18
+updated: 2026-09-19
 ---
 
 # Radar: oss-ml-systems
@@ -57,3 +57,4 @@ Appended by the daily routine under weekly headings; format matches topics files
 ## 2026-W38
 
 - **2026-09-18** — [Scaling Multi-GPU Video Captioning with PyNvVideoCodec and vLLM](https://vllm.ai/blog/2026-09-18-pynvvideocodec) — vLLM blog post on using NVIDIA hardware video decoders (PyNvVideoCodec) to scale video captioning/description workloads across multiple GPUs. Verification blocked (vllm.ai egress-blocked — WebFetch 503, curl retry `SSL_ERROR_SYSCALL`) — kept on the feed's own summary text, out of highlight consideration.
+- **2026-09-19** — ⭐ [SGLang SSD Expert Pack: Running DeepSeek-V4-Flash and Kimi-K3 on Consumer Hardware](https://lmsys.org/blog/2026-08-29-sglang-ssd-expert-pack) — Verified via WebFetch: SGLang's new SSD Expert Pack stores complete MoE-expert weights on NVMe SSD (contiguous per layer/expert blocks, O_DIRECT reads straight into pinned buffers, no page-cache copy) and loads only the experts the router selects, with a byte-budgeted LFU/LRU VRAM cache for hot experts. On one RTX 5090 (32GB VRAM) + Intel Ultra5 230F/32GB RAM/2TB NVMe SSD: DeepSeek-V4-Flash (147.18GB expert-pack storage, ~21GB VRAM cache) hits 2.28–3.39x prefill / 6.55–6.92x decode speedup over Ollama (46.4–54.2% cache hit rate); Kimi-K3 (985.61GB storage, ~5GB VRAM cache) hits 5.80–6.96x prefill / 3.30–3.52x decode over llama.cpp (17.0–22.7% hit rate) — both previously impossible on a single 32GB-VRAM card. Initial pack prep takes 2–45 minutes; requires OS-level O_DIRECT 4096-byte alignment support. Direct hit on "local/self-hosted models" and "runs on my hardware" with full reproducible numbers.
