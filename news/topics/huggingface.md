@@ -5,13 +5,16 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-09-19
+updated: 2026-09-20
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W38
 
+- **2026-09-19** — [Layer-Feedback Transformer (LFT)](https://huggingface.co/blog/Banaxi-Tech/layer-feedback-transformer-lft) — Independent architecture reusing adjacent transformer layers multiple times per forward pass for extra depth without added parameters; +4.29pp Base Bench accuracy at 10M params (parameter/token-matched, not FLOPs-matched), at ~2.2-2.67x more layer executions.
+- **2026-09-18** — [Optimum-Intel v2.2.0 & OpenVINO GenAI 2026.4.0: What's New](https://huggingface.co/blog/echarlaix/optimum-intel-v22) — Hugging Face and Intel expand model support (Mistral 3, DeepSeek-OCR-2, video-capable Gemma 4), add speculative decoding, and improve VLM performance observability for Intel-hardware inference.
+- **2026-09-18** — [BananaMind 2 Pro: We've (almost) matched SmolLM2 at 20x fewer tokens... Trained On a 5070 Ti](https://huggingface.co/blog/Banaxi-Tech/bananamind-2-pro-weve-almost-matched-smollm2-at-20) — Independent ~140M-parameter LM trained on 100B tokens (20x fewer than SmolLM2-135M) on a single RTX 5070 Ti, retaining ~96% of SmolLM2's benchmark performance and ranking first on the community SLM Arena leaderboard (+81 Elo); underperforms on code, community flags AI-sounding writeup and urges independent verification.
 - **2026-09-15** — [Your Inference Server is Secretly a Learner: Reef Infrastructure for Continual Self-Improving Agents](https://huggingface.co/blog/quao627/your-inference-server-is-secretly-a-learner-reef) — Open-source infrastructure turning inference servers into continual-learning platforms for self-improving agents, integrating serving/experience-collection/improvement/evaluation into one loop that evolves both model weights and agent components (prompts, memory, tools). Backfilled: missed by prior gap-scrapes, confirmed today via primary source.
 - **2026-09-15** — [Your Agent Aced the Task. Will It Do It Again?](https://huggingface.co/blog/ibm-research/altk-evolve-consistency) — IBM Research introduces an agent-consistency metric alongside accuracy (Pass^k vs. Mean@k); a ReAct agent on GPT-4.1 hit 77.4% Mean@5 but only 53.0% Pass^5, and auto-generated Consistency Guidelines closed the gap, lifting Pass^5 to 69.0%.
 - **2026-09-15** — [What If the Adaptation Were a Model? ShadowPEFT in 🤗 PEFT library](https://huggingface.co/blog/shadow-llm/shadowpeft-peft) — ShadowPEFT lands as a first-class PEFT method: a persistent cross-layer "shadow" hidden state instead of LoRA's scattered per-weight low-rank updates, beating LoRA/DoRA on GSM8K (48.1% vs 46.9%/46.2%) and DreamBooth (DINO 0.717 vs 0.671/0.682) with smaller checkpoints.
