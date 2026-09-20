@@ -1,6 +1,6 @@
 ---
 category: practitioner-blogs
-updated: 2026-09-16
+updated: 2026-09-20
 ---
 
 # Radar: practitioner-blogs
@@ -50,3 +50,4 @@ Appended by the daily routine under weekly headings; format matches topics files
 ## 2026-W38
 
 - **2026-09-16** — [Can Skills Learned in Games Transfer to Real-World Work?](https://www.latent.space/p/good-start-labs) — Verified via WebFetch: Good Start Labs trained a 30B model on the board game *1830: The Game of Railroads and Robber Barons* and tested it on the Finance-Agent benchmark — only the terminal-agent training design improved downstream finance performance, despite both tried approaches succeeding at the in-game objective; separately, fine-tuning on the strategy game Diplomacy is reported to improve customer-support and industrial-operations benchmarks (no metrics given). The CEO frames transfer as conditional on harness/environment design (how information is presented — visual, text, code) rather than universal, and explicitly open ("every environment we've built also improves tool use downstream... how broadly and reliably remains an open question"). Direct hit on "training & fine-tuning practice" with a real, if preliminary, experiment behind it.
+- **2026-09-20** — [Why I still haven't bought into true RSI](https://www.interconnects.ai/p/where-i-stand-on-rsi) — Verified via WebFetch: Nathan Lambert stakes out "lossy self-improvement" (efficiency and inference-time gains, not exploding peak intelligence) against near-term recursive self-improvement — automatable research is too narrow to net massive acceleration against exponential scaling-law costs, parallel-agent deployment hits diminishing returns, and complex post-training judgment calls resist automation (quoting John Schulman: "it's really easy to screw up post-training in some way that doesn't show up in benchmarks"). Cites OpenAI's and Anthropic's own reported automation gains in software engineering and experiment management, but notes Anthropic's system card still sees "no clear signs of dramatic acceleration beyond that rate"; separately dismisses extinction-risk framing as "very religious," pointing out 2023–24 risk forecasts didn't arrive on their predicted timelines.
