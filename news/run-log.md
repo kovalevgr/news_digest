@@ -3344,3 +3344,29 @@ VERIFY SUBSTANCE: attempted 6 candidates. `volotat/mini-AGI` and `zai-org/ZCode`
 **Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization and its tools were not loaded in this session (non-interactive session; cannot run the OAuth flow); ToolSearch confirms no Linear tools are loadable.** No review-queue cards attempted. All 14 confirmed items are fully written in `radar/community.md` above — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now a SIXTY-THIRD consecutive affected run since 2026-08-24 (34 days with no working review queue or News digest board, and the deep-dive pipeline has produced zero output since going live). Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: radar run 2026-09-21 (+14 items, 3 highlights, Linear unavailable)`.
+
+## 2026-09-21 06:10 UTC — daily — ok (Linear unavailable)
+
+Window: since 2026-09-20T06:09 UTC (last successful daily run). `fetch_feeds.py` ran clean — every company reported zero fresh TIER-1 candidates (nvidia/mistral/huggingface hit conditional 304s; the rest returned 200 with nothing newer than their cursors). Gap-scrape attempted for all 11/11 companies (zero fresh across the board).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss.xml (TIER-1, 0 fresh), WebFetch → 403, retried via `r.jina.ai` per failure-mode table | 0 | jina | WebFetch target-403 on `/news/`; Jina succeeded and surfaced one item newer than our capture — "Introducing the Australian Youth Safety Blueprint" (Sep 18) — but it is tagged `Company`, outside the configured `category_keep` filter, so correctly fail-closed/dropped; everything else on the listing (Astra for Law, advertising, business-value, misalignment-framework posts) already in `topics/openai.md` |
+| anthropic | fetch (`/news`) | 0 | - | listing tops out at the Accenture embedded-evaluation post (Sep18), already captured |
+| google-deepmind | rss.xml (TIER-1, 0 fresh), WebFetch on blog listing | 0 | WebFetch | listing's newest items (Gemini 3.8 Flash/Flash Cyber, 3.8 Live, AlphaGenome Atlas, WeatherNext 3, agentic video) all already present in `topics/google-deepmind.md` |
+| google-research | rss.xml (TIER-1, 0 fresh), WebFetch on blog listing | 0 | WebFetch | listing tops out at MilleMiglia (Sep18), already captured |
+| microsoft | rss.xml (TIER-1, 0 fresh), WebFetch on research blog listing | 0 | WebFetch | listing still tops out at GigaPath-Flash/GigaTIME-Flash (Aug31); company remains silent |
+| nvidia | rss.xml (TIER-1, 304), WebFetch on developer blog listing | 0 | WebFetch | listing's newest items (AIPerf Sep18 down through dropless-MoE Sep14) all already present in `topics/nvidia.md` |
+| xai | curl r.jina.ai (200, anonymous) | 0 | jina | full listing re-confirmed; newest items (Grok Voice Transcribe 2.0 Sep18, Memory in Grok Build Sep16) already captured |
+| mistral | rss.xml (TIER-1, 304), WebFetch on news listing | 0 | WebFetch | listing still tops out at Mistral x Mozilla (Sep16); nothing newer |
+| huggingface | rss.xml (TIER-1, 304), WebFetch on blog listing | 0 | WebFetch | listing still tops out at Layer-Feedback Transformer (Sep19); nothing newer |
+| cursor | rss.xml (TIER-1, 0 fresh), WebFetch on changelog listing | 0 | WebFetch | listing still tops out at Cursor Projects (Sep10); nothing newer |
+| perplexity | curl r.jina.ai, WebSearch (2x, targeted) | 0 | jina (HTTP 403 AbuseAlleviation — anonymous access to perplexity.ai still blocked, this time until 07:06 UTC today "DDoS attack suspected: Too many requests"), WebSearch | WebSearch again surfaced the same Sep17 titles as the last two runs ("AI in the workplace: A practical guide for knowledge workers", "Computer adds effort controls for model selection") plus third-party paraphrases of them, but no canonical `perplexity.ai/hub/blog` URL could be confirmed for either across two targeted searches — not written per never-invent-a-source-URL rule; unresolved for a third consecutive run, still pending `JINA_API_KEY` |
+
+Totals: 0 items, 0 companies fresh, 0 hard errors (11/11 gap-scrapes attempted — a fully quiet day, not a fetch failure).
+
+**Linear: UNAVAILABLE this run — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; non-interactive session cannot run the OAuth flow).** Moot this run regardless — zero new items to card. This is now a SIXTY-FOURTH consecutive affected run since 2026-08-24 (35 days with no working review queue or News digest board). Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+**Housekeeping note:** at the start of this run, local `main` and `origin/main` were both found 8 commits behind the repo's actual working state (detached HEAD) — the daily/radar runs and weekly digest from 2026-09-18 through 2026-09-21 (radar) had never been pushed. Fast-forwarded `main` to the detached HEAD and pushed; nothing was lost, but a prior run apparently ended without completing its push. Worth a look if it recurs.
+
+Commit: `news: daily run 2026-09-21 (+0 items, 0 companies fresh, Linear unavailable)`.
