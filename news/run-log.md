@@ -3403,3 +3403,27 @@ VERIFY SUBSTANCE: attempted 5 candidates (the up-to-5 cap). `lmsys.org` NVFP4 KV
 **Linear: UNAVAILABLE this run — the Linear MCP server requires re-authorization; ToolSearch confirms no Linear tools are loadable in this non-interactive session.** No review-queue cards attempted. All 15 confirmed items are fully written across `radar/*.md` above — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now a SIXTY-SIXTH consecutive affected run since 2026-08-24 (~30 days with no working review queue or News digest board, and the deep-dive pipeline has produced zero output since going live). Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: radar run 2026-09-22 (+15 items, 3 highlights, Linear unavailable)`.
+
+## 2026-09-22 06:15 UTC — daily — ok (Linear unavailable)
+
+Window: since 2026-09-21T06:10 UTC (last successful daily run). `fetch_feeds.py` ran clean — mistral hit a 304 (cursor unchanged); microsoft (1), nvidia (3), and huggingface (1) reported fresh TIER-1 candidates; the other 8 companies reported zero fresh. Gap-scrape attempted for all 8/8 zero-fresh companies.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss.xml (TIER-1, 0 fresh), WebFetch → 403, retried via `r.jina.ai` | 0 | jina | WebFetch target-403 on `/news/`; Jina succeeded — newest two items ("Advisory group on mathematics and artificial intelligence", "Expanding OpenAI Academy with new learning paths", both Sep 21) are tagged `Company`, outside `category_keep`, correctly fail-closed/dropped; "Astra for Law" (Sep17/18) and everything else already in `topics/openai.md` |
+| anthropic | fetch (`/news`) | 0 | - | listing tops out at the Accenture embedded-evaluation post (Sep18), already captured |
+| google-deepmind | rss.xml (TIER-1, 0 fresh), WebFetch on blog listing | 0 | WebFetch | listing's newest items (Gemini 3.8 Flash/Flash Cyber, Fairwind Program, 3.8 Live, AlphaGenome Atlas, WeatherNext 3, agentic video) all already present in `topics/google-deepmind.md` |
+| google-research | rss.xml (TIER-1, 0 fresh), WebFetch on blog listing | 0 | WebFetch | listing tops out at MilleMiglia (Sep18), already captured |
+| microsoft | rss.xml (TIER-1, 1 fresh) | 1 | - | RetroChimera (retrosynthesis prediction, Nature paper) — confirmed, written |
+| nvidia | rss.xml (TIER-1, 3 fresh) | 3 | - | TensorRT multi-device in Dynamo-Triton, AI-agent evaluation framework, Earth-2 data assimilation — all confirmed, written |
+| xai | rss n/a (jina-only company); curl r.jina.ai (200, anonymous) | 1 | jina | **Grok 4.7** — new flagship model release (Sep21), not previously captured; confirmed via primary source, written |
+| mistral | rss.xml (TIER-1, 304) | 0 | - | cursor unchanged since last run |
+| huggingface | rss.xml (TIER-1, 1 fresh) | 1 | - | "Pruning LLMs Like a Physicist" (Ising-optimization block pruning, Multiverse Computing) — confirmed, written |
+| cursor | rss.xml (TIER-1, 0 fresh), WebFetch on changelog listing | 0 | WebFetch | listing tops out at Cursor Projects (Sep10), already captured |
+| perplexity | curl r.jina.ai → 403 AbuseAlleviation (still blocked until 07:06 UTC, same recurring block), WebSearch fallback | 1 | jina (403) then WebSearch | WebSearch surfaced "Computer adds effort mode for model selection" (Sep17) with a confirmed canonical URL (corroborated by AlternativeTo/AlphaSignal/SQ Magazine) — written as backfilled per the established pattern; a second Sep17 title ("AI in the workplace: a practical guide") is tutorial/marketing content, not a hard announcement — not written per the never-invent/real-announcement rule |
+
+Totals: 7 items, 5 companies fresh (microsoft, nvidia, xai, huggingface, perplexity), 0 hard errors.
+
+**Linear: UNAVAILABLE this run — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; non-interactive session cannot run the OAuth flow).** All 7 new items are fully written to `topics/*.md` + `artifacts/` above — no data lost, only Linear cards are behind. This is now a SIXTY-SEVENTH consecutive affected run since 2026-08-24. Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-09-22 (+7 items, 5 companies fresh, Linear unavailable)`.

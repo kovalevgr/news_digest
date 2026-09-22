@@ -5,10 +5,14 @@ aliases:
   - Copilot
 sources:
   - https://news.microsoft.com/source/feed/
-updated: 2026-09-01
+updated: 2026-09-22
 ---
 
 MOC page for **Microsoft** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W38
+
+- **2026-09-21** — [Improving synthesis prediction of small molecules at scale with RetroChimera](https://www.microsoft.com/en-us/research/blog/improving-synthesis-prediction-of-small-molecules-at-scale-with-retrochimera/) — Microsoft Research publishes RetroChimera in Nature: a retrosynthesis-prediction framework combining a Transformer and a GNN, reaching 90% expert-chemist acceptance vs 20-50% for either sub-model alone; open-source (MIT) and on Microsoft Foundry.
 
 ## 2026-W36
 

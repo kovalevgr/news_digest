@@ -4,13 +4,16 @@ aliases:
   - Nvidia
 sources:
   - https://blogs.nvidia.com/feed/
-updated: 2026-09-19
+updated: 2026-09-22
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W38
 
+- **2026-09-21** — [Simplifying Model Serving Across Multiple GPUs with NVIDIA TensorRT Multi-Device Integration in NVIDIA Dynamo-Triton](https://developer.nvidia.com/blog/simplifying-model-serving-across-multiple-gpus-with-nvidia-tensorrt-multi-device-integration-in-nvidia-dynamo-triton/) — NVIDIA details TensorRT multi-device inference in Dynamo-Triton 26.07, distributing a single TensorRT network across GPUs via NCCL; 8-GPU Cosmos 3 Nano video-gen test shows 4.58x speedup (156.6s to 34.2s).
+- **2026-09-21** — [How to Evaluate AI Agents From Tool Calls to Task Completion](https://developer.nvidia.com/blog/how-to-evaluate-ai-agents-from-tool-calls-to-task-completion/) — NVIDIA lays out a two-layer (step-level + outcome) AI-agent evaluation framework emphasizing paired accuracy/consistency reporting over single-point success rates; illustrated with Nemotron 3.5 Lightning at 86% PinchBench accuracy.
+- **2026-09-21** — [Turn Your Latest Observations Into Timely Weather Decisions With NVIDIA Earth-2](https://developer.nvidia.com/blog/turn-your-latest-observations-into-timely-weather-decisions-with-nvidia-earth-2/) — NVIDIA adds Score-Based Data Assimilation and HealDA to open-source Earth2Studio, letting orgs fold their own sensor data into forecasts; SDA cuts wind-speed RMSE by 54% in a CorrDiff-COSMO downscaling example.
 - **2026-09-18** — [Benchmarking LLM Inference at Scale with AIPerf](https://developer.nvidia.com/blog/benchmarking-llm-inference-at-scale-with-aiperf/) — NVIDIA introduces AIPerf, an open-source multiprocess redesign of GenAI-Perf removing client-side bottlenecks (single-process limits, Python's GIL) so LLM inference benchmarks measure server performance, not the client.
 - **2026-09-16** — [Translating CUDA Tile Operations from Python to Rust Using Agentic AI](https://developer.nvidia.com/blog/translating-cuda-tile-operations-from-python-to-rust-using-agentic-ai/) — Multi-agent workflow (analysis/kernel-writing/host-FFI/benchmarking subagents, machine-checkable verdicts) ports all 24 public TileGym operators (~40 GPU kernels) from cuTile Python to cuTile Rust, reaching 99.5% of Python performance on DGX B200.
 - **2026-09-16** — [TensorRT Edge-LLM Completes the MLPerf Edge Agentic Benchmark 6.4x Faster on Jetson AGX Thor](https://developer.nvidia.com/blog/tensorrt-edge-llm-completes-the-mlperf-edge-agentic-benchmark-6-4x-faster-on-jetson-agx-thor/) — Record MLPerf Inference v6.1 Edge Agentic result on a single Jetson AGX Thor: 52.33 tok/s, 6.4x faster than llama.cpp reference, via NVFP4 quantization, FP8 KV cache, and tree-based multi-token prediction.

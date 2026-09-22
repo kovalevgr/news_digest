@@ -4,13 +4,14 @@ aliases:
   - Perplexity AI
 sources:
   - https://www.perplexity.ai/hub/blog
-updated: 2026-09-18
+updated: 2026-09-22
 ---
 
 MOC page for **Perplexity** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W38
 
+- **2026-09-17** — [Computer adds effort mode for model selection](https://www.perplexity.ai/hub/blog/computer-adds-effort-mode-for-model-selection) — Perplexity Computer adds a Light/Standard/High/Ultra effort slider that picks the underlying model and reasoning level for the user. Backfilled: primary source blocked on every transport tried today; written on canonical-URL + content confirmation via WebSearch.
 - **2026-09-14** — [CobbleDB: Lower-Latency, Lower-Cost AI Search Storage](https://www.perplexity.ai/hub/blog/cobbledb) — Perplexity replaces DynamoDB reads with CobbleDB, a ~40K-line Rust key-value hot store, cutting batch-read latency ~82% (31.4ms→5.6ms median) with a claimed $100M/year saving; plans to open-source it. Backfilled: primary source blocked on every transport tried today (Cloudflare/egress-blocked on perplexity.ai); written on canonical-URL + content confirmation via WebSearch.
 - **2026-09-14** — [Portable Computer for Windows is here](https://www.perplexity.ai/hub/blog/portable-computer-for-windows-is-here) — Perplexity brings its on-device Portable Computer agent (first launched on NVIDIA DGX Spark in August) to Windows PCs with NVIDIA RTX/RTX PRO GPUs (24GB+ VRAM), for Pro/Max subscribers. Backfilled: primary source blocked on every transport tried today (Cloudflare/egress-blocked on perplexity.ai); written on canonical-URL + content confirmation via WebSearch.
 

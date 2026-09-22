@@ -4,13 +4,14 @@ aliases:
   - Grok
 sources:
   - https://x.ai/news
-updated: 2026-09-20
+updated: 2026-09-22
 ---
 
 MOC page for **xAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W38
 
+- **2026-09-21** — [Introducing Grok 4.7](https://x.ai/news/grok-4-7) — xAI releases Grok 4.7, its most capable coding/knowledge-work model, at the same price/speed as Grok 4.6; leads on CursorBench 4.0 price-performance and tops LatchBio's biosafety benchmark at 62.4%.
 - **2026-09-18** — [Introducing Grok Voice Transcribe 2.0](https://x.ai/news/grok-voice-transcribe-2) — xAI ships Grok Voice Transcribe 2.0, twice as accurate as v1.0 at the same price, ranking first among 32 streaming models on the public Artificial Analysis leaderboard; multilingual short-phrase WER drops 20.6%→6.8%. Backfilled: missed by the 2026-09-19 run (anonymous Jina 403'd that day), confirmed today via primary source.
 - **2026-09-16** — [Memory in Grok Build](https://x.ai/news/grok-build-memory) — xAI adds persistent memory to Grok Build (its coding agent): after each turn Grok records conventions, decisions, and durable project facts as notes, organized over time by a new `/dream` command; `/memory` browses them. Available now for new sessions.
 
