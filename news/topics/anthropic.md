@@ -4,13 +4,14 @@ aliases:
   - Claude
 sources:
   - https://www.anthropic.com/news
-updated: 2026-09-19
+updated: 2026-09-22
 ---
 
 MOC page for **Anthropic** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W38
 
+- **2026-09-22** — [Introducing Claude Opus 5.5](https://www.anthropic.com/claude-opus-5-5) — Anthropic launches Claude Opus 5.5, matching Claude Fable 5.1's performance on most tasks at 40% lower cost ($4/$20 per M tokens vs Opus 5's $5/$25); available now on Claude Platform, AWS, Google Cloud, Azure.
 - **2026-09-18** — [Partnering with Accenture on embedded evaluation](https://www.anthropic.com/news/accenture-embedded-evaluation) — Anthropic and Accenture's Faculty division launch independent, employee-level "embedded evaluation" of frontier models, both committing at least $1B over five years; non-exclusive, alongside continued nonprofit evaluator funding (e.g. METR).
 - **2026-09-17** — [Introducing the Life Sciences Verification Program](https://www.anthropic.com/news/life-sciences-verification-program) — Anthropic launches LSVP, giving verified life-science professionals access to Claude (Mythos, Opus, Sonnet) with customized safeguards instead of blanket biology restrictions, moving from real-time blocking to offline monitoring.
 - **2026-09-17** — [Measurements for understanding the pace of AI development inside frontier labs](https://www.anthropic.com/institute/measuring-pace-of-ai-development) — Anthropic publishes three transparency frameworks: Claude "leads" 26% of Anthropic's AI R&D work (vs. <1% in Feb 2026), ~30,000 agents run under 100%-coverage online/offline oversight, and 6% of AI R&D compute is allocated to safety.

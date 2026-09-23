@@ -4,13 +4,17 @@ aliases:
   - Nvidia
 sources:
   - https://blogs.nvidia.com/feed/
-updated: 2026-09-22
+updated: 2026-09-23
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W38
 
+- **2026-09-22** — [Enabling Private High-Performance Production AI Inference with NVIDIA Confidential Computing](https://developer.nvidia.com/blog/enabling-private-high-performance-production-ai-inference-with-nvidia-confidential-computing/) — NVIDIA details TensorRT-LLM optimizations letting confidential-computing-protected inference on Blackwell GPUs retain 96.1-98.2% of standard throughput (1.2-4.3% added per-token latency), tested with DeepSeek-R1 on 8x B200.
+- **2026-09-22** — [Topology-Aware Workload Scheduling with NVIDIA Topograph](https://developer.nvidia.com/blog/topology-aware-workload-scheduling-with-nvidia-topograph/) — NVIDIA open-sources Topograph, auto-discovering cluster network topology across cloud/on-prem fabrics and feeding topology-aware GPU placement to Kubernetes/Slurm/KAI Scheduler.
+- **2026-09-22** — [What's New for Game Developers: DLSS 5 with 3D-Guided Neural Rendering, NVIDIA ACE Updates, and New RTX Kit Capabilities](https://developer.nvidia.com/blog/whats-new-for-game-developers-dlss-5-with-3d-guided-neural-rendering-nvidia-ace-updates-and-new-rtx-kit-capabilities/) — NVIDIA ships DLSS 5's neural rendering stage (live now in NBA 2K27), expanded NVIDIA ACE speech models, and RTX Mega Geometry 2.0.
+- **2026-09-22** — [Accelerating a ROS 2 Node with an AI Agent and NVIDIA Isaac ROS](https://developer.nvidia.com/blog/accelerating-a-ros-2-node-with-an-ai-agent-and-nvidia-isaac-ros/) — NVIDIA shows an AI coding agent migrating ROS 2 nodes to GPU-resident zero-copy data transport via a new CUDA buffer backend; all Isaac ROS 5.0 nodes already use it.
 - **2026-09-21** — [Simplifying Model Serving Across Multiple GPUs with NVIDIA TensorRT Multi-Device Integration in NVIDIA Dynamo-Triton](https://developer.nvidia.com/blog/simplifying-model-serving-across-multiple-gpus-with-nvidia-tensorrt-multi-device-integration-in-nvidia-dynamo-triton/) — NVIDIA details TensorRT multi-device inference in Dynamo-Triton 26.07, distributing a single TensorRT network across GPUs via NCCL; 8-GPU Cosmos 3 Nano video-gen test shows 4.58x speedup (156.6s to 34.2s).
 - **2026-09-21** — [How to Evaluate AI Agents From Tool Calls to Task Completion](https://developer.nvidia.com/blog/how-to-evaluate-ai-agents-from-tool-calls-to-task-completion/) — NVIDIA lays out a two-layer (step-level + outcome) AI-agent evaluation framework emphasizing paired accuracy/consistency reporting over single-point success rates; illustrated with Nemotron 3.5 Lightning at 86% PinchBench accuracy.
 - **2026-09-21** — [Turn Your Latest Observations Into Timely Weather Decisions With NVIDIA Earth-2](https://developer.nvidia.com/blog/turn-your-latest-observations-into-timely-weather-decisions-with-nvidia-earth-2/) — NVIDIA adds Score-Based Data Assimilation and HealDA to open-source Earth2Studio, letting orgs fold their own sensor data into forecasts; SDA cuts wind-speed RMSE by 54% in a CorrDiff-COSMO downscaling example.

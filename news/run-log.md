@@ -3458,3 +3458,31 @@ Totals: 7 items, 5 companies fresh (microsoft, nvidia, xai, huggingface, perplex
 **Linear: UNAVAILABLE this run — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; non-interactive session cannot run the OAuth flow).** All 7 new items are fully written to `topics/*.md` + `artifacts/` above — no data lost, only Linear cards are behind. This is now a SIXTY-SEVENTH consecutive affected run since 2026-08-24. Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: daily run 2026-09-22 (+7 items, 5 companies fresh, Linear unavailable)`.
+
+## 2026-09-23 06:12 UTC — daily — ok (Linear unavailable)
+
+Window: since 2026-09-22T06:09 UTC (last successful daily run). `fetch_feeds.py` ran clean apart from `cursor.com/changelog/rss.xml` timing out on TLS handshake (transient, no retry needed — gap-scrape covered it below); openai (2) and nvidia (4, after independently re-verifying the raw feed against the pre-run cursor — see note) reported fresh TIER-1 candidates, the other 9 companies reported zero fresh. Gap-scrape attempted for all 9/9 zero-fresh companies (anthropic/fetch, xai/jina, perplexity/jina always gap-scrape by design; the other 6 rss-only companies via WebFetch/WebSearch on their listing pages, one attempt each).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss.xml (TIER-1, 2 fresh) | 2 | - | "Better prompt caching for GPT-6" and "Introducing GPT-6 Sol and Luna" (both Sep22, tagged Product/Release) — confirmed, written |
+| anthropic | fetch (`/news`) | 1 | - | **Claude Opus 5.5** (Sep22) — new flagship-family model release, not previously captured; confirmed via primary source, written |
+| google-deepmind | rss.xml (TIER-1, 0 fresh), WebFetch on blog.google listing | 0 | WebFetch | listing's newest items (3.8 Flash/Flash Cyber, Fairwind, agentic video, WeatherNext 3, etc.) all already present in `topics/google-deepmind.md`; nothing newer than the Sep15 3.8 Live entry already captured |
+| google-research | rss.xml (TIER-1, 0 fresh), WebFetch on blog listing | 0 | WebFetch | listing tops out at MilleMiglia (Sep18), already captured |
+| microsoft | rss.xml (TIER-1, 0 fresh), WebFetch on research blog listing | 0 | WebFetch | listing tops out at RetroChimera (Sep21), already captured; feed's Last-Modified header advanced but no new qualifying item accompanied it |
+| nvidia | rss.xml (TIER-1, 4 fresh) | 4 | - | Confidential Computing inference, Topograph, DLSS 5 game-dev update, ROS 2 Isaac agent migration (all Sep22) — confirmed, written |
+| xai | rss n/a (jina-only company); curl r.jina.ai (200, anonymous) | 1 | jina | "How SpaceXAI is using Grok Bot to scale customer support" (Sep22) — confirmed via primary source, written; Grok 4.7 (Sep21) already captured |
+| mistral | rss.xml (TIER-1, 0 fresh), WebFetch on news listing | 0 | WebFetch | listing tops out at Mistral x Mozilla (Sep16), already captured |
+| huggingface | rss.xml (TIER-1, 0 fresh — see note), curl on raw feed.xml | 2 | curl (raw feed) | "How UK AISI and EvalEval Are Making Benchmark Results Reproducible" and "Transformers now runs llama.cpp quants" (both dated Sep22 00:00 GMT in the feed — see note) — confirmed, written; a third Sep22 item ("Jun Kim... joins Hugging Face") excluded as a hiring post per the never-invent/real-announcement rule |
+| cursor | rss.xml (TIER-1 TLS timeout), WebFetch on changelog listing | 0 | WebFetch | listing tops out at Cursor Projects (Sep10), already captured |
+| perplexity | curl r.jina.ai (HTTP 403 AbuseAlleviation — anonymous access still blocked until 07:07 UTC today, same recurring block), WebSearch | 0 | jina (403) then WebSearch | WebSearch surfaced only titles already captured (CobbleDB, Portable Computer for Windows, Q2D-Web) plus a Sep1 Hybrid-Compute-on-Mac piece that predates the window — no new canonical URL confirmed; not written per never-invent-a-source-URL rule |
+
+Totals: 10 items, 5 companies fresh (openai, anthropic, nvidia, xai, huggingface), 0 hard errors.
+
+**Process note — do not run `fetch_feeds.py` more than once per run.** This run's script was accidentally invoked twice (once to capture output, once more when the first capture was truncated), which advanced `state/cursors.json` past the openai/nvidia items the first run had already found "fresh," making the second run correctly report 0 fresh for everything. No data was lost: openai's 2 items were fully visible in the first run's (truncated) output, and nvidia's item count was independently re-derived by diffing the pre-run cursor timestamp (`2026-09-22T06:09:17`, recovered from `git diff`) against a direct, unconditional fetch of the raw `developer.nvidia.com/blog/feed` — all 4 entries published after that timestamp were confirmed and written. Future runs: capture the full JSON to a file in one shot (no `head`/truncation) before doing anything else with it.
+
+**Housekeeping note (recurring):** at the start of this run, local `main`/`origin/main` were again found 12 commits behind the actual working state (detached HEAD at `d0a04d1`, the 2026-09-23 radar-run commit) — same shape as the notes on 2026-09-21 and 2026-09-23 (radar). Fast-forwarded `main` to HEAD and pushed before starting this run's work; nothing was lost. Now three occurrences in 3 days — worth checking whether the routines' finishing steps reliably run on branch `main` (not a detached HEAD) before their final push.
+
+**Linear: UNAVAILABLE this run — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; non-interactive session cannot run the OAuth flow).** All 10 new items are fully written to `topics/*.md` + `artifacts/` above — no data lost, only Linear cards are behind. This is now a SIXTY-NINTH consecutive affected run since 2026-08-24. Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-09-23 (+10 items, 5 companies fresh, Linear unavailable)`.

@@ -5,13 +5,15 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-09-22
+updated: 2026-09-23
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W38
 
+- **2026-09-22** — [How UK AISI and EvalEval Are Making Benchmark Results Reproducible](https://huggingface.co/blog/evaleval-aisi) — UK AI Security Institute publishes evaluation results for six frontier models across five benchmarks (HealthBench, FrontierMath, HLE, SWE-Bench Pro, Terminal-Bench 2.0) via the EvalEval Coalition's Evaluation Cards infrastructure on Hugging Face.
+- **2026-09-22** — [Transformers now runs llama.cpp quants](https://huggingface.co/blog/transformers-llama-cpp-quants) — Hugging Face adds GGUF quantized-model loading directly in Transformers via `from_pretrained(gguf_file=...)`, reusing ggml's Metal kernels for near-llama.cpp performance on Apple Silicon (initially Qwen3.5 architecture).
 - **2026-09-21** — [Pruning LLMs Like a Physicist: Block Removal as an Ising Optimization Problem](https://huggingface.co/blog/MultiverseComputingCAI/pruning-llms-like-a-physicist-block-removal-as-an) — Multiverse Computing reframes transformer depth-pruning as an Ising spin-glass optimization problem; on Llama-3.3-70B-Instruct at 50% depth compression, scores 76.9 MMLU vs 54.0 for a block-influence baseline.
 - **2026-09-19** — [Layer-Feedback Transformer (LFT)](https://huggingface.co/blog/Banaxi-Tech/layer-feedback-transformer-lft) — Independent architecture reusing adjacent transformer layers multiple times per forward pass for extra depth without added parameters; +4.29pp Base Bench accuracy at 10M params (parameter/token-matched, not FLOPs-matched), at ~2.2-2.67x more layer executions.
 - **2026-09-18** — [Optimum-Intel v2.2.0 & OpenVINO GenAI 2026.4.0: What's New](https://huggingface.co/blog/echarlaix/optimum-intel-v22) — Hugging Face and Intel expand model support (Mistral 3, DeepSeek-OCR-2, video-capable Gemma 4), add speculative decoding, and improve VLM performance observability for Intel-hardware inference.

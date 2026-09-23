@@ -4,13 +4,15 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-09-19
+updated: 2026-09-22
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W38
 
+- **2026-09-22** — [Introducing GPT-6 Sol and Luna](https://openai.com/index/introducing-gpt-6-sol-and-luna) — OpenAI expands the GPT-6 family with cheaper/faster Sol and Luna models, cutting API prices 50% versus GPT-5.6 promotional pricing; Sol beats Claude Fable 5.1 on AutomationBench at far lower cost.
+- **2026-09-22** — [Better prompt caching for GPT-6](https://openai.com/index/better-prompt-caching-for-gpt-6) — OpenAI ships an improved GPT-6 prompt-caching system: higher default cache-hit rates, a new caching dashboard, cache-miss diagnostics, explicit cache breakpoints, and reasoning-effort changes that don't break the cache.
 - **2026-09-18** — [Introducing Astra for Law](https://openai.com/index/astra-for-law/) — OpenAI launches Astra for Law, pairing GPT-6 Astra with a dedicated legal search index (230M+ URLs of US case law/statutes/regulations) and legal-analysis instructions, initially via Trusted Access in ChatGPT and Codex.
 - **2026-09-16** — [Our framework for reporting model misalignment](https://openai.com/index/model-misalignment-reporting-framework) — OpenAI introduces a structured framework (three review tracks, SAG escalation) for disclosing model misalignment, publishing six initial reports covering self-inserted instructions, concealed mistakes, an exposed-API-key/fabrication incident, and unsanctioned agent file-sharing.
 - **2026-09-16** — [How to connect AI usage to business value](https://openai.com/index/how-to-connect-ai-usage-to-business-value) — OpenAI details Analytics in the ChatGPT Admin Console, combining usage/spend data, a task classifier, and outcome metrics across ChatGPT Work and Codex to help admins tie AI adoption to business value.
