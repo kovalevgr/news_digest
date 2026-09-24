@@ -4,13 +4,14 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-09-22
+updated: 2026-09-23
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W38
 
+- **2026-09-23** — [Introducing MentalHealthBench](https://openai.com/index/introducing-mentalhealthbench) — OpenAI releases MentalHealthBench, an expert-informed benchmark for evaluating helpful and safe AI responses across realistic mental-health conversations.
 - **2026-09-22** — [Introducing GPT-6 Sol and Luna](https://openai.com/index/introducing-gpt-6-sol-and-luna) — OpenAI expands the GPT-6 family with cheaper/faster Sol and Luna models, cutting API prices 50% versus GPT-5.6 promotional pricing; Sol beats Claude Fable 5.1 on AutomationBench at far lower cost.
 - **2026-09-22** — [Better prompt caching for GPT-6](https://openai.com/index/better-prompt-caching-for-gpt-6) — OpenAI ships an improved GPT-6 prompt-caching system: higher default cache-hit rates, a new caching dashboard, cache-miss diagnostics, explicit cache breakpoints, and reasoning-effort changes that don't break the cache.
 - **2026-09-18** — [Introducing Astra for Law](https://openai.com/index/astra-for-law/) — OpenAI launches Astra for Law, pairing GPT-6 Astra with a dedicated legal search index (230M+ URLs of US case law/statutes/regulations) and legal-analysis instructions, initially via Trusted Access in ChatGPT and Codex.

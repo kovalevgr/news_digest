@@ -3517,3 +3517,29 @@ VERIFY SUBSTANCE: 5 candidates attempted against the cap. `google/ax` verified v
 **Housekeeping note (recurring):** at the start of this run, local repo was again found on a detached HEAD, `main` 14 commits behind (same shape as the notes on 2026-09-21/22/23). Stashed this run's in-progress edits, fast-forwarded `main` to the detached HEAD's commit, confirmed `origin/main` already matched (a concurrent push had landed it), then restored this run's edits and continued on `main`. Fifth occurrence in 4 days — still worth checking whether the routines' finishing steps reliably run `git checkout main && git merge --ff-only` (or start each run already on `main`) before their final push.
 
 Commit: `news: radar run 2026-09-24 (+14 items, 3 highlights, Linear unavailable)`.
+
+## 2026-09-24 06:05 UTC — daily — ok (Linear unavailable)
+
+Window: since 2026-09-23T06:12 UTC (last successful daily run). `fetch_feeds.py` ran once, output captured to a file in one shot (per the 2026-09-23 process note). TIER-1 reported fresh candidates for openai (1), microsoft (1), nvidia (4), huggingface (1); zero fresh for the other 7 companies — gap-scrape attempted for all 7 (anthropic/fetch, xai/jina, perplexity/jina always gap-scrape by design; google-deepmind/google-research/mistral/cursor via WebFetch on their listing pages, one attempt each). `google-deepmind`'s rss.xml returned `TRAP/not-a-feed` this run (HTML body, not a feed) — new occurrence, not previously seen for this URL; gap-scraped via WebFetch instead, logged here for the owner to watch (not changed in config on a single occurrence). `mistral`'s rss.xml returned 304 not-modified (correctly zero-fresh, not an error).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss.xml (TIER-1, 1 fresh) | 1 | - | "Introducing MentalHealthBench" (Sep23) — confirmed, written |
+| anthropic | fetch (`/news`) | 1 | - | **Claude discovers a novel enzyme system with CRISPR-like repeats** (Sep23) — ~950 Claude agents autonomously found a novel CRISPR-like enzyme system (ART) in genomic databases; confirmed via primary source, written |
+| google-deepmind | rss.xml (TIER-1, TRAP/not-a-feed), WebFetch on deepmind.google/blog listing | 0 | WebFetch | listing tops out at Gemini 3.8 Live (Sep15), already captured; nothing newer found |
+| google-research | rss.xml (TIER-1, 0 fresh), WebFetch on research.google/blog listing | 0 | WebFetch | listing tops out at MilleMiglia (Sep18), already captured |
+| microsoft | rss.xml (TIER-1, 1 fresh) | 1 | - | "Offloaded inference for real-world physical AI robotics" (Sep23) — confirmed, written |
+| nvidia | rss.xml (TIER-1, 4 fresh) | 4 | - | NV-Reason-CT, Cluster Readiness Engine (NVCRE), NodeWright, SWE-Serve (all Sep23) — confirmed, written |
+| xai | rss n/a (jina-only company); curl r.jina.ai (200, anonymous) | 0 | jina | newest item Grok 4.7 (Sep21) and Grok Bot customer support (Sep22) already captured; nothing newer |
+| mistral | rss.xml (TIER-1, 304 not-modified), WebFetch on news listing | 0 | WebFetch | listing tops out at Mistral x Mozilla (Sep16), already captured |
+| huggingface | rss.xml (TIER-1, 1 fresh) | 1 | - | "How to Use NVIDIA Warp and MjWarp to Accelerate Robotics Simulation and Learning Workflows" (Sep23) — confirmed, written |
+| cursor | rss.xml (TIER-1, 0 fresh), WebFetch on changelog listing | 1 | WebFetch | "Rollouts and Security Review" (Sep23) — confirmed via WebFetch + HTTP 200 URL check, written |
+| perplexity | curl r.jina.ai (HTTP 403 AbuseAlleviation, anonymous access blocked until 07:04 UTC today — same recurring block), WebSearch | 0 | jina (403) then WebSearch | WebSearch surfaced only titles already captured (Computer effort mode, Sep17); no new canonical URL confirmed |
+
+Totals: 9 items, 6 companies fresh (openai, anthropic, microsoft, nvidia, huggingface, cursor), 0 hard errors.
+
+**Housekeeping note:** at the start of this run, local `main` was on a detached HEAD one commit behind `origin/main` (stale local tracking metadata from before `git fetch`, not a real divergence — `origin/main` already carried the 2026-09-24 radar-run commit). Fetched, fast-forwarded `main` to `origin/main`, confirmed clean, then did this run's work on `main`. No data at risk this time; same recurring shape as prior days' notes — still worth the routines double-checking they finish each run already checked out on `main`.
+
+**Linear: UNAVAILABLE this run — no Linear MCP tools loadable in this session (server requires re-authorization; non-interactive session cannot run the OAuth flow).** All 9 new items are fully written to `topics/*.md` + `artifacts/` above — no data lost, only Linear cards are behind. This is now the SEVENTY-FIRST consecutive affected run since 2026-08-24. Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-09-24 (+9 items, 6 companies fresh, Linear unavailable)`.

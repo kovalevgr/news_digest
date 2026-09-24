@@ -12,6 +12,7 @@ MOC page for **Hugging Face** — AI-news items collected daily by the news rout
 
 ## 2026-W38
 
+- **2026-09-23** — [How to Use NVIDIA Warp and MjWarp to Accelerate Robotics Simulation and Learning Workflows](https://huggingface.co/blog/nvidia/how-to-use-nvidia-warp-and-mjwarp) — NVIDIA publishes a guide on using Warp and MjWarp to accelerate robotics simulation and learning workflows on Hugging Face.
 - **2026-09-22** — [How UK AISI and EvalEval Are Making Benchmark Results Reproducible](https://huggingface.co/blog/evaleval-aisi) — UK AI Security Institute publishes evaluation results for six frontier models across five benchmarks (HealthBench, FrontierMath, HLE, SWE-Bench Pro, Terminal-Bench 2.0) via the EvalEval Coalition's Evaluation Cards infrastructure on Hugging Face.
 - **2026-09-22** — [Transformers now runs llama.cpp quants](https://huggingface.co/blog/transformers-llama-cpp-quants) — Hugging Face adds GGUF quantized-model loading directly in Transformers via `from_pretrained(gguf_file=...)`, reusing ggml's Metal kernels for near-llama.cpp performance on Apple Silicon (initially Qwen3.5 architecture).
 - **2026-09-21** — [Pruning LLMs Like a Physicist: Block Removal as an Ising Optimization Problem](https://huggingface.co/blog/MultiverseComputingCAI/pruning-llms-like-a-physicist-block-removal-as-an) — Multiverse Computing reframes transformer depth-pruning as an Ising spin-glass optimization problem; on Llama-3.3-70B-Instruct at 50% depth compression, scores 76.9 MMLU vs 54.0 for a block-influence baseline.

@@ -4,10 +4,14 @@ aliases:
   - Anysphere
 sources:
   - https://cursor.com/changelog/rss.xml
-updated: 2026-09-11
+updated: 2026-09-23
 ---
 
 MOC page for **Cursor** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W38
+
+- **2026-09-23** — [Rollouts and Security Review](https://cursor.com/changelog/rollouts-and-security-reviewer) — Cursor launches two bots for Teams/Enterprise plans: Rollouts monitors deployment health per environment, and Security Review identifies exploitable vulnerabilities on pull requests.
 
 ## 2026-W37
 
