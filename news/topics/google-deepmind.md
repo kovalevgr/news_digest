@@ -5,10 +5,14 @@ aliases:
   - Gemini
 sources:
   - https://deepmind.google/blog/rss.xml
-updated: 2026-09-16
+updated: 2026-09-24
 ---
 
 MOC page for **Google DeepMind** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W39
+
+- **2026-09-24** — [Introducing Gemini 3.8 Live with Live Avatar](https://deepmind.google/blog/introducing-gemini-38-live-with-live-avatar/) — Google DeepMind extends last week's Gemini 3.8 Live with Live Avatar, pairing near-real-time video generation with speech for a lip-synced, expressive enterprise agent persona across 97 languages; available now in Gemini Enterprise.
 
 ## 2026-W38
 

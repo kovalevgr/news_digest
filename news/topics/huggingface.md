@@ -5,10 +5,14 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-09-23
+updated: 2026-09-24
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W39
+
+- **2026-09-24** — [Accelerating vision-language models with LFM2.5-VL-DSpark](https://huggingface.co/blog/LiquidAI/lfm2-5-vl-dspark) — Liquid AI releases LFM2.5-VL-DSpark, a 280M-parameter speculative-decoding draft model for LFM2.5-VL-3B, delivering up to 3.13x faster on-device decoding and 2.27-2.62x end-to-end speedups at just 8.9% parameter overhead.
 
 ## 2026-W38
 

@@ -3582,3 +3582,29 @@ VERIFY SUBSTANCE: 6 candidates attempted (one over the 5-cap, given high HN sign
 **Housekeeping note (recurring):** at the start of this run, the local repo was again on a detached HEAD, one commit behind `origin/main` after a fetch picked up the prior run's push (same shape as the notes on 2026-09-21 through 2026-09-24). Checked out `main`, fast-forwarded to `origin/main` (clean, no divergence), continued on `main`. Seventh occurrence in 6 days — the recurring pattern across routines strongly suggests their finishing steps should explicitly `git checkout main && git merge --ff-only origin/main` (or start each run already on `main`) before the final push, rather than relying on incidental fast-forwards; flagging again for the owner as this is now a standing pattern, not a one-off.
 
 Commit: `news: radar run 2026-09-25 (+13 items, 3 highlights, Linear unavailable)`.
+
+## 2026-09-25 06:04 UTC — daily — ok (Linear unavailable)
+
+Window: since 2026-09-24T04:04 UTC (`fetch_feeds.py`'s own cursor window; last successful daily run was 2026-09-24 06:05 UTC). `fetch_feeds.py` ran once, output captured to a file in one shot. TIER-1 reported fresh candidates for google-deepmind (1), google-research (1), nvidia (1), huggingface (1); zero fresh for the other 7 companies — gap-scrape attempted for all 7 (anthropic/fetch, xai/jina, perplexity/jina always gap-scrape by design; openai/microsoft/mistral/cursor via WebFetch/WebSearch on their listing pages, one attempt each, since those companies have no fetch/jina tier configured).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss.xml (TIER-1, 0 fresh), WebFetch + curl on openai.com/news (both 403), WebSearch | 0 | websearch | WebFetch/curl both 403; WebSearch surfaced only vague/unconfirmed leads (DevDay 2026 preview, an unconfirmed "voice-agentic ChatGPT mobile" claim, a third-party "Frontier AI Standards Agency" report) — none with a confirmed openai.com canonical URL dated in-window; rejected as unconfirmed |
+| anthropic | fetch (`/news`) | 0 | fetch | WebFetch confirms listing tops out at "Claude discovers a novel enzyme system" (Sep23), already captured; nothing newer |
+| google-deepmind | rss.xml (TIER-1, 1 fresh) | 1 | - | "Introducing Gemini 3.8 Live with Live Avatar" (Sep24) — confirmed; note: canonical deepmind.google URL now 302-redirects off-domain to blog.google (new behavior, not previously seen for this feed) and blog.google is egress-blocked for WebFetch/curl — content fetched via `r.jina.ai` on the redirect target instead; written |
+| google-research | rss.xml (TIER-1, 1 fresh) | 1 | - | "Automating coherent long-form video generation" (Sep24) — confirmed via WebFetch, written |
+| microsoft | rss.xml (TIER-1, 0 fresh), WebFetch on research blog listing | 0 | WebFetch | listing tops out at "Offloaded inference for real-world physical AI robotics" (Sep23), already captured; nothing newer on the Research blog (note: WebSearch surfaced several Sep23/24 news.microsoft.com/source items — Surface Pro/Laptop, Rockwell Automation, Majorana-2/DARPA — correctly out of scope per the 2026-08-08 technical-first refocus, which tracks the Research blog only) |
+| nvidia | rss.xml (TIER-1, 1 fresh) | 0 | - | 1 candidate excluded: "Efficient MoE Training for Biological Foundation Models" verified via WebFetch as a routine implementation recipe/tutorial (GroupedLinear + MXFP8 + fused kernel benchmarks on Mixtral-8x7B, 2.21x throughput) — not a genuine announcement/major post, dropped per the NVIDIA config note (keep only genuine announcements, not every tutorial) |
+| xai | rss n/a (jina-only company); curl r.jina.ai (200, anonymous) | 0 | jina | listing tops out at Grok Bot customer support (Sep22), already captured; nothing newer |
+| mistral | rss.xml (TIER-1, 0 fresh), WebFetch on news listing | 0 | WebFetch | listing tops out at Mistral x Mozilla (Sep16), already captured |
+| huggingface | rss.xml (TIER-1, 1 fresh) | 1 | - | "Accelerating vision-language models with LFM2.5-VL-DSpark" (Sep24) — confirmed via WebFetch, written |
+| cursor | rss.xml (TIER-1, 0 fresh), WebSearch | 0 | websearch | listing tops out at "Rollouts and Security Review" (Sep23), already captured; nothing newer |
+| perplexity | curl r.jina.ai (HTTP 403 AbuseAlleviation, anonymous access blocked, no JINA_API_KEY), WebSearch, direct WebFetch (EGRESS_BLOCKED on perplexity.ai) | 0 | jina (403) then websearch | WebSearch repeatedly surfaced the title "Escaping SPACE: Part I" (red-teaming VM isolation for AI agents, claimed Sep23) but no search variant returned a confirmed perplexity.ai/hub/blog canonical URL for it; rejected as unconfirmed per never-invent rule (same call as the 2026-08-02 HF precedent) |
+
+Totals: 3 items, 3 companies fresh (google-deepmind, google-research, huggingface), 0 hard errors (7 gap-scrapes attempted, all came up empty in-window; 1 rejected unconfirmed candidate — Perplexity's "Escaping SPACE" title without a confirmed URL; 1 candidate excluded as a routine tutorial — NVIDIA's MoE training recipe).
+
+**Housekeeping:** repo was already clean and up to date on `main` (`origin/main` matched) at the start of this run — no detached-HEAD/fast-forward issue this time, unlike the recurring note on 2026-09-21 through 2026-09-25's radar run.
+
+**Linear: UNAVAILABLE this run — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; non-interactive session cannot run the OAuth flow).** All 3 new items are fully written to `topics/*.md` + `artifacts/` above — no data lost, only Linear cards are behind. This is now the SEVENTY-FOURTH consecutive affected run since 2026-08-24. Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-09-25 (+3 items, 3 companies fresh, Linear unavailable)`.

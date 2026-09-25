@@ -4,10 +4,14 @@ aliases:
   - Google AI
 sources:
   - https://research.google/blog/rss/
-updated: 2026-09-19
+updated: 2026-09-24
 ---
 
 MOC page for **Google Research** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W39
+
+- **2026-09-24** — [Automating coherent long-form video generation](https://research.google/blog/coherent-long-form-video-generation/) — Google Research introduces a multi-agent orchestration framework (AI Video Co-Director, CANVAS, A²RD, VQQA) on top of Gemini/Veo that autonomously generates minutes-long, visually coherent video, scoring 81.4 on its new GenAD-Bench.
 
 ## 2026-W38
 
