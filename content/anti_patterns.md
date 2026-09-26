@@ -35,6 +35,13 @@ It is a **living document**: the owner's per-draft chat instructions are the rea
   piece is for.
 - **Filler & throat-clearing.** No "In this article we will…", no restating the title as the first
   sentence, no padding to hit a length.
+- **Internal identifiers and tracker dates.** No ticket or task ids ("Feature T20", "T24", "Tier-1"),
+  no ISO dates for the owner's own timeline ("2026-04-19", "on the 18th"), no commit hashes in prose.
+  The reader is another engineer, not the project tracker; these read as an AI-generated report.
+  Say what the thing is ("the interview orchestrator, a deterministic state machine") and when in
+  human terms ("mid-April", "the day before the first commit", "a month later"). External news dates
+  ("On August 21 GitHub shipped Spec Kit 1.0") are fine. (Owner instruction, 2026-09-06, folded up
+  from the spec-driven drafts' edit log.)
 
 ## Context-dependent — judgement per article (flag, don't hard-ban)
 
