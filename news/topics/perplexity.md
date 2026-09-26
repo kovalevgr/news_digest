@@ -4,10 +4,14 @@ aliases:
   - Perplexity AI
 sources:
   - https://www.perplexity.ai/hub/blog
-updated: 2026-09-22
+updated: 2026-09-26
 ---
 
 MOC page for **Perplexity** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W39
+
+- **2026-09-23** — [Escaping SPACE: Part I](https://www.perplexity.ai/hub/blog/escaping-space-part-i) — Perplexity red-teams SPACE, the sandbox behind Perplexity Computer: 9 models with root in a guest VM across 108 runs, zero verified VM-to-host escapes, 4 models bypassed network confinement via DNS spoofing/shared-IP routing (fixed on re-test). Backfilled: perplexity.ai fully egress-blocked + anonymous Jina rate-limited all run; confirmed via WebSearch (direct title+URL match).
 
 ## 2026-W38
 
