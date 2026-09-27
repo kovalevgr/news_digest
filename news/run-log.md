@@ -3696,3 +3696,33 @@ VERIFY SUBSTANCE: 4 candidates attempted (within the 5-cap). **`swarmtraces.org`
 **Housekeeping note:** repo was on a detached HEAD, three commits behind `origin/main`, at the start of this run (same recurring shape noted on every radar run since 2026-09-21). Fetched and fast-forwarded to `origin/main` (clean, no divergence), continued on `main`.
 
 Commit: `news: radar run 2026-09-27 (+14 items, 3 highlights, Linear unavailable)`.
+
+## 2026-09-27 06:xx UTC — daily — ok (Linear unavailable)
+
+Window: since 2026-09-26T04:04:59 UTC (`fetch_feeds.py`'s own cursor window; last successful daily run was 2026-09-26 06:05 UTC). `fetch_feeds.py` ran clean: all 11/11 companies reported zero fresh TIER-1 candidates, no source errors. `mistral` and `huggingface` hit 304-not-modified (correctly zero-fresh per their conditional GETs). Gap-scrape attempted for all 11 companies (MAX one fallback attempt each, per each company's configured ladder):
+
+| company | ladder tier | result |
+| --- | --- | --- |
+| openai | WebSearch (no fetch/jina tier configured) | no items past 2026-09-23 confirmed with a solid date/URL — nothing new |
+| anthropic | WebFetch `anthropic.com/news` | page lists nothing past 2026-09-23 — nothing new |
+| google-deepmind | WebSearch | nothing past 2026-09-24 with a confirmed deepmind.google URL — nothing new |
+| google-research | WebSearch | nothing past 2026-09-24 confirmed — nothing new |
+| microsoft | WebSearch | nothing past 2026-09-23 confirmed — nothing new |
+| nvidia | WebSearch | nothing past 2026-09-23 confirmed — nothing new |
+| xai | curl Jina (`r.jina.ai/x.ai/news`, 200 OK) | full post list fetched; newest is 2026-09-22 (already recorded) — nothing new |
+| mistral | WebSearch | Emmi acquisition / Airbus-BMW-ASML industrial stack surfaced, but dated to the AI Now Summit (~2 weeks prior, i.e. before the already-recorded 2026-09-16 item) — not new, not added |
+| huggingface | WebFetch `huggingface.co/blog` listing | **found 1 new item** (see below) |
+| cursor | WebSearch | nothing past 2026-09-23 confirmed — nothing new |
+| perplexity | curl Jina (403 AbuseAlleviation, no `JINA_API_KEY`) → WebSearch fallback (per FAILURE MODES) → direct WebFetch + curl verification of the two strongest candidate URLs, both `EGRESS_BLOCKED`/`CONNECT tunnel failed` (site fully egress-blocked, recurring pattern) | "Personal Computer is Here" and "Comet Enterprise is here" surfaced in search, but publish dates could not be confirmed (similarly-titled older posts exist from earlier in 2026) — **not added**, per never-invent; flagged below for the owner |
+
+**New item — Hugging Face:** [Bringing Humanoids to LeRobot](https://huggingface.co/blog/nepyope/bringing-humanoids-to-lerobot) (published 2026-09-25, backfilled — `feed.xml` reported 304-not-modified both at this run's cursor and at 2026-09-26's, so TIER-1 never surfaced it; found via the gap-scrape blog-listing fetch, confirmed via primary source). LeRobot adds humanoid support centered on the Unitree G1 (vision-language policy → motion tokens → whole-body control), demoed on pick-and-place (π0.5 + SONIC encoder, 12,000 steps on 4×H100), ships open hardware mods, the Homunculus teleop exoskeleton, and datasets incl. HIW-500. Written to `topics/huggingface.md` (2026-W39) + artifact `news/artifacts/2026-09-27-huggingface-bringing-humanoids-lerobot.md`. Linear card not attempted (connector unavailable); would be type `product`, priority Medium.
+
+**Owner flag (unconfirmed, not added to any file):** two Perplexity blog URLs — `personal-computer-is-here` and `comet-enterprise-is-here` — surfaced repeatedly in WebSearch this run with no confirmable publish date (perplexity.ai is fully egress-blocked for both WebFetch and curl from this environment, and anonymous Jina 403s). If either is genuinely new (not a re-listing of the March/April 2026 "Personal Computer for Mac" / Comet Enterprise launches), the owner may want to check `perplexity.ai/hub/blog` directly.
+
+Totals: 11/11 companies searched, 1 fresh (Hugging Face, backfilled), 0 fell back without resolution beyond logged "nothing new," 0 hard errors.
+
+**Linear: UNAVAILABLE this run — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; non-interactive session cannot run the OAuth flow).** No card attempted for the new Hugging Face item. This is now the SEVENTY-EIGHTH consecutive affected run since 2026-08-24 (34+ days). Owner action needed (unchanged, over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+**Housekeeping note:** repo was on a detached HEAD at the start of this run (same recurring shape as prior runs), at `origin/main`'s tip already (no divergence). Checked out `main` directly, no fast-forward needed.
+
+Commit: `news: daily run 2026-09-27 (+1 items, 1 companies fresh, Linear unavailable)`.

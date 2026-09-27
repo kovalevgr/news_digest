@@ -5,13 +5,14 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-09-24
+updated: 2026-09-27
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W39
 
+- **2026-09-25** — [Bringing Humanoids to LeRobot](https://huggingface.co/blog/nepyope/bringing-humanoids-to-lerobot) — Hugging Face's LeRobot team adds humanoid-robot support centered on the Unitree G1: a vision-language policy predicts compact motion tokens decoded into whole-body movement by a fast controller, demonstrated on a pick-and-place task trained on ~100 teleoperation episodes (π0.5 policy + SONIC motion encoder, fine-tuned 12,000 steps on 4×H100); ships open-source hardware mods, the Homunculus teleoperation exoskeleton, and humanoid datasets including HIW-500 (500+ hours, 23K episodes). Backfilled: missed by the 2026-09-26 daily run (not yet in the RSS feed at that run's cursor), confirmed today via primary source.
 - **2026-09-24** — [Accelerating vision-language models with LFM2.5-VL-DSpark](https://huggingface.co/blog/LiquidAI/lfm2-5-vl-dspark) — Liquid AI releases LFM2.5-VL-DSpark, a 280M-parameter speculative-decoding draft model for LFM2.5-VL-3B, delivering up to 3.13x faster on-device decoding and 2.27-2.62x end-to-end speedups at just 8.9% parameter overhead.
 
 ## 2026-W38
