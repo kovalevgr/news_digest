@@ -1,6 +1,6 @@
 ---
 category: practitioner-blogs
-updated: 2026-09-20
+updated: 2026-09-28
 ---
 
 # Radar: practitioner-blogs
@@ -60,3 +60,7 @@ Appended by the daily routine under weekly headings; format matches topics files
 - **2026-09-23** — [Debating RSI, the US-China Gap, and Jaggedness with JS Denain of Epoch AI](https://www.interconnects.ai/p/debating-rsi-the-us-china-gap-and) — Verified via WebFetch: Nathan Lambert and Epoch AI's JS Denain debate whether AI labs are seeing genuine recursive self-improvement — Denain argues rising internal Codex/agent usage at OpenAI/Anthropic reflects more AI-assisted research, not evidence of imminent self-sustaining capability acceleration; both agree timeline/mechanism uncertainty remains high. MEDIUM fit — RSI/agent-harness-adjacent context, not a technique.
 - **2026-09-24** — [Foundries vs Navigators: Lowering the Cost of Science](https://www.latent.space/p/foundries-vs-navigators-lowering) — Guest post on Latent Space (feed excerpt only, not independently verified this run): argues that in science "thinking has gotten cheap but doing has not," and this asymmetry is reshaping how research companies operate. MEDIUM fit — policy/landscape analysis on AI's effect on the economics of research, not a technique; same publication as this week's "current balance of power" and RSI-debate pieces above.
 - **2026-09-25** — [OpenRouter: from Seed to Stripe — with OpenRouter's Alex Atallah & AMP's Anjney Midha](https://www.latent.space/p/openrouter) — Latent Space podcast (feed excerpt only, not independently verified this run): OpenRouter founder interview covering its growth from seed-stage to being acquired by Stripe for $7B. MEDIUM-LOW fit — business/founder narrative rather than a technique, out of highlight consideration.
+
+## 2026-W40
+
+- **2026-09-27** — ⭐ [2026 in LLMs (so far)](https://simonwillison.net/2026/Sep/27/2026-in-llms-so-far/) — Verified via WebFetch: Simon Willison's WeAreDevelopers closing-keynote writeup, a chronological tour of 2026's LLM year — coding agents crossing from "often wrong" to daily-reliable (sparking "Claw"-category personal agents: OpenClaw/NanoClaw/IronClaw, and agent-to-agent platforms like MoltBook), the running pelican-SVG cost/quality benchmark (GPT-6 Luna down to "$0.004 per pelican"), Qwen 3.8 27B as a competitive 17GB local model, a brief Fable-5-triggered export-control block, and a string of rogue-agent security incidents (Hugging Face, RubyGems, a German wiki, Australian Medicare) tracked by a new "FelonyBench." Direct hit on "AI agents in practice" and the article lens — a ready-made trends synthesis the owner could build a year-in-review piece around.

@@ -3740,3 +3740,34 @@ Radar week summary: **98 confirmed items** under `2026-W39` (community 77, oss-m
 **Housekeeping note:** repo was on a detached HEAD at `6759155`, with local `main` five commits behind `origin/main` (same recurring shape as prior runs). Checked out `main` and fast-forwarded to `origin/main` (clean, no divergence) before writing.
 
 Commit: `news: weekly digest 2026-W39`.
+
+## 2026-09-28 05:xx UTC — radar — ok (Linear unavailable)
+
+Window: since 2026-09-27T03:01:38 UTC (`fetch_radar.py`'s own cursor window; last successful radar run 2026-09-27 05:xx UTC). `fetch_radar.py` ran clean (exit 0). Errors reported in-band: `vllm-blog` (URL error: connection reset by peer, `oss-ml-systems` — transient, not the recurring `eleuther`/youtube pattern), `eleuther` (HTTP 404, recurring — the sixth-plus occurrence since 2026-09-24; the feed URL is very likely permanently gone and worth removing/replacing in `config/radar.json`), all 7 `yt-*` sources HTTP 404 (systemic/recurring YouTube feed-endpoint outage, unchanged for weeks), `reddit` HTTP 429 (skipped per policy, no retry).
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | - |
+| inference-infra | 0 | 0 | - |
+| oss-ml-systems | 0 | 0 | vllm-blog connection reset; eleuther HTTP 404 (recurring) |
+| bigtech-eng | 1 | 0 | - |
+| research-institutes | 0 | 0 | - |
+| technical-newsletters | 0 | 0 | - |
+| practitioner-blogs | 1 | 1 | - |
+| youtube | 0 | 0 | 7 sources HTTP 404 (recurring/systemic) |
+| community | 18 | 3 | reddit HTTP 429 |
+| mistral-watch | 0 | 0 | - |
+
+Totals: 4 items, 2 highlights, 2 category errors (oss-ml-systems, youtube — both recurring; reddit's own fetch also 429'd today).
+
+TRIAGE pass 1/2: a very quiet day — 44 of 46 sources returned zero fresh candidates. Dropped as non-technical/marketing despite surviving the config filter: Cloudflare's **"2026 Annual Founders' Letter"** (a CEO reflection on AI-agent traffic and the web's future, not engineering content — bigtech-eng's one raw candidate). Dropped as off-topic (resurfacing known false-positive pattern from prior weeks, no AI/ML angle regardless of the AI-tagged query hit): **"Show HN: Reladraw"** (generic diagramming DSL, previously dropped 2026-09-25/26 for the same reason), **"Show HN: Building a Markdown editor for Mac, iOS and web"** (a writing app that merely name-drops Cursor/Codex/CC as inspiration). Dropped as thin/no-report trending noise (recurring pattern — HF diff-snapshot entries with no accompanying writeup): all 4 `hf-trending-models` (`XingChen-AGI/TeleOCR` — OCR, tangential per `interests.md`, already dropped before; two bare Qwen-Image text-to-image variants; a fan GGUF re-quant of an image-gen text encoder with no benchmark) and all 3 `hf-trending-spaces` (an "uncensored" image-gen demo, an auto-prompt video-gen demo, an undocumented gradio space with no pipeline tag or summary). Dropped `github-trending`'s `tensorflow/tensorflow` (perennial framework, no new technical content this cycle), `openbao/openbao` and `microsoft/vscode` (both off-topic — no AI/ML content at all, generic trending-mirror noise).
+
+VERIFY SUBSTANCE: 3 candidates attempted (within the 5-cap). **`tinyaiarena.com`** (Show HN, cross-posted under `hn-show-ai50`/`hn-show-rag`/`hn-show-agents`, counted once) verified via `git clone` of `hp6/ai-arena`: a real, working monorepo (Express+SQLite server, Phaser 4/Vite client) running actual turn-based LLM-vs-LLM combat over OpenRouter with a per-model leaderboard — verified-substantive, not a benchmark shell. **`simonwillison.net`'s "2026 in LLMs (so far)"** verified via WebFetch: a substantive chronological trends keynote writeup (coding-agent reliability inflection, the "Claw" personal-agent category, the running pelican-SVG cost benchmark, a string of rogue-agent security incidents) — verified-substantive. **`bcantrill.dtrace.org`'s "Fool's Expertise"** (lobste.rs, tags `ai`/`vibecoding`) hit `EGRESS_BLOCKED` on direct WebFetch, and the one-retry curl fallback also failed (`CONNECT tunnel failed, response 403`) — kept as a regular item on the listing title/tags alone, out of highlight consideration per never-invent.
+
+**Highlights: 2** — **TinyAIArena** (`hp6/ai-arena` — the day's strongest "agents in practice" + reproducible-technique-with-code hit: real multi-model agent combat with a leaderboard, a plausible small experiment for the owner) and **2026 in LLMs (so far)** (Simon Willison — a ready-made year-in-review synthesis, directly article-lens material). The HN-trending arXiv paper on chat-template self-referential voice was kept as a regular item (LOW fit — academic paper, no released code found).
+
+**Linear: UNAVAILABLE this run — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; non-interactive session cannot run the OAuth flow).** No review-queue cards attempted. All 4 confirmed items are fully written to `radar/community.md` (3) and `radar/practitioner-blogs.md` (1) — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now the EIGHTIETH consecutive affected run since 2026-08-24 (35 days) — the owner's daily review queue and the twice-weekly deep-dive pipeline remain fully unfed by Linear for over a month. Owner action needed (unchanged, over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+**Housekeeping note:** repo was on a detached HEAD, six commits behind `origin/main`, at the start of this run (same recurring shape noted on every run since 2026-08-21). Fetched and fast-forwarded to `origin/main` (clean, no divergence), continued on `main`.
+
+Commit: `news: radar run 2026-09-28 (+4 items, 2 highlights, Linear unavailable)`.

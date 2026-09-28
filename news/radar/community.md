@@ -1,6 +1,6 @@
 ---
 category: community
-updated: 2026-09-21
+updated: 2026-09-28
 ---
 
 # Radar: community
@@ -481,3 +481,9 @@ Appended by the daily routine under weekly headings; format matches topics files
 - **2026-09-26** — [Koboldcpp v1.122 released](https://www.reddit.com/r/LocalLLaMA/comments/1wr3esw/koboldcpp_v1122_released/) — Not independently verified beyond the feed's own listing this run (reddit transport blocked; no self-text beyond the title). Routine local-inference-engine release. Local/self-hosted models fit.
 - **2026-09-26** — [Show HN: A Claude Code skill to analyze your chess games](https://github.com/brumar/chess-postmortem-skills) (73 pts) — Not independently verified beyond the HN listing/self-text this run. A Claude Code skill that takes live audio or text notes plus a vague instruction ("analyze my last lichess game") and produces a commented video walkthrough, using Claude with vision (not PGN notation) plus Stockfish for analysis. Direct hit on "AI agents in practice: coding agents" — a Claude-Code-specific skill-authoring pattern relevant to the owner's own workflow.
 - **2026-09-27** — [42x Faster Prompt Lookup Drafting in llama.cpp](https://www.reddit.com/r/LocalLLaMA/comments/1wr5ylm/42x_faster_prompt_lookup_drafting_in_llamacpp/) — Verification transport blocked (reddit 403); the feed carried no self-text beyond the title (a link post). Kept on the title alone — claims a 42x speedup for prompt-lookup speculative decoding in llama.cpp. Direct hit on "local/self-hosted models: inference engines" — out of highlight consideration given the unverified claim.
+
+## 2026-W40
+
+- **2026-09-27** — ⭐ [Show HN: TinyAIArena — watch AI agents battle it out](https://tinyaiarena.com/) (105 pts) — Verified via `git clone` of `hp6/ai-arena`: a real, working monorepo (Express+SQLite server, Phaser 4/Vite spectator client) that pits four LLMs (via OpenRouter) against each other in a turn-based grid combat game, with a per-model leaderboard (wins, win rate, kills, damage, average placement), exact-replay frames, and up to 3 concurrent matches. Not a benchmark shell — actual agentic decision-making (move/attack/wait/chat) scored head-to-head across models. Direct hit on "AI agents in practice" + "reproducible technique with code" — a plausible small experiment (swap in local models, add a fighter).
+- **2026-09-27** — ["As a Language Model": Chat Template Switches LLM Self-Referential Voice](https://arxiv.org/abs/2609.25021) (101 pts) — HN-trending arXiv paper (no accompanying code release found): studies how chat-template formatting alone shifts an LLM's self-referential voice (how it talks about itself as "a language model" vs. more personal framings). LOW fit per `interests.md` (academic paper without released code) but radar-worthy — relevant to prompt/template engineering practice.
+- **2026-09-27** — [Fool's Expertise](https://bcantrill.dtrace.org/2026/09/27/fools-expertise/) (lobste.rs, tags: ai, vibecoding) — Verification blocked both transports this run (WebFetch `EGRESS_BLOCKED`, curl retry `CONNECT tunnel failed, response 403`) — kept on the listing title/tags alone, out of highlight consideration per never-invent. Bryan Cantrill (Oxide Computer, DTrace) essay tagged against AI-assisted/"vibe" coding and expertise — MEDIUM fit ("AI agents in practice" adjacent), unverified substance.
