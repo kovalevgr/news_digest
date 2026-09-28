@@ -4,10 +4,14 @@ aliases:
   - Nvidia
 sources:
   - https://blogs.nvidia.com/feed/
-updated: 2026-09-23
+updated: 2026-09-28
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W40
+
+- **2026-09-28** — [How NVIDIA DSX MaxLPS Maximizes AI Factory Throughput and Efficiency](https://developer.nvidia.com/blog/how-nvidia-dsx-maxlps-maximizes-ai-factory-throughput-and-efficiency/) — NVIDIA details DSX MaxLPS, a policy-governed dynamic power-sharing framework that let a joint NVIDIA-Nscale GB300 NVL72 eval fit 37% more GPUs in a fixed power budget, raising aggregate throughput 49% with no per-instance degradation.
 
 ## 2026-W38
 

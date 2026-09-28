@@ -3771,3 +3771,33 @@ VERIFY SUBSTANCE: 3 candidates attempted (within the 5-cap). **`tinyaiarena.com`
 **Housekeeping note:** repo was on a detached HEAD, six commits behind `origin/main`, at the start of this run (same recurring shape noted on every run since 2026-08-21). Fetched and fast-forwarded to `origin/main` (clean, no divergence), continued on `main`.
 
 Commit: `news: radar run 2026-09-28 (+4 items, 2 highlights, Linear unavailable)`.
+
+## 2026-09-28 06:xx UTC — daily — ok (Linear unavailable)
+
+Window: since 2026-09-27T04:04:49 UTC (`fetch_feeds.py` cursor window). `fetch_feeds.py` ran clean (exit 0, no source_errors on any of the 8 TIER-1 rss companies).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (0 fresh) → WebFetch `openai.com/news/` (403) → Jina (no `JINA_API_KEY`, 401) → WebSearch | nothing confirmed new — "DevDay 2026" page found but category/date unconfirmable (WebFetch 403 on the article itself; likely `Company`/event category, outside the technical-first keep-list); "Private Safety Processing" dated 2026-09-22, older than the existing top item — not added | yes (full ladder) | openai.com/index/* 403s WebFetch |
+| anthropic | fetch `anthropic.com/news` (primary/only tier) | nothing new since 2026-09-23 (already the topics top item) | no (primary tier is itself the check) | — |
+| google-deepmind | rss (0 fresh) → confirmed via direct `deepmind.google/blog/rss.xml` fetch: newest entry is 2026-09-24 (already the topics top item); HTML listing page surfaced several titles but all with true dates 2026-09-02…09-23, i.e. older, not chronologically sorted | nothing new | yes (listing cross-check) | — |
+| google-research | rss (0 fresh) → WebFetch `research.google/blog/` listing | nothing new since 2026-09-24 (already the topics top item) | yes | — |
+| microsoft | rss (0 fresh) → WebFetch `microsoft.com/en-us/research/blog/` listing | nothing new since 2026-09-23 (already the topics top item) | yes | — |
+| nvidia | rss | **found 1 new item** (see below) | no | — |
+| xai | jina (no `JINA_API_KEY`, 401) → WebFetch `x.ai/news` (EGRESS_BLOCKED) → WebSearch | nothing confirmed new — search surfaced only already-recorded items (Grok 4.7, Voice Transcribe 2.0, Grok Bot enterprise) via third-party summaries, no new primary-source URL/date | yes (full ladder) | x.ai fully egress-blocked (recurring) |
+| mistral | rss (0 fresh) → WebFetch `mistral.ai/news` listing | nothing new since 2026-09-16 (already the topics top item) | yes | — |
+| huggingface | rss (0 fresh) → WebFetch `huggingface.co/blog` listing | nothing new — 4 candidates found (`nvidia/nemotron-diarization`, two `sora-2` Jev-AI guides, `black-forest-labs/flux-3-action`), all older (relative "5-7 days ago") than the existing top item (2026-09-25) | yes | — |
+| cursor | rss (0 fresh) → WebFetch `cursor.com/changelog` listing | nothing new since 2026-09-23 (already the topics top item) | yes | — |
+| perplexity | jina (no `JINA_API_KEY`, 401) → WebFetch `perplexity.ai/hub/blog` (EGRESS_BLOCKED) → WebSearch | nothing confirmed new — same unconfirmed candidates flagged on 2026-09-27 ("Personal Computer is Here", "Comet Enterprise is here") resurfaced with still no confirmable publish date; not added, per never-invent | yes (full ladder) | perplexity.ai fully egress-blocked (recurring) |
+
+**New item — NVIDIA:** [How NVIDIA DSX MaxLPS Maximizes AI Factory Throughput and Efficiency](https://developer.nvidia.com/blog/how-nvidia-dsx-maxlps-maximizes-ai-factory-throughput-and-efficiency/) (published 2026-09-28). NVIDIA details DSX MaxLPS, a policy-governed dynamic power-sharing framework for GPU infrastructure; a joint NVIDIA-Nscale evaluation on GB300 NVL72 (Kimi K2.5 inference, fixed 264.4 kW budget) fit 37.1% more GPUs (140→192) and raised aggregate throughput 49.2% (1.085M→1.618M tok/s) with no per-instance throughput degradation (P99 latency +17%, a noted trade-off). Written to `topics/nvidia.md` (new heading `2026-W40`) + artifact `news/artifacts/2026-09-28-nvidia-dsx-maxlps.md`. Linear card not attempted (connector unavailable); would be type `infra`, priority Medium.
+
+**Owner flag (unconfirmed, not added to any file, recurring):** the same two Perplexity blog URLs flagged 2026-09-27 (`personal-computer-is-here`, `comet-enterprise-is-here`) surfaced again — perplexity.ai remains fully egress-blocked for WebFetch and anonymous Jina still 401s with no key configured. If genuinely new, owner may want to check `perplexity.ai/hub/blog` directly.
+
+Totals: 11/11 companies searched, 1 fresh (NVIDIA), 0 hard errors beyond the known recurring egress-blocks (x.ai, perplexity.ai) and openai.com's 403-to-WebFetch.
+
+**Linear: UNAVAILABLE this run — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; non-interactive session cannot run the OAuth flow).** No card attempted for the new NVIDIA item. This is now the EIGHTY-FIRST consecutive affected run since 2026-08-24 (35+ days). Owner action needed (unchanged, over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+**Housekeeping note:** repo was on a detached HEAD at the start of this run, seven commits behind `origin/main` (same recurring shape as prior runs). Fetched and fast-forwarded to `origin/main` (clean, no divergence), continued on `main`.
+
+Commit: `news: daily run 2026-09-28 (+1 items, 1 companies fresh, Linear unavailable)`.
