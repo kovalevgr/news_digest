@@ -5,10 +5,14 @@ aliases:
   - Copilot
 sources:
   - https://news.microsoft.com/source/feed/
-updated: 2026-09-23
+updated: 2026-09-28
 ---
 
 MOC page for **Microsoft** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W40
+
+- **2026-09-28** — [One year in: How Microsoft Research Asia – Singapore is advancing research, partnership and talent for real-world impact](https://www.microsoft.com/en-us/research/blog/one-year-in-how-microsoft-research-asia-singapore-is-advancing-research-partnership-and-talent-for-real-world-impact/) — Microsoft Research Asia – Singapore marks its first anniversary: 9 new joint projects with NUS/NTU, 300+ AI Summer School students, 90+ interns, 13 fellowship recipients.
 
 ## 2026-W38
 

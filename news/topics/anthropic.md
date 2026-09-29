@@ -4,10 +4,14 @@ aliases:
   - Claude
 sources:
   - https://www.anthropic.com/news
-updated: 2026-09-23
+updated: 2026-09-28
 ---
 
 MOC page for **Anthropic** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W40
+
+- **2026-09-28** — [Introducing Claude Sonnet 5.5](https://www.anthropic.com/claude-sonnet-5-5) — Anthropic releases Claude Sonnet 5.5, running 30%+ faster and costing up to 30% less per task than Sonnet 5 at the same per-token pricing, with improved coding/knowledge-work benchmarks; available now on Claude Platform, AWS, Google Cloud, Azure.
 
 ## 2026-W38
 

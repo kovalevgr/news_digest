@@ -5,10 +5,14 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-09-27
+updated: 2026-09-28
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W40
+
+- **2026-09-28** — [Holo4: powering generalist computer-use agents](https://huggingface.co/blog/Hcompany/holo4) — H Company releases Holo4, open-weight agentic models for computer-use (GUI/code/MCP/API); Holo4-27B scores 61.7% on OSWorld 2.0 vs 81.8% for Claude Opus 5.5, at significantly lower compute cost per task.
 
 ## 2026-W39
 

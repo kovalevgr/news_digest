@@ -4,10 +4,14 @@ aliases:
   - Mistral
 sources:
   - https://mistral.ai/rss.xml
-updated: 2026-09-17
+updated: 2026-09-28
 ---
 
 MOC page for **Mistral AI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W40
+
+- **2026-09-28** — [Hallo, Deutschland!](https://mistral.ai/news/hallo-deutschland/) — Mistral opens a Munich hub for Physics AI and Industrial AI, partnering with BMW, Siemens Energy, and TU Munich, building on its May 2026 Emmi AI acquisition (30+ physicists/engineers).
 
 ## 2026-W38
 

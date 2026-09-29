@@ -3846,3 +3846,39 @@ VERIFY SUBSTANCE: 5 candidates attempted (at the cap). **`github.com/mvschwarz/o
 **Housekeeping note:** repo was on a detached HEAD, nine commits behind `origin/main`, at the start of this run (same recurring shape noted on every run since 2026-08-21). Fetched and fast-forwarded to `origin/main` (clean, no divergence), continued on `main`.
 
 Commit: `news: radar run 2026-09-29 (+14 items, 3 highlights, Linear unavailable)`.
+
+## 2026-09-29 06:xx UTC — daily — ok (Linear unavailable)
+
+Window: since 2026-09-28T04:05:48 UTC (`fetch_feeds.py` cursor window). `fetch_feeds.py` ran clean (exit 0, no source_errors on any of the 8 TIER-1 rss companies).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (0 fresh) → WebFetch `openai.com/news/` (403) → WebSearch | nothing confirmed new — search surfaced third-party reports (GPT-6.1 Astra release reportedly scrapped over safety concerns; a training pause after a model "broke out" of its eval sandbox on Sep 20; OpenAI Academy 2-year mark) but no confirmable `openai.com` primary-source URL/date for any of it | yes (full ladder) | openai.com/news/ 403s WebFetch |
+| anthropic | fetch `anthropic.com/news` (primary/only tier) | **found 1 new item** (see below) | no | — |
+| google-deepmind | rss (0 fresh) → WebFetch `deepmind.google/blog/rss.xml` direct re-check | nothing new — newest entry still 2026-09-24 (already the topics top item) | yes | — |
+| google-research | rss (0 fresh) → WebFetch `research.google/blog/rss/` direct re-check | nothing new — newest entry still 2026-09-24 (already the topics top item) | yes | — |
+| microsoft | rss | **found 1 new item** (see below) | no | — |
+| nvidia | rss | **found 2 new items** (see below) | no | — |
+| xai | jina (no `JINA_API_KEY`, 401 would apply) → WebFetch `x.ai/news` (EGRESS_BLOCKED) → WebSearch | nothing confirmed new — search surfaced only already-recorded items (Grok 4.7, Voice Transcribe 2.0) | yes (full ladder) | x.ai fully egress-blocked (recurring) |
+| mistral | rss | **found 1 new item** (see below) | no | — |
+| huggingface | rss | **found 1 new item** (see below) | no | — |
+| cursor | rss (0 fresh) → WebFetch `cursor.com/changelog` listing | nothing new since 2026-09-23 (already the topics top item) | yes | — |
+| perplexity | jina (no `JINA_API_KEY`) → WebFetch `perplexity.ai/hub/blog` (EGRESS_BLOCKED) → WebSearch | nothing confirmed new — search surfaced only pre-window items (Sep 1-24, already predating or overlapping prior captures) via third-party summary sites, no primary-source URL confirmed for anything past 2026-09-27 | yes (full ladder) | perplexity.ai fully egress-blocked (recurring) |
+
+**New item — Anthropic:** [Introducing Claude Sonnet 5.5](https://www.anthropic.com/claude-sonnet-5-5) (published 2026-09-28). Sonnet 5.5 runs 30%+ faster and costs up to 30% less per task than Sonnet 5 at the same per-token pricing, with improved coding/knowledge-work benchmarks; available now on Claude Platform, AWS, Google Cloud, Azure. Written to `topics/anthropic.md` (new heading `2026-W40`) + artifact `news/artifacts/2026-09-28-anthropic-claude-sonnet-5-5.md`. Would be type `model-release`, priority High.
+
+**New item — Microsoft:** [One year in: How Microsoft Research Asia – Singapore is advancing research, partnership and talent for real-world impact](https://www.microsoft.com/en-us/research/blog/one-year-in-how-microsoft-research-asia-singapore-is-advancing-research-partnership-and-talent-for-real-world-impact/) (published 2026-09-28). First-anniversary recap: 9 new joint projects with NUS/NTU, 300+ AI Summer School students, 90+ interns, 13 fellowship recipients. Written to `topics/microsoft.md` (new heading `2026-W40`) + artifact. Would be type `business`, priority Low.
+
+**New items — NVIDIA (2, companion posts same day):** [NVIDIA Open Agent Safety Platform](https://developer.nvidia.com/blog/nvidia-open-agent-safety-platform-a-reference-for-continuous-in-silicon-agent-monitoring/) and [Add Runtime Controls to AI Agents with NVIDIA OpenShell](https://developer.nvidia.com/blog/add-runtime-controls-to-ai-agents-with-nvidia-openshell/) (both published 2026-09-28, ~1 min apart). The Platform post is the umbrella announcement (OpenShell open-source runtime + hardware-enforced NVIDIA Sentry on BlueField-4 DPUs); the OpenShell post is a companion deep-dive on the open-source component (0.1.0, Apache 2.0, early adopters Cadence/Slack/Gecko Robotics). Treated as two distinct items (different URLs/angles, consistent with how nvidia.md already records same-day companion posts). Written to `topics/nvidia.md` (existing heading `2026-W40`, above the prior DSX MaxLPS entry) + two artifacts. Note: this is the same OpenShell the 2026-09-29 radar run had dropped as unverifiable (X/Twitter-only source) — now confirmed via NVIDIA's own blog. Would be type `infra`, priority Medium (Platform) / Medium (OpenShell).
+
+**New item — Mistral:** [Hallo, Deutschland!](https://mistral.ai/news/hallo-deutschland/) (published 2026-09-28). Mistral opens a Munich hub for Physics AI/Industrial AI, partnering with BMW, Siemens Energy, TU Munich; builds on the May 2026 Emmi AI acquisition. Written to `topics/mistral.md` (new heading `2026-W40`) + artifact. Would be type `business`, priority Medium.
+
+**New item — Hugging Face:** [Holo4: powering generalist computer-use agents](https://huggingface.co/blog/Hcompany/holo4) (published 2026-09-28). H Company releases open-weight Holo4 agentic models for computer-use (27B dense, 35B-A3B MoE, Holotron4 Nano); Holo4-27B scores 61.7% on OSWorld 2.0 vs 81.8% for Claude Opus 5.5 at much lower compute cost. Written to `topics/huggingface.md` (new heading `2026-W40`) + artifact. Would be type `model-release`, priority Medium.
+
+Totals: 11/11 companies searched, 6 items / 5 companies fresh (Anthropic, Microsoft, NVIDIA×2, Mistral, Hugging Face), 0 hard errors beyond the known recurring egress-blocks (x.ai, perplexity.ai) and openai.com's 403-to-WebFetch.
+
+**Linear: UNAVAILABLE this run — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; non-interactive session cannot run the OAuth flow).** No cards attempted for the 6 new items above. This is now the EIGHTY-FOURTH consecutive affected run since 2026-08-24 (36+ days). Owner action needed (unchanged, over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+**Housekeeping note:** repo was on a detached HEAD, ten commits behind `origin/main`, at the start of this run (same recurring shape noted on every run since 2026-08-21). Fast-forward merged to `origin/main` (clean, no divergence), continued on `main`.
+
+Commit: `news: daily run 2026-09-29 (+6 items, 5 companies fresh, Linear unavailable)`.
