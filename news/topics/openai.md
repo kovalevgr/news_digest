@@ -4,10 +4,14 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-09-23
+updated: 2026-09-29
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W40
+
+- **2026-09-29** — [Introducing GPT-6.1 Sol](https://openai.com/index/introducing-gpt-6-1-sol) — OpenAI releases GPT-6.1 Sol, an upgrade to GPT-6 Sol nearing GPT-6 Astra's intelligence on agentic coding, computer use, and professional work at one-fifth of Astra's token prices; cached input $0.10/M tokens.
 
 ## 2026-W38
 

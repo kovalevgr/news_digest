@@ -5,12 +5,15 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-09-28
+updated: 2026-09-29
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W40
+
+- **2026-09-29** — [NVIDIA Kumo Tabular Sets a New Accuracy-Efficiency Frontier for Tabular Prediction](https://huggingface.co/blog/nvidia/kumo-tabular) — NVIDIA releases Kumo Tabular, an open foundation model (28M-215M params) for tabular classification/regression in a single forward pass with no training/tuning; trained on synthetic data only, 17x faster than comparable models, top rankings on TabArena/BeyondArena/TALENT/ScoringBench.
+- **2026-09-29** — [Getting the Source Right, Not Just the Fact: Source-Aware Verification for MCP Agents](https://huggingface.co/blog/MultiverseComputingCAI/getting-the-source-right-not-just-the-fact-source) — Multiverse Computing introduces ProvenanceGuard, a verification technique for multi-tool LLM agents checking claim-to-source attribution rather than mere evidence-pool support; 0.802 F1 blocking unsupported claims on medical agent traces.
 
 - **2026-09-28** — [Holo4: powering generalist computer-use agents](https://huggingface.co/blog/Hcompany/holo4) — H Company releases Holo4, open-weight agentic models for computer-use (GUI/code/MCP/API); Holo4-27B scores 61.7% on OSWorld 2.0 vs 81.8% for Claude Opus 5.5, at significantly lower compute cost per task.
 

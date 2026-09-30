@@ -4,13 +4,14 @@ aliases:
   - Nvidia
 sources:
   - https://blogs.nvidia.com/feed/
-updated: 2026-09-28
+updated: 2026-09-29
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W40
 
+- **2026-09-29** — [Lower the Cost of Building and Running Visual AI Agents with NVIDIA VSS Blueprint 3.3](https://developer.nvidia.com/blog/lower-the-cost-of-building-and-running-visual-ai-agents-with-nvidia-vss-blueprint-3-3/) — NVIDIA releases VSS Blueprint 3.3, adding a natural-language "Build Vision Agent" skill and Adaptive Efficient Video Sampling that cuts VLM token processing; -17% alert latency, +46% concurrent VLM streams, -80% input tokens for 60-min video summarization.
 - **2026-09-28** — [NVIDIA Open Agent Safety Platform: A Reference for Continuous In-Silicon Agent Monitoring](https://developer.nvidia.com/blog/nvidia-open-agent-safety-platform-a-reference-for-continuous-in-silicon-agent-monitoring/) — NVIDIA introduces a reference architecture combining the open-source OpenShell runtime with hardware-enforced monitoring (NVIDIA Sentry on BlueField-4 DPUs) to contain autonomous AI agents.
 - **2026-09-28** — [Add Runtime Controls to AI Agents with NVIDIA OpenShell](https://developer.nvidia.com/blog/add-runtime-controls-to-ai-agents-with-nvidia-openshell/) — NVIDIA releases OpenShell 0.1.0, an open-source (Apache 2.0) runtime enforcing verifiable security policies around AI agents without modifying agent code; early adopters include Cadence, Slack, Gecko Robotics.
 - **2026-09-28** — [How NVIDIA DSX MaxLPS Maximizes AI Factory Throughput and Efficiency](https://developer.nvidia.com/blog/how-nvidia-dsx-maxlps-maximizes-ai-factory-throughput-and-efficiency/) — NVIDIA details DSX MaxLPS, a policy-governed dynamic power-sharing framework that let a joint NVIDIA-Nscale GB300 NVL72 eval fit 37% more GPUs in a fixed power budget, raising aggregate throughput 49% with no per-instance degradation.
