@@ -4,13 +4,14 @@ aliases:
   - Nvidia
 sources:
   - https://blogs.nvidia.com/feed/
-updated: 2026-09-29
+updated: 2026-10-01
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W40
 
+- **2026-09-30** — [Expanding AI Storage Access with NVIDIA cuObject and the NVIDIA SCADA Server SDK](https://developer.nvidia.com/blog/expanding-ai-storage-access-with-nvidia-cuobject-and-the-nvidia-scada-server-sdk/) — NVIDIA announces general availability of cuObject client/server libraries 2.0.0 and a new SCADA Server SDK letting third parties build storage servers with standardized APIs and an RDMA wire protocol; the xio-sig consortium expands to cover cuObject alongside cuFile.
 - **2026-09-29** — [Lower the Cost of Building and Running Visual AI Agents with NVIDIA VSS Blueprint 3.3](https://developer.nvidia.com/blog/lower-the-cost-of-building-and-running-visual-ai-agents-with-nvidia-vss-blueprint-3-3/) — NVIDIA releases VSS Blueprint 3.3, adding a natural-language "Build Vision Agent" skill and Adaptive Efficient Video Sampling that cuts VLM token processing; -17% alert latency, +46% concurrent VLM streams, -80% input tokens for 60-min video summarization.
 - **2026-09-28** — [NVIDIA Open Agent Safety Platform: A Reference for Continuous In-Silicon Agent Monitoring](https://developer.nvidia.com/blog/nvidia-open-agent-safety-platform-a-reference-for-continuous-in-silicon-agent-monitoring/) — NVIDIA introduces a reference architecture combining the open-source OpenShell runtime with hardware-enforced monitoring (NVIDIA Sentry on BlueField-4 DPUs) to contain autonomous AI agents.
 - **2026-09-28** — [Add Runtime Controls to AI Agents with NVIDIA OpenShell](https://developer.nvidia.com/blog/add-runtime-controls-to-ai-agents-with-nvidia-openshell/) — NVIDIA releases OpenShell 0.1.0, an open-source (Apache 2.0) runtime enforcing verifiable security policies around AI agents without modifying agent code; early adopters include Cadence, Slack, Gecko Robotics.

@@ -5,10 +5,15 @@ aliases:
   - Gemini
 sources:
   - https://deepmind.google/blog/rss.xml
-updated: 2026-09-24
+updated: 2026-10-01
 ---
 
 MOC page for **Google DeepMind** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W40
+
+- **2026-09-30** — [Gemini 4 Argon: our next era of frontier intelligence](https://deepmind.google/blog/gemini-4-argon-our-next-era-of-frontier-intelligence/) — Google DeepMind announces Gemini 4 Argon, its next frontier model generation. Full detail unverified: blog.google (the post's redirect target) is egress-blocked in this session, and the anonymous Jina fallback 403'd — confirmed real via the official RSS feed + a clean 302 redirect to blog.google, but no content could be read.
+- **2026-09-30** — [Introducing SynthID Bio](https://deepmind.google/blog/introducing-synthid-bio/) — Google DeepMind introduces SynthID Bio, watermarking AI-generated biological sequences and protein structures (imperceptible signatures detectable in both digital models and physically synthesized proteins) while preserving biological function; validated on protein binders targeting VEGF-A, SARS-CoV-2 spike, and PD-L1. Code, data, and weights open-sourced for research.
 
 ## 2026-W39
 

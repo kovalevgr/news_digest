@@ -5,13 +5,14 @@ aliases:
   - Copilot
 sources:
   - https://news.microsoft.com/source/feed/
-updated: 2026-09-29
+updated: 2026-10-01
 ---
 
 MOC page for **Microsoft** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W40
 
+- **2026-09-30** — [Forecasting space weather risks on power grids](https://www.microsoft.com/en-us/research/blog/forecasting-space-weather-risks-on-power-grids/) — Microsoft Research unveils a machine learning pipeline forecasting space-weather risk to the continental US power grid, combining solar-wind measurements, geomagnetic-index forecasts, and local geology for substation-level estimates 30-60 minutes ahead; 76.5% detection on major events, 81.2% on severe geomagnetic storms, across 66,935 substations.
 - **2026-09-29** — [Introducing Quine: An AI research system designed for the complexity of biology](https://www.microsoft.com/en-us/research/blog/introducing-quine-an-ai-research-system-designed-for-the-complexity-of-biology/) — Microsoft Research introduces Quine, a multimodal AI system for biological discovery combining a world model (genomics, proteins, chemistry, cell state, bioimaging) with lab-experiment orchestration; with the Broad Institute, identified promising cancer-drug compounds in one weekend.
 
 - **2026-09-28** — [One year in: How Microsoft Research Asia – Singapore is advancing research, partnership and talent for real-world impact](https://www.microsoft.com/en-us/research/blog/one-year-in-how-microsoft-research-asia-singapore-is-advancing-research-partnership-and-talent-for-real-world-impact/) — Microsoft Research Asia – Singapore marks its first anniversary: 9 new joint projects with NUS/NTU, 300+ AI Summer School students, 90+ interns, 13 fellowship recipients.
