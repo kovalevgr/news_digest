@@ -4020,3 +4020,15 @@ Totals: 11/11 companies searched, 4 items / 3 companies fresh (Google DeepMind×
 **Housekeeping note:** repo was on a detached HEAD (at `origin/main`'s tip, `2dde23a`, from the same-day radar run) at the start of this run. Checked out `main` and fast-forwarded clean (1 commit), continued on `main` — same recurring shape noted on every run since 2026-08-21.
 
 Commit: `news: daily run 2026-10-01 (+4 items, 3 companies fresh, Linear unavailable)`.
+
+## 2026-10-01 07:13 UTC — deep dive — blocked (Linear unavailable, no input)
+
+Step 1 PICK could not run: the deep dive's ONLY entry point is `hot`-labelled cards in Linear project "Radar" (status "Ready to Review", fallback Todo), and **Linear is UNAVAILABLE this run — the MCP server requires re-authorization and ToolSearch confirms no Linear tools are loadable; a non-interactive session cannot run the OAuth flow.** With the review queue unreadable, there is no way to know which items the owner approved; no substitute selection was made (picking cards by own judgement would bypass the owner-approval gate). Cards processed: 0. Files written: none (`radar/deep/` still holds only `TEMPLATE.md`). Leftovers: unknown — cannot be enumerated without Linear.
+
+This is the EIGHTY-EIGHTH consecutive Linear-affected run since 2026-08-24 (38+ days) and the ELEVENTH consecutive deep-dive run fully blocked — the deep-dive routine has produced ZERO deep dives since going live: the daily radar runs cannot create review-queue cards, so the owner cannot label anything `hot`, so this routine has no input — the pipeline's final stage is starved end-to-end. Radar collection itself remains healthy (15 confirmed items + 3 highlights on 2026-10-01 alone, all in `radar/*.md`), so the moment Linear is reconnected the queue can be backfilled from the radar files.
+
+Owner action needed (unchanged, over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp` / `/mcp` in an interactive session.
+
+**Housekeeping note:** repo was on a detached HEAD at `origin/main`'s tip (`9654c3c`) at the start of this run, with local `main` two commits behind (same recurring shape as prior runs). Checked out `main` and fast-forwarded clean.
+
+Commit: `news: deep dive 2026-10-01 (0 cards, Linear unavailable)`.
