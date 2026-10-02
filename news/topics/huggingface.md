@@ -5,13 +5,15 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-09-29
+updated: 2026-10-02
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W40
 
+- **2026-10-02** — [AutoSynthData: Generating Training Data for Enterprise Agents](https://huggingface.co/blog/ServiceNow-AI/autosynthdata) — ServiceNow CoreAI releases AutoSynthData, a pipeline that evaluates agent failures, synthesizes and validates new training tasks targeting those capability gaps, then fine-tunes on the successes; +7.2pp Pass@1 (35% relative) on a hybrid-domain benchmark and 18.77%→27.18% on ITSM; publishes the EnterpriseOps-Gym dataset on the Hub.
+- **2026-10-01** — [Introducing Olmo-core 3: Open, scalable training infrastructure for large MoEs](https://huggingface.co/blog/allenai/olmocore3) — Allen Institute for AI releases Olmo-core 3, an open MoE training framework replacing FSDP-based weight-gathering with a DDP-style design keeping experts resident on GPU; 2.7x throughput (52,000 vs. 19,400 tok/s/GPU) on a 47B-parameter/128-expert config, tested to 1.2T parameters across 512 GPUs; code on GitHub.
 - **2026-09-29** — [NVIDIA Kumo Tabular Sets a New Accuracy-Efficiency Frontier for Tabular Prediction](https://huggingface.co/blog/nvidia/kumo-tabular) — NVIDIA releases Kumo Tabular, an open foundation model (28M-215M params) for tabular classification/regression in a single forward pass with no training/tuning; trained on synthetic data only, 17x faster than comparable models, top rankings on TabArena/BeyondArena/TALENT/ScoringBench.
 - **2026-09-29** — [Getting the Source Right, Not Just the Fact: Source-Aware Verification for MCP Agents](https://huggingface.co/blog/MultiverseComputingCAI/getting-the-source-right-not-just-the-fact-source) — Multiverse Computing introduces ProvenanceGuard, a verification technique for multi-tool LLM agents checking claim-to-source attribution rather than mere evidence-pool support; 0.802 F1 blocking unsupported claims on medical agent traces.
 
