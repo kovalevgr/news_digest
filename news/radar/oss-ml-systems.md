@@ -1,6 +1,6 @@
 ---
 category: oss-ml-systems
-updated: 2026-09-19
+updated: 2026-10-02
 ---
 
 # Radar: oss-ml-systems
@@ -72,3 +72,4 @@ Appended by the daily routine under weekly headings; format matches topics files
 
 - **2026-09-30** — [From Upstream Changes to Downstream Confidence: Inside Torch Spyre's Integration with PyTorch CRCR](https://pytorch.org/blog/from-upstream-changes-to-downstream-confidence-inside-torch-spyres-integration-with-pytorch-crcr) — Not independently verified beyond the feed's own summary this run: PyTorch's Cross-Repository CI Relay (CRCR) gives out-of-tree accelerator backends (Torch Spyre is the case study) a scalable way to plug into upstream PyTorch CI while choosing which upstream signals to gate on. MEDIUM fit — GPU/kernel-adjacent infra engineering, "how we built X."
 - **2026-10-01** — [vllm release proto-v0.4.0](https://github.com/vllm-project/vllm/releases/tag/proto-v0.4.0) — Routine vLLM release (tag proto-v0.4.0); no release-note text available at fetch time. Direct hit on "local/self-hosted models: inference engines (vLLM)."
+- **2026-10-01** — ⭐ [Optimizing Jagged Flash Attention with TLX: The Road Toward SOTA FA4 on Blackwell](https://pytorch.org/blog/optimizing-jagged-flash-attention-with-tlx-the-road-toward-sota-fa4-on-blackwell/) — Verified via WebFetch: Meta rewrites the Jagged Flash Attention kernel behind its Generative Ads Model (GEM) on NVIDIA Blackwell (B200) using TLX (Triton Low-level Extensions) instead of hand-written CuteDSL/CUDA — explicit warp specialization, SMEM/TMEM allocation, and barrier pipelining expressed in ~3.2K lines of Triton-level Python (vs. ~10K lines for the CuteDSL state-of-the-art FlashAttention-4). Concrete optimizations: host-side zigzag tile scheduling for jagged-length load balancing (+20% forward), Cluster Launch Control for runtime skew, double-buffered multi-stage dQ staging + early TMEM release for the backward's contended cross-batch reduction, branch-free loop peeling to cut register spills, and a 2-CTA collaborative MMA for the backward (+12% throughput). Net result vs. FA4 (bf16, B200): ~+13% forward / ~+50% backward on the production jagged shapes, ~+17% backward on dense (forward ~87% of FA4). Code at `facebookresearch/ads_model_kernel_library`. Direct hit on "GPU/kernel engineering" + "reproducible techniques WITH CODE" — a genuinely deep, numbers-first kernel-engineering writeup, not a marketing shell.

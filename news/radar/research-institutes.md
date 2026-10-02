@@ -1,6 +1,6 @@
 ---
 category: research-institutes
-updated: 2026-09-18
+updated: 2026-10-02
 ---
 
 # Radar: research-institutes
@@ -29,3 +29,7 @@ Appended by the daily routine under weekly headings; format matches topics files
 ## 2026-W38
 
 - **2026-09-17** — ⭐ [What a crowdsourced game revealed about steering Olmo 3](https://allenai.org/blog/olmo-arena) — Verified via curl (browser UA): a Northeastern MS student used Olmo 3's open internals (accessed remotely via NSF's National Deep Inference Fabric) to build "Steering Arena," a public game where players submit short text prefixes and see how strongly each one steers the model toward prosocial responses. After ~600 submissions, the top 36 entries on the leaderboard were all unreadable strings of tokens — the best plain-English submission ranked 37th, scoring about 2.7x lower than the top entry; one participant used automated optimization to search directly for higher-scoring strings, sometimes differing by a single token between submissions. Because Olmo exposes internal activations rather than just weights, the researcher could also publish the signal behind the scores for others to inspect. Direct hit on "evals in practice" — a concrete demonstration that "a metric becomes an optimization target the moment you expose it."
+
+## 2026-W40
+
+- **2026-10-01** — [Introducing Olmo-core 3: Open, scalable training infrastructure for large MoEs](https://allenai.org/blog/olmocore3) — Verified via WebFetch: a redesigned, fully open MoE training stack (code on GitHub) replacing the earlier FSDP-based approach with a DDP-style design that keeps experts resident on GPUs, eliminating repeated weight-gathering; reports 52,000 tok/s/GPU vs. 19,400 tok/s/GPU on the earlier implementation (~2.7x) on a 47B-parameter/128-expert config on 8x NVIDIA B300, scaling to a tested 1.2T-parameter/58.36B-active config across 512 GPUs (858 TFLOP/s/GPU peak) and a 2.38T-parameter capacity test; MXFP8 precision cut peak active memory 103→95 GiB with 21% higher throughput vs BF16. Direct hit on open training-infra engineering — real throughput numbers and public code for researchers to adapt or extend.
