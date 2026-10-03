@@ -4,13 +4,14 @@ aliases:
   - Google AI
 sources:
   - https://research.google/blog/rss/
-updated: 2026-09-29
+updated: 2026-10-03
 ---
 
 MOC page for **Google Research** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W40
 
+- **2026-10-02** — [Toward provably private learning from federated data](https://research.google/blog/toward-provably-private-learning-from-federated-data/) — Google Research details a next-gen federated-learning system using Trusted Execution Environments and public transparency logs for externally-verifiable privacy guarantees, moving compute from devices to servers; deployed in Gboard for English/Japanese next-word prediction, cutting training time from 1-2 months per model.
 - **2026-09-29** — [How Diffusion Controller unifies and simplifies AI image generation](https://research.google/blog/how-diffusion-controller-unifies-and-simplifies-ai-image-generation/) — Google Research introduces Diffusion Controller, a lightweight add-on network steering image generation toward better prompt alignment without modifying the base model; 90% win rate over baseline on Stable Diffusion v1.4, beats LoRA on Human Preference Score v2.
 
 ## 2026-W39
