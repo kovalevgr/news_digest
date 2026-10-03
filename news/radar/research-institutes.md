@@ -1,6 +1,6 @@
 ---
 category: research-institutes
-updated: 2026-10-02
+updated: 2026-10-03
 ---
 
 # Radar: research-institutes
@@ -33,3 +33,4 @@ Appended by the daily routine under weekly headings; format matches topics files
 ## 2026-W40
 
 - **2026-10-01** — [Introducing Olmo-core 3: Open, scalable training infrastructure for large MoEs](https://allenai.org/blog/olmocore3) — Verified via WebFetch: a redesigned, fully open MoE training stack (code on GitHub) replacing the earlier FSDP-based approach with a DDP-style design that keeps experts resident on GPUs, eliminating repeated weight-gathering; reports 52,000 tok/s/GPU vs. 19,400 tok/s/GPU on the earlier implementation (~2.7x) on a 47B-parameter/128-expert config on 8x NVIDIA B300, scaling to a tested 1.2T-parameter/58.36B-active config across 512 GPUs (858 TFLOP/s/GPU peak) and a 2.38T-parameter capacity test; MXFP8 precision cut peak active memory 103→95 GiB with 21% higher throughput vs BF16. Direct hit on open training-infra engineering — real throughput numbers and public code for researchers to adapt or extend.
+- **2026-10-02** — ⭐ [Open-sourcing AstaBrief, the fast report-generation model in Asta](https://allenai.org/blog/astabrief) — Verified via WebFetch: Ai2's AstaBrief is an 8B model (Qwen3-8B base) trained via SFT (47K examples distilled from 90K real researcher queries) plus DPO (6K preference pairs judged by GPT-4.1 and DeepSeek-R1 at 95% agreement) to write full scientific research reports in a single pass instead of the usual expensive section-by-section pipeline. Reports 51.1s per report vs. 178.5s for a Claude-powered pipeline (3.5x faster) at competitive citation-precision/recall against DR Tulu and the Claude pipeline; weights (`allenai/AstaBrief_8B`) and training data fully open on Hugging Face, plus a local-PDF-report example workflow on GitHub. Direct hit on "reproducible techniques WITH CODE" — a real open model with numbers and training-recipe detail, not a marketing shell.
