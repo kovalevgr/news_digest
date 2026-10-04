@@ -4174,3 +4174,38 @@ Totals: 11/11 companies searched, 3 items / 3 companies fresh (Anthropic, Google
 **Housekeeping note:** repo was on a detached HEAD at `origin/main`'s tip (`0665e46`, from the same-day radar run) at the start of this run, with local `main` six commits behind. Checked out `main` and fast-forwarded clean — same recurring shape noted on every run since 2026-08-21.
 
 Commit: `news: daily run 2026-10-03 (+3 items, 3 companies fresh, Linear unavailable)`.
+
+## 2026-10-04 05:xx UTC — radar — ok (Linear unavailable)
+
+Window: since 2026-10-03T03:01:27 UTC (`fetch_radar.py`'s own cursor window). `fetch_radar.py` ran clean (exit 0, 52 sources). Errors reported in-band: `eleuther` HTTP 404 (recurring), all 7 `yt-*` sources HTTP 404 (recurring/systemic YouTube feed-endpoint outage, unchanged for weeks), `reddit` HTTP 429 (skipped per rule, never retry-looped).
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | - |
+| inference-infra | 0 | 0 | - |
+| oss-ml-systems | 1 | 1 | eleuther HTTP 404 (recurring) |
+| bigtech-eng | 0 | 0 | - |
+| research-institutes | 0 | 0 | - |
+| technical-newsletters | 0 | 0 | - |
+| practitioner-blogs | 1 | 1 | - |
+| youtube | 0 | 0 | 7 sources HTTP 404 (recurring/systemic) |
+| community | 18 | 4 | reddit HTTP 429 (skipped, never retried) |
+| mistral-watch | 0 | 0 | - |
+
+Totals: 6 items, 2 highlights, 3 category errors (oss-ml-systems, youtube, community — all recurring/known).
+
+TRIAGE pass 1/2: a quiet day everywhere except `community` (18 raw, mostly HN `hn-show-*` cross-posts — reddit's own feed was 429'd this run so the community count is entirely HN/HF/GitHub-trending). `oss-ml-systems`'s sole candidate was a routine vLLM git-tag release (`v0.31.0`) — kept (direct interests-profile hit, no competing candidate). `practitioner-blogs`'s sole candidate (Simon Willison's budget-caps post) passed pass 1 on the strength of its AI-agent framing despite being commentary rather than a technique.
+
+Cross-source dedup: "Show HN: Thoreau BASIC" (not AI-related — a BASIC interpreter; the keyword match on `hn-show-inference`/`hn-show-rag`/`hn-show-mcp` was coincidental) was cross-posted to three queries — deduped to one consideration, dropped (not AI). "Show HN: Made an open-source Lego AI generator" resurfaced (`hn-show-ai50`/`hn-show-agents`) — same item dropped on the same 2026-10-03 pass-2-fit grounds (novelty LEGO generator, no `interests.md` match), not re-litigated. "Show HN: Pi pod – Run your pi coding agent in sandboxes on your own server" was cross-posted to `hn-show-ai50`/`hn-show-rag`/`hn-show-agents` — deduped to one consideration, kept (see below). "From the creator of Redis; run LLM locally with ds4" (`hn-trend-llm`, 345 pts) is the same HN thread already confirmed into `radar/community.md` on 2026-10-02 (191 pts at the time) — DEDUP, not re-added, still transport-blocked. HF's trending `Aleph-Alpha/Kolibri-1` model page (258 trending score) is the same story as the HN-trending `tej.as` Kolibri explainer below — merged into one item citing the explainer as primary.
+
+HN (beyond the dedups above): kept "Aleph Alpha Kolibri: How the sovereign German LLM works" (410 pts — strong signal, a technical explainer, direct "local/self-hosted models" + article-lens fit) and "Show HN: Offrun – manage every coding agent from one workspace" (74 pts/61 comments — runs Claude Code/Codex/AGY/Grok Build side by side, direct multi-agent-orchestration fit) and "Show HN: Pi pod" (coding-agent sandboxing, direct agent-harness fit). Dropped "Show HN: Rank every HN 'Who is hiring?' post against your resume, locally" (13 pts, no self-text captured — too thin, budget cut in favor of stronger picks), "Show HN: Our space game has a built-in RISC-V emulator that runs Linux" (not AI-related), and "Show HN: Timeline of the Far Future" (not AI-related).
+
+`hf-trending-models` (2 raw, 0 separately kept): `Aleph-Alpha/Kolibri-1` merged into the HN Kolibri item above (same story); `ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF` (520 likes) is a bare quantization-conversion trending-diff entry with no accompanying technical writeup — budget cut, consistent with the recurring "bare trending diff" drop precedent. `hf-trending-spaces` (1 raw, 0 kept): `hugging-apps/bfs-best-face-swap` — explicit LOW bucket (image/video generation, no technical signal) — dropped. `github-trending` (1 raw, 1 kept): `pbakaus/impeccable` — see VERIFY SUBSTANCE.
+
+VERIFY SUBSTANCE: candidates attempted (within the 5-cap): **pbakaus/impeccable** — verified via `git clone` (github.com is WebFetch-blocked, used the git-proxy ladder per workflow): real, installable Claude Code skill — 1 skill, 24 commands, 61 deterministic detector rules runnable with no LLM/API key, `/impeccable init` writing durable `PRODUCT.md`/`DESIGN.md` state — verified-substantive, made a highlight. **Simon Willison's "default hard budget caps" post** — verified via WebFetch: concrete named examples (AWS's September 2026 per-project spend limit, Google Cloud's July "Spend Caps"), a specific proposed UX (opt-in checkbox to disable the cap), explicit AI-agent framing as the reason this now matters — verified-substantive, made a highlight. **vLLM release v0.31.0** — WebFetch on the GitHub releases page returned `EGRESS_BLOCKED` (github.com is on the known-blocked list); `git clone --depth 1` confirms the repo is active but a shallow clone carries no tag-specific release notes — kept as a regular item, out of highlight consideration (same pattern as the two prior vLLM releases in `radar/oss-ml-systems.md`). **Aleph Alpha Kolibri explainer (tej.as)** — WebFetch `EGRESS_BLOCKED` on `tej.as`, curl retry `CONNECT tunnel failed, response 403` — kept on the HN listing title alone, out of highlight consideration. **Show HN: Pi pod** and **Show HN: Offrun** — both `pipod.dev`/`offrun.dev` gave WebFetch `EGRESS_BLOCKED` + curl `CONNECT tunnel failed, response 403` — both kept on their own HN-submission text, out of highlight consideration.
+
+**Highlights: 2** — **pbakaus/impeccable** (a real, installable Claude Code skill with deterministic, no-LLM detector rules — directly usable in the owner's own daily toolchain, not a marketing shell) and **Simon Willison's "default hard budget caps on pretty much everything"** (named concrete AWS/GCP implementations, explicit AI-agent-spend framing, a genuine practitioner argument). Both independently verified substantive via working transport. The Kolibri/Pi-pod/Offrun cluster stayed out of the top picks for lacking any working transport this run (`tej.as`/`pipod.dev`/`offrun.dev` all egress-blocked) — tracked as regular items instead, consistent with the never-invent principle.
+
+**Linear: UNAVAILABLE this run — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; non-interactive session cannot run the OAuth flow).** No review-queue cards attempted. All 6 confirmed items are fully written to `radar/community.md` (4), `radar/oss-ml-systems.md` (1), and `radar/practitioner-blogs.md` (1) — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now the NINETY-THIRD consecutive affected run since 2026-08-24 (well over 40 days) — the owner's daily review queue and the twice-weekly deep-dive pipeline remain fully unfed by Linear for well over a month, and the deep-dive routine has still produced ZERO deep dives since going live. Owner action needed (unchanged, well over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: radar run 2026-10-04 (+6 items, 2 highlights, Linear unavailable)`.
