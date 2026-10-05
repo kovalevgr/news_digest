@@ -4251,3 +4251,33 @@ Radar week summary: **82 confirmed items** under `2026-W40` (community 58, bigte
 **Housekeeping note:** repo was again on a detached HEAD at `9d93106`, with local `main` nine commits behind `origin/main` (same recurring shape as prior runs). Checked out `main` and fast-forwarded to `origin/main` (clean, no divergence) before committing.
 
 Commit: `news: weekly digest 2026-W40`.
+
+## 2026-10-05 05:0x UTC — radar — ok (Linear unavailable)
+
+`fetch_radar.py` ran clean (exit 0). Window since `2026-10-04T03:01:14Z` (script's own cursor window).
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | - |
+| inference-infra | 0 | 0 | - |
+| oss-ml-systems | 0 | 0 | - |
+| bigtech-eng | 0 | 0 | - |
+| research-institutes | 0 | 0 | - |
+| technical-newsletters | 0 | 0 | - |
+| practitioner-blogs | 0 | 0 | - |
+| youtube | 0 | 0 | HTTP 404 on all 7 `yt-*` channels (systemic, weeks-old — known behavior, not a new failure) |
+| community | 44 | 15 | `eleuther` HTTP 404 (recurring; belongs to oss-ml-systems config but reports via the same error channel) |
+| mistral-watch | 0 | 0 | - |
+
+**TRIAGE.** All 44 raw candidates this run came from `community` sources (`reddit` 25, `github-trending` 4, `hf-trending-models` 3, `hn-show-*`/`hn-trend-llm` 8, `hf-trending-spaces` 2, `lobsters` 1); every other category was silent (normal — a quiet source day). Pass 1 technical-bar drops (29 of 44): three near-duplicate "Show HN: Thoreau BASIC" hits across the `hn-show-inference`/`hn-show-rag`/`hn-show-mcp` keyword searches (a BASIC-dialect joke project, false-positive keyword match, not AI content at all); `hn-show-ai50`'s "Build with Python" and "Dataviz ranked daily" (false-positive RAG-keyword matches, not AI/RAG content); 11 Reddit posts that are shopping/hardware questions, opinion threads, or appreciation posts rather than technique/benchmark/release content (qwen-hallucinated-URL anecdote, R9700 upgrade question, Strix-Halo "dream box" discussion, parkour-sim demo, "Poor People Vulkan GPUs" shopping list, unverified misrepresentation accusation, Micron CEO financial quote, distillation help-request, creative-writing help-request, Breeze-TTS appreciation post, "Need maybe say Use llama.cpp" meme post); one niche personal-tool post (SPOPI, a beta Pi-GUI editor) and one under-substantiated jailbreak-demo link post dropped for the day's volume budget rather than a hard pass-1 fail; `cloudflare/cloudflare-os` (github-trending) dropped as the most product-marketing-flavored of the three agent-tooling trending repos, also for budget. Two Reddit resurfacings — "Show HN: Offrun" and "Aleph Alpha Kolibri" (tej.as) — duplicate items already written to this file on 2026-10-03/-04; not re-added.
+
+**VERIFY SUBSTANCE** (within the 5-candidate cap): **allenv0/SCM** (146 pts, HN) — verified via `git clone` (github.com WebFetch-blocked): a real, installable local-first macOS app (CLIP vision search + Whisper + OCR over photos/video, five search modes, self-unquarantining Homebrew cask) — verified-substantive, made a highlight. **thedotmack/claude-mem** (GitHub-trending) — verified via `git clone`: a genuine Claude Code memory plugin — 5 lifecycle hooks, SQLite + Chroma hybrid search exposed via MCP tools — verified-substantive, made a highlight (directly relevant to the owner's own daily tool). **pingdotgg/t3code** (GitHub-trending) — verified via `git clone`: a real, working multi-platform agent-harness control surface (install script + public releases) — verified-substantive, kept as a regular item (close precedent already logged this month: TinyAIArena, Offrun, Pi pod). **turbopuffer.com/blog/rip-vector-database** (lobsters) — WebFetch `EGRESS_BLOCKED`, curl retry `CONNECT tunnel failed, response 403` — kept on the lobsters listing title/tag alone, out of highlight consideration. **autotrust/JEV-27B-Demo** (HF trending-spaces) — WebFetch returned only navigation/metadata, no substantive model documentation — kept on the listing alone, out of highlight consideration.
+
+**Highlights: 2** — **allenv0/SCM** (a real, working local multimodal search tool — no cloud, no accounts, direct "local/self-hosted models" fit) and **thedotmack/claude-mem** (persistent memory infrastructure for the owner's own Claude Code workflow, verified architecture not a marketing shell). Both independently verified substantive via `git clone`. Did not mark a 3rd highlight today — the next-best verified candidates (t3code, the three Reddit hardware/training write-ups) all have closer precedent already in the radar files or are narrower/more exotic builds than the two picked; zero top picks beyond 2 is a valid outcome, never padded to 3.
+
+**Linear: UNAVAILABLE this run** — no Linear tools loadable in this session (MCP server requires re-authorization; a non-interactive session cannot run the OAuth flow). No review-queue cards attempted. All 15 confirmed items are fully written to `radar/community.md` — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now the **NINETY-SIXTH** consecutive affected run since 2026-08-24 (over 6 weeks) — the owner's daily review queue and the twice-weekly deep-dive pipeline remain fully unfed by Linear, and the deep-dive routine has still produced zero deep dives since going live. Owner action needed (unchanged, well over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+**Housekeeping note:** repo was on a detached HEAD at `origin/main`'s tip (`6a32c02`, the W40 weekly digest commit) at the start of this run, with local `main` 10 commits behind. Checked out `main` and fast-forwarded clean — same recurring shape noted on every run since 2026-08-21.
+
+Commit: `news: radar run 2026-10-05 (+15 items, 2 highlights, Linear unavailable)`.
+
