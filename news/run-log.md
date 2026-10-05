@@ -4307,3 +4307,15 @@ Totals: 11/11 companies searched, **0 items / 0 companies fresh** — a genuinel
 
 Commit: `news: daily run 2026-10-05 (+0 items, 0 companies fresh, Linear unavailable)`.
 
+
+## 2026-10-05 07:1x UTC — deep dive — blocked (Linear unavailable, no input)
+
+Step 1 PICK could not run: the deep dive's ONLY entry point is `hot`-labelled cards in Linear project "Radar" (status "Ready to Review", fallback Todo), and **Linear is UNAVAILABLE this run — the MCP server requires re-authorization and ToolSearch confirms no Linear tools are loadable; a non-interactive session cannot run the OAuth flow.** With the review queue unreadable, there is no way to know which items the owner approved; no substitute selection was made (picking cards by own judgement would bypass the owner-approval gate). Cards processed: 0. Files written: none (`radar/deep/` still holds only `TEMPLATE.md`). Leftovers: unknown — cannot be enumerated without Linear.
+
+This is the NINETY-EIGHTH consecutive Linear-affected run since 2026-08-24 (42 days / 6 weeks) and the TWELFTH consecutive deep-dive run fully blocked — the deep-dive routine has produced ZERO deep dives since going live: the daily radar runs cannot create review-queue cards, so the owner cannot label anything `hot`, so this routine has no input — the pipeline's final stage is starved end-to-end. Radar collection itself remains healthy (82 confirmed items in W40 alone, all in `radar/*.md`), so the moment Linear is reconnected the queue can be backfilled from the radar files and the next Mon/Thu run picks up any `hot` backlog automatically (up to 3 cards per run, oldest first).
+
+Owner action needed (unchanged, 6 weeks overdue): reconnect the Linear connector at https://claude.ai/customize/connectors (connectors are read at session start, so the fix applies from the next scheduled run) or authorize it via `claude mcp` / `/mcp` in an interactive session.
+
+**Housekeeping note:** repo was again on a detached HEAD at `origin/main`'s tip (`245aa7d`) at the start of this run, with local `main` 12 commits behind — same recurring shape as prior runs. Checked out `main` and fast-forwarded clean.
+
+Commit: `news: deep dive 2026-10-05 (0 cards, Linear unavailable)`.
