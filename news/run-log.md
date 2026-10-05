@@ -4281,3 +4281,29 @@ Commit: `news: weekly digest 2026-W40`.
 
 Commit: `news: radar run 2026-10-05 (+15 items, 2 highlights, Linear unavailable)`.
 
+## 2026-10-05 06:0x UTC — daily — ok (Linear unavailable)
+
+Window: since 2026-10-04T06:0x UTC (last successful daily entry); `fetch_feeds.py`'s own cursor window reported `window_since: 2026-10-04T04:04:27Z`. Script ran clean (exit 0): `nvidia`/`mistral`/`huggingface` 304-not-modified (no fresh); `google-deepmind` flagged `TRAP/not-a-feed` on first pass — investigated directly (`curl` with browser UA): the body was in fact a valid, well-formed RSS 2.0 document (`content-type: text/xml`, proper `<rss>` root, items parse fine) with `lastBuildDate` unchanged since 2026-09-30 and both entries (Gemini 4 Argon, SynthID Bio) already captured in `topics/google-deepmind.md` — a one-off transient false-positive from the earlier pass, not a real trap and not added to the TRAP list; re-running `fetch_feeds.py --company google-deepmind` afterward returned a clean 304 (the first pass's 200 had already advanced the ETag cursor), confirming no new content either way.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (0 fresh) → WebSearch `"OpenAI announcement news October 4 2026"` | 0 | websearch | nothing confirmable — search surfaced only an unreleased/held-back "GPT-6.1 Astra" rumor (safety concerns, per a Sep 28 report) and pre-window recaps, no primary `openai.com` URL for an in-window item |
+| anthropic | fetch (WebFetch `anthropic.com/news`) | 0 | - | newsroom page's newest item is still the Oct 2 Claude Frontier Academy post, already captured — nothing newer |
+| google-deepmind | rss (transient TRAP false-positive, see above; verified via curl — no new content) → WebSearch `"Google DeepMind blog announcement October 4 2026"` | 0 | websearch | nothing confirmable — search surfaced only older DeepMind items (Gemma 4, Project Genie, the Apr-2023 renaming post), no October item with a primary `deepmind.google` URL |
+| google-research | rss (0 fresh) → WebSearch `"Google Research blog new post October 2026"` | 0 | websearch | nothing confirmable — search surfaced only an August 2026 recap and pre-2026 archive pages, no primary `research.google` URL for an in-window item |
+| microsoft | rss (0 fresh) → WebSearch `"Microsoft Research blog new post October 2026"` | 0 | websearch | nothing confirmable — search surfaced only an NSDI 2026 recap and July items predating the window, no primary `microsoft.com/en-us/research` URL |
+| nvidia | rss (304 not-modified, 0 fresh) → WebSearch `"NVIDIA developer blog announcement October 4 2026"` | 0 | websearch | nothing confirmable — search surfaced only CES/GTC-era items, no primary `developer.nvidia.com` URL for an in-window item |
+| xai | jina (`r.jina.ai/https://x.ai/news`) → Cloudflare JS challenge page returned instead of content → WebSearch `"xAI Grok announcement news October 2026"` | 0 | jina (blocked) → websearch | same Cloudflare managed-challenge transport block as the last run; websearch fallback surfaced only Grok 4.5/4.6-era recaps (Jul/Aug), nothing in-window with a primary `x.ai` URL |
+| mistral | rss (304 not-modified, 0 fresh) → WebSearch `"Mistral AI announcement news October 2026"` | 0 | websearch | nothing confirmable — search surfaced only pre-window items (HUMAIN deal, AI Now Summit/Forge, Robostral Navigate), none inside the window with a primary `mistral.ai` URL |
+| huggingface | rss (304 not-modified, 0 fresh) → WebSearch `"Hugging Face blog new post October 4 2026"` | 0 | websearch | nothing confirmable — search surfaced only generic blog-platform pages, no dated post matching the window |
+| cursor | rss (0 fresh) → WebSearch `"Cursor changelog update October 2026"` | 0 | websearch | nothing confirmable — search surfaced only Jul/Aug changelog entries, no October entry confirmed |
+| perplexity | jina (`r.jina.ai/https://www.perplexity.ai/hub/blog`) → Cloudflare JS challenge page returned instead of content → WebSearch `"Perplexity AI blog announcement October 2026"` | 0 | jina (blocked) → websearch | same Cloudflare-challenge transport block as xai this run; websearch fallback surfaced only pre-window items (Apr 2026 GPT-5.5 rollout, Comet browser), nothing in-window with a primary `perplexity.ai` URL |
+
+Totals: 11/11 companies searched, **0 items / 0 companies fresh** — a genuinely quiet day across the board, not a transport failure (every rss source either 304'd cleanly or, for `google-deepmind`, was independently verified unchanged via direct curl; every fetch/jina/WebSearch fallback completed and simply found nothing in-window). No `topics/*.md` or `artifacts/` files touched this run.
+
+**Linear: UNAVAILABLE this run — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; non-interactive session cannot run the OAuth flow).** No cards to attempt regardless (zero new items). This is now the **NINETY-SEVENTH** consecutive affected run since 2026-08-24 (nearly 6 weeks) — the owner's daily review queue and the twice-weekly deep-dive pipeline remain fully unfed by Linear. Owner action needed (unchanged, well over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+**Housekeeping note:** repo was on a detached HEAD at `origin/main`'s tip (`5ccf725`, the same-day radar run) at the start of this run, with local `main` 11 commits behind. Checked out `main` and fast-forwarded clean — same recurring shape noted on every run since 2026-08-21.
+
+Commit: `news: daily run 2026-10-05 (+0 items, 0 companies fresh, Linear unavailable)`.
+
