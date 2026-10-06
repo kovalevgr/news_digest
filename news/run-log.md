@@ -4319,3 +4319,36 @@ Owner action needed (unchanged, 6 weeks overdue): reconnect the Linear connector
 **Housekeeping note:** repo was again on a detached HEAD at `origin/main`'s tip (`245aa7d`) at the start of this run, with local `main` 12 commits behind — same recurring shape as prior runs. Checked out `main` and fast-forwarded clean.
 
 Commit: `news: deep dive 2026-10-05 (0 cards, Linear unavailable)`.
+
+## 2026-10-06 05:0x UTC — radar — ok (Linear unavailable)
+
+`fetch_radar.py` ran clean (exit 0). Window since `2026-10-05T03:01:58Z` (script's own cursor window).
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | - |
+| inference-infra | 0 | 0 | - |
+| oss-ml-systems | 2 | 2 | `eleuther` HTTP 404 (recurring; belongs to this config group, reports via the same error channel) |
+| bigtech-eng | 2 | 1 | - |
+| research-institutes | 0 | 0 | - |
+| technical-newsletters | 1 | 0 | - |
+| practitioner-blogs | 0 | 0 | - |
+| youtube | 0 | 0 | HTTP 404 on all 6 `yt-*` RSS channels + HTTP 500 on `yt-umar-jamil` (systemic, recurring — known behavior, not a new failure) |
+| community | 15 | 8 | `reddit` HTTP 429 (no fallback per policy, skipped) |
+| mistral-watch | 0 | 0 | - |
+
+Totals: 20 raw candidates, 11 confirmed.
+
+**TRIAGE.** Pass-1 drops (9 of 20): `hn-show-ai50`'s "Show HN: AI search for every photo and every frame of video on macOS" (`allenv0/SCM`) is a resurfacing of the item already written to `radar/community.md` on 2026-10-04 — not re-added. `hn-show-rag`'s three hits are all false-positive keyword matches on "RAG," none AI content — "Show HN: Build with Python" (a Pyodide-based kids' Python course), "Show HN: Dataviz, ranked daily" (a GitHub/NPM/PyPI/CRAN trending-package tracker), "Show HN: Nightwatch" (a Mac menu-bar clear-sky notifier). Cloudflare's "Everything we launched during Birthday Week 2026" (46-announcement day-by-day roundup of Cloudflare's own shipped features) dropped as a marketing wrap-up/roundup, not a single technical story. SemiAnalysis's "Anthropic Subscriptions Offer 5x+ More Value Than OpenAI" dropped per the explicit pass-1 rule (SemiAnalysis finance/subscription-value posts). `hf-trending-models`'s `jialinyyzz/humanizer` dropped — a trending "humanize AI text" model with no benchmark numbers, training recipe, or technical writeup on the card, thin even by LOW-fit standards. `github-trending`'s `getsentry/sentry` and `caddyserver/caddy` dropped — mature general-purpose dev tools (error tracking, web server) with no AI angle, off-topic for this radar.
+
+**VERIFY SUBSTANCE** (within the 5-candidate cap): **ReviewBench** (github.blog) — verified via WebFetch: a real open AI-code-review benchmark, 219 PRs/187 repos sampled from analyzing 103.9M GitHub PRs, multi-source ground truth, 96.6% agreement with independent senior-engineer validation, full dataset + leaderboard live at review-bench.ai — verified-substantive, made a highlight. **"Towards Looped Models Done Right, Part II"** (HF daily papers) — verified via WebFetch: concrete speedup/accuracy numbers (17.5% over a 4-block Transformer at 1.6B params, 1.79x faster distilled prefill, 2x faster RL updates), code at `ifm-ai/xllm-loop` already cited by 24 published HF models — verified-substantive, made a highlight. **autotrust/JEV-27B-VL** (HF trending-models) — verified via WebFetch: substantive model card with six-benchmark decision-accuracy numbers, VL-RewardBench/Plan-RewardBench scores, vision-grounded control numbers, serving docs — verified-substantive, made a highlight (continues the recurring Jev/Kev/Clef decision-model cluster). **Show HN: Era** (console.era.eon.io) — WebFetch `EGRESS_BLOCKED`, curl retry `CONNECT tunnel failed, response 403` — kept on the HN submission's own text, out of highlight consideration. **tester-army/e2e** (github-trending) — `git clone` through the git proxy was denied by this session's own auto-mode classifier ("Untrusted Code Integration"), a new transport obstacle not seen on prior runs (earlier runs cloned github.com repos for verification without issue, e.g. SCM/claude-mem/t3code on 2026-10-04/-05) — treated as a transport error per policy (keep item, skip highlight); worth a note for the owner since it narrows the GAP SCRAPE/VERIFY toolset if it persists.
+
+**Highlights: 3** — **ReviewBench** (a real open benchmark the owner could run their own code-review agent against), **"Towards Looped Models Done Right, Part II"** (reproducible technique with code and hard numbers), and **autotrust/JEV-27B-VL** (the decision-model cluster's first multimodal entrant, fully documented). All three independently verified substantive via WebFetch.
+
+**Linear: UNAVAILABLE this run** — no Linear tools loadable in this session (MCP server requires re-authorization; a non-interactive session cannot run the OAuth flow). No review-queue cards attempted. All 11 confirmed items are fully written to `radar/oss-ml-systems.md` (2), `radar/bigtech-eng.md` (1), and `radar/community.md` (8) — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now the **NINETY-NINTH** consecutive Linear-affected run since 2026-08-24 (over 6 weeks) — the owner's daily review queue and the twice-weekly deep-dive pipeline remain fully unfed by Linear, and the deep-dive routine has still produced zero deep dives since going live. Owner action needed (unchanged, well over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+**Transport note:** this run's `git clone` for repo verification (`tester-army/e2e`) was denied by the session's own auto-mode classifier rather than failing at the network/proxy layer — a new obstacle distinct from the usual `EGRESS_BLOCKED`/403 cases. If this persists on future runs, GitHub-repo verification may need to fall back to WebFetch-on-blog-mirrors or stay unverified more often.
+
+**Housekeeping note:** repo was clean and `main` was already up to date with `origin/main` at the start of this run — no detached-HEAD/fast-forward needed, unlike the pattern on every run since 2026-08-21.
+
+Commit: `news: radar run 2026-10-06 (+11 items, 3 highlights, Linear unavailable)`.
