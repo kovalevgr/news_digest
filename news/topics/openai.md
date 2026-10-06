@@ -4,10 +4,14 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-09-29
+updated: 2026-10-05
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W41
+
+- **2026-10-05** — [Building advertising for the way people use AI](https://openai.com/index/new-chatgpt-ads-format-and-measurement) — OpenAI introduces a new visual ad format in ChatGPT image generation and expands measurement tools and attribution partnerships for advertisers; US test begins later this month.
 
 ## 2026-W40
 

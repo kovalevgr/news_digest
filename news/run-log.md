@@ -4352,3 +4352,37 @@ Totals: 20 raw candidates, 11 confirmed.
 **Housekeeping note:** repo was clean and `main` was already up to date with `origin/main` at the start of this run — no detached-HEAD/fast-forward needed, unlike the pattern on every run since 2026-08-21.
 
 Commit: `news: radar run 2026-10-06 (+11 items, 3 highlights, Linear unavailable)`.
+
+## 2026-10-06 06:0x UTC — daily run — ok (Linear unavailable)
+
+`fetch_feeds.py` ran clean (exit 0). Window since `2026-10-05T04:05:29Z` (script's own cursor window).
+
+| company | path | fresh (tier-1) | fallback used | result |
+| --- | --- | --- | --- | --- |
+| openai | rss | 1 | - | confirmed |
+| anthropic | rss n/a → fetch `anthropic.com/news` | 0 | WebFetch | nothing in-window (newest Oct 2, before window) |
+| google-deepmind | rss (0 fresh) → WebSearch | 0 | websearch | nothing confirmable in-window |
+| google-research | rss | 1 | - | confirmed |
+| microsoft | rss (0 fresh) → WebSearch + WebFetch verify | 0 | websearch → webfetch | WebFetch of the blog index confirms newest post is Sep 30 — nothing in-window; the WebSearch hit ("NSDI 2026" "around Oct 5") did not check out against the real index, discarded |
+| nvidia | rss (0 fresh) → WebSearch + WebFetch verify | 0 | websearch → webfetch | WebFetch of the blog confirms newest posts are Oct 01 (before window) — nothing in-window; the WebSearch hit (DGX Spark "Oct 5") did not check out against the real blog listing, discarded |
+| xai | jina (no `JINA_API_KEY`, anonymous call succeeded this run — no Cloudflare block) | 0 | jina (succeeded, read) | newest item Sep 28 — nothing in-window |
+| mistral | rss (0 fresh) → WebSearch | 0 | websearch | nothing confirmable in-window |
+| huggingface | rss (0 fresh) → WebSearch | 0 | websearch | nothing confirmable in-window |
+| cursor | rss (0 fresh) → WebSearch | 0 | websearch | nothing confirmable in-window |
+| perplexity | jina (no `JINA_API_KEY`, anonymous call returned content despite a 403 warning in the body — cached) | 0 | jina (succeeded, read) | newest items Sep 30/Oct 1 — nothing in-window |
+
+Totals: 11/11 companies searched, **+2 items / 2 companies fresh** (openai, google-research).
+
+**DEDUP + CONFIRM.** Both items verified by reading the full source (OpenAI via Jina after a WebFetch 403; Google Research via WebFetch directly) — no duplicates against existing `topics/` entries, no cross-company collisions. OpenAI's new ad format is a genuine product announcement (not itself an ad); Google Research's piece is a substantive 50+-contributor workshop report, not a roundup.
+
+Items written:
+- `topics/openai.md` — [Building advertising for the way people use AI](https://openai.com/index/new-chatgpt-ads-format-and-measurement) + `artifacts/2026-10-05-openai-chatgpt-ads-format.md`.
+- `topics/google-research.md` — [Open and Emergent Problems in Agentic Privacy and Security: A Contextual Angle](https://research.google/blog/open-and-emergent-problems-in-agentic-privacy-and-security-a-contextual-angle/) + `artifacts/2026-10-05-google-research-agentic-privacy-security.md`.
+
+**Transport note:** both `jina`-tier companies (xai, perplexity) returned readable content on an anonymous `r.jina.ai` call this run — unlike the Cloudflare-challenge block seen on 2026-10-04/10-05 — but neither had anything inside the window regardless. Still no `JINA_API_KEY` configured.
+
+**Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive session cannot run the OAuth flow). Both new items are fully written to `topics/` and `artifacts/` — no data lost, only the Linear "News digest" cards are behind. This is now the **HUNDREDTH** consecutive Linear-affected run since 2026-08-24 (6+ weeks) — the owner's daily review queue and the deep-dive pipeline remain fully unfed by Linear. Owner action needed (unchanged, well over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+**Housekeeping note:** repo was on a detached HEAD at `origin/main`'s tip (`8b261dd`, the same-day radar run) at the start of this run, with local `main` 1 commit behind. Checked out `main` and fast-forwarded clean — same recurring shape noted on every run since 2026-08-21.
+
+Commit: `news: daily run 2026-10-06 (+2 items, 2 companies fresh, Linear unavailable)`.

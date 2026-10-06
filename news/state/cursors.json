@@ -5,25 +5,25 @@
     "last_run": "2026-08-08T16:27:06.940454+00:00"
   },
   "https://cursor.com/changelog/rss.xml": {
-    "last_run": "2026-10-05T06:04:27.386358+00:00"
+    "last_run": "2026-10-06T06:05:29.902616+00:00"
   },
   "https://deepmind.google/blog/rss.xml": {
-    "etag": "\"KsR9aQ\"",
+    "etag": "\"HIkjvw\"",
     "last_modified": "Wed, 30 Sep 2026 20:01:45 GMT",
-    "last_run": "2026-10-05T06:05:48.841319+00:00"
+    "last_run": "2026-10-06T06:05:29.902616+00:00"
   },
   "https://developer.nvidia.com/blog/feed": {
-    "etag": "\"6691e867ce6c12031f5091f33f4e2e7d\"",
-    "last_modified": "Thu, 01 Oct 2026 19:11:00 GMT",
-    "last_run": "2026-10-05T06:04:27.386358+00:00"
+    "etag": "\"d18b105e63e603ef02c007b3080c2df4\"",
+    "last_modified": "Mon, 05 Oct 2026 21:10:42 GMT",
+    "last_run": "2026-10-06T06:05:29.902616+00:00"
   },
   "https://huggingface.co/blog/feed.xml": {
-    "etag": "W/\"3eeeb-+qF2sOgGqdHXxTaFjQ1j2pAmscE\"",
-    "last_run": "2026-10-05T06:04:27.386358+00:00"
+    "etag": "W/\"3eff2-3kg2I308WO4ZaIOuTSGbZCDfEsY\"",
+    "last_run": "2026-10-06T06:05:29.902616+00:00"
   },
   "https://mistral.ai/rss.xml": {
-    "etag": "W/\"1dd1fd0b3f5c73164f821fe87eb42e27-ssl-df\"",
-    "last_run": "2026-10-05T06:04:27.386358+00:00"
+    "etag": "W/\"192a73eaf6b2f86e286cc2082ebd4130-ssl-df\"",
+    "last_run": "2026-10-06T06:05:29.902616+00:00"
   },
   "https://news.microsoft.com/source/feed/": {
     "etag": "W/\"76d6f012764bed16bc53f3ae441962f1\"",
@@ -31,15 +31,15 @@
     "last_run": "2026-08-08T16:27:06.940454+00:00"
   },
   "https://openai.com/news/rss.xml": {
-    "last_run": "2026-10-05T06:04:27.386358+00:00"
+    "last_run": "2026-10-06T06:05:29.902616+00:00"
   },
   "https://research.google/blog/rss/": {
-    "last_modified": "Fri, 02 Oct 2026 14:57:41 GMT",
-    "last_run": "2026-10-05T06:04:27.386358+00:00"
+    "last_modified": "Mon, 05 Oct 2026 21:08:31 GMT",
+    "last_run": "2026-10-06T06:05:29.902616+00:00"
   },
   "https://www.microsoft.com/en-us/research/feed/": {
-    "etag": "\"d02fb8f9cfd0153643baf96a66f12128\"",
-    "last_modified": "Sun, 04 Oct 2026 22:57:24 GMT",
-    "last_run": "2026-10-05T06:04:27.386358+00:00"
+    "etag": "\"0771a893d31d602733dbd8cefd471fcb\"",
+    "last_modified": "Tue, 06 Oct 2026 05:00:51 GMT",
+    "last_run": "2026-10-06T06:05:29.902616+00:00"
   }
 }
