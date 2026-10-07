@@ -4386,3 +4386,40 @@ Items written:
 **Housekeeping note:** repo was on a detached HEAD at `origin/main`'s tip (`8b261dd`, the same-day radar run) at the start of this run, with local `main` 1 commit behind. Checked out `main` and fast-forwarded clean — same recurring shape noted on every run since 2026-08-21.
 
 Commit: `news: daily run 2026-10-06 (+2 items, 2 companies fresh, Linear unavailable)`.
+
+## 2026-10-07 05:1x UTC — radar — ok (Linear unavailable)
+
+`fetch_radar.py` ran clean (exit 0). Window since `2026-10-06T03:01:50Z` (script's own cursor window).
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | - |
+| inference-infra | 0 | 0 | - |
+| oss-ml-systems | 1 | 1 | `eleuther` HTTP 404 (recurring, known behavior) |
+| bigtech-eng | 0 | 0 | - |
+| research-institutes | 0 | 0 | - |
+| technical-newsletters | 0 | 0 | - |
+| practitioner-blogs | 1 | 1 | - |
+| youtube | 0 | 0 | HTTP 404 on all 7 `yt-*` RSS channels (systemic, recurring — known behavior, not a new failure) |
+| community | 43 | 13 | - |
+| mistral-watch | 0 | 0 | - |
+
+Totals: 45 raw candidates, 15 confirmed (at the daily volume budget cap).
+
+**TRIAGE.** Pass-1 drops (off-topic / not technical-builder content, 6 of 43 community raw): `hn-show-rag`'s "Show HN: I turned my iPhone and a $20 smart plug into an f-stop timer," "Show HN: MailAccess – the true Email OSINT framework," and "Show HN: Steve Jobs died 15 years ago today" — all false-positive keyword matches on "RAG," none AI content. `github-trending`'s `boykopovar/AnyPS5` (PS5-executable porting tool) and `DuarteSantos8/openGym` (self-hosted gym tracker) — mature general-purpose tools with no AI angle. Reddit's "Woman used Claude as her diary — and got reported to the police" — a social/privacy anecdote, not engineering/technique/benchmark/release content, dropped per the technical-bar rule.
+
+Dedup (cross-query HN duplicates + same-story clusters, not double-counted in the totals above): "Show HN: OpenChart," "Show HN: Jotbus," and "Show HN: Era" each hit both `hn-show-rag` and `hn-show-agents` — deduped to one occurrence each. "Show HN: Era – Complete Simulated Companies for Your Agents" (published 2026-10-05, resurfacing in today's window) is an exact repeat of the entry already written to `radar/community.md` on 2026-10-05 — not re-added. The two Mistral Large 4 posts (the "Chonky" announcement + the `@qtnx_` X-repost on RL runs) are the same underlying story — merged into one `radar/community.md` entry. The two GPT-6-looped-transformer posts ("Microsoft confirms..." and the "GPT-6.1 Sol... leak") are the same speculation thread — merged into one entry, explicitly flagged as unverified community claims (no primary Microsoft/OpenAI source), not an invented fact. The bare "google/embeddinggemma-2 · Hugging Face" link post is a redundant duplicate of the same-day "running locally in-browser on WebGPU" post and the HF trending-models entrant for the same model — merged into one entry.
+
+Volume-budget drops (cleared pass 1, HIGH/MEDIUM fit per `interests.md`, dropped only because the ≤15/day cap was reached — not a quality judgment): "Show HN: OpenChart" (AI-agent trading-chart tool, more product than technique), "I trained a model to be wrong 98% of the time and 96% sure about it," "What happens when a LLM watches its own context window run out?," "How abliterated models can get you pwned," "OpenAI is following Anthropic with statistical text watermarks... open-sourced my rewrite-based remover" (also preferred not to amplify a watermark-evasion tool), "I made a Chrome extension that filters YouTube with a small local model," "Local AI World Model Part 2," "Local AI ecosystem overview," HF daily papers "ALIVE" (video editing) and "Attacca" (embodied agents, LOW fit per `interests.md` — robotics/video-gen), and `hf-trending-spaces`' `tardellirs/model-pulse` (no summary captured, too thin to prioritize under the cap).
+
+**VERIFY SUBSTANCE** (within the 5-candidate cap; reddit's JSON API returns a Cloudflare challenge page in this env, so verification used each post's own `.rss` endpoint instead — same browser-UA transport, full self-text, no need for the "429 → feed text" fallback): **"I gave a 21M model a 6.4B-parameter lookup table"** — verified: real repo (`re133/sparse-memory-lm`), HF checkpoint, interactive explorer, concrete numbers (21M+6.4B-param table ≈ 114M dense model; ~140 tok/s off an NVMe-mapped table at 0.4GB VRAM), and honest negative-result caveats — made a highlight. **"\[Paper\] WaveFront Decoding"** — verified: real arXiv paper + code, concrete Spec-Bench speedups (2.42x–4.81x) — made a highlight. **"Why 38% of AI Agent container escapes didn't need kernel 0-days"** — verified: a real 109-incident empirical dataset + open-source defense harness, Apache-2.0/Zenodo — made a highlight. **"We're using GLM-5.3 Flash instead of frontier models..."** — verified but did NOT clear the highlight bar: it's a genuine production anecdote, not a technical teardown (the post itself asks the community how the model was trained) — kept as a regular item. **"Mistral Large 4 Released"** — verified but thin (two sentences + a joke about the name) — kept as a regular item despite the Mistral special-watch, out of highlight consideration pending a primary `mistral.ai` source.
+
+**Highlights: 3** — the lookup-table memory-layer reproduction, WaveFront Decoding (both continue this month's looped/recurrent-LLM research thread alongside yesterday's "Towards Looped Models Done Right Part II"), and the AI-agent container-escape security dataset. All three independently verified with real numbers, code, or datasets — not marketing shells.
+
+**Category-assignment note:** `lobsters` is configured with category `community` in `radar.json` (not `oss-ml-systems`), so both of today's lobsters items ("OpenAI shares mathematics research catalogue," "Burn 0.22.0") were written to `radar/community.md` despite their ML-systems-adjacent subject matter — the WRITE step files by the source's configured category, not by content judgment.
+
+**Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive session cannot run the OAuth flow). No review-queue cards attempted. All 15 confirmed items are fully written to `radar/oss-ml-systems.md` (1), `radar/practitioner-blogs.md` (1), and `radar/community.md` (13) — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now the **ONE HUNDRED AND FIRST** consecutive Linear-affected run since 2026-08-24 (over 6 weeks) — the owner's daily review queue and the deep-dive pipeline remain fully unfed by Linear, and the deep-dive routine has still produced zero deep dives since going live. Owner action needed (unchanged, well over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+**Housekeeping note:** repo was on a detached HEAD at `origin/main`'s tip (`3f5b1d0`) at the start of this run, with local `main` 2 commits behind. Checked out `main` and fast-forwarded clean — same recurring shape noted on every run since 2026-08-21.
+
+Commit: `news: radar run 2026-10-07 (+15 items, 3 highlights, Linear unavailable)`.

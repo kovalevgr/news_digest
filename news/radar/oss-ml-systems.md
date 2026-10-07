@@ -1,6 +1,6 @@
 ---
 category: oss-ml-systems
-updated: 2026-10-06
+updated: 2026-10-07
 ---
 
 # Radar: oss-ml-systems
@@ -80,3 +80,4 @@ Appended by the daily routine under weekly headings; format matches topics files
 
 - **2026-10-05** — [Evolution of the PyTorch Media Processing Landscape](https://pytorch.org/blog/evolution-of-the-pytorch-media-processing-landscape/) — PyTorch's current media-library guidance: use TorchCodec for decoding/encoding images, video, or audio, and TorchVision for transforming images and video. Not independently verified beyond the feed's own summary this run — MEDIUM fit, oss-ml-systems infra guidance rather than a new technique.
 - **2026-10-05** — [PyTorch Hardware Enablement: Updates from the Accelerator Integration Working Group](https://pytorch.org/blog/pytorch-hardware-enablement-updates-from-the-acceleration-integration-working-group/) — PyTorch's Accelerator Integration Working Group update on standardizing how new hardware architectures connect to the open-source AI ecosystem as compute platforms diversify across cloud and edge. Not independently verified beyond the feed's own summary this run — MEDIUM fit, infra-standardization engineering.
+- **2026-10-06** — [Modernizing Table Batched Embeddings with FBTriton](https://pytorch.org/blog/modernizing-table-batched-embeddings-with-fbtriton/) — Not independently verified beyond the feed's own summary this run: a Triton kernel redesign of Table Batched Embedding (TBE) forward/backward passes — the core operator behind embedding lookups across thousands of sharded GPUs in recommendation systems. MEDIUM fit — GPU/kernel engineering.
