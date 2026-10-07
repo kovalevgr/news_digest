@@ -4,10 +4,14 @@ aliases:
   - Mistral
 sources:
   - https://mistral.ai/rss.xml
-updated: 2026-09-28
+updated: 2026-10-07
 ---
 
 MOC page for **Mistral AI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W41
+
+- **2026-10-06** — [Introducing Mistral Large 4](https://mistral.ai/news/mistral-large-4/) — Mistral launches a public preview of Mistral Large 4 ("Le Chonk"), a 1T-parameter (49B active) multimodal model trained on 3,800 NVIDIA GPUs in European datacenters; $1.36/M input, $4.18/M output tokens, weights by month-end.
 
 ## 2026-W40
 

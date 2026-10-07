@@ -5,10 +5,14 @@ aliases:
   - Gemini
 sources:
   - https://deepmind.google/blog/rss.xml
-updated: 2026-10-01
+updated: 2026-10-07
 ---
 
 MOC page for **Google DeepMind** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W41
+
+- **2026-10-06** — [EmbeddingGemma 2: an open, lightweight multimodal embedding model](https://deepmind.google/blog/embeddinggemma-2-an-open-lightweight-multimodal-embedding-model/) — Google DeepMind introduces EmbeddingGemma 2, an open, lightweight multimodal embedding model. Full detail unverified: the post redirects to blog.google, egress-blocked in this session — confirmed real via the official RSS feed + a clean 302 redirect, but no content could be read.
 
 ## 2026-W40
 

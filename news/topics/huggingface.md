@@ -5,10 +5,14 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-10-04
+updated: 2026-10-07
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W41
+
+- **2026-10-06** — [Falcon-Emirati: When an LLM Learns the Dialect, the Culture, and the Nuance](https://huggingface.co/blog/tiiuae/falcon-emirati) — The Technology Innovation Institute releases Falcon-Emirati-7B, built on Falcon-H1-Arabic and focused on the Emirati dialect rather than Modern Standard Arabic; 84.83% on the native Alyah benchmark, outperforming larger multilingual models.
 
 ## 2026-W40
 

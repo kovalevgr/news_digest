@@ -4423,3 +4423,45 @@ Volume-budget drops (cleared pass 1, HIGH/MEDIUM fit per `interests.md`, dropped
 **Housekeeping note:** repo was on a detached HEAD at `origin/main`'s tip (`3f5b1d0`) at the start of this run, with local `main` 2 commits behind. Checked out `main` and fast-forwarded clean — same recurring shape noted on every run since 2026-08-21.
 
 Commit: `news: radar run 2026-10-07 (+15 items, 3 highlights, Linear unavailable)`.
+
+## 2026-10-07 06:0x UTC — daily — ok (Linear unavailable)
+
+`fetch_feeds.py` ran clean (exit 0). Window since `2026-10-06T04:04:44Z` (default; prior successful daily run was 2026-10-06 06:0x UTC).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss | 2 | - | - |
+| anthropic | fetch (0 fresh signal) → WebFetch `anthropic.com/news` | 1 | fetch | - |
+| google-deepmind | rss | 1 | - | full content unverified (blog.google egress-blocked, same recurring block) |
+| google-research | rss | 1 | - | - |
+| microsoft | rss | 0 | - | 1 candidate excluded (podcast-interview episode, not an announcement) |
+| nvidia | rss | 3 | - | - |
+| xai | jina (no `JINA_API_KEY`, anonymous call hit a Cloudflare managed-challenge page) → WebSearch | 0 | jina (blocked) → websearch | nothing confirmable in-window with a primary `x.ai` URL |
+| mistral | rss | 1 | - | - |
+| huggingface | rss | 1 | - | - |
+| cursor | rss (0 fresh) → WebSearch | 0 | websearch | nothing confirmable in-window beyond already-captured changelog items |
+| perplexity | jina (no `JINA_API_KEY`, anonymous call hit the same Cloudflare managed-challenge page as xai) → WebSearch | 0 | jina (blocked) → websearch | nothing confirmable in-window with a primary `perplexity.ai` URL |
+
+Totals: 11/11 companies searched, **+10 items / 7 companies fresh** (openai, anthropic, google-deepmind, google-research, nvidia, mistral, huggingface).
+
+**DEDUP + CONFIRM.** No canonical-URL duplicates against existing `topics/` entries; no cross-company URL collisions. All ten items verified as genuine announcements (releases, research results, or substantive partner collaborations), not ads/hiring/roundups:
+- OpenAI's two items (math-progress results, Ironclad computer-use collaboration) are both TIER-1 RSS items; full article text could not be read (`openai.com` returned HTTP 403 on both direct WebFetch and the one Jina retry — Cloudflare-blocked both ways) — written using only the RSS feed's own summary text, no padding.
+- Microsoft's sole RSS candidate ("What AI gets wrong and what failure teaches us") is a podcast-episode career-profile interview, not a product/research announcement — dropped per the real-announcement rule (same call this file's radar side makes on podcast/interview content).
+- Anthropic: TIER-1 showed zero fresh (no feed exists); gap-scraped via WebFetch of `anthropic.com/news`, which surfaced "Expanding the Cyber Verification Program" (Oct 6) — read the full article directly, confirmed a genuine program-structure announcement with concrete numbers.
+- Google DeepMind's "EmbeddingGemma 2" post redirects to `blog.google`, which is egress-blocked in this session (same recurring block as the 2026-09-30 Gemini 4 Argon item) — title/URL/date confirmed via the official RSS feed + a clean 302 redirect; full content not read, nothing invented.
+- Google Research, NVIDIA (×3), Mistral, and Hugging Face items were all read in full via direct WebFetch — genuine release/research announcements with concrete facts and numbers, written in full.
+- xAI and Perplexity: anonymous Jina hit the same Cloudflare managed-challenge page for both (no `JINA_API_KEY` configured); the WebSearch fallback (the ladder's one permitted attempt) surfaced nothing confirmable inside the window for either.
+- Cursor: TIER-1 RSS showed zero fresh; WebSearch fallback found nothing past its already-captured changelog entries (search results topped out at July/August 2026 releases).
+
+Items written:
+- `topics/openai.md` — [Sharing AI progress in mathematics](https://openai.com/index/sharing-ai-progress-in-mathematics) + `artifacts/2026-10-06-openai-sharing-ai-progress-mathematics.md`; [Advancing computer use with Ironclad](https://openai.com/index/advancing-computer-use-with-ironclad) + `artifacts/2026-10-06-openai-advancing-computer-use-ironclad.md`.
+- `topics/anthropic.md` — [Expanding the Cyber Verification Program](https://www.anthropic.com/news/cyber-verification-program) + `artifacts/2026-10-06-anthropic-cyber-verification-program.md`.
+- `topics/google-deepmind.md` — [EmbeddingGemma 2: an open, lightweight multimodal embedding model](https://deepmind.google/blog/embeddinggemma-2-an-open-lightweight-multimodal-embedding-model/) + `artifacts/2026-10-06-google-deepmind-embeddinggemma-2.md`.
+- `topics/google-research.md` — [Unlocking Earth AI's planetary geospatial foundation models for global public health](https://research.google/blog/earth-ais-planetary-geospatial-foundation-models-for-global-public-health/) + `artifacts/2026-10-06-google-research-earth-ai-public-health.md`.
+- `topics/nvidia.md` — [How DOCA GPUNetIO Unifies GPU-Initiated Networking...](https://developer.nvidia.com/blog/doca-gpunetio-gda-ki-unified-gpu-networking/), [AICR v1.0...](https://developer.nvidia.com/blog/aicr-v1-0-open-stable-and-verifiable-gpu-cluster-configuration/), [Control How Your GPU Shares Work with Green Contexts](https://developer.nvidia.com/blog/control-how-your-gpu-shares-work-with-green-contexts/) — three artifacts (`artifacts/2026-10-06-nvidia-doca-gpunetio.md`, `artifacts/2026-10-06-nvidia-aicr-v1-0.md`, `artifacts/2026-10-06-nvidia-green-contexts.md`).
+- `topics/mistral.md` — [Introducing Mistral Large 4](https://mistral.ai/news/mistral-large-4/) + `artifacts/2026-10-06-mistral-large-4.md` (the community buzz/leak about this same release was already covered yesterday in `radar/community.md` — distinct pipeline scope, both kept per each file's own purpose).
+- `topics/huggingface.md` — [Falcon-Emirati: When an LLM Learns the Dialect, the Culture, and the Nuance](https://huggingface.co/blog/tiiuae/falcon-emirati) + `artifacts/2026-10-06-huggingface-falcon-emirati.md`.
+
+**Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive session cannot run the OAuth flow). All 10 new items are fully written to `topics/` and `artifacts/` — no data lost, only the Linear "News digest" cards are behind. This is now the **ONE HUNDRED AND SECOND** consecutive Linear-affected run since 2026-08-24 (over 6 weeks) — the owner's daily review queue and the deep-dive pipeline remain fully unfed by Linear. Owner action needed (unchanged, well over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-10-07 (+10 items, 7 companies fresh, Linear unavailable)`.
