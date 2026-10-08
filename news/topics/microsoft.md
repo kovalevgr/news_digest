@@ -5,10 +5,14 @@ aliases:
   - Copilot
 sources:
   - https://news.microsoft.com/source/feed/
-updated: 2026-10-01
+updated: 2026-10-08
 ---
 
 MOC page for **Microsoft** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W41
+
+- **2026-10-07** — [Agent Lightning v1.0: A 3,500-Line Lightweight Agentic RL Framework for Training Agents with Real Harnesses](https://www.microsoft.com/en-us/research/blog/agent-lightning-v1-0-a-3500-line-lightweight-agentic-rl-framework-for-training-agents-with-real-harnesses/) — Microsoft Research Asia open-sources Agent Lightning v1.0, a ~3,500-line agentic RL framework training agents on their real deployment harnesses; Collocated Async RL gives ~2x speedup over synchronous RL, and a coding-agent experiment lifted Qwen3.5-9B's SWE-bench Verified Pass@1 from 41.8% to 56.4%.
 
 ## 2026-W40
 

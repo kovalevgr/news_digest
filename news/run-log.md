@@ -4500,3 +4500,47 @@ Volume-budget drops (cleared pass 1, HIGH/MEDIUM fit per `interests.md`, dropped
 **Housekeeping note:** repo was on a detached HEAD at `origin/main`'s tip (`e478b0e`) at the start of this run, with local `main` 4 commits behind. Stashed the in-progress `state/radar-cursors.json` write, checked out `main`, fast-forwarded clean, and restored the stash — same recurring shape noted on every run since 2026-08-21.
 
 Commit: `news: radar run 2026-10-08 (+15 items, 3 highlights, Linear unavailable)`.
+
+## 2026-10-08 06:0x UTC — daily — ok (Linear unavailable)
+
+`fetch_feeds.py` ran clean (exit 0; one `304 not modified` skip logged for mistral). Window since `2026-10-07T04:04:28Z` (prior successful daily run was 2026-10-07 06:0x UTC).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss | 1 | - | - |
+| anthropic | fetch (0 fresh) → WebFetch `anthropic.com/news` | 1 | fetch | - |
+| google-deepmind | rss (0 fresh) → WebFetch `deepmind.google/blog/` | 0 | fetch | only Oct item found (EmbeddingGemma 2) already captured 2026-10-07 |
+| google-research | rss | 1 | - | - |
+| microsoft | rss | 1 | - | - |
+| nvidia | rss | 4 | - | - |
+| xai | jina (anonymous call succeeded, 200) | 0 | jina | latest post Grok 4.7 (Sep 21) predates window; nothing in-window |
+| mistral | rss (304 not modified) → WebFetch `mistral.ai/news` | 0 | fetch | only Oct item found (Mistral Large 4) already captured 2026-10-06 |
+| huggingface | rss | 2 | - | - |
+| cursor | rss (0 fresh) → WebFetch `cursor.com/changelog` | 1 | fetch | - |
+| perplexity | jina (no `JINA_API_KEY`, 403 AbuseAlleviation) → WebSearch | 0 | jina (blocked) → websearch | nothing confirmable in-window with a primary `perplexity.ai` URL |
+
+Totals: 11/11 companies searched, **+11 items / 7 companies fresh** (openai, anthropic, google-research, microsoft, nvidia, huggingface, cursor).
+
+**DEDUP + CONFIRM.** No canonical-URL duplicates against existing `topics/` entries; no cross-company URL collisions (HuggingFace's NVIDIA-authored Nemotron post stays on HF — it's a huggingface.co URL, not published on an NVIDIA domain). All eleven items verified as genuine announcements/research, not ads/hiring/roundups:
+- OpenAI's "Helping teens learn, plan, and shape the future of AI" (RSS 403'd on direct WebFetch, read in full via one Jina retry per the WebFetch-403 ladder) — genuine product announcement (College Planner) with real usage numbers, not padding.
+- Anthropic: TIER-1 showed zero fresh; gap-scraped via WebFetch of `anthropic.com/news`, surfacing "Introducing Claude Haiku 5.5" (Oct 7) — read in full directly, concrete pricing/benchmark numbers.
+- Google DeepMind: zero fresh; one gap-scrape attempt (WebFetch `deepmind.google/blog/`) found only the EmbeddingGemma 2 post already captured on 2026-10-07 — nothing new in-window, 0 items, fallback tier logged as "fetch" per the ladder even though it yielded nothing.
+- Google Research, Microsoft, Hugging Face (×2) items read in full via direct WebFetch — genuine research/release posts with concrete numbers.
+- NVIDIA's four fresh RSS items were each individually assessed against the "genuine announcement vs. routine tutorial" trap (per `sources.json`'s NVIDIA note) via WebFetch: a robotics-assembly engineering report, a digital-twin architecture overview, a new multi-GPU cuOpt algorithm with benchmarks, and a new open-source GPU toolkit (cuPhoton) — all four kept as genuine technical content, none a bare tutorial.
+- xAI: anonymous Jina succeeded this run (200, no `JINA_API_KEY` needed) but the full post listing's newest item (Grok 4.7, Sep 21) predates the window — nothing confirmable in-window.
+- Mistral: TIER-1 RSS returned `304 not modified` (zero fresh by definition); one gap-scrape (WebFetch `mistral.ai/news`) found only Mistral Large 4, already captured 2026-10-06 — 0 new items.
+- Cursor: TIER-1 RSS showed zero fresh; one gap-scrape (WebFetch `cursor.com/changelog`) surfaced "Remote control for local agents" (Oct 6), not yet captured — genuine changelog feature, kept.
+- Perplexity: anonymous Jina hit 403 AbuseAlleviation again (no `JINA_API_KEY`); the WebSearch fallback (the ladder's one permitted attempt) found no official Perplexity post dated October 2026 — nothing confirmable.
+
+Items written:
+- `topics/openai.md` — [Helping teens learn, plan, and shape the future of AI](https://openai.com/index/teens-learn-and-plan) + `artifacts/2026-10-07-openai-teens-learn-and-plan.md`.
+- `topics/anthropic.md` — [Introducing Claude Haiku 5.5](https://www.anthropic.com/claude-haiku-5-5) + `artifacts/2026-10-07-anthropic-claude-haiku-5-5.md`.
+- `topics/google-research.md` — [Does better work always mean better workers?](https://research.google/blog/does-better-work-always-mean-better-workers/) + `artifacts/2026-10-07-google-research-does-better-work-always-mean-better-workers.md`.
+- `topics/microsoft.md` — [Agent Lightning v1.0](https://www.microsoft.com/en-us/research/blog/agent-lightning-v1-0-a-3500-line-lightweight-agentic-rl-framework-for-training-agents-with-real-harnesses/) + `artifacts/2026-10-07-microsoft-agent-lightning-v1-0.md` (new `## 2026-W41` heading — Microsoft's last fresh item was 2026-09-30).
+- `topics/nvidia.md` — [The Machines that Make the Machines](https://developer.nvidia.com/blog/the-machines-that-make-the-machines/), [Validate AI Factory Changes with Digital Twins and AI Agents](https://developer.nvidia.com/blog/validate-ai-factory-changes-with-digital-twins-and-ai-agents/), [Scaling Decision Optimization to 100 Million Variables... with mPDLP in NVIDIA cuOpt](https://developer.nvidia.com/blog/scaling-decision-optimization-to-100-million-variables-and-beyond-with-mpdlp-in-nvidia-cuopt/), [Faster Scientific Image Analysis with NVIDIA cuPhoton](https://developer.nvidia.com/blog/faster-scientific-image-analysis-with-nvidia-cuphoton/) — four artifacts (`artifacts/2026-10-07-nvidia-the-machines-that-make-the-machines.md`, `artifacts/2026-10-07-nvidia-validate-ai-factory-digital-twins.md`, `artifacts/2026-10-07-nvidia-mpdlp-cuopt.md`, `artifacts/2026-10-07-nvidia-cuphoton.md`).
+- `topics/huggingface.md` — [Multimodal open d1 decision models for the edge](https://huggingface.co/blog/LiquidAI/open-d1) (Liquid AI; same-day release also covered as community buzz in today's radar run, distinct pipeline scope, both kept) + `artifacts/2026-10-07-huggingface-liquidai-open-d1.md`; [One Model Family, Two Gold-Level Results: Fine-Tuning Nemotron for IOI and IMO](https://huggingface.co/blog/nvidia/nemotron-ioi-and-imo-2026) + `artifacts/2026-10-07-huggingface-nvidia-nemotron-ioi-and-imo-2026.md`.
+- `topics/cursor.md` — [Remote control for local agents](https://cursor.com/changelog/remote-control-local-agents) + `artifacts/2026-10-06-cursor-remote-control-local-agents.md` (new `## 2026-W41` heading — Cursor's last fresh item was 2026-09-23).
+
+**Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive session cannot run the OAuth flow). All 11 new items are fully written to `topics/` and `artifacts/` — no data lost, only the Linear "News digest" cards are behind. This is now the **ONE HUNDRED AND FOURTH** consecutive Linear-affected run since 2026-08-24 (over 6 weeks) — owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-10-08 (+11 items, 7 companies fresh, Linear unavailable)`.

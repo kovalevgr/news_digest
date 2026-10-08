@@ -4,10 +4,14 @@ aliases:
   - Anysphere
 sources:
   - https://cursor.com/changelog/rss.xml
-updated: 2026-09-23
+updated: 2026-10-08
 ---
 
 MOC page for **Cursor** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W41
+
+- **2026-10-06** — [Remote control for local agents](https://cursor.com/changelog/remote-control-local-agents) — Cursor launches Remote Control, letting users view and reply to agents running on their desktop from the Cursor iOS app, after pairing the app with the desktop; agents keep running on the paired machine. Found via gap-scrape (WebFetch of cursor.com/changelog — TIER-1 RSS showed zero fresh).
 
 ## 2026-W38
 

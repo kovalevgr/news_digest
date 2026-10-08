@@ -4,13 +4,17 @@ aliases:
   - Nvidia
 sources:
   - https://blogs.nvidia.com/feed/
-updated: 2026-10-07
+updated: 2026-10-08
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W41
 
+- **2026-10-07** — [The Machines that Make the Machines](https://developer.nvidia.com/blog/the-machines-that-make-the-machines/) — NVIDIA's Seattle Robotics Lab and Isaac team detail robots assembling GB300 tester trays (busbar assembly, multi-connector insertion) plus DOPER pose-estimation and 3D-printed grippers; busbar success 95%+ at 160s/cycle (target 124s), connector success 90-95% (target 99.5%).
+- **2026-10-07** — [Validate AI Factory Changes with Digital Twins and AI Agents](https://developer.nvidia.com/blog/validate-ai-factory-changes-with-digital-twins-and-ai-agents/) — NVIDIA outlines using DSX Air (a node-based digital twin of AI-factory infrastructure) plus AI agents that query the twin and recommend validated changes within human-approved guardrails, with NVIDIA Brev GPUs and the Video Search and Summarization blueprint as examples.
+- **2026-10-07** — [Scaling Decision Optimization to 100 Million Variables and Beyond with mPDLP in NVIDIA cuOpt](https://developer.nvidia.com/blog/scaling-decision-optimization-to-100-million-variables-and-beyond-with-mpdlp-in-nvidia-cuopt/) — NVIDIA introduces mPDLP, a multi-GPU PDHG method in cuOpt reaching up to 11.4x speedup on solver steps (4.2x end-to-end) and up to 6x lower per-GPU memory on large LPs; partners Kinaxis (3.3x) and PSR (5x+) report gains.
+- **2026-10-07** — [Faster Scientific Image Analysis with NVIDIA cuPhoton](https://developer.nvidia.com/blog/faster-scientific-image-analysis-with-nvidia-cuphoton/) — NVIDIA open-sources cuPhoton v0.1.3, a CUDA-X toolkit keeping scientific image data on-GPU from sensor read through classification, reporting up to ~14,900x speedup on image loading and ~14,550x on signal processing versus a CPU baseline (per-operation, not end-to-end).
 - **2026-10-06** — [How DOCA GPUNetIO Unifies GPU-Initiated Networking Across the NVIDIA Software Stack](https://developer.nvidia.com/blog/doca-gpunetio-gda-ki-unified-gpu-networking/) — NVIDIA unifies GPU-initiated networking with DOCA GPUNetIO, an open-source foundation letting CUDA kernels control Ethernet/RDMA/DMA without CPU, now the shared backend for NCCL, NVSHMEM, and NVQLink; ~2.6μs latency for quantum-classical workflows.
 - **2026-10-06** — [AICR v1.0: Open, stable, and verifiable GPU cluster configuration](https://developer.nvidia.com/blog/aicr-v1-0-open-stable-and-verifiable-gpu-cluster-configuration/) — NVIDIA ships AICR v1.0, a stable compatibility contract with version-locked, validated recipes for GPU-accelerated Kubernetes clusters across CLI/REST/Go SDK; 100+ contributors, recipes spanning 11 Kubernetes services and 10 GPU accelerators.
 - **2026-10-06** — [Control How Your GPU Shares Work with Green Contexts](https://developer.nvidia.com/blog/control-how-your-gpu-shares-work-with-green-contexts/) — NVIDIA expands Green Contexts from the Driver API to the Runtime API starting CUDA 13.1; on Blackwell, dedicated SM partitioning cut critical-kernel latency from 0.140ms to 0.007ms (20x).

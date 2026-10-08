@@ -4,13 +4,14 @@ aliases:
   - Google AI
 sources:
   - https://research.google/blog/rss/
-updated: 2026-10-07
+updated: 2026-10-08
 ---
 
 MOC page for **Google Research** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W41
 
+- **2026-10-07** — [Does better work always mean better workers?](https://research.google/blog/does-better-work-always-mean-better-workers/) — Google Research's 3-month field experiment with 133 patent lawyers at 11 IP firms finds AI-assisted drafting improved quality 0.34-0.38 SD, but only senior lawyers kept a gain (+0.45 SD) once the AI was removed; junior lawyers showed no average gain.
 - **2026-10-06** — [Unlocking Earth AI's planetary geospatial foundation models for global public health](https://research.google/blog/earth-ais-planetary-geospatial-foundation-models-for-global-public-health/) — Google Research applies its Earth AI geospatial foundation models (the Population Dynamics Foundation Model) to global public-health workflows; five partner case studies show measurable gains in MMR-vaccination, dengue, and cholera-outbreak forecasting.
 - **2026-10-05** — [Open and Emergent Problems in Agentic Privacy and Security: A Contextual Angle](https://research.google/blog/open-and-emergent-problems-in-agentic-privacy-and-security-a-contextual-angle/) — Google Research publishes a 50+-contributor workshop report proposing Contextual Integrity theory for agent design and standardized "Agent Gym" evaluation environments for agentic privacy/security.
 
