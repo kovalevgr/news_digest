@@ -1,6 +1,6 @@
 ---
 category: youtube
-updated: 2026-09-13
+updated: 2026-10-09
 ---
 
 # Radar: youtube
@@ -46,3 +46,18 @@ All 7 YouTube sources recovered today after 14 days dead (6× HTTP 404 + `yt-mls
 - **2026-09-04** — [Why AI Agents Need Million-Token Context — Thomas Wolf & Olive Song, MiniMax](https://www.youtube.com/watch?v=5Cxe5dv2Xlw) — AI Engineer conference talk (Thomas Wolf, Hugging Face co-founder, with MiniMax) on long-context requirements for agentic workloads; title/channel only, YouTube feed carries no summary text.
 - **2026-09-04** — [Outperforming cuBLAS on NVFP4](https://www.youtube.com/watch?v=retNYlCxOJg) — GPU MODE lecture on beating cuBLAS performance for NVFP4 kernels; title/channel only, YouTube feed carries no summary text.
 - **2026-09-07** — [Orbs: Shifting Coding to Cloud — Quinn Slack, Amp Code](https://www.youtube.com/watch?v=hvwtHZ5E27c) — Latent Space channel talk by Amp Code's Quinn Slack on moving coding workflows to the cloud ("Orbs"); verification blocked (WebFetch returned no page description, curl hit a consent-page redirect) — kept on title/channel only, YouTube feed carries no summary text.
+
+## 2026-W40
+
+`yt-latent-space`, `yt-ai-engineer`, and `yt-sentdex` had no successful run since 2026-09-13/09-07/09-07 respectively (consistently 404ing on intervening days); today's recovery pulled a ~1-month backlog per channel. Only the owner-fit survivors of that backlog are listed below — most of the backlog (founder/business interviews, robotics-only content, memes) was triaged out; see `run-log.md` for the full drop list. Item dates are the videos' own publish dates, not today's.
+
+- **2026-09-29** — [Claude Code's Bitter Lesson: Prompts, Harnesses, Mods, and Agents — Thariq Shihipar](https://www.youtube.com/watch?v=IZAlq-V19U8) — Latent Space talk by Anthropic's Thariq Shihipar on Claude Code's own prompt/harness evolution; verification blocked (WebFetch returns no page description for YouTube in this env; WebSearch found only secondhand podcast summaries, no primary transcript/article) — kept on title/channel only, out of highlight consideration. Direct hit on the owner's own daily toolchain.
+- **2026-09-30** — [OpenAI's New Agent Stack: Computer Use, Decisions API, UltraFast, Dots — Ari Weinstein & Nikunj Handa](https://www.youtube.com/watch?v=z9OkBD2-MDU) — AI Engineer conference talk covering OpenAI's computer-use, Decisions API, and related agent-stack pieces; verification blocked (same YouTube-transport limitation) — kept on title/channel only. Direct hit on "AI agents in practice: computer-use."
+- **2026-10-02** — [Recursive Language Models — Alex Zhang, MIT PhD](https://www.youtube.com/watch?v=kog7mwsDqnk) — Latent Space talk on recursive language models (models that invoke themselves/sub-instances of themselves as part of inference); verification blocked (same YouTube-transport limitation) — kept on title/channel only. MEDIUM-HIGH fit — reproducible-technique territory, unconfirmed without the talk's content.
+
+## 2026-W41
+
+- **2026-10-08** — [Brains vs Hands: How to Run AI Agents Safely in Production — Viren Baraiya](https://www.youtube.com/watch?v=NaOkR3VSfR4) — AI Engineer conference talk on safely operating AI agents in production; verification blocked (YouTube-transport limitation, see W40 note above) — kept on title/channel only. Direct hit on "AI agents in practice."
+- **2026-10-08** — [We Mapped 115 Microservices for Our Coding Agents — Kamalakannan Nandagopal, Postman](https://www.youtube.com/watch?v=k2ClBT4aqAg) — AI Engineer conference talk on giving coding agents a map of a large microservice estate (Postman); WebSearch found only Postman's own AI-Engineer product announcement and unrelated research, no transcript of this specific talk — kept on title/channel only, out of highlight consideration despite strong topical fit. Direct hit on "AI agents in practice: context engineering" + the article lens (project_post: mapping a large codebase for an agent).
+- **2026-10-09** — [AI Writes More PRs. Who Validates Them? — Ali-Reza Adl-Tabatabai, Sonar](https://www.youtube.com/watch?v=uuwDWRbxoYo) — AI Engineer conference talk on validating AI-authored pull requests at scale; verification blocked (YouTube-transport limitation) — kept on title/channel only. Direct hit on "AI agents in practice: coding agents" + "evals in practice."
+- **2026-10-09** — [Why 80% Reliability Isn't Good Enough — Felipe Blanes, Amazon AGI Lab](https://www.youtube.com/watch?v=Emo5FGGY-wM) — AI Engineer conference talk arguing current agent reliability levels fall short of what production use needs; verification blocked (YouTube-transport limitation) — kept on title/channel only. Direct hit on "evals in practice: how people actually measure agents."
