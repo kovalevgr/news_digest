@@ -4590,3 +4590,42 @@ Totals: 59 raw candidates, **+15 items confirmed, 2 highlights**.
 **Housekeeping note:** repo was again on a detached HEAD at `origin/main`'s tip (`7bd72ab`) at the start of this run, with local `main` 7 commits behind — same recurring shape as every prior run since 2026-08-21. Fetched `origin/main`, checked out `main`, and fast-forwarded clean before starting any file writes.
 
 Commit: `news: radar run 2026-10-09 (+15 items, 2 highlights, Linear unavailable)`.
+
+## 2026-10-09 06:0x UTC — daily — ok (Linear unavailable)
+
+`fetch_feeds.py` ran clean (exit 0; one `304 not modified` skip logged for mistral). Window since `2026-10-08T04:04:35Z` (prior successful daily run was 2026-10-08 06:0x UTC).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (0 fresh) → WebFetch `openai.com/news/` (403) → Jina retry | 0 | fetch→jina (both failed) | WebFetch target-403; Jina retry hit a Cloudflare JS challenge (no content) |
+| anthropic | fetch (0 fresh) → WebFetch `anthropic.com/news` | 3 | fetch | - |
+| google-deepmind | rss (0 fresh) → WebFetch `deepmind.google/blog/` | 0 | fetch | only Oct item (EmbeddingGemma 2, day-of-month unconfirmed) already captured 2026-10-06 |
+| google-research | rss (0 fresh) → WebFetch `research.google/blog/` | 0 | fetch | newest post Oct 7 already captured |
+| microsoft | rss (0 fresh) → WebFetch `microsoft.com/en-us/research/blog/` | 0 | fetch | newest post Oct 7 already captured |
+| nvidia | rss | 1 | - | 1 candidate excluded (routine step-by-step tutorial, not a genuine announcement — see NVIDIA trap note) |
+| xai | jina (Cloudflare JS challenge, no content) → WebSearch | 0 | jina (blocked) → websearch | nothing confirmable in-window on xai.ai's own blog |
+| mistral | rss (304 not modified) → WebFetch `mistral.ai/news` | 0 | fetch | newest post Oct 6 already captured |
+| huggingface | rss (0 fresh) → WebFetch `huggingface.co/blog` | 1 | fetch | - |
+| cursor | rss (0 fresh) → WebFetch `cursor.com/changelog` | 0 | fetch | newest entry Oct 6 already captured |
+| perplexity | jina (Cloudflare JS challenge, no content) → WebSearch | 0 | jina (blocked) → websearch | nothing confirmable in-window (only third-party aggregator pages found) |
+
+Totals: 11/11 companies searched, **+5 items / 3 companies fresh** (anthropic, huggingface, nvidia).
+
+**DEDUP + CONFIRM.** No canonical-URL duplicates against existing `topics/` entries; no cross-company URL collisions. All five confirmed items verified as genuine announcements, not ads/hiring/roundups:
+- Anthropic: TIER-1 showed zero fresh; gap-scraped via WebFetch of `anthropic.com/news`, surfacing three Oct 8 posts (2026 Usage Policy update, Genesis Mission $150M commitment, Anthropic Cyber Mission) — each read in full directly, concrete numbers/partners confirmed.
+- NVIDIA: TIER-1 RSS returned 2 fresh candidates; assessed against the "genuine announcement vs. routine tutorial" trap (per `sources.json`'s NVIDIA note) via WebFetch of both — "Building Reliable Data Analytics Agents: Lessons from the KDD Cup" (2nd place finish, concrete architecture) kept as genuine engineering content; "5 Steps to Create SimReady Assets for Robotics..." explicitly confirmed on read-through as "a routine how-to walkthrough rather than a major product announcement" — dropped per the trap note.
+- Hugging Face: TIER-1 showed zero fresh; gap-scraped via WebFetch of `huggingface.co/blog`, surfacing "The model that didn't exist, so you made it yourself" (Oct 8) — read in full; substantive technical case study (concrete baselines, held-out tests, cost figures) despite being self-promotional of HF's own ML Intern agent — kept per the same standard applied to prior vendor-authored-but-technical posts (e.g. the 2026-10-07 Liquid AI / NVIDIA HF-blog items).
+- Google DeepMind, Google Research, Microsoft, Mistral, Cursor: each gap-scraped (WebFetch of the company's own blog/changelog listing); none had a confirmable in-window (≥2026-10-08, or ≥2026-10-07 for Mistral) item beyond what's already captured.
+- xAI: Jina hit a Cloudflare JS challenge this run (different failure mode than the usual 403 AbuseAlleviation — no content returned at all); the one permitted WebSearch fallback found no October 2026 post on xAI's own blog.
+- Perplexity: same Cloudflare JS challenge on Jina; WebSearch fallback found only third-party aggregator pages, nothing confirmable as an official October 2026 Perplexity post.
+
+Items written:
+- `topics/anthropic.md` — [2026 Usage Policy update](https://www.anthropic.com/news/2026-usage-policy-update), [Building on our commitment to American scientific discovery](https://www.anthropic.com/news/genesis-mission-commitment), [Introducing the Anthropic Cyber Mission](https://www.anthropic.com/news/anthropic-cyber-mission) — three artifacts (`artifacts/2026-10-08-anthropic-2026-usage-policy-update.md`, `artifacts/2026-10-08-anthropic-genesis-mission-commitment.md`, `artifacts/2026-10-08-anthropic-cyber-mission.md`).
+- `topics/huggingface.md` — [The model that didn't exist, so you made it yourself](https://huggingface.co/blog/building-with-ml-intern) + `artifacts/2026-10-08-huggingface-building-with-ml-intern.md`.
+- `topics/nvidia.md` — [Building Reliable Data Analytics Agents: Lessons from the KDD Cup](https://developer.nvidia.com/blog/building-reliable-data-analytics-agents-lessons-from-the-kdd-cup/) + `artifacts/2026-10-08-nvidia-kdd-cup-data-analytics-agents.md`.
+
+**Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive session cannot run the OAuth flow). All 5 new items are fully written to `topics/` and `artifacts/` — no data lost, only the Linear "News digest" cards are behind. This is now the **ONE HUNDRED AND SEVENTH** consecutive Linear-affected run since 2026-08-24 (over 6.5 weeks) — owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+**Housekeeping note:** repo was again on a detached HEAD at `origin/main`'s tip (`0e9b117`) at the start of this run, with local `main` 8 commits behind — same recurring shape as every prior run since 2026-08-21. Fetched `origin/main`, checked out `main`, and fast-forwarded clean before starting any file writes.
+
+Commit: `news: daily run 2026-10-09 (+5 items, 3 companies fresh, Linear unavailable)`.

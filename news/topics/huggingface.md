@@ -5,13 +5,14 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-10-08
+updated: 2026-10-09
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W41
 
+- **2026-10-08** — [The model that didn't exist, so you made it yourself](https://huggingface.co/blog/building-with-ml-intern) — Hugging Face case study: building six custom models with the ML Intern agent, including a 0.8B prompt-rewriter distilled from a 9B teacher and a citrus-disease vision model raising test accuracy 14.9%→52.8%, for ~$103 total compute.
 - **2026-10-07** — [Multimodal open d1 decision models for the edge](https://huggingface.co/blog/LiquidAI/open-d1) — Liquid AI open-sources d1-3B (text+image) and experimental d1-omni-600M (text+image/audio) decision models; d1-3B scores 48.57 on Decision Index 0.2.1, best under 10B, with 16ms inference on Jetson AGX Thor. Also covered as community buzz in today's radar run (`radar/community.md`) — distinct pipeline scope, both kept.
 - **2026-10-07** — [One Model Family, Two Gold-Level Results: Fine-Tuning Nemotron for IOI and IMO](https://huggingface.co/blog/nvidia/nemotron-ioi-and-imo-2026) — NVIDIA (posted on the HF blog) reports specialized Nemotron 3 models reached gold-level at both IOI 2026 (535.4/600, above the 361.12 cutoff and the top human score of 498.27, unofficial run) and IMO 2026 (30/42, above the gold threshold of 29, graded by official IMO graders).
 - **2026-10-06** — [Falcon-Emirati: When an LLM Learns the Dialect, the Culture, and the Nuance](https://huggingface.co/blog/tiiuae/falcon-emirati) — The Technology Innovation Institute releases Falcon-Emirati-7B, built on Falcon-H1-Arabic and focused on the Emirati dialect rather than Modern Standard Arabic; 84.83% on the native Alyah benchmark, outperforming larger multilingual models.

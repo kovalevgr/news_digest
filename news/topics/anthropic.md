@@ -4,13 +4,16 @@ aliases:
   - Claude
 sources:
   - https://www.anthropic.com/news
-updated: 2026-10-08
+updated: 2026-10-09
 ---
 
 MOC page for **Anthropic** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W41
 
+- **2026-10-08** — [Introducing the Anthropic Cyber Mission](https://www.anthropic.com/news/anthropic-cyber-mission) — Anthropic launches the Cyber Mission: the Critical Infrastructure Defense Program (Claude, on-site engineers, threat research for OT providers) plus free opt-in OSS Scanner; founding CIDP partners include Accenture, CrowdStrike, Dragos, Palo Alto Networks.
+- **2026-10-08** — [Building on our commitment to American scientific discovery](https://www.anthropic.com/news/genesis-mission-commitment) — Anthropic commits $150M over three years to the federal Genesis Mission (with the US DOE), giving Claude access to 15+ agencies (NASA, NIH, NSF) and credits to several hundred research projects.
+- **2026-10-08** — [2026 Usage Policy update](https://www.anthropic.com/news/2026-usage-policy-update) — Anthropic updates its Usage Policy (effective Nov 12): new rules on deceptive campaigns/fake accounts, narrowed elections rules, tightened weapons/surveillance/high-risk requirements, new controls for Claude connected to autonomous-action hardware.
 - **2026-10-07** — [Introducing Claude Haiku 5.5](https://www.anthropic.com/claude-haiku-5-5) — Anthropic launches Claude Haiku 5.5, its cheapest/fastest small model yet: $0.10/$0.50 per M input/output tokens under 100K (~90% cheaper than Haiku 4.5), 72.4% on OSWorld 2.1 offline (vs. 15.7% for Haiku 4.5), 45.9% on Humanity's Last Exam without tools; available now on Claude Platform, AWS, Google Cloud, Azure.
 - **2026-10-06** — [Expanding the Cyber Verification Program](https://www.anthropic.com/news/cyber-verification-program) — Anthropic expands its Cyber Verification Program to a three-tier access system (Defense/Red Team/Specialized), consolidating the original CVP and Project Glasswing; partners found 129,000+ verified vulnerabilities (Apr-Jul 2026), 33,000+ critical/high severity. Found via gap-scrape (WebFetch of anthropic.com/news — no feed exists).
 
