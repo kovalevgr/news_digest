@@ -4,7 +4,7 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-10-08
+updated: 2026-10-10
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
@@ -12,6 +12,7 @@ MOC page for **OpenAI** — AI-news items collected daily by the news routine (s
 ## 2026-W41
 
 - **2026-10-07** — [Helping teens learn, plan, and shape the future of AI](https://openai.com/index/teens-learn-and-plan) — OpenAI shares ChatGPT for Teens usage data and announces College Planner (US, grades 10-12) for college applications/deadlines/financial aid, plus multi-photo note capture, flashcards, and quizzes.
+- **2026-10-07** — [GPT-6 and Intelligent UI for everyone](https://openai.com/index/gpt-6-for-everyone/) — OpenAI rolls GPT-6 out to all ChatGPT users (1.2B+ weekly) with Intelligent UI, letting the model compose responses with native interactive components (charts, forms, buttons, on-the-spot tools); search-grounded answers start 44% sooner than GPT-5.6 Instant.
 - **2026-10-06** — [Sharing AI progress in mathematics](https://openai.com/index/sharing-ai-progress-in-mathematics) — OpenAI publishes new results on open problems in mathematics from an internal frontier model and shares Lean proof formalizations and research details on GitHub.
 - **2026-10-06** — [Advancing computer use with Ironclad](https://openai.com/index/advancing-computer-use-with-ironclad) — OpenAI and Ironclad train and evaluate AI agents on complex contracting workflows to advance computer use for professional work.
 - **2026-10-05** — [Building advertising for the way people use AI](https://openai.com/index/new-chatgpt-ads-format-and-measurement) — OpenAI introduces a new visual ad format in ChatGPT image generation and expands measurement tools and attribution partnerships for advertisers; US test begins later this month.

@@ -4660,3 +4660,40 @@ Totals: 31 raw candidates, **+12 items confirmed, 3 highlights**.
 **Housekeeping note:** repo was again on a detached HEAD at `origin/main`'s tip (`231d1c1`) at the start of this run, with local `main` 9 commits behind — same recurring shape as every prior run since 2026-08-21. Fetched `origin/main`, checked out `main`, and fast-forwarded clean before starting any file writes.
 
 Commit: `news: radar run 2026-10-10 (+12 items, 3 highlights, Linear unavailable)`.
+
+## 2026-10-10 06:0x UTC — daily — ok (Linear unavailable)
+
+`fetch_feeds.py` ran clean (exit 0; one `304 not modified` skip logged for mistral). Window since `2026-10-09T04:04:16Z` (prior successful daily run was 2026-10-09 06:0x UTC). Repo started this run on a detached HEAD at `origin/main`'s tip (`231d1c1`), 1 commit behind after the radar run; fetched and fast-forwarded `main` clean before any file writes — same recurring shape as every run since 2026-08-21.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (0 fresh) → WebFetch `openai.com/news/` (403) → Jina retry (200) | 1 | fetch (403) → jina | direct WebFetch 403; Jina worked |
+| anthropic | fetch (0 fresh) → WebFetch `anthropic.com/news` | 0 | fetch | - |
+| google-deepmind | rss (0 fresh) → WebFetch `deepmind.google/blog/` | 0 | fetch | newest Oct item (EmbeddingGemma 2) already captured 2026-10-09 |
+| google-research | rss (0 fresh) → WebFetch `research.google/blog/` | 0 | fetch | newest post Oct 7 already captured |
+| microsoft | rss (0 fresh) → WebFetch `microsoft.com/en-us/research/blog/` | 0 | fetch | newest post Oct 7 already captured |
+| nvidia | rss (0 fresh) → WebFetch `developer.nvidia.com/blog/` | 0 | fetch | newest genuine post (Oct 8, KDD Cup) already captured; "5 Steps to Create SimReady Assets" (Oct 8) re-confirmed as a routine how-to per the NVIDIA trap note, same verdict as 2026-10-09 |
+| xai | jina (200) | 1 | jina | x.ai DNS-blocked for direct WebFetch in this env; Jina worked this run after several recent failures |
+| mistral | rss (304 not modified) → WebFetch `mistral.ai/news` | 0 | fetch | newest post Oct 6 already captured |
+| huggingface | rss | 1 | - | - |
+| cursor | rss (0 fresh) → WebFetch `cursor.com/changelog` | 0 | fetch | newest entry Oct 6 already captured |
+| perplexity | jina (200) | 5 | jina | perplexity.ai DNS-blocked for direct WebFetch in this env; Jina worked this run after ~3 weeks of consecutive failures |
+
+Totals: 11/11 companies searched, **+8 items / 4 companies fresh** (openai, xai, huggingface, perplexity).
+
+**DEDUP + CONFIRM.** No canonical-URL duplicates against existing `topics/` entries; no cross-company URL collisions.
+- OpenAI: TIER-1 rss returned 0 fresh (direct WebFetch of the news page 403'd again); Jina succeeded and surfaced the RSS feed's full recent window directly. Checked every item Oct 2–9 against its real `<category>` tag: kept **GPT-6 and Intelligent UI for everyone** (Oct 7, category `Product` — the GPT-6 launch to all ChatGPT users, not just paid tiers). Dropped per the category_keep filter: "Disrupting AI-enabled 'false front' operations" (`Safety`), "Atlassian and OpenAI expand partnership" (`Company`), "Our approach to EU text provenance rules" (`Safety`), plus several uncategorized customer-story posts (Sophos, Asana, Oracle, LegalOn, Radisson) and one `Startup`-category post (Pollo AI). Also reviewed "A model guide for the GPT-6 family" (Oct 2, `Product`) — a how-to/usage guide rather than an announcement — excluded as not a genuine announcement (not ads/hiring, but not news either), consistent with the "confirm real announcement" bar.
+- xAI: TIER-1 has no rss source (jina-only per `sources.json`); Jina returned clean content this run (prior runs this week hit Cloudflare JS challenges). Found **Team Bots** (Sep 28, `Product`) un-captured — xai.md's last entry was Sep 22, so this was missed by the intervening runs that got blocked. Backfilled with a note. Nothing newer than Sep 28 appears on the page.
+- Hugging Face: TIER-1 rss returned 1 fresh candidate directly — Ai2's "Impactful scheduling for GPU clusters" (Oct 9), a substantive infra engineering post (concrete before/after latency and occupancy numbers) — kept.
+- Perplexity: TIER-1 has no rss source (jina-only); Jina returned clean content after roughly three weeks of consecutive transport failures logged in this file (Cloudflare JS challenges / egress blocks / 403 AbuseAlleviation). The blog listing goes back to Sep 23 (last captured item), so did a full backfill pass against every item from Sep 24 onward: kept 5 genuinely technical/product posts — **Photon** (Sep 24, Research — new in-house retrieval engine), **Agent API now supports reusable agents** (Sep 28, Developers), **Computer adds Automations for ongoing work** (Sep 29, News), **How we engineer safer agents** (Sep 29, Ideas — agent security architecture), **Multimodal embeddings beyond a single vector** (Oct 7, Research). Dropped as SEO/content-marketing roundups, not announcements: "AI Agent vs MCP?", "AI guardrails...", "RAG vs. LLM...", "10 Best AI Collaboration Tools", "9 RAG Examples...", "AI maturity...", "10 AI Tools for Consultants". Also dropped "Perplexity and American Express make AI easier for growing businesses" (Oct 1, News) as a customer-partnership story rather than a product/technical announcement, consistent with how equivalent `Company`-category posts are dropped elsewhere.
+- Anthropic, Google DeepMind, Google Research, Microsoft, NVIDIA, Mistral, Cursor: each gap-scraped (WebFetch of the company's own blog/changelog listing, all succeeded directly this run); none had a confirmable item beyond what's already captured in `topics/`.
+
+Items written:
+- `topics/openai.md` — [GPT-6 and Intelligent UI for everyone](https://openai.com/index/gpt-6-for-everyone/) + `artifacts/2026-10-07-openai-gpt-6-for-everyone.md`.
+- `topics/xai.md` — [Team Bots: shared AI teammates that learn as they work](https://x.ai/news/team-bots) + `artifacts/2026-09-28-xai-team-bots.md` (backfilled, new `## 2026-W40` section).
+- `topics/huggingface.md` — [Impactful scheduling for GPU clusters](https://huggingface.co/blog/allenai/impactful-scheduling) + `artifacts/2026-10-09-huggingface-impactful-scheduling.md`.
+- `topics/perplexity.md` — [Photon](https://www.perplexity.ai/hub/blog/photon), [Agent API now supports reusable agents](https://www.perplexity.ai/hub/blog/agent-api-now-supports-reusable-agents), [Computer adds Automations for ongoing work](https://www.perplexity.ai/hub/blog/computer-adds-automations-for-ongoing-work), [How we engineer safer agents](https://www.perplexity.ai/hub/blog/how-we-engineer-safer-agents), [Multimodal embeddings beyond a single vector](https://www.perplexity.ai/hub/blog/multimodal-embeddings-beyond-a-single-vector) + 5 matching artifacts (backfilled, new `## 2026-W40` and `## 2026-W41` sections).
+
+**Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive session cannot run the OAuth flow). All 8 new items are fully written to `topics/` and `artifacts/` — no data lost, only the Linear "News digest" cards are behind. This is now the **ONE HUNDRED AND NINTH** consecutive Linear-affected run since 2026-08-24 (over 7 weeks) — owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-10-10 (+8 items, 4 companies fresh, Linear unavailable)`.

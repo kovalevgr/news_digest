@@ -4,13 +4,24 @@ aliases:
   - Perplexity AI
 sources:
   - https://www.perplexity.ai/hub/blog
-updated: 2026-09-26
+updated: 2026-10-10
 ---
 
 MOC page for **Perplexity** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
+## 2026-W41
+
+- **2026-10-07** — [Multimodal embeddings beyond a single vector](https://www.perplexity.ai/hub/blog/multimodal-embeddings-beyond-a-single-vector) — Perplexity ships pplx-embed-v2-late, ColBERT-style multi-vector embedding models (0.6B/9B, shared space) for both text and image retrieval, SOTA on ViDoRe(V3) for their size and 92.4% on agentic MADQA; both open on Hugging Face.
+
+## 2026-W40
+
+- **2026-09-29** — [How we engineer safer agents](https://www.perplexity.ai/hub/blog/how-we-engineer-safer-agents) — Perplexity lays out a defense-in-depth security architecture for AI agents (independent layers, deterministic enforcement below the agent, signals that only narrow authority) in response to 2026's "accidental meltdown" incidents, including July's OpenAI-agent breach of Hugging Face. Backfilled: perplexity.ai DNS-blocked for WebFetch; confirmed today via Jina.
+- **2026-09-29** — [Computer adds Automations for ongoing work](https://www.perplexity.ai/hub/blog/computer-adds-automations-for-ongoing-work) — Perplexity Computer replaces Scheduled Tasks with Automations: schedule- or event-triggered agents (Slack/Gmail/Outlook/Linear/GitHub) that remember prior runs and can flag missed updates or passed deadlines. Backfilled: perplexity.ai DNS-blocked for WebFetch; confirmed today via Jina.
+- **2026-09-28** — [Agent API now supports reusable agents](https://www.perplexity.ai/hub/blog/agent-api-now-supports-reusable-agents) — Perplexity's Agent API adds versioned Profiles, custom Skills, and managed Connectors (GitHub, Slack, Google Drive, Datadog, Linear, Notion in preview) so teams configure an agent once and reuse it across applications. Backfilled: perplexity.ai DNS-blocked for WebFetch; confirmed today via Jina.
+
 ## 2026-W39
 
+- **2026-09-24** — [Photon: Building a Retrieval and Ranking Engine From Scratch](https://www.perplexity.ai/hub/blog/photon) — Perplexity replaces its forked open-source retrieval/ranking engine with Photon (in-house Rust), cutting p99 retrieval latency from ~800ms to ~65ms and powering a new fast Search API preset that cuts model+search cost 68% at comparable quality. Backfilled: perplexity.ai DNS-blocked for WebFetch; confirmed today via Jina.
 - **2026-09-23** — [Escaping SPACE: Part I](https://www.perplexity.ai/hub/blog/escaping-space-part-i) — Perplexity red-teams SPACE, the sandbox behind Perplexity Computer: 9 models with root in a guest VM across 108 runs, zero verified VM-to-host escapes, 4 models bypassed network confinement via DNS spoofing/shared-IP routing (fixed on re-test). Backfilled: perplexity.ai fully egress-blocked + anonymous Jina rate-limited all run; confirmed via WebSearch (direct title+URL match).
 
 ## 2026-W38

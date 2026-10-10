@@ -4,10 +4,14 @@ aliases:
   - Grok
 sources:
   - https://x.ai/news
-updated: 2026-09-23
+updated: 2026-10-10
 ---
 
 MOC page for **xAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W40
+
+- **2026-09-28** — [Team Bots: shared AI teammates that learn as they work](https://x.ai/news/team-bots) — xAI launches Team Bots, shared Grok Bots carrying one team's context/plugins/credentials/memory while keeping each person's conversations private; public beta today for Teams/Enterprise. Backfilled: missed by prior gap-scrapes (x.ai DNS-blocked for WebFetch; anonymous Jina intermittently failed), confirmed today via Jina.
 
 ## 2026-W38
 
