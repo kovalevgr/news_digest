@@ -4629,3 +4629,34 @@ Items written:
 **Housekeeping note:** repo was again on a detached HEAD at `origin/main`'s tip (`0e9b117`) at the start of this run, with local `main` 8 commits behind — same recurring shape as every prior run since 2026-08-21. Fetched `origin/main`, checked out `main`, and fast-forwarded clean before starting any file writes.
 
 Commit: `news: daily run 2026-10-09 (+5 items, 3 companies fresh, Linear unavailable)`.
+
+## 2026-10-10 05:0x UTC — radar — ok (Linear unavailable)
+
+`fetch_radar.py` ran clean (exit 0). Window since `2026-10-09T03:01:08Z` (prior successful radar run was 2026-10-09 05:0x UTC). `eleuther` HTTP 404 again (recurring, no fallback ladder for radar sources per workflow). `reddit` HTTP 429 — skipped, no retry. **New failure pattern:** all 7 YouTube sources (`yt-ai-engineer`, `yt-gpu-mode`, `yt-karpathy`, `yt-latent-space`, `yt-mlst`, `yt-sentdex`, `yt-umar-jamil`) returned HTTP 404 this run — confirmed with a direct `curl` outside the fetch script (both with and without a browser UA) that `youtube.com/feeds/videos.xml?channel_id=...` now 404s for every channel ID tried, not an env/proxy block (TLS handshake and connection succeed; YouTube's own RSS-feed server returns the 404 body). This is the first time the *entire* youtube category has gone dark in one run (previously it was always a subset); worth the owner's attention if it persists — may mean YouTube has retired or moved this RSS endpoint. Logged and moved on per workflow (no fallback ladder for radar sources).
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | - |
+| inference-infra | 0 | 0 | - |
+| oss-ml-systems | 1 | 1 | eleuther HTTP 404 |
+| bigtech-eng | 1 | 1 | - |
+| research-institutes | 2 | 1 | - |
+| technical-newsletters | 0 | 0 | - |
+| practitioner-blogs | 3 | 3 | - |
+| youtube | 0 | 0 | all 7 sources HTTP 404 (see above) |
+| community | 24 | 6 | reddit HTTP 429 |
+| mistral-watch | 0 | 0 | - |
+
+Totals: 31 raw candidates, **+12 items confirmed, 3 highlights**.
+
+**TRIAGE.** Pass-1 drops (no real AI/ML content despite matching a keyword filter): `hn-show-ai50`'s "Show HN: Proton Drive for Linux" (a filesystem driver, no AI angle) and `hn-show-rag`'s "Show HN: The rarest tech books and docs you've probably never read" and "Show HN: Quake ported to safe Rust, playable in browser" (neither has any retrieval/AI content — both false-positive keyword matches). `hf-trending-models`: dropped `Alissonerdx/BFS-Best-Face-Swap` (published 2025-11-07, over a year stale, face-swap/consumer-demo — LOW-fit image-to-image) and `DavidAU/Qwen3.8-27B-...-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF` (a meme-named "frankenmerge" GGUF quant with no real technique behind it — fails the technical bar). `hf-trending-spaces`: dropped all 3 (`Aura1in/Krea-2-Turbo_v2`, `hugging-apps/minimax-h3-character-swap-lora`, `M3st3rJ4k3l/FLUX.2-Klein-Multi-LoRA-v2`) — Gradio demo spaces for image/video LoRA tooling, no technical depth beyond "a space exists," LOW-fit per `interests.md` (video/image generation). `github-trending`'s `storytold/artcraft` dropped — checked the repo page directly; it's a creative-crafting IDE for artists/filmmakers with no AI/ML substance despite surfacing via the AI-tagged mirror. **Dedup:** `hn-show-agents`' "Show HN: AI SRE Arena, an Open Benchmark for AI SRE Agents on Kubernetes" (`github.com/edgedelta/project-arena`) is the exact same story already verified and made a highlight on 2026-10-08 (`community.md` line ~596, resurfaced by HN cursor lag) — not re-added. Owner-fit/budget drops (cleared pass 1, dropped on weak fit or to stay under the ≤15/day cap): "Show HN: I Put an AI Agent on a Nokia 110" (31 pts, a fun reverse-engineering hack but thin — mostly anecdote, no numbers) and Ai2's "At COLM 2026: Open research, from models to agents for science" (a conference-attendance recap that name-drops Olmo Hybrid/Asta/Bolmo without any single substantive technique — thinner than Ai2's same-day GPU-scheduling post, which was kept).
+
+**VERIFY SUBSTANCE** (within the 5-candidate cap): **`franzenzenhofer/big-arrow-on-the-screen`** (GitHub, `git clone`) — verified: a real, MIT-licensed, CI-passing macOS CLI tool + Claude Code/Codex skill that draws a click-through arrow over any window so an agent can point a human at something; made a highlight. **lmsys.org's "SGLang and Miles on NVIDIA Vera Rubin"** (WebFetch) — verified: a dense, numbers-first early-access report on next-gen NVIDIA hardware with concrete kernel-level optimizations and RL-training results; made a highlight. **simonwillison.net's "A new feature for my blog, built using my voice"** (WebFetch) — verified: a real, reproducible voice-driven coding-agent workflow with four named techniques; made a highlight. **opper.ai's "Jevman" Pac-Man decision-model benchmark** — transport blocked both via WebFetch and the one permitted curl retry (egress proxy denied `opper.ai` outright, "organization policy") — kept as a regular item per the "transport error → keep item, skip highlight" rule. **cactuscompute.com's "Whistle" speech-to-text post** — same transport-blocked outcome (egress proxy denied `cactuscompute.com`) — kept as a regular item, out of highlight consideration.
+
+**Highlights: 3** — `big-arrow-on-the-screen` (agent-tooling, verified via git clone), SGLang/Miles on NVIDIA Vera Rubin (inference-engine deep-dive, verified via WebFetch), and Simon Willison's voice-built blog feature (reproducible agent-coding workflow, verified via WebFetch). All three independently verified with concrete, inspectable substance — not marketing shells.
+
+**Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive session cannot run the OAuth flow). No review-queue cards attempted. All 12 confirmed items are fully written to `radar/oss-ml-systems.md` (1), `radar/bigtech-eng.md` (1), `radar/research-institutes.md` (1), `radar/practitioner-blogs.md` (3), and `radar/community.md` (6) — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now the **ONE HUNDRED AND EIGHTH** consecutive Linear-affected run since 2026-08-24 (over 6.5 weeks) — the owner's daily review queue and the deep-dive pipeline remain fully unfed by Linear. Owner action needed (unchanged, well over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+**Housekeeping note:** repo was again on a detached HEAD at `origin/main`'s tip (`231d1c1`) at the start of this run, with local `main` 9 commits behind — same recurring shape as every prior run since 2026-08-21. Fetched `origin/main`, checked out `main`, and fast-forwarded clean before starting any file writes.
+
+Commit: `news: radar run 2026-10-10 (+12 items, 3 highlights, Linear unavailable)`.
