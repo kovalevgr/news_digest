@@ -4730,3 +4730,31 @@ HF trending: dropped `AtomicChat/Qwen-Image-2.1-Turbo-Uncensored-GGUF` (uncensor
 **Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive session cannot run the OAuth flow). No review-queue cards attempted. All 11 confirmed items are fully written to `radar/community.md` (10) and `radar/practitioner-blogs.md` (1) — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now the **ONE HUNDRED AND TENTH** consecutive Linear-affected run since 2026-08-24 (over 7 weeks) — the owner's daily review queue and the deep-dive pipeline remain fully unfed by Linear. Owner action needed (unchanged, well over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: radar run 2026-10-11 (+11 items, 1 highlight, Linear unavailable)`.
+
+## 2026-10-11 06:0x UTC — daily — ok (Linear unavailable)
+
+`fetch_feeds.py` ran clean (exit 0; three `304 not modified` skips logged for nvidia, mistral, huggingface). Window since `2026-10-10T04:04:30Z` (prior successful daily run was 2026-10-10 06:0x UTC). All 11 companies reported zero fresh TIER-1 candidates, triggering gap-scrape for all eleven.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (0 fresh) → WebSearch | 0 | websearch | no openai.com primary-source item confirmable; search surfaced only unreliable third-party/aggregator claims (GPT-6.1 Astra shelving, lawsuits, personnel) with no official page to corroborate |
+| anthropic | fetch (0 fresh) → WebFetch `anthropic.com/news` | 0 | fetch | newest 3 posts (Oct 8: Cyber Mission, Genesis Mission, Usage Policy update) already captured |
+| google-deepmind | rss (0 fresh) → WebFetch `deepmind.google/blog/` | 0 | fetch | only Oct item (EmbeddingGemma 2, day-of-month unconfirmed) already captured |
+| google-research | rss (0 fresh) → WebFetch `research.google/blog/` | 0 | fetch | newest post Oct 7 already captured |
+| microsoft | rss (0 fresh) → WebFetch `microsoft.com/en-us/research/blog/` | 0 | fetch | newest post Oct 7 already captured |
+| nvidia | rss (304 not modified) → WebFetch `developer.nvidia.com/blog/` | 0 | fetch | both Oct 8 posts (KDD Cup, SimReady Assets) already captured/excluded |
+| xai | jina (403 AbuseAlleviation, no `JINA_API_KEY`) → WebSearch | 0 | jina (blocked) → websearch | no official x.ai post found; search surfaced only third-party/prediction-market pages |
+| mistral | rss (304 not modified) → WebFetch `mistral.ai/news` | 0 | fetch | newest post Oct 6 already captured |
+| huggingface | rss (304 not modified) → WebFetch `huggingface.co/blog` | 0 | fetch | newest post already captured; nothing newer on the listing |
+| cursor | rss (0 fresh) → WebFetch `cursor.com/changelog` | 0 | fetch | newest entry Oct 6 already captured |
+| perplexity | jina (403 AbuseAlleviation, no `JINA_API_KEY`) → WebSearch | 0 | jina (blocked) → websearch | no official perplexity.ai/hub post found; search surfaced only third-party trackers with inconsistent/unconfirmable model-name claims |
+
+Totals: 11/11 companies searched, **+0 items / 0 companies fresh**.
+
+**DEDUP + CONFIRM.** No candidates survived to the dedup stage. Anthropic's three Oct 8 posts and Google DeepMind's EmbeddingGemma 2 item (both re-surfaced by today's gap-scrape listings) were checked against `topics/anthropic.md` and `topics/google-deepmind.md` and confirmed already on file (written by the 2026-10-09 run). NVIDIA's two Oct 8 posts were checked against `topics/nvidia.md` and confirmed already handled (KDD Cup kept, SimReady Assets excluded as a routine how-to per the NVIDIA trap note) — same verdict as the 2026-10-10 run. OpenAI, xAI, and Perplexity each had WebSearch-only leads with no primary-source page to confirm them as genuine company announcements — per the "never invent facts, carry the source URL" rule, none were written.
+
+Items written: none — a quiet day across all 11 companies.
+
+**Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive session cannot run the OAuth flow). Moot today (0 confirmed items, no cards to create). This is now the **ONE HUNDRED AND ELEVENTH** consecutive Linear-affected run since 2026-08-24 (over 7 weeks) — owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-10-11 (+0 items, 0 companies fresh, Linear unavailable)`.
