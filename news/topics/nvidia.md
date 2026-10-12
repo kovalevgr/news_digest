@@ -4,7 +4,7 @@ aliases:
   - Nvidia
 sources:
   - https://blogs.nvidia.com/feed/
-updated: 2026-10-09
+updated: 2026-10-12
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
@@ -19,6 +19,7 @@ MOC page for **NVIDIA** — AI-news items collected daily by the news routine (s
 - **2026-10-06** — [How DOCA GPUNetIO Unifies GPU-Initiated Networking Across the NVIDIA Software Stack](https://developer.nvidia.com/blog/doca-gpunetio-gda-ki-unified-gpu-networking/) — NVIDIA unifies GPU-initiated networking with DOCA GPUNetIO, an open-source foundation letting CUDA kernels control Ethernet/RDMA/DMA without CPU, now the shared backend for NCCL, NVSHMEM, and NVQLink; ~2.6μs latency for quantum-classical workflows.
 - **2026-10-06** — [AICR v1.0: Open, stable, and verifiable GPU cluster configuration](https://developer.nvidia.com/blog/aicr-v1-0-open-stable-and-verifiable-gpu-cluster-configuration/) — NVIDIA ships AICR v1.0, a stable compatibility contract with version-locked, validated recipes for GPU-accelerated Kubernetes clusters across CLI/REST/Go SDK; 100+ contributors, recipes spanning 11 Kubernetes services and 10 GPU accelerators.
 - **2026-10-06** — [Control How Your GPU Shares Work with Green Contexts](https://developer.nvidia.com/blog/control-how-your-gpu-shares-work-with-green-contexts/) — NVIDIA expands Green Contexts from the Driver API to the Runtime API starting CUDA 13.1; on Blackwell, dedicated SM partitioning cut critical-kernel latency from 0.140ms to 0.007ms (20x).
+- **2026-10-06** — [Scale Bitwise-Deterministic Pretraining with NVIDIA Megatron Core](https://developer.nvidia.com/blog/scale-bitwise-deterministic-pretraining-with-nvidia-megatron-core/) — NVIDIA details a Megatron Core workflow (Megatron-LM PR #7262) making large-scale LLM pretraining bitwise deterministic via ordered per-rank tensor fingerprints; determinism overhead on Nemotron 3 Ultra cut from ~17% to 1.5% at 3,072 GPUs. Found via gap-scrape (WebFetch of developer.nvidia.com/blog — missed by TIER-1 RSS and prior runs' gap-scrapes of the same day).
 
 ## 2026-W40
 

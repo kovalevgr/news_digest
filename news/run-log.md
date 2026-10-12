@@ -4805,3 +4805,35 @@ Totals: 12 raw candidates, **+2 items confirmed, 1 highlight**. A quiet day: wit
 **Housekeeping note:** repo was again on a detached HEAD at `44b3524` with local `main` 14 commits behind, and the local `origin/main` ref was stale (pointed at `9d6f00a`). Fetched `origin main`, checked out `main` and fast-forwarded clean before writing this entry — same recurring shape as prior runs.
 
 Commit: `news: radar run 2026-10-12 (+2 items, 1 highlight, Linear unavailable)`.
+
+## 2026-10-12 06:0x UTC — daily — ok (Linear unavailable)
+
+`fetch_feeds.py` ran clean (exit 0; three `304 not modified` skips for microsoft, nvidia, mistral, huggingface; `google-deepmind`'s rss returned `TRAP/not-a-feed` this run — a new/unusual result for a feed that has worked all along, logged as a one-off, URL left unchanged in `sources.json` per the "never add known traps" rule since this is a transient response, not a config error). Window since `2026-10-11T04:04:47Z` (prior successful daily run was 2026-10-11 06:0x UTC). All 11 companies reported zero fresh TIER-1 candidates, triggering gap-scrape for all eleven.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (0 fresh) → WebFetch `openai.com/news/` (403) → WebSearch | 0 | fetch (403) → websearch | openai.com/news/ WebFetch 403'd directly (no feed/jina tier configured); WebSearch surfaced only stale/unconfirmed secondary sources (DevDay 2026 recap, conflicting GPT-6.1 Astra rumors), no primary-source page |
+| anthropic | fetch (0 fresh) → WebFetch `anthropic.com/news` | 0 | fetch | newest 10 posts listed (Oct 8 ×3 through Sep 1) all already captured in `topics/anthropic.md` |
+| google-deepmind | rss (TRAP/not-a-feed) → WebFetch `deepmind.google/blog/` | 0 | fetch | only Oct item (EmbeddingGemma 2) and Sept item (Gemini 4 Argon) found, both already captured |
+| google-research | rss (0 fresh) → WebFetch `research.google/blog/` | 0 | fetch | newest post (Oct 7) already captured |
+| microsoft | rss (304 not modified) → WebFetch `microsoft.com/en-us/research/blog/` | 0 | fetch | newest post (Oct 7, Agent Lightning) and all older listed posts back to July already captured |
+| nvidia | rss (304 not modified) → WebFetch `developer.nvidia.com/blog/` | 1 | fetch | found "Scale Bitwise-Deterministic Pretraining with NVIDIA Megatron Core" (Oct 6) — missed by TIER-1 and by prior gap-scrapes of the same day; "5 Steps to Create SimReady Assets" (Oct 8) re-confirmed excluded as a routine how-to per the NVIDIA trap note (same verdict as 2026-10-11) |
+| xai | jina (403 AbuseAlleviation, no `JINA_API_KEY`) → WebSearch | 0 | jina (blocked) → websearch | no official x.ai post found for October 2026; search surfaced only stale (Aug beta, July Grok 4.5) or unconfirmed (Grok 5 prediction market) secondary sources |
+| mistral | rss (304 not modified) → WebFetch `mistral.ai/news` | 0 | fetch | newest post (Oct 6, Mistral Large 4) already captured |
+| huggingface | rss (304 not modified) → WebFetch `huggingface.co/blog` | 1 | fetch | found "Introducing Falcon ASR" (Oct 7, tiiuae org) — missed by TIER-1 and by prior gap-scrapes of the same day; several older uncaptured candidates on the same listing (Sep 22–30: `omlx`, `transformers-llama-cpp-quants` sibling `rl-environments`, `open-tts-leaderboard`, `source-aware-verification`) read as already-triaged gaps from weeks back (same-day siblings were captured, these were not) — left alone rather than backfilling a multi-week audit outside this run's scope |
+| cursor | rss (0 fresh) → WebFetch `cursor.com/changelog` | 0 | fetch | newest entry (Oct 6, Remote control) already captured |
+| perplexity | jina (403 AbuseAlleviation, no `JINA_API_KEY`) → WebSearch | 0 | jina (blocked) → websearch | no official perplexity.ai/hub post found for October 2026; search returned only third-party guides/newsletters |
+
+Totals: 11/11 companies searched, **+2 items / 2 companies fresh** (nvidia, huggingface).
+
+**DEDUP + CONFIRM.** Both new items are same-day siblings of already-captured posts (NVIDIA's three other Oct 6 posts and three of HuggingFace's Oct 6–8 posts were already in `topics/`) that the TIER-1 feed and prior days' gap-scrapes missed — confirmed genuine via direct WebFetch of the posts themselves (concrete benchmark numbers in both), not padding. No cross-company URL collisions. Checked and confirmed already-on-file (no action): Anthropic's Oct 2/Oct 1/Sep 23/Sep 18/Sep 17/Sep 1 posts, Google DeepMind's EmbeddingGemma 2 and Gemini 4 Argon, NVIDIA's SimReady Assets (Oct 8, excluded again as routine how-to), Microsoft's Sep 28/Sep 23/Sep 21/Aug 31 posts, Mistral's Hallo-Deutschland and older. OpenAI, xAI, and Perplexity each had WebSearch-only leads with no primary-source page to confirm as genuine company announcements — per "never invent facts, carry the source URL," none were written.
+
+Items written:
+- `topics/nvidia.md` — [Scale Bitwise-Deterministic Pretraining with NVIDIA Megatron Core](https://developer.nvidia.com/blog/scale-bitwise-deterministic-pretraining-with-nvidia-megatron-core/) + `artifacts/2026-10-06-nvidia-megatron-core-bitwise-determinism.md`.
+- `topics/huggingface.md` — [Introducing Falcon ASR](https://huggingface.co/blog/tiiuae/falcon-asr) + `artifacts/2026-10-07-huggingface-falcon-asr.md`.
+
+**Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive session cannot run the OAuth flow). Both new items are fully written to `topics/` and `artifacts/` — no data lost, only the Linear "News digest" cards are behind. This is now the **ONE HUNDRED AND FOURTEENTH** consecutive Linear-affected run since 2026-08-24 (over 7 weeks) — owner action needed (unchanged, well over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+**Housekeeping note:** repo was again on a detached HEAD (local `main` behind `origin/main`'s tip after the radar run's push). Checked out `main` and fast-forwarded clean before writing this entry — same recurring shape as prior runs.
+
+Commit: `news: daily run 2026-10-12 (+2 items, 2 companies fresh, Linear unavailable)`.
