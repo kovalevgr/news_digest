@@ -4774,3 +4774,34 @@ Radar week summary: **89 confirmed items** under `2026-W41` (community 67, oss-m
 **Housekeeping note:** repo was again on a detached HEAD at `d71f457` with local `main` 13 commits behind, and the local `origin/main` ref was stale (pointed at `9d6f00a`). Fetched `origin main`, checked out `main` and fast-forwarded clean before committing — same recurring shape as prior runs.
 
 Commit: `news: weekly digest 2026-W41`.
+
+## 2026-10-12 05:0x UTC — radar — ok (Linear unavailable)
+
+`fetch_radar.py` ran clean (exit 0). Window since `2026-10-11T03:01:50Z` (prior successful radar run was 2026-10-11 05:0x UTC). `eleuther` HTTP 404 again (recurring, no fallback ladder for radar sources per workflow). All 7 YouTube sources (`yt-ai-engineer`, `yt-gpu-mode`, `yt-karpathy`, `yt-latent-space`, `yt-mlst`, `yt-sentdex`, `yt-umar-jamil`) HTTP 404 again — third consecutive run with the entire category dark (10-10, 10-11, 10-12); still reads as the endpoint itself having moved/retired rather than a transient block — recommend replacing the `config/radar.json` URLs for this category. `reddit` HTTP 429 this run (after a one-day non-429 recovery on 10-11) — skipped per workflow, no retry.
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | - |
+| inference-infra | 0 | 0 | - |
+| oss-ml-systems | 0 | 0 | eleuther HTTP 404 |
+| bigtech-eng | 0 | 0 | - |
+| research-institutes | 0 | 0 | - |
+| technical-newsletters | 0 | 0 | - |
+| practitioner-blogs | 0 | 0 | - |
+| youtube | 0 | 0 | all 7 sources HTTP 404 (see above) |
+| community | 12 | 2 | reddit HTTP 429 |
+| mistral-watch | 0 | 0 | - |
+
+Totals: 12 raw candidates, **+2 items confirmed, 1 highlight**. A quiet day: with `reddit` 429'd and all YouTube sources dark, the only surviving volume was HN's Show-HN searches, HF trending, and the GitHub-trending mirror.
+
+**TRIAGE.** HN Show-HN cross-query duplicates (same story returned by more than one `hn-show-*` query, same `canonical_url`, collapsed to one candidate before triage): `plimsollmark/plimsoll` (rag + agents queries) and `swimmingbrain/brainotes` (rag + mcp queries). Dropped as not AI/ML content at all (false-positive keyword matches, same pattern as prior days' "Quake ported to Rust"/"rarest tech books" drops): **BraiNOTES** (handwritten-notes PDF annotator — a LaTeX-editor sibling project, no ML involved despite surfacing on the `rag`/`mcp` queries) and **WallHop** (a 12ft.io-style paywall-bypass proxy, 272 pts — pure web-scraping utility, no AI/ML angle). Dropped as duplicate of an already-covered story: `huggingface.co/spaces/AlexWortega/openjev` — a Gradio demo space for the `openjev` model already verified and written up on 2026-09-20 (`radar/community.md`); same project, no new information in the space listing itself. Dropped as consumer/LOW fit per `interests.md`: `hf-trending-spaces`' `AST-1320/Qwen-2511-Plus-Flux.2-klein-9B` (an image-generation Gradio demo). Dropped as noise rather than news: `github-trending`'s `flutter/flutter` (not AI/ML at all) and `pytorch/pytorch` (a mainstay repo surfacing on the trending mirror with no attached release, post, or technical event — nothing to confirm as an "announcement").
+
+**VERIFY SUBSTANCE** (within the 5-candidate cap, only 2 candidates cleared pass 1 so both got a verification attempt): **`plimsollmark/plimsoll`** (GitHub, `git clone`) — verified: a real Go sandbox daemon for running AI-agent-written code, four reported isolation tiers (process/container/kernel/vm) with floor-based refusal, capability grants that keep API credentials out of the sandbox entirely, SHA-256 run records with a separate signer/verifier, CI gates running in the open (including a pinned-gVisor suite), and out-of-the-box integrations for Vercel AI SDK, Google ADK, Agno, CrewAI, Trigger.dev, and Mastra — pre-1.0 and explicit that no third-party security audit exists yet, but substantial, real engineering; made a highlight. **The Karpathy HN post** ("The gap in shared understanding of LLM capability is widening", 338 pts / 513 comments, linking `twitter.com`) — transport blocked: `twitter.com` is DNS-blocked for WebFetch in this env, and the one curl retry (tried directly and via a `nitter.net` mirror, browser UA) got a proxy 403 on the CONNECT tunnel both times — kept as a regular item on the HN listing title alone (per "transport error → keep item, skip highlight"), out of highlight consideration.
+
+**Highlights: 1** — `plimsollmark/plimsoll` (AI-agent code sandbox with reported isolation tiers and credential-free API capability grants, verified via git clone). A genuinely quiet day: Reddit's 429 and the youtube category's continued outage cut the usual community volume to a handful of HN/HF/GitHub-trending candidates, two of which were outright non-AI false positives and a third a duplicate of an already-covered story — "when in doubt, drop" left only two items standing, one highlight-worthy.
+
+**Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive session cannot run the OAuth flow). No review-queue cards attempted. Both confirmed items are fully written to `radar/community.md` — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now the **ONE HUNDRED AND THIRTEENTH** consecutive Linear-affected run since 2026-08-24 (over 7 weeks) — owner action needed (unchanged, well over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+**Housekeeping note:** repo was again on a detached HEAD at `44b3524` with local `main` 14 commits behind, and the local `origin/main` ref was stale (pointed at `9d6f00a`). Fetched `origin main`, checked out `main` and fast-forwarded clean before writing this entry — same recurring shape as prior runs.
+
+Commit: `news: radar run 2026-10-12 (+2 items, 1 highlight, Linear unavailable)`.
