@@ -4,10 +4,14 @@ aliases:
   - Grok
 sources:
   - https://x.ai/news
-updated: 2026-10-10
+updated: 2026-10-13
 ---
 
 MOC page for **xAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W41
+
+- **2026-10-12** — [Introducing The X Subscription](https://x.ai/news/x-subscription) — xAI bundles Grok, Grok Bot, Cursor, and X Premium into one plan across five tiers (Free $0 through Ultra $200/mo), live for new customers today with a switch path for existing SuperGrok/Cursor/X Premium subscribers. Found via gap-scrape (anonymous Jina — x.ai is DNS-blocked for direct WebFetch).
 
 ## 2026-W40
 

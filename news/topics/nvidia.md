@@ -4,13 +4,14 @@ aliases:
   - Nvidia
 sources:
   - https://blogs.nvidia.com/feed/
-updated: 2026-10-12
+updated: 2026-10-13
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W41
 
+- **2026-10-12** — [ReplaySSM: Rethinking State Storage for Faster Hybrid-Model Decoding](https://developer.nvidia.com/blog/replayssm-rethinking-state-storage-for-faster-hybrid-model-decoding/) — NVIDIA and Princeton's Dao AI Lab introduce ReplaySSM, storing a checkpoint plus a recent-input buffer instead of full SSM state each decode step (TensorRT-LLM/vLLM/FlashInfer); 1.20-1.47x end-to-end decode speedup at batch 256, 1.85-2.10x speculative-decoding throughput vs vLLM.
 - **2026-10-08** — [Building Reliable Data Analytics Agents: Lessons from the KDD Cup](https://developer.nvidia.com/blog/building-reliable-data-analytics-agents-lessons-from-the-kdd-cup/) — NVIDIA's KGMON team places 2nd in the KDD Cup 2026 Data Agents competition using a compact fixed model (Qwen3.5-35B-A3B) in a tightly constrained harness: unified SQLite DB, schema-scouting step, small toolset, separate zero-temperature LLM call for document extraction.
 - **2026-10-07** — [The Machines that Make the Machines](https://developer.nvidia.com/blog/the-machines-that-make-the-machines/) — NVIDIA's Seattle Robotics Lab and Isaac team detail robots assembling GB300 tester trays (busbar assembly, multi-connector insertion) plus DOPER pose-estimation and 3D-printed grippers; busbar success 95%+ at 160s/cycle (target 124s), connector success 90-95% (target 99.5%).
 - **2026-10-07** — [Validate AI Factory Changes with Digital Twins and AI Agents](https://developer.nvidia.com/blog/validate-ai-factory-changes-with-digital-twins-and-ai-agents/) — NVIDIA outlines using DSX Air (a node-based digital twin of AI-factory infrastructure) plus AI agents that query the twin and recommend validated changes within human-approved guardrails, with NVIDIA Brev GPUs and the Video Search and Summarization blueprint as examples.

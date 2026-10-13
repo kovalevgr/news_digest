@@ -4,13 +4,14 @@ aliases:
   - Perplexity AI
 sources:
   - https://www.perplexity.ai/hub/blog
-updated: 2026-10-10
+updated: 2026-10-13
 ---
 
 MOC page for **Perplexity** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W41
 
+- **2026-10-12** — [Building shared workspaces for people and agents](https://www.perplexity.ai/hub/blog/building-shared-workspaces-for-people-and-agents) — Perplexity details the architecture behind Computer Projects: a cloud-hosted Git forge purpose-built for human-agent and agent-agent collaboration, giving each project a persistent, concurrent, traceable shared filesystem. Found via gap-scrape (anonymous Jina — perplexity.ai is DNS-blocked for direct WebFetch).
 - **2026-10-07** — [Multimodal embeddings beyond a single vector](https://www.perplexity.ai/hub/blog/multimodal-embeddings-beyond-a-single-vector) — Perplexity ships pplx-embed-v2-late, ColBERT-style multi-vector embedding models (0.6B/9B, shared space) for both text and image retrieval, SOTA on ViDoRe(V3) for their size and 92.4% on agentic MADQA; both open on Hugging Face.
 
 ## 2026-W40

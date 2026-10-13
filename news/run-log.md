@@ -4880,3 +4880,36 @@ Totals: 44 raw candidates, **+15 items confirmed, 3 highlights**. Reddit's recov
 **Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive session cannot run the OAuth flow). No review-queue cards attempted. All 15 confirmed items are fully written to `radar/practitioner-blogs.md` and `radar/community.md` — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now the **ONE HUNDRED AND SIXTEENTH** consecutive Linear-affected run since 2026-08-24 (over 7 weeks) — owner action needed (unchanged, well over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: radar run 2026-10-13 (+15 items, 3 highlights, Linear unavailable)`.
+
+## 2026-10-13 06:0x UTC — daily — ok (Linear unavailable)
+
+`fetch_feeds.py` ran clean (exit 0; one `304 not modified` skip for huggingface). Window since `2026-10-12T04:04:30Z` (prior successful daily run was 2026-10-12 06:0x UTC). Microsoft and NVIDIA each had one fresh TIER-1 candidate; the other 9 companies reported zero fresh, triggering gap-scrape for all nine. `JINA_API_KEY` is still not set, but anonymous Jina worked cleanly today for both xai and perplexity (200, not the usual 403 AbuseAlleviation) — a change from the last several weeks' pattern, flagged in case it's transient.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (0 fresh) → WebFetch `openai.com/news/` (403) → WebSearch | 0 | fetch (403) → websearch | WebSearch surfaced only secondary/rumor coverage (GPT-6.1 Astra release-or-not rumors, a reported training pause) with no primary-source OpenAI post for October; nothing written |
+| anthropic | fetch (0 fresh) → WebFetch `anthropic.com/news` | 0 | fetch | newest 14 listed posts (Oct 8 ×3 through Sep 1) all already captured in `topics/anthropic.md` |
+| google-deepmind | rss (0 fresh) → WebFetch `deepmind.google/blog/` | 0 | fetch | newest post (EmbeddingGemma 2) already captured; found two older uncaptured gaps from Sep 23 ("Advancing Private AI Compute with secure, server-side memory", confirmed via direct WebFetch) and a Gemini 3.8 TTS post (blog.google-hosted, DNS-blocked for WebFetch, unconfirmed) — both outside this run's 26h window and read as the same kind of multi-week backfill gap the 2026-10-12 run explicitly declined to chase for HuggingFace; left alone, flagging here for a possible future dedicated backfill pass |
+| google-research | rss (0 fresh) → WebFetch `research.google/blog/` | 0 | fetch | newest post (Oct 7) already captured |
+| microsoft | rss (1 fresh) | 1 | — | none |
+| nvidia | rss (1 fresh) | 1 | — | none |
+| xai | jina (200, no `JINA_API_KEY` needed today) | 1 | — | none |
+| mistral | rss (0 fresh) → WebFetch `mistral.ai/news` | 0 | fetch | newest post (Oct 6, Mistral Large 4) already captured, back through 34 listed posts to January |
+| huggingface | rss (304 not modified) → WebFetch `huggingface.co/blog` | 4 | fetch | the dated post list (newest Oct 9) was already fully captured; found 4 new same-day (Oct 12) posts in the page's "Trending" relative-time list (8-16h old at fetch time, within window) that hadn't yet synced to the dated listing or RSS |
+| cursor | rss (0 fresh) → WebFetch `cursor.com/changelog` | 0 | fetch | newest entry (Oct 6, Remote control) already captured, only 5 entries shown |
+| perplexity | jina (200, no `JINA_API_KEY` needed today) | 1 | — | none |
+
+Totals: 11/11 companies searched, **+8 items / 5 companies fresh** (microsoft, nvidia, xai, huggingface, perplexity).
+
+**DEDUP + CONFIRM.** All 8 items are genuine announcements/technical posts with real numbers, confirmed via direct fetch of each (no padding): Microsoft's StudentSim (AI-tutor simulators, concrete chess benchmark numbers), NVIDIA's ReplaySSM (hybrid-model decode-speed technique with NVIDIA+Princeton paper, extensive benchmark tables), xAI's "The X Subscription" (major product bundling + full pricing table — verified it's a genuine Grok/Cursor/X product announcement, not pure social-media pricing), Perplexity's "Building shared workspaces for people and agents" (Projects architecture deep-dive, excluded from the candidate pool were ~6 same-day SEO/listicle posts on the Perplexity blog — "10 Best AI Collaboration Tools", "9 RAG Examples", "AI guardrails", "AI maturity", "10 AI Tools for Consultants", "RAG vs. LLM" — dropped as content-marketing roundups, not announcements, per the "never a roundup-of-others" rule), and 4 HuggingFace community posts (Basis Global Emotions dataset, UIBK-Embedding-v1 retriever, Sparseup-fr embedding model, ColGrep-Agent coding-search model) all with real benchmark numbers. No cross-company URL collisions. Checked and confirmed already-on-file (no action): OpenAI (0 primary-sourced leads), Anthropic (Oct 8/7/6/2/1 posts), Google DeepMind (EmbeddingGemma 2), Google Research (Oct 7/6/5 posts), Mistral (Mistral Large 4 and all older), Cursor (Remote control). Declined to backfill (outside window, multi-week-old, same judgment call as the 2026-10-12 run's HuggingFace Sep 28-30 gaps): Google DeepMind's Sep 23 "Advancing Private AI Compute" and an unconfirmed Sep Gemini 3.8 TTS post.
+
+Items written:
+- `topics/microsoft.md` — [Simulating student learning for better AI tutoring](https://www.microsoft.com/en-us/research/blog/simulating-student-learning-for-better-ai-tutoring/) + `artifacts/2026-10-12-microsoft-studentsim.md`.
+- `topics/nvidia.md` — [ReplaySSM: Rethinking State Storage for Faster Hybrid-Model Decoding](https://developer.nvidia.com/blog/replayssm-rethinking-state-storage-for-faster-hybrid-model-decoding/) + `artifacts/2026-10-12-nvidia-replayssm.md`.
+- `topics/xai.md` — [Introducing The X Subscription](https://x.ai/news/x-subscription) + `artifacts/2026-10-12-xai-x-subscription.md`.
+- `topics/perplexity.md` — [Building shared workspaces for people and agents](https://www.perplexity.ai/hub/blog/building-shared-workspaces-for-people-and-agents) + `artifacts/2026-10-12-perplexity-shared-workspaces.md`.
+- `topics/huggingface.md` — [Basis Global Emotions](https://huggingface.co/blog/basis-ai/global-emotions), [UIBK-Embedding-v1](https://huggingface.co/blog/abdoelsayed/uibk-embedding-v1), [Sparseup-fr](https://huggingface.co/blog/alphaedge-ai/french-sparseup), [ColGrep-Agent](https://huggingface.co/blog/lightonai/colgrep-agent) + 4 matching `artifacts/2026-10-12-huggingface-*.md` files.
+
+**Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive session cannot run the OAuth flow). All 8 new items are fully written to `topics/` and `artifacts/` — no data lost, only the Linear "News digest" cards are behind. This is now the **ONE HUNDRED AND SEVENTEENTH** consecutive Linear-affected run since 2026-08-24 (over 7 weeks) — owner action needed (unchanged, well over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-10-13 (+8 items, 5 companies fresh, Linear unavailable)`.
