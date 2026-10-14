@@ -5,13 +5,17 @@ aliases:
   - Gemini
 sources:
   - https://deepmind.google/blog/rss.xml
-updated: 2026-10-07
+updated: 2026-10-14
 ---
 
 MOC page for **Google DeepMind** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W41
 
+- **2026-10-14** — [Google DeepMind and Singapore Government collaborate to build fine-tuned AI model for scam detection](https://deepmind.google/blog/on-device-ai-scam-detection-mddi/) — Google DeepMind and GovTech Singapore built an on-device, fine-tuned Gemma model that screens messages for scam patterns entirely locally with zero cloud data egress, presented at Singapore International Cyber Week 2026.
+- **2026-10-13** — [Gemini 4 Argon: Built to solve your hardest problems](https://deepmind.google/blog/introducing-gemini-4-argon/) — Google DeepMind launches Gemini 4 Argon globally via API/AI Studio/Gemini app, ranking #1 on the Vals Index, with early deployments across coding, cybersecurity, quantum computing, fusion research and enzyme design.
+- **2026-10-13** — [Developing Gemini 4 Argon responsibly and safely](https://deepmind.google/blog/developing-gemini-4-argon-responsibly-and-safely/) — Google DeepMind details Gemini 4 Argon's safety stack: misuse/jailbreak defenses, real-time misalignment monitoring, and prompt-injection resistance.
+- **2026-10-13** — [Gemini 4 Argon for Robotics](https://deepmind.google/blog/gemini-4-argon-for-robotics/) — Google DeepMind shows Gemini 4 Argon as a general-purpose physical-reasoning model for robotics, scoring 87% on the ERQA benchmark and demonstrated across robot control, Real2Sim, and self-improvement workflows.
 - **2026-10-06** — [EmbeddingGemma 2: an open, lightweight multimodal embedding model](https://deepmind.google/blog/embeddinggemma-2-an-open-lightweight-multimodal-embedding-model/) — Google DeepMind introduces EmbeddingGemma 2, an open, lightweight multimodal embedding model. Full detail unverified: the post redirects to blog.google, egress-blocked in this session — confirmed real via the official RSS feed + a clean 302 redirect, but no content could be read.
 
 ## 2026-W40

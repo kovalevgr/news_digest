@@ -4,13 +4,15 @@ aliases:
   - Nvidia
 sources:
   - https://blogs.nvidia.com/feed/
-updated: 2026-10-13
+updated: 2026-10-14
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W41
 
+- **2026-10-13** — [How to Rewrite Apache Spark UDFs for GPU Acceleration with AI Agents](https://developer.nvidia.com/blog/rewrite-apache-spark-udfs-gpu-acceleration-ai-agents/) — NVIDIA releases "cuDF skills for Apache Spark," an agent skill pack rewriting CPU-bound Spark UDFs into GPU-accelerated SQL/cuDF/CUDA implementations; reports 20x+ speedups, one production rewrite cutting 274.55 to 12.78 hours on a 600-billion-row job.
+- **2026-10-13** — [NVIDIA Run:ai Is Now Open Source as Part of NVIDIA DSX AI Factory Platform](https://developer.nvidia.com/blog/nvidia-runai-is-now-open-source-as-part-of-nvidia-dsx-ai-factory-platform/) — NVIDIA open-sources the full Run:ai Kubernetes AI-workload platform under the DSX AI Factory org; KAI Scheduler contributed to CNCF as a Sandbox project, eight ecosystem partners integrating it.
 - **2026-10-12** — [ReplaySSM: Rethinking State Storage for Faster Hybrid-Model Decoding](https://developer.nvidia.com/blog/replayssm-rethinking-state-storage-for-faster-hybrid-model-decoding/) — NVIDIA and Princeton's Dao AI Lab introduce ReplaySSM, storing a checkpoint plus a recent-input buffer instead of full SSM state each decode step (TensorRT-LLM/vLLM/FlashInfer); 1.20-1.47x end-to-end decode speedup at batch 256, 1.85-2.10x speculative-decoding throughput vs vLLM.
 - **2026-10-08** — [Building Reliable Data Analytics Agents: Lessons from the KDD Cup](https://developer.nvidia.com/blog/building-reliable-data-analytics-agents-lessons-from-the-kdd-cup/) — NVIDIA's KGMON team places 2nd in the KDD Cup 2026 Data Agents competition using a compact fixed model (Qwen3.5-35B-A3B) in a tightly constrained harness: unified SQLite DB, schema-scouting step, small toolset, separate zero-temperature LLM call for document extraction.
 - **2026-10-07** — [The Machines that Make the Machines](https://developer.nvidia.com/blog/the-machines-that-make-the-machines/) — NVIDIA's Seattle Robotics Lab and Isaac team detail robots assembling GB300 tester trays (busbar assembly, multi-connector insertion) plus DOPER pose-estimation and 3D-printed grippers; busbar success 95%+ at 160s/cycle (target 124s), connector success 90-95% (target 99.5%).

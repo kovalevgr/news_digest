@@ -4946,3 +4946,38 @@ Totals: 62 raw candidates, **+15 items confirmed, 3 highlights**.
 **Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive session cannot run the OAuth flow). All 15 confirmed items are fully written to `radar/lab-engineering.md`, `radar/inference-infra.md`, `radar/oss-ml-systems.md`, `radar/bigtech-eng.md`, `radar/research-institutes.md`, and `radar/community.md` — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now the **ONE HUNDRED AND EIGHTEENTH** consecutive Linear-affected run since 2026-08-24 (over 7 weeks) — owner action needed (unchanged, well over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: radar run 2026-10-14 (+15 items, 3 highlights, Linear unavailable)`.
+
+## 2026-10-14 06:0x UTC — daily — ok (Linear unavailable)
+
+Session started with HEAD detached 1 commit ahead of local `main` (same leftover pattern the 2026-10-14 05:0x radar entry fixed for itself) — `git fetch origin main` showed `origin/main` already at the detached commit (today's radar run had pushed cleanly), so the fix here was `git stash` the in-progress daily edits, `git checkout main && git merge --ff-only origin/main`, then `git stash pop` to land back on `main` with nothing lost.
+
+Operational note for future runs: `fetch_feeds.py` was accidentally run twice back-to-back before its output was captured in full (the first run's stdout got truncated in review). The second run's conditional-GET cursor update made every source report 0 fresh (expected — cursors had just advanced past the real candidates). Recovered via `git checkout HEAD -- news/state/cursors.json` (the script hadn't been committed yet, so the pre-run committed cursor state was still on disk) and re-ran once cleanly, capturing full stdout to a file this time; the second run's output matched the first run's real candidates exactly, confirming nothing was lost. Flagging so a future run redirects `fetch_feeds.py`'s stdout straight to a file on the first invocation rather than relying on terminal scrollback.
+
+`fetch_feeds.py` ran clean (exit 0; one `304 not modified` skip for mistral). Window since `2026-10-13T04:05:42Z` (prior successful daily run was 2026-10-13 06:0x UTC). Google DeepMind (4 fresh), NVIDIA (2 fresh), and HuggingFace (1 fresh) all had TIER-1 candidates; the other 8 companies reported zero fresh, triggering gap-scrape for all eight. `JINA_API_KEY` is still not set; anonymous Jina worked for xAI (full page content) but WebSearch was used directly for Perplexity per the documented fallback.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (0 fresh) → WebSearch | 0 | websearch | only stale/rumor coverage surfaced (older GPT-5.x/DevDay history); no primary-source OpenAI post for Oct 13-14 |
+| anthropic | fetch (0 fresh) → WebFetch `anthropic.com/news` | 0 | fetch | newest 3 listed posts (Oct 8) already captured in `topics/anthropic.md`; page's "See more" means older items weren't re-checked |
+| google-deepmind | rss (4 fresh) | 4 | — | none |
+| google-research | rss (0 fresh) → WebSearch | 0 | websearch | search index returned only September items (MaleCNS v1.0, ToolGrad) via a third-party tracker, nothing dated Oct 13-14 |
+| microsoft | rss (0 fresh) → WebSearch | 0 | websearch | search index returned only historical (2016-2017) results, no current coverage |
+| nvidia | rss (2 fresh) | 2 | — | none |
+| xai | jina (200, no `JINA_API_KEY` needed) | 0 | — | newest post (Introducing The X Subscription, Oct 12) already captured in `topics/xai.md`; nothing newer in window |
+| mistral | rss (304 not modified) → WebSearch | 0 | websearch | search index returned only Feb/Dec 2025 items, nothing dated Oct 13-14 |
+| huggingface | rss (1 fresh) | 1 | — | none |
+| cursor | rss (0 fresh) → WebSearch | 0 | websearch | search index returned only Aug/Jul 2026 items (aggregator lag), nothing dated Oct 2026 confirmed |
+| perplexity | jina skipped (no `JINA_API_KEY`, anonymous Jina historically 403s this source) → WebSearch | 0 | websearch | search index returned only Feb-Apr 2026 items, nothing dated Oct 13-14 |
+
+Totals: 11/11 companies searched, **+7 items / 3 companies fresh** (google-deepmind, nvidia, huggingface).
+
+**DEDUP + CONFIRM.** All 7 items are genuine announcements with real numbers, confirmed via direct fetch of each (no padding): Google DeepMind's on-device scam-detection model with GovTech Singapore (fine-tuned Gemma, concrete S$4B/80% loss stats), the Gemini 4 Argon launch trio — the main introduction post, the dedicated safety/security post, and the dedicated robotics post — each a distinct URL with distinct substantial content (pricing/benchmarks, safety-stack numbers, ERQA/robotics demos respectively), kept as 3 separate items rather than merged or marked duplicate; NVIDIA's cuDF-skills-for-Spark agent tooling (22x+ speedups, a 274.55h→12.78h production case) and the Run:ai open-sourcing (4 modular components, 8 DSX partners); HuggingFace's LFM2.5-24B-A2B (full benchmark table vs. Qwen3.6-35B-A3B). No cross-company URL collisions. Checked and confirmed already-on-file (no action): OpenAI, Google Research, Microsoft, xAI (Oct 12 post), Mistral, Cursor.
+
+Items written:
+- `topics/google-deepmind.md` — [scam detection](https://deepmind.google/blog/on-device-ai-scam-detection-mddi/) + `artifacts/2026-10-14-google-deepmind-scam-detection.md`; [Gemini 4 Argon intro](https://deepmind.google/blog/introducing-gemini-4-argon/) + `artifacts/2026-10-13-google-deepmind-gemini-4-argon.md`; [Argon safety](https://deepmind.google/blog/developing-gemini-4-argon-responsibly-and-safely/) + `artifacts/2026-10-13-google-deepmind-gemini-4-argon-safety.md`; [Argon for Robotics](https://deepmind.google/blog/gemini-4-argon-for-robotics/) + `artifacts/2026-10-13-google-deepmind-gemini-4-argon-robotics.md`.
+- `topics/nvidia.md` — [Rewrite Apache Spark UDFs for GPU Acceleration with AI Agents](https://developer.nvidia.com/blog/rewrite-apache-spark-udfs-gpu-acceleration-ai-agents/) + `artifacts/2026-10-13-nvidia-spark-udf-gpu-agents.md`; [NVIDIA Run:ai Is Now Open Source](https://developer.nvidia.com/blog/nvidia-runai-is-now-open-source-as-part-of-nvidia-dsx-ai-factory-platform/) + `artifacts/2026-10-13-nvidia-runai-open-source.md`.
+- `topics/huggingface.md` — [Run fast, private agents on-device with LFM2.5-24B-A2B](https://huggingface.co/blog/LiquidAI/lfm25-24b-a2b) + `artifacts/2026-10-13-huggingface-lfm25-24b-a2b.md`.
+
+**Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive session cannot run the OAuth flow). All 7 new items are fully written to `topics/` and `artifacts/` — no data lost, only the Linear "News digest" cards are behind. This is now the **ONE HUNDRED AND NINETEENTH** consecutive Linear-affected run since 2026-08-24 (over 7 weeks) — owner action needed (unchanged, well over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-10-14 (+7 items, 3 companies fresh, Linear unavailable)`.

@@ -5,13 +5,14 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-10-13
+updated: 2026-10-14
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W41
 
+- **2026-10-13** — [Run fast, private agents on-device with LFM2.5-24B-A2B](https://huggingface.co/blog/LiquidAI/lfm25-24b-a2b) — Liquid AI releases LFM2.5-24B-A2B, a 24B-parameter (2B-active) reasoning MoE for on-device agents, leading or matching the larger Qwen3.6-35B-A3B on 5 of 8 tool-use/agentic benchmarks and all 3 instruction-following benchmarks.
 - **2026-10-12** — [Basis Global Emotions: 525 hours of expressive speech across 108 locales](https://huggingface.co/blog/basis-ai/global-emotions) — Basis AI releases a free speech dataset: 525 hours from 10,420 speakers across 108 locales/83 languages (137,696 recordings), each line read at neutral/medium/full emotional intensity. Found via gap-scrape (WebFetch of huggingface.co/blog — missed by TIER-1 RSS).
 - **2026-10-12** — [UIBK-Embedding-v1: A Dense and a Late-Interaction Retriever in One Model, One Index and One Search](https://huggingface.co/blog/abdoelsayed/uibk-embedding-v1) — University of Innsbruck's DataScience-UIBK releases a 179M-parameter open English retrieval model combining dense and ColBERT-style late-interaction retrieval in one encoder/index; 59.79 nDCG@10 on BEIR, ahead of LateOn on all 15 BEIR datasets. Found via gap-scrape (WebFetch of huggingface.co/blog — missed by TIER-1 RSS).
 - **2026-10-12** — [Sparseup-fr: A French replication of Linkup's sparse embedding model](https://huggingface.co/blog/alphaedge-ai/french-sparseup) — AlphaEdge AI releases Sparseup-fr, a French sparse embedding model (~150M params, 55h on one RTX 6000 Pro), scoring 56.37 nDCG@10 on cleaned NanoBEIR-fr, ahead of other open French sparse models. Found via gap-scrape (WebFetch of huggingface.co/blog — missed by TIER-1 RSS).
