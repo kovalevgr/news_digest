@@ -1,6 +1,6 @@
 ---
 category: research-institutes
-updated: 2026-10-03
+updated: 2026-10-14
 ---
 
 # Radar: research-institutes
@@ -39,3 +39,7 @@ Appended by the daily routine under weekly headings; format matches topics files
 
 - **2026-10-07** — [Now in Nature: Retrofitting language models to operate over bytes](https://allenai.org/blog/bolmo-nature) — Verified via WebFetch: Ai2 publishes "byteifying" in Nature — converting an existing subword model into a byte-level model via a relatively short additional training run instead of training byte-level from scratch. Bolmo 1B/7B (from Olmo) were the first fully open byte-level models competitive with strong subword baselines; new Bwen 8B (from Qwen 3 8B) and Blama 8B (from Llama 3 8B) show the method generalizing beyond Ai2's own model family, with Bwen 8B the strongest byteified model yet, beating Bolmo 7B on Ai2's aggregate eval suite. New checkpoints public on Hugging Face (`allenai/bolmo` collection, Stage 1 weights); the training recipe is described as fully open, though no single code repo is linked on the page. Direct hit on "reproducible techniques WITH CODE" — a genuine peer-reviewed result with released checkpoints, not a marketing shell.
 - **2026-10-09** — [Impactful scheduling for GPU clusters](https://allenai.org/blog/impactful-scheduling) — Not independently verified beyond the feed's own summary this run (outside the 5-candidate verification cap): Ai2 describes its GPU-cluster scheduler, using time budgets, fair-share allocation, and time-slicing to prioritize high-impact research, shorten queue waits, and keep GPUs busy. MEDIUM/HIGH fit — "GPU/kernel engineering" + "engineering post-mortems and how we built X," a real infra-engineering writeup rather than a model/benchmark announcement; out of highlight consideration pending a closer read. (A same-day Ai2 COLM 2026 conference recap was dropped at triage — a thin, name-dropping roundup of multiple Ai2 projects with no single substantive technique.)
+
+## 2026-W42
+
+- **2026-10-13** — [How Molmo 2's open release helped an MIT researcher rethink fish tracking](https://allenai.org/blog/molmo2fish) — Not independently verified beyond the feed's own summary this run: MIT researcher Kai Van Brunt built Molmo2Fish using Molmo 2's open release to track salmon in sonar footage and correct tracking errors via everyday-language prompts. MEDIUM fit — open-model-in-practice story (the "reproducible techniques" lens), not a benchmark or infra piece.
