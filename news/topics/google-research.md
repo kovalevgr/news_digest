@@ -4,10 +4,16 @@ aliases:
   - Google AI
 sources:
   - https://research.google/blog/rss/
-updated: 2026-10-08
+updated: 2026-10-15
 ---
 
 MOC page for **Google Research** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W42
+
+- **2026-10-14** — [Research@ 2026: 10 ways we're amplifying human ingenuity](https://research.google/blog/research-2026-10-ways-were-amplifying-human-ingenuity/) — Google Research rounds up 10 updates from its Research@ 2026 event: Earth AI access expansion, multi-agent science tools, the public launch of Deep Review, a new Edge AI chip, TimesFM/TabFM, MedGemma, AMIE, Groundsource flood forecasting, Learning Interactives, and Play with Putty.
+- **2026-10-14** — [Putting Earth AI to work: Geospatial agents for our planet's biggest challenges](https://research.google/blog/putting-earth-ai-to-work-geospatial-agents-for-our-planets-biggest-challenges/) — Google Research expands its experimental Geospatial Reasoning agent (Gemini + Earth AI models), publishing a technical report with two new benchmarks and real-world results from WHO, People in Need, GiveDirectly, WPP, and the Milken Institute.
+- **2026-10-14** — [Analyzing technical documents with Deep Review](https://research.google/blog/analyzing-technical-documents-with-deep-review/) — Google Research publicly launches Deep Review, an agentic document-verification system that grew from a conference-paper review pilot (16,000+ manuscripts) to also cover legal and financial documents.
 
 ## 2026-W41
 

@@ -4,10 +4,14 @@ aliases:
   - Grok
 sources:
   - https://x.ai/news
-updated: 2026-10-13
+updated: 2026-10-15
 ---
 
 MOC page for **xAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W42
+
+- **2026-10-14** — [Introducing Grok Voice 3.0](https://x.ai/news/grok-voice-3) — xAI launches Grok Voice 3.0, a speech-to-speech model ranking #1 on Artificial Analysis's Speech-to-Speech Index with sub-1-second latency and lower cost than competing frontier voice models, priced the same as its predecessor. Found via gap-scrape (anonymous Jina — x.ai is DNS-blocked for direct WebFetch).
 
 ## 2026-W41
 

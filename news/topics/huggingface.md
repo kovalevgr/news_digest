@@ -5,10 +5,14 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-10-14
+updated: 2026-10-15
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W42
+
+- **2026-10-14** — [HiRO-ACEv2: Simulating extreme weather at 3 km resolution for a fraction of the cost](https://huggingface.co/blog/allenai/hiro-acev2) — Ai2 releases HiRO-ACEv2, an updated downscaling model turning its coarse 100km ACE climate emulator output into 3km-resolution extreme-weather simulations at roughly 1/300th the cost of the reference high-resolution model X-SHiELD.
 
 ## 2026-W41
 
