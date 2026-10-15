@@ -1,6 +1,6 @@
 ---
 category: research-institutes
-updated: 2026-10-14
+updated: 2026-10-15
 ---
 
 # Radar: research-institutes
@@ -43,3 +43,4 @@ Appended by the daily routine under weekly headings; format matches topics files
 ## 2026-W42
 
 - **2026-10-13** — [How Molmo 2's open release helped an MIT researcher rethink fish tracking](https://allenai.org/blog/molmo2fish) — Not independently verified beyond the feed's own summary this run: MIT researcher Kai Van Brunt built Molmo2Fish using Molmo 2's open release to track salmon in sonar footage and correct tracking errors via everyday-language prompts. MEDIUM fit — open-model-in-practice story (the "reproducible techniques" lens), not a benchmark or infra piece.
+- **2026-10-14** — [HiRO-ACEv2: Simulating extreme weather at 3 km resolution for a fraction of the cost](https://allenai.org/blog/hiro-acev2) — Not independently verified beyond the feed's own summary this run: HiRO-ACEv2 captures extreme rain, wind, and pressure events at 3 km resolution for about 1/300th the cost of X-SHiELD, making detailed global climate simulations more accessible to researchers. LOW/MEDIUM fit — applied ML-for-science infra rather than an agent/local-model/MCP/evals technique; kept for the concrete numbers (3km resolution, ~300x cost cut) despite the narrower fit against `interests.md`.

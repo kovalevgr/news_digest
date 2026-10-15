@@ -1,6 +1,6 @@
 ---
 category: oss-ml-systems
-updated: 2026-10-14
+updated: 2026-10-15
 ---
 
 # Radar: oss-ml-systems
@@ -89,3 +89,4 @@ Appended by the daily routine under weekly headings; format matches topics files
 ## 2026-W42
 
 - **2026-10-13** — [Extending Inductor for the IBM Spyre Accelerator](https://pytorch.org/blog/extending-inductor-for-the-ibm-spyre-accelerator/) — Not independently verified beyond the feed's own summary this run: IBM's Spyre accelerator stack moves its `torch.compile` backend from `sendnn` (a from-scratch compilation stack) to `backend=inductor`, PyTorch's shared open-source compiler backend. MEDIUM fit — GPU/kernel-engineering-adjacent, continues the 2026-10-08 "Building Spyre as a Native PyTorch Device" thread above (a new accelerator vendor moving onto the common compiler stack instead of maintaining a bespoke one).
+- **2026-10-15** — [vllm release proto-v0.6.0](https://github.com/vllm-project/vllm/releases/tag/proto-v0.6.0) — Routine `proto-` crate-track release (continues the 2026-09-12/09-17/10-01/10-08 pattern — versions vLLM's Rust frontend's gRPC control/inference protocol, unrelated to the main vLLM release cadence); release-note text not independently verified this run (confirmed real via `git ls-remote --tags`, a sequential series from `proto-v0.1.0`). Direct hit on "local/self-hosted models: inference engines (vLLM)" — out of highlight consideration, no release-note text available at fetch time.

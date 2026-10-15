@@ -1,6 +1,6 @@
 ---
 category: bigtech-eng
-updated: 2026-10-14
+updated: 2026-10-15
 ---
 
 # Radar: bigtech-eng
@@ -58,3 +58,6 @@ Appended by the daily routine under weekly headings; format matches topics files
 ## 2026-W42
 
 - **2026-10-13** — [GitHub's model for secret detection: Finding more secrets with less noise](https://github.blog/ai-and-ml/githubs-model-for-secret-detection-finding-more-secrets-with-less-noise/) — Not independently verified beyond the feed's own summary this run: GitHub's new context-aware secret classifier raises weighted acceptance 11.5% and cuts median scan execution time 86%. MEDIUM fit — "engineering post-mortems and how we built X" on a production applied-ML system.
+- **2026-10-14** — [Integrating Netflix's Foundation Model into Personalization applications](https://netflixtechblog.com/integrating-netflixs-foundation-model-into-personalization-applications-cf176b5860eb) — Netflix TechBlog post on folding an internal foundation model into personalization/recommendation applications; transport-blocked this run (curl 403, WebFetch 403, one Jina retry also 403 — Netflix TechBlog's Medium hosting appears to block all three transports uniformly) — kept on the submission title only. MEDIUM fit — recommender-systems ML / "engineering post-mortems... from big-tech AI systems"; out of highlight consideration, substance unconfirmed.
+- **2026-10-14** — [The Lifecycle of LLM-as-a-Judge: Building, Aligning, and Monitoring at scale](https://netflixtechblog.com/the-lifecycle-of-llm-as-a-judge-building-aligning-and-monitoring-at-scale-c95bd8283508) — Netflix TechBlog post on building, aligning, and monitoring LLM-as-a-judge systems in production; transport-blocked this run (curl 403, WebFetch 403, one Jina retry also 403) — kept on the submission title only. Direct hit on "Evals in practice: how people actually measure agents and models" — HIGH fit by topic, but out of highlight consideration since substance is unconfirmed.
+- **2026-10-14** — [Reliable GPU compute for large training & inference jobs](https://netflixtechblog.com/reliable-gpu-compute-for-large-training-inference-jobs-d62b03a96d7a) — Netflix TechBlog post on keeping GPU compute reliable for large-scale training and inference workloads; transport-blocked this run (curl 403, WebFetch 403) — kept on the submission title only. MEDIUM fit — GPU/kernel engineering + inference-infra reliability; out of highlight consideration, substance unconfirmed.
