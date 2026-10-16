@@ -5,10 +5,14 @@ aliases:
   - Gemini
 sources:
   - https://deepmind.google/blog/rss.xml
-updated: 2026-10-14
+updated: 2026-10-16
 ---
 
 MOC page for **Google DeepMind** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W42
+
+- **2026-10-15** — [Accelerating the search for antimicrobial peptides with Google Antigravity](https://deepmind.google/blog/accelerating-antimicrobial-discovery/) — Google DeepMind shows biologists using its Antigravity agentic platform to find a new antimicrobial peptide candidate against respiratory pathogens, now in wet-lab validation; also introduces a Biomolecular Structure Viewer tool.
 
 ## 2026-W41
 

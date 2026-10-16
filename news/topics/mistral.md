@@ -4,10 +4,14 @@ aliases:
   - Mistral
 sources:
   - https://mistral.ai/rss.xml
-updated: 2026-10-07
+updated: 2026-10-16
 ---
 
 MOC page for **Mistral AI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W42
+
+- **2026-10-15** — [Introducing Timestral](https://mistral.ai/news/timestral/) — Mistral releases Timestral, its first family of time-series foundation models (5M–209M params), forecasting probabilistic multivariate time series; claims first place on GIFT-Eval, TIME, and fev-bench.
 
 ## 2026-W41
 

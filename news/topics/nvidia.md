@@ -3,14 +3,16 @@ company: NVIDIA
 aliases:
   - Nvidia
 sources:
-  - https://blogs.nvidia.com/feed/
-updated: 2026-10-15
+  - https://developer.nvidia.com/blog/feed
+updated: 2026-10-16
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W42
 
+- **2026-10-15** — [NVIDIA Nemotron 3.5 Super VL Powers Specialized Agents with Multimodal Reasoning](https://developer.nvidia.com/blog/nvidia-nemotron-3-5-super-vl-powers-specialized-agents-with-multimodal-reasoning/) — NVIDIA releases Nemotron 3.5 Super VL, an open multimodal model (120B MoE, 12B active) combining reasoning, tool use, and text/image/document/video understanding, distilled from Nemotron 3 Ultra.
+- **2026-10-15** — [Scale Agentic Coding Workflows with Meta's Muse Spark Open on NVIDIA GB300 NVL72](https://developer.nvidia.com/blog/scale-agentic-coding-workflows-with-metas-muse-spark-open-on-nvidia-gb300-nvl72/) — NVIDIA publishes a technical blog on running Meta's newly released Muse Spark Open (816B MoE agentic-coding model) on its GB300 NVL72 Blackwell Ultra systems.
 - **2026-10-14** — [Optimizing Agent Reliability and Tool Calling Efficiency for Chip Design Using NVIDIA NeMo Gym](https://developer.nvidia.com/blog/optimizing-agent-reliability-and-tool-calling-efficiency-for-chip-design-using-nvidia-nemo-gym/) — NVIDIA and Siemens EDA use NeMo Gym to make the Siemens Fuse chip-characterization agent more reliable, raising a composite benchmark score from ~55% to ~95% while cutting agent turns and output tokens by roughly two-thirds.
 
 ## 2026-W41

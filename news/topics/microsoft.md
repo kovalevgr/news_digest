@@ -4,11 +4,15 @@ aliases:
   - MSFT
   - Copilot
 sources:
-  - https://news.microsoft.com/source/feed/
-updated: 2026-10-13
+  - https://www.microsoft.com/en-us/research/feed/
+updated: 2026-10-16
 ---
 
 MOC page for **Microsoft** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W42
+
+- **2026-10-15** — [Proof-based general-purpose computing with Magnetar](https://www.microsoft.com/en-us/research/blog/proof-based-general-purpose-computing-with-magnetar/) — Microsoft Research introduces Magnetar, a zero-knowledge virtual machine combining a decade of its ZK research into one system that is faster, more general, and relies only on standard hash functions.
 
 ## 2026-W41
 

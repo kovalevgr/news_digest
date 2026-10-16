@@ -5090,3 +5090,42 @@ Totals: 64 raw candidates, **+15 items confirmed, 3 highlights**. *mistral-watch
 **Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive session cannot run the OAuth flow). All 15 confirmed items are fully written to `radar/oss-ml-systems.md`, `radar/community.md`, and `radar/mistral-watch.md` — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now the **ONE HUNDRED AND TWENTY-THIRD** consecutive Linear-affected run since 2026-08-24 (over 7.5 weeks) — owner action needed (unchanged, well over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: radar run 2026-10-16 (+15 items, 3 highlights, Linear unavailable)`.
+
+## 2026-10-16 06:0x UTC — daily — ok (Linear unavailable)
+
+`fetch_feeds.py` ran clean (exit 0). Window since `2026-10-15T04:05:15Z` (prior successful daily run 2026-10-15 06:0x UTC). No TRAP/not-a-feed flags, no 304s. `JINA_API_KEY` is still not set; anonymous Jina worked for xAI (full page + article content, confirming nothing new — see below); WebSearch was used directly for google-research, cursor, and perplexity (no fetch/jina tier configured in `sources.json` for these, so WebSearch is the only fallback step); WebFetch was used for anthropic (its configured `fetch` tier), with one Jina retry needed for OpenAI's one RSS-fresh item after a direct-fetch 403 (per the WebFetch target-403 failure mode).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (1 fresh) | 1 | jina (retry on 403 for the article page) | none |
+| anthropic | fetch (0 fresh via rss n/a) → WebFetch `anthropic.com/news` | 1 new | fetch | none |
+| google-deepmind | rss (1 fresh) | 1 | — | none |
+| google-research | rss (0 fresh) → WebSearch | 0 | websearch | search index stale (no Oct 2026 primary post found; only old archive/aggregator pages) |
+| microsoft | rss (1 fresh) | 1 | — | none |
+| nvidia | rss (2 fresh) | 2 | — | none |
+| xai | jina (200) | 1 (already on file) | jina | none — Grok Voice 3.0 (Oct 14) already captured by the 2026-10-15 run, no new item |
+| mistral | rss (1 fresh) | 1 | — | none |
+| huggingface | rss (2 fresh) | 2 | — | none |
+| cursor | rss (0 fresh) → WebSearch | 0 | websearch | search index stale (no Oct 2026 changelog entries, only Jul-Aug trackers) |
+| perplexity | jina skipped (no `JINA_API_KEY`) → WebSearch | 0 | websearch | no official Oct 2026 Perplexity blog post found; only secondhand/third-party trackers |
+
+Totals: 11/11 companies searched, **+9 items / 7 companies fresh** (openai, anthropic, google-deepmind, microsoft, nvidia, mistral, huggingface).
+
+**DEDUP + CONFIRM.** All 9 items are genuine announcements, confirmed via direct fetch of each primary source (no padding): OpenAI's Rosalind Academic Plan (life-sciences model access for academic labs); Anthropic's "An update on independent evaluators" (METR employee-like access, wider third-party evaluator program); Google DeepMind's Antigravity-assisted antimicrobial-peptide discovery writeup; Microsoft Research's Magnetar zkVM; NVIDIA's two posts — Nemotron 3.5 Super VL launch and a Meta Muse Spark Open deployment guide on GB300 NVL72 (NVIDIA owns the latter: it's NVIDIA's own technical blog about running someone else's model, not a Meta announcement, and Meta isn't a tracked company); Mistral's Timestral time-series model family; two Hugging Face community posts — NVIDIA/IIT Madras/AI4Bharat's Indic-pretraining corpus and IBM's Granite Switch 4.1. No cross-company URL collisions. Checked and confirmed already-on-file (no action): google-research, cursor, perplexity, and xAI's Grok Voice 3.0.
+
+Items written:
+- `topics/openai.md` — [Bringing GPT-Rosalind to academic research labs](https://openai.com/index/introducing-the-rosalind-academic-plan) + `artifacts/2026-10-15-openai-rosalind-academic-plan.md`.
+- `topics/anthropic.md` — [An update on independent evaluators](https://www.anthropic.com/news/an-update-on-independent-evaluators) + `artifacts/2026-10-15-anthropic-independent-evaluators.md`.
+- `topics/google-deepmind.md` — [Accelerating the search for antimicrobial peptides with Google Antigravity](https://deepmind.google/blog/accelerating-antimicrobial-discovery/) + `artifacts/2026-10-15-google-deepmind-antimicrobial-discovery.md`.
+- `topics/microsoft.md` — [Proof-based general-purpose computing with Magnetar](https://www.microsoft.com/en-us/research/blog/proof-based-general-purpose-computing-with-magnetar/) + `artifacts/2026-10-15-microsoft-magnetar-zkvm.md`.
+- `topics/nvidia.md` — [NVIDIA Nemotron 3.5 Super VL Powers Specialized Agents with Multimodal Reasoning](https://developer.nvidia.com/blog/nvidia-nemotron-3-5-super-vl-powers-specialized-agents-with-multimodal-reasoning/) + `artifacts/2026-10-15-nvidia-nemotron-3-5-super-vl.md`; [Scale Agentic Coding Workflows with Meta's Muse Spark Open on NVIDIA GB300 NVL72](https://developer.nvidia.com/blog/scale-agentic-coding-workflows-with-metas-muse-spark-open-on-nvidia-gb300-nvl72/) + `artifacts/2026-10-15-nvidia-muse-spark-open-gb300.md`.
+- `topics/mistral.md` — [Introducing Timestral](https://mistral.ai/news/timestral/) + `artifacts/2026-10-15-mistral-timestral.md`.
+- `topics/huggingface.md` — [Scaling Indic Pretraining: 2.8 Trillion Tokens and an Open Data Generation Pipeline](https://huggingface.co/blog/nvidia/scaling-indic-pretraining) + `artifacts/2026-10-15-huggingface-nvidia-indic-pretraining.md`; [Granite Switch 4.1: Chat, Decisions, and Speech from One Endpoint](https://huggingface.co/blog/ibm-granite/granite-switch-4-1) + `artifacts/2026-10-15-huggingface-ibm-granite-switch-4-1.md`.
+
+**HOUSEKEEPING — stale `sources` frontmatter (found this run, pre-existing, not introduced today):** `topics/microsoft.md` and `topics/nvidia.md` still listed their frontmatter `sources:` as the old pre-2026-08-08-audit corporate feeds (`news.microsoft.com/source/feed/`, `blogs.nvidia.com/feed/`) despite `sources.json`/`companies.md` having been swapped to the research/developer blogs over two months ago. Corrected both to match the config's single source of truth while editing these files today (`https://www.microsoft.com/en-us/research/feed/`, `https://developer.nvidia.com/blog/feed`) — no other files affected.
+
+**GIT HOUSEKEEPING — detached HEAD found at session start:** this session's clone started on a detached HEAD at `89a9b85` (yesterday's radar-run commit) rather than on branch `main`; `git fetch origin main` confirmed `origin/main` was already at that same commit (no push backlog, just a stale local branch ref). Re-attached HEAD to `main` via `git checkout -B main 89a9b85` before writing any files — purely local git state, no content was at risk.
+
+**Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive session cannot run the OAuth flow). All 9 new items are fully written to `topics/` and `artifacts/` — no data lost, only the Linear "News digest" cards are behind. This is now the **ONE HUNDRED AND TWENTY-FOURTH** consecutive Linear-affected run since 2026-08-24 (over 7.5 weeks) — owner action needed (unchanged, well over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-10-16 (+9 items, 7 companies fresh, Linear unavailable)`.

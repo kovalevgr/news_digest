@@ -4,10 +4,14 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-10-10
+updated: 2026-10-16
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W42
+
+- **2026-10-15** — [Bringing GPT-Rosalind to academic research labs](https://openai.com/index/introducing-the-rosalind-academic-plan) — OpenAI launches the Rosalind Academic Plan, giving eligible academic labs up to 30 free Business Standard seats for a year with trusted-access to GPT-Rosalind, its dedicated life-sciences model.
 
 ## 2026-W41
 

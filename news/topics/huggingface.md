@@ -5,13 +5,15 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-10-15
+updated: 2026-10-16
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W42
 
+- **2026-10-16** — [Scaling Indic Pretraining: 2.8 Trillion Tokens and an Open Data Generation Pipeline](https://huggingface.co/blog/nvidia/scaling-indic-pretraining) — NVIDIA, IIT Madras and AI4Bharat announce a ~2.8T-token corpus across 22 Indian languages (releasing soon) plus its open data-generation pipeline.
+- **2026-10-15** — [Granite Switch 4.1: Chat, Decisions, and Speech from One Endpoint](https://huggingface.co/blog/ibm-granite/granite-switch-4-1) — IBM releases Granite Switch 4.1 (8B/30B), bundling a Decision aLoRA, a Guardian safety aLoRA, and a speech-recognition model so one endpoint handles chat, decisions, and speech-to-text.
 - **2026-10-14** — [HiRO-ACEv2: Simulating extreme weather at 3 km resolution for a fraction of the cost](https://huggingface.co/blog/allenai/hiro-acev2) — Ai2 releases HiRO-ACEv2, an updated downscaling model turning its coarse 100km ACE climate emulator output into 3km-resolution extreme-weather simulations at roughly 1/300th the cost of the reference high-resolution model X-SHiELD.
 
 ## 2026-W41

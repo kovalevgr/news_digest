@@ -4,13 +4,14 @@ aliases:
   - Claude
 sources:
   - https://www.anthropic.com/news
-updated: 2026-10-15
+updated: 2026-10-16
 ---
 
 MOC page for **Anthropic** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W42
 
+- **2026-10-15** — [An update on independent evaluators](https://www.anthropic.com/news/an-update-on-independent-evaluators) — Anthropic gives METR employee-like access to its systems and tools, part of a wider program of independent evaluators (SecureBio, Accenture, Faculty, early talks with Hugging Face).
 - **2026-10-14** — [Preparing for the 2026 US midterms](https://www.anthropic.com/news/2026-us-midterms) — Anthropic details election safeguards ahead of the 2026 US midterms: usage data on political conversations, upcoming official voting-info integration via Democracy Works, bias-evenhandedness test results (99% on its political evenhandedness eval), and new classifiers against multi-step election misuse.
 - **2026-10-14** — [Anthropic opens Singapore office and signs MOU with the Government of Singapore](https://www.anthropic.com/news/singapore-office-opening) — Anthropic opens its fifth Asia-Pacific office in Singapore and signs an MOU with Singapore's Ministry of Digital Development and Information covering AI safety, security, model evaluation, and responsible adoption.
 
