@@ -5162,3 +5162,29 @@ Totals: 23 raw candidates, **+8 items confirmed, 3 highlights**. A quiet day ove
 **Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive session cannot run the OAuth flow). All 8 confirmed items are fully written to `radar/inference-infra.md`, `radar/oss-ml-systems.md`, `radar/bigtech-eng.md`, and `radar/community.md` — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now the **ONE HUNDRED AND TWENTY-FIFTH** consecutive Linear-affected run since 2026-08-24 (approaching 8 weeks) — owner action needed (unchanged, well over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: radar run 2026-10-17 (+8 items, 3 highlights, Linear unavailable)`.
+
+## 2026-10-17 06:0x UTC — daily — ok (Linear unavailable)
+
+**GIT HOUSEKEEPING — detached HEAD found at session start, fixed before any writes.** This session's clone started on a detached HEAD at `7ce17aa` (this morning's radar-run commit) rather than on branch `main`, while local `main` itself was still stale at `8ac36af` (2026-10-13). `git fetch origin main` confirmed `origin/main` was at `7ce17aa` with no push backlog; `git checkout main && git merge --ff-only origin/main` fast-forwarded local `main` to `7ce17aa` and re-attached HEAD before any writes — purely local git state, no content was at risk. Same recurring pattern flagged in the 2026-10-16 and 2026-10-17-radar entries.
+
+`fetch_feeds.py` ran clean (exit 0). Window since `2026-10-16T04:04Z` (prior successful daily run 2026-10-16 06:0x UTC; 5 of 8 rss sources also short-circuited via 304-not-modified against their stored ETags: google-deepmind, microsoft, nvidia, mistral, huggingface). **All 11 companies returned zero fresh TIER-1 candidates** — a first in recent run-log history — triggering gap-scrape for every company.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (0 fresh) → WebSearch | 0 | websearch | search index returned only unverified/conflicting third-party rumors (GPT-6 rollout, a training-pause story) — no confirmable openai.com post, not recorded |
+| anthropic | fetch → WebFetch `anthropic.com/news` | 0 new | fetch | only post in-window was "An update on independent evaluators" (Oct 15) — already on file from the 2026-10-16 run |
+| google-deepmind | rss (0 fresh) → WebSearch | 0 | websearch | search index stale — newest indexed item late Sept |
+| google-research | rss (0 fresh) → WebSearch | 0 | websearch | search index stale — newest indexed item Sept 12 (MaleCNS v1.0) |
+| microsoft | rss (0 fresh) → WebSearch | 0 | websearch | search index stale — no Oct 2026 Research-blog post found |
+| nvidia | rss (0 fresh) → WebSearch | 0 | websearch | search index stale — no Oct 2026 Technical-Blog post found |
+| xai | jina (200, anonymous) | 0 new | jina | newest post still Grok Voice 3.0 (Oct 14) — already on file from the 2026-10-16 run |
+| mistral | rss (0 fresh) → WebSearch | 0 | websearch | secondary sites claim a "Mistral Large 4 public preview" (~Oct 6) but no mistral.ai URL surfaced to confirm — not recorded (no invented facts) |
+| huggingface | rss (0 fresh) → WebSearch | 0 | websearch | search index stale — no Oct 2026 huggingface.co/blog post found |
+| cursor | rss (0 fresh) → WebSearch | 0 | websearch | search index stale — newest changelog entry mid-Aug |
+| perplexity | jina skipped (no `JINA_API_KEY`) → WebSearch | 0 | websearch | search index stale — no official Oct 2026 Perplexity blog post found |
+
+Totals: 11/11 companies searched, **+0 items / 0 companies fresh**. A genuinely quiet 24h window: every TIER-1 feed came back empty (no new entries since yesterday's cursors, confirmed via ETag/304 or an in-window re-parse), and the WebSearch fallback for every rss-only company surfaced nothing with a confirmable primary-source URL dated in the window — several companies' own site content plainly lags the live search index by weeks. The two companies with a non-WebSearch fallback tier (Anthropic via `fetch`, xAI via `jina`) both returned real content but nothing newer than what the 2026-10-16 run already captured. No items added to any `topics/*.md` or `artifacts/` file today; no padding, no unverified claims recorded.
+
+**Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive session cannot run the OAuth flow). Moot today regardless (zero new items to card). This is now the **ONE HUNDRED AND TWENTY-SIXTH** consecutive Linear-affected run since 2026-08-24 (over 8 weeks) — owner action needed (unchanged, well over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-10-17 (+0 items, 0 companies fresh, Linear unavailable)`.
