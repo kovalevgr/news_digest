@@ -5300,3 +5300,29 @@ Totals: 41 raw candidates, **+10 items confirmed, 3 highlights**. First week-ope
 **Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (the server reports it requires re-authorization; a non-interactive scheduled run cannot complete the OAuth flow). All 10 confirmed items are fully written to `radar/community.md` — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now the **ONE HUNDRED AND THIRTIETH** consecutive Linear-affected run since 2026-08-24 (just over 8 weeks) — owner action needed (unchanged, well over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: radar run 2026-10-19 (+10 items, 3 highlights, Linear unavailable)`.
+
+## 2026-10-19 06:0x UTC — daily — ok (Linear unavailable)
+
+`fetch_feeds.py` ran clean (exit 0, no source_errors). Window since `2026-10-18T04:02Z` (prior successful daily run 2026-10-18 06:0x UTC). Three sources short-circuited via 304-not-modified against their stored ETags: nvidia, mistral, huggingface. **All 11 companies returned zero fresh TIER-1 candidates for the third day running**, triggering gap-scrape for every company (MAX ONE fallback attempt each, per the ladder in `sources.json`).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (0 fresh) → WebSearch | 0 | websearch | only unverified third-party claims (a disputed GPT-6/GPT-6.1 Astra release story, a disputed training-pause rumor) — no confirmable openai.com post in-window, not recorded |
+| anthropic | fetch → WebFetch `anthropic.com/news` | **1 new** | fetch | "Investing in the public benefit" (2026-10-18) — confirmed primary source, written to `topics/anthropic.md` + `artifacts/2026-10-18-anthropic-public-benefit-fund.md` |
+| google-deepmind | rss (0 fresh) → WebSearch | 0 | websearch | search index stale — newest indexed item a September AI-summit report, not a blog post |
+| google-research | rss (0 fresh) → WebSearch | 0 | websearch | search index stale — newest indexed item mid-September (MaleCNS v1.0 connectome) |
+| microsoft | rss (0 fresh) → WebSearch | 0 | websearch | search index stale — newest dated Research-blog item still July 21 |
+| nvidia | rss (0 fresh) → WebSearch | 0 | websearch | search index stale — no Oct 2026 Technical-Blog post found |
+| xai | jina (200, anonymous) | 0 new | jina | newest post still Grok Voice 3.0 (Oct 14) — already on file from the 2026-10-16 run |
+| mistral | rss (0 fresh) → WebSearch | 0 | websearch | secondary sites still only repeat the ~Oct 6 "Mistral Large 4" preview and an unverified breach claim (already on file / unconfirmable) — no new primary-source URL, not recorded |
+| huggingface | rss (0 fresh) → WebSearch | 0 | websearch | search index stale — no Oct 2026 huggingface.co/blog post found |
+| cursor | rss (0 fresh) → WebSearch | 0 | websearch | search index stale — newest changelog entry mid-August per third-party trackers |
+| perplexity | jina skipped (no `JINA_API_KEY`) → WebSearch | 0 | websearch | search index stale — no official Oct 2026 Perplexity blog post found |
+
+Totals: 11/11 companies searched, **+1 item / 1 company fresh**. The Anthropic item landed via the `fetch` gap-scrape tier (Anthropic has no rss feed, so `anthropic.com/news` is its primary and only ladder step) and is dated 2026-10-18 — inside this week's run-day (2026-10-19 is the first day of ISO week **2026-W43**), so it opens a new `## 2026-W43` heading at the top of `topics/anthropic.md` per the heading-rollover fix adopted after the 2026-W42 digest's misfiling note. Every other company's WebSearch fallback surfaced nothing with a confirmable primary-source URL dated in-window — third-party aggregators and news sites continue to lag or disagree with the companies' own sites (notably conflicting, unconfirmed OpenAI GPT-6/Astra claims, again not recorded per the never-invent rule).
+
+**Linear: UNAVAILABLE this run** — confirmed via the system's own server status (Linear MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). The one new Anthropic item would have been carded (title `[Anthropic] Investing in the public benefit`, priority High(2) — major org/equity news, type label `business`) but no Linear tools were loadable. This is now the **ONE HUNDRED AND THIRTY-FIRST** consecutive Linear-affected run since 2026-08-24 (56 days, 8 weeks) — owner action needed (unchanged, well over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+**Git note:** session started with `HEAD` detached at `9fb14c7` (this morning's radar-run commit) and local `main` stale at `8ac36af` (2026-10-13) — same recurring pattern as the past several runs. `git fetch origin main` confirmed `origin/main` already at `9fb14c7` (no push backlog); `git checkout main && git merge --ff-only origin/main` fast-forwarded local `main` and re-attached HEAD before any writes.
+
+Commit: `news: daily run 2026-10-19 (+1 item, 1 company fresh, Linear unavailable)`.
