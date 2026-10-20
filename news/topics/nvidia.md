@@ -4,10 +4,14 @@ aliases:
   - Nvidia
 sources:
   - https://developer.nvidia.com/blog/feed
-updated: 2026-10-16
+updated: 2026-10-19
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W43
+
+- **2026-10-19** — [Accelerating Mamba-2 with High-Performance Forward Pass Kernels in NVIDIA CUDA Tile](https://developer.nvidia.com/blog/accelerating-mamba-2-with-high-performance-forward-pass-kernels-in-nvidia-cuda-tile/) — Jane Street and NVIDIA implement Mamba-2's forward pass as three custom cuTile kernels, reporting 1.14x-1.82x speedups over a Triton baseline on Blackwell Ultra B300.
 
 ## 2026-W42
 

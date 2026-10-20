@@ -5387,3 +5387,29 @@ Totals: 58 raw candidates, **+15 items confirmed, 3 highlights**. First W43 run 
 **Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 15 confirmed items are fully written to their radar files (`bigtech-eng.md` +2, `inference-infra.md` +1, `oss-ml-systems.md` +3, `practitioner-blogs.md` +1, `community.md` +8) — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now the **ONE HUNDRED AND THIRTY-THIRD** consecutive Linear-affected run since 2026-08-24 (57 days, over 8 weeks) — owner action needed (unchanged, well over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: radar run 2026-10-20 (+15 items, 3 highlights, Linear unavailable)`.
+
+## 2026-10-20 06:0x UTC — daily — ok (Linear unavailable)
+
+**Git check — clean.** Session started with `HEAD` detached at `13cb079` (this morning's radar-run commit, matching `origin/main` exactly — no push backlog). `git checkout main && git merge --ff-only origin/main` fast-forwarded local `main` and re-attached HEAD before any writes.
+
+`fetch_feeds.py` ran clean (exit 0, no source_errors). Window since `2026-10-19T04:02Z` (prior successful daily run 2026-10-19 06:0x UTC). `mistral` short-circuited via 304-not-modified against its stored ETag. 9 of 11 companies returned zero fresh TIER-1 candidates, triggering gap-scrape for each (MAX ONE fallback attempt, per the ladder in `sources.json`).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (**1 fresh**) | **1 new** | — | "Advancing coding in low‑resource programming languages" (2026-10-19) — written to `topics/openai.md` + `artifacts/2026-10-19-openai-low-resource-programming-languages.md`; opened a fresh `## 2026-W43` heading (first W43 item for this file) |
+| anthropic | fetch → WebFetch `anthropic.com/news` | 0 new | fetch | full listing re-fetched (10 items + featured cards); newest is still "Investing in the public benefit" (Oct 18), already on file — nothing newer |
+| google-deepmind | rss (0 fresh) → WebSearch | 0 | websearch | search index stale — no October 2026 deepmind.google/blog post found, only September leadership-reshuffle coverage already superseded on file |
+| google-research | rss (0 fresh) → WebSearch | 0 | websearch | search index stale — `site:` filter not respected by the search backend; no October post surfaced |
+| microsoft | rss (0 fresh) → WebSearch | 0 | websearch | search index stale — newest dated Research-blog item still July 2026 |
+| nvidia | rss (**1 fresh**) | **1 new** | — | "Accelerating Mamba-2 with High-Performance Forward Pass Kernels in NVIDIA CUDA Tile" (2026-10-19, Jane Street collab) — written to `topics/nvidia.md` + `artifacts/2026-10-19-nvidia-mamba2-cutile-kernels.md`; opened a fresh `## 2026-W43` heading (first W43 item for this file) |
+| xai | jina (200, anonymous) | 0 new | jina | newest post still Grok Voice 3.0 (Oct 14), already on file from the 2026-10-16 run |
+| mistral | rss (304 not-modified) → WebSearch | 0 | websearch | secondary sites still only repeat the ~Oct 6 "Mistral Large 4" preview (already on file) and an unconfirmed breach claim — no new primary-source URL, not recorded |
+| huggingface | rss (0 fresh) → WebSearch | 0 | websearch | search index stale — no October 2026 huggingface.co/blog post found |
+| cursor | rss (0 fresh) → WebSearch | 0 | websearch | search index stale — newest changelog entry third-party trackers date to mid-August |
+| perplexity | jina skipped (no `JINA_API_KEY`) → WebSearch | 0 | websearch | search index stale — no official October 2026 Perplexity blog post found |
+
+Totals: 11/11 companies searched, **+2 items / 2 companies fresh**. Both new items (OpenAI, NVIDIA) landed via TIER-1 rss and are dated 2026-10-19 — the first day of ISO week **2026-W43** — so each opened a fresh `## 2026-W43` heading at the top of its topics file (`updated:` frontmatter bumped to 2026-10-19 on both). The OpenAI item's page returned HTTP 403 to a direct fetch; its content/numbers were confirmed via a text-extraction route cross-checked against an independent search snippet before being recorded — flagged moderate-confidence on the exact percentages in the artifact. The other 9 companies' WebSearch fallback surfaced nothing with a confirmable primary-source URL dated in-window, continuing the now-familiar pattern of search-index lag against the companies' own sites.
+
+**Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). The two new items would have been carded (`[OpenAI] Advancing coding in low‑resource programming languages`, priority Medium(3), type `research`; `[NVIDIA] Accelerating Mamba-2 with High-Performance Forward Pass Kernels in NVIDIA CUDA Tile`, priority Medium(3), type `infra`) but no Linear tools were loadable. This is now the **ONE HUNDRED AND THIRTY-FOURTH** consecutive Linear-affected run since 2026-08-24 (57 days, over 8 weeks) — owner action needed (unchanged, well over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-10-20 (+2 items, 2 companies fresh, Linear unavailable)`.
