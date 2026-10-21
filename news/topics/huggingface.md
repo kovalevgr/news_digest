@@ -5,10 +5,16 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-10-16
+updated: 2026-10-20
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W43
+
+- **2026-10-20** — [NVIDIA Cosmos3-H-Dreams: Bringing Clinical Surgery to Life Through Generative Simulation](https://huggingface.co/blog/nvidia/cosmos3-h-dreams) — NVIDIA releases a real-time generative video simulator for clinical cholecystectomy surgery, trained on real surgical video/kinematics, running interactively on a single RTX PRO 6000 GPU.
+- **2026-10-20** — [FairStress: A deeper evaluation of fairness in LLM decision-making](https://huggingface.co/blog/allenai/fairstress) — Ai2 releases FairStress, a 300-scenario/13M+ test-case fairness benchmark finding frontier models (Claude Opus 5, GPT-5.5) asymmetrically favor minority-coded candidates under adversarial pressure, not majority-coded ones.
+- **2026-10-20** — [ALTK-Evolve: How learned memory tops the τ²-bench leaderboard on customer service tasks without a frontier model](https://huggingface.co/blog/ibm-research/altk-evolve-bc) — IBM Research releases ALTK-Evolve, a library distilling behavioral guidelines from an agent's own past attempts into its system prompt (no weight updates), lifting τ²-bench accuracy for gpt-4.1 and gpt-5.5 agents.
 
 ## 2026-W42
 

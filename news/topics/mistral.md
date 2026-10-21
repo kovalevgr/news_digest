@@ -4,10 +4,14 @@ aliases:
   - Mistral
 sources:
   - https://mistral.ai/rss.xml
-updated: 2026-10-16
+updated: 2026-10-20
 ---
 
 MOC page for **Mistral AI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W43
+
+- **2026-10-20** — [Voxtral 3](https://mistral.ai/news/voxtral-3/) — Mistral launches Voxtral 3, a family of speech-to-text/text-to-speech models plus a real-time voice agent SDK (LiveKit-based) for 50+ languages, EU-hosted or self-deployed.
 
 ## 2026-W42
 
