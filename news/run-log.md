@@ -5492,3 +5492,44 @@ Totals: 11/11 companies searched, **+4 items / 2 companies fresh**. All four new
 **Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). The four new items would have been carded (`[Mistral AI] Voxtral 3`, priority Medium(3), type `product`; `[Hugging Face] NVIDIA Cosmos3-H-Dreams...`, priority Low(4), type `research`; `[Hugging Face] FairStress...`, priority Medium(3), type `research`; `[Hugging Face] ALTK-Evolve...`, priority Medium(3), type `research`) but no Linear tools were loadable. This is now the **ONE HUNDRED AND THIRTY-SIXTH** consecutive Linear-affected run since 2026-08-24 (58 days, over 8 weeks) — owner action needed (unchanged, well over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: daily run 2026-10-21 (+4 items, 2 companies fresh, Linear unavailable)`.
+
+## 2026-10-22 05:0x UTC — radar — ok (Linear unavailable)
+
+**Git check — clean.** Repo was detached HEAD at `f6a9cf7` (2026-10-21's daily-run commit) on session start, exactly matching `origin/main` after `git fetch` — no push backlog, just a stale local `main` ref. `git checkout main && git fetch origin main && git merge --ff-only origin/main` fast-forwarded local `main` to `origin/main` and re-attached HEAD before any writes.
+
+`fetch_radar.py` ran clean (exit 0). Window since `2026-10-21T03:04Z` (prior successful radar run).
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | — |
+| inference-infra | 1 | 1 | — |
+| oss-ml-systems | 3 | 3 | `eleuther` HTTP 404 (feed URL now dead — candidate for next config review, not re-added blind) |
+| bigtech-eng | 1 | 1 | — |
+| research-institutes | 0 | 0 | — |
+| technical-newsletters | 2 | 2 | — |
+| practitioner-blogs | 1 | 1 | — |
+| youtube | 0 | 0 | all 7 channel feeds returned HTTP 404 today (`yt-ai-engineer`, `yt-gpu-mode`, `yt-karpathy`, `yt-latent-space`, `yt-mlst`, `yt-sentdex`, `yt-umar-jamil`) — looks like a YouTube RSS-endpoint-wide block/change in this env rather than 7 independent channel failures; no gap-scrape ladder for radar per the workflow, logged and moved on |
+| community | 20 | 6 | `reddit` HTTP 429 (one fetch/day cap already hit elsewhere this week; no retry, per rule) |
+| mistral-watch | 0 | 0 | — |
+
+Totals: 28 raw candidates, **+14 items confirmed, 3 highlights**. All six target files already had `## 2026-W43` open from earlier this week except `technical-newsletters.md`, which hadn't had a confirmed item since `## 2026-W40` (2026-09-29) — opened a fresh `## 2026-W43` heading today.
+
+**TRIAGE.**
+
+**Dropped as off-topic / not AI-engineering content (HN Show):** `Show HN: VoidAccess – open-source dark web OSINT, from query to a graph` (security/OSINT tool, not AI-engineering beyond a passing "wave of AI" mention), `Show HN: I built a Markdown and raw HTML blog platform scoring 99 on PageSpeed` (no AI content), `Show HN: Another Blog Search Engine` (no AI content).
+
+**Dropped as consumer showcase / thin gimmick (HN Show):** `Show HN: AI-built browser games, collected in one place` (a links page, not a technique), `Show HN: Jev Cards, Can you beat a vision model at a picture quiz?` and `Show HN: Shazam but for AI Slop Music` — both cross-day resurfaces of items already dropped yesterday (2026-10-21) for the same reason (thin/gimmick, appreciation-adjacent), same published dates, confirmed via grep they were never written to any radar file.
+
+**Dropped as explicit LOW fit (video/robotics, consistent with `interests.md` and prior runs' precedent):** `hf-daily-papers`' `Looking Ahead: Modeling Future Evolution in Autoregressive Video Generation` and `DONIC: Generalist Dexterous Bimanual Tracking Control from Human Demonstrations` (video-generation and robotics respectively, both released-code papers but squarely the LOW lane).
+
+**Dropped as a stale resurface, no new content:** `reflection/Beam-1.0-501B-A23B` (`hf-trending-models`, trending score 205) — the model's own `createdAt` is 2026-10-07, 15 days old; nothing in the feed ties today's trending spike to new news, only a resurge in HF's trending algorithm, same call as prior "stale trending" drops this month.
+
+**Dropped as LOW fit / thin (hf-trending-spaces):** `rdata92/LTX-2.3-10Eros` (video-generation Space per the LTX family name, NSFW-adjacent naming) and `dlouapre/nlp-before-llms` (no summary text to confirm substance beyond the title).
+
+**VERIFY SUBSTANCE** (5 of 5-candidate cap used; 4 more read as routine official-blog/model-card/repo verification needed to write accurate card content, same precedent as prior runs' extra reads): **Claude Mods** (latent.space, verified via WebFetch) — real event-hook architecture for Claude Code mods, concrete built-in-mods list and one user's cost/noise numbers, no code samples — made a highlight. **Elastic EP Scaling in SGLang** (lmsys.org, verified via WebFetch) — a genuine incremental-MoE-scaling protocol with real 5.3–8.2x and 3.1–3.3x before/after numbers on 8×H100 — made a highlight. **WebMCP/Commerce.com** (blog.cloudflare.com, verified via WebFetch) — a concrete, ~100K-domain rollout of agentic-commerce MCP tooling, not a demo — strong but not selected (3 highlights already used). **Evaluating Agents on Subjective Tasks** (cameronrwolfe.substack.com, verified via WebFetch) — a well-organized practitioner synthesis (calibration, power analysis, judge meta-evaluation), no original numbers — kept as a regular item. **RecursiveSI/flint** (huggingface.co, verified via WebFetch model card) — a real new Apache-2.0 coding MoE (39.8B/2.5B active) with concrete SWE-bench numbers — kept as a regular item (3 highlights already used). **Omnara** (github.com, verified via `git clone`) — a real, documented self-hostable agent-runtime platform — kept as a regular item. **Graphify-Labs/graphify** (github.com, verified via `git clone`, GitHub trending #1 of the day) — a real tree-sitter-AST knowledge-graph tool wired into Claude Code/Cursor/Codex/etc., YC S26 — made a highlight. **reticlehq/reticle** (github.com, verified via `git clone`) — a real agent-output-verification MCP server despite thin HN traction (11 pts) — kept as a regular item. **The Huawei-DeepSeek Symbiosis** (newsletter.semianalysis.com, verified via WebFetch, partial — paywalled beyond the preview) — confirmed hardware/software benchmarking (Ascend 950PR microbenchmarks, DeepSeek Ascend porting), not a finance piece despite the source, per the config note that finance-vs-tech triage is the agent's job — kept as a regular item, MEDIUM fit. **How to Run Turing-Complete Malware in PyTorch's Backward Pass** (elonlit.com) — attempted via WebFetch (`ENOTFOUND`) then one curl retry (proxy `CONNECT 403`, host not on the cloud allowlist) — kept on the lobste.rs submission title only, out of highlight consideration, substance unconfirmed.
+
+**Highlights: 3** (max 3 used) — Claude Mods (latent.space — "AI agents in practice: agent harnesses, context engineering," directly about the owner's own Claude Code tooling), Elastic EP Scaling in SGLang (lmsys.org — "local/self-hosted models: inference engines," the day's densest reproducible before/after numbers), and Graphify-Labs/graphify (GitHub trending #1 — "AI agents in practice" + "MCP and the agent-tool ecosystem" + the article lens, a tool the owner could run on this repo today). Runners-up considered but not selected on a crowded day: Cloudflare's WebMCP/Commerce.com rollout (strong MCP-ecosystem fit, less owner-actionable than Graphify) and RecursiveSI/flint (a real new open coding model, but a model release rather than a technique/tool the owner's own workflow touches).
+
+**Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 14 confirmed items are fully written to their radar files (`inference-infra.md` +1, `oss-ml-systems.md` +3, `bigtech-eng.md` +1, `technical-newsletters.md` +2, `practitioner-blogs.md` +1, `community.md` +6) — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now the **ONE HUNDRED AND THIRTY-SEVENTH** consecutive Linear-affected run since 2026-08-24 (59 days, over 8 weeks) — owner action needed (unchanged, well over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: radar run 2026-10-22 (+14 items, 3 highlights, Linear unavailable)`.
