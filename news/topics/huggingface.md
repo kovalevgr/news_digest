@@ -5,12 +5,17 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-10-20
+updated: 2026-10-21
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W43
+
+- **2026-10-21** — [NVIDIA Kumo Relational Outperforms Supervised Machine Learning on Relational Data, No Training Required](https://huggingface.co/blog/nvidia/kumo-relational) — NVIDIA introduces Kumo Relational, a pre-trained relational foundation model predicting directly on enterprise databases in a single forward pass via in-context learning, outperforming supervised relational deep learning and AutoGluon ensembles across 41 tasks on 15 databases.
+- **2026-10-21** — [How Specializing the Vocabulary of SLMs Can Cut Inference Cost by 77% in Real Applications](https://huggingface.co/blog/Dharma-AI/vocabx-vocabulary-specialization) — Dharma AI previews VocabX, a method specializing a small language model's tokenizer vocabulary by per-token cost; on a Qwen3-4B Portuguese essay grader, inference cost fell 77% while the bench score rose from 0.703 to 0.810 (paper under review).
+- **2026-10-21** — [Profiling TorchNeuron (Part 1): System-level profiling on AWS Trainium.](https://huggingface.co/blog/amazon/profiling-torchneuron-part-1) — AWS publishes Part 1 of a series profiling TorchNeuron on AWS Trainium; fused approaches cut RMSNorm device time to roughly one-sixth of the naive PyTorch implementation.
+- **2026-10-21** — [Granite Speech 5.0: Transcribe, Translate, and Attribute more Accurately and Faster](https://huggingface.co/blog/ibm-granite/granite-speech-5) — IBM releases granite-speech-5.0-2b plus updated Turbo CTC and 4.1 2B Plus variants, trained on 390,000 hours of public audio under Apache 2.0, ranking #2 among open-weight ASR models on the Open ASR Leaderboard.
 
 - **2026-10-20** — [NVIDIA Cosmos3-H-Dreams: Bringing Clinical Surgery to Life Through Generative Simulation](https://huggingface.co/blog/nvidia/cosmos3-h-dreams) — NVIDIA releases a real-time generative video simulator for clinical cholecystectomy surgery, trained on real surgical video/kinematics, running interactively on a single RTX PRO 6000 GPU.
 - **2026-10-20** — [FairStress: A deeper evaluation of fairness in LLM decision-making](https://huggingface.co/blog/allenai/fairstress) — Ai2 releases FairStress, a 300-scenario/13M+ test-case fairness benchmark finding frontier models (Claude Opus 5, GPT-5.5) asymmetrically favor minority-coded candidates under adversarial pressure, not majority-coded ones.

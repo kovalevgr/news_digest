@@ -4,13 +4,15 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-10-19
+updated: 2026-10-21
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W43
 
+- **2026-10-21** — [ChatGPT Ads expands to 26 new countries as over 100,000 advertisers have used the platform](https://openai.com/index/chatgpt-ads-expands-26-new-countries) — OpenAI expands ChatGPT Ads to 26 additional countries (89 total), eight months after launch, with over 100,000 advertisers having run campaigns; ads remain limited to Free and Go plans.
+- **2026-10-21** — [How we built ChatGPT's novel ad stack for user trust and relevance](https://openai.com/index/building-chatgpt-ad-stack) — OpenAI describes a custom post-trained LLM "orchestrator" that runs retrieval, ranking, relevance scoring and auctions as an agentic tool-calling loop, kept in a separate service from answer generation.
 - **2026-10-19** — [Advancing coding in low‑resource programming languages](https://openai.com/index/low-resource-programming-languages) — OpenAI introduces MultiLangBench and a COBOL-migration eval to measure and improve coding ability in low-resource languages (COBOL, Fortran, Visual Basic, OCaml); GPT-6 Astra hits 87.4% avg pass rate vs 26.8% for GPT-5.6 Sol.
 
 ## 2026-W42

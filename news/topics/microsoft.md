@@ -5,10 +5,14 @@ aliases:
   - Copilot
 sources:
   - https://www.microsoft.com/en-us/research/feed/
-updated: 2026-10-16
+updated: 2026-10-21
 ---
 
 MOC page for **Microsoft** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W43
+
+- **2026-10-21** — [Solving a 31-year-old grand challenge in mathematics – the KLS conjecture](https://www.microsoft.com/en-us/research/blog/solving-a-31-year-old-grand-challenge-in-mathematics-the-kls-conjecture/) — Microsoft Research proves the 1995 Kannan–Lovász–Simonovits conjecture in high-dimensional geometry, showing the isoperimetric gap between flat and arbitrary-shaped cuts stays bounded by a universal constant in every dimension.
 
 ## 2026-W42
 

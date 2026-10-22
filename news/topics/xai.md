@@ -4,10 +4,14 @@ aliases:
   - Grok
 sources:
   - https://x.ai/news
-updated: 2026-10-15
+updated: 2026-10-20
 ---
 
 MOC page for **xAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W43
+
+- **2026-10-20** — [Using Grok Bot to detect and respond to incidents](https://x.ai/news/incident-sweep) — xAI describes IncidentWatch (detects ticket spikes) and IncidentSweep (clears incident backlogs in reviewed, approved batches — 204 tickets in ~10 minutes in one case), two Grok Bot "AI teammates" used internally by SpaceXSI customer support. Found via gap-scrape (anonymous Jina — x.ai is DNS-blocked for direct WebFetch).
 
 ## 2026-W42
 

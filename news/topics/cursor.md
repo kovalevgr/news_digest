@@ -4,10 +4,15 @@ aliases:
   - Anysphere
 sources:
   - https://cursor.com/changelog/rss.xml
-updated: 2026-10-08
+updated: 2026-10-16
 ---
 
 MOC page for **Cursor** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W42
+
+- **2026-10-16** — [Cloud Agent Canvases and Environment Improvements](https://cursor.com/changelog/cloud-agent-canvases-and-environments) — Cursor lets cloud agents build interactive canvases shareable via link, and launches a beta Environments API; environments now support up to 300 repositories and load 5x faster.
+- **2026-10-13** — [Origin App Marketplace](https://cursor.com/changelog/origin-app-marketplace) — Cursor opens the Origin App Marketplace with 20+ integrations (Cloudflare, Linear, Sentry, Socket Security among them) and opens public submissions to any dev-tools team building against the Origin API.
 
 ## 2026-W41
 
