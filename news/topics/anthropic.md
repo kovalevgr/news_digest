@@ -4,13 +4,15 @@ aliases:
   - Claude
 sources:
   - https://www.anthropic.com/news
-updated: 2026-10-21
+updated: 2026-10-22
 ---
 
 MOC page for **Anthropic** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W43
 
+- **2026-10-22** — [Donating Agent Skills to the Agentic AI Foundation](https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation) — Anthropic donates Agent Skills (its open standard), the name/logo, GitHub org, and agentskills.io domain to the Linux Foundation's Agentic AI Foundation; over 70 platforms have integrated it, ~1M skills published, ~280M installs. Found via gap-scrape (WebFetch — Anthropic has no rss feed).
+- **2026-10-22** — [Open call for guest investigators in the life sciences](https://www.anthropic.com/news/open-call-guest-investigators-life-sciences) — Anthropic opens applications for 8-12 week collaborative research projects with academic/nonprofit/government life-science researchers, with free model/harness access and open-sourced outputs. Found via gap-scrape (WebFetch — Anthropic has no rss feed).
 - **2026-10-21** — [Physicist Christopher Stubbs joins Anthropic's Long-Term Benefit Trust](https://www.anthropic.com/news/christopher-stubbs-joins-long-term-benefit-trust) — Harvard physicist Christopher Stubbs, co-discoverer of the universe's accelerating expansion, joins Anthropic's Long-Term Benefit Trust, which can appoint a majority of Anthropic's board. Found via gap-scrape (WebFetch — Anthropic has no rss feed).
 
 - **2026-10-18** — [Investing in the public benefit](https://www.anthropic.com/news/public-benefit-fund) — Anthropic commits a growing equity stake (5% of shares now, scaling with company value) to a new Public Benefit Fund LLC for larger-scale public-benefit giving beyond its existing internal programs. Found via gap-scrape (WebFetch — Anthropic has no rss feed).

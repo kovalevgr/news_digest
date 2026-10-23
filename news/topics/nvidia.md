@@ -4,13 +4,14 @@ aliases:
   - Nvidia
 sources:
   - https://developer.nvidia.com/blog/feed
-updated: 2026-10-21
+updated: 2026-10-22
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W43
 
+- **2026-10-22** — [Running Frontier-Class AI Models Across 8 NVIDIA DGX Spark Nodes](https://developer.nvidia.com/blog/running-frontier-class-ai-models-across-8-nvidia-dgx-spark-nodes/) — NVIDIA announces official 8-node DGX Spark cluster support (1TB unified memory) at GTC Berlin, running the full 753B-parameter GLM 5.3 model locally via a new RoCEnante collective backend and NeMo Switchyard router; nanochat pretraining shows 7.79x speedup at 97.4% scaling efficiency across 8 nodes.
 - **2026-10-21** — [Inside NVIDIA Sentry: Secure AI Agents at Runtime](https://developer.nvidia.com/blog/inside-nvidia-sentry-secure-ai-agents-at-runtime/) — NVIDIA introduces Sentry, a runtime security framework monitoring AI agents from an isolated hardware domain on BlueField-4 DPUs, containing misbehaving agents in silicon within milliseconds; planned availability early next year.
 - **2026-10-21** — [How NVIDIA OpenShell Reference Architecture Secures and Governs AI Agent Workloads at Scale](https://developer.nvidia.com/blog/how-nvidia-openshell-reference-architecture-secures-and-governs-ai-agent-workloads-at-scale/) — NVIDIA releases OpenShell, an open-source reference architecture treating AI agents as untrusted; on NVIDIA Vera CPUs, CoreWeave reported 3x faster sandbox startup and 1.8x faster agentic-loop completion vs. a leading x86 CPU.
 - **2026-10-21** — [Achieve Productive AI Capacity Faster and More Predictably with NVIDIA DSX POD](https://developer.nvidia.com/blog/achieve-productive-ai-capacity-faster-and-more-predictably-with-nvidia-dsx-pod/) — NVIDIA announces DSX POD, a factory-built, pre-validated container implementation of AI-factory infrastructure pre-integrating Vera Rubin rack-scale systems; no release date or pricing given.

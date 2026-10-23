@@ -5,13 +5,16 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-10-21
+updated: 2026-10-22
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W43
 
+- **2026-10-22** — [Turning Database Grading into RL Rewards: Post-Training Agents with ThinkingBox](https://huggingface.co/blog/microsoft/thinkingbox-training) — Microsoft and Hugging Face post-train Qwen3.8-27B with GRPO using ThinkingBox's database-state checks as RL rewards; repeatable success (20/20) rises from 7.50% to 21.10% and pass@1 from 51.70% to 60.78%.
+- **2026-10-22** — [OlmoEarth v1.3: State-of-the-art embeddings for the whole planet](https://huggingface.co/blog/allenai/olmoearth-v1-3) — Ai2 releases OlmoEarth v1.3 satellite embeddings with precomputed global coverage (~150TB/year) and a no-login Embeddings Explorer; wins 20/27 (128-dim) and 18/27 (64-dim) evaluation tasks against AlphaEarth Foundations and Tessera v2 at 18% of v1's pretraining compute.
+- **2026-10-22** — [Ensemble forecasting with IBM Granite time-series models](https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1) — IBM Research releases Granite Timeseries Ensemble, combining four pretrained Granite time-series models without retraining; both aggregation methods beat all individual members on aggregate MASE on GIFT-Eval (97 configurations).
 - **2026-10-21** — [NVIDIA Kumo Relational Outperforms Supervised Machine Learning on Relational Data, No Training Required](https://huggingface.co/blog/nvidia/kumo-relational) — NVIDIA introduces Kumo Relational, a pre-trained relational foundation model predicting directly on enterprise databases in a single forward pass via in-context learning, outperforming supervised relational deep learning and AutoGluon ensembles across 41 tasks on 15 databases.
 - **2026-10-21** — [How Specializing the Vocabulary of SLMs Can Cut Inference Cost by 77% in Real Applications](https://huggingface.co/blog/Dharma-AI/vocabx-vocabulary-specialization) — Dharma AI previews VocabX, a method specializing a small language model's tokenizer vocabulary by per-token cost; on a Qwen3-4B Portuguese essay grader, inference cost fell 77% while the bench score rose from 0.703 to 0.810 (paper under review).
 - **2026-10-21** — [Profiling TorchNeuron (Part 1): System-level profiling on AWS Trainium.](https://huggingface.co/blog/amazon/profiling-torchneuron-part-1) — AWS publishes Part 1 of a series profiling TorchNeuron on AWS Trainium; fused approaches cut RMSNorm device time to roughly one-sixth of the naive PyTorch implementation.

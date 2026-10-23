@@ -5,13 +5,14 @@ aliases:
   - Copilot
 sources:
   - https://www.microsoft.com/en-us/research/feed/
-updated: 2026-10-21
+updated: 2026-10-22
 ---
 
 MOC page for **Microsoft** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W43
 
+- **2026-10-22** — [Flint-interactive: A language for creating interactive data visualizations](https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations/) — Microsoft Research introduces Flint-interactive, letting AI agents build interactive charts (click, filter, zoom, highlight, link) via high-level semantic events and update operators instead of low-level visualization code, usable via MCP, an app canvas, or a programming API.
 - **2026-10-21** — [Solving a 31-year-old grand challenge in mathematics – the KLS conjecture](https://www.microsoft.com/en-us/research/blog/solving-a-31-year-old-grand-challenge-in-mathematics-the-kls-conjecture/) — Microsoft Research proves the 1995 Kannan–Lovász–Simonovits conjecture in high-dimensional geometry, showing the isoperimetric gap between flat and arbitrary-shaped cuts stays bounded by a universal constant in every dimension.
 
 ## 2026-W42

@@ -5,10 +5,14 @@ aliases:
   - Gemini
 sources:
   - https://deepmind.google/blog/rss.xml
-updated: 2026-10-16
+updated: 2026-10-22
 ---
 
 MOC page for **Google DeepMind** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W43
+
+- **2026-10-22** — [Beyond tree cover: mapping the world's forest types](https://deepmind.google/blog/beyond-tree-cover-mapping-the-worlds-forest-types/) — Google DeepMind and Google Research, with WRI and IIASA, release Forest Typology (ForTy) 2020, a global 10m-resolution map classifying land into six forest/land-use types plus a 2017-2025 annual time series, built on AlphaEarth Foundations embeddings; 90% accuracy on forest-type identification across 9,000+ validation sites.
 
 ## 2026-W42
 
