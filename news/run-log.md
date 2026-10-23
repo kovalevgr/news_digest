@@ -5573,3 +5573,44 @@ This is the **ONE HUNDRED AND THIRTY-NINTH** consecutive Linear-affected run sin
 Owner action needed (unchanged, well over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: deep dive 2026-10-22 (0 cards, Linear unavailable)`.
+
+## 2026-10-23 05:0x UTC — radar — ok (Linear unavailable)
+
+**Git check — clean.** Session started on `main`, behind `origin/main` by 5 commits (`e64b9f3`..`eec50e0`: the 10-22 radar/daily/deep-dive runs). `git fetch origin main && git merge --ff-only origin/main` fast-forwarded local `main` — no push backlog, just a stale local ref.
+
+`fetch_radar.py` ran clean (exit 0). Window since `2026-10-22T03:03:59Z` (prior successful radar run).
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | — |
+| inference-infra | 1 | 1 | — |
+| oss-ml-systems | 2 | 2 | — |
+| bigtech-eng | 1 | 0 | — |
+| research-institutes | 2 | 0 | — |
+| technical-newsletters | 0 | 0 | — |
+| practitioner-blogs | 2 | 1 | — |
+| youtube | 0 | 0 | all 7 channel feeds HTTP 404 again today (same channels as 2026-10-22: `yt-ai-engineer`, `yt-gpu-mode`, `yt-karpathy`, `yt-latent-space`, `yt-mlst`, `yt-sentdex`, `yt-umar-jamil`) — second consecutive day, looks like an ongoing YouTube RSS-endpoint block in this env rather than a one-off; no gap-scrape ladder for radar per the workflow, logged and moved on |
+| community | 46 | 8 | `eleuther` HTTP 404 (feed URL still dead, second day running — candidate for a config review, not re-added blind) |
+| mistral-watch | 0 | 0 | — |
+
+Totals: 54 raw candidates, **+12 items confirmed, 3 highlights**. All four target files already had `## 2026-W43` open from earlier this week.
+
+**TRIAGE.**
+
+**Dropped as off-topic / not AI content:** `netflix`'s "Single-tenant Titus: VM-level isolation on a multi-tenant container platform" (general container-platform security/isolation, no AI/ML angle in the title or the — empty — feed summary, unlike this week's other Netflix posts); `github-trending`'s `supabase/supabase` and `twentyhq/twenty` (general dev-infra/CRM tools, not AI-specific); HN Show HN's "UI micro interactions prompts for AI" (74 pts, no self-text — a prompt-library consumer tool, not a technique), "I built a Markdown and raw HTML blog platform scoring 99 on PageSpeed" (26 pts, no AI content), and "Show HN: Uberblok – an interactive museum of ZFS internals" (98 pts, no AI content).
+
+**Dropped as off-focus domain (ai2, both posts):** "OlmoEarth v1.3" (satellite embeddings) and "A crop-mapping benchmark for the tropics" (PLANTEUR) — legitimate Ai2 research, but geospatial/agricultural ML sits outside every HIGH/MEDIUM bucket in `interests.md`; no agent, local-inference, eval, or Mistral angle to hang either on.
+
+**Dropped as thin business/interview content:** `latent-space`'s "You are the Team — Anekha Sokhal, Moshi" (a trading-company customer interview, no technical depth, unlike its Modal-CEO companion piece kept below).
+
+**Dropped as duplicate / already covered:** HN Show HN + 3x reddit cross-posts of "Omnara – Open-source alternative to Claude Managed Agents" (already confirmed to `community.md` on 2026-10-21 via the same repo); reddit's "NVIDIA/OpenShell: safe, private runtime for autonomous AI agents" (the OpenShell Reference Architecture was already carded in `topics/nvidia.md` on 2026-10-21 per that day's company run, and this thread adds no new angle — just a bare link, no self-text).
+
+**Dropped as thin / off-topic / low-effort (reddit, remainder of the 25 raw):** "Is anyone else concerned about the security of the implementation engines?" (a one-line joke post, no technical content), "AuroraTTS-100K Releases!" (title-only release claim, no self-text detail beyond a sentence), "Whatever happened to TurboQuant?" (a nostalgia/speculation thread), "What is Currently best open source TTS model..." (a Q&A thread, not news), "DeepSeek and MiniMax Clear China's AI Export Rules..." (policy/export-compliance news, not an engineering technique — outside radar's technical-builder scope), "Is 128GB RAM worth it?" (a buying-advice question), "When will we have another breakthrough for faster local dense models?" (open speculation, no technique), "Ant Ling... Ling-3.0-flash-Sante" + its HF-link duplicate (a healthcare-specialized model release with real parameters but no benchmark detail in the fetched excerpt — dropped for thinness relative to this run's other picks, not for being off-topic), "Repair shop receives eight GeForce RTX 5090/4090 cards with melted connectors" (hardware-failure news, not a technique), "Qwen4 and Kimi3.1 on Arena apperantly" (an unconfirmed rumor, poster "so hyped" tone), "Using a neural network as version control / storage" (no self-text beyond "pretty interesting concept," can't write an honest card), "Llama.cpp PR: How to beat strata decode performance with a R9700" (no self-text, redundant with the two other llama.cpp spec-decoding PRs kept below — dropped to avoid three near-identical items), "Carbon-X: the best open DNA language model..." (a real release with a recipe/blog post, but computational-biology is outside every `interests.md` bucket — kept out for domain fit, not substance), "Tried LFM2.5-24-A2B. It's crap..." (an appreciation/rant post, no technical content), "Huawei Atlas AI Accelerator Latest Comparison Overview" (a hardware-market comparison overlapping last week's SemiAnalysis Huawei/Ascend piece, thinner and no self-text).
+
+**VERIFY SUBSTANCE** (5 of 5-candidate cap used): **Spindle / Modal's Training API** (modal.com, WebFetch) — a real open-source Tinker-compatible training server with a reproduced third-party RL experiment, a config/CLI example, and a cost table (DAPO-math −80%, SWE-Gym −61%) — made a highlight. **SGLang AWS Trainium Plugin Beta** (lmsys.org, WebFetch) — names the real stack (TorchNeuron, NKI) and model/feature coverage but gives zero benchmark numbers ("coming at the SGLang Summit in November") — kept as a regular item, not a highlight. **vLLM Day-0 MiniMax-M3.1-Flash** (vllm.ai, WebFetch) — the densest kernel-level writeup of the week (NVFP4 KV cache, MegaMoE, indexer DCP, AMD FlyDSL path) with numbers across NVIDIA and AMD — made a highlight. **agent-usage-guard** (github.com, `git clone`) — a real, documented Claude Code mod with a concrete origin story (394 subagents / 84M tokens / 10 minutes / lockout) and a detailed limits table — made a highlight. **"Why AI Compute Comes in Rectangles"** (latent.space, WebFetch, the Modal-CEO interview) — substantive on business/operational numbers (revenue mix, procurement, growth) but light on hard technical detail and largely self-reported — kept as a regular item, not a highlight (two Modal highlights in one day felt redundant with the Spindle pick above).
+
+**Highlights: 3** (max 3 used) — Spindle / Modal's Training API (HIGH: "Training & fine-tuning practice" + "reproducible techniques WITH CODE," a real cost-numbers project_post seed), vLLM Day-0 MiniMax-M3.1-Flash (HIGH: "local/self-hosted models: inference engines," the week's densest cross-vendor kernel writeup), and agent-usage-guard (HIGH: "AI agents in practice," directly the owner's own Claude Code tooling, continuing the Claude Mods / Graphify thread). Runner-up considered but not selected: the SGLang Trainium beta (real new hardware backend, but zero numbers yet — next SGLang Summit update is the natural future highlight).
+
+**Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 12 confirmed items are fully written to their radar files (`inference-infra.md` +1, `oss-ml-systems.md` +2, `practitioner-blogs.md` +1, `community.md` +8) — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now the **ONE HUNDRED AND FORTIETH** consecutive Linear-affected run since 2026-08-24 (60 days, over 8.5 weeks) — owner action needed (unchanged, well over a month overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: radar run 2026-10-23 (+12 items, 3 highlights, Linear unavailable)`.
