@@ -4,13 +4,15 @@ aliases:
   - Nvidia
 sources:
   - https://developer.nvidia.com/blog/feed
-updated: 2026-10-22
+updated: 2026-10-23
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W43
 
+- **2026-10-23** — [Scaling NVIDIA TensorRT Performance Optimization Beyond a Single Build Route with the Global Performance Tuner, Part 2](https://developer.nvidia.com/blog/scaling-nvidia-tensorrt-performance-optimization-beyond-a-single-build-route-with-the-global-performance-tuner-part-2/) — NVIDIA's TensorRT 11.1 Global Performance Tuner algorithm/architecture: C++ APIs, the `trtexec` tuning loop, and best practices; across 10 evaluated workloads, tuning improved end-to-end performance 1.14x-1.63x over the default build route.
+- **2026-10-23** — [Scaling NVIDIA TensorRT Performance Optimization Beyond a Single Build Route with the Global Performance Tuner, Part 1](https://developer.nvidia.com/blog/scaling-nvidia-tensorrt-performance-optimization-beyond-a-single-build-route-with-the-global-performance-tuner-part-1/) — NVIDIA introduces the Global Performance Tuner, a TensorRT 11.1 feature that builds candidate engines from customizable "build routes" and picks the fastest one meeting an accuracy tolerance; this part frames the conceptual problem (no benchmarks — see Part 2).
 - **2026-10-22** — [Running Frontier-Class AI Models Across 8 NVIDIA DGX Spark Nodes](https://developer.nvidia.com/blog/running-frontier-class-ai-models-across-8-nvidia-dgx-spark-nodes/) — NVIDIA announces official 8-node DGX Spark cluster support (1TB unified memory) at GTC Berlin, running the full 753B-parameter GLM 5.3 model locally via a new RoCEnante collective backend and NeMo Switchyard router; nanochat pretraining shows 7.79x speedup at 97.4% scaling efficiency across 8 nodes.
 - **2026-10-21** — [Inside NVIDIA Sentry: Secure AI Agents at Runtime](https://developer.nvidia.com/blog/inside-nvidia-sentry-secure-ai-agents-at-runtime/) — NVIDIA introduces Sentry, a runtime security framework monitoring AI agents from an isolated hardware domain on BlueField-4 DPUs, containing misbehaving agents in silicon within milliseconds; planned availability early next year.
 - **2026-10-21** — [How NVIDIA OpenShell Reference Architecture Secures and Governs AI Agent Workloads at Scale](https://developer.nvidia.com/blog/how-nvidia-openshell-reference-architecture-secures-and-governs-ai-agent-workloads-at-scale/) — NVIDIA releases OpenShell, an open-source reference architecture treating AI agents as untrusted; on NVIDIA Vera CPUs, CoreWeave reported 3x faster sandbox startup and 1.8x faster agentic-loop completion vs. a leading x86 CPU.

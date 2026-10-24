@@ -5,13 +5,14 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-10-22
+updated: 2026-10-23
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W43
 
+- **2026-10-23** — [LitPivot: Developing research ideas through dynamic contextualization within the literature landscape](https://huggingface.co/blog/allenai/litpivot) — Ai2 and UPenn collaborators publish LitPivot, a research-proposal revision tool that groups literature around the specific part being edited and offers literature-backed critiques; in a 17-researcher study, blinded experts rated LitPivot-developed proposals better grounded in the literature.
 - **2026-10-22** — [Turning Database Grading into RL Rewards: Post-Training Agents with ThinkingBox](https://huggingface.co/blog/microsoft/thinkingbox-training) — Microsoft and Hugging Face post-train Qwen3.8-27B with GRPO using ThinkingBox's database-state checks as RL rewards; repeatable success (20/20) rises from 7.50% to 21.10% and pass@1 from 51.70% to 60.78%.
 - **2026-10-22** — [OlmoEarth v1.3: State-of-the-art embeddings for the whole planet](https://huggingface.co/blog/allenai/olmoearth-v1-3) — Ai2 releases OlmoEarth v1.3 satellite embeddings with precomputed global coverage (~150TB/year) and a no-login Embeddings Explorer; wins 20/27 (128-dim) and 18/27 (64-dim) evaluation tasks against AlphaEarth Foundations and Tessera v2 at 18% of v1's pretraining compute.
 - **2026-10-22** — [Ensemble forecasting with IBM Granite time-series models](https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1) — IBM Research releases Granite Timeseries Ensemble, combining four pretrained Granite time-series models without retraining; both aggregation methods beat all individual members on aggregate MASE on GIFT-Eval (97 configurations).

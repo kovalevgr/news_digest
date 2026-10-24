@@ -4,13 +4,14 @@ aliases:
   - Google AI
 sources:
   - https://research.google/blog/rss/
-updated: 2026-10-21
+updated: 2026-10-23
 ---
 
 MOC page for **Google Research** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W43
 
+- **2026-10-23** — [Bringing foundational models to the front lines of TB screening](https://research.google/blog/bringing-foundational-models-to-the-front-lines-of-tb-screening/) — Google Research, Google for Health, and Nexus AI turn a chest-X-ray TB-screening algorithm (built on the open MedGemma model) into a certified diagnostic tool now active in ~40 facilities across six countries, 25,000+ radiographs evaluated, 3,000+ free screenings delivered.
 - **2026-10-21** — [Empowering frontline maternal care with AI-assisted ultrasound](https://research.google/blog/empowering-frontline-maternal-care-with-ai-assisted-ultrasound/) — Google Research introduces an AI model estimating gestational age from "blind sweep" ultrasounds doable by non-sonographers, matching expert accuracy in a multi-center study (Chicago + Nairobi) published in JAMA Network Open.
 
 ## 2026-W42

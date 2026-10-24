@@ -4,13 +4,14 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-10-22
+updated: 2026-10-23
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W43
 
+- **2026-10-23** — [Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II)](https://openai.com/index/scaling-storage-one-billion-users-part-two) — OpenAI's follow-up to its Habitat storage writeup: reliable multi-tenancy, global caching, and migration to Azure Cosmos DB deliver 12x faster reads for ChatGPT's storage layer.
 - **2026-10-22** — [Build more responsive apps with the Decisions API](https://openai.com/index/decisions-api) — OpenAI makes the Decisions API generally available: GPT-6 Luna answers bounded questions (predicate/choice/score) from text/images/structured input up to 10x faster than the Responses API, now with GPT-Live integration, prompt caching, and up to 400 questions per request.
 - **2026-10-21** — [ChatGPT Ads expands to 26 new countries as over 100,000 advertisers have used the platform](https://openai.com/index/chatgpt-ads-expands-26-new-countries) — OpenAI expands ChatGPT Ads to 26 additional countries (89 total), eight months after launch, with over 100,000 advertisers having run campaigns; ads remain limited to Free and Go plans.
 - **2026-10-21** — [How we built ChatGPT's novel ad stack for user trust and relevance](https://openai.com/index/building-chatgpt-ad-stack) — OpenAI describes a custom post-trained LLM "orchestrator" that runs retrieval, ranking, relevance scoring and auctions as an agentic tool-calling loop, kept in a separate service from answer generation.

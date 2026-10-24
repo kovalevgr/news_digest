@@ -5679,3 +5679,28 @@ Totals: 74 raw candidates, **+14 items confirmed, 2 highlights**.
 **Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 14 confirmed items are fully written to their radar files (`technical-newsletters.md` +1, `youtube.md` +3, `community.md` +10) — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now the **ONE HUNDRED AND FORTY-SECOND** consecutive Linear-affected run since 2026-08-24 (61 days, over 8.5 weeks) — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: radar run 2026-10-24 (+14 items, 2 highlights, Linear unavailable)`.
+
+## 2026-10-24 06:0x UTC — daily — ok (Linear unavailable)
+
+**Git check — clean.** Session started with `HEAD` detached at `333d900` (this morning's radar-run commit, matching `origin/main` exactly — no push backlog). `git checkout main && git merge --ff-only origin/main` fast-forwarded local `main` and re-attached HEAD before any writes.
+
+`fetch_feeds.py` ran clean (exit 0). Window since `2026-10-23T04:03:05Z` (prior successful daily run 2026-10-23 06:0x UTC). One source error: `google-deepmind`'s `deepmind.google/blog/rss.xml` returned `TRAP/not-a-feed` again this run (a recurring transient — same as 2026-10-22 and the 2026-10-04 investigation that found the feed itself valid; not added to the TRAP list). 7 of 11 companies returned zero/errored fresh TIER-1 candidates (anthropic, google-deepmind, microsoft, xai, mistral, cursor, perplexity), each getting one gap-scrape attempt.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (**1 fresh**) | **1 new** | — | "Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II)" (2026-10-23) — follow-up to the Sep-11 Part I already on file |
+| anthropic | fetch (0 fresh) → WebFetch `anthropic.com/news` | 0 | fetch | newest item (Oct 22, Agent Skills donation) already on file; nothing dated Oct 23-24 |
+| google-deepmind | rss → TRAP/not-a-feed → WebFetch `deepmind.google/blog/` | 0 | fetch | listing re-fetched in full; newest item (Gemini 4 Argon: Built to solve your hardest problems, dated Oct 13 per a Google-domain cross-check) already fully on file as the 3-post Argon launch; nothing newer |
+| microsoft | rss (0 fresh) → WebFetch `microsoft.com/en-us/research/blog` | 0 | fetch | newest item (Oct 22, Flint-interactive) already on file; nothing dated Oct 23-24 |
+| nvidia | rss (3 fresh, 2 kept) | **2 new** | — | kept both halves of the Global Performance Tuner (TensorRT 11.1) two-part series — Part 1 (concept) + Part 2 (algorithm + 1.14x-1.63x benchmarks across 10 workloads); dropped "Using AI Agents to Teach Robots Like Microduck to Walk in Simulation" as a tutorial per the source's own high-volume note (no new release, no benchmark results, existing tools wired together) |
+| xai | jina (anonymous, **200 this run** — no `JINA_API_KEY`) | 0 | jina | newest items (Oct 22 partner network, Oct 20 incident-sweep) already on file; nothing newer |
+| mistral | rss (0 fresh, 304) → WebFetch `mistral.ai/news` | 0 | fetch | newest item (Oct 21, Mistral x NVIDIA engineering) already on file; nothing dated Oct 22-24 |
+| huggingface | rss (**1 fresh**) | **1 new** | — | "LitPivot" (allenai, 2026-10-23) — a real research-proposal-revision system with a 17-researcher user study, not a thin concept post |
+| cursor | rss (0 fresh) → WebFetch `cursor.com/changelog` | 0 | fetch | newest item (Oct 16, Cloud Agent Canvases) already on file; nothing dated Oct 17-24 |
+| perplexity | jina (anonymous, 403 AbuseAlleviation — no `JINA_API_KEY`) → WebSearch | 0 | jina + websearch | same anonymous-Jina block as recent runs; WebSearch surfaced no confirmable primary-source post dated October 23-24, 2026 |
+
+Totals: 11/11 companies searched, **+4 items / 3 companies fresh**. Dropped as non-announcement (NVIDIA tutorial post, 1 item) per the source's own high-volume note — logged above, not written to files. No cross-company duplicate URLs this run. No confidence flags on any of the 4 kept items — all claims trace directly to the fetched primary source.
+
+**Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 4 confirmed items are fully written to their topics files and artifacts — no data lost, only the Linear cards are behind. They would have been: `[OpenAI] Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II)` (Medium/3, infra), `[NVIDIA] Scaling NVIDIA TensorRT Performance Optimization... Part 1` (Medium/3, infra), `[NVIDIA] Scaling NVIDIA TensorRT Performance Optimization... Part 2` (Medium/3, infra), `[Hugging Face] LitPivot: Developing research ideas through dynamic contextualization within the literature landscape` (Low/4, research). This is now the **ONE HUNDRED AND FORTY-THIRD** consecutive Linear-affected run since 2026-08-24 (61 days, over 8.5 weeks) — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-10-24 (+4 items, 3 companies fresh, Linear unavailable)`.
