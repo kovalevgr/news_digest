@@ -5741,3 +5741,29 @@ Totals: 50 raw candidates, **+14 items confirmed, 3 highlights**.
 **Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 14 confirmed items are fully written to their radar files (`oss-ml-systems.md` +1, `practitioner-blogs.md` +1, `community.md` +12) — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now the **ONE HUNDRED AND FORTY-FOURTH** consecutive Linear-affected run since 2026-08-24 (61+ days, over 8.5 weeks) — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: radar run 2026-10-25 (+14 items, 3 highlights, Linear unavailable)`.
+
+## 2026-10-25 06:0x UTC — daily — ok (Linear unavailable)
+
+**Git check — clean.** Session started with `HEAD` detached at `eaf0591` (this morning's radar-run commit, matching `origin/main` exactly via a stale local `main` ref — `git fetch` confirmed `origin/main` was already at `eaf0591`, no push backlog). `git checkout main && git merge --ff-only origin/main` fast-forwarded local `main` and re-attached HEAD before any writes.
+
+`fetch_feeds.py` ran clean (exit 0). Window since `2026-10-24T04:02:20Z` (prior successful daily run 2026-10-24 06:0x UTC). Two source issues: `google-deepmind`'s `deepmind.google/blog/rss.xml` returned `TRAP/not-a-feed` again this run (recurring transient, same as 2026-10-22/23/24 — not added to the TRAP list); `microsoft`'s rss timed out (transport error). **All 11 companies returned zero fresh TIER-1 candidates** (several via clean `304 not-modified`: nvidia, mistral, huggingface), triggering one gap-scrape attempt each.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (0 fresh) → direct WebFetch 403 → Jina retry | 0 | jina | listing showed 7 posts (Oct 21-23); the two in `category_keep` (Engineering: storage-scaling Part II; Product: Decisions API, both Oct 22-23) were already on file; the rest (Security/AI Adoption/Company/Safety categories) correctly fail-closed excluded |
+| anthropic | fetch (0 fresh) → WebFetch `anthropic.com/news` | 0 | fetch | newest items (Oct 22, Agent Skills donation + guest-investigator call) already on file; nothing dated Oct 23-25 |
+| google-deepmind | rss → TRAP/not-a-feed → WebFetch `deepmind.google/blog/` | 0 | fetch | listing's "October 2026" items (Gemini 4 Argon ×3, antimicrobial peptides, scam detection, EmbeddingGemma 2) all cross-checked against dates already on file (Oct 6-15); newest confirmed item (Beyond tree cover, Oct 22) already on file; nothing newer |
+| google-research | rss (0 fresh, no error) → WebFetch `research.google/blog/` | 0 | fetch | newest item (TB screening, Oct 23) already on file; nothing dated Oct 24-25 |
+| microsoft | rss (transport timeout) → WebFetch `microsoft.com/en-us/research/blog/` | 0 | fetch | newest item (Flint-interactive, Oct 22) already on file; nothing dated Oct 23-25 |
+| nvidia | rss (0 fresh, 304) → WebFetch `developer.nvidia.com/blog/` | 0 | fetch | TensorRT Global Performance Tuner Parts 1+2 (Oct 23) already on file; "Using AI Agents to Teach Robots Like Microduck to Walk in Simulation" (Oct 23) re-surfaced but re-confirmed excluded as a routine tutorial (no new release/benchmarks, existing tools wired together) — same verdict as the 2026-10-24 run, not re-added |
+| xai | jina (anonymous, 200 this run — no `JINA_API_KEY`) | 0 | jina | newest items (Oct 22 partner network, Oct 20 incident-sweep) already on file; nothing newer |
+| mistral | rss (0 fresh, 304) → WebFetch `mistral.ai/news` | 0 | fetch | newest item (Oct 21, Mistral x NVIDIA engineering) already on file; nothing dated Oct 22-25 |
+| huggingface | rss (0 fresh, 304) → WebFetch `huggingface.co/blog` | **1 new** | fetch | "Does Your Model Run on AWS Trainium? Look It Up" (AWS/`aws-neuron`, 2026-10-23) — a real public Space + continuously-updated ~10.1k-row results dataset checking Hub models against AWS Trainium, distinct from the already-on-file "Profiling TorchNeuron Part 1" post |
+| cursor | rss (0 fresh) → WebFetch `cursor.com/changelog` | 0 | fetch | newest item (Oct 16, Cloud Agent Canvases) already on file; nothing dated Oct 17-25 |
+| perplexity | jina (anonymous, 403 AbuseAlleviation — no `JINA_API_KEY`) → WebSearch | 0 | jina + websearch | same anonymous-Jina block as recent runs; WebSearch surfaced no confirmable primary-source post dated October 24-25, 2026 |
+
+Totals: 11/11 companies searched, **+1 item / 1 company fresh** (huggingface). No cross-company duplicate URLs this run. No confidence flags on the kept item — all claims trace directly to the fetched primary source.
+
+**Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). The one confirmed item is fully written to its topics file and artifact — no data lost, only the Linear card is behind. It would have been: `[Hugging Face] Does Your Model Run on AWS Trainium? Look It Up` (Low/4, infra). This is now the **ONE HUNDRED AND FORTY-FIFTH** consecutive Linear-affected run since 2026-08-24 (62 days, over 8.5 weeks) — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-10-25 (+1 item, 1 company fresh, Linear unavailable)`.
