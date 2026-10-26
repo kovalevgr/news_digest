@@ -5828,3 +5828,29 @@ Totals: 27 raw candidates, **+10 items confirmed, 3 highlights**.
 **Linear: UNAVAILABLE this run** — `ToolSearch` finds no Linear tools loadable in this session (the server reports it requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 10 confirmed items are fully written to their radar files (`practitioner-blogs.md` +1, `community.md` +9) — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now the **ONE HUNDRED AND FORTY-SEVENTH** consecutive Linear-affected run since 2026-08-24 (63 days, 9 weeks) — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session. The deep-dive routine remains fully blocked (17+ consecutive runs, zero deep dives produced) since it cannot start without the Linear review queue.
 
 Commit: `news: radar run 2026-10-26 (+10 items, 3 highlights, Linear unavailable)`.
+
+## 2026-10-26 06:0x UTC — daily — ok (Linear unavailable)
+
+**Git check — clean.** Session started with `HEAD` detached at `bbdd09f` (this morning's radar-run commit); local `main` was stale 6 commits behind. `git fetch origin main` showed `origin/main` already at `bbdd09f` (identical to detached `HEAD`, 0 commits ahead/behind) — no push backlog. `git checkout main && git merge --ff-only origin/main` fast-forwarded local `main` and re-attached `HEAD` before any writes.
+
+`fetch_feeds.py` ran clean (exit 0). Window since `2026-10-25T04:03:29Z` (prior successful daily run). One source issue: `google-deepmind`'s `deepmind.google/blog/rss.xml` returned `TRAP/not-a-feed` again this run — the 5th consecutive day (2026-10-22 through 10-26), still not promoted to the permanent TRAP list since it has self-cleared before. **All 11 companies returned zero fresh TIER-1 candidates** (nvidia, mistral, huggingface via clean `304 not-modified`; the rest with no fresh and no transport error), triggering one gap-scrape attempt each.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (0 fresh) → anonymous Jina (200) | 0 | jina | listing showed 8 posts (Oct 21-23); the two in `category_keep` (Engineering: storage-scaling Part II; Product: Decisions API, both already on file) were already filed; the rest (Security: frontier-training-env containment; AI Adoption: forward-deployed engineering; Company: Uber rollout, OpenAI-on-Google-Cloud; Safety: broad access) correctly fail-closed excluded |
+| anthropic | fetch (0 fresh) → WebFetch `anthropic.com/news` | 0 | fetch | newest items (Oct 22, Agent Skills donation + guest-investigator call) already on file; nothing dated Oct 23-26 |
+| google-deepmind | rss → TRAP/not-a-feed (5th day) → WebFetch `deepmind.google/blog/` | 0 | fetch | newest confirmed item (Beyond tree cover, Oct 22) already on file; the "Gemini 4 Argon" post family (model launch, robotics, safety, EmbeddingGemma 2) surfacing on the listing checked via WebSearch to a Sept 30 / Oct 13 launch window — predates this run's window, not new; "on-device scam detection" (Oct 14) and "antimicrobial peptides" (Oct 15) are both either already on file or outside window |
+| google-research | rss (0 fresh, no error) → WebFetch `research.google/blog/` | 0 | fetch | newest item (TB screening, Oct 23) already on file; nothing dated Oct 24-26 |
+| microsoft | rss (0 fresh, no error) → WebFetch `microsoft.com/en-us/research/blog/` | 0 | fetch | newest item (Flint-interactive, Oct 22) already on file; nothing dated Oct 23-26 |
+| nvidia | rss (0 fresh, 304) → WebFetch `developer.nvidia.com/blog/` | 0 | fetch | TensorRT Global Performance Tuner Parts 1+2 (Oct 23) already on file; "Using AI Agents to Teach Robots Like Microduck to Walk in Simulation" (Oct 23) re-surfaced, re-confirmed excluded as a routine tutorial — same verdict as the 2026-10-24/10-25 runs |
+| xai | jina (anonymous, 401 "bad IP reputation" — no `JINA_API_KEY`) → WebSearch | 0 | jina + websearch | anonymous Jina blocked; WebSearch surfaced no confirmable primary-source xAI post dated in-window |
+| mistral | rss (0 fresh, 304) → WebFetch `mistral.ai/news` | 0 | fetch | newest item (Oct 21, Mistral x NVIDIA engineering) already on file; nothing dated Oct 22-26 |
+| huggingface | rss (0 fresh, 304) → WebFetch `huggingface.co/blog` | 0 | fetch | newest items (LitPivot, AWS Trainium — both Oct 23) already on file; nothing dated Oct 24-26 |
+| cursor | rss (0 fresh) → WebFetch `cursor.com/changelog` | 0 | fetch | newest item (Oct 16, Cloud Agent Canvases) already on file; nothing dated Oct 17-26 |
+| perplexity | jina (anonymous, 401 "bad IP reputation" — no `JINA_API_KEY`) → WebSearch | 0 | jina + websearch | anonymous Jina blocked; WebSearch surfaced no confirmable primary-source Perplexity post dated in-window |
+
+Totals: 11/11 companies searched, **+0 items / 0 companies fresh**. A fully quiet day — no topics or artifact files changed, no cross-company duplicates to mark.
+
+**Linear: UNAVAILABLE this run** — `ToolSearch` finds no Linear tools loadable in this session (the server reports it requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). Moot this run regardless — zero confirmed items means no cards to create. This is now the **ONE HUNDRED AND FORTY-EIGHTH** consecutive Linear-affected run since 2026-08-24 (63 days, 9 weeks) — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-10-26 (+0 items, 0 companies fresh, Linear unavailable)`.
