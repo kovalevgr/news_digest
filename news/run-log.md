@@ -5791,3 +5791,40 @@ Commit: `news: daily run 2026-10-25 (+1 item, 1 company fresh, Linear unavailabl
 **Git note:** session started with `HEAD` detached at `02a8160` (this morning's daily-run commit, exactly matching `origin/main` after `git fetch`) and local `main` stale 4 commits behind. `git checkout main && git merge --ff-only origin/main` fast-forwarded local `main` and re-attached HEAD before any writes — the stale-ref condition carried since 2026-10-18 is now cleared.
 
 Commit: `news: weekly digest 2026-W43`.
+
+## 2026-10-26 05:0x UTC — radar — ok (Linear unavailable)
+
+**Git check — clean.** `git fetch origin main` showed local `main` exactly matching `origin/main` (`eea9ea6`, Sunday's weekly-digest commit) after one stash/ff-only-merge/unstash cycle to clear a stale local `main` ref (one commit behind, same recurring pattern as prior runs) — no push backlog, no lost work.
+
+`fetch_radar.py` ran clean (exit 0). Window since `2026-10-25T03:03:44Z`.
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | — |
+| inference-infra | 0 | 0 | — |
+| oss-ml-systems | 0 | 0 | `eleuther` HTTP 404 |
+| bigtech-eng | 0 | 0 | — |
+| research-institutes | 0 | 0 | — |
+| technical-newsletters | 0 | 0 | — |
+| practitioner-blogs | 1 | 1 | `latent-space` tunnel/403 |
+| youtube | 0 | 0 | 7 of 7 channels HTTP 404/500 (same ongoing block as recent days) |
+| community | 26 | 9 | `reddit` HTTP 429 |
+| mistral-watch | 0 | 0 | — |
+
+Totals: 27 raw candidates, **+10 items confirmed, 3 highlights**.
+
+**TRIAGE.**
+
+**Dropped as duplicate (community):** `github-trending`'s "Show HN: Enzyme – a programming language that compiles wikis for agents" and HF trending's `ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF` — both already written in full on 2026-10-25/2026-10-23 respectively, today's listing adds no new angle.
+
+**Dropped as off-topic / not AI content (community):** HN's "Show HN: Orisuji, a maze you solve by folding your phone" (puzzle app), "Show HN: Autonomous root for Tcl Android TV via CVE-2022-22706" (Android exploit, no AI), "Show HN: Encarta 95 Web" (nostalgia project), `github-trending`'s `jbiaojerry/ebook-treasure-chest` (Chinese ebook-link aggregator, no AI content).
+
+**Dropped as thin / marketing (community):** HN's "Show HN: CaseCite – Free RAG caselaw research and document analysis for lawyers" (14 pts, no self-text, vertical SaaS demo), "Show HN: Open-Source Cybersecurity Platform Uses AI Agents to Protect Businesses" (Medium post, 15 pts, no self-text) and "Show HN: Argus- open source security platform to protect against agentic attacks" (17 pts, no self-text) — all three same poster (`thomasunise`) cross-posting self-promotional Show HNs across multiple search terms the same day/week, none with enough self-text or engagement to confirm real technical depth; `github-trending`'s `google-gemini/gemini-cli` (long-established repo surfacing on the trending snapshot with no changelog or new-release signal this run, same "resurfaced rather than new" call as prior trending drops) and `makecindy/cindy` (generic "ready out of the box" agent-framework marketing copy, no concrete technical detail beyond the README blurb — dropped for volume-budget headroom rather than confirmed thin).
+
+**VERIFY SUBSTANCE** (4 of 5-candidate cap used — the 5th, `minimaxir.com`, below): **Show HN: ADRs for AI** (adrs.systems; direct WebFetch/curl both blocked, Jina retry succeeded) — a real git-versioned human-AI deliberation methodology with a VS Code extension/MCP server, an iOS client, and two papers with DOIs — made a highlight. **Show HN: Farol** (github.com, `git clone`) — a real, substantial open-source PR-risk-mapping tool pairing with AI code review, explicitly citing Anthropic's own review-tiering post — made a highlight. **aws/agent-toolkit-for-aws** (github.com, `git clone`) — AWS's own official, GA agent/MCP toolkit for Claude Code/Codex/Cursor/Devin/Kiro — made a highlight. **Nutlope/hallmark** (github.com, `git clone`) — confirmed real and substantial (48-theme design skill, tiered gate system, redesign/audit commands) but visual-design rather than the owner's engineering lane — kept as a regular item, out of highlight consideration on fit. **"OpenAI and Anthropic cut their LLM prices..."** (minimaxir.com) — verification transport-blocked: direct WebFetch and curl both failed (DNS/tunnel-403), and the anonymous Jina retry 401'd ("bad IP reputation," no `JINA_API_KEY` set) — kept as a regular item on the HN listing title alone (today's highest-engagement story, 218 pts/247 comments), out of highlight consideration.
+
+**Highlights: 3** (of 3 max) — Show HN: ADRs for AI (HIGH: "AI agents in practice: context engineering, agent memory," a concrete triable oversight pattern with papers behind it), Show HN: Farol (HIGH: "AI agents in practice: coding agents," a real tool the owner could run against this repo today), aws/agent-toolkit-for-aws (HIGH: "MCP and the agent-tool ecosystem," a major vendor's own GA release). `minimaxir.com` stayed out of highlight consideration purely on a transport block (DNS-level + Jina IP-reputation block), not lack of merit — same `JINA_API_KEY`-absence pattern noted in prior runs.
+
+**Linear: UNAVAILABLE this run** — `ToolSearch` finds no Linear tools loadable in this session (the server reports it requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 10 confirmed items are fully written to their radar files (`practitioner-blogs.md` +1, `community.md` +9) — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now the **ONE HUNDRED AND FORTY-SEVENTH** consecutive Linear-affected run since 2026-08-24 (63 days, 9 weeks) — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session. The deep-dive routine remains fully blocked (17+ consecutive runs, zero deep dives produced) since it cannot start without the Linear review queue.
+
+Commit: `news: radar run 2026-10-26 (+10 items, 3 highlights, Linear unavailable)`.
