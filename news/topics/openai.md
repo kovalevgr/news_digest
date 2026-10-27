@@ -4,10 +4,15 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-10-23
+updated: 2026-10-26
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W44
+
+- **2026-10-26** — [Working with academic communities to build scientific understanding](https://openai.com/index/building-scientific-understanding-with-academic-communities) — OpenAI shares model results on the Kakeya conjecture, Exponential Time Hypothesis, and quantum chromodynamics, and describes how it works with academic communities so researchers can verify and build on them.
+- **2026-10-26** — [ChatGPT's expanding world of work](https://openai.com/index/chatgpt-expanding-world-of-work) — OpenAI shares OpenAI Signals data on 165 work activities across nearly 100 countries, showing how people use ChatGPT for work and how that usage changes over time.
 
 ## 2026-W43
 

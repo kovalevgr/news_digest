@@ -4,10 +4,14 @@ aliases:
   - Anysphere
 sources:
   - https://cursor.com/changelog/rss.xml
-updated: 2026-10-16
+updated: 2026-10-27
 ---
 
 MOC page for **Cursor** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W43
+
+- **2026-10-20** — [Agent SDK](https://cursor.com/changelog/agent-sdk) — Cursor ships the Agent SDK GA: define an agent as a code project (instructions.md + tools/skills/MCP/channels folders), test with evals, deploy to Cursor's infra or your own; triggers via GitHub/GitLab/Bitbucket/Slack/webhooks/cron. Found via gap-scrape (WebFetch of cursor.com/changelog — missed by TIER-1 RSS and prior runs' gap-scrapes).
 
 ## 2026-W42
 

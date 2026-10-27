@@ -4,10 +4,15 @@ aliases:
   - Nvidia
 sources:
   - https://developer.nvidia.com/blog/feed
-updated: 2026-10-23
+updated: 2026-10-26
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W44
+
+- **2026-10-26** — [How NVIDIA Minerva Turns Telemetry Chaos Into Peak GPU Yield](https://developer.nvidia.com/blog/how-nvidia-minerva-turns-telemetry-chaos-into-peak-gpu-yield/) — NVIDIA details Minerva, an AI-native AIOps platform correlating GPU/network/storage/scheduler telemetry into a live knowledge graph to catch "gray failures" and consolidate related alerts into single incidents (e.g. 81 alerts → 1 incident, ~54 hours of uptime saved).
+- **2026-10-26** — [How NVIDIA Mission Control 2.5 Brings Autonomous Recovery to Kubernetes](https://developer.nvidia.com/blog/how-nvidia-mission-control-2-5-brings-autonomous-recovery-to-kubernetes/) — NVIDIA extends Mission Control's autonomous recovery engine from Slurm-based HPC to Kubernetes workloads managed by NVIDIA Run:ai, via a three-layer loop handling job placement, failure recovery, and faulty-node isolation.
 
 ## 2026-W43
 

@@ -5915,3 +5915,31 @@ Totals: 51 raw candidates, **+15 items confirmed, 3 highlights**.
 **Linear: UNAVAILABLE this run** — `ToolSearch` finds no Linear tools loadable in this session (the server reports it requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 15 confirmed items are fully written to their radar files (`bigtech-eng.md` +2, `oss-ml-systems.md` +2, `community.md` +11) — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now the **ONE HUNDRED AND FIFTIETH** consecutive Linear-affected run since 2026-08-24 (64 days, over 9 weeks) — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session. The deep-dive routine remains fully blocked (18+ consecutive runs, zero deep dives produced) since it cannot start without the Linear review queue.
 
 Commit: `news: radar run 2026-10-27 (+15 items, 3 highlights, Linear unavailable)`.
+
+## 2026-10-27 06:0x UTC — daily — ok (Linear unavailable)
+
+**Git check — clean.** `git status` showed a clean tree with `HEAD` detached at `44ed864` (this morning's radar-run commit), exactly matching `origin/main` after `git fetch`; local `main` was a stale ref 1 commit behind. `git checkout main && git merge --ff-only origin/main` fast-forwarded local `main` and re-attached HEAD before any writes — no push backlog, no lost work.
+
+`fetch_feeds.py` ran clean (exit 0). Window since `2026-10-26T04:02:14Z` (26h default). `huggingface` returned a clean `304 not-modified`; the other 10 companies returned no transport error. **openai (2 fresh) and nvidia (2 fresh) had TIER-1 hits; the other 9 companies had zero fresh TIER-1 candidates**, triggering one gap-scrape attempt each.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (2 fresh) | 2 | — | — |
+| anthropic | fetch (0 fresh) → WebFetch `anthropic.com/news` | 1 | fetch | found the Oct 26 S-1/IPO filing announcement — a major company-news story, missed by the RSS-less fetch tier until this gap-scrape; everything else on the page already on file |
+| google-deepmind | rss (0 fresh, no error) → WebFetch `deepmind.google/blog/` | 0 | fetch | newest confirmed item (Beyond tree cover, Oct 22) already on file; nothing dated Oct 23-27 on the first listing page |
+| google-research | rss (0 fresh, no error) → WebFetch `research.google/blog/` | 0 | fetch | newest item (TB screening, Oct 23) already on file; nothing dated Oct 24-27 |
+| microsoft | rss (0 fresh, no error) → WebFetch `microsoft.com/en-us/research/blog/` | 0 | fetch | newest item (Flint-interactive, Oct 22) already on file; nothing dated Oct 23-27 |
+| nvidia | rss (2 fresh) | 2 | — | — |
+| xai | jina (anonymous, 200 this time — no `JINA_API_KEY` needed) | 0 | jina | listing checked back to Sep 22; all items dated through Oct 22 already on file |
+| mistral | rss (0 fresh, no error) → WebFetch `mistral.ai/news` | 0 | fetch | newest item (Oct 21, Mistral x NVIDIA engineering) already on file; nothing dated Oct 22-27 |
+| huggingface | rss (0 fresh, 304) → WebFetch `huggingface.co/blog` | 0 | fetch | newest items (Oct 23) already on file; items dated Oct 19-20 on the listing predate this run's window and are not new to the file |
+| cursor | rss (0 fresh) → WebFetch `cursor.com/changelog` | 1 | fetch | found "Agent SDK" (Oct 20) — missed by TIER-1 RSS and every gap-scrape since; backfilled with its real publish date, one week late |
+| perplexity | jina (anonymous, 403 AbuseAlleviation — no `JINA_API_KEY`) → WebSearch | 0 | jina + websearch | anonymous Jina blocked (unrelated abuse flag on a different perplexity.ai URL); WebSearch surfaced no confirmable primary-source Perplexity post in-window, only third-party roundups |
+
+Totals: 11/11 companies searched, **+6 items / 4 companies fresh** (openai, nvidia, anthropic, cursor). No cross-company duplicates. Artifacts written: `2026-10-26-openai-academic-communities.md`, `2026-10-26-openai-chatgpt-world-of-work.md`, `2026-10-26-nvidia-minerva.md`, `2026-10-26-nvidia-mission-control-2-5.md`, `2026-10-26-anthropic-ipo-s1.md`, `2026-10-20-cursor-agent-sdk.md`.
+
+**Anthropic IPO filing** is the headline story of the run: Anthropic, PBC filed Form S-1 with the SEC on 2026-10-26 for a proposed IPO (Class A common stock, planned Nasdaq listing as "ANT"; share count/price range undetermined; Goldman Sachs and Morgan Stanley named as prospectus contacts) — the company's first public step toward going public.
+
+**Linear: UNAVAILABLE this run** — `ToolSearch` finds no Linear tools loadable in this session (the server reports it requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 6 confirmed items are fully written to `topics/` + their artifacts — no data lost, only the Linear "News digest" cards are behind (openai x2, nvidia x2, anthropic, cursor — the Anthropic IPO story would have been High priority). This is now the **ONE HUNDRED AND FIFTY-FIRST** consecutive Linear-affected run since 2026-08-24 (64 days, over 9 weeks) — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-10-27 (+6 items, 4 companies fresh, Linear unavailable)`.

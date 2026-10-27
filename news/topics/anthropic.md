@@ -4,10 +4,14 @@ aliases:
   - Claude
 sources:
   - https://www.anthropic.com/news
-updated: 2026-10-22
+updated: 2026-10-26
 ---
 
 MOC page for **Anthropic** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W44
+
+- **2026-10-26** — [Anthropic files S-1 with the SEC for proposed initial public offering](https://www.anthropic.com/news/s1-sec) — Anthropic, PBC files a Form S-1 with the SEC for a proposed IPO of its Class A common stock, planning to list on Nasdaq Global Select Market as "ANT"; share count and price range not yet determined. Found via gap-scrape (WebFetch — Anthropic has no rss feed).
 
 ## 2026-W43
 
