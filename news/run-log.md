@@ -5866,3 +5866,52 @@ This is the **ONE HUNDRED AND FORTY-NINTH** consecutive Linear-affected run sinc
 Owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: deep dive 2026-10-26 (0 cards, Linear unavailable)`.
+
+## 2026-10-27 05:0x UTC — radar — ok (Linear unavailable)
+
+**Git check — clean.** `git fetch origin main` showed local `main` exactly matching `origin/main` (`91d34ee`, yesterday's deep-dive commit) — no push backlog, no lost work.
+
+`fetch_radar.py` ran clean (exit 0). Window since `2026-10-26T03:06:52Z`.
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | — |
+| inference-infra | 0 | 0 | — |
+| oss-ml-systems | 2 | 2 | `eleuther` HTTP 404 |
+| bigtech-eng | 2 | 2 | — |
+| research-institutes | 0 | 0 | — |
+| technical-newsletters | 0 | 0 | — |
+| practitioner-blogs | 0 | 0 | `latent-space` tunnel/403 Forbidden |
+| youtube | 0 | 0 | 7 of 7 channels HTTP 404 (same ongoing block as recent days) |
+| community | 47 | 11 | `reddit` ran clean this time (no 429) |
+| mistral-watch | 0 | 0 | — |
+
+Totals: 51 raw candidates, **+15 items confirmed, 3 highlights**.
+
+**TRIAGE.**
+
+**Dropped as cross-search duplicate within today's batch (community):** `Show HN: Hob` (HN's own "Claude Cowork/ChatGPT alternative" Show HN surfaced identically across `hn-show-ai50`, `hn-show-rag`, `hn-show-mcp`), `Show HN: Proc-CLI` (`hn-show-rag` + `hn-show-agents`), `Show HN: AgentTrust` (`hn-show-rag` + `hn-show-agents`) — each collapsed to a single triage decision below.
+
+**Dropped as already in the radar file (cross-day duplicate):** `Show HN: Farol` (surfaced again via `hn-show-mcp`/`hn-show-rag` — written in full with a ⭐ highlight on 2026-10-25, no new angle) and `OpenAI and Anthropic cut their LLM prices...` (`hn-trend-llm` — written on 2026-10-25 off the same minimaxir.com URL; today's listing shows updated engagement, 422 pts/427 comments vs. 218/247, but it's the same story — not re-added per "duplicates are marked, never re-added").
+
+**Dropped as consumer-app / off-topic (community):** `Show HN: Hob` (desktop Claude-Cowork/ChatGPT alternative — consumer-app launch, explicit drop criterion), `Show HN: Freehire` (job-board aggregator with an AI-resume feature — off-topic), `Show HN: RainbowSay` (language-learning app — off-topic), `coollabsio/coolify` (GitHub trending — generic self-hostable PaaS, zero AI content).
+
+**Dropped as thin / no self-text to confirm depth (community):** `Show HN: Proc-CLI` (21 pts, no self-text), `Show HN: AgentTrust` (14 pts, no self-text), `hf-trending-models`' `HuggingFaceBio/Carbon-X`, `Comfy-Org/Fibo-2.0` and `DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF` (no description beyond trending score; the DavidAU one is a meme-style frankenmerge name with no real information), `hf-trending-spaces`' `JCisHERE/wan2-2-i2v-v3` and `selfit-camera/Omni-Image-Editor` (no description, both outside the owner's interest buckets), reddit's `tencent/Hy-SimulMT-30B-A3B · Hugging Face` (bare link repost, no submitter text).
+
+**Dropped as self-promotional cross-posting (community):** `Show HN: CaseCite` and `Show HN: Open-Source Cybersecurity Platform Uses AI Agents...` — both poster `thomasunise`, same pattern flagged in yesterday's run-log (self-promotional Show HNs with no self-text/engagement depth, cross-posted across multiple search terms).
+
+**Dropped as generic discussion / no concrete technique (community, reddit):** `Have you gone fully local?`, `Should an agent be allowed to change its plan halfway through a task?`, `Is there any way for this community to take advantage of the neocloud collapse?`, `Qwen4 expectations` — opinion/discussion threads with no technique, number, or release to report.
+
+**Dropped as off-topic hardware market / support (community, reddit):** `Price 5080 10 days`, `Oh nvidia… RTX 5090 orders from board partners`, `3090 died, looking for replacement card` — hardware-market or support threads, not AI-technical content.
+
+**Dropped as redundant with a better-substantiated item on the same topic (community, reddit):** `Local beats cloud, Qwen 3.8 FN` (anecdotal, no numbers — redundant with the kept 8GB-VRAM and Swift-1.5-vs-Unsloth benchmark posts), `People who tried gpu-unlock on 3090s and such...` (thin question thread — redundant with the kept, fuller "GPU unlocks... misconceptions" explainer), `Qwen4-27B's 4-way HC shift?` (speculative architecture rumor off a single cryptic PR, unconfirmed).
+
+**Dropped as unverified / clickbait-pattern (community, reddit):** `Qwen3.8-Flash-Next tried to send diagnostic file to a remote location, while stating otherwise` and `I now have definitive proofs that my Qwen Flash Next is trying to send something to a remote Chinese server` — sensational security claims with no evidence shown in the available text (no packet capture, no reproduction steps); referenced only as unconfirmed community context inside the kept ARC-AGI-3 item, not written as standalone items. `Researchers from Stanford and UC Berkeley Introduce TokenGate...` — MarkTechPost-style "Researchers Introduce X" framing with an unsubstantiated "11.3x faster" claim, and the submitter's own text includes "i hope it's real," signaling the claim is itself unverified.
+
+**VERIFY SUBSTANCE** (5 of 5-candidate cap used): **kanzo MCP kanban board** (reddit.com `.json` 403'd — same bot-check block as recent days; self-text in hand confirms real architecture: Rust/SQLite binary, ~5k lines, AGPL, one-line install) — made a highlight. **JetBrains/thinkrail** (`git clone`) — confirmed real: JetBrains' own incubator-stage agentic IDE built on the `pi` coding-agent CLI, with living specs/skills and planned agent-built extensions — made a highlight. **Interactive neuron steering playground for Qwen3.5-4B** (reddit.com `.json` 403'd; self-text in hand confirms a real, working WebGPU-local interpretability tool exploring a documented community trend) — made a highlight. **boro64/Ternary-Nemotron-3.5-Lightning-30B-A3B-GGUF** (via its Reddit self-text — HF model page itself not separately fetched this run) — confirmed real and concrete (ternary 1.58-bit MoE, 368K context on 12GB GPU, validated llama.cpp build numbers) but not among the top 3 for the day — kept as a regular item. **Have 8 GB of VRAM... 900 t/s** (reddit.com `.json` 403'd; self-text in hand) — confirmed concrete and reproducible but not among the top 3 — kept as a regular item.
+
+**Highlights: 3** (of 3 max) — kanzo MCP kanban board (HIGH: "MCP and the agent-tool ecosystem" + "AI agents in practice: agent harnesses," a small tool squarely in the owner's own daily workflow), JetBrains/thinkrail (HIGH: "AI agents in practice: coding agents," a major vendor's own agentic-IDE entry), Interactive neuron steering playground (HIGH: "reproducible techniques WITH CODE," zero-infra interpretability tooling the owner could run today).
+
+**Linear: UNAVAILABLE this run** — `ToolSearch` finds no Linear tools loadable in this session (the server reports it requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 15 confirmed items are fully written to their radar files (`bigtech-eng.md` +2, `oss-ml-systems.md` +2, `community.md` +11) — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now the **ONE HUNDRED AND FIFTIETH** consecutive Linear-affected run since 2026-08-24 (64 days, over 9 weeks) — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session. The deep-dive routine remains fully blocked (18+ consecutive runs, zero deep dives produced) since it cannot start without the Linear review queue.
+
+Commit: `news: radar run 2026-10-27 (+15 items, 3 highlights, Linear unavailable)`.
