@@ -5,10 +5,14 @@ aliases:
   - Gemini
 sources:
   - https://deepmind.google/blog/rss.xml
-updated: 2026-10-22
+updated: 2026-10-27
 ---
 
 MOC page for **Google DeepMind** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W44
+
+- **2026-10-27** — [Genie 4: A new generation of world simulation](https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation) — Google DeepMind announces Genie 4, generating interactive, real-time simulated environments with native audio and real-time text-prompt steering, currently in research preview for trusted testers.
 
 ## 2026-W43
 

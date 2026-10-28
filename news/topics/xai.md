@@ -4,10 +4,14 @@ aliases:
   - Grok
 sources:
   - https://x.ai/news
-updated: 2026-10-22
+updated: 2026-10-27
 ---
 
 MOC page for **xAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W44
+
+- **2026-10-27** — [Your next sales teammate should be a Grok Bot](https://x.ai/news/grok-bot-sales) — xAI describes how its own Sales organization built three Shared Grok Bots (Account Intel, Quote, Deal) — role-specific AI teammates serving the whole team with shared skills and permissions. Found via gap-scrape (Jina — x.ai is DNS-blocked for direct WebFetch).
 
 ## 2026-W43
 

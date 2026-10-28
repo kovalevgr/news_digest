@@ -4,13 +4,17 @@ aliases:
   - Nvidia
 sources:
   - https://developer.nvidia.com/blog/feed
-updated: 2026-10-26
+updated: 2026-10-27
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W44
 
+- **2026-10-27** — [NVIDIA RTX Spark Powers Neural Rendering and AI Characters in Games](https://developer.nvidia.com/blog/nvidia-rtx-spark-powers-neural-rendering-and-ai-characters-in-games/) — NVIDIA launches RTX Spark, a Windows PC platform (Blackwell RTX GPU + Grace CPU, up to 128GB unified memory) for slim laptops/desktops, with DLSS 5 neural rendering and an on-device Nemotron 3.5 Bolt model for AI game characters.
+- **2026-10-27** — [Memory-Enforced GPU Sharing in Kubernetes with NVIDIA CUDA 13.4](https://developer.nvidia.com/blog/memory-enforced-gpu-sharing-in-kubernetes-with-nvidia-cuda-13-4/) — CUDA 13.4 adds enforced per-workload memory limits for GPU sharing in Kubernetes, paired with the open-source GPU Fractioning Operator and KAI Scheduler v0.18.0's new NvFractions mode.
+- **2026-10-27** — [3 Ways to Boost MoE Inference on NVIDIA DGX Spark](https://developer.nvidia.com/blog/3-ways-to-boost-moe-inference-on-nvidia-dgx-spark/) — NVIDIA combines Humming MXFP4 MoE kernels, online FP8 LM-head quantization, and NEXTN speculative decoding for Ling-3.0-flash on DGX Spark, reporting a 42.5% decode throughput gain on GSM8K with no measurable accuracy loss.
+- **2026-10-27** — [Fine-Tuning NVIDIA Nemotron to Know Local Rules, Not Just Local Languages](https://developer.nvidia.com/blog/fine-tuning-nvidia-nemotron-to-know-local-rules-not-just-local-languages/) — NVIDIA publishes a LoRA post-training workflow using Nemotron-Personas synthetic data (now covering 12 countries) to teach Nemotron 3.5 Lightning local administrative rules, not just language.
 - **2026-10-26** — [How NVIDIA Minerva Turns Telemetry Chaos Into Peak GPU Yield](https://developer.nvidia.com/blog/how-nvidia-minerva-turns-telemetry-chaos-into-peak-gpu-yield/) — NVIDIA details Minerva, an AI-native AIOps platform correlating GPU/network/storage/scheduler telemetry into a live knowledge graph to catch "gray failures" and consolidate related alerts into single incidents (e.g. 81 alerts → 1 incident, ~54 hours of uptime saved).
 - **2026-10-26** — [How NVIDIA Mission Control 2.5 Brings Autonomous Recovery to Kubernetes](https://developer.nvidia.com/blog/how-nvidia-mission-control-2-5-brings-autonomous-recovery-to-kubernetes/) — NVIDIA extends Mission Control's autonomous recovery engine from Slurm-based HPC to Kubernetes workloads managed by NVIDIA Run:ai, via a three-layer loop handling job placement, failure recovery, and faulty-node isolation.
 

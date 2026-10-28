@@ -4,10 +4,14 @@ aliases:
   - Google AI
 sources:
   - https://research.google/blog/rss/
-updated: 2026-10-23
+updated: 2026-10-27
 ---
 
 MOC page for **Google Research** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W44
+
+- **2026-10-27** — [The Sleep framework: A new way for LLMs to retain knowledge in continual learning](https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning) — Google Research introduces Sleep, alternating "wake" interaction with offline "sleep" consolidation into new MoE low-rank experts, reporting near-zero forgetting on continual translation and strong results on BABILong, SQuAD/CPT, and math reasoning vs. SFT/GRPO/SEAL baselines.
 
 ## 2026-W43
 
