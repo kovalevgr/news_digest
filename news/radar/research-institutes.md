@@ -48,3 +48,7 @@ Appended by the daily routine under weekly headings; format matches topics files
 ## 2026-W43
 
 - **2026-10-20** — [FairStress: A deeper evaluation of fairness in LLM decision-making](https://allenai.org/blog/fairstress) — Not independently verified beyond the feed's own summary this run: Ai2's new benchmark reveals demographic differences in how LLMs defend and explain their decisions even when the final choices look fair — the disparity shows up in the justification/defense step, not just the verdict. MEDIUM fit — "Evals in practice" via a fairness/robustness angle rather than a hands-on technique; out of highlight consideration.
+
+## 2026-W44
+
+- **2026-10-27** — [Can we trust LLMs to judge whether a research idea is novel?](https://allenai.org/blog/novelty-bench) — Not independently verified beyond the feed's own summary this run (outside today's 5-candidate verification cap): Ai2's "Old Ideas, Novel Problems" tests how reliably LLMs judge the novelty of research ideas, finding that small changes to the evaluation setup can produce very different verdicts. Direct hit on "Evals in practice: how people actually measure agents and models" — out of highlight consideration, full methodology unconfirmed this run.

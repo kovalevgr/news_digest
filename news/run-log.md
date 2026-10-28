@@ -5943,3 +5943,50 @@ Totals: 11/11 companies searched, **+6 items / 4 companies fresh** (openai, nvid
 **Linear: UNAVAILABLE this run** — `ToolSearch` finds no Linear tools loadable in this session (the server reports it requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 6 confirmed items are fully written to `topics/` + their artifacts — no data lost, only the Linear "News digest" cards are behind (openai x2, nvidia x2, anthropic, cursor — the Anthropic IPO story would have been High priority). This is now the **ONE HUNDRED AND FIFTY-FIRST** consecutive Linear-affected run since 2026-08-24 (64 days, over 9 weeks) — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: daily run 2026-10-27 (+6 items, 4 companies fresh, Linear unavailable)`.
+
+## 2026-10-28 05:0x UTC — radar — ok (Linear unavailable)
+
+**Git check — clean.** `git fetch origin main` showed local `main` 2 commits behind `origin/main` (HEAD was detached at `7471915`, yesterday's daily-run commit, exactly matching `origin/main`) — no push backlog, no lost work. `git checkout main && git merge --ff-only origin/main` fast-forwarded and re-attached HEAD before any writes.
+
+`fetch_radar.py` ran clean (exit 0). Window since `2026-10-27T03:03:43Z`.
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | — |
+| inference-infra | 0 | 0 | — |
+| oss-ml-systems | 1 | 1 | `eleuther` HTTP 404 |
+| bigtech-eng | 0 | 0 | — |
+| research-institutes | 1 | 1 | — |
+| technical-newsletters | 0 | 0 | — |
+| practitioner-blogs | 0 | 0 | `latent-space` tunnel/403 Forbidden |
+| youtube | 0 | 0 | 7 of 7 channels HTTP 404 (same ongoing block as recent days) |
+| community | 45 | 13 | — |
+| mistral-watch | 0 | 0 | — |
+
+Totals: 47 raw candidates, **+15 items confirmed, 3 highlights**.
+
+**TRIAGE.**
+
+**Dropped as already in the radar file (cross-day duplicate):** `microsoft/TRELLIS.2` resurfaced again via `hf-trending-spaces` (same URL, same high-like-count signal as 2026-10-26) — not re-added.
+
+**Dropped as cross-search duplicate within today's batch (community):** `Show HN: Hob` (identical across `hn-show-ai50`, `hn-show-rag`, `hn-show-mcp`), `Show HN: Cryo` (`hn-show-rag` + `hn-show-agents`), `Show HN: Specification First Agentic Development...` (`hn-show-rag` + `hn-show-agents`) each collapsed to one triage decision below. `LiquidAI/LFM3-1.7B` and `baidu/Unlimited-OCR-2` each surfaced via both `hf-trending-models` (bare trending signal, no description) and a Reddit submission (full self-text) — kept once, under the richer Reddit entry, with the HF trending score noted inline where useful. `inclusionAI/Ling-3.1-flash-1019` surfaced via two separate Reddit submissions (a community-reaction post and a bare official-description repost of the same weights release) — same story, collapsed to one decision below.
+
+**Dropped as consumer-app / off-topic (community):** `Show HN: Hob` (desktop Claude-Cowork/ChatGPT alternative — consumer-app launch, explicit drop criterion).
+
+**Dropped as thin / self-promotional / unclear (community):** `Show HN: Cryo` (12 pts/0 comments, a new company's own announcement vehicle with no concrete technique beyond "programs freeze to disk when idle"), `Show HN: Specification First Agentic Development Plugin and Prove` (28 pts/20 comments but the submission text itself is garbled and doesn't deliver on the title — "Implemented agent smith since start 2026... How do you do it?"), `Statistically Lossless Qwen3.8 27B GGUFs` (the post's own text says the actual analysis is paywalled elsewhere and leans into this week's unverified "Qwen uploads to Alibaba" meme rather than delivering quant data), `8x R9700 System Upgrade` (a hardware-rig show-off post — GPU/RAM/PSU list with no benchmark numbers, a stated GLM-5.3-Flash problem left unresolved), `gradium/phonon` and `WizardTY/GEAR` (HF trending spaces with no description beyond the trending signal — can't assess).
+
+**Dropped as off-topic hardware-market / NSFW (community):** `SK Hynix expects demand to outpace supply through 2030` (DRAM supply/demand macro story, a bare link-post with zero analysis — explicit `interests.md` LOW/off-topic bucket, same drop pattern as prior RTX-pricing threads), `The reason why 5090's are $10k now...` (bare link-post, same pricing-gossip pattern), `wank3r/qwen-image-2.1-uncensored-aio-loras-2` (NSFW image-LoRA pack, off-topic).
+
+**Dropped as generic discussion / no concrete technique (community):** `watching terminal coding agents grep a 500k-line repo feels like a 30-year technological regression, isn't it?` (opinion thread, no technique or data), `I am a King, but local 😂` (meme/appreciation post, explicit drop criterion).
+
+**Dropped for owner-fit (robotics/video-gen, explicit LOW buckets, community):** `Hy-Nomas: Towards Free-form Interactive World Generation` (video world model, HF daily paper), `Vision-Language-Action or World-Action? Just Action Models` (VLA/robotics survey, HF daily paper) — both have code but sit in `interests.md`'s explicit LOW buckets and lost out on today's volume budget.
+
+**Dropped on the ≤15/day volume budget alone** (passed triage, real content, cut only to stay under budget — "when in doubt, drop"): `OpenAI's major results over the last 3 months came from scaling test-time compute with agent swarms...` (vague on its own OpenAI-methodology claim and the poster admits "couldn't test" benchmarks — thinnest of the agent-swarm items), `New audio model: LFM3-Audio-2B` and `LiquidAI/LFM3-Omni-2B-GGUF` (real Liquid AI releases, but redundant with the two other LFM3-family items kept today), `SenseNova 6.8 Code2Video` (real open release, but video-generation-adjacent, narrower fit), `A 1.3B OCR model just hit 93.68...` (OpenBMB MiniCPM-OCR, real release with numbers, redundant OCR-release bucket against the `baidu/Unlimited-OCR-2` item kept today), `Ling-3.1-flash-1019 weights are out...` / `inclusionAI/Ling-3.1-flash-1019` (real weights release with before/after benchmark numbers, but an incremental point-release in an already-tracked model line), `How to use Q8 ngram with lower quant Qwen 3.8 Flash Next in Strata` (a real, niche serving tip, lowest-fit of today's quantization/serving items), `Fuzzers vs. AI: Comparing Fuzzilli and BigSleep on JavaScript Engines` (Google Project Zero, real security-research content via `lobsters`, but security-fuzzing is adjacent to rather than inside the owner's core buckets — cut in favor of `Channel Selection for MoE Decoding`'s more direct quantization/code hit), `Channel Selection for Mixture-of-Experts Decoding Needs No Calibration Data` — **kept** (see table above), not dropped; listed here only to correct an earlier internal ranking note.
+
+**VERIFY SUBSTANCE** (5 of 5-candidate cap used — all on reddit/GitHub items; the two official-blog items, `minite` and `novelty-bench`, were left unverified this run to make room, per the cap, and are noted as such in their files): **NVIDIA/SkillSpector** (`git clone`) — confirmed real: NVIDIA's own open-source skill-security scanner, part of its "Verified Skills" pipeline, with a stated 26.1%-vulnerable/5.2%-malicious finding on its own 31K-skill research dataset — made a highlight. **nightly-labs/openbot** (`git clone`) — confirmed real: a CI-tested, local-first multi-agent desktop harness (Codex/Claude Code/Grok/OpenCode/Gemini/Cursor/Cline via ACP) — made a highlight. **4 coding agents on one RTX 3090 (OpenJet)** (reddit.com `.json` 403'd, same bot-check block as recent days; self-text in hand gives concrete per-agent/total tok/s numbers) — made a highlight. **Debunking Cohere's claim of Qwen 3.8 Flash Next uploading to Alibaba** (reddit.com `.json` 403'd; self-text in hand cites a public HF dataset of investigation traces) — confirmed substantive, not among the top 3 — kept as a regular item. **We put DeepSeek in charge of four Qwen3.5-9B models** (reddit.com `.json` 403'd; self-text in hand describes a concrete lead/worker architecture) — confirmed substantive, not among the top 3 — kept as a regular item.
+
+**Highlights: 3** (of 3 max) — NVIDIA/SkillSpector (HIGH: "MCP and the agent-tool ecosystem" + "AI agents in practice: agent harnesses," a major vendor's own security tool for exactly the skill-installation risk the owner's own Claude Code setup faces), nightly-labs/openbot (HIGH: "AI agents in practice: agent harnesses, multi-agent orchestration," a real multi-agent desktop harness spanning the owner's own daily tools), 4 coding agents on one RTX 3090 / OpenJet (HIGH: "AI agents in practice: coding agents" + "local/self-hosted models: inference engines," concrete reproducible numbers from a custom CUDA engine squarely in the owner's daily-tooling lane).
+
+**Linear: UNAVAILABLE this run** — `ToolSearch` finds no Linear tools loadable in this session (the server reports it requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 15 confirmed items are fully written to their radar files (`oss-ml-systems.md` +1, `research-institutes.md` +1, `community.md` +13) — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now the **ONE HUNDRED AND FIFTY-SECOND** consecutive Linear-affected run since 2026-08-24 (65 days, over 9 weeks) — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session. The deep-dive routine remains fully blocked (18+ consecutive runs, zero deep dives produced) since it cannot start without the Linear review queue.
+
+Commit: `news: radar run 2026-10-28 (+15 items, 3 highlights, Linear unavailable)`.
