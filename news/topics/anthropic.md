@@ -4,13 +4,14 @@ aliases:
   - Claude
 sources:
   - https://www.anthropic.com/news
-updated: 2026-10-27
+updated: 2026-10-28
 ---
 
 MOC page for **Anthropic** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W44
 
+- **2026-10-28** — [AI for Science expands to foundations and research institutions](https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions) — Anthropic expands its AI for Science program to 20 scientific foundations, institutions, and research groups, giving free/discounted Claude credits to researchers across biology, medicine, physics, chemistry, climate science, and mathematics. Found via gap-scrape (WebFetch — Anthropic has no rss feed).
 - **2026-10-27** — [Early progress on accelerating drug development with Claude](https://www.anthropic.com/research/early-progress-drug-development) — Anthropic reports early, mostly preclinical results from six drug-development partnerships (Generate Biomedicines, Divergence Labs, BigHat Biosciences, Enveda, The Column Group/Pleiades, Bristol Myers Squibb) plus its acquisition of one-person biotech Mithril Medicine. Found via gap-scrape (WebFetch — Anthropic has no rss feed).
 - **2026-10-27** — [Expanding our partnership with GSA to bring Claude to all levels of government](https://www.anthropic.com/news/expanding-partnership-gsa) — Anthropic expands its agreement with the U.S. General Services Administration, giving government partners at all levels a 40% discount on Claude Enterprise, Claude for Government, and the Claude API. Found via gap-scrape (WebFetch — Anthropic has no rss feed).
 - **2026-10-26** — [Anthropic files S-1 with the SEC for proposed initial public offering](https://www.anthropic.com/news/s1-sec) — Anthropic, PBC files a Form S-1 with the SEC for a proposed IPO of its Class A common stock, planning to list on Nasdaq Global Select Market as "ANT"; share count and price range not yet determined. Found via gap-scrape (WebFetch — Anthropic has no rss feed).

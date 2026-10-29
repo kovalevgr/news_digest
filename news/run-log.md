@@ -6060,3 +6060,33 @@ Commit: `news: daily run 2026-10-28 (+11 items, 6 companies fresh, Linear unavai
 **Linear: UNAVAILABLE this run** — no Linear tools loadable in this session (server reports it requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 15 confirmed items are fully written to their radar files (`oss-ml-systems.md` +2, `research-institutes.md` +1, `practitioner-blogs.md` +2, `community.md` +10) — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now the **ONE HUNDRED AND FIFTY-FOURTH** consecutive Linear-affected run since 2026-08-24 (66 days, over 9 weeks) — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session. The deep-dive routine remains fully blocked (19+ consecutive runs, zero deep dives produced) since it cannot start without the Linear review queue.
 
 Commit: `news: radar run 2026-10-29 (+15 items, 3 highlights, Linear unavailable)`.
+
+## 2026-10-29 06:0x UTC — daily — ok (Linear unavailable)
+
+**Git check — clean.** `git status` showed a clean tree with `HEAD` detached at `e59c58b` (this morning's radar-run commit), exactly matching `origin/main` after `git fetch`; local `main` was a stale ref 5 commits behind. `git checkout main && git merge --ff-only origin/main` fast-forwarded local `main` and re-attached HEAD before any writes — no push backlog, no lost work.
+
+`fetch_feeds.py` ran clean (exit 0). Window since `2026-10-28T04:02:19Z` (26h default). **All 11 companies had zero fresh TIER-1 candidates** (microsoft, nvidia, mistral, huggingface returned clean `304 not-modified`; the other 7 had no transport error, just nothing new in-window) — triggering one gap-scrape/fallback attempt for every company.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (0 fresh) → WebSearch | 0 | websearch | no primary-source OpenAI post confirmed in-window; search surfaced only third-party/unverified GPT-6-family rumors, no `openai.com` URL |
+| anthropic | fetch (0 fresh — N/A, no rss) → WebFetch `anthropic.com/news` | **1 new** | fetch | "AI for Science expands to foundations and research institutions" (2026-10-28) — missed by yesterday's gap-scrape, caught today |
+| google-deepmind | rss (0 fresh) → WebSearch | 0 | websearch | no deepmind.google post confirmed in-window; search returned only older (Jul/Sep) secondary coverage |
+| google-research | rss (0 fresh) → WebSearch | 0 | websearch | no research.google post confirmed in-window |
+| microsoft | rss (304 not-modified) → WebSearch | 0 | websearch | newest item (Flint-interactive, Oct 22) still the latest found; search surfaced only spring/summer posts |
+| nvidia | rss (304 not-modified) → WebSearch | 0 | websearch | no developer.nvidia.com/blog post confirmed in-window |
+| xai | jina (200, anonymous) | 0 | jina | listing unchanged since yesterday — newest item still "Grok Bot for Sales" (Oct 27), already on file |
+| mistral | rss (304 not-modified) → WebSearch | 0 | websearch | single-source (non-Mistral) claim of a Large 4 public-preview date found but not from mistral.ai — not confirmable, dropped per "never invent/never pad from unverified secondary sources" |
+| huggingface | rss (304 not-modified) → WebSearch | 0 | websearch | no huggingface.co/blog post confirmed in-window |
+| cursor | rss (0 fresh) → WebSearch | 0 | websearch | third-party aggregator (havoptic.com, not cursor.com) listed a 2026-10-16 release — older than the window and unverifiable against the primary changelog; not added |
+| perplexity | jina (anonymous, 403 AbuseAlleviation — "blocked until Thu Oct 29 2026 06:39:42 UTC due to previous abuse / suspected DDoS", no `JINA_API_KEY`) → WebSearch | 0 | jina + websearch | anonymous Jina blocked by an unrelated abuse flag on a different perplexity.ai URL; WebSearch surfaced no confirmable primary-source post in-window |
+
+Totals: 11/11 companies searched, **+1 item / 1 company fresh** (anthropic). No cross-company duplicates. Artifact written: `2026-10-28-anthropic-ai-for-science-expansion.md`.
+
+**Intended Linear priority** (per the rubric, for when the connector recovers): Medium(3) — AI for Science program expansion (Anthropic, business/research — 20 partner foundations/institutions, no product launch).
+
+**Headline of the run:** A genuinely quiet day across the board — the only confirmed item is Anthropic's AI for Science program expanding to 20 foundations and research institutions (Sloan, Simons, Schmidt Sciences, NSF, Wellcome Sanger, EMBL, and others), continuing the company's steady cadence of science-partnership announcements. Every other tracked company came back clean on both TIER-1 and the one-shot fallback.
+
+**Linear: UNAVAILABLE this run** — no Linear tools loadable in this session (server reports it requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). The 1 confirmed item is fully written to `topics/anthropic.md` + its artifact — no data lost, only the Linear "News digest" card is behind (would have been Medium priority). This is now the **ONE HUNDRED AND FIFTY-FIFTH** consecutive Linear-affected run since 2026-08-24 (66 days, over 9 weeks) — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-10-29 (+1 item, 1 company fresh, Linear unavailable)`.
