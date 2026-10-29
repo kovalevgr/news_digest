@@ -1,23 +1,23 @@
 {
   "ai2": {
     "http": {
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "answerai": {
     "http": {
       "etag": "W/\"6ad9ae6a-914fa\"",
       "last_modified": "Thu, 22 Oct 2026 06:34:18 GMT",
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "anthropic-engineering": {
     "http": {
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00",
+    "last_run": "2026-10-29T05:03:43.623804+00:00",
     "seen": [
       "https://www.anthropic.com/engineering/how-we-contain-claude",
       "https://www.anthropic.com/engineering/april-23-postmortem",
@@ -50,69 +50,69 @@
     "http": {
       "etag": "W/\"6adfb002-2723\"",
       "last_modified": "Mon, 26 Oct 2026 19:54:42 GMT",
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "bair": {
     "http": {
       "etag": "\"46973-657c8b456a0bd\"",
       "last_modified": "Wed, 29 Jul 2026 23:56:30 GMT",
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "baseten": {
     "http": {
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00",
+    "last_run": "2026-10-29T05:03:43.623804+00:00",
     "seen": []
   },
   "cameron-wolfe": {
     "http": {
-      "etag": "W/\"530e10-RNB5TNg5Tmkzcw6ToebaqzbAV8w\"",
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "etag": "W/\"530e10-AY9JCS73cLZ7biK7QKmE70r3flk\"",
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "cloudflare-ai": {
     "http": {
       "last_modified": "Tue, 27 Oct 2026 19:27:28 GMT",
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "eleuther": {
     "http": {
       "etag": "\"11ba9c1a8195af2a42f9483ac4e3a66a-ssl\"",
       "last_run": "2026-09-23T05:01:35.784180+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "eugeneyan": {
     "http": {
       "etag": "W/\"6ad4f91b-199df\"",
       "last_modified": "Sun, 18 Oct 2026 16:51:39 GMT",
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "github-ai": {
     "http": {
-      "etag": "\"065575fd69038be0b9f92c9528670d40\"",
-      "last_modified": "Tue, 27 Oct 2026 21:44:00 GMT",
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "etag": "\"307348471beb5353900ac64a4e408233\"",
+      "last_modified": "Wed, 28 Oct 2026 21:08:06 GMT",
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "github-trending": {
     "http": {
-      "etag": "\"6ae041eb-9bb0a\"",
-      "last_modified": "Tue, 27 Oct 2026 06:17:15 GMT",
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "etag": "\"6ae19ad5-91da5\"",
+      "last_modified": "Wed, 28 Oct 2026 06:48:53 GMT",
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00",
+    "last_run": "2026-10-29T05:03:43.623804+00:00",
     "seen": [
       "https://github.com/PrimeIntellect-ai/prime-agent",
       "https://github.com/addyosmani/agent-skills",
@@ -393,167 +393,169 @@
       "https://github.com/JetBrains/thinkrail",
       "https://github.com/coollabsio/coolify",
       "https://github.com/NVIDIA/SkillSpector",
-      "https://github.com/nightly-labs/openbot"
+      "https://github.com/nightly-labs/openbot",
+      "https://github.com/elayadesign/ai-design-skills",
+      "https://github.com/gitroomhq/postiz-app"
     ]
   },
   "hamel": {
     "http": {
       "etag": "\"6adeea2f-89d42\"",
       "last_modified": "Mon, 26 Oct 2026 05:50:39 GMT",
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "hf-daily-papers": {
     "http": {
-      "etag": "W/\"4d38c-k9weyCflaLR8uqmb6Ch58CiERRI\"",
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "etag": "W/\"4e8a2-8rLvJgp62PLrIXl14xJMO6h2qxI\"",
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "hf-trending-models": {
     "http": {
-      "etag": "W/\"2ce2-Wez7nYNw7cH576hmQlys/3NbAEY\"",
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "etag": "W/\"2db9-TyW+fkslDFFKibsT+VICSKkwH1g\"",
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00",
+    "last_run": "2026-10-29T05:03:43.623804+00:00",
     "snapshot": [
       "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-      "https://huggingface.co/RecursiveSI/flint",
       "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
+      "https://huggingface.co/RecursiveSI/flint",
       "https://huggingface.co/XHToken/Spark-X2.6-4B",
-      "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
       "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
+      "https://huggingface.co/LiquidAI/LFM3-1.7B",
       "https://huggingface.co/Lightricks/LTX-2.5",
       "https://huggingface.co/ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
-      "https://huggingface.co/InternScience/Sage-A1.5",
-      "https://huggingface.co/Qwen/Qwen3.8-27B",
-      "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-      "https://huggingface.co/unsloth/flint-GGUF",
-      "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
+      "https://huggingface.co/tencent/Hy-SimulMT-30B-A3B-FP8",
+      "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
       "https://huggingface.co/baidu/Unlimited-OCR-2",
+      "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
+      "https://huggingface.co/Qwen/Qwen3.8-27B",
       "https://huggingface.co/orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
       "https://huggingface.co/HuggingFaceBio/Carbon-X",
-      "https://huggingface.co/LiquidAI/LFM3-1.7B",
-      "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-      "https://huggingface.co/fishaudio/drama-3",
-      "https://huggingface.co/Comfy-Org/MOSS-Image"
+      "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder",
+      "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
+      "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+      "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
+      "https://huggingface.co/unsloth/flint-GGUF"
     ]
   },
   "hf-trending-spaces": {
     "http": {
-      "etag": "W/\"10a0-4bWFYlJc1rGRr6tx+YGTQ03s3nE\"",
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "etag": "W/\"10b8-ChpWErN7UfQV/g0NYNLcBVcWQcs\"",
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00",
+    "last_run": "2026-10-29T05:03:43.623804+00:00",
     "snapshot": [
       "https://huggingface.co/spaces/glitchlab/MiniMax-H3-Turbo-Lora-UNCENSORED-Workflow",
-      "https://huggingface.co/spaces/kulkas2pintu/wan777",
       "https://huggingface.co/spaces/nvidia/simready-central",
+      "https://huggingface.co/spaces/kulkas2pintu/wan777",
       "https://huggingface.co/spaces/fishpasters/uncensored-imageTOimage2Ref",
       "https://huggingface.co/spaces/hugging-apps/bfs-best-face-swap",
-      "https://huggingface.co/spaces/dlouapre/nlp-before-llms",
       "https://huggingface.co/spaces/pollen-robotics/microduck-simulator",
-      "https://huggingface.co/spaces/AST-1320/Qwen-2511-Plus-Flux.2-klein",
-      "https://huggingface.co/spaces/multimodalart/jev-decision-index",
-      "https://huggingface.co/spaces/black-forest-labs/flux-3-image-klein",
-      "https://huggingface.co/spaces/wank3r/minimax-h3",
       "https://huggingface.co/spaces/briaai/Fibo-2.0-editing",
+      "https://huggingface.co/spaces/dlouapre/nlp-before-llms",
+      "https://huggingface.co/spaces/AST-1320/Qwen-2511-Plus-Flux.2-klein",
+      "https://huggingface.co/spaces/wank3r/minimax-h3",
       "https://huggingface.co/spaces/HuggingFaceBio/Carbon-X-Release",
+      "https://huggingface.co/spaces/multimodalart/jev-decision-index",
+      "https://huggingface.co/spaces/wank3r/qwen-image-2.1-uncensored-aio-loras-2",
+      "https://huggingface.co/spaces/black-forest-labs/flux-3-image-klein",
       "https://huggingface.co/spaces/JCisHERE/wan2-2-i2v-v3",
-      "https://huggingface.co/spaces/OpenMOSS-Team/MOSS-Image",
-      "https://huggingface.co/spaces/vamo455/Omni-videos-custom-auto_prompt_high-quality",
-      "https://huggingface.co/spaces/gradium/phonon",
       "https://huggingface.co/spaces/WizardTY/GEAR",
-      "https://huggingface.co/spaces/microsoft/TRELLIS.2",
-      "https://huggingface.co/spaces/wank3r/qwen-image-2.1-uncensored-aio-loras-2"
+      "https://huggingface.co/spaces/gradium/phonon",
+      "https://huggingface.co/spaces/linoyts/qwen-image-2-1-realtime",
+      "https://huggingface.co/spaces/OpenMOSS-Team/MOSS-Image",
+      "https://huggingface.co/spaces/vamo455/Omni-videos-custom-auto_prompt_high-quality"
     ]
   },
   "hn-show-agents": {
     "http": {
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "hn-show-ai50": {
     "http": {
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "hn-show-inference": {
     "http": {
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "hn-show-mcp": {
     "http": {
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "hn-show-quantization": {
     "http": {
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "hn-show-rag": {
     "http": {
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "hn-trend-llm": {
     "http": {
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "huyenchip": {
     "http": {
       "etag": "W/\"6a6bdc00-532d2\"",
       "last_modified": "Thu, 30 Jul 2026 23:19:28 GMT",
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "interconnects": {
     "http": {
-      "etag": "W/\"8b435-dis7ak80IX682AM0dYSgDDaTkXU\"",
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "etag": "W/\"85a8f-QayqV84kTKQRsATYegOUfkUVJac\"",
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "jxnl": {
     "http": {
-      "etag": "\"9669fb254b112014b92b058d5a983dd7\"",
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "etag": "\"c0b1736a045c2e5219a0acc56ccc5970\"",
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "latent-space": {
     "http": {
       "etag": "W/\"fc10a-4EEbJ/Dh0Te0aREYvFD9s/lUan0\"",
       "last_run": "2026-10-23T05:03:59.696465+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "lilianweng": {
     "http": {
-      "etag": "\"6a55d3e3-13718\"",
-      "last_modified": "Tue, 14 Jul 2026 06:14:59 GMT",
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "etag": "\"6a55d3e4-13718\"",
+      "last_modified": "Tue, 14 Jul 2026 06:15:00 GMT",
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "lmsys-sglang": {
     "http": {
-      "etag": "\"0feac4ac4e84f7e5dff33baff9793224\"",
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "etag": "\"a0af0cd43dac6f28a3204ab143a8f797\"",
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00",
+    "last_run": "2026-10-29T05:03:43.623804+00:00",
     "seen": [
       "https://lmsys.org/blog/2026-08-07-hpc-ops-sglang",
       "https://lmsys.org/blog/2026-08-04-specforge-v0-3",
@@ -684,36 +686,37 @@
       "https://lmsys.org/blog/2026-10-22-sglang-trainium-beta",
       "https://lmsys.org/blog/2026-10-24-dsv41-deepinfer",
       "https://lmsys.org/blog/2026-10-26-cf-security",
-      "https://lmsys.org/blog/2026-10-25-minite"
+      "https://lmsys.org/blog/2026-10-25-minite",
+      "https://lmsys.org/blog/2026-10-22-miles-mi355x-agentic-rl"
     ]
   },
   "lobsters": {
     "http": {
-      "etag": "W/\"07e75fb9912056cefc7ec68d5b725d79\"",
-      "last_modified": "Tue, 27 Oct 2026 05:04:05 GMT",
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "etag": "\"dmh245kdab46-fc3\"",
+      "last_modified": "Thu, 29 Oct 2026 05:02:02 GMT",
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "mistral-docs-changelog": {
     "http": {
-      "etag": "\"yswe3sic97kosc\"",
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "etag": "\"boy4vunw37kphr\"",
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00",
+    "last_run": "2026-10-29T05:03:43.623804+00:00",
     "seen": [
       "https://docs.mistral.ai/getting-started/changelog"
     ]
   },
   "mistral-hf-org": {
     "http": {
-      "etag": "W/\"122e-bgUFehmQtROTPWNJXr9YS3GXSfU\"",
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "etag": "W/\"122e-5+EeOnO60GuO51v88P6QOROdfxI\"",
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "mistral-releases": {
-    "last_run": "2026-10-28T05:03:43.227711+00:00",
+    "last_run": "2026-10-29T05:03:43.623804+00:00",
     "seen": [
       "v1.0.4",
       "v1.1.0",
@@ -726,82 +729,82 @@
   },
   "modal": {
     "http": {
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "netflix": {
     "http": {
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "pytorch-blog": {
     "http": {
-      "etag": "\"1460f56f3caeebbf36af5d0ab27765fe\"",
-      "last_modified": "Tue, 27 Oct 2026 20:42:13 GMT",
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "etag": "\"8eb1be55422e55f4a40b34fcabc8282c\"",
+      "last_modified": "Wed, 28 Oct 2026 18:19:21 GMT",
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "raschka": {
     "http": {
-      "etag": "W/\"277267-q9fz8LCreUffsNXZtTldbcOBGOE\"",
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "etag": "W/\"277267-+GCzjwFzrp1zSJ+s1zwtoiQOles\"",
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "reddit": {
     "http": {
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "semianalysis": {
     "http": {
-      "etag": "W/\"2f3cba-kXFdnGid+b+yAMYWiiMd6DX4Hck\"",
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "etag": "W/\"2f3cba-tASJhZapoQp6zWap7edcfuPZpWA\"",
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "simonwillison": {
     "http": {
-      "last_modified": "Tue, 20 Oct 2026 19:34:19 GMT",
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "last_modified": "Wed, 28 Oct 2026 13:55:15 GMT",
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "smolai": {
     "http": {
       "etag": "\"da3f525b374d80976008633926bc9f37\"",
       "last_modified": "Thu, 03 Sep 2026 04:15:22 GMT",
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "together": {
     "http": {
-      "last_modified": "Tue, 27 Oct 2026 20:52:52 GMT",
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "last_modified": "Wed, 28 Oct 2026 19:48:14 GMT",
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "vickiboykis": {
     "http": {
       "etag": "\"6ad7f740-61f7a\"",
       "last_modified": "Tue, 20 Oct 2026 23:20:32 GMT",
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "vllm-blog": {
     "http": {
-      "last_run": "2026-10-28T05:03:43.227711+00:00"
+      "last_run": "2026-10-29T05:03:43.623804+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "vllm-releases": {
-    "last_run": "2026-10-28T05:03:43.227711+00:00",
+    "last_run": "2026-10-29T05:03:43.623804+00:00",
     "seen": [
       "ci/build/22474",
       "proto-v0.1.0",
@@ -972,6 +975,7 @@
       "v0.32.0rc3",
       "v0.32.1rc0",
       "v0.33.0rc0",
+      "v0.33.0rc1",
       "v0.4.0",
       "v0.4.0.post1",
       "v0.4.1",
@@ -1025,42 +1029,42 @@
     "http": {
       "last_run": "2026-10-09T05:01:27.943792+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "yt-gpu-mode": {
     "http": {
       "last_run": "2026-09-07T05:14:13.256919+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "yt-karpathy": {
     "http": {
       "last_run": "2026-10-09T05:01:27.943792+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "yt-latent-space": {
     "http": {
       "last_run": "2026-10-09T05:01:27.943792+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "yt-mlst": {
     "http": {
       "last_run": "2026-10-24T05:05:30.086120+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "yt-sentdex": {
     "http": {
       "last_run": "2026-10-09T05:01:27.943792+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   },
   "yt-umar-jamil": {
     "http": {
       "last_run": "2026-09-07T05:14:13.256919+00:00"
     },
-    "last_run": "2026-10-28T05:03:43.227711+00:00"
+    "last_run": "2026-10-29T05:03:43.623804+00:00"
   }
 }
