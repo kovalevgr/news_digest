@@ -4,13 +4,14 @@ aliases:
   - Nvidia
 sources:
   - https://developer.nvidia.com/blog/feed
-updated: 2026-10-27
+updated: 2026-10-30
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W44
 
+- **2026-10-29** — [Unlocking Tensor Core Performance for Machine Learning Interatomic Potentials](https://developer.nvidia.com/blog/unlocking-tensor-core-performance-for-machine-learning-interatomic-potentials/) — NVIDIA details two Tensor Core methods (BF16x9 on Blackwell, TF32x3 on Ampere) that speed up FP32 matrix multiplications for ML interatomic potentials without retraining, giving up to 2.5x GEMM speedup on the Point Edge Transformer model.
 - **2026-10-27** — [NVIDIA RTX Spark Powers Neural Rendering and AI Characters in Games](https://developer.nvidia.com/blog/nvidia-rtx-spark-powers-neural-rendering-and-ai-characters-in-games/) — NVIDIA launches RTX Spark, a Windows PC platform (Blackwell RTX GPU + Grace CPU, up to 128GB unified memory) for slim laptops/desktops, with DLSS 5 neural rendering and an on-device Nemotron 3.5 Bolt model for AI game characters.
 - **2026-10-27** — [Memory-Enforced GPU Sharing in Kubernetes with NVIDIA CUDA 13.4](https://developer.nvidia.com/blog/memory-enforced-gpu-sharing-in-kubernetes-with-nvidia-cuda-13-4/) — CUDA 13.4 adds enforced per-workload memory limits for GPU sharing in Kubernetes, paired with the open-source GPU Fractioning Operator and KAI Scheduler v0.18.0's new NvFractions mode.
 - **2026-10-27** — [3 Ways to Boost MoE Inference on NVIDIA DGX Spark](https://developer.nvidia.com/blog/3-ways-to-boost-moe-inference-on-nvidia-dgx-spark/) — NVIDIA combines Humming MXFP4 MoE kernels, online FP8 LM-head quantization, and NEXTN speculative decoding for Ling-3.0-flash on DGX Spark, reporting a 42.5% decode throughput gain on GSM8K with no measurable accuracy loss.

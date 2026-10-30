@@ -4,10 +4,14 @@ aliases:
   - Mistral
 sources:
   - https://mistral.ai/rss.xml
-updated: 2026-10-21
+updated: 2026-10-30
 ---
 
 MOC page for **Mistral AI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W44
+
+- **2026-10-29** — [Le Chonk: Built for Coders, Trusted by Defenders.](https://mistral.ai/news/mistral-large-4-oss/) — Mistral opens the weights of Mistral Large 4 ("Le Chonk"), a 1T-parameter multimodal MoE model billed as the best open-weight model for coding, with a claimed-highest refusal rate among open models on malicious cyber requests.
 
 ## 2026-W43
 

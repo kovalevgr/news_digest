@@ -4,10 +4,23 @@ aliases:
   - Perplexity AI
 sources:
   - https://www.perplexity.ai/hub/blog
-updated: 2026-10-13
+updated: 2026-10-30
 ---
 
 MOC page for **Perplexity** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W44
+
+- **2026-10-28** — [New FedRAMP certification brings Perplexity to more government workflows](https://www.perplexity.ai/hub/blog/new-fedramp-certification-brings-perplexity-to-more-government-workflows) — Perplexity Enterprise achieves FedRAMP Class C (Moderate) certification, which it says makes it the only FedRAMP Moderate AI service with live web search. Found via gap-scrape (anonymous Jina — perplexity.ai is DNS-blocked for direct WebFetch).
+
+## 2026-W43
+
+- **2026-10-21** — [A good teacher meets the student where they are](https://www.perplexity.ai/hub/blog/a-good-teacher-meets-the-student-where-they-are) — Perplexity describes a new self-distillation method jointly training teacher and student models to improve performance and training efficiency on reasoning/agentic tasks. Found via gap-scrape (anonymous Jina for the blog listing; the article page itself 403'd, so this line is based on the listing summary only).
+- **2026-10-20** — [Perplexity brings Computer to enterprise infrastructure with Valarian](https://www.perplexity.ai/hub/blog/perplexity-brings-computer-to-enterprise-infrastructure-with-valarian) — Perplexity partners with UK sovereign-infrastructure company Valarian to run Computer inside institutions' own servers and air-gapped networks for regulated industries. Found via gap-scrape (anonymous Jina — perplexity.ai is DNS-blocked for direct WebFetch).
+
+## 2026-W42
+
+- **2026-10-15** — [Open-sourcing SPACE, the sandbox platform behind Computer](https://www.perplexity.ai/hub/blog/open-sourcing-space) — Perplexity open-sources SPACE, its in-house agent-sandbox platform that has powered all Computer sessions since July, after security testing found it resilient against OpenAI/Hugging-Face-style network-bypass attacks. Found via gap-scrape (anonymous Jina — perplexity.ai is DNS-blocked for direct WebFetch).
 
 ## 2026-W41
 
