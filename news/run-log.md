@@ -6176,3 +6176,48 @@ Totals: 11/11 companies searched, **+6 items / 3 companies fresh this-window** (
 **Linear: UNAVAILABLE this run** — no Linear tools loadable in this session (server reports it requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 7 confirmed items are fully written to their `topics/` files + artifacts — no data lost, only the Linear "News digest" cards are behind (nvidia, mistral, huggingface, perplexity x4 — Mistral Large 4 and the SPACE open-source release would have been High priority). This is now the **ONE HUNDRED AND FIFTY-EIGHTH** consecutive Linear-affected run since 2026-08-24 (67 days, over 9.5 weeks) — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: daily run 2026-10-30 (+7 items, 4 companies fresh, Linear unavailable)`.
+
+## 2026-10-31 05:0x UTC — radar — ok (Linear unavailable)
+
+**Git check — clean.** `git status` showed a clean tree, `HEAD` already at `44257d3` (yesterday's daily-run commit) matching `origin/main`. No stash/merge needed.
+
+`fetch_radar.py` ran clean (exit 0, window since `2026-10-30T03:03:19Z`). 52 sources attempted.
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | — |
+| inference-infra | 0 | 0 | — |
+| oss-ml-systems | 0 | 0 | eleuther (HTTP 404) |
+| bigtech-eng | 0 | 0 | — |
+| research-institutes | 0 | 0 | — |
+| technical-newsletters | 0 | 0 | — |
+| practitioner-blogs | 1 | 1 | latent-space (403 Forbidden, unrelated to the 1 fresh item — interconnects) |
+| community | 49 | 13 | — |
+| youtube | 0 | 0 | yt-ai-engineer/karpathy/mlst/sentdex (404), yt-latent-space/umar-jamil (500) — all known-flaky channel-ID feeds, no fallback per workflow |
+| mistral-watch | 0 | 0 | — |
+
+Totals: **50 raw candidates → 14 confirmed** (1 practitioner-blogs, 13 community), **3 highlights** (of 3 max).
+
+**TRIAGE — heavy internal duplication this run.** Of the 50 raw candidates, a large share were re-surfaces of items already confirmed into `community.md` yesterday (2026-10-30 run), re-appearing today because several HN "Show" searches and the HF-trending/reddit listings still return the same posts window-over-window: **phpClaw, Uji, LiquidAI/LFM3-Omni-2B (model card), LLM Voice, Release: Swift 1.5 Flash Next - Heretic v2** — all already on file from yesterday, not re-added. Also cross-search duplicates within today's own fetch (`catcopter.com`, `Sketch Stadium`, `Arsaze`, `Lasm`, `Overtone` each appeared in 2-3 of the `hn-show-*` searches) deduped to one consideration each before triage.
+
+**TRIAGE — kept (1 practitioner-blogs + 13 community, 3 highlights of 3 max).** ⭐ **QEngine on 2x RTX 5090** (504 tok/s decode, 1.5-1.9x over next-best engine — direct hit on the explicit HIGH-fit "inference engines/serving cost" bucket), ⭐ **xarray-sql FlashAttention-from-SQL** (verified via `git clone`: real CI/PyPI project, a genuinely novel reproducible-technique angle — deriving a known kernel from a declarative query), ⭐ **CopilotKit/OpenBot** (verified via `git clone`: real, MIT, beta, GitHub-trending #3 — a second independently-built "local AI coworker" template days after the 2026-10-28 `nightly-labs/openbot` entry, noted as a converging pattern not a duplicate). Also kept: Spinf-serve (verified via `git clone` — bulk-classification inference engine, Apache 2.0), SenseNova-Loop-9B-Preview (verified via WebFetch — looped-decoder + manifold-constrained hyper-connections architecture), LFM3-Omni-2B in-browser WebGPU demo (concrete follow-up numbers to yesterday's model-release entry, not a duplicate of it), Unsloth DeepSeek-V4.1-Flash-1017 GGUFs + the ISTA quant-benchmark dispute (combined into one item — same underlying disagreement), Made a really good Qwen3.8 27B 16GB setup ("runs on my hardware"), Ultra low temps make your model stupid at coding, Benchmarks are an unreliable measure of difficulty (arxiv paper), [Paper] Soft-MTP, OpenMausBot (GitHub trending), Was I wrong about open models & cyber risks? (interconnects.ai, MEDIUM fit).
+
+**TRIAGE — dropped, with reasons:**
+- **Toys/stunts/off-topic (duplicated across hn-show-rag/mcp/agents searches):** `catcopter.com` (multiplayer cat game — consumer app, AI only used as a build tool), `Sketch Stadium` (agents playing Pictionary — gimmick demo), `Show HN: I Turned DOOM into a Transformer` (doomformer — same compute-inside-game-engine stunt genre as 2026-10-29's dropped Doom/RISC-V-in-Qwen-weights posts).
+- **Product marketing that survived config filters:** `Arsaze` (Cursor for video editing), `Overtone` (captions tool — real multi-model+LLM-arbitration technique buried in a product pitch, thin enough on its own this run to cut rather than pad).
+- **Off-topic / weak AI angle (repeat false positive from an HN-Show keyword search, same title dropped on 2026-10-30 too):** `Show HN: Lasm – formally verified webapps in Lean`.
+- **Open-ended discussion/anecdote, no technique or release (Reddit):** `Fable 5.gguf when?`, `AI changes so fast, any saved knowledge gets outdated`, `So uh...where are we on uncensored/NSFW audio models?`, `Do you have any opinions that go against r/LocalLLaMA's hivemind?`, `Copium Prediction: ... before Qwen 4 sweeps them`, `Anyone tried Nanbeige4.3-33B?`, `Tried to get Qwen 3.8 27b to make the deepseek chibi whale in blender`.
+- **Hardware-market/pricing rumor (Reddit, explicit LOW bucket):** `AMD reportedly plans another Radeon GPU price increase`, `The RTX 5080 Has Been Removed From NVIDIA's Official Marketplace`.
+- **Thin/no content to evaluate (HF trending):** `Pika-Labs/Pika-H3-Flex` (image-to-video, LOW bucket, no description), `AimeeBingmouQu/ProtectBirds` and `Aura1in/Krea-2-Turbo_v2` (HF trending Spaces, no description field — same "nothing to evaluate" pattern as prior days).
+- **Community-event/AMA, not a technique or release:** `We're MOSS, the team behind MOSS-Image/TTS — AMA`.
+- **Anecdote/secondhand, unverifiable:** `Another reason to own your own compute. Your account may get banned` (cites an x.com screenshot only), `Gemma-4-31B-Humanlike-Chat` (derivative personality finetune, same thin genre as prior "Humanlike-Chat" entries).
+- **Redundancy / volume-budget cut (real content, cut to avoid a 4th-5th DFlash2 variant this week):** `PSA: Upgrade Flash Next to DFlash2 if you haven't! +17% on average`, `UPDATE - New Quants: Swift 1.5 Flash Next - Heretic v2` (an update thread on yesterday's already-confirmed release — same story).
+- **Content-type trap / out-of-scope (YouTube feeds):** 5 channel-ID feeds 404/500'd — known-flaky per workflow's expected-behaviors list, no fallback attempted (radar has none).
+
+**VERIFY SUBSTANCE** (5 of 5-candidate cap used): **xarray-sql** (`git clone`, github.com WebFetch-blocked) — confirmed real: CI badges, PyPI package, the FlashAttention-from-SQL demo file present at the linked path. **CopilotKit/OpenBot** (`git clone`) — confirmed real: MIT license, beta status, Trendshift #3-of-the-day badge in its own README. **sensenova/SenseNova-Loop-9B-Preview** (WebFetch, HF model card) — confirmed substantive architecture/param/license details. **spinf-serve** (`git clone`) — confirmed real: Apache 2.0, OpenAI-compatible bulk-decision serving engine. **Project Suncatcher claim** (WebSearch, since `blog.google` is outside this cloud env's allowed domains) — the underlying project (4-TPU satellite, Gemma, Oct 1 SpaceX launch) is well-corroborated by mainstream coverage, but no outlet confirms the post's specific "first response transmitted" claim — kept as a regular item with the gap flagged, out of highlight consideration. Reddit `.json` curl (browser UA) 403'd on the one post attempted (QEngine) — kept on its detailed self-text per the workflow's reddit-transport fallback, consistent with recent days.
+
+**Highlights: 3** (of 3 max) — QEngine on 2x RTX 5090 (clearest hard-numbers "runs on my hardware" inference-engine story), xarray-sql FlashAttention-from-SQL (novel reproducible technique, verified), CopilotKit/OpenBot (verified agent-harness template, notable as a second independently-built entrant in the "local AI coworker" pattern after 2026-10-28's `nightly-labs/openbot`).
+
+**Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 14 confirmed items are fully written to their radar files (`practitioner-blogs.md` +1, `community.md` +13) — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now the **ONE HUNDRED AND FIFTY-NINTH** consecutive Linear-affected run since 2026-08-24 (over 9.5 weeks) — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session. The deep-dive routine remains fully blocked without a review queue to draw `hot` cards from.
+
+Commit: `news: radar run 2026-10-31 (+14 items, 3 highlights, Linear unavailable)`.
