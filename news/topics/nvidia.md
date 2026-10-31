@@ -4,12 +4,15 @@ aliases:
   - Nvidia
 sources:
   - https://developer.nvidia.com/blog/feed
-updated: 2026-10-30
+updated: 2026-10-31
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W44
+
+- **2026-10-30** — [Build Specialized Agents on a Stack You Control with NVIDIA NemoClaw](https://developer.nvidia.com/blog/build-specialized-agents-on-a-stack-you-control-with-nvidia-nemoclaw/) — NVIDIA introduces NemoClaw, open blueprints pairing an existing agent harness (OpenClaw/Hermes/LangChain Deep Agents) with Nemotron models and the OpenShell secure runtime; LangChain's Nemotron 3 Ultra tuning claims near-frontier performance at ~10x lower cost per run.
+- **2026-10-30** — [How to Check and Configure NVIDIA GPUDirect Storage for Your Platform](https://developer.nvidia.com/blog/how-to-check-and-configure-nvidia-gpudirect-storage-for-your-platform/) — NVIDIA's GPUDirect Storage team releases `gds-diag`, an open-source CLI that assesses GDS deployments and suggests fixes (FAIL/WARN/INFO/PASS), with an optional Claude/Codex agent skill.
 
 - **2026-10-29** — [Unlocking Tensor Core Performance for Machine Learning Interatomic Potentials](https://developer.nvidia.com/blog/unlocking-tensor-core-performance-for-machine-learning-interatomic-potentials/) — NVIDIA details two Tensor Core methods (BF16x9 on Blackwell, TF32x3 on Ampere) that speed up FP32 matrix multiplications for ML interatomic potentials without retraining, giving up to 2.5x GEMM speedup on the Point Edge Transformer model.
 - **2026-10-27** — [NVIDIA RTX Spark Powers Neural Rendering and AI Characters in Games](https://developer.nvidia.com/blog/nvidia-rtx-spark-powers-neural-rendering-and-ai-characters-in-games/) — NVIDIA launches RTX Spark, a Windows PC platform (Blackwell RTX GPU + Grace CPU, up to 128GB unified memory) for slim laptops/desktops, with DLSS 5 neural rendering and an on-device Nemotron 3.5 Bolt model for AI game characters.

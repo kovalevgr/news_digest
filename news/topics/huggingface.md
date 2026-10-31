@@ -5,13 +5,14 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-10-30
+updated: 2026-10-31
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W44
 
+- **2026-10-30** — [nemotron-halloween (MonsterHouse)](https://huggingface.co/blog/nvidia/nemotron-halloween) — NVIDIA-affiliated author publishes "MonsterHouse," an interactive Halloween character built entirely on NVIDIA Nemotron open models (ASR, LLM+LoRA, TTS, Audio2Face-3D), running on two local GPUs with 1.70s median response latency.
 - **2026-10-29** — [Granite Switch 4.1.1 — Update models like you update software](https://huggingface.co/blog/ibm-granite/granite-switch-4-1-1) — IBM ships a backwards-compatible Granite Switch patch retraining only the ASR speech model and the Decision adapter, leaving the base model unchanged.
 - **2026-10-27** — [Build specialized multimodal models with LFM3](https://huggingface.co/blog/LiquidAI/lfm3) — Liquid AI releases LFM3, a new ~2B-parameter model family (text, vision, audio, omni, decision variants) sharing one backbone, with reported gains over LFM2.5 across WebArena, 62 vision benchmarks, speech quality, and audio-visual video tasks.
 - **2026-10-27** — [Can we trust LLMs to judge whether a research idea is novel?](https://huggingface.co/blog/allenai/novelty-bench) — Ai2 publishes a benchmark of ICLR 2026 peer-review novelty judgments testing six LLM judges, finding verdicts highly unstable to prompt wording and purpose-built novelty evaluators underperforming a simple Claude Opus 4.6 baseline at a fraction of the cost.

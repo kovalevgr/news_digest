@@ -5,12 +5,14 @@ aliases:
   - Copilot
 sources:
   - https://www.microsoft.com/en-us/research/feed/
-updated: 2026-10-30
+updated: 2026-10-31
 ---
 
 MOC page for **Microsoft** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W44
+
+- **2026-10-30** — [From synthetic enterprise data evaluations to real Microsoft Copilot AI confidence](https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence/) — Microsoft Research describes its Industry Evaluation Data Generation Platform, building synthetic enterprise "tenants" to evaluate Copilot without real customer data, reporting a 39% quality-score improvement and ~$300K project savings.
 
 (Research Focus Edition #97 podcast roundup dropped — not a standalone announcement, see run-log 2026-10-30.)
 

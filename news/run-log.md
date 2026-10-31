@@ -6221,3 +6221,33 @@ Totals: **50 raw candidates → 14 confirmed** (1 practitioner-blogs, 13 communi
 **Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 14 confirmed items are fully written to their radar files (`practitioner-blogs.md` +1, `community.md` +13) — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This is now the **ONE HUNDRED AND FIFTY-NINTH** consecutive Linear-affected run since 2026-08-24 (over 9.5 weeks) — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session. The deep-dive routine remains fully blocked without a review queue to draw `hot` cards from.
 
 Commit: `news: radar run 2026-10-31 (+14 items, 3 highlights, Linear unavailable)`.
+
+## 2026-10-31 06:0x UTC — daily — ok (Linear unavailable)
+
+**Git check — clean.** `git status` showed a clean tree with `HEAD` detached at `4c10030` (this morning's radar-run commit) matching `origin/main`; local `main` was 1 commit behind. `git checkout main && git merge --ff-only origin/main` fast-forwarded local `main` and re-attached HEAD before any writes — no stash needed, no lost work.
+
+`fetch_feeds.py` ran clean (exit 0). Window since `2026-10-30T04:01:54Z` (26h default). **microsoft, nvidia, huggingface** had TIER-1 hits; the other 8 companies had zero fresh TIER-1 candidates, triggering one gap-scrape/fallback attempt each.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (0 fresh) → WebSearch | 0 | websearch | no confirmable `openai.com` post in-window; search returned only third-party/secondary coverage (GPT-6 rollout claims, funding roundups), nothing primary-sourced for Oct 30-31 |
+| anthropic | fetch (0 fresh — N/A, no rss) → WebFetch `anthropic.com/news` | 0 | fetch | newest item (AI for Science expansion, Oct 28) already on file; nothing dated Oct 29-31 |
+| google-deepmind | rss (0 fresh) → WebSearch | 0 | websearch | no deepmind.google post confirmed in-window; search returned only older/unrelated secondary coverage |
+| google-research | rss (0 fresh) → WebSearch | 0 | websearch | no research.google post confirmed in-window; search returned nothing from the official blog past the already-filed Oct 27 item |
+| microsoft | rss (**1 fresh**) | **1 new** | — | "From synthetic enterprise data evaluations to real Microsoft Copilot AI confidence" (2026-10-30) — confirmed via WebFetch: a genuine new post (Industry Evaluation Data Generation Platform), not a roundup |
+| nvidia | rss (**4 fresh**) | **2 new** (2 dropped) | — | kept: "Build Specialized Agents on a Stack You Control with NVIDIA NemoClaw" (new blueprint + LangChain/Hermes integrations) and "How to Check and Configure NVIDIA GPUDirect Storage for Your Platform" (new `gds-diag` OSS tool). Dropped as pure how-to/tutorial content on already-shipped components, not a new announcement (per the nvidia source's "not every tutorial" note): "Build a Validated Kubernetes Runtime for NVIDIA Dynamo" (deployment docs for existing Dynamo 1.4.2/AICR) and "Run AI Models for Edge Application Development with Just a Few Commands" (trtedge tutorial on existing Nemotron 3.5 Lightning + TensorRT Edge-LLM) |
+| xai | jina (200, anonymous) | 0 | jina | listing unchanged since yesterday — newest item still "Grok Bot for Sales" (Oct 27), already on file |
+| mistral | rss (0 fresh) → WebSearch | 0 | websearch | no confirmable `mistral.ai` post in-window; search surfaced only older (early-Oct/Sept) funding and model-preview coverage |
+| huggingface | rss (**1 fresh**) | **1 new** | — | "nemotron-halloween" (MonsterHouse, 2026-10-30) — NVIDIA-affiliated author's interactive Halloween-character demo built on Nemotron open models; confirmed via WebFetch as genuine (not an ad/hiring post) |
+| cursor | rss (0 fresh) → WebSearch | 0 | websearch | third-party aggregators show nothing newer than Oct 16; no primary-source cursor.com/changelog entry confirmed in-window |
+| perplexity | jina (200, anonymous) | 0 | jina | blog listing unchanged since yesterday — newest items still FedRAMP (Oct 28) and the teacher/student post (Oct 21), both already on file |
+
+Totals: 11/11 companies searched, **+4 items / 3 companies fresh this-window** (microsoft, nvidia, huggingface). No cross-company duplicates. 2 NVIDIA items dropped as tutorial/how-to content per the source's volume-filter note. Artifacts written: `2026-10-30-microsoft-synthetic-enterprise-copilot-eval.md`, `2026-10-30-nvidia-nemoclaw.md`, `2026-10-30-nvidia-gds-diag.md`, `2026-10-30-huggingface-nemotron-monsterhouse.md`.
+
+**Intended Linear priorities** (per the rubric, for when the connector recovers): Medium(3) — NVIDIA NemoClaw (product/infra, new agent-stack blueprint), Microsoft synthetic-enterprise-eval platform (infra/research). Low(4) — NVIDIA gds-diag (infra, a diagnostic utility), Hugging Face MonsterHouse (product demo, Halloween novelty with real technical substance but low broad relevance).
+
+**Headline of the run:** A quiet day — no model/product launches confirmed anywhere in-window; the most substantive items are NVIDIA's NemoClaw agent-stack blueprints (pairing existing harnesses with Nemotron + a secure runtime) and a new open-source `gds-diag` diagnostic tool.
+
+**Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 4 confirmed items are fully written to `topics/` + artifacts — no data lost, only the Linear "News digest" cards are behind (microsoft, nvidia x2, huggingface). This is now the **ONE HUNDRED AND SIXTIETH** consecutive Linear-affected run since 2026-08-24 (over 9.5 weeks) — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-10-31 (+4 items, 3 companies fresh, Linear unavailable)`.
