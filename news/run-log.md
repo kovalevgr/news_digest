@@ -6287,6 +6287,34 @@ Totals: **47 raw candidates → 14 confirmed** (all community), **3 highlights**
 - **Transport-blocked, no content to evaluate:** `Let's Build a Brain` (lobsters) — `aatishb.com` is outside this cloud env's allowed network domains (WebFetch failed DNS resolution); dropped rather than kept on the title alone, since (unlike recent similarly-blocked HN entries) there was no self-text or listing engagement signal to anchor a "kept, unconfirmed" line on.
 - **Redundancy / volume-budget cut (real content, cut to avoid padding an already-full "runs on my hardware" day):** `Just finished my humble MoE-Centric Workstation` (a parts list with no benchmark numbers, thin next to today's Betelgeuse/Lawyer-GPU entries).
 
+## 2026-11-01 06:0x UTC — daily — ok (Linear unavailable)
+
+**Git check — clean.** `git status` showed a clean tree with `HEAD` detached at `23ba327` (this morning's radar-run commit), 3 commits behind `origin/main` (merged radar-run commit plus the 10-31 daily-run commit's late-arriving artifacts). `git checkout main && git merge --ff-only origin/main` fast-forwarded local `main` to `origin/main` and re-attached HEAD before any writes — no stash needed, no lost work.
+
+`fetch_feeds.py` ran clean (exit 0). Window since `2026-10-31T04:01:55Z` (26h default — the last successful daily entry). All 11 companies reported zero fresh TIER-1 candidates, triggering one gap-scrape/fallback attempt each — **google-deepmind**'s feed flagged `TRAP/not-a-feed` this run (unusual; previously fine) and **huggingface**'s feed returned `HTTP 429`; **nvidia** and **mistral** returned `304 not modified` (cursor match, no new entries); the rest had no feed-level error, just nothing new.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (0 fresh) → WebSearch | 0 | websearch | no confirmable `openai.com` post in-window; search returned only older campaign/history coverage |
+| anthropic | fetch → WebFetch `anthropic.com/news` | 0 | fetch | newest item still "AI for Science expands..." (Oct 28, already on file); nothing dated Oct 29–Nov 1 |
+| google-deepmind | rss (0 fresh, `TRAP/not-a-feed`) → WebSearch | 0 | websearch | `deepmind.google/blog/rss.xml` flagged as a content-type trap this run; WebSearch surfaced no in-window post, only old/third-party coverage |
+| google-research | rss (0 fresh) → WebSearch | 0 | websearch | no `research.google` post confirmed in-window; search returned only stale archive pages |
+| microsoft | rss (0 fresh) → WebSearch | 0 | websearch | no new in-window MS Research blog post confirmed; search returned only evergreen/archive pages |
+| nvidia | rss (0 fresh, 304 not modified) → WebSearch | 0 | websearch | feed unchanged since last run; no in-window developer-blog post confirmed via search |
+| xai | jina (200, anonymous) | 0 | jina | listing unchanged since yesterday — newest item still "Grok Bot for Sales" (Oct 27), already on file |
+| mistral | rss (0 fresh, 304 not modified) → WebSearch | 0 | websearch | feed unchanged; no in-window post confirmed, newest surfaced item (Mistral Large 4 preview) predates window (~Oct 6) |
+| huggingface | rss (HTTP 429) → WebSearch | 0 | websearch | feed rate-limited this run; no in-window `huggingface.co/blog` post confirmed via search |
+| cursor | rss (0 fresh) → WebSearch | 0 | websearch | no in-window `cursor.com/changelog` entry confirmed; newest third-party-tracked entry (Oct 16) predates window |
+| perplexity | jina (403 AbuseAlleviation, no `JINA_API_KEY`) → WebSearch | 0 | websearch | no in-window `perplexity.ai/hub/blog` post confirmed; newest surfaced item (GPT-5.5 default) predates window (~Apr 2026) |
+
+Totals: 11/11 companies searched, **0 items / 0 companies fresh this-window**. No cross-company duplicates (nothing to dedup). No artifacts written.
+
+**Headline of the run:** A fully quiet day — no company confirmed an in-window announcement anywhere, the first zero-item daily run in recent memory. Two feed-level anomalies worth a later look: `google-deepmind`'s rss now classifies as `TRAP/not-a-feed` (previously a working feed — the page may have changed content-type or started serving HTML), and `huggingface` hit a 429 (transient rate-limit, not a trap).
+
+**Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools are loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). Moot this run regardless — zero confirmed items, nothing to card. This is now the **ONE HUNDRED AND SIXTY-FIRST** consecutive Linear-affected run since 2026-08-24 (over 9.5 weeks) — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-11-01 (+0 items, 0 companies fresh, Linear unavailable)`.
+
 **VERIFY SUBSTANCE** (2 of 5-candidate cap used as dedicated fetches; 3 more judged sufficiently verified via self-text already captured by the fetcher): **bootgpt** (`git clone`, github.com WebFetch-blocked) — confirmed real: `boot.asm`, `train.py` and `corpus_gen.py` present, README spells out the exact int8/power-of-two-scale design and the Python/boot-sector output-matching claim. **expo/skills** (`git clone`) — confirmed real: official Expo README, MIT license, Claude Code/Codex plugin install paths. **Lawyer with too many GPUs pt.3**, **Betelgeuse** (both posts) and **Is your engine lobotomizing your model?** were read on their own self-text already present in the `fetch_radar.py` output (per the workflow's reddit-transport fallback) — all three carry concrete numbers/methodology, not just a title. One attempted fetch outside the cap failed outright: `aatishb.com` (lobsters) — domain not in this env's allowlist, no fallback available, dropped (see above).
 
 **Highlights: 3** (of 3 max) — Lawyer with too many GPUs pt.3 (hardest numbers + full published stack/data of the day), Betelgeuse (transparent, self-correcting "runs on my hardware" benchmark series), Is your engine lobotomizing your model? (rare methodologically explicit test of a recurring community claim).
