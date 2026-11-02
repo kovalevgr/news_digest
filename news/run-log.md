@@ -6418,3 +6418,15 @@ Totals: 11/11 companies searched, **0 items / 0 companies fresh this-window**. N
 **Linear: UNAVAILABLE this run** — `ToolSearch` finds no Linear tools loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). Moot this run regardless — zero confirmed items, nothing to card. This has now run since 2026-08-24 — over 10 weeks consecutive — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: daily run 2026-11-02 (+0 items, 0 companies fresh, Linear unavailable)`.
+
+## 2026-11-02 07:1x UTC — deep dive — blocked (Linear unavailable, no input)
+
+Step 1 PICK could not run: the deep dive's ONLY entry point is `hot`-labelled cards in Linear project "Radar" (status "Ready to Review", fallback Todo), and **Linear is UNAVAILABLE this run — the MCP server requires re-authorization and ToolSearch confirms no Linear tools are loadable; a non-interactive scheduled session cannot run the OAuth flow.** With the review queue unreadable, there is no way to know which items the owner approved; no substitute selection was made (picking cards by own judgement would bypass the owner-approval gate). Cards processed: 0. Files written: none (`radar/deep/` still holds only `TEMPLATE.md`). Leftovers: unknown — cannot be enumerated without Linear.
+
+**Git check — clean.** Session started with `HEAD` detached at `9fdf144` (this morning's daily-run commit), exactly level with `origin/main` after `git fetch origin main`. `git checkout -B main origin/main` re-attached `main` with no divergence — no stash needed, no lost work.
+
+This is the **TWENTIETH** consecutive deep-dive run fully blocked (the overall Linear-affected run count since 2026-08-24 — now over 70 days, a full 10 weeks — is left unasserted per the W44 digest's note that the ordinal drifted) — the deep-dive routine has produced ZERO deep dives since going live: the daily radar runs cannot create review-queue cards, so the owner cannot label anything `hot`, so this routine has no input — the pipeline's final stage is starved end-to-end. Radar collection itself remains healthy (this morning's 05:00 radar run added +15 items with 3 highlights: GDPx, Heretic 2.0, lightpanda-io/browser), so the moment Linear is reconnected the queue can be backfilled from the radar files and the next Mon/Thu run picks up any `hot` backlog automatically (up to 3 cards per run, oldest first).
+
+Owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: deep dive 2026-11-02 (0 cards, Linear unavailable)`.
