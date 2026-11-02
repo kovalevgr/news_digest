@@ -6390,3 +6390,31 @@ Totals: **53 raw candidates → 15 confirmed**, **3 highlights** (of 3 max). An 
 **Linear: UNAVAILABLE this run** — `ToolSearch` finds no Linear tools loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 15 confirmed items are fully written to their radar files — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This has now run since 2026-08-24 — **over 70 days, a full 10 weeks** (exact consecutive-run ordinal left unasserted per the W44 digest's note that the count drifted) — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session. The deep-dive routine remains fully blocked without a review queue to draw `hot` cards from.
 
 Commit: `news: radar run 2026-11-02 (+15 items, 3 highlights, Linear unavailable)`.
+
+## 2026-11-02 06:0x UTC — daily — ok (Linear unavailable)
+
+**Git check — clean.** `git status` showed a clean tree with `HEAD` detached at `88c52da` (this morning's radar-run commit), exactly level with `origin/main` after `git fetch origin main`. `git checkout -B main origin/main` re-attached `main` to that commit with no divergence to resolve — no stash needed, no lost work.
+
+`fetch_feeds.py` ran clean (exit 0). Window since `2026-11-01T04:02:19Z` (the script's own cursor state). All 11 companies reported zero fresh TIER-1 candidates, triggering one gap-scrape/fallback attempt each — **google-deepmind**'s feed again flagged `TRAP/not-a-feed` (second consecutive day); **nvidia**, **mistral**, and **huggingface** returned `304 not modified` (cursor match, no new entries); the rest had no feed-level error, just nothing new.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (0 fresh) → WebSearch | 0 | websearch | no confirmable `openai.com/news` post in-window; search returned only speculative/third-party coverage, nothing dated Nov 1-2 |
+| anthropic | fetch → WebFetch `anthropic.com/news` | 0 | fetch | newest item still "AI for Science expands..." (Oct 28, already on file); nothing dated Oct 29–Nov 2 |
+| google-deepmind | rss (0 fresh, `TRAP/not-a-feed`) → WebSearch | 0 | websearch | feed still flagged as a content-type trap; WebSearch surfaced no in-window post, only Sept/Aug archive items |
+| google-research | rss (0 fresh) → WebSearch | 0 | websearch | no `research.google` post confirmed in-window; search returned only stale archive pages (2006/2009) |
+| microsoft | rss (0 fresh) → WebSearch | 0 | websearch | no new in-window MS Research blog post confirmed; search surfaced only May/April conference pages |
+| nvidia | rss (0 fresh, 304 not modified) → WebSearch | 0 | websearch | feed unchanged since last run; no in-window developer-blog post confirmed via search (newest found: June 2026) |
+| xai | jina (200, anonymous) | 0 | jina | listing unchanged since yesterday; newest page item "Introducing Grok Voice 3.0" (Oct 14) already on file in `topics/xai.md`, nothing newer |
+| mistral | rss (0 fresh, 304 not modified) → WebSearch | 0 | websearch | feed unchanged; no in-window post confirmed, search surfaced only the Oct 29 Mistral Large 4 release (predates window, already on file) |
+| huggingface | rss (0 fresh, 304 not modified) → WebSearch | 0 | websearch | feed unchanged; no in-window `huggingface.co/blog` post confirmed via search |
+| cursor | rss (0 fresh) → WebSearch | 0 | websearch | no in-window `cursor.com/changelog` entry confirmed; newest third-party-tracked entry (Oct 13) predates window |
+| perplexity | jina (403 AbuseAlleviation, no `JINA_API_KEY`) → WebSearch | 0 | websearch | no in-window `perplexity.ai/hub/blog` post confirmed; search surfaced only August/September coverage |
+
+Totals: 11/11 companies searched, **0 items / 0 companies fresh this-window**. No cross-company duplicates (nothing to dedup). No artifacts written.
+
+**Headline of the run:** Second fully quiet daily run in a row (after 2026-11-01) — no company confirmed an in-window announcement anywhere. `google-deepmind`'s `TRAP/not-a-feed` flag persisted from yesterday, now a two-day pattern worth a later source-config look rather than a one-off anomaly.
+
+**Linear: UNAVAILABLE this run** — `ToolSearch` finds no Linear tools loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). Moot this run regardless — zero confirmed items, nothing to card. This has now run since 2026-08-24 — over 10 weeks consecutive — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-11-02 (+0 items, 0 companies fresh, Linear unavailable)`.
