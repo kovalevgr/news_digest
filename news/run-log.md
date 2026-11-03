@@ -6430,3 +6430,42 @@ This is the **TWENTIETH** consecutive deep-dive run fully blocked (the overall L
 Owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: deep dive 2026-11-02 (0 cards, Linear unavailable)`.
+
+## 2026-11-03 05:0x UTC — radar — ok (Linear unavailable)
+
+**Git check — clean.** Session started with `HEAD` detached at `0bf6b7d` (yesterday's deep-dive commit), exactly level with `origin/main` after `git fetch origin main`. `git checkout -B main origin/main` re-attached `main` with no divergence — no stash needed, no lost work.
+
+`fetch_radar.py` ran clean (exit 0, window since `2026-11-02T03:03:24Z`). 52 sources attempted.
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | — |
+| inference-infra | 0 | 0 | — |
+| oss-ml-systems | 2 | 2 | eleuther (HTTP 404) |
+| bigtech-eng | 0 | 0 | — |
+| research-institutes | 1 | 0 | — |
+| technical-newsletters | 0 | 0 | — |
+| practitioner-blogs | 1 | 1 | latent-space (URL error: tunnel 403 Forbidden) |
+| community | 20 | 4 | — |
+| youtube | 0 | 0 | all 7 channel feeds 404 (ai-engineer, gpu-mode, karpathy, latent-space, mlst, sentdex, umar-jamil) |
+| mistral-watch | 0 | 0 | — |
+
+Totals: **24 raw candidates → 7 confirmed**, **3 highlights** (of 3 max). `reddit` itself 429'd this run (the whole combined `r/LocalLLaMA+LLMDevs` feed, not a single-subreddit hit as on some past days) — zero reddit candidates, a first for this file in recent weeks. `state/radar-cursors.json` shows `last_run` advancing normally for every zero-item category, consistent with "a silent radar source today just means no items today."
+
+**Notable regression — YouTube.** All 7 configured channel-ID feeds 404'd today, including `yt-gpu-mode`, which the 2026-11-02 run-log explicitly flagged as "the only live channel." Zero YouTube candidates two days running now (quiet on 11-02, fully dead on 11-03) — worth a source-config look if this persists, but per the workflow's own failure-mode table a quiet/dead radar source gets logged and passed over, no fallback ladder.
+
+**TRIAGE — dedup.** `facebook/sam3` resurfaced in today's `hf-trending-models` listing — same URL already covered 2026-10-31 (`community.md`, LOW fit, out of highlight consideration) — dropped as a repeat, not re-litigated.
+
+**TRIAGE — dropped, with reasons:**
+- **Off-topic / no-AI / false query match (all `hn-show-*` categories, 6 unique titles across the 3 overlapping queries):** `Show HN: Subvocal – Talk to your computer without making noise` (silent-speech wearable hardware demo — consumer-gadget Show HN, not an engineering/technique post), `Show HN: HackerHack` (author's own words: "No AI used for this btw"), `Show HN: Wikihack` (no AI, a Karpathy-inspired scrape-and-rank toy), `Show HN: OmniDiff` (Rust git difftool, no AI content), `Show HN: Warsaw in voxels` (3D city-map toy, no AI, false-matched the `mcp` query the same way "BBRouter" did on 11-02), `Show HN: HackerBooks` (a Claude-Code-built HN-mentions-of-books site — notable as a "built entirely by Claude" story, but a thin vibe-coded demo site, not a technique or release; dropped as consumer-app/off-topic per the workflow's own Show-HN drop criterion).
+- **Thin / no description (HF trending, off-lane):** `Edge0/Audio8-TTS-Realistic-Air` (TTS, no description beyond the model card), `FusionCow/Sulphur-3` (no description, unclear model type), `Pika-Labs/pika-h3-flex` (video-gen space, no description), `aaaa33311/wan2-2-fp8da-aoti-preview-2c-finishing` (video-gen variant, throwaway-looking account/repo name, no description), `vamo455/Omni-videos-custom-auto_prompt_high-quality` (video-gen space, no description) — all LOW fit per `interests.md` (video generation is an explicit LOW bucket) and too thin to write an honest line beyond the title.
+- **Marketing / case-study, not research (research-institutes, explicit pass-1 drop, not merely low fit):** `How Olmo 3 earned the highest ethical rating from Nextcloud` (allenai.org) — fetched in full: a partner case study (Nextcloud's own "Ethical AI" rating methodology undetailed, no benchmarks, no architecture or training detail) about Olmo 3 7B powering a Nextcloud local-LLM feature; reads as a customer-adoption press piece, not a research or engineering writeup — matches the workflow's "product marketing that survived config filters" drop criterion.
+- **Transport-blocked, no content to evaluate:** none dropped outright this run — the one blocked candidate (`rikiyat.github.io` lobsters post) was kept per the "transport error → keep item, skip highlight" rule since its title alone is a plausible, on-thesis technical claim (see below).
+
+**VERIFY SUBSTANCE** (4 of 5-candidate cap used): **HiCache** (WebFetch, `lmsys.org`) — confirmed real and numbers-dense: hierarchical KV-cache spill extended across context/pipeline parallelism and speculative decoding, concrete before/after cache-hit-rate and TTFT figures from both a controlled benchmark and a named production deployment (Iflytek Astron MaaS). **beenuar/AiSOC** (`git clone`, github.com WebFetch-blocked) — confirmed real: v21.0.0, MIT, 2,966 executable rules from a 7,407-rule library, live CISA KEV integration, auditable per-step agent reasoning, MCP server for Claude/Cursor/Continue per the repo's own description. **cjpais/Handy** (`git clone`) — confirmed real: offline Whisper/Parakeet-V3 speech-to-text desktop app, Silero VAD, cross-platform, Homebrew/winget packaged. **simonwillison census post** (WebFetch) — confirmed real and read in full: a Census Bureau Business Trends and Outlook Survey re-analysis with concrete adoption percentages across three survey waves and an explicit wording-comparability caveat. One ad hoc check outside the formal cap: **kornia/kornia** (title/description only, not cloned — a known, mature CV library with no release signal today, kept as a thin LOW-fit community item). **rikiyat.github.io** (lobsters) — WebFetch and curl both failed: the domain is outside this cloud env's network allowlist (DNS/tunnel refusal, not a site-side error); kept unconfirmed on title alone, out of highlight consideration.
+
+**Highlights: 3** (of 3 max) — **HiCache** (production-validated distributed-serving numbers, direct continuation of this file's SGLang/inference-infra thread), **beenuar/AiSOC** (a substantial, independently-verified agent-harness application in a domain — security triage — this file hasn't covered before, with an MCP server), **cjpais/Handy** (a maintained, genuinely useful local/offline tool squarely in the "runs on my hardware" HIGH bucket, strong `project_post` potential). The Census Bureau post was the strongest runner-up (rigorous, numbers-backed) but its "evals/adoption-stats" angle sits further from the HIGH buckets than the three picked.
+
+**Linear: UNAVAILABLE this run** — `ToolSearch` finds no Linear tools loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 7 confirmed items are fully written to their radar files — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This has now run since 2026-08-24 — well over 10 weeks — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session. The deep-dive routine remains fully blocked without a review queue to draw `hot` cards from.
+
+Commit: `news: radar run 2026-11-03 (+7 items, 3 highlights, Linear unavailable)`.

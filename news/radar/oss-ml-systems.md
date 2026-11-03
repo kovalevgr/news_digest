@@ -1,6 +1,6 @@
 ---
 category: oss-ml-systems
-updated: 2026-10-15
+updated: 2026-11-03
 ---
 
 # Radar: oss-ml-systems
@@ -125,3 +125,5 @@ Appended by the daily routine under weekly headings; format matches topics files
 ## 2026-W45
 
 - **2026-11-02** — [vllm release v0.33.0](https://github.com/vllm-project/vllm/releases/tag/v0.33.0) — Routine vLLM release (tag v0.33.0); no release-note text available at fetch time (github.com WebFetch-blocked; the tag itself confirms the release is real).
+- **2026-11-02** — ⭐ [HiCache Across Multi-Parallelism and Distributed Serving](https://lmsys.org/blog/2026-11-02-hicache-distributed-serving) — Verified via WebFetch: SGLang's HiCache hierarchical KV-cache (GPU→host→external-storage prefix-cache spill) extended across context parallelism, pipeline parallelism, speculative decoding, and prefill/decode disaggregation, plus a new unified KV layout (chunked by layer/head-group) letting differently-configured deployments share cached objects, and a `rank_consensus_checker` debugging tool. Numbers: a GLM-5.2-NVFP4 context-parallel benchmark (TP4/CP4, EAGLE MTP, ~24.5K requests over 3 hours) lifted the GPU cache-hit rate 42.83%→83.31% (combined ~93%), cut host-served tokens 81.2%, cut mean prefill queue time 56.2%; a GLM-5.2-FP8 prefill/decode benchmark (8×B300/worker, 32 concurrent conversations up to 160K context) cut average TTFT 25.4% (2.07s→1.54s, median −60.3%); a production case (Iflytek Astron MaaS) raised cache-hit rate ~30%→95% with median TTFT under 3s on 30K–200K-token inputs. Direct hit on "local/self-hosted models: inference engines" — a numbers-dense, production-validated serving writeup continuing this file's SGLang/HiCache thread (first covered 2026-08-12).
+- **2026-11-02** — [Announcing the Special Interest Group (SIG) for Ray on Accelerators](https://pytorch.org/blog/announcing-the-special-interest-group-sig-for-ray-on-accelerators/) — Not independently verified beyond the feed's own summary this run: PyTorch announces a new SIG for Ray on hardware accelerators. LOW fit — a governance/community-formation announcement, no technical content yet; out of highlight consideration.
