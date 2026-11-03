@@ -4,10 +4,14 @@ aliases:
   - Grok
 sources:
   - https://x.ai/news
-updated: 2026-10-27
+updated: 2026-11-03
 ---
 
 MOC page for **xAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W45
+
+- **2026-11-02** — [Giving every team a data scientist with Grok Bot](https://x.ai/news/data-bot) — xAI's SpaceXSI introduces Data Bot, a Team Bot in Grok Bot trained on its data science team's workflows — queries the warehouse, runs analyses, and answers in Slack via shared skills and memory. Found via gap-scrape (Jina — x.ai is DNS-blocked for direct WebFetch).
 
 ## 2026-W44
 

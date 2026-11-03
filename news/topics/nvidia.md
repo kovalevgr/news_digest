@@ -4,10 +4,18 @@ aliases:
   - Nvidia
 sources:
   - https://developer.nvidia.com/blog/feed
-updated: 2026-10-31
+updated: 2026-11-03
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W45
+
+- **2026-11-02** — [Diagnose Distributed AI Workload Failures with NVIDIA Attribution](https://developer.nvidia.com/blog/diagnose-distributed-ai-workload-failures-with-nvidia-attribution/) — NVIDIA open-sources Attribution, a deterministic-rules root-cause diagnosis system for distributed AI workload failures, already analyzing millions of workloads weekly in production.
+- **2026-11-02** — [Keep Distributed Training Running with Automated Workload Recovery](https://developer.nvidia.com/blog/keep-distributed-training-running-with-automated-workload-recovery/) — NVIDIA releases Recovery, an open-source DSX OS service that auto-detects and restarts failed distributed training jobs from their last checkpoint; a production run logged ~8,550 anomaly detections in 3 months.
+- **2026-11-02** — [Support New AI Frameworks Faster Using NVIDIA Workload Map](https://developer.nvidia.com/blog/support-new-ai-frameworks-faster-using-nvidia-workload-map/) — NVIDIA open-sources Workload Map (formerly "Karta"), a Kubernetes CRD + Go library describing distributed AI workload structure in a common format, already used in production inside NVIDIA Run:ai.
+- **2026-11-02** — [Making Kubernetes AI-Ready for NVIDIA Vera Rubin on Day One](https://developer.nvidia.com/blog/making-kubernetes-ai-ready-for-nvidia-vera-rubin-on-day-one/) — NVIDIA adds a Preview family of Vera Rubin NVL72 recipes to AI Cluster Runtime (AICR) v1.0.0 for early hardware access.
+- **2026-11-02** — [Build World Models for Interactive Simulation with NVIDIA Cosmos](https://developer.nvidia.com/blog/build-world-models-for-interactive-simulation-with-nvidia-cosmos/) — NVIDIA adds new Cosmos 3 Nano simulation recipes/checkpoints (autonomous driving, robotics, surgical), RL-pipeline support, and a new Cosmos NIM package.
 
 ## 2026-W44
 

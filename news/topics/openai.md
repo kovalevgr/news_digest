@@ -4,10 +4,15 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-10-26
+updated: 2026-11-03
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W45
+
+- **2026-11-02** — [Scaling Git at OpenAI](https://openai.com/index/scaling-git-at-openai) — OpenAI built Pando, a new horizontally-scalable, Git-compatible backend now powering all of its monorepo development, cutting median push latency by nearly 5x.
+- **2026-11-02** — [LifeVal](https://openai.com/index/lifeval) — OpenAI introduces LifeVal, a benchmark tracking ChatGPT's performance on everyday personal-assistant tasks (childcare, government paperwork, finances) built from time-use survey data.
 
 ## 2026-W44
 
