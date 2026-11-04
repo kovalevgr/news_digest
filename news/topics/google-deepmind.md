@@ -5,10 +5,14 @@ aliases:
   - Gemini
 sources:
   - https://deepmind.google/blog/rss.xml
-updated: 2026-10-27
+updated: 2026-11-04
 ---
 
 MOC page for **Google DeepMind** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W45
+
+- **2026-11-03** — [Agentic cheminformatics with Google Antigravity](https://deepmind.google/blog/agentic-cheminformatics-with-google-antigravity/) — Google DeepMind introduces Cheminformatics Skills for Google Antigravity, demoed on a lung-cancer kinase-inhibitor drug-discovery workflow, with free access for 10,000 scientists for six months.
 
 ## 2026-W44
 

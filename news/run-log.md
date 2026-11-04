@@ -6536,3 +6536,33 @@ Totals: **57 raw candidates → 14 confirmed**, **3 highlights** (of 3 max). `st
 **Linear: UNAVAILABLE this run** — `ToolSearch` finds no Linear tools loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 14 confirmed items are fully written to their radar files — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This has now run since 2026-08-24 — well over 10 weeks — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session. The deep-dive routine remains fully blocked without a review queue to draw `hot` cards from.
 
 Commit: `news: radar run 2026-11-04 (+14 items, 3 highlights, Linear unavailable)`.
+
+## 2026-11-04 06:0x UTC — daily — ok (Linear unavailable)
+
+**Git check — clean.** `git status` showed a clean tree with `HEAD` detached at `e42ac63` (this morning's radar-run commit), exactly level with `origin/main` after `git fetch origin main`. `git checkout -B main origin/main` re-attached `main` with no divergence — no stash needed, no lost work.
+
+`fetch_feeds.py` ran clean (exit 0). Window since `2026-11-03T04:02:21Z` (26h default). **openai, google-deepmind, microsoft, huggingface** had TIER-1 hits; the other 7 companies had zero fresh TIER-1 candidates, triggering one gap-scrape/fallback attempt each.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (**1 fresh**) | **1 new** | — | confirmed via Jina (direct WebFetch 403'd — one retry per the failure-mode table): "Accelerating engineering for the physical world" (Codex/ChatGPT/GPT‑6 Astra for physical-product engineering; new BenchCAD 2.0 benchmark) |
+| anthropic | fetch (0 fresh — N/A, no rss) → WebFetch `anthropic.com/news` | 0 | fetch | newest item on the page is still the Oct 28 AI-for-Science post, already on file; nothing dated Oct 29 – Nov 4 |
+| google-deepmind | rss (**1 fresh**) | **1 new** | — | confirmed via WebFetch: "Agentic cheminformatics with Google Antigravity" (new Cheminformatics Skills, drug-discovery demo, free access for 10,000 scientists) |
+| google-research | rss (0 fresh) → WebSearch | 0 | websearch | no research.google post confirmed in-window; search surfaced nothing dated November 2026 |
+| microsoft | rss (1 fresh, **dropped**) | 0 | — | "Learn the rules: The hacker mindset" — fetched in full: a Microsoft Research Podcast career-profile interview (Mike Walker), not a product/research announcement; dropped per the workflow's own announcement-only criterion (same pattern as the 2026-10-30 podcast-roundup drop) |
+| nvidia | rss (0 fresh) → WebSearch | 0 | websearch | no developer.nvidia.com/blog post confirmed in-window; search surfaced only older GTC Berlin (Oct 21) coverage |
+| xai | jina (200, anonymous) → confirmed nothing new | 0 | jina | page lists only already-filed items (Data Bot, Nov 2) and older (Grok Voice 3.0, Oct 14); nothing newer |
+| mistral | rss (0 fresh, 304 not-modified) → WebSearch | 0 | websearch | feed itself reported no new content; WebSearch surfaced nothing newer than the already-filed Oct 29 Mistral Large 4 release |
+| huggingface | rss (**2 fresh**) | **2 new** | — | both confirmed via WebFetch (empty RSS summaries, fetched in full): "StateBench" (Ai2, four-level entity-state-tracking benchmark; frontier models ≤13% on the hardest/longest tasks) and "Palette" (IBM Research, fine-tuned 20B LoRA deck-building model, near-frontier on PresentBench) |
+| cursor | rss (0 fresh) → WebSearch | 0 | websearch | no primary-source cursor.com/changelog entry confirmed in-window; third-party trackers show nothing past mid-October |
+| perplexity | jina (**403 AbuseAlleviation, anonymous**) → WebSearch | 0 | websearch | anonymous Jina blocked on `www.perplexity.ai` until 07:02 UTC today (same abuse-flag pattern as 2026-11-03); WebSearch surfaced nothing dated November 2026 |
+
+Totals: 11/11 companies searched, **+4 items / 3 companies fresh this-window** (openai, google-deepmind, huggingface). No cross-company duplicates. Artifacts written: `2026-11-03-openai-physical-engineering.md`, `2026-11-03-google-deepmind-antigravity-cheminformatics.md`, `2026-11-03-huggingface-statebench.md`, `2026-11-03-huggingface-palette.md`.
+
+**Intended Linear priorities** (per the rubric, for when the connector recovers): Medium(3) — OpenAI physical-engineering (engineering, new benchmark + capability showcase), Google DeepMind Antigravity cheminformatics (product, new agentic-science capability + 10K-scientist access program), HF StateBench (research, new benchmark with a striking frontier-model failure mode), HF Palette (research/product, new open-weight specialized model near frontier quality).
+
+**Headline of the run:** A moderate day after yesterday's NVIDIA-heavy run — OpenAI and Google DeepMind each shipped a "models doing real engineering/science work" story (physical-product CAD/PCB design with a new BenchCAD 2.0 benchmark; agentic cheminformatics with a concrete drug-discovery demo and a 10,000-scientist free-access program), while Hugging Face carried two independently notable research posts (Ai2's StateBench, exposing a sharp frontier-model weakness in long-horizon state tracking; IBM's Palette, a small open-weight model reaching near-frontier deck-design quality). One Microsoft candidate was confirmed and dropped as a podcast/career-profile piece rather than an announcement — the second such drop in a week, suggesting the Microsoft Research feed mixes in podcast episodes fairly often.
+
+**Linear: UNAVAILABLE this run** — `ToolSearch` finds no Linear tools loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 4 confirmed items are fully written to `topics/` + artifacts — no data lost, only the Linear "News digest" cards are behind. This is now well over 10 weeks of consecutive Linear-affected runs since 2026-08-24 — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-11-04 (+4 items, 3 companies fresh, Linear unavailable)`.

@@ -5,10 +5,15 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-10-31
+updated: 2026-11-04
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W45
+
+- **2026-11-03** — [StateBench: Testing how language models track state changes over long documents](https://huggingface.co/blog/allenai/statebench) — Ai2 publishes StateBench, a four-level benchmark (grounded in Krohn-Rhodes theory) for entity-state tracking; frontier models drop to ≤13% accuracy on the hardest, longest tasks.
+- **2026-11-03** — [Palette: teaching a small model to build decks in your design language](https://huggingface.co/blog/ibm-research/palette-deck-building) — IBM Research releases Palette, a fine-tuned open-weight 20B LoRA model building slide decks via a designer/coder pipeline, reaching near-frontier quality on PresentBench while staying on local infrastructure.
 
 ## 2026-W44
 

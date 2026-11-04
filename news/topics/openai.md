@@ -4,13 +4,14 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-11-03
+updated: 2026-11-04
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W45
 
+- **2026-11-03** — [Accelerating engineering for the physical world](https://openai.com/index/accelerating-engineering-for-the-physical-world) — OpenAI shares advances in using Codex/ChatGPT/GPT-6 Astra for physical-product engineering (CAD, PCB, simulation) and introduces BenchCAD 2.0, a 3D-reconstruction/circuit benchmark.
 - **2026-11-02** — [Scaling Git at OpenAI](https://openai.com/index/scaling-git-at-openai) — OpenAI built Pando, a new horizontally-scalable, Git-compatible backend now powering all of its monorepo development, cutting median push latency by nearly 5x.
 - **2026-11-02** — [LifeVal](https://openai.com/index/lifeval) — OpenAI introduces LifeVal, a benchmark tracking ChatGPT's performance on everyday personal-assistant tasks (childcare, government paperwork, finances) built from time-use survey data.
 
