@@ -1,6 +1,6 @@
 ---
 category: bigtech-eng
-updated: 2026-10-15
+updated: 2026-11-05
 ---
 
 # Radar: bigtech-eng
@@ -73,3 +73,7 @@ Appended by the daily routine under weekly headings; format matches topics files
 
 - **2026-10-26** — [Making Failure Diagnosis Reliable with Pensive AI](https://netflixtechblog.com/making-failure-diagnosis-reliable-with-pensive-ai-6b0811a1c015) — Not independently verified beyond the feed's own summary this run (outside the 5-candidate verification cap): a Netflix TechBlog post on an AI-assisted failure-diagnosis system ("Pensive AI") aimed at making incident root-causing more reliable. MEDIUM-HIGH fit — "engineering post-mortems... from big-tech AI systems," direct continuation of Netflix's recurring observability/AI-ops thread (cf. the 2026-10-16 Ontology-Driven Observability highlight); out of highlight consideration, substance beyond the title/summary unconfirmed.
 - **2026-10-26** — [Multi‑Ratio Video Resizing for Mobile Feed and Marketing](https://netflixtechblog.com/multi-ratio-video-resizing-for-mobile-feed-and-marketing-2e6b42810f49) — Not independently verified beyond the feed's own summary this run: a Netflix TechBlog post on resizing video across multiple aspect ratios for mobile feed/marketing surfaces. LOW fit — video/media engineering rather than the owner's core buckets (no stated AI/ML technique in the summary); radar-worthy as a big-tech engineering writeup, out of highlight consideration.
+
+## 2026-W45
+
+- **2026-11-04** — [See the agents, set the terms: new visibility and control for personal agents](https://blog.cloudflare.com/personal-agents-visibility-control/) — Verified via WebFetch: Cloudflare ships new analytics for site owners (a "Personal Assistants" bot-traffic category in Security Analytics, a per-agent request/path/status widget, and an early-access Account Abuse Protection view showing which user account each agent acts for and letting fraud teams scope a WAF rule to one abusive account's hashed ID) plus simplified per-agent access policies (Allow / Block-on-ad-pages / Block) replacing the old blanket Agents toggle. MEDIUM fit — provider-side agent-traffic management adjacent to "engineering post-mortems... from big-tech AI systems" rather than agent-building itself; the post names no APIs, signal formats, or traffic figures, out of highlight consideration.

@@ -6566,3 +6566,40 @@ Totals: 11/11 companies searched, **+4 items / 3 companies fresh this-window** (
 **Linear: UNAVAILABLE this run** — `ToolSearch` finds no Linear tools loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 4 confirmed items are fully written to `topics/` + artifacts — no data lost, only the Linear "News digest" cards are behind. This is now well over 10 weeks of consecutive Linear-affected runs since 2026-08-24 — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: daily run 2026-11-04 (+4 items, 3 companies fresh, Linear unavailable)`.
+
+## 2026-11-05 05:0x UTC — radar — ok (Linear unavailable)
+
+**Git check — clean.** Session started with `HEAD` detached at `2850f9c` (yesterday's daily-run commit), exactly level with `origin/main` after `git fetch origin main`. `git checkout -B main origin/main` re-attached `main` with no divergence — no stash needed, no lost work.
+
+`fetch_radar.py` ran clean (exit 0, window since `2026-11-04T03:03:18Z`). 52 sources attempted.
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | — |
+| inference-infra | 0 | 0 | — |
+| oss-ml-systems | 1 | 0 | eleuther (HTTP 404) |
+| bigtech-eng | 1 | 1 | — |
+| research-institutes | 1 | 1 | — |
+| technical-newsletters | 0 | 0 | — |
+| practitioner-blogs | 1 | 1 | latent-space (URL error: tunnel 403 Forbidden) |
+| community | 29 | 6 | reddit (HTTP 429) |
+| youtube | 0 | 0 | all 7 channel feeds dead (yt-ai-engineer/karpathy/latent-space/mlst/sentdex HTTP 404, yt-gpu-mode/umar-jamil HTTP 500) |
+| mistral-watch | 0 | 0 | — |
+
+Totals: **33 raw candidates → 9 confirmed**, **3 highlights** (of 3 max). `state/radar-cursors.json` advanced normally for every source, including the zero-item ones.
+
+**Notable regression — YouTube, now day five.** All 7 configured channel-ID feeds failed again (5× HTTP 404, 2× HTTP 500 — a new error shape on top of yesterday's all-404 pattern), the fifth straight dead day across every single feed since 2026-11-01. Per the failure-mode table this is a quiet-source situation (no fallback ladder for radar), but the channel-ID→feed-URL scheme itself looks broken rather than seven unrelated per-channel issues — still overdue for an owner-side source-config check.
+
+**TRIAGE — dedup against known HN Show-* drop list.** `Show HN: Kairos – Open-source risk and fraud decisioning platform` resurfaced verbatim across 3 of today's 5 `hn-show-*` queries, same as yesterday — dropped again without re-litigating (self-promotion/product-marketing, not an engineering writeup). `Show HN: Uncracked City` and `Show HN: Remene – Understand your MRI` also resurfaced from yesterday's drop list (consumer game / consumer medical app) — dropped again, same reasoning.
+
+**TRIAGE — new drops, with reasons:** `Show HN: I built a tool that prices a pre-built PC part by part` (pcdealcheck.com — consumer app, pass-1 drop); `Show HN: Codemap – one-page interactive map of any Go repository` (no AI/ML content at all despite surfacing on AI-keyword HN queries — off-topic); `anomalyco/hex` (GitHub trending, local voice dictation) — same niche as `cjpais/Handy`, already confirmed in this file on 2026-11-03 as an offline speech-to-text desktop app; dropped as a same-idea repeat rather than a new finding, also thin on its own (no benchmark/technical depth beyond the product pitch); `floci-io/floci` (GitHub trending, AWS local emulator — not AI at all, same pattern as the 2026-11-01 Hyprland drop); `Usagi-org/ai-goofish-monitor` (GitHub trending — a Chinese e-commerce-listing monitor, niche consumer tool, thin technical content); two `hf-trending-models` entries (`OBLITERATUS/DeepSeek-V4.1-Flash-1017-obliterated`, `DavidAU/Qwen3.8-27B-TURBO-...-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF`) — uncensored/merge-spam finetunes, LOW fit, too thin to write an honest line, consistent with the pattern flagged on prior days; two `hf-trending-spaces` entries (`fendouai/free-ai-humanizer`, `townbox/ava`) — empty summaries, LOW fit, same "nothing to evaluate" pattern as prior days.
+
+**TRIAGE — kept (1 bigtech-eng + 1 research-institutes + 1 practitioner-blogs + 6 community, 3 highlights of 3 max).** ⭐ **Gauge CLI** (verified via `git clone`: a local, Docker-based CLI that runs real coding-agent sessions against your product to find where agents get stuck in docs/Skills/CLIs/MCPs, then lets your own agent test fixes — direct hit on "AI agents in practice: coding agents, agent harnesses"), ⭐ **max-sixty/worktrunk** (verified via `git clone`: a mature Rust CLI making git worktrees as easy as branches, purpose-built for running 5-10+ AI coding agents in parallel — direct hit on "multi-agent orchestration"), ⭐ **spotify/portal-ai-plugins** (verified via `git clone`: Spotify's own internal developer-platform plugin for Claude Code/Codex/Cursor/pi, including a `shunt` companion that routes I/O-heavy agent work to cheaper worker models — direct hit on "coding agents" + "MCP and the agent-tool ecosystem" with an explicit cost-optimization angle). Also kept: Cloudflare's new agent-traffic visibility/control features for site owners (bigtech-eng, MEDIUM fit, no concrete numbers disclosed), Ai2's NeuralGCM+ climate-model collaboration with Google (research-institutes, LOW-MEDIUM fit, science application outside core buckets), Interconnects' new "open model economy" research-note series (practitioner-blogs, LOW-MEDIUM fit, market/business analysis, public teaser too thin to judge), `moonshotai/Kimi-K3.1-Pro` (HF trending, verified via WebFetch — 2.8T-param frontier-class MoE release, MEDIUM fit, not a self-hostable "runs on my hardware" story), `Show HN: 13M opinions on 48k products extracted from Reddit and HN` (a personal Gemma4+vLLM extraction pipeline on home 3090s, MEDIUM fit, reads as a side-project snapshot), `VA-TDM` (HF daily papers, a few-step diffusion-distillation technique with released code, LOW fit — outside core LLM/agent buckets).
+
+**VERIFY SUBSTANCE** (5 of 5 cap used): `git clone` confirmed real, substantive repos for Gauge CLI, worktrunk, and spotify/portal-ai-plugins (all three read in full via their READMEs — no github.com WebFetch needed since the git proxy clone succeeded cleanly for all three). WebFetch confirmed Kimi-K3.1-Pro's architecture/benchmark table on its HF model card, and confirmed the Cloudflare post's content but found no concrete numbers to lift beyond the feature description. `reddit.com` curl with browser UA was not attempted this run (no reddit candidates survived triage to need it — the one `hn-show-rag`/`-mcp`/etc. HN item kept, "13M opinions," is an HN Show post with full self-text already in the feed, not a reddit link).
+
+**Highlights: 3** (of 3 max) — **Gauge CLI**, **max-sixty/worktrunk**, **spotify/portal-ai-plugins** — a single coherent theme today (agent-tooling infrastructure: testing agent experience, parallelizing agent workflows, and a big-tech company's own internal tooling exposed to coding agents), each independently verified and a direct hit on the HIGH-fit "AI agents in practice" bucket.
+
+**Linear: UNAVAILABLE this run** — `ToolSearch` finds no Linear tools loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 9 confirmed items are fully written to their radar files — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This has now run since 2026-08-24 — well over 10 weeks — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session. The deep-dive routine remains fully blocked without a review queue to draw `hot` cards from.
+
+Commit: `news: radar run 2026-11-05 (+9 items, 3 highlights, Linear unavailable)`.

@@ -1,6 +1,6 @@
 ---
 category: research-institutes
-updated: 2026-10-15
+updated: 2026-11-05
 ---
 
 # Radar: research-institutes
@@ -57,3 +57,4 @@ Appended by the daily routine under weekly headings; format matches topics files
 ## 2026-W45
 
 - **2026-11-03** — [StateBench: Testing how language models track state changes over long documents](https://allenai.org/blog/statebench) — Not independently verified beyond the feed's own summary this run (outside today's 5-candidate verification cap): Ai2's new benchmark tests state-tracking across long documents at four difficulty levels, showing where models struggle and that targeted training helps recurrent/hybrid architectures handle longer sequences. Direct hit on "Evals in practice" — out of highlight consideration, full methodology unconfirmed this run.
+- **2026-11-04** — [Ai2 and Google collaborate on a new generation of climate models](https://allenai.org/blog/google-climate-partnership) — Not independently verified beyond the feed's own summary this run (outside today's 5-candidate verification cap): Ai2, funded by Google.org with technical support from Google Research, is developing NeuralGCM+, an open-source model combining physics and AI to jointly simulate atmosphere and ocean for faster, more reliable long-term climate projections. LOW-MEDIUM fit — an open-model release, but a climate/science application rather than the owner's core LLM/agent buckets; out of highlight consideration.
