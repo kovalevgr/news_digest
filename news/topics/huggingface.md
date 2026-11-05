@@ -5,13 +5,14 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-11-04
+updated: 2026-11-05
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W45
 
+- **2026-11-04** — [Dharma Field Extractor: Any Document In, Structured Fields in JSON Out](https://huggingface.co/blog/Dharma-AI/dharma-field-extractor) — Dharma-AI releases a 2B-parameter document-to-JSON field-extraction model, claiming higher accuracy than Claude Opus 5/GPT-5.6 Luna at 6-147x lower cost on its own benchmark.
 - **2026-11-03** — [StateBench: Testing how language models track state changes over long documents](https://huggingface.co/blog/allenai/statebench) — Ai2 publishes StateBench, a four-level benchmark (grounded in Krohn-Rhodes theory) for entity-state tracking; frontier models drop to ≤13% accuracy on the hardest, longest tasks.
 - **2026-11-03** — [Palette: teaching a small model to build decks in your design language](https://huggingface.co/blog/ibm-research/palette-deck-building) — IBM Research releases Palette, a fine-tuned open-weight 20B LoRA model building slide decks via a designer/coder pipeline, reaching near-frontier quality on PresentBench while staying on local infrastructure.
 

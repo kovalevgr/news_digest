@@ -4,13 +4,17 @@ aliases:
   - Nvidia
 sources:
   - https://developer.nvidia.com/blog/feed
-updated: 2026-11-03
+updated: 2026-11-05
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W45
 
+- **2026-11-04** — [NVIDIA CUDA 13.5 Brings NVIDIA Vera Rubin GA Support](https://developer.nvidia.com/blog/nvidia-cuda-13-5-brings-nvidia-vera-rubin-ga-support/) — CUDA 13.5 moves Vera Rubin support to general availability, extends Windows-on-Arm to DGX Station for Windows, and adds multi-GPU communication inside CUDA Tile kernels.
+- **2026-11-04** — [How NVIDIA Uses AI Agents to Streamline AI Factory Operations](https://developer.nvidia.com/blog/how-nvidia-uses-ai-agents-to-streamline-ai-factory-operations/) — NVIDIA open-sources the AI Factory Operations Agent, a six-domain-agent system (Job Recovery, Hardware, Observability, Research, Kubernetes, Cluster Management) built on NemoClaw/OpenShell for DGX SuperPOD operations.
+- **2026-11-04** — [How NVIDIA Factory Operations Blueprint Coordinates AI Agents to Investigate Production Issues](https://developer.nvidia.com/blog/how-nvidia-factory-operations-blueprint-coordinates-ai-agents-to-investigate-production-issues/) — NVIDIA introduces the Factory Operations Blueprint (FOX), a reference architecture for a factory-manager agent plus specialist agents with human-review checkpoints, demoed on an SMT PCB-assembly example; early access only.
+- **2026-11-04** — [Use NVIDIA NeMo to Turn Agent Failures into Tests and Harness Fixes](https://developer.nvidia.com/blog/use-nvidia-nemo-to-turn-agent-failures-into-tests-and-harness-fixes/) — NVIDIA details a NeMo Compass/Eval Author/Relay optimization loop; a Dassault Systèmes engineering agent cut malformed tool calls from 142 to zero and improved its eval score 28%.
 - **2026-11-02** — [Diagnose Distributed AI Workload Failures with NVIDIA Attribution](https://developer.nvidia.com/blog/diagnose-distributed-ai-workload-failures-with-nvidia-attribution/) — NVIDIA open-sources Attribution, a deterministic-rules root-cause diagnosis system for distributed AI workload failures, already analyzing millions of workloads weekly in production.
 - **2026-11-02** — [Keep Distributed Training Running with Automated Workload Recovery](https://developer.nvidia.com/blog/keep-distributed-training-running-with-automated-workload-recovery/) — NVIDIA releases Recovery, an open-source DSX OS service that auto-detects and restarts failed distributed training jobs from their last checkpoint; a production run logged ~8,550 anomaly detections in 3 months.
 - **2026-11-02** — [Support New AI Frameworks Faster Using NVIDIA Workload Map](https://developer.nvidia.com/blog/support-new-ai-frameworks-faster-using-nvidia-workload-map/) — NVIDIA open-sources Workload Map (formerly "Karta"), a Kubernetes CRD + Go library describing distributed AI workload structure in a common format, already used in production inside NVIDIA Run:ai.

@@ -6603,3 +6603,37 @@ Totals: **33 raw candidates → 9 confirmed**, **3 highlights** (of 3 max). `sta
 **Linear: UNAVAILABLE this run** — `ToolSearch` finds no Linear tools loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 9 confirmed items are fully written to their radar files — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This has now run since 2026-08-24 — well over 10 weeks — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session. The deep-dive routine remains fully blocked without a review queue to draw `hot` cards from.
 
 Commit: `news: radar run 2026-11-05 (+9 items, 3 highlights, Linear unavailable)`.
+
+## 2026-11-05 06:0x UTC — daily — ok (Linear unavailable)
+
+**Git check — clean.** Session started with `HEAD` detached at `34aa04e` (this morning's radar-run commit), exactly level with `origin/main` after `git fetch origin main`. `git checkout -B main origin/main` re-attached `main` with no divergence.
+
+`fetch_feeds.py` ran clean (exit 0). Window since `2026-11-04T04:01:35Z` (26h default). **openai, google-research, nvidia, huggingface** had TIER-1 hits; the other 7 companies had zero fresh TIER-1 candidates, triggering one gap-scrape/fallback attempt each.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (**1 fresh**) | **1 new** | — | confirmed via Jina (direct WebFetch 403'd — one retry per the failure-mode table): "Daybreak Red is now available in AWS GovCloud (US-East)" |
+| anthropic | fetch → WebFetch `anthropic.com/news` | 0 | fetch | newest item still Oct 28 (AI for Science), already on file; nothing dated Oct 29 – Nov 5 |
+| google-deepmind | rss (0 fresh) → WebSearch | 0 | websearch | no deepmind.google post confirmed in-window |
+| google-research | rss (**1 fresh**) | **1 new** | — | confirmed via WebFetch: "Agile Deliberation: How AI helps humans define the gray areas" |
+| microsoft | rss (0 fresh) → WebSearch | 0 | websearch | no microsoft.com/research post confirmed in-window |
+| nvidia | rss (**4 fresh**) | **4 new** | — | all four confirmed genuine releases/tools via WebFetch (not tutorial chaff): CUDA 13.5 (Vera Rubin GA), AI Factory Operations Agent (new open-source multi-agent system), Factory Operations Blueprint "FOX" (new reference architecture, early access), NeMo agent-optimization loop (concrete before/after numbers on a Dassault Systèmes agent) |
+| xai | jina (**401 AuthenticationFailedError — invalid/expired JINA_API_KEY**, a new error shape vs. the usual 403 AbuseAlleviation) → WebSearch | 0 | jina→websearch | no x.ai-domain November item confirmed; most recent found was Grok Voice 3.0 (Oct 14), already on file |
+| mistral | rss (0 fresh, no error) → WebSearch | 0 | websearch | no in-window post confirmed; latest remains Mistral Large 4 (Oct 29), already on file |
+| huggingface | rss (**1 fresh**) | **1 new** | — | confirmed via WebFetch: "Dharma Field Extractor" (Dharma-AI, 2B-param document-to-JSON extraction model) |
+| cursor | rss (0 fresh) → WebSearch | 0 | websearch | no primary-source changelog entry confirmed in-window |
+| perplexity | jina (skipped — no `JINA_API_KEY`) → WebSearch | 0 | websearch | one ambiguous "Nov 6" dated claim (impossible — that's tomorrow) found and rejected as unconfirmed/future-dated; nothing else in-window |
+
+Totals: 11/11 companies searched, **+7 items / 4 companies fresh this-window** (openai, google-research, nvidia, huggingface). No cross-company duplicates. Artifacts written: `2026-11-04-openai-daybreak-red-govcloud.md`, `2026-11-04-google-research-agile-deliberation.md`, `2026-11-04-nvidia-cuda-13-5-vera-rubin.md`, `2026-11-04-nvidia-ai-factory-operations-agent.md`, `2026-11-04-nvidia-factory-operations-blueprint.md`, `2026-11-04-nvidia-nemo-agent-optimization.md`, `2026-11-04-huggingface-dharma-field-extractor.md`.
+
+**NVIDIA trap-check.** All 4 RSS candidates had "How to"/tutorial-shaped titles, which the config's trap note warns about (keep only genuine announcements, not every tutorial). Read each in full: all four introduce a concrete new thing — CUDA 13.5 is a dated point release; the other three each name and describe a specific new open-source system/blueprint (AI Factory Operations Agent, Factory Operations Blueprint "FOX", a NemoClaw-based optimization loop) with reported before/after numbers, consistent with this file's existing pattern of keeping similarly-titled "How NVIDIA..." posts. Kept all four.
+
+**xAI note.** Today's Jina call returned `401 AuthenticationFailedError` ("Invalid API key") rather than the usual anonymous-Jina 403 AbuseAlleviation — the configured `JINA_API_KEY` env var is present but appears invalid/expired. Treated as a jina-tier failure and walked one step further to WebSearch, consistent with how prior runs handled a failed jina attempt (e.g. 2026-11-04 perplexity: jina→websearch). Nothing confirmed either way. Flagging for the owner: if `JINA_API_KEY` is meant to be active, it needs rotating — Perplexity's gap-scrape still can't use it either (currently skipped instead, since the key reads as absent-or-broken either way).
+
+**Intended Linear priorities** (per the rubric, for when the connector recovers): Medium(3) — OpenAI Daybreak Red GovCloud (business/infra access expansion), Google Research Agile Deliberation (research, new annotation-workflow method with a user study), NVIDIA CUDA 13.5 (infra, dated point release with Vera Rubin GA), NVIDIA AI Factory Operations Agent (infra, new open-source multi-agent system), NVIDIA Factory Operations Blueprint FOX (product, new reference architecture — early access), NVIDIA NeMo agent-optimization tutorial (infra, concrete before/after numbers), HF Dharma Field Extractor (product/research, new specialized extraction model with cost-comparison claims).
+
+**Headline of the run:** A moderate-to-busy day led by NVIDIA, which shipped four distinct developer-blog posts spanning a CUDA point release and three separate agent-infrastructure systems (an open-source ops-agent suite, an early-access factory blueprint, and a NeMo-based self-optimization tutorial) — all three agent posts share a theme of using AI agents to run/fix other AI-agent and factory systems. OpenAI extended Daybreak Red cyber-model access into AWS GovCloud, Google Research published a new human-AI collaborative method for building subjective-category classifiers (validated in a real 18-session user study), and Hugging Face carried a specialized small-model challenger to general LLMs on document field extraction.
+
+**Linear: UNAVAILABLE this run** — `ToolSearch` finds no Linear tools loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 7 confirmed items are fully written to `topics/` + artifacts — no data lost, only the Linear "News digest" cards are behind. This is now well over 10 weeks of consecutive Linear-affected runs since 2026-08-24 — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-11-05 (+7 items, 4 companies fresh, Linear unavailable)`.
