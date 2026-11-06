@@ -4,13 +4,14 @@ aliases:
   - Google AI
 sources:
   - https://research.google/blog/rss/
-updated: 2026-11-05
+updated: 2026-11-06
 ---
 
 MOC page for **Google Research** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W45
 
+- **2026-11-05** — [Detecting signs of hypertension using wearable sensors](https://research.google/blog/detecting-signs-of-hypertension-using-wearable-sensors/) — Google Research publishes AI-PPG-ACC-HTN, a smartwatch-based hypertension-screening model validated against 24-hour ambulatory blood pressure monitoring in a 196-participant study, informing a new blood-pressure-trends feature in the Google Health app.
 - **2026-11-04** — [Agile Deliberation: How AI helps humans define the gray areas](https://research.google/blog/agile-deliberation-how-ai-helps-humans-define-the-gray-areas/) — Google Research introduces Agile Deliberation, an iterative-conversation framework for building image classifiers of subjective categories; outperforms zero-shot and manual-prompting baselines in 18 live user sessions.
 
 ## 2026-W44

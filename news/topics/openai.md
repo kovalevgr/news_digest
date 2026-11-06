@@ -4,13 +4,14 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-11-05
+updated: 2026-11-06
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W45
 
+- **2026-11-05** — [GPT‑6 Cyber: Advancing the frontier of aligned cybersecurity agents](https://openai.com/index/introducing-gpt-6-cyber) — OpenAI launches GPT-6 Cyber, scoring 48.5% on ExploitGym (up from 32.1%) and already used to find 948 Linux privilege-escalation exploits and 81 unknown Firefox vulnerabilities.
 - **2026-11-04** — [Daybreak Red is now available in AWS GovCloud (US-East)](https://openai.com/index/daybreak-red-aws-govcloud) — OpenAI extends Daybreak Red (GPT-5.6 Cyber for authorized vulnerability research/exploit validation) to approved customers in AWS GovCloud (US-East) via Amazon Bedrock.
 - **2026-11-03** — [Accelerating engineering for the physical world](https://openai.com/index/accelerating-engineering-for-the-physical-world) — OpenAI shares advances in using Codex/ChatGPT/GPT-6 Astra for physical-product engineering (CAD, PCB, simulation) and introduces BenchCAD 2.0, a 3D-reconstruction/circuit benchmark.
 - **2026-11-02** — [Scaling Git at OpenAI](https://openai.com/index/scaling-git-at-openai) — OpenAI built Pando, a new horizontally-scalable, Git-compatible backend now powering all of its monorepo development, cutting median push latency by nearly 5x.

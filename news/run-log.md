@@ -6688,3 +6688,35 @@ Totals: **15 confirmed / 52 raw**, 3 highlights (of 3 max). Volume budget (≤~1
 **Linear: UNAVAILABLE this run** — `ToolSearch` finds no Linear tools loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 15 confirmed items are fully written to their radar files — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This has now run since 2026-08-24 — well over 10 weeks — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session. The deep-dive routine remains fully blocked without a review queue to draw `hot` cards from.
 
 Commit: `news: radar run 2026-11-06 (+15 items, 3 highlights, Linear unavailable)`.
+
+## 2026-11-06 06:0x UTC — daily — ok (Linear unavailable)
+
+**Git check — clean.** Session started with `HEAD` detached at `d3975d4` (this morning's radar-run commit), exactly level with `origin/main` after `git fetch origin main`. `git checkout -B main origin/main` re-attached `main` with no divergence — no stash needed, no lost work.
+
+`fetch_feeds.py` ran clean (exit 0). Window since `2026-11-05T04:02:37Z` (prior daily run's start). **openai, google-deepmind, google-research, microsoft, nvidia, mistral, huggingface** had TIER-1 hits; **anthropic, xai, cursor, perplexity** had zero fresh TIER-1 candidates, triggering one gap-scrape/fallback attempt each.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (**1 fresh**) | **1 new** | — | confirmed via Jina (direct WebFetch 403'd — one retry per the failure-mode table): "GPT‑6 Cyber: Advancing the frontier of aligned cybersecurity agents" |
+| anthropic | fetch → WebFetch `anthropic.com/news` | 0 | fetch | page shows an unlabeled "November 6, 2026" marker with no attached post; newest confirmed post remains Oct 28 (AI for Science), already on file |
+| google-deepmind | rss (**1 fresh**) | **1 new** | — | confirmed via WebFetch (redirect to blog.google) + Jina (blog.google not in allowed network list): "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips" |
+| google-research | rss (**1 fresh**) | **1 new** | — | confirmed via WebFetch: "Detecting signs of hypertension using wearable sensors" |
+| microsoft | rss (**1 fresh**) | **1 new** | — | confirmed via WebFetch: "Formally verifying agent-written full-stack web apps with PDD Kit" |
+| nvidia | rss (**2 fresh**) | **2 new** | — | both confirmed genuine new releases via WebFetch: NVIDIA DSX OS (open-sourced Kubernetes GPU cluster config/certify/operate tools), "Five Ways NVIDIA Co-Design..." (memory co-design techniques + 30x/MW throughput claim) |
+| xai | jina (skipped — no `JINA_API_KEY`) → WebSearch | 0 | websearch | no x.ai-domain November item confirmed; search results were mostly stale aggregator pages from earlier in the year |
+| mistral | rss (**1 fresh**) | **1 new** | — | confirmed via WebFetch: "Le Chonk brings the brains. Studio puts it to work." (Mistral Studio launch) |
+| huggingface | rss (**1 fresh**) | **1 new** | — | confirmed via WebFetch: "New NVIDIA Cosmos 3 Open Models for Interactive World Simulation" |
+| cursor | rss (0 fresh) → WebSearch | 0 | websearch | no primary-source changelog entry confirmed in-window (aggregator coverage stopped at Oct 16) |
+| perplexity | jina (skipped — no `JINA_API_KEY`) → WebSearch | 0 | websearch | no confirmed primary-source post in-window; one undated aggregator claim (Comet Assistant update) could not be verified as November 2026 |
+
+Totals: 11/11 companies searched, **+8 items / 7 companies fresh this-window** (openai, google-deepmind, google-research, microsoft, nvidia ×2, mistral, huggingface). No cross-company duplicates (Cosmos 3 on Hugging Face is a distinct release from the existing nvidia.md/huggingface.md Cosmos entries — different model variants, different URL). Artifacts written: `2026-11-05-openai-gpt-6-cyber.md`, `2026-11-05-google-deepmind-gemini-omni-1-2-flash.md`, `2026-11-05-google-research-hypertension-wearables.md`, `2026-11-05-microsoft-pdd-kit.md`, `2026-11-05-nvidia-dsx-os.md`, `2026-11-05-nvidia-co-design-byte.md`, `2026-11-05-mistral-studio.md`, `2026-11-05-huggingface-nvidia-cosmos-3.md`.
+
+**Anthropic note.** The live `anthropic.com/news` page displays a bare "November 6, 2026" date label at the top with no title or link attached to it (the nearest article beneath it is dated Sep 22). Read as a page-rendering artifact (e.g. a "today" marker), not a real unlinked post — no URL to carry, so not written as an item per the never-invent rule. Worth a human spot-check if this recurs.
+
+**Intended Linear priorities** (per the rubric, for when the connector recovers): High(2) — GPT‑6 Cyber (major model release, flagship security model with concrete before/after benchmark gains). Medium(3) — Gemini Omni 1.2 Flash (model-release, GA price/feature update), Google Research hypertension wearables (research, Nature-published, real clinical study), Microsoft PDD Kit (research, formal-verification prototype), NVIDIA DSX OS (infra, new open-source Kubernetes tooling), NVIDIA Co-Design byte post (infra, techniques + large infra-vendor benchmark claim), Mistral Studio (product, enterprise platform launch with named customers), HF/NVIDIA Cosmos 3 (model-release, four new open-weight checkpoints).
+
+**Headline of the run:** A broad, multi-company day with no single dominant story. OpenAI shipped its most capable cybersecurity model yet (GPT‑6 Cyber) with concrete benchmark and real-world-exploit numbers; NVIDIA continued its recent infra-tooling cadence with an open-sourced Kubernetes GPU-cluster ops suite (DSX OS) and a memory-economics techniques post claiming a 30x/MW gain for Vera Rubin; Google split across consumer (Gemini Omni 1.2 Flash video pricing/feature update) and health research (a Nature-published smartwatch hypertension screen already feeding into the Google Health app); Microsoft Research and Mistral each advanced the "trust the agent's output" theme from different angles — formal proof-driven verification of agent-written code (Microsoft) versus an enterprise platform for running agents with human-approval gates (Mistral Studio) — and Hugging Face carried NVIDIA's latest open world-simulation checkpoints (Cosmos 3).
+
+**Linear: UNAVAILABLE this run** — `ToolSearch` finds no Linear tools loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 8 confirmed items are fully written to `topics/` + artifacts — no data lost, only the Linear "News digest" cards are behind. This is now well over 10 weeks of consecutive Linear-affected runs since 2026-08-24 — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-11-06 (+8 items, 7 companies fresh, Linear unavailable)`.

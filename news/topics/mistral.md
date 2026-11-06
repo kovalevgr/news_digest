@@ -4,10 +4,14 @@ aliases:
   - Mistral
 sources:
   - https://mistral.ai/rss.xml
-updated: 2026-10-30
+updated: 2026-11-06
 ---
 
 MOC page for **Mistral AI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W45
+
+- **2026-11-05** — [Le Chonk brings the brains. Studio puts it to work.](https://mistral.ai/news/build-with-studio) — Mistral launches Studio, an enterprise platform for building managed agents, approval-gated workflows, and hosted apps on Mistral Large 4 ("Le Chonk"), with customers including ABANCA, Accenture, BNP Paribas, and CMA CGM.
 
 ## 2026-W44
 

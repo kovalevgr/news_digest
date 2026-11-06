@@ -5,12 +5,14 @@ aliases:
   - Gemini
 sources:
   - https://deepmind.google/blog/rss.xml
-updated: 2026-11-04
+updated: 2026-11-06
 ---
 
 MOC page for **Google DeepMind** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W45
+
+- **2026-11-05** — [Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips](https://deepmind.google/blog/gemini-omni-12-flash-fast-and-cost-effective-with-longer-clips/) — Google DeepMind ships Gemini Omni 1.2 Flash GA, adding native 15-second video generation, multi-turn conversational editing, and a 30% price cut to $0.07/second at 720p.
 
 - **2026-11-03** — [Agentic cheminformatics with Google Antigravity](https://deepmind.google/blog/agentic-cheminformatics-with-google-antigravity/) — Google DeepMind introduces Cheminformatics Skills for Google Antigravity, demoed on a lung-cancer kinase-inhibitor drug-discovery workflow, with free access for 10,000 scientists for six months.
 

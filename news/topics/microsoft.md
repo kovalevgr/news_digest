@@ -5,10 +5,14 @@ aliases:
   - Copilot
 sources:
   - https://www.microsoft.com/en-us/research/feed/
-updated: 2026-10-31
+updated: 2026-11-06
 ---
 
 MOC page for **Microsoft** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W45
+
+- **2026-11-05** — [Formally verifying agent-written full-stack web apps with PDD Kit](https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/) — Microsoft Research introduces PDD Kit, a Proof-Driven Development toolkit using the Verus proof language to formally verify agent-written Rust code against human-reviewed specifications.
 
 ## 2026-W44
 

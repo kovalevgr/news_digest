@@ -4,13 +4,15 @@ aliases:
   - Nvidia
 sources:
   - https://developer.nvidia.com/blog/feed
-updated: 2026-11-05
+updated: 2026-11-06
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W45
 
+- **2026-11-05** — [Configure, Certify, and Operate Kubernetes GPU Clusters with NVIDIA DSX OS](https://developer.nvidia.com/blog/configure-certify-and-operate-kubernetes-gpu-clusters-with-nvidia-dsx-os/) — NVIDIA open-sources DSX OS (Apache 2.0): AI Cluster Runtime, Cluster Readiness Engine, and NVSentinel for configuring, certifying, and monitoring accelerated Kubernetes GPU clusters.
+- **2026-11-05** — [Five Ways NVIDIA Co-Design Maximizes the Value of Every Byte in the AI Factory](https://developer.nvidia.com/blog/five-ways-nvidia-co-design-maximizes-the-value-of-every-byte-in-the-ai-factory/) — NVIDIA details five co-designed memory techniques (NVFP4, Wide-EP, Dynamo, Vera CPU, CMX) and claims Vera Rubin NVL72 delivers up to 30x the throughput per megawatt of GB300 NVL72 at the same 288GB-per-GPU HBM capacity on a SemiAnalysis AgentX replay.
 - **2026-11-04** — [NVIDIA CUDA 13.5 Brings NVIDIA Vera Rubin GA Support](https://developer.nvidia.com/blog/nvidia-cuda-13-5-brings-nvidia-vera-rubin-ga-support/) — CUDA 13.5 moves Vera Rubin support to general availability, extends Windows-on-Arm to DGX Station for Windows, and adds multi-GPU communication inside CUDA Tile kernels.
 - **2026-11-04** — [How NVIDIA Uses AI Agents to Streamline AI Factory Operations](https://developer.nvidia.com/blog/how-nvidia-uses-ai-agents-to-streamline-ai-factory-operations/) — NVIDIA open-sources the AI Factory Operations Agent, a six-domain-agent system (Job Recovery, Hardware, Observability, Research, Kubernetes, Cluster Management) built on NemoClaw/OpenShell for DGX SuperPOD operations.
 - **2026-11-04** — [How NVIDIA Factory Operations Blueprint Coordinates AI Agents to Investigate Production Issues](https://developer.nvidia.com/blog/how-nvidia-factory-operations-blueprint-coordinates-ai-agents-to-investigate-production-issues/) — NVIDIA introduces the Factory Operations Blueprint (FOX), a reference architecture for a factory-manager agent plus specialist agents with human-review checkpoints, demoed on an SMT PCB-assembly example; early access only.
