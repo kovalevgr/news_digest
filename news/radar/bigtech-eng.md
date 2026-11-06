@@ -1,6 +1,6 @@
 ---
 category: bigtech-eng
-updated: 2026-11-05
+updated: 2026-11-06
 ---
 
 # Radar: bigtech-eng
@@ -77,3 +77,4 @@ Appended by the daily routine under weekly headings; format matches topics files
 ## 2026-W45
 
 - **2026-11-04** — [See the agents, set the terms: new visibility and control for personal agents](https://blog.cloudflare.com/personal-agents-visibility-control/) — Verified via WebFetch: Cloudflare ships new analytics for site owners (a "Personal Assistants" bot-traffic category in Security Analytics, a per-agent request/path/status widget, and an early-access Account Abuse Protection view showing which user account each agent acts for and letting fraud teams scope a WAF rule to one abusive account's hashed ID) plus simplified per-agent access policies (Allow / Block-on-ad-pages / Block) replacing the old blanket Agents toggle. MEDIUM fit — provider-side agent-traffic management adjacent to "engineering post-mortems... from big-tech AI systems" rather than agent-building itself; the post names no APIs, signal formats, or traffic figures, out of highlight consideration.
+- **2026-11-05** — [Agents aren't humans (but they kinda are)](https://blog.cloudflare.com/trusted-agent-delegation/) — Verified via WebFetch: Cloudflare announces Trusted Agent Delegation (TAD), a coalition of ecosystem players organizing around the problem of AI agents acting as intermediaries toward sites, aiming to bring well-scoped problems to the IETF rather than ship a finished protocol; lists 14 concrete abuse/visibility challenges (account sharing, friendly fraud, traffic commingling, resource exhaustion) that currently fall on the site. Proposes layering Web Bot Auth (agent/operator identity signing) with four graduated identity-disclosure levels (none/session/account/per-user), privacy-preserving trust signals (Privacy Pass, a new "MOLE" rate-limiting mechanism), claims (age/cardholder-type facts), and machine-readable site policy beyond robots.txt, alongside existing protocols (x402 payments, OAuth, Poppy sessions). Ships now for Cloudflare customers: a "Personal Assistants" bot-traffic category in Security Analytics with a per-agent request/path/error widget, simplified per-agent access policies, and an early-access Account Abuse Protection view tying abusive requests to a hashed per-user agent ID. MEDIUM fit — "MCP and the agent-tool ecosystem" from the trust/identity-layer side rather than a technique writeup; no quantitative figures or protocol field definitions given, out of highlight consideration.
