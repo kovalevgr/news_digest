@@ -6755,3 +6755,31 @@ Totals: **14 confirmed / 48 raw**, 3 highlights (of 3 max). Volume budget (≤~1
 **Linear: UNAVAILABLE this run** — `ToolSearch` finds no Linear tools loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 14 confirmed items are fully written to their radar files — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This has now run since 2026-08-24 — well over 10 weeks — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session. The deep-dive routine remains fully blocked without a review queue to draw `hot` cards from.
 
 Commit: `news: radar run 2026-11-07 (+14 items, 3 highlights, Linear unavailable)`.
+
+## 2026-11-07 06:0x UTC — daily — ok (Linear unavailable)
+
+**Git check — clean.** `main` was already attached, level with `origin/main` (`1bad050`, this morning's radar-run commit) after `git fetch origin main` — no stash needed, no lost work.
+
+`fetch_feeds.py` ran clean (exit 0). Window since `2026-11-06T04:02:15Z` (prior daily run's start). **All 8 TIER-1 RSS feeds returned zero fresh candidates** — 5 via literal HTTP 304 Not Modified (google-deepmind, microsoft, nvidia, mistral, huggingface), 3 via 200-with-no-new-entries (openai, google-research, cursor) — triggering one gap-scrape/fallback attempt for all 11 companies (every company, not just a subset, since the TIER-1 pass produced nothing anywhere).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (0 fresh) → WebSearch | 0 | websearch | no OpenAI announcement dated Nov 6–7 confirmed; results were older (12-Days-of-OpenAI archive, GPT‑5.4 Foundry post) |
+| anthropic | fetch → WebFetch `anthropic.com/news` | 0 | fetch | newest confirmed post still Oct 28 (AI for Science), already on file; no unlabeled date marker this time |
+| google-deepmind | rss (0 fresh) → WebSearch | 0 | websearch | no confirmed Nov 6–7 post; most recent dated hit was Gemini Robotics 2 (Jul 30) |
+| google-research | rss (0 fresh) → WebSearch | 0 | websearch | no confirmed Nov 6–7 post; most recent dated hit was the I/O 2026 recap (May 28) |
+| microsoft | rss (0 fresh) → WebSearch | 0 | websearch | no confirmed Nov 6–7 post; closest hit (NSDI '26 papers) is an undated third-party mirror |
+| nvidia | rss (0 fresh) → WebSearch | 0 | websearch | no confirmed Nov 6–7 post surfaced |
+| xai | jina (anonymous, 200 OK) | 0 | jina | full news page fetched; newest dated item is "Giving every team a data scientist with Grok Bot" (Nov 2, 2026) — before this window, already should be on file from an earlier run |
+| mistral | rss (0 fresh) → WebSearch | 0 | websearch | no confirmed Nov 6–7 post; most recent dated hit is the Mistral Large 4 preview (Oct 6) |
+| huggingface | rss (0 fresh) → WebSearch | 0 | websearch | no confirmed Nov 6–7 post surfaced |
+| cursor | rss (0 fresh) → WebSearch | 0 | websearch | no confirmed changelog entry; aggregator coverage still stalled at Oct 16 |
+| perplexity | jina (skipped — no `JINA_API_KEY`) → WebSearch | 0 | websearch | one secondary-source claim (NewsBytes: "Comet Assistant" update "announced Nov 6") with no primary-source post found to verify it — same unverifiable pattern as 2026-11-05/06; not written per the never-invent rule |
+
+Totals: 11/11 companies searched, **+0 items / 0 companies fresh this-window**. A genuinely quiet 26h window across the board — first all-zero daily run on file. No artifacts written, no `topics/` edits.
+
+**xAI note.** The gap-scrape (anonymous Jina, no auth header) worked this time and returned the full `x.ai/news` listing — useful signal that xAI doesn't strictly need `JINA_API_KEY` the way Perplexity does. The newest item on the page, "Giving every team a data scientist with Grok Bot" (Nov 2, 2026), falls before this run's window and isn't a gap in today's coverage, but it's worth a human spot-check of `topics/xai.md` to confirm it was captured on or around Nov 2–3 — if the window boundary ever slipped, this would be the item to look for.
+
+**Linear: UNAVAILABLE this run** — no Linear tools loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). Moot this run regardless (zero confirmed items to card). This has now run since 2026-08-24 — well over 10 weeks — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-11-07 (+0 items, 0 companies fresh, Linear unavailable)`.
