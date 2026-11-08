@@ -6822,3 +6822,31 @@ Totals: **15 confirmed / 52 raw**, 3 highlights (of 3 max). Volume budget (≤~1
 **Linear: UNAVAILABLE this run** — no Linear tools loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 15 confirmed items are fully written to their radar files — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This has now run since 2026-08-24 — well over 11 weeks — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session. The deep-dive routine remains fully blocked without a review queue to draw `hot` cards from.
 
 Commit: `news: radar run 2026-11-08 (+15 items, 3 highlights, Linear unavailable)`.
+
+## 2026-11-08 06:0x UTC — daily — ok (Linear unavailable)
+
+**Git check — clean.** Session started with `HEAD` detached at `6bbc1ca` (this morning's radar-run commit), level with `origin/main` after `git fetch origin main`. `git checkout -B main origin/main` re-attached `main` with no divergence — no stash needed.
+
+`fetch_feeds.py` ran clean (exit 0). Window since `2026-11-07T04:01:59Z` (prior daily run's start). All 11 companies returned zero TIER-1 fresh candidates — full gap-scrape required.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (0 fresh) → WebSearch | 0 | websearch | no OpenAI post dated Nov 6–8 confirmed via a primary source; results were roundups/older items (DevDay 2026 recap, a Cursor-contract-termination mention dated to Nov 12) |
+| anthropic | fetch → WebFetch `anthropic.com/news` | 0 | fetch | newest confirmed post still Oct 28 (AI for Science expands), already on file; a "November 8, 2026" label near the Opus 5.5 card is a page-layout artifact, not a new post date |
+| google-deepmind | rss (0 fresh) → WebSearch | 0 | websearch | no confirmed Nov 6–8 post; most recent dated hit was the UK-government partnership (Dec 2025) and Gemini Robotics 2 (Jul 30) |
+| google-research | rss (0 fresh) → WebSearch | 0 | websearch | no confirmed Nov 2026 post; search index only surfaced old archive pages and the I/O 2026 recap (May) |
+| microsoft | rss (0 fresh) → WebSearch | 0 | websearch | no confirmed Nov 7 post; only an undated 2026-outlook piece and old event/archive pages surfaced |
+| nvidia | rss (0 fresh) → WebSearch | 0 | websearch | no confirmed Nov 7 post; search index returned only aggregator/navigation pages and a Jan 2026 mirror |
+| xai | jina (anonymous curl, 200 OK) | 0 | jina | full news page fetched; newest items are "Data Bot" (Nov 2) and "Grok Bot for Sales" (Oct 27) — both before this window, already should be on file from an earlier run (same xai.md staleness flag as 2026-11-07, still unresolved — owner spot-check still pending) |
+| mistral | rss (0 fresh) → WebSearch | 0 | websearch | no confirmed Nov post; results confirm Mistral Large 4 (Oct 29) as still the latest, already on file |
+| huggingface | rss (0 fresh) → WebSearch | 0 | websearch | no confirmed Nov 7 post; search index returned only unofficial third-party roundups, no official blog hit |
+| cursor | rss (0 fresh) → WebSearch | 0 | websearch | no confirmed Nov changelog entry; aggregator coverage still stalled at Oct 16 |
+| perplexity | jina (skipped — no `JINA_API_KEY`) → WebSearch | 0 | websearch | one secondary-source claim (NewsBytes: "Comet Assistant" + patent search, "announced Nov 6") with no primary-source post found to verify it — same unverifiable pattern as the last several runs; not written per the never-invent rule |
+
+Totals: 11/11 companies searched, **+0 items / 0 companies fresh this-window**. Second consecutive all-zero daily run (2026-11-07 was the first on file). No artifacts written, no `topics/` edits.
+
+**xAI note (carried over from 2026-11-07, still open).** `topics/xai.md`'s newest entry is 2026-08-21, but the live `x.ai/news` page (fetched clean via anonymous Jina again today) shows a steady stream of posts through Nov 2 — "Giving every team a data scientist with Grok Bot" (Nov 2), "Your next sales teammate should be a Grok Bot" (Oct 27), "Introducing the SpaceX Super Intelligence Partner Network" (Oct 22, notable rebrand/partnership signal), "Using Grok Bot to detect and respond to incidents" (Oct 20), "Introducing The X Subscription" (Oct 12), "Team Bots" (Sep 28), "Introducing Grok 4.7" (undated tail, page truncated). None of these fall inside this run's 26h window, so none are added here per the dedup rule (first pass is canonical-URL/window match, not a backfill sweep) — but the ~2.5-month gap between the topics file and the live page is now confirmed two runs in a row and looks like a real coverage hole, not a one-off. Flagging again for the owner: worth a manual backfill pass or a dedicated catch-up run once Linear/owner bandwidth allows, since each daily run's window is too narrow to close a gap this size on its own.
+
+**Linear: UNAVAILABLE this run** — no Linear tools loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). Moot this run regardless (zero confirmed items to card). This has now run since 2026-08-24 — well over 11 weeks — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-11-08 (+0 items, 0 companies fresh, Linear unavailable)`.
