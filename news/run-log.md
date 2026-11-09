@@ -6887,3 +6887,36 @@ Totals: **11 confirmed / 41 raw**, 3 highlights (of 3 max). Volume budget (≤~1
 **Linear: UNAVAILABLE this run** — no Linear tools loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 11 confirmed items are fully written to their radar files — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This has now run since 2026-08-24 — well over 11 weeks — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session. The deep-dive routine remains fully blocked without a review queue to draw `hot` cards from.
 
 Commit: `news: radar run 2026-11-09 (+11 items, 3 highlights, Linear unavailable)`.
+
+## 2026-11-09 06:0x UTC — daily — ok (Linear unavailable)
+
+**Git check — clean.** Session started with `HEAD` detached at `fdd900a` (this morning's radar-run commit), level with `origin/main` after `git fetch origin main`. `git checkout -B main origin/main` re-attached `main` with no divergence — no stash needed.
+
+`fetch_feeds.py` ran clean (exit 0). Window since `2026-11-08T04:02:08Z` (prior daily run's start).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (0 fresh) → WebSearch | 0 | websearch | no confirmed Nov post; results are DevDay 2026 recap (Sep 29) and forward-looking items (Cursor-contract end Nov 12, a possible 4th safety model "weeks away") — nothing dated in-window from a primary source |
+| anthropic | fetch → WebFetch `anthropic.com/news` | 0 | fetch | newest confirmed post still Oct 28 (AI for Science expands), already on file; no Nov 7–9 entry on the captured page |
+| google-deepmind | rss → **TRAP/not-a-feed** (new — `deepmind.google/blog/rss.xml` body no longer parses as a feed; not previously on the TRAP list in `companies.md`) → WebSearch | 0 | websearch | no confirmed Nov post via search either (results stop at the Aug leadership reshuffle and an undated Gemini 3 Deep Think update); **flagging the feed-shape change for a human check — if it recurs tomorrow, add it to the TRAP table and give google-deepmind a `fetch` fallback tier** |
+| google-research | rss (0 fresh) → WebSearch | 0 | websearch | search surfaced a possible Nov 4–5 hypertension/wearables post, but date and existence are ambiguous in secondary results and no primary blog page was fetched to confirm — not written per the never-invent rule |
+| microsoft | rss (0 fresh) → WebSearch | 0 | websearch | no confirmed Nov post; search index stale (newest clearly-dated item Feb 18, two undated front-page posts could not be dated) |
+| nvidia | rss (304 not modified) → WebSearch | 0 | websearch | no confirmed Nov post; search returned only undated technical-blog titles and old Telegram mirrors |
+| xai | jina → **401 AuthenticationFailedError (Invalid API key)** — new failure mode, distinct from prior runs' "no `JINA_API_KEY` set"; the secret is now configured but rejected by Jina → WebSearch | 0 | websearch | no confirmed Nov post; xai.md staleness flag from 2026-11-07/08 still open and unresolved |
+| mistral | rss (0 fresh) → WebSearch | 0 | websearch | one secondary-source claim of a Nov 8 "EU sovereignty" report (regional processing, SLA tiers) with no primary mistral.ai URL found to verify — not written per the never-invent rule; Mistral Large 4 (Oct 29) confirmed still the latest on file |
+| huggingface | rss (304 not modified) → WebSearch | 0 | websearch | no confirmed Nov 2026 post; search results are third-party mirrors topping out at Sep 2026 |
+| cursor | rss (0 fresh) → WebSearch | 0 | websearch | no confirmed Nov changelog entry; newest verifiable item still mid-2026 |
+| perplexity | jina (skipped — same invalid-key failure as xai above) → WebSearch | 0 | websearch | multiple secondary sources report a "Perplexity Teammates" always-on-agent launch dated Nov 5–6 ($200/mo tier) plus a Comet Assistant patent-search update, but `perplexity.ai` is not reachable via WebFetch in this session's network allowlist (`getaddrinfo ENOTFOUND`) and anonymous Jina needs the (currently broken) key, so no primary source could be checked — not written per the never-invent rule; same unverifiable pattern flagged on 2026-11-07 |
+
+Totals: 11/11 companies searched, **+0 items / 0 companies fresh this-window**. Third consecutive all-zero daily run (2026-11-07, 11-08, 11-09). No artifacts written, no `topics/` edits.
+
+**New operational issues this run (for owner attention):**
+1. `deepmind.google/blog/rss.xml` failed the feed-shape check for the first time (TRAP/not-a-feed) — may be a transient page change or a real break; watch tomorrow's run before editing config.
+2. The Jina call now fails with `401 Invalid API key` for both xAI and Perplexity, instead of the previously-documented "no key set" case — the `JINA_API_KEY` secret is configured but appears wrong/expired; rotating it would unblock both companies' primary-source checks.
+3. `perplexity.ai` is outside this session's network allowlist for direct WebFetch (confirmed this run) — Jina was the only configured transport for Perplexity, so issue #2 above fully blocks primary-source verification for it until the key is fixed.
+
+**xAI note (carried over from 2026-11-07/08, still open).** Unresolved — see prior entries; today's Jina failure (issue #2 above) means it couldn't even be re-confirmed via the usual anonymous-curl path this run.
+
+**Linear: UNAVAILABLE this run** — no Linear tools loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). Moot this run regardless (zero confirmed items to card). Unchanged, well over two months overdue: reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-11-09 (+0 items, 0 companies fresh, Linear unavailable)`.
