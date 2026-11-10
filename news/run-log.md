@@ -6932,3 +6932,40 @@ This is the **TWENTY-SECOND** consecutive deep-dive run fully blocked — the ro
 No push notification sent this run: the blockage is unchanged from the previous twenty-one runs and is already reported to the owner in every daily run-log entry and in the weekly digest push — nothing new to surface.
 
 Commit: `news: deep dive 2026-11-09 (0 cards, Linear unavailable)`.
+
+## 2026-11-10 05:0x UTC — radar — ok (Linear unavailable)
+
+**Git check — clean.** Session started with `HEAD` detached at `3a7b5d5` (the 2026-11-09 deep-dive commit), level with `origin/main` after `git fetch origin main`. `git checkout -B main origin/main` re-attached `main` with no divergence — no stash needed, no lost work.
+
+`fetch_radar.py` ran clean (exit 0). Window since 2026-11-09T03:03Z.
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | — |
+| inference-infra | 0 | 0 | — |
+| oss-ml-systems | 1 | 1 | `eleuther` HTTP 404 |
+| bigtech-eng | 1 | 1 | — |
+| research-institutes | 1 | 0 | — |
+| technical-newsletters | 1 | 1 | — |
+| practitioner-blogs | 1 | 0 | `latent-space` proxy 403 (tunnel) |
+| youtube | 0 | 0 | all 7 `yt-*` channel feeds HTTP 404 |
+| community | 41 | 11 | — |
+| mistral-watch | 0 | 0 | — |
+
+Totals: 46 raw candidates, **14 confirmed** (within the ≤15/day budget), 3 highlights.
+
+**TRIAGE — pass 1 drops (off-topic, thin, or no reproducible content).** `bair` ("BAIR at CoRL 2026") is a conference-schedule listing with no technical content of its own — dropped as thin/roundup. `simonwillison` ("Locating the source of a mysterious beep with Claude") uses Claude Code as a tool to build an unrelated hardware-triangulation hobby project — dropped as off-lane (not an AI technique or agent-behavior story). HN: `STE80 Humanizer` (de-AI text tool, detection-evasion-adjacent, off-lane) and all 3 `hn-show-rag` candidates (`MeowDisplay`, a satellite-pass tracker, `DBDelve` — a DB client cross-posted on both `hn-show-rag` and `hn-show-agents`) have zero AI/ML content — dropped. Reddit: 13 of 25 dropped as bare questions/rants/anecdotes with no technique or finding (ngram question, DeepSeek-vs-Qwen one-shot test, ArtificialAnalysis-bias rant, Omni Voice TTS recommendation, "local matters" ban complaint, Qwen-stress screenshot, Muse-Ember Zuck complaint, "dumbest monkeys" meta-rant, bare GrokBot-alternative link, ConceptCountry bare HF link, accountants question, medical-transcription question, weight-space-programming post with no body text to verify); Multiverse's Comet 60B GGUF and Drummer's Orion 26B were dropped as bare model-conversion/release reposts with no benchmark; LongCat-2.5 was dropped as a bare "1.6T multimodal model" mention with no detail. Two "interesting neuron" listicle posts were dropped as the thinner duplicates of the kept neuron-steering guide (same theme, same day). `hf-trending-models` (3) and `hf-trending-spaces` (2, one explicitly NSFW) were dropped as bare trending reposts with no write-up — consistent with prior runs. `github-trending`: `google-deepmind/mujoco` (robotics/physics, not LLM-specific) and `anthropics/claude-quickstarts` (generic reference repo, not a dated story) dropped.
+
+**TRIAGE — kept (3 lab/newsletter/bigtech + 11 community, 3 highlights of 3 max).** ⭐ **Accelerating GLM-5.3-Flash on H200: High-Throughput Disaggregated Serving** (SGLang/lmsys) — verified via WebFetch: a numbers-dense PD-disaggregation writeup (2.06x prefill, 4.32x decode throughput, custom speculative-decoding draft, FP8 activation transport), direct hit on "local/self-hosted models: inference engines." ⭐ **Flide** (Show HN, 121 pts) — verified via `git clone`: a real PyPI/arXiv inference engine for decision models claiming up to 9.5x over vLLM/SGLang via exact-state-forking, with a per-model benchmark table. ⭐ **garrytan/gbrain** (GitHub trending) — verified via `git clone`: a documented, benchmarked (BrainBench R@5 0.6626→0.7241), production-run (155K pages) MCP memory layer for coding agents — direct hit on "agent memory," the owner's HIGH-interest category. Also kept (regular): Netflix's synopsis-factuality system (bigtech-eng); Cameron Wolfe's RL score-centering newsletter post; HN's Recalc (spreadsheet cells as Claude Code/Codex terminals, MCP-integrated); GitHub's `ha-mcp` (Home Assistant MCP server, active maintenance); the CUDA+ROCm mixed-vendor-GPU inference engine (up to 48% faster, built on Project MAYA); a 400M NPC-judgement classifier (Apache-2.0, ~0.1s/3060Ti); the neuron-steering how-to guide for Qwen3.5-4B; a spec-driven coding-agent workflow writeup (Dialectic/Requirements/tests); a 2B MLX decision model fine-tuned to play Doom in 43 minutes; netease-youdao's Confucius4-R2T2 streaming-ASR architecture; and an M4 Pro vs M5 Pro hardware comparison on the same MoE quant (every measured metric favoring M5 Pro).
+
+**Highlights: 3** (of 3 max) — **GLM-5.3-Flash disaggregated serving**, **Flide**, **gbrain** — an "inference/serving engineering + agent infrastructure" theme: two rigorously-benchmarked serving systems (one a lab's own engine, one a community PyPI package) and one production-proven agent-memory layer, all verified beyond their own marketing copy (WebFetch for the lab blog, `git clone` for both GitHub repos).
+
+**Reddit — all three `.json` verification attempts (CUDA+ROCm, 2B-Doom-MLX) hit the usual flat HTTP 403** bot-check (same block noted repeatedly since 2026-11-01); fell back to the feed entries' own self-text per the established exception, which carried enough concrete detail to verify each claim.
+
+**Systemic source watch (longest-running unactioned breaks, informational only, no fallback attempted):** all 7 `yt-*` YouTube channel feeds HTTP 404 (5 of 5 recent runs now); `latent-space` proxy-403 (4 of 4 recent runs); `eleuther` HTTP 404 (every run checked so far — still worth a one-time human check of whether the feed URL moved).
+
+**Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 14 confirmed items are fully written to their radar files — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This has now run since 2026-08-24 — well over eleven weeks — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session. The deep-dive routine remains fully blocked without a review queue to draw `hot` cards from.
+
+No push notification sent this run: a healthy radar run (14 items, 3 highlights, no new failures) with the Linear blockage already reported in every prior run-log entry — nothing new requiring the owner's immediate attention.
+
+Commit: `news: radar run 2026-11-10 (+14 items, 3 highlights, Linear unavailable)`.
