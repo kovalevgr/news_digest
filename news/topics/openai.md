@@ -4,10 +4,14 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-11-06
+updated: 2026-11-10
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W46
+
+- **2026-11-09** — [ChatGPT Enterprise now available in AWS Marketplace](https://openai.com/index/chatgpt-enterprise-aws-marketplace) — ChatGPT Enterprise becomes available through AWS Marketplace, letting organizations procure it through existing AWS purchasing and billing relationships.
 
 ## 2026-W45
 

@@ -4,10 +4,14 @@ aliases:
   - Claude
 sources:
   - https://www.anthropic.com/news
-updated: 2026-10-28
+updated: 2026-11-10
 ---
 
 MOC page for **Anthropic** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W46
+
+- **2026-11-09** — [Introducing Claude Fable 5.2 and Claude Mythos 5.2](https://www.anthropic.com/claude-fable-and-mythos-5-2) — Anthropic releases Claude Fable 5.2 (all users) and Claude Mythos 5.2 (verified orgs): coding/reasoning/vision gains, outputs up to 30% faster, an optional 2.5x fast mode, and ~55% fewer false-positive safety blocks than 5.1.
 
 ## 2026-W44
 

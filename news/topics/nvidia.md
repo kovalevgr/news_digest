@@ -4,10 +4,14 @@ aliases:
   - Nvidia
 sources:
   - https://developer.nvidia.com/blog/feed
-updated: 2026-11-06
+updated: 2026-11-10
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W46
+
+- **2026-11-09** — [Make a Robot Arm Feel Weightless with NVIDIA Holoscan 5](https://developer.nvidia.com/blog/make-a-robot-arm-feel-weightless-with-nvidia-holoscan-5/) — NVIDIA publishes a Holoscan 5 gravity-compensation tutorial for robot arms; CPU-core pinning cuts worst-case latency up to ~9.6x (Python) and ~5x (C++).
 
 ## 2026-W45
 

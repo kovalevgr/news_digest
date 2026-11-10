@@ -4,10 +4,14 @@ aliases:
   - Google AI
 sources:
   - https://research.google/blog/rss/
-updated: 2026-11-06
+updated: 2026-11-10
 ---
 
 MOC page for **Google Research** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W46
+
+- **2026-11-09** — [Exploring the world's languages with Language Explorer](https://research.google/blog/exploring-the-worlds-languages-with-language-explorer/) — Google Research (with Google DeepMind) launches Language Explorer, an interactive platform visualizing global linguistic diversity built on the open-source LinguaMeta dataset, anchoring a Berlin/Frankfurt museum exhibition.
 
 ## 2026-W45
 

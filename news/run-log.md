@@ -6969,3 +6969,37 @@ Totals: 46 raw candidates, **14 confirmed** (within the ≤15/day budget), 3 hig
 No push notification sent this run: a healthy radar run (14 items, 3 highlights, no new failures) with the Linear blockage already reported in every prior run-log entry — nothing new requiring the owner's immediate attention.
 
 Commit: `news: radar run 2026-11-10 (+14 items, 3 highlights, Linear unavailable)`.
+
+## 2026-11-10 06:0x UTC — daily — ok (Linear unavailable)
+
+**Git check — clean.** Session started with `HEAD` detached at `0e8431a` (this morning's radar-run commit), level with `origin/main` after `git fetch origin main`. `git checkout -B main origin/main` re-attached `main` with no divergence — no stash needed, no lost work.
+
+`fetch_feeds.py` ran clean (exit 0). Window since `2026-11-09T04:04:44Z` (prior daily run's start).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss | 1 | - | - |
+| anthropic | fetch → WebFetch `anthropic.com/news` | 1 | fetch | - |
+| google-deepmind | rss → **TRAP/not-a-feed (2nd consecutive day)** → manual curl `--compressed` check | 0 | fetch (manual) | see note below — likely a script bug, not a real trap |
+| google-research | rss | 1 | - | - |
+| microsoft | rss (0 fresh) → WebFetch `microsoft.com/en-us/research/blog/` | 0 | fetch | newest post Nov 5, predates window |
+| nvidia | rss | 1 | - | - |
+| xai | jina → **401 Invalid API key (3rd consecutive day)** → WebSearch | 0 | websearch | `x.ai` not resolvable via WebFetch in this env (confirmed again); no primary source reachable, nothing written per never-invent rule |
+| mistral | rss (304 not modified) → WebFetch `mistral.ai/news` | 0 | fetch | newest post Nov 5, predates window |
+| huggingface | rss | 2 | - | - |
+| cursor | rss (0 fresh) → WebFetch `cursor.com/changelog` | 0 | fetch | newest entry Nov 6, predates window |
+| perplexity | jina → same 401 Invalid API key → WebSearch | 0 | websearch | `www.perplexity.ai` not resolvable via WebFetch in this env (confirmed again); secondary sources report a "Teammates" launch Nov 5–6, but no primary URL could be checked — not written per never-invent rule |
+
+Totals: **+6 items, 5 companies fresh** (openai, anthropic, google-research, nvidia, huggingface×2), 0 hard errors.
+
+**Headline: Anthropic shipped Claude Fable 5.2 and Claude Mythos 5.2** (Nov 9) — confirmed via WebFetch on `anthropic.com/news` after the configured `fetch` tier ladder step (Jina 401'd for the retry-on-403 check, same broken key as xAI/Perplexity, but WebFetch of the news index succeeded directly). Coding/reasoning/vision gains, outputs up to 30% faster, optional 2.5x fast mode, cyber/bio safeguards with ~55% fewer false-positive blocks than 5.1. Full facts in `news/artifacts/2026-11-09-anthropic-claude-fable-mythos-5-2.md`.
+
+**Other confirmed items:** OpenAI (ChatGPT Enterprise on AWS Marketplace — minor/business); Google Research (Language Explorer, an interactive language-diversity platform tied to a Berlin/Frankfurt museum exhibition); NVIDIA (Holoscan 5 robot-arm gravity-compensation tutorial, CPU-pinning cutting worst-case latency up to 9.6x); Hugging Face ×2 (NVIDIA/Elith's Nemotron-Personas-Finance-Japan synthetic dataset; Amazon's HOPE second-order MoE expert-pruning method, +6.1% on agentic coding at 50% pruning vs REAP). All written to their `topics/<company>.md` under `## 2026-W46` and given full artifact cards.
+
+**google-deepmind TRAP note (follow-up on yesterday's flag) — likely a `fetch_feeds.py` bug, not a real trap.** The feed TRAP'd for a 2nd consecutive day, so per yesterday's note I checked by hand: `curl` (no `--compressed`) returns HTTP 200 with garbled binary content; `curl --compressed` on the same URL decodes to valid, well-formed RSS 2.0 XML (confirmed title "Google DeepMind News", valid `<item>` entries, newest dated Nov 5 2026 — predates this run's window, so 0 fresh either way). This strongly suggests `deepmind.google` now unconditionally gzip-compresses this endpoint regardless of the request's `Accept-Encoding`, and `fetch_feeds.py`'s `fetch_one()` (news/scripts/fetch_feeds.py:211) doesn't request/decode gzip, so `looks_like_feed()` sees compressed bytes and false-flags a real feed as TRAP. **Recommend NOT adding this URL to the TRAP table in `companies.md`** (it is not an HTML-trap like the documented cursor/cohere cases) — instead the fix belongs in the script (decompress when `Content-Encoding: gzip` is present). Flagging for owner/human attention; no config or script change made this run (out of scope for the daily routine itself).
+
+**Known Jina breakage persists (3rd consecutive day, unchanged from 2026-11-09).** `JINA_API_KEY` still returns `401 AuthenticationFailedError (Invalid API key)` for both xAI and Perplexity gap-scrapes. Both companies' primary sources (`x.ai`, `www.perplexity.ai`) also remain outside this session's WebFetch network allowlist (DNS `ENOTFOUND`, confirmed again today) — so until the Jina key is rotated, these two companies have **no working verification transport at all**, only secondary-source WebSearch, which the never-invent rule correctly keeps out of the files. Owner action needed: rotate `JINA_API_KEY` (unchanged ask from 2026-11-09).
+
+**Linear: UNAVAILABLE this run** — no Linear tools loadable via ToolSearch (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 6 confirmed items are fully written to files; only the Linear "News digest" cards are behind. Unchanged, well over two months overdue: reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-11-10 (+6 items, 5 companies fresh, Linear unavailable)`.
