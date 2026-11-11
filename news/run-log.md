@@ -6970,6 +6970,45 @@ No push notification sent this run: a healthy radar run (14 items, 3 highlights,
 
 Commit: `news: radar run 2026-11-10 (+14 items, 3 highlights, Linear unavailable)`.
 
+## 2026-11-11 05:0x UTC — radar — ok (Linear unavailable)
+
+**Git check — clean.** Session started with `HEAD` detached at `a99d3fd` (yesterday's daily-run commit), level with `origin/main`. `git checkout -B main origin/main` re-attached `main` with no divergence, no stash needed.
+
+`fetch_radar.py` ran clean (exit 0). Window since `2026-11-10T03:03:29Z`.
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | - |
+| inference-infra | 0 | 0 | - |
+| oss-ml-systems | 2 | 2 | - |
+| bigtech-eng | 0 | 0 | - |
+| research-institutes | 0 | 0 | - |
+| technical-newsletters | 0 | 0 | - |
+| practitioner-blogs | 0 | 0 | - |
+| youtube | 0 | 0 | yt-ai-engineer/yt-gpu-mode/yt-latent-space/yt-mlst/yt-sentdex HTTP 404; yt-karpathy/yt-umar-jamil HTTP 500 (all 7 unchanged — see systemic watch below) |
+| community | 44 | 11 | - |
+| mistral-watch | 0 | 0 | - |
+
+Totals: **46 raw candidates, 13 confirmed, 3 highlights**, 2 hard source errors (`eleuther` HTTP 404, `latent-space` tunnel 403 — both unchanged, see systemic watch) plus the 7 youtube 404/500s above.
+
+**TRIAGE — pass 1 drops (off-topic, thin, or no reproducible content).** The exact same 3 zero-AI-content HN stories flagged and dropped on 2026-11-09/11-10 resurfaced today via different `hn-show-*` query buckets (cross-posting, not new items — confirmed not yet in any radar file before dropping again): `MeowDisplay` (iPhone-mirroring-in-reverse hobby app) and `DBDelve` (Rust/GPUI DB client) have zero AI/ML content; `STE80 Humanizer` (de-AI text tool) stays dropped as detection-evasion-adjacent/off-lane. `Show HN: Aircad` (browser CAD tool, "AI integration" mentioned only in passing, 31 pts) dropped as a consumer-app launch. Reddit: 15 of 25 dropped — bare questions/rants/anecdotes with no technique or finding (cloud-vs-local tasks question, custom-hardware speculation, "Apple Mac app" rumor with no detail, "my AI is lazier than me" decompilation anecdote, Nvidia-CEO political-speculation rant, "Fable 5.2 guardrails" opinion rant, a Qwen character-song meme, a bare reaction-image post, a vague "Strata" optimization teaser with no numbers in the text available); bare HF model-release reposts with no benchmark (`Trending on huggingface: 2D to 3D`, `speakleash/Bielik-11B-v3.1-Instruct`, both `MiniMaxAI/MiniMax-H3-Image` reposts); an AMD EPYC CPU review whose "AI benchmarks begin on page 2" note carried no AI-specific numbers in the self-text; a 64³ voxel image-to-3D paper (`JoVox-64`) dropped as LOW-fit robotics/3D per `interests.md`, thin signal. `lobsters`' `Online learning on the programmable dataplane (2022)` dropped — a 2022 PhD thesis re-posted today with score 1, too old/thin to carry as a "today" story. All 3 `hf-daily-papers` candidates (ExRL robot-policy RL, world-model RL theory, EVAThink video-understanding VLM) dropped as LOW-fit (robotics/video, academic) with thin signal (4/1/0 upvotes). `hf-trending-models` (4, incl. 2 more MiniMax-H3-Image reposts and a bare ERNIE-5.5-Flash-Base/hyperflow-h3-flash listing) and `hf-trending-spaces` (1, explicitly NSFW) dropped as bare trending reposts with no write-up — consistent with every prior run.
+
+**TRIAGE — kept (2 oss-ml-systems + 11 community, 3 highlights of 3 max).** ⭐ **Optimizing Muse Spark Open on TPU v7 with SGLang-TorchTPU** (PyTorch blog) — verified via WebFetch: a megakernel-centered serving writeup for Meta's 816B-param MoE on TPU v7, 1.94x per-token speedup from fusing all 62 layers into one Pallas program, DFlash2 speculative decoding (2.0x), L2 HiCache (+77% on agent traffic) and session-aware eviction for idle sub-agent conversations, benchmarked on SemiAnalysis's AgentX (393 real Claude Code sessions replayed) — open source, direct hit on inference-engine serving cost/perf. ⭐ **Show HN: Get your coding agent off ~2019 JavaScript, onto modern web primitives** (313 pts) — verified via `git clone`: Modern Web Guidance, a Chrome/Edge/Firefox/MDN-stewarded skill of 250 web-platform features + 203 use-case guides fed into coding-agent context to steer them off stale training-data patterns, with its own eval dashboard — direct hit on "coding agents, context engineering." ⭐ **"I trained a 348M-active MoE on ~11B tokens..."** (reddit, 403'd on `.json`, kept on self-text) — a from-scratch sparse MoE trained on one RTX 5090, 85.5% vs. Qwen2.5-1.5B's 53.3% on a shuffled-fact-chains eval, GGUF + eval set released — direct hit on "reproducible technique with code, small enough to rerun locally." Also kept (regular): ExecuTorch WebGPU (PyTorch models in-browser on GPU); a 91-model/28-API TTS benchmark (3rd round); a 202-task, 13-rare-language coding benchmark (Qwen3.6 vs Qwen3.8 vs GLM-5.3 Flash); a 0.8B local Spanish-proofreading hotkey tool (138ms/sentence, CPU); `adventists-ai/Sophon-Realtime-v1` (Apache-2.0 full-duplex voice model); a Weight-Space Programming academic study (16 trajectories × 7 benchmarks × 2 scales); `dna-factory` (dnotitia's open-sourced internal fine-tuning framework); a no-training LLM weight-edit technique (`Laya` follow-up); and a llama.cpp PR adding sharded PLE/engram-file loading for Gemma4/Qwen3.8Next/GLM5.3Flash.
+
+**Highlights: 3** (of 3 max) — **Muse Spark Open on TPU v7**, **Modern Web Guidance**, **the 348M-active MoE experiment** — an "inference-serving engineering + agent context engineering + reproducible own-experiment" theme, each verified beyond its own headline (WebFetch for the lab blog, `git clone` for the GitHub skill repo, self-text for the reddit experiment after its `.json` 403'd).
+
+**Reddit — all five `.json` verification attempts this run (348M MoE, Deletion Tuning, TTS bench, Qwen coding benchmark, DNA Factory, Decision model, llama.cpp PR) hit the same flat HTTP 403** bot-check noted on every run since 2026-11-01; fell back to each feed entry's own self-text per the established exception, which carried enough concrete detail to verify every kept claim. The llama.cpp PR's GitHub page was also not WebFetch-able (github.com block, unchanged); its reddit self-text (a verbatim PR-description repost) was the only transport available and was sufficient.
+
+**Dedup note.** Checked all kept titles and the resurfaced-but-dropped HN trio against every `radar/*.md` file before writing — none were already present; no cross-company overlap with any `topics/*.md` file either (none of today's stories are company product launches).
+
+**Systemic source watch (longest-running unactioned breaks, informational only, no fallback attempted):** all 7 `yt-*` YouTube channel feeds HTTP 404/500 (6 of 6 recent runs now); `latent-space` proxy-403 (5 of 5 recent runs); `eleuther` HTTP 404 (every run checked so far, unchanged — still worth a one-time human check of whether the feed URL moved).
+
+**Linear: UNAVAILABLE this run** — ToolSearch confirms no Linear tools loadable in this session (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 13 confirmed items are fully written to their radar files — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This has now run since 2026-08-24 — over eleven weeks — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session. The deep-dive routine remains fully blocked without a review queue to draw `hot` cards from.
+
+No push notification sent this run: a healthy radar run (13 items, 3 highlights, no new failures) with the Linear blockage already reported in every prior run-log entry — nothing new requiring the owner's immediate attention.
+
+Commit: `news: radar run 2026-11-11 (+13 items, 3 highlights, Linear unavailable)`.
+
 ## 2026-11-10 06:0x UTC — daily — ok (Linear unavailable)
 
 **Git check — clean.** Session started with `HEAD` detached at `0e8431a` (this morning's radar-run commit), level with `origin/main` after `git fetch origin main`. `git checkout -B main origin/main` re-attached `main` with no divergence — no stash needed, no lost work.
