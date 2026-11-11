@@ -5,10 +5,14 @@ aliases:
   - Copilot
 sources:
   - https://www.microsoft.com/en-us/research/feed/
-updated: 2026-11-06
+updated: 2026-11-11
 ---
 
 MOC page for **Microsoft** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W46
+
+- **2026-11-10** — [Lazare, veni foras: Reprogramming Dormant Neurons to Backdoor AI Agents](https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/) — Microsoft Research describes "Lazarus," a backdoor reprogramming fewer than 10 dormant neurons (no retraining) to trigger attacker commands in an otherwise normal-passing AI agent; mostly discovered autonomously by Claude Code on Opus 4.5.
 
 ## 2026-W45
 

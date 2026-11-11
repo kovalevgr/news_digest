@@ -5,10 +5,15 @@ aliases:
   - Gemini
 sources:
   - https://deepmind.google/blog/rss.xml
-updated: 2026-11-06
+updated: 2026-11-11
 ---
 
 MOC page for **Google DeepMind** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W46
+
+- **2026-11-10** — [Introducing AlphaProof Code: a breakthrough in verifying complex software at depth](https://deepmind.google/blog/introducing-alphaproof-code/) — Google DeepMind's agentic formal-verification framework writes 6M+ lines of Lean proofs to verify Signal's compiled cryptographic protocol code, a first for AI at this depth.
+- **2026-11-10** — [Gemini 4 Carbon is now available](https://deepmind.google/blog/gemini-4-carbon-is-now-available/) — Google DeepMind makes Gemini 4 Carbon generally available; also the model backbone behind the same-day AlphaProof Code agents.
 
 ## 2026-W45
 

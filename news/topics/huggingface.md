@@ -5,13 +5,14 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-11-10
+updated: 2026-11-11
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W46
 
+- **2026-11-11** — [BotPsy: On-Device Personal Assistant with a Sub-Billion-Parameter Agentic Language Model](https://huggingface.co/blog/qvac/botpsy) — Tether AI Research releases BotPsy, a 0.8B-parameter Qwen3.5 fine-tune for on-device tool-use/agentic workflows, beating Qwen3.5-2B-Think on 5 of 6 agentic benchmarks.
 - **2026-11-09** — [Nemotron-Personas-Finance-Japan: A Synthetic Dataset Capturing Japan's Demographics and Financial Context](https://huggingface.co/blog/nvidia/nemotron-personas-finance-japan) — NVIDIA and Elith release a 9M-persona synthetic Japanese finance dataset (CC BY 4.0, 1M records × 9 personas) extending Nemotron-Personas-Japan with household-finance and literacy fields.
 - **2026-11-09** — [Your Experts Have Partners. There's HOPE for Keeping Them Together](https://huggingface.co/blog/amazon/higher-order-pruning-experts) — Amazon introduces HOPE, a second-order MoE expert-pruning method modeling pairwise expert interactions, beating REAP/MAN/EAN by up to +6.1% on agentic coding tasks at 50% pruning.
 

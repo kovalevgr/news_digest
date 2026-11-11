@@ -4,13 +4,17 @@ aliases:
   - Nvidia
 sources:
   - https://developer.nvidia.com/blog/feed
-updated: 2026-11-10
+updated: 2026-11-11
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W46
 
+- **2026-11-10** — [Manage Kubernetes Clusters for GPU Infrastructure with NVIDIA Kubernetes Engine](https://developer.nvidia.com/blog/manage-kubernetes-clusters-for-gpu-infrastructure-with-nvidia-kubernetes-engine/) — NVIDIA releases NVKE (managed-Kubernetes software) and NVKR (node/container image + Helm recipes) in Apache-2.0 public preview, part of the DSX AI Factory Platform.
+- **2026-11-10** — [Start and Restore GPU Workloads in Seconds with NVIDIA Snapshot](https://developer.nvidia.com/blog/start-and-restore-gpu-workloads-in-seconds-with-nvidia-snapshot/) — NVIDIA open-sources Snapshot, checkpoint/restore for GPU inference workloads on Kubernetes, restoring vLLM/SGLang/TensorRT-LLM workers 8-36x faster than cold start.
+- **2026-11-10** — [Agent Substrate: Advancing Kubernetes for Agents at Scale](https://developer.nvidia.com/blog/agent-substrate-advancing-kubernetes-for-agents-at-scale/) — NVIDIA open-sources Agent Substrate (now CNCF Sandbox), mapping many sandboxed agent sessions onto a small pool of warm Kubernetes worker Pods.
+- **2026-11-10** — [Running AV Reasoning Models Within Onboard Compute and Latency Limits](https://developer.nvidia.com/blog/running-av-reasoning-models-within-onboard-compute-and-latency-limits/) — NVIDIA introduces Alpamayo 2 Edge, a 2B-parameter VLA reasoning model for autonomous vehicles, plus AlpaJudge, with deployment guidance for DRIVE AGX Thor.
 - **2026-11-09** — [Make a Robot Arm Feel Weightless with NVIDIA Holoscan 5](https://developer.nvidia.com/blog/make-a-robot-arm-feel-weightless-with-nvidia-holoscan-5/) — NVIDIA publishes a Holoscan 5 gravity-compensation tutorial for robot arms; CPU-core pinning cuts worst-case latency up to ~9.6x (Python) and ~5x (C++).
 
 ## 2026-W45

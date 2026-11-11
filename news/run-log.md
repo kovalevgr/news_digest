@@ -7042,3 +7042,45 @@ Totals: **+6 items, 5 companies fresh** (openai, anthropic, google-research, nvi
 **Linear: UNAVAILABLE this run** — no Linear tools loadable via ToolSearch (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 6 confirmed items are fully written to files; only the Linear "News digest" cards are behind. Unchanged, well over two months overdue: reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: daily run 2026-11-10 (+6 items, 5 companies fresh, Linear unavailable)`.
+
+## 2026-11-11 06:0x UTC — daily — ok (Linear unavailable)
+
+**Git check — clean.** Session started with `HEAD` detached at `1dda033` (this morning's radar-run commit), level with `origin/main` after `git fetch origin main`. `git checkout -B main origin/main` re-attached `main` with no divergence — no stash needed, no lost work.
+
+`fetch_feeds.py` ran clean (exit 0). Window since `2026-11-10T04:01:57Z` (prior daily run's start).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss | 1 | - | - |
+| anthropic | fetch (zero rss tier) → WebFetch `anthropic.com/news` | 1 | fetch | - |
+| google-deepmind | rss | 2 | - | - |
+| google-research | rss (0 fresh) → WebFetch `research.google/blog/` | 0 | fetch | newest post Nov 9, predates window |
+| microsoft | rss | 1 | - | - |
+| nvidia | rss | 4 | - | - |
+| xai | jina → **401 Invalid API key (5th consecutive day)** → WebSearch | 0 | websearch | `x.ai`/SpaceXSI no confirmable Nov 10-11 primary-source item; nothing written per never-invent rule |
+| mistral | rss (0 fresh) → WebFetch `mistral.ai/news` | 0 | fetch | newest post Nov 5, predates window |
+| huggingface | rss | 1 | - | - |
+| cursor | rss (0 fresh) → WebFetch `cursor.com/changelog` | 0 | fetch | newest entry Nov 6, predates window |
+| perplexity | jina → same 401 Invalid API key → WebSearch | 0 | websearch | secondary sources describe "Teammates"/Comet updates, all dated Nov 4-6 — predates window; no primary URL confirmable in-window, nothing written per never-invent rule |
+
+Totals: **+10 items, 6 companies fresh** (openai, anthropic, google-deepmind×2, microsoft, nvidia×4, huggingface), 0 hard errors.
+
+**Headline: Google DeepMind's AlphaProof Code formally verified Signal's compiled cryptographic protocol code** (Nov 10) — an agentic Lean-proof framework (6M+ lines of proofs, powered by the same-day Gemini 4 Carbon GA release) verified Signal's actual compiled code, not just protocol design, in ~4 weeks vs. years for expert teams; sanity-checked by reintroducing two known-fixed bugs and getting machine-checked insecurity proofs back. Full facts in `news/artifacts/2026-11-10-google-deepmind-alphaproof-code.md` (+ companion `2026-11-10-google-deepmind-gemini-4-carbon.md`).
+
+**Notable: Microsoft Research's "Lazarus" backdoor** — reprograms fewer than 10 dormant neurons (no retraining) to trigger hidden attacker commands in an agent that otherwise passes standard evals; discovered mostly autonomously by Claude Code (Opus 4.5) tasked with backdooring a model without training. `news/artifacts/2026-11-10-microsoft-lazarus-backdoor-dormant-neurons.md`.
+
+**NVIDIA (4 items, all genuine product/technical posts, kept per the "major posts only" filter):** Alpamayo 2 Edge (2B VLA reasoning model for AVs) + AlpaJudge; Agent Substrate (now CNCF Sandbox) for dense sandboxed-agent scheduling on Kubernetes; Snapshot (GPU workload checkpoint/restore, 8-36x faster than cold start); NVKE/NVKR (managed-Kubernetes software + image/Helm recipes, Apache-2.0 public preview) — all four part of the DSX AI Factory Platform, all Nov 10.
+
+**Anthropic — found only via gap-scrape** (Anthropic has no rss feed, so it always needs the fetch-tier fallback): roadshow launch for its proposed IPO (825M Class A shares, $70-$78/share range, Nasdaq "ANT"), following the 2026-10-26 S-1 filing. `news/artifacts/2026-11-10-anthropic-ipo-roadshow.md`.
+
+**Other confirmed items:** OpenAI (Businesses in ChatGPT — business-profile/insights feature; primary page 403'd, written from the RSS feed's own summary only, per never-invent); Hugging Face (Tether AI Research's BotPsy, a 0.8B on-device agentic model beating Qwen3.5-2B-Think on 5/6 agentic benchmarks).
+
+**OpenAI 403 note.** `openai.com/index/introducing-businesses-chatgpt` returned HTTP 403 to WebFetch (first time seen for this domain in recent runs); Jina retry unavailable (broken key, see below). One WebSearch for the exact title found no matching secondary coverage, so the artifact/topics line relies solely on the RSS feed's own summary text — no invented detail.
+
+**Dedup note.** Checked all 10 new items against this week's `topics/*.md` sections before writing — no cross-company overlap, no re-adds of anything already present.
+
+**Known Jina breakage persists (5th consecutive day, unchanged from 2026-11-09).** `JINA_API_KEY` still returns `401 AuthenticationFailedError (Invalid API key)` for both xAI and Perplexity gap-scrapes. Both companies' primary sources remain outside this session's WebFetch allowlist, so until the key is rotated these two companies have no working verification transport beyond WebSearch, which the never-invent rule correctly keeps out of the files. Owner action needed: rotate `JINA_API_KEY` (unchanged ask, now 5+ days running).
+
+**Linear: UNAVAILABLE this run** — no Linear tools loadable via ToolSearch (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 10 confirmed items are fully written to files; only the Linear "News digest" cards are behind. Unchanged, well over two months overdue: reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-11-11 (+10 items, 6 companies fresh, Linear unavailable)`.
