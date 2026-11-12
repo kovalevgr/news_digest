@@ -7084,3 +7084,42 @@ Totals: **+10 items, 6 companies fresh** (openai, anthropic, google-deepmind×2,
 **Linear: UNAVAILABLE this run** — no Linear tools loadable via ToolSearch (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 10 confirmed items are fully written to files; only the Linear "News digest" cards are behind. Unchanged, well over two months overdue: reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: daily run 2026-11-11 (+10 items, 6 companies fresh, Linear unavailable)`.
+
+## 2026-11-12 05:0x UTC — radar — ok (Linear unavailable)
+
+**Git check.** Session started with `HEAD` detached at `c06ade2` (yesterday's daily-run commit), level with `origin/main`. Local `main` was stale (still at `1bad050`, the 2026-11-07 radar commit); `git checkout -B main origin/main` re-attached it to the current tip, no stash needed, no divergent local work lost.
+
+`fetch_radar.py` ran clean (exit 0). Window since `2026-11-11T03:03:39Z`.
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | - |
+| inference-infra | 1 | 1 | - |
+| oss-ml-systems | 2 | 2 | - |
+| bigtech-eng | 0 | 0 | - |
+| research-institutes | 0 | 0 | - |
+| technical-newsletters | 0 | 0 | - |
+| practitioner-blogs | 0 | 0 | `latent-space` tunnel 403 (unchanged) |
+| youtube | 0 | 0 | all 7 `yt-*` feeds 404/500 (unchanged, see systemic watch) |
+| community | 51 | 9 | - |
+| mistral-watch | 0 | 0 | - |
+
+Totals: **54 raw candidates, 12 confirmed, 3 highlights**, 1 hard source error (`eleuther` HTTP 404, unchanged) plus `latent-space` and the 7 youtube errors above.
+
+**TRIAGE — pass 1 drops (consumer-app launches, bare link posts, drama/meta, thin HF/GitHub trending).** HN Show: `Klad` (coding-agent-driven paint app), `Yogurt` (Granola alternative), `ThingStudio` (microcontroller IDE), `Aircad` (browser CAD) — all consumer-app launches with AI mentioned only in passing; `litesql` (Go/SQLite library) and `bo2-mac` (game recompile) have zero AI content; `Y Recombinator` (meta-HN site) and `Get your coding agent off ~2019 JavaScript` (427 pts — genuinely substantive but about web-platform primitives, not an AI technique) dropped on relevance, not quality. Reddit: 12 of 25 dropped — a bi-weekly megathread, two moderation/drama posts (`Mod ttkciar is harassing this sub`, `Rules and moderation...`), a CEO-ouster rumor and a "US/China may collaborate" political-joke post (both finance/politics, not technique), a Microsoft GPU-patent-filing note (speculative, no technique), an anecdotal single-prompt screenshot post, an RTX 5080 24GB cancellation rumor (consumer-hardware/finance), a self-promotional "Local World Model" release pointing at a paid cloud-GPU demo service rather than a runnable local artifact, a third-party edge-optimized Alpamayo 2 Edge post (NVIDIA's own release and this Embedl partnership are already in `topics/nvidia.md`'s 2026-11-10 artifact — no new radar angle, so not re-added per the company-dedup rule), and two academic papers with no code/benchmark in the self-text (`Unless Told Otherwise, an Open LM Says OpenAI Made It`; `Why is AI-generated language so hard to understand?`). `lobsters`' SIGGRAPH-paper-writing post dropped as off-lane (writing craft, not AI/ML). `hf-trending-models` (2, quantized-reupload GGUFs with no write-up) and `hf-trending-spaces` (2, bare demo-space links) dropped as thin trending reposts. `github-trending` (2: a personal-finance app, a Rust UI library) dropped as zero AI content.
+
+**TRIAGE — kept (1 inference-infra + 2 oss-ml-systems + 9 community, 3 highlights of 3 max).** ⭐ **Modal becomes a gVisor maintainer** — verified via WebFetch: Modal (40M containers/day) joins the gVisor CNCF-donation maintainer group, with upstreamed GPU (`nvproxy`), RDMA (`rdmaproxy`) and filesystem work; concrete numbers (8x DataLoader throughput, ~99% native RDMA bandwidth, 25ms sandbox boot). ⭐ **Muse Spark Open Ultrafast** (SGLang) — verified via WebFetch: a megakernel fusing each decoder layer into one persistent CUDA/PTX kernel, 517→1,109 tok/s (2.1x) single-request decode on 8x GB300. ⭐ **Unified Memory in SGLang** — verified via WebFetch: `--enable-unified-memory` replaces fixed per-state-type KV pools with one shared arena, +14-26% throughput and far higher concurrency when the fixed-ratio guess would've been wrong, on real H200 numbers. Also kept (regular): the CMP 170HX voltage-glitch → A100-80G hardware hack (85.9 vs. 72.5 TFLOP/s FP16, full 80GB unlocked — strong story, self-text-only verification kept it out of the highlight tier behind the three WebFetch-verified posts above); an attention/local-attention architecture-trend survey; a memory-efficient ternary-network training optimizer; the MACaQ quantization method (beats Unsloth/Bartowski GGUFs on KL-divergence at matching size); a DeepSeek V4.1 Flash exl3 2.9bpw benchmark note; Inflect v3 (34M-param local TTS, Apache-2.0); Unsloth's own Dynamic V3.1 quant release (with community pushback on the 27B gain noted); a bare-title llama.cpp FP8 KV-cache item (kept strictly to the title, no self-text available to verify further); and Show HN's `Aq` attention-queue TUI for running multiple Claude Code sessions in parallel — unusually close to the owner's own multi-routine Claude Code cloud setup.
+
+**Highlights: 3** (of 3 max) — **Modal/gVisor**, **SGLang Muse Spark megakernel**, **SGLang Unified Memory** — all three WebFetch-verified with hard before/after numbers, all inference/serving-engineering; the CMP 170HX hack was the next-best candidate (arguably the best story of the day) but stayed a regular item since reddit's `.json` 403 left it on self-text only, one verification tier below the three chosen.
+
+**Reddit — all `.json` verification attempts this run (CMP 170HX, llama.cpp FP8 KV-cache, Architecture trends, train-with-less-memory, MACaQ, DeepSeek benchmark, Inflect v3, both Unsloth Dynamic V3.1 posts) hit a flat HTTP 403** bot-check, consistent with every run since 2026-11-01; fell back to each feed entry's own self-text, which carried enough detail to verify every kept claim except the llama.cpp KV-cache item (no self-text at all — kept to the bare title only).
+
+**Dedup note.** Checked all kept titles against every `radar/*.md` file and against this week's `topics/*.md` sections before writing; the one near-duplicate caught (Alpamayo 2 Edge / Embedl) was dropped per the company-dedup rule, not re-added. The two Unsloth Dynamic V3.1 reddit posts (official release + a companion benchmark post) were treated as one story — written once, citing the more detailed post.
+
+**Systemic source watch (longest-running unactioned breaks, informational only, no fallback attempted):** all 7 `yt-*` YouTube feeds HTTP 404/500 (7 of 7 recent runs now); `latent-space` proxy-403 (6 of 6); `eleuther` HTTP 404 (every run checked so far, unchanged — still worth a one-time human check of whether the feed URL moved).
+
+**Linear: UNAVAILABLE this run** — no Linear tools loadable via ToolSearch (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 12 confirmed items are fully written to their radar files — no data lost, only the Linear review queue and `highlight`/priority labels are behind. This has now run since 2026-08-24 — over eleven weeks — owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session. The deep-dive routine remains fully blocked without a review queue to draw `hot` cards from.
+
+No push notification sent this run: a healthy radar run (12 items, 3 highlights, no new failures) with the Linear blockage already reported in every prior run-log entry — nothing new requiring the owner's immediate attention.
+
+Commit: `news: radar run 2026-11-12 (+12 items, 3 highlights, Linear unavailable)`.
