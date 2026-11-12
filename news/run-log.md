@@ -7165,3 +7165,15 @@ Totals: **+7 items, 4 companies fresh** (google-deepmind×2, google-research, nv
 **Linear: UNAVAILABLE this run** — no Linear tools loadable via ToolSearch (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 7 confirmed items are fully written to files; only the Linear "News digest" cards are behind. Unchanged, well over two months overdue: reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: daily run 2026-11-12 (+7 items, 5 companies fresh, Linear unavailable)`.
+
+## 2026-11-12 07:1x UTC — deep dive — blocked (Linear unavailable, no input)
+
+**Git check — clean.** Session started with `HEAD` detached at `a4ed072` (this morning's daily-run commit), level with `origin/main`. `git checkout -B main origin/main` re-attached `main` with no divergence — no stash needed, no lost work.
+
+Step 1 PICK could not run: the deep dive's ONLY entry point is `hot`-labelled cards in Linear project "Radar" (status "Ready to Review", fallback Todo), and **Linear is UNAVAILABLE this run — the MCP server requires re-authorization and ToolSearch confirms no Linear tools are loadable; a non-interactive scheduled session cannot run the OAuth flow** (the separate `plugin:design:linear` server also failed to connect, `ERR_PROXY_TUNNEL` proxy 403). With the review queue unreadable, there is no way to know which items the owner approved; no substitute selection was made (picking cards by own judgement would bypass the owner-approval gate). Cards processed: 0. Files written: none (`radar/deep/` still holds only `TEMPLATE.md`). Leftovers: unknown — cannot be enumerated without Linear.
+
+This is the **TWENTY-THIRD** consecutive deep-dive run fully blocked — the routine has produced ZERO deep dives since going live. Radar collection itself remains healthy (this morning's 05:00 radar run added +12 items with 3 highlights, all inference/serving-engineering: Modal becoming a gVisor maintainer, SGLang's Muse Spark megakernel 2.1x decode speedup, SGLang Unified Memory +14–26% throughput), so the moment Linear is reconnected the queue can be backfilled from the radar files and the next Mon/Thu run picks up any `hot` backlog automatically (up to 3 cards per run, oldest first). Owner action needed (unchanged, 80 days overdue since 2026-08-24): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+No push notification sent this run: the blockage is unchanged from the previous twenty-two runs and is already reported to the owner in every daily run-log entry and in the weekly digest push — nothing new to surface.
+
+Commit: `news: deep dive 2026-11-12 (0 cards, Linear unavailable)`.
