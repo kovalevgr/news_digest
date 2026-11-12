@@ -4,10 +4,15 @@ aliases:
   - Anysphere
 sources:
   - https://cursor.com/changelog/rss.xml
-updated: 2026-10-27
+updated: 2026-11-12
 ---
 
 MOC page for **Cursor** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W45
+
+- **2026-11-06** — [Voice Chat with Agents](https://cursor.com/changelog/voice-chat) — Cursor adds realtime voice calls with coding agents (describe changes aloud, hear progress updates), running on Grok Voice. Backfilled: missed by prior gap-scrapes, confirmed today via primary source.
+- **2026-11-05** — [Build Live Apps in Cursor](https://cursor.com/changelog/build-live-apps) — Cursor lets users build and publish web apps directly in the editor; a cloud agent scaffolds the app, provisions Postgres/hosting, and sets up auth behind Cursor SSO. Backfilled: missed by prior gap-scrapes, confirmed today via primary source.
 
 ## 2026-W43
 

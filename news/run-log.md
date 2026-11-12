@@ -7123,3 +7123,45 @@ Totals: **54 raw candidates, 12 confirmed, 3 highlights**, 1 hard source error (
 No push notification sent this run: a healthy radar run (12 items, 3 highlights, no new failures) with the Linear blockage already reported in every prior run-log entry — nothing new requiring the owner's immediate attention.
 
 Commit: `news: radar run 2026-11-12 (+12 items, 3 highlights, Linear unavailable)`.
+
+## 2026-11-12 06:0x UTC — daily — ok (Linear unavailable)
+
+**Git check.** Session started with `HEAD` detached at `269ea3c` (this morning's radar-run commit), level with `origin/main`. `git checkout -B main origin/main` re-attached `main` with no divergence — no stash needed, no lost work.
+
+`fetch_feeds.py` ran clean (exit 0). Window since `2026-11-11T04:01:46Z` (prior daily run's start).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (0 fresh) → WebFetch `openai.com/news` (403) → Jina (401, broken key) → WebSearch | 0 | fetch, jina, websearch | WebFetch 403 on the news index itself (new — previously only individual article pages 403'd); no confirmable Nov 11-12 primary-source item via WebSearch; nothing written per never-invent rule |
+| anthropic | fetch (zero rss tier) → WebFetch `anthropic.com/news` | 0 | fetch | page shows a bare "November 12, 2026" category date label with no rendered title/body; one WebSearch found nothing matching; nothing written per never-invent rule |
+| google-deepmind | rss — reported `TRAP/not-a-feed` this run → manual curl re-check found the feed fully valid (200, `content-type: application/xml`, well-formed RSS) → parsed directly | 2 | none (transient false-positive, not a real trap) | the script's TIER-1 fetch hit a one-off flaky response; see note below |
+| google-research | rss | 1 | - | - |
+| microsoft | rss (0 fresh) → WebFetch `microsoft.com/en-us/research/blog/` | 0 | fetch | newest confirmed post still Nov 10, predates window |
+| nvidia | rss | 1 | - | - |
+| xai | jina → 401 Invalid API key (6th consecutive day) → WebSearch | 0 | jina, websearch | no confirmable Nov primary-source item beyond already-known Aug/Oct releases; nothing written per never-invent rule |
+| mistral | rss (0 fresh) → WebFetch `mistral.ai/news` | 0 | fetch | newest post still Nov 5, predates window |
+| huggingface | rss (0 fresh) → WebFetch `huggingface.co/blog` | 1 | fetch | — |
+| cursor | rss (0 fresh) → WebFetch `cursor.com/changelog` | 2 | fetch | both backfill (Nov 5-6, missed by prior gap-scrapes) |
+| perplexity | jina → same 401 Invalid API key → WebSearch | 0 | jina, websearch | secondary coverage of a Nov 4 "Teammates" launch, unconfirmable via primary source (same gap already logged 2026-11-11); nothing written per never-invent rule |
+
+Totals: **+7 items, 4 companies fresh** (google-deepmind×2, google-research, nvidia, huggingface, cursor×2 — 5 companies by file, 7 items total), 0 hard errors.
+
+**Google DeepMind feed false-positive.** `fetch_feeds.py` flagged `deepmind.google/blog/rss.xml` as `TRAP/not-a-feed` this run — unexpected, since this feed has been clean since 2026-08-01 and is not on the known-trap list (`cursor.com/rss.xml`, `cohere.com/blog/rss.xml`). A manual `curl` re-fetch moments later returned a perfectly well-formed 200 `application/xml` RSS document (confirmed via `file` and by parsing it), so this looks like a one-off transient glitch (bad response on that specific request, not a persistent content-type trap) rather than a real site change — no config edit made. Parsing the manually-fetched feed directly surfaced two items the script's run would otherwise have missed entirely this cycle: **AlphaGenome 2** (2026-11-11, in-window) and **Gemini Robotics 2.5** (2026-11-09 UTC per the feed's own `pubDate` — this one predates even yesterday's window and should have been caught by an earlier run; written today as a backfill). Worth a human glance if `TRAP/not-a-feed` recurs on this feed tomorrow — if it's a one-off, no action needed.
+
+**Headline: Google DeepMind's AlphaGenome 2** — a conditional DNA-sequence model (vs. the original's parallel tissue-average predictions) that adapts to new single-cell data without retraining; identifies ~2x more expression-changing variants than the prior SOTA, 30% vs 16% causal-variant detection on TenK10K. `news/artifacts/2026-11-11-google-deepmind-alphagenome-2.md`.
+
+**Backfill: Gemini Robotics 2.5** (2026-11-09) — VLA model emphasizing dexterity/reliability/safety; Apptronik/Mercedes-Benz proof-of-concept hit 96% success sorting automotive parts; 99.5% jailbreak resistance (Gemini 4 Argon) vs 82% prior baseline. `news/artifacts/2026-11-09-google-deepmind-gemini-robotics-2-5.md`.
+
+**Cursor backfill (2 items, both missed by prior gap-scrapes — the rss tier has been zero-fresh since 2026-10-27 per the file's own `updated` date, so these sat unconfirmed for days):** Voice Chat with Agents (Nov 6, realtime voice calls with coding agents on Grok Voice); Build Live Apps in Cursor (Nov 5, in-editor app scaffolding + Postgres/hosting + Cursor SSO auth, publish-gated behind security checks). `news/artifacts/2026-11-06-cursor-voice-chat.md`, `news/artifacts/2026-11-05-cursor-build-live-apps.md`.
+
+**Other confirmed items:** Google Research (SensorWM — wearable-data world model for CKM risk/coaching, 71.4% coach preference in a blinded study); NVIDIA (AICR gains an AI-bill-of-materials component built on Google's k8s-aibom, CycloneDX 1.6 output); Hugging Face (pooling-aware training for multi-vector embeddings, 97.8% vs 94.6% retained retrieval quality at 4x compression).
+
+**OpenAI — new failure mode.** `openai.com/news` itself (not just an individual article page) returned HTTP 403 to WebFetch this run, a first; the Jina retry per the FAILURE MODES table hit the same long-running 401 (broken key), and a WebSearch turned up nothing dated in-window. No items written for OpenAI today — the rss tier itself also returned zero fresh (category filter or genuinely quiet).
+
+**Dedup note.** Checked all 7 new items against this week's `topics/*.md` sections (and, for the two backfills, against the full file) before writing — no cross-company overlap, no re-adds.
+
+**Known Jina breakage persists (6th consecutive day, unchanged from 2026-11-11).** `JINA_API_KEY` still returns `401 AuthenticationFailedError (Invalid API key)` for xAI and Perplexity gap-scrapes. Owner action needed: rotate `JINA_API_KEY` (unchanged ask, now 6+ days running).
+
+**Linear: UNAVAILABLE this run** — no Linear tools loadable via ToolSearch (MCP server requires re-authorization; a non-interactive scheduled session cannot complete the OAuth flow). All 7 confirmed items are fully written to files; only the Linear "News digest" cards are behind. Unchanged, well over two months overdue: reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-11-12 (+7 items, 5 companies fresh, Linear unavailable)`.

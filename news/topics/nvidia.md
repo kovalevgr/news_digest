@@ -4,12 +4,14 @@ aliases:
   - Nvidia
 sources:
   - https://developer.nvidia.com/blog/feed
-updated: 2026-11-11
+updated: 2026-11-12
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W46
+
+- **2026-11-11** — [Validating GPU Platforms with Runtime AI Inventory via the NVIDIA DSX AI Factory](https://developer.nvidia.com/blog/validating-gpu-platforms-with-runtime-ai-inventory-via-the-nvidia-dsx-ai-factory/) — NVIDIA's AI Cluster Runtime adds an AI bill-of-materials component built on Google's k8s-aibom, inventorying Kubernetes AI workloads into CycloneDX 1.6 records with per-attribute confidence tiers.
 
 - **2026-11-10** — [Manage Kubernetes Clusters for GPU Infrastructure with NVIDIA Kubernetes Engine](https://developer.nvidia.com/blog/manage-kubernetes-clusters-for-gpu-infrastructure-with-nvidia-kubernetes-engine/) — NVIDIA releases NVKE (managed-Kubernetes software) and NVKR (node/container image + Helm recipes) in Apache-2.0 public preview, part of the DSX AI Factory Platform.
 - **2026-11-10** — [Start and Restore GPU Workloads in Seconds with NVIDIA Snapshot](https://developer.nvidia.com/blog/start-and-restore-gpu-workloads-in-seconds-with-nvidia-snapshot/) — NVIDIA open-sources Snapshot, checkpoint/restore for GPU inference workloads on Kubernetes, restoring vLLM/SGLang/TensorRT-LLM workers 8-36x faster than cold start.
