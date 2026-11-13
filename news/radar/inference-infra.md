@@ -1,6 +1,6 @@
 ---
 category: inference-infra
-updated: 2026-11-12
+updated: 2026-11-13
 ---
 
 # Radar: inference-infra
@@ -26,3 +26,4 @@ Appended by the daily routine under weekly headings; format matches topics files
 ## 2026-W46
 
 - **2026-11-11** — ⭐ [Modal becomes a gVisor maintainer](https://modal.com/blog/modal-gvisor-maintainer) — Verified via WebFetch: Modal (40M gVisor containers/day) joins Ant Group and Tines as a maintainer as Google donates gVisor to the CNCF; upstreamed work covers GPU support (`nvproxy`: new NVIDIA drivers, Blackwell/RTX PRO 6000, multi-GPU NVLink, CUDA MPS, GPUDirect RDMA), a new RDMA device proxy (`rdmaproxy`, NVIDIA ConnectX + AWS EFA) enabling multi-node training inside sandboxes, and tmpfs/overlayfs/huge-page optimizations. Numbers: sandbox boot ~25ms / ~12MB overhead, RDMA at ~99% of native NCCL all-reduce bandwidth, PyTorch DataLoader shared-memory throughput 2.9→22 GB/s (~8x), tmpfs-optimized SQLite 2.7x faster. MEDIUM-HIGH fit — "GPU/kernel engineering" with a dense, numbers-backed "how we built X" writeup on the sandboxing layer agentic/training infra runs on.
+- **2026-11-12** — [Sandbox resourcing: burst, don't reserve](https://modal.com/blog/sandbox-bursting) — Verified via WebFetch: Modal's Sandboxes now default to a small guaranteed request (0.125 CPU / 128 MiB) and burst into a machine's idle capacity, billed per-second against that floor instead of a fixed peak reservation. Illustrative numbers: a 20-minute coding-agent task averaged 0.44 CPU / 0.94 GiB against a 6.00 CPU / 2.30 GiB peak (a typical fixed reservation would be 1.5 CPU / 3 GiB), cutting cost/Sandbox-hour from 20.0¢ to 8.4¢ (−58%, list rates); eviction SLO for sub-8GiB bursting Sandboxes is <0.0001% OOM/minute (~1 per 694 Sandbox-days); a Terminal-Bench 2.1 agent run sat near-zero CPU except brief pytest spikes, memory ~47MiB vs. a 128MiB request. Direct hit on "AI agents in practice" + inference-infra cost/perf — the economics behind every coding-agent/eval sandbox, adjacent to the owner's own multi-routine Claude Code setup.
