@@ -7218,3 +7218,43 @@ Totals: **66 raw candidates, 14 confirmed, 3 highlights**, 1 hard source error (
 No push notification sent this run: a healthy radar run (14 items, 3 highlights, no new failure modes) with the Linear blockage unchanged and already reported in every prior run-log entry — nothing new requiring the owner's immediate attention.
 
 Commit: `news: radar run 2026-11-13 (+14 items, 3 highlights, Linear unavailable)`.
+
+## 2026-11-13 06:0x UTC — daily — ok (Linear unavailable)
+
+**Git check.** Session started with `HEAD` detached at `4ed720a` (this morning's radar-run commit), level with `origin/main`. `git fetch origin main` confirmed no divergence; `git checkout -B main origin/main` re-attached `main` to the current tip, no stash needed, no lost work.
+
+`fetch_feeds.py` ran clean (exit 0). Window since `2026-11-12T04:02:05Z` (prior daily run's start).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (0 fresh) → WebFetch `openai.com/news` (403, same failure mode as yesterday) → Jina (401, broken key) → WebSearch | 0 | fetch, jina, websearch | no confirmable Nov 12-13 primary-source item via WebSearch; nothing written per never-invent rule |
+| anthropic | fetch (zero rss tier) → WebFetch `anthropic.com/news` | 0 | fetch | most recent items (Nov 10 IPO roadshow, Nov 9 Fable/Mythos 5.2) already in `topics/anthropic.md`; nothing new |
+| google-deepmind | rss — reported `TRAP/not-a-feed` again this run (2nd day running) → manual curl re-check found the feed fully valid (200, `application/xml`, well-formed RSS) → parsed directly | 1 | none (transient false-positive, not a real trap) | see note below |
+| google-research | rss (0 fresh) → WebFetch `research.google/blog/` | 0 | fetch | newest confirmed post still Nov 11 (the already-covered CKM/SensorWM piece), predates window |
+| microsoft | rss | 1 candidate, 0 confirmed | - | "Microsoft Research Focus – Edition #98" podcast is a roundup of already-published items (KLS conjecture blog post, a separate video interview, two publication-only items with no blog post) — dropped per the roundup-of-others exclusion, not written |
+| nvidia | rss (0 fresh) → WebFetch `developer.nvidia.com/blog/` | 0 | fetch | newest confirmed post still Nov 11 (already in `topics/nvidia.md`), predates window |
+| xai | jina → 401 Invalid API key (7th consecutive day) → WebSearch | 0 | jina, websearch | no confirmable Nov primary-source item; nothing written per never-invent rule |
+| mistral | rss (0 fresh) → WebFetch `mistral.ai/news` | 0 | fetch | newest post still Nov 5 ("Le Chonk brings the brains. Studio puts it to work."), predates window, same gap as yesterday |
+| huggingface | rss | 1 | - | - |
+| cursor | rss (0 fresh) → WebFetch `cursor.com/changelog` | 0 | fetch | newest confirmed entry still Nov 6 (already in `topics/cursor.md`), predates window |
+| perplexity | jina → same 401 Invalid API key → WebSearch | 0 | jina, websearch | only the already-known Nov 4 "Teammates" launch turned up (same gap logged 2026-11-11/12), unconfirmable via primary source; nothing written per never-invent rule |
+
+Totals: **+2 items, 2 companies fresh**, 0 hard errors.
+
+**Google DeepMind feed false-positive, 2nd day running.** `fetch_feeds.py` flagged `deepmind.google/blog/rss.xml` as `TRAP/not-a-feed` again today — same symptom as 2026-11-12, and a manual `curl` re-fetch again returned a clean 200 `application/xml` document. Two days in a row is no longer a one-off; this is now a recurring pattern worth a closer look (possibly a bot-detection/rate-limit response specific to the script's request signature, not the feed itself). No config change made — the manual re-check-and-parse workaround continues to recover the content in full, so no items are being lost, but the owner should know `fetch_feeds.py`'s TIER-1 pass for this one company has now been unreliable 2 runs straight.
+
+**Headline: Gemini 4 Hydrogen.** Recovered via the manual re-fetch above — Google DeepMind's third Gemini 4-family model (after Carbon and Argon), built for fast/efficient everyday coding and agentic workflows rather than deep long-horizon reasoning; beats Argon on the Artificial Analysis Intelligence Index (51 vs. 50 at default thinking, 54 at xhigh), priced flat at $1.50/$7.50 per million input/output tokens across a 1M-token context, and ships today across AI Studio, the Gemini API, the Gemini app, Search, and Antigravity. The DeepMind page 302-redirects to `blog.google`, which this session's network does not allow (WebFetch and curl both refused the connection); full content was recovered via anonymous Jina (`r.jina.ai`, no API key needed for this domain — unlike Perplexity's 403 AbuseAlleviation). `news/artifacts/2026-11-12-google-deepmind-gemini-4-hydrogen.md`.
+
+**Other confirmed item:** Hugging Face — IBM's LLMON (LLM Object Notation), an XML-like markup language for prompts that blocks 47% more prompt-injection attacks than the best frontier model and 95% more than the best open-source model on the OPI benchmark, shipped as experimental Granite 4.1 3B/8B previews. `news/artifacts/2026-11-12-huggingface-llmon.md`.
+
+**Microsoft — roundup confirmed and dropped.** The one TIER-1 candidate this run, "Microsoft Research Focus – Edition #98," was checked via WebFetch per the DEDUP+CONFIRM step's "not... a roundup-of-others" rule: it's a podcast episode summarizing five items, of which only one (the KLS conjecture result) has its own blog post — already a candidate for a future day if not already covered — and the rest are a video interview or publication-only pages with no corresponding blog post. Confirmed as a digest, not a primary announcement; not written.
+
+**OpenAI — failure mode persists.** `openai.com/news` continues to 403 WebFetch directly (2nd day), Jina remains broken (401, same key issue as xAI/Perplexity below), and WebSearch returned nothing reliably dated in-window. No items written for OpenAI today.
+
+**Dedup note.** Checked both new items against this week's `topics/*.md` sections before writing — no cross-company overlap, no re-adds. All zero-fresh companies' gap-scrape candidates were checked against existing topics entries and found to predate the window or already be on file (noted per-company above) — no backfills needed today, unlike several of the last few days.
+
+**Known Jina breakage persists (7th consecutive day, unchanged from 2026-11-12).** `JINA_API_KEY` still returns `401 AuthenticationFailedError (Invalid API key)` for xAI and Perplexity gap-scrapes. Owner action needed: rotate `JINA_API_KEY` (unchanged ask, now 7+ days running).
+
+**Linear: UNAVAILABLE this run** — confirmed via `ToolSearch` (no Linear tools loadable; MCP server requires re-authorization). Both confirmed items are fully written to files; only the Linear "News digest" cards are behind. Unchanged, well over two months overdue: reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-11-13 (+2 items, 2 companies fresh, Linear unavailable)`.

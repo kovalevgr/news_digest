@@ -5,13 +5,14 @@ aliases:
   - Gemini
 sources:
   - https://deepmind.google/blog/rss.xml
-updated: 2026-11-12
+updated: 2026-11-13
 ---
 
 MOC page for **Google DeepMind** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W46
 
+- **2026-11-12** — [Introducing Gemini 4 Hydrogen](https://deepmind.google/blog/introducing-gemini-4-hydrogen/) — Google DeepMind introduces Gemini 4 Hydrogen, a fast/efficient Gemini 4 model for everyday coding and agentic workflows, rolling out across AI Studio, the Gemini API, the Gemini app, Search, and Antigravity; beats Argon on the AA Intelligence Index (51 vs 50) at $1.50/$7.50 per million tokens. Found via manual re-fetch after fetch_feeds.py flagged the rss feed TRAP/not-a-feed again (same false positive as yesterday).
 - **2026-11-11** — [AlphaGenome 2: Deciphering how cells read DNA to better understand disease](https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/) — Google DeepMind releases AlphaGenome 2, a conditional DNA sequence model that predicts gene-activity effects per target cell type/state and adapts to new single-cell data without retraining, identifying nearly 2x more expression-changing variants than the prior state of the art.
 - **2026-11-10** — [Introducing AlphaProof Code: a breakthrough in verifying complex software at depth](https://deepmind.google/blog/introducing-alphaproof-code/) — Google DeepMind's agentic formal-verification framework writes 6M+ lines of Lean proofs to verify Signal's compiled cryptographic protocol code, a first for AI at this depth.
 - **2026-11-10** — [Gemini 4 Carbon is now available](https://deepmind.google/blog/gemini-4-carbon-is-now-available/) — Google DeepMind makes Gemini 4 Carbon generally available; also the model backbone behind the same-day AlphaProof Code agents.

@@ -12,6 +12,7 @@ MOC page for **Hugging Face** — AI-news items collected daily by the news rout
 
 ## 2026-W46
 
+- **2026-11-12** — [LLMON: An LLM-Native Markup Language, now in Granite 4.1 3B and 8B](https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite) — IBM introduces LLMON, a markup language designed for LLMs to read/write more reliably than JSON/XML/YAML, now supported natively by Granite 4.1 3B and 8B.
 - **2026-11-11** — [Token Pooling-Aware Training for Multi-Vector Embedding Models](https://huggingface.co/blog/token-pooling) — Hugging Face details pooling-aware training for multi-vector retrieval, retaining 97.8% of unpooled NanoBEIR nDCG@10 at pool factor 4 (vs. 94.6% normal training) while storing ~4x fewer document vectors.
 
 - **2026-11-11** — [BotPsy: On-Device Personal Assistant with a Sub-Billion-Parameter Agentic Language Model](https://huggingface.co/blog/qvac/botpsy) — Tether AI Research releases BotPsy, a 0.8B-parameter Qwen3.5 fine-tune for on-device tool-use/agentic workflows, beating Qwen3.5-2B-Think on 5 of 6 agentic benchmarks.
