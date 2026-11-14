@@ -4,12 +4,18 @@ aliases:
   - Nvidia
 sources:
   - https://developer.nvidia.com/blog/feed
-updated: 2026-11-12
+updated: 2026-11-13
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W46
+
+- **2026-11-13** — [Faster Scientific Simulations with New FP64 Algorithms in NVIDIA cuBLAS](https://developer.nvidia.com/blog/faster-scientific-simulations-with-new-fp64-algorithms-in-nvidia-cublas/) — NVIDIA ships Ozaki-II and 2M floating-point-emulation algorithms in cuBLAS (CUDA Toolkit 13.4.2), speeding up FP64/complex matmul with no code changes; up to 23x DGEMM speedup on RTX PRO 6000 Blackwell.
+- **2026-11-13** — [Run GPU-Powered Black Hole Interferometry with NVIDIA cuPhoton](https://developer.nvidia.com/blog/run-gpu-powered-black-hole-interferometry-with-nvidia-cuphoton/) — NVIDIA's open-source cuPhoton xBeam correlator (v0.1.3) correlates a 10TB radio-interferometry dataset in 70s on a 64-GPU Vera Rubin NVL72, vs. ~8.9h on CPU — ~460x, built with Harvard-Smithsonian CfA and MIT Haystack.
+- **2026-11-13** — [Run Native DLA Inference in Python on NVIDIA Jetson AGX Orin Using cuDLA](https://developer.nvidia.com/blog/run-native-dla-inference-in-python-on-nvidia-jetson-agx-orin-using-cudla/) — NVIDIA ships `cuda.bindings.cudla`, a new Python wrapper for the cuDLA C++ API, bringing DLA inference to Python on Jetson AGX Orin and, for the first time, RTX Spark on Windows.
+- **2026-11-13** — [When One GPU Isn't Enough: Serving GLM-5.3 Across Two NVIDIA DGX Stations with vLLM](https://developer.nvidia.com/blog/when-one-gpu-isnt-enough-serving-glm-5-3-across-two-nvidia-dgx-stations-with-vllm/) — NVIDIA details serving GLM-5.3 NVFP4 (753B/40B active) across two ConnectX-8-linked DGX Stations with vLLM 0.30.0, peaking at 607.8 tok/s overall throughput at concurrency 16.
+- **2026-11-13** — [Adapt Human Motion for Robots with NVIDIA SOMA Retargeter](https://developer.nvidia.com/blog/adapt-human-motion-for-robots-with-nvidia-soma-retargeter/) — NVIDIA releases SOMA Retargeter v0.2 (open source), adapting human motion-capture data to humanoid robots via IK on NVIDIA Warp, with reference configs for Unitree G1/H2, Booster T1, and AgiBot X2 Ultra/A3T3.
 
 - **2026-11-11** — [Validating GPU Platforms with Runtime AI Inventory via the NVIDIA DSX AI Factory](https://developer.nvidia.com/blog/validating-gpu-platforms-with-runtime-ai-inventory-via-the-nvidia-dsx-ai-factory/) — NVIDIA's AI Cluster Runtime adds an AI bill-of-materials component built on Google's k8s-aibom, inventorying Kubernetes AI workloads into CycloneDX 1.6 records with per-attribute confidence tiers.
 

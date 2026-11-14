@@ -7291,3 +7291,39 @@ Totals: **55 raw candidates, 14 confirmed, 3 highlights**, 2 hard source errors 
 **No duplicates found beyond the two AgentRun/Kapso repost drops noted above** (both caught against yesterday's run-log and `community.md`, not re-added).
 
 Commit: `news: radar run 2026-11-14 (+14 items, 3 highlights, Linear unavailable)`.
+
+## 2026-11-14 06:0x UTC — daily — ok (Linear unavailable)
+
+**Linear: UNAVAILABLE this run** — confirmed via `ToolSearch` (no Linear tools loadable; MCP server requires re-authorization, unchanged since 2026-11-13/-14 radar). All confirmed items below are fully written to files; only the Linear "News digest" cards are behind.
+
+`fetch_feeds.py` ran clean (exit 0). Window since `2026-11-13T04:01:53Z` (prior daily run's start).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (**1 fresh**) | **1 new** | — | "Introducing ChatGPT Wallet" confirmed via anonymous Jina (direct WebFetch and curl both 403'd, same failure mode as recent days) |
+| anthropic | fetch (zero rss tier) → WebFetch `anthropic.com/news` | 0 | fetch | newest listed still Nov 10 (IPO roadshow), already in `topics/anthropic.md`; nothing new |
+| google-deepmind | rss — reported `TRAP/not-a-feed` again (3rd day running) → manual `curl --compressed` re-check: feed is valid gzip-encoded XML, script likely isn't sending/handling `Accept-Encoding` for this host → parsed directly | 0 | none (transient false-positive, not a real trap) | see note below |
+| google-research | rss (**1 fresh**) | **1 new** | — | "Advancing science & engineering with Antigravity's /teamwork" confirmed via WebFetch |
+| microsoft | rss (0 fresh) → WebFetch `microsoft.com/en-us/research/blog/` | 0 | fetch | newest listed still Nov 10 ("Lazare, veni foras"), already in `topics/microsoft.md`; nothing new |
+| nvidia | rss (**5 fresh**) | **5 new** | — | all 5 confirmed via WebFetch as genuine engineering content (one feature release — cuBLAS Ozaki-II/2M — plus four detailed technical tutorials with real benchmark numbers); none dropped as thin/marketing |
+| xai | jina → **200 this run** (key issue appears resolved, or anonymous access now works for this host) | **1 new** (backfill) | jina | "Introducing Grok Bot 1.0" (2026-11-02) — present on the live page but missing from `topics/xai.md`; backfilled per the never-invent rule (real primary-source item, just missed while Jina was broken) |
+| mistral | rss (0 fresh) → WebFetch `mistral.ai/news` | 0 | fetch | newest listed still Nov 5, already in `topics/mistral.md`; nothing new |
+| huggingface | rss (**3 fresh**) | **3 new** | — | XYBench (Ai2), llama.cpp v1.0.0 milestone, and an NVIDIA SimReady pick-and-place tutorial — all confirmed as genuine HF-blog posts, not roundups |
+| cursor | rss (0 fresh) → WebFetch `cursor.com/changelog` | 0 | fetch | newest listed still Nov 6 ("Voice Chat with Agents"), already in `topics/cursor.md`; nothing new |
+| perplexity | jina → 403 AbuseAlleviationError (domain-wide anonymous block, unrelated to our key) → WebSearch | 0 | jina, websearch | only the already-known Nov 4 "Teammates" launch turned up (same gap logged 2026-11-11 through -13), unconfirmable via primary source; nothing written per never-invent rule |
+
+Totals: **+11 items, 5 companies fresh**, 0 hard errors.
+
+**xAI Jina access recovered (tentatively).** Today's anonymous Jina call to `x.ai/news` returned 200 (vs. 401 "Invalid API key" for 8 consecutive prior days) — either `JINA_API_KEY` was rotated by the owner, or x.ai doesn't require the key for anonymous Jina reads. Worth confirming next run whether Perplexity's domain-specific block (unrelated — an AbuseAlleviation rate-limit, not a key issue) also clears on its own. Caught by this recovery: **Grok Bot 1.0** (2026-11-02) had been live on x.ai/news the whole time but was never captured during the 8-day outage — backfilled today, confirmed against `topics/xai.md` first to avoid a duplicate of the already-recorded "Data Bot" post from the same day.
+
+**Google DeepMind feed false-positive, 3rd day running.** Same symptom as 2026-11-12/-13: `fetch_feeds.py` flags `deepmind.google/blog/rss.xml` as `TRAP/not-a-feed`, but a manual `curl --compressed` fetch returns well-formed gzip-compressed RSS (confirmed via `file` + direct parse). The feed's newest item (Gemini 4 Hydrogen, Nov 12) is already in `topics/google-deepmind.md` from yesterday's manual recovery, so nothing is lost — but this is now 3 days straight, strongly suggesting `fetch_feeds.py` sends no `Accept-Encoding: gzip` (or mishandles the response when it does) specifically for this host, not an actual feed/trap issue. Owner action: worth a one-line fix to the script's request headers or decompression handling.
+
+**NVIDIA volume note.** 5 confirmed items today (cuBLAS Ozaki-II/2M FP64 algorithms being the one clear "release," the other four — cuPhoton xBeam, cuDLA Python bindings, GLM-5.3-on-two-DGX-Stations vLLM serving, SOMA Retargeter v0.2 — a mix of a genuine v0.2 tool release (SOMA) and three content-dense tutorials/walkthroughs on existing tools). Kept all per the config note's "genuine announcements/major posts" bar and this file's own precedent (2026-11-10 also ran 5/day) — each carries concrete, non-marketing numbers (benchmarks, speedups, code/repo links), none read as pure PR.
+
+**Dedup note.** All new items checked against this week's `topics/*.md` sections (and, for the xAI backfill, explicitly against the existing 2026-11-02 Data Bot entry) before writing — no cross-company overlap, no re-adds. Microsoft, Mistral, Cursor, Anthropic gap-scrape candidates all predate the window and are already on file.
+
+**Known Jina breakage — Perplexity only now.** `JINA_API_KEY`/anonymous access to `perplexity.ai` still blocked (403 AbuseAlleviationError, domain-wide rate-limit rather than our specific key — unclear if rotating the key would even help here). xAI's resolved as of today (see above). Owner action: if the key was rotated, no further action; if not, Perplexity's own anonymous-access block may just need time to clear.
+
+**Linear reconnect still overdue** (well over two months now): reconnect via claude.ai Settings → Connectors, or authorize via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-11-14 (+11 items, 5 companies fresh, Linear unavailable)`.

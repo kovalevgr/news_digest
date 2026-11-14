@@ -4,13 +4,14 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-11-11
+updated: 2026-11-13
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W46
 
+- **2026-11-13** — [Introducing ChatGPT Wallet](https://openai.com/index/introducing-chatgpt-wallet) — OpenAI launches ChatGPT Wallet, letting ChatGPT agents complete purchases via dots without seeing the user's actual card details, using a per-transaction substitute token and biometric approval; US-only, Pro subscribers, with Amex/Mastercard/Visa.
 - **2026-11-10** — [Introducing Businesses in ChatGPT](https://openai.com/index/introducing-businesses-chatgpt) — OpenAI launches Businesses in ChatGPT, letting companies manage their business information, see insights on how they show up, and turn interest into action.
 - **2026-11-09** — [ChatGPT Enterprise now available in AWS Marketplace](https://openai.com/index/chatgpt-enterprise-aws-marketplace) — ChatGPT Enterprise becomes available through AWS Marketplace, letting organizations procure it through existing AWS purchasing and billing relationships.
 

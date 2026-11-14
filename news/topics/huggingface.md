@@ -5,13 +5,16 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-11-12
+updated: 2026-11-13
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W46
 
+- **2026-11-13** — [XYBench: Helping with the problem behind the question](https://huggingface.co/blog/allenai/xybench) — Ai2 publishes XYBench, an 8,115-question benchmark testing whether LLMs recognize when a user's stated request rests on a misconception about their real goal; models under-steer users away from the mistaken approach vs. human answers (47-60% vs. 79%). Won Best Resource Paper, EMNLP 2026.
+- **2026-11-13** — [llama.cpp v1.0.0 : A stronger foundation for the local AI ecosystem](https://huggingface.co/blog/ggml-org/llama-cpp-v1) — Hugging Face's Merve announces llama.cpp's v1.0.0, the reference local-inference engine's first major-version milestone, alongside new Llama desktop apps built on it.
+- **2026-11-13** — [Build a Robot Pick-and-Place Simulation with SimReady Assets](https://huggingface.co/blog/nvidia/simready-assets-robot-pick-and-place) — NVIDIA walks through a robot pick-and-place simulation in Isaac Sim 6.2 using validated SimReady assets hosted on Hugging Face, driven by an AI agent using Isaac Sim skills.
 - **2026-11-12** — [LLMON: An LLM-Native Markup Language, now in Granite 4.1 3B and 8B](https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite) — IBM introduces LLMON, a markup language designed for LLMs to read/write more reliably than JSON/XML/YAML, now supported natively by Granite 4.1 3B and 8B.
 - **2026-11-11** — [Token Pooling-Aware Training for Multi-Vector Embedding Models](https://huggingface.co/blog/token-pooling) — Hugging Face details pooling-aware training for multi-vector retrieval, retaining 97.8% of unpooled NanoBEIR nDCG@10 at pool factor 4 (vs. 94.6% normal training) while storing ~4x fewer document vectors.
 

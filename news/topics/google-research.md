@@ -4,12 +4,14 @@ aliases:
   - Google AI
 sources:
   - https://research.google/blog/rss/
-updated: 2026-11-12
+updated: 2026-11-13
 ---
 
 MOC page for **Google Research** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W46
+
+- **2026-11-13** — [Advancing science & engineering with Antigravity's /teamwork](https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/) — Google Research details /teamwork, a multi-agent Antigravity workflow pairing parallel exploration with automated "falsifiers" (Lean 4, test suites, simulators); highlights include a full Lean-4 proof of the Courtade–Kumar conjecture and a 20-30% faster Rust rewrite of libgav1.
 
 - **2026-11-11** — [Using wearables to enable cardiovascular-kidney-metabolic (CKM) risk profiling for personalized coaching](https://research.google/blog/using-wearables-to-enable-cardiovascular-kidney-metabolic-ckm-risk-profiling-for-personalized-coaching/) — Google Research introduces SensorWM, a world model trained on 2.28M person-weeks of Fitbit data that simulates 12-week habit scenarios for a coachable health-age score and early CKM risk flagging; coaches preferred its plans 71.4% of the time in a blinded study.
 
