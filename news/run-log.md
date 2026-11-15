@@ -7366,3 +7366,39 @@ Totals: **42 raw candidates, 14 confirmed, 3 highlights**, 1 hard source error (
 No push notification sent for this run via the owner-facing channel: a healthy radar run (14 items, 3 highlights, no new failure modes beyond the already-tracked ones) — nothing new requiring the owner's immediate attention beyond the long-standing, already-reported Linear blockage.
 
 Commit: `news: radar run 2026-11-15 (+14 items, 3 highlights, Linear unavailable)`.
+
+## 2026-11-15 06:0x UTC — daily — ok (Linear unavailable)
+
+**Note on repo state at run start:** this morning's radar run (`d25c7ed`) had committed to a detached HEAD instead of `main` and was never pushed. Fast-forwarded `main` to it and pushed before starting this run — no content lost, just a ref/push slip.
+
+**Linear: UNAVAILABLE this run** — no Linear tools loadable (MCP server requires re-authorization, unchanged). All confirmed items below are fully written to their topics files; only the Linear cards are behind.
+
+`fetch_feeds.py` ran clean (exit 0). Window since the 2026-11-14 run (~26h, with two 304-not-modified feeds — mistral, huggingface — confirming no change since yesterday's cursor).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss (0 fresh) → WebSearch (openai.com direct fetch 403'd this run) | 0 | websearch | nothing confirmable newer than 2026-11-13 "ChatGPT Wallet" from a primary source; WebSearch results were mostly stale DevDay/Sept-Oct coverage |
+| anthropic | fetch `anthropic.com/news` | 0 | fetch | confirmed via primary source: nothing newer than 2026-11-10 "roadshow" (a lone "November 15" heading on the page has no article under it yet) |
+| google-deepmind | rss (0 fresh, 304) → WebFetch `deepmind.google/blog/` cross-check | **1 new (backfill)** | fetch | **"Opening the datasets behind our AI weather models"** (2026-11-13) — present on the live blog listing but missing from `topics/google-deepmind.md`; missed during the multi-day rss TRAP/not-a-feed false positive (2026-11-12 to -14), backfilled per the never-invent rule. The rss feed itself behaved normally this run (clean 304, no trap flag) — worth confirming next run whether the false positive has genuinely cleared |
+| google-research | rss (0 fresh) → WebFetch `research.google/blog/` cross-check | 0 | fetch | confirmed via primary source: nothing newer than 2026-11-13 "Antigravity's /teamwork" |
+| microsoft | rss (0 fresh) → WebFetch `microsoft.com/en-us/research/blog/` | 0 | fetch | confirmed via primary source: nothing newer than 2026-11-10 "Lazare" backdoor post |
+| nvidia | rss (0 fresh) → WebFetch `developer.nvidia.com/blog/` | 0 | fetch | confirmed via primary source: nothing newer than the 5 items already on file dated 2026-11-13 |
+| xai | jina `x.ai/news` (200) | 0 | jina | newest on the live page still 2026-11-02 "Grok Bot 1.0", already in `topics/xai.md`; nothing new |
+| mistral | rss (0 fresh) → WebFetch `mistral.ai/news` | 0 | fetch | confirmed via primary source: nothing newer than 2026-11-05 "Studio" |
+| huggingface | rss (0 fresh, 304) → WebFetch `huggingface.co/blog` | 0 | fetch | confirmed via primary source: nothing newer than 2026-11-13 "XYBench" |
+| cursor | rss (0 fresh) → WebFetch `cursor.com/changelog` | 0 | fetch | confirmed via primary source: nothing newer than 2026-11-06 "Voice Chat with Agents" |
+| perplexity | jina → 403 AbuseAlleviationError (anonymous domain-wide block, unchanged) → WebSearch; direct WebFetch of `perplexity.ai/hub/blog` blocked (`ENOTFOUND` — host not in this session's network allowlist) | 0 | jina, websearch | same already-known Nov 4-6 "Teammates"/Comet-Assistant coverage surfacing again (gap logged 2026-11-11 through -14), still unconfirmable via primary source; nothing written per never-invent rule |
+
+Totals: **+1 item (backfill), 1 company fresh**, 0 hard errors. An unusually quiet day across all 11 companies — every TIER-1 feed returned zero fresh candidates (two by explicit 304 Not Modified), confirmed genuinely quiet via one gap-scrape fallback per company rather than a fetch failure.
+
+**DeepMind backfill.** See table above. The item (SatWeave + PARDIG open weather datasets, 2026-11-13) was live on `deepmind.google/blog/` the whole time but never captured because `fetch_feeds.py` had been flagging the rss feed as `TRAP/not-a-feed` for 3 consecutive days (2026-11-12 to -14, same symptom noted in those days' entries). Today's fetch of the same feed came back clean (304 Not Modified, no trap flag) — if this holds tomorrow, the transient issue (suspected missing gzip handling for this host, per 2026-11-14's note) may have resolved on its own; still worth the owner's one-line header fix if it recurs.
+
+**OpenAI note.** Direct `WebFetch` on `openai.com/news/` returned HTTP 403 this run (new symptom, not previously seen for this host) — fell back to WebSearch, which surfaced only stale DevDay-era coverage and one unrelated claim (OpenAI ending its Cursor model deal, not an OpenAI-authored announcement). Nothing written; worth watching whether the 403 recurs tomorrow.
+
+**Perplexity — gap now 5 days running** (2026-11-11 through -15): anonymous Jina access to `perplexity.ai` remains blocked by its own AbuseAlleviation rate-limiter (unrelated to our key), and `perplexity.ai` is not on this session's network allowlist for direct WebFetch either, so there is currently no working transport for this company at all beyond WebSearch, which cannot ground a primary-sourced item. Owner action: if `JINA_API_KEY` is set, confirm it's actually being sent (xAI's jina calls work fine, so the transport itself is healthy); otherwise this may just need Jina's own block to clear.
+
+**Dedup note.** All new/confirmed items checked against existing `topics/*.md` content before writing (the DeepMind backfill explicitly checked against the current 2026-W46 section, confirmed not a duplicate of the 2026-11-09 Robotics 2.5 backfill or the 2026-11-12 Hydrogen entry). No cross-company overlaps found.
+
+**Linear reconnect still overdue** (well over two months now): reconnect via claude.ai Settings → Connectors, or authorize via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: daily run 2026-11-15 (+1 item, 1 company fresh, Linear unavailable)`.
