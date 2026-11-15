@@ -1,6 +1,6 @@
 ---
 category: practitioner-blogs
-updated: 2026-11-05
+updated: 2026-11-14
 ---
 
 # Radar: practitioner-blogs
@@ -115,3 +115,4 @@ Appended by the daily routine under weekly headings; format matches topics files
 ## 2026-W46
 
 - **2026-11-09** — ⭐ [Hide your slop PR descriptions behind `<details><summary>`](https://simonwillison.net/2026/Nov/9/details-summary/) — Verified via WebFetch: Simon Willison's fix for AI-coding-agent PR descriptions that are accurate but too long for a reviewer to want to open — write a short hand-curated summary line, put the full agent-written description inside a `<details>` block, and label the `<summary>` with the model/effort used (e.g. "Claude Opus 5.5 Medium") so GitHub collapses it by default. Direct hit on "AI agents in practice: coding agents" — a small, immediately usable workflow fix for exactly the owner's own Claude Code/Codex PR habit.
+- **2026-11-14** — [Open-source AI without Jensen](https://www.interconnects.ai/p/open-source-ai-without-jensen) — Verified via WebFetch: Nathan Lambert argues Jensen Huang's resignation as Nvidia CEO removes open-model AI's main funder/political protector just as compute scarcity (Anthropic/OpenAI buying up capacity), looming AI-safety regulation, and the risk of a major Chinese open-weight-model security incident converge; cites Thinking Machines' Inkling 2 Small as the best recent Western open model (still trailing Moonshot's Kimi K3.1 Pro) and a reported $40B Thinking Machines valuation round as insufficient to close the gap, calling for a US frontier open-model coalition led by hyperscalers (Meta/AWS/Microsoft). MEDIUM fit — open-model-ecosystem/policy analysis from a trusted practitioner voice rather than a core agent/local-model technique; out of highlight consideration.
