@@ -7402,3 +7402,32 @@ Totals: **+1 item (backfill), 1 company fresh**, 0 hard errors. An unusually qui
 **Linear reconnect still overdue** (well over two months now): reconnect via claude.ai Settings → Connectors, or authorize via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: daily run 2026-11-15 (+1 item, 1 company fresh, Linear unavailable)`.
+
+## 2026-11-15 07:0x UTC — weekly digest 2026-W46 — ok (Linear unavailable)
+
+**Scope.** ISO week 2026-W46 = 9–15 November. Read this week's `## 2026-W46` sections of all 12 `topics/*.md` files, all 34 matching `artifacts/2026-11-*.md` card blocks, this week's sections of all 10 `radar/*.md` files, and `radar/deep/`.
+
+**Written.** `news/weeks/2026-W46/summary.md` (new — no prior file for this week, so a fresh write, not a regeneration): 34 items, 7 companies fresh, 11 tracked. Verified mechanically before commit — the 34 item URLs in the digest are a 1:1 set match against the 34 URLs under `## 2026-W46` in `topics/*.md` (no additions, no omissions). 17 items marked ⭐ per the Linear High(2) priority rubric (major model/product launch or major org news), each carrying 3–4 trimmed `**Деталі:**` bullets.
+
+| Company | Items |
+| --- | --- |
+| NVIDIA | 11 |
+| Hugging Face | 8 |
+| Google DeepMind | 6 |
+| Google Research | 3 |
+| OpenAI | 3 |
+| Anthropic | 2 |
+| Microsoft | 1 |
+| Mistral AI / Cursor / Perplexity / xAI | 0 (reported silent, not padded) |
+
+**Date sanity.** All 34 topics items are dated within the week (11-09 … 11-13) — no heading/date drift this time. The radar W46 heading does hold 12 of its 92 items dated earlier (11-01, 11-05, 11-08): items published before the week but collected during it. Noted explicitly in the digest's radar section rather than silently reshuffled.
+
+**Radar week summary.** 92 items, 19 highlights, across `community` 74 / `oss-ml-systems` 10 / `bigtech-eng` 2 / `inference-infra` 2 / `practitioner-blogs` 2 / `research-institutes` 1 / `technical-newsletters` 1; `lab-engineering`, `mistral-watch`, `youtube` silent. Top-3 picked: EUROPA's 951.9B MoE on JUPITER (TorchTitan), SGLang unified memory, the 348M-active MoE trained on one RTX 5090. **Deep dives this week: 0** — `radar/deep/` still holds only `TEMPLATE.md`; the 11-09 and 11-12 deep-dive runs are logged as `blocked (Linear unavailable, no input)`. `hot`-approved vs expired: unmeasurable, no review queue exists.
+
+**Linear: UNAVAILABLE this run** — confirmed via `ToolSearch` (no Linear tools loadable; the account's Linear MCP server reports it requires re-authorization and a non-interactive scheduled session cannot complete the OAuth flow; `plugin:design:linear` separately failed with `ERR_PROXY_TUNNEL`, proxy 403). Steps 4 (DIGEST CARD) and 5 (Close the board week) of THE WEEKLY DIGEST were therefore **not performed**: no `📰 Тижневий дайджест 2026-W46` card in "News digest", no Todo→Done close-out for this week's stories, no Radar review-queue cleanup. Running since 2026-08-24 — **83 days, almost 12 weeks**. Owner action needed (unchanged, well over two months overdue): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `claude mcp` / `/mcp` in an interactive session. Digest delivered to the owner by push notification instead.
+
+**W45 GAP FOUND.** There is no `news/weeks/2026-W45/` directory and no weekly entry in this log for 2026-11-08 (only `05:0x radar` and `06:0x daily` that day) — the Sunday `weekly-ai-digest` routine did not run for week 2026-W45 (2–8 November). The underlying items are intact under `## 2026-W45` in `topics/*.md`; only the summary is missing and can be backfilled by a separate run. Surfaced to the owner in this run's push notification — this is new information, not the standing Linear blockage.
+
+**Git note:** session started with `HEAD` detached at `34d584e` (this morning's daily-run commit), exactly level with `origin/main` after `git fetch origin main` (0 ahead / 0 behind), clean tree. Pushed with `git push origin HEAD:main` rather than re-attaching, since the detached commit was already built on current `origin/main`.
+
+Commit: `news: weekly digest 2026-W46`.
