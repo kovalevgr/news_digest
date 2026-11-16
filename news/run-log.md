@@ -7470,3 +7470,33 @@ Totals: **44 raw candidates, 15 confirmed, 3 highlights**, 2 hard source errors 
 No push notification sent for this run via the owner-facing channel: a healthy radar run (15 items, 3 highlights, no new failure modes beyond the already-tracked ones) — nothing new requiring the owner's immediate attention beyond the long-standing, already-reported Linear blockage.
 
 Commit: `news: radar run 2026-11-16 (+15 items, 3 highlights, Linear unavailable)`.
+
+## 2026-11-16 06:0x UTC — daily run — ok, zero fresh (Linear unavailable)
+
+**Linear: UNAVAILABLE this run** — confirmed via `ToolSearch` (no Linear MCP tools loadable; the connector still reports it requires re-authorization, unchanged since prior runs; `plugin:design:linear` separately failed with `ERR_PROXY_TUNNEL`, proxy 403). No Linear cards were due this run anyway (zero new stories).
+
+`fetch_feeds.py` ran clean (exit 0) for all 11 companies. Window since `2026-11-15T04:01:55Z` (~26h, no prior daily-run cursor gap). cursors.json updated by the script as usual (ETag/Last-Modified bumps for deepmind, nvidia, huggingface, mistral, microsoft, research.google, cursor, openai — all 304/200-no-new).
+
+| company | TIER-1 result | gap-scrape (zero fresh) | outcome |
+| --- | --- | --- | --- |
+| OpenAI | 200, 0 fresh | WebSearch (no fetch/jina tier configured) | nothing newer than 2026-11-13 (already in topics) |
+| Anthropic | n/a (fetch-only company) | WebFetch `anthropic.com/news` | top items are 2026-11-10 (IPO roadshow) and 2026-11-09 (Fable/Mythos 5.2) — both already in `topics/anthropic.md` under 2026-W46 |
+| Google DeepMind | 304 not modified | WebSearch (no fetch/jina tier) | newest found 2026-11-13 (SatWeave/PARDIG) — already captured |
+| Google Research | 200, 0 fresh | WebSearch (no fetch/jina tier) | newest found 2026-11-13 (Antigravity /teamwork) — already captured |
+| Microsoft | 304 not modified | WebSearch (no fetch/jina tier) | newest found 2026-10-21 (KLS conjecture) — predates and is below the 2026-11-10 Lazarus item already captured |
+| NVIDIA | 304 not modified | WebSearch (no fetch/jina tier) | newest found 2026-11-10 — below the 2026-11-13 items already captured |
+| xAI | n/a (jina-only company) | curl `r.jina.ai/https://x.ai/news` (anonymous, no key needed — works for this host) | newest item Grok Bot 1.0, 2026-11-02 — already in `topics/xai.md` |
+| Mistral AI | 304 not modified | WebSearch (no fetch/jina tier) | newest found 2026-10-06 — below the 2026-11-05 Studio item already captured |
+| Hugging Face | 304 not modified | WebSearch (no fetch/jina tier) | newest found 2026-11-10/11 (thin aggregator hit) — below the 2026-11-13 XYBench item already captured |
+| Cursor | 200, 0 fresh | WebSearch (no fetch/jina tier) | nothing dated 15/16 found — latest confirmed is the already-captured 2026-11-06 Voice Chat item |
+| Perplexity | n/a (jina-only company) | curl `r.jina.ai/https://www.perplexity.ai/hub/blog` | `403 AbuseAlleviationError` (anonymous rate-limit, unrelated to our key — gap now **6 days running**, 2026-11-11 through -16); no `JINA_API_KEY` set in this session's env, consistent with every prior report |
+
+**Result: zero new items, 11/11 companies checked with a gap-scrape (all had zero TIER-1 fresh candidates — a genuinely quiet 26h window, not a transport failure).** Every gap-scrape fallback independently re-confirmed only stories already on record in the respective `topics/<company>.md` file — spot-checked against each file's current top section before concluding "no new item" (no backfills needed, no dedup conflicts). No artifacts written, no topics files touched, no Linear cards created (none were due).
+
+**Perplexity — standing gap, now 6 days** (2026-11-11 → 2026-11-16): anonymous Jina access to `perplexity.ai` remains blocked by its own AbuseAlleviation limiter; `perplexity.ai` is also not on this session's WebFetch allowlist. Unchanged from yesterday's note — owner action: confirm `JINA_API_KEY` is actually set and being sent (xAI's anonymous Jina calls succeed fine, so Jina itself is reachable from this env).
+
+**Linear reconnect still overdue** (well over two months now, running since 2026-08-24): reconnect via claude.ai Settings → Connectors, or authorize via `claude mcp`/`/mcp` in an interactive session.
+
+No push notification sent for this run: a quiet, fully-explained zero-item day with no new failure modes — nothing requiring the owner's immediate attention beyond the already-reported, unchanged Linear and Perplexity blockages.
+
+Commit: `news: daily run 2026-11-16 (+0 items, 0 companies fresh, Linear unavailable)`.
