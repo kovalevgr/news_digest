@@ -1,6 +1,6 @@
 ---
 category: youtube
-updated: 2026-10-09
+updated: 2026-11-17
 ---
 
 # Radar: youtube
@@ -77,3 +77,13 @@ All 7 YouTube sources recovered today after 14 days dead (6× HTTP 404 + `yt-mls
 - **2026-10-17** — [GSQ-RCO: Better Non-Uniform GGUF Quantization](https://www.youtube.com/watch?v=ECZPAzT6VgQ) — GPU MODE lecture on a non-uniform GGUF quantization scheme; livestream + edited-cut duplicate (kept the edited cut, dropped the raw stream at watch?v=ISaPeJeXJnY, "Lecture 118"). Title/channel only, no transcript fetched. Direct hit on "local/self-hosted models: quantization."
 - **2026-10-22** — [Tools to Detect and Diagnose Floating-Point Errors in Heterogeneous Computing Hardware and Software](https://www.youtube.com/watch?v=Sq7URODP80U) — GPU MODE lecture on debugging floating-point numerics across heterogeneous compute backends. Title/channel only, no transcript fetched. MEDIUM fit — GPU/kernel engineering.
 - **2026-10-24** — [Scan at the speed of light](https://www.youtube.com/watch?v=FChg7caTvI8) — GPU MODE lecture on fast parallel-scan implementations; livestream + edited-cut duplicate (kept the edited cut, dropped the raw stream at watch?v=6qQQS1zjGoU, "Lecture 119"). Title/channel only, no transcript fetched. MEDIUM fit — GPU/kernel engineering.
+
+## 2026-W47
+
+All 7 `yt-*` feeds recovered today after HTTP 404 on every channel for the 3rd run running (first seen 2026-11-14) — likely a transient YouTube `feeds/videos.xml` issue rather than an env change, since no config/network setting was touched. Each channel pulled a backlog spanning 2026-10-18 to 2026-11-16 (up to the per-source `max_items` cap, or unlimited for `yt-latent-space`/`yt-mlst`); only the owner-fit survivors are listed below, trimmed hard against the day's `≤15 items total` radar budget (community alone supplied 10 confirmed items today) — see `run-log.md` for the full drop list. Item dates are the videos' own publish dates, not today's. WebFetch on two of these videos' watch pages hit YouTube's bot-check (redirected to a Google "sorry" captcha page) — same YouTube-transport limitation noted in prior weeks; all five below are kept on title/channel only.
+
+- **2026-11-10** — [Designing for Agents — Zeno Rocha, Resend](https://www.youtube.com/watch?v=bdIoODXsu8k) — Latent Space talk by Resend's Zeno Rocha on designing products/APIs for AI-agent consumers rather than human ones. Title/channel only, no transcript fetched. Direct hit on "AI agents in practice."
+- **2026-11-11** — [Three Months After You Build the Harness (Edward Hughes)](https://www.youtube.com/shorts/g_n55IXQU20) — MLST short on what changes in practice a few months after standing up an agent harness. Title/channel only, no transcript fetched. Direct hit on "AI agents in practice: agent harnesses."
+- **2026-11-11** — [The Best Local Model is DeepSeek v4.1F 1017 - Frontier at Home](https://www.youtube.com/watch?v=jmRM7YN0T8c) — sentdex video naming DeepSeek V4.1 Flash (1017 build) as the current best local-runnable model ("Frontier at Home") — the same checkpoint that surfaced in `community.md` today via Basalt 0.4.0's new router support and the HF-trending model-card entry. Title/channel only, no transcript fetched. Direct hit on "Local/self-hosted models... 'runs on my hardware' stories."
+- **2026-11-12** — [Rethinking Claude Code Best Practices — Lydia Hallie, Anthropic](https://www.youtube.com/watch?v=vlfCjWuv4es) — AI Engineer conference talk by Anthropic's Lydia Hallie revisiting Claude Code best practices. Title/channel only, no transcript fetched. Direct hit on "AI agents in practice: coding agents" — directly relevant to this repo's own Claude Code routines.
+- **2026-11-14** — [Disaggregated Quantization: Specializing LLM Prefill and Decode](https://www.youtube.com/watch?v=UpOR8a6Pqbc) — GPU MODE lecture on using different quantization specialized for the prefill vs. decode phase of LLM inference; livestream + edited-cut duplicate (kept the edited cut, dropped the raw stream at "Lecture 122", 2026-11-13). Title/channel only, no transcript fetched. Direct hit on "Local/self-hosted models: inference engines" + GPU/kernel engineering.
