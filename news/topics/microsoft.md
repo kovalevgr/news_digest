@@ -5,10 +5,14 @@ aliases:
   - Copilot
 sources:
   - https://www.microsoft.com/en-us/research/feed/
-updated: 2026-11-11
+updated: 2026-11-17
 ---
 
 MOC page for **Microsoft** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W47
+
+- **2026-11-16** — [TokenEconomizer: Learning from Experience to Make AI Coding Agents More Efficient](https://www.microsoft.com/en-us/research/blog/tokeneconomizer-learning-from-experience-to-make-ai-coding-agents-more-efficient/) — Microsoft Research, UC Berkeley, and Microsoft Security release TokenEconomizer, an open-source plugin that learns repository-specific patterns across agent sessions, cutting SWE-Bench token costs 18.4-30.9% without modifying the agent or model.
 
 ## 2026-W46
 

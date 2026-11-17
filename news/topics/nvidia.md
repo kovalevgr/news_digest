@@ -4,10 +4,17 @@ aliases:
   - Nvidia
 sources:
   - https://developer.nvidia.com/blog/feed
-updated: 2026-11-13
+updated: 2026-11-17
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W47
+
+- **2026-11-16** — [Accelerate Molecular Dynamics Simulations with Accurate, Flexible Primitives Using NVIDIA cuPotential](https://developer.nvidia.com/blog/accelerate-molecular-dynamics-simulations-with-accurate-flexible-primitives-using-nvidia-cupotential/) — NVIDIA open-sources cuPotential, modular MD primitives for long-range interactions (built with D. E. Shaw Research and Flatiron Institute), delivering ~2-3x+ end-to-end OpenMM speedups from T4 to RTX PRO 6000 Blackwell with order-of-magnitude accuracy gains.
+- **2026-11-16** — [NVIDIA Vera Rubin NVL72 Leads Agentic Inference Performance on MLPerf Endpoints v1.0](https://developer.nvidia.com/blog/nvidia-vera-rubin-nvl72-leads-agentic-inference-performance-on-mlperf-endpoints-v1-0/) — NVIDIA's provisional MLPerf Endpoints v1.0 results show Vera Rubin NVL72 delivering over 10x the throughput-per-kW of GB300 NVL72 at matched interactivity, across Kimi K3, DeepSeek-V4.1-Flash, and Qwen3.6-35B-A3B.
+- **2026-11-16** — [NVIDIA Vera Rubin NVL72 Achieves up to 2x Blackwell Ultra Performance in MLPerf Training v6.1](https://developer.nvidia.com/blog/nvidia-vera-rubin-nvl72-achieves-up-to-2x-blackwell-ultra-performance-in-mlperf-training-v6-1/) — Vera Rubin NVL72 debuts in MLPerf Training v6.1 with the fastest time-to-train on 6 of 7 benchmarks and up to 2x per-GPU performance vs. GB300 NVL72, led by a ~2x gain on DeepSeek-V3 671B.
+- **2026-11-16** — [Post-Training NVIDIA Nemotron to Increase Accuracy in Your Scientific Domain](https://developer.nvidia.com/blog/post-training-nvidia-nemotron-to-increase-accuracy-in-your-scientific-domain/) — NVIDIA publishes a post-training recipe (RLVR + GRPO/LoRA via NeMo Gym/NeMo RL) for Nemotron 3.5 Super VL on scientific tasks, using drug-metabolism prediction as the example; reports +12% accuracy from SFT and a further +17% from RL.
 
 ## 2026-W46
 

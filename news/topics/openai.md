@@ -4,10 +4,15 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-11-13
+updated: 2026-11-17
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W47
+
+- **2026-11-16** — [Broadening access to AI for scientists](https://openai.com/index/expanding-chatgpt-for-academic-researchers) — OpenAI expands the ChatGPT for Academic Researchers program, aiming for up to 200,000 free-access researchers worldwide; next round opens Nov 23 with 50,000 first-come grants (ChatGPT Plus, recipient + 2 collaborators).
+- **2026-11-16** — [Science at the Frontier: How scientists use ChatGPT](https://openai.com/index/science-at-the-frontier) — OpenAI's Economic Research team analyzes 580,000+ messages from 1,819 scientists in the Academic Researchers pilot; surveyed participants estimated AI nearly halved (1.9x) the time for equivalent-quality research work, and 98% expect AI to accelerate discovery in their field.
 
 ## 2026-W46
 

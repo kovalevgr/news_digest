@@ -7559,3 +7559,37 @@ HF trending (6 raw, 0 confirmed): dropped all — `hf-trending-models` (2: MiniM
 No push notification sent for this run via the owner-facing channel: a healthy, over-budget-for-good-reason radar run (15 items, 3 highlights, YouTube recovered on its own, no new failure modes) — nothing here needs the owner's immediate attention beyond the long-standing, already-reported Linear blockage, which the push channel has already flagged repeatedly.
 
 Commit: `news: radar run 2026-11-17 (+15 items, 3 highlights, Linear unavailable)`.
+
+## 2026-11-17 06:0x UTC — daily run — ok (+7 items, Linear unavailable)
+
+**Linear: UNAVAILABLE this run** — `mcp__Linear__*` reconnected with the existing sign-in and was refused (re-authorization required, same as every run since 2026-08-24); `plugin:design:linear` separately failed with `ERR_PROXY_TUNNEL`, proxy 403. All 7 confirmed items below are fully written to `topics/` + `artifacts/`; only the Linear "News digest" cards are behind.
+
+`fetch_feeds.py` ran clean (exit 0) for all 11 companies except the standing `google-deepmind` rss TRAP/not-a-feed false positive. Window since `2026-11-16T04:01:48Z`.
+
+| company | TIER-1 result | gap-scrape | outcome |
+| --- | --- | --- | --- |
+| OpenAI | 200, 2 fresh | — | **2 new** (Academic Researchers program expansion; Science at the Frontier survey), both 2026-11-16 |
+| Anthropic | n/a (fetch-only) | WebFetch `anthropic.com/news` | nothing newer than 2026-11-10 (IPO roadshow) — already captured |
+| Google DeepMind | TRAP/not-a-feed (false positive, unchanged standing issue) | WebFetch `deepmind.google/blog/` listing | 2 candidates checked (Gemini Omni 1.2 Flash, Agentic cheminformatics) — both confirmed via primary/WebSearch dated Nov 3/5, predate and below the 2026-11-13 items already captured |
+| Google Research | 200, 0 fresh | WebSearch (no fetch/jina tier) | newest found still 2026-11-13 (Antigravity /teamwork) — already captured |
+| Microsoft | 200, 1 fresh | — | **1 new** (TokenEconomizer), 2026-11-16 |
+| NVIDIA | 200, 4 fresh | — | **4 new** (cuPotential; two Vera Rubin NVL72 MLPerf posts — Endpoints v1.0 inference, Training v6.1; Nemotron post-training recipe), all 2026-11-16 |
+| xAI | n/a (jina-only) | curl `r.jina.ai/https://x.ai/news` (anonymous, works) | newest item still Grok Bot 1.0, 2026-11-02 — already captured |
+| Mistral AI | 304 not modified | WebSearch (no fetch/jina tier) | one secondary-source-only mention of an EU-sovereignty item (~Nov 8) surfaced but could not be traced to a primary mistral.ai URL — **not added** (no confirmed source URL); newest confirmed still 2026-11-05 Studio |
+| Hugging Face | 200, 0 fresh | WebSearch (no fetch/jina tier) | no post dated 15/16 found — newest confirmed still 2026-11-13 XYBench |
+| Cursor | 200, 0 fresh | WebSearch (no fetch/jina tier) | no November changelog entry found beyond already-captured 2026-11-06 Voice Chat |
+| Perplexity | n/a (jina-only) | curl `r.jina.ai/.../hub/blog` → `403 AbuseAlleviationError` (unchanged, standing); WebSearch fallback | found secondary mentions of "Escaping SPACE: Part II" (~Nov 11) but `perplexity.ai` is DNS-blocked for direct WebFetch in this env and no exact canonical URL could be confirmed — **not added**; gap now **7 days running** (2026-11-11 → -17), no `JINA_API_KEY` set |
+
+Totals: **7 items, 3 companies fresh** (OpenAI, Microsoft, NVIDIA), 0 hard errors (1 standing false-positive TRAP flag on `google-deepmind`'s rss feed, unchanged).
+
+**Confirm/dedup pass.** All 7 items verified as real announcements (not ads/hiring/roundups) via their own feed entries or a WebFetch/Jina re-fetch of the primary post; none duplicate an existing `topics/` entry or cross-company URL. Artifacts written: `2026-11-16-openai-academic-researchers-expansion.md`, `2026-11-16-openai-science-at-the-frontier.md`, `2026-11-16-microsoft-tokeneconomizer.md`, `2026-11-16-nvidia-cupotential.md`, `2026-11-16-nvidia-vera-rubin-mlperf-inference.md`, `2026-11-16-nvidia-vera-rubin-mlperf-training.md`, `2026-11-16-nvidia-nemotron-post-training.md`. New `## 2026-W47` heading added to `topics/openai.md`, `topics/microsoft.md`, `topics/nvidia.md` (2026-11-16 falls in ISO week 47, not 46).
+
+**Two unconfirmed candidates deliberately left out** (per the never-invent-facts rule — no primary-source URL in reach): a Mistral EU-sovereignty item (~Nov 8, secondary coverage only) and Perplexity's presumed "Escaping SPACE: Part II" (~Nov 11, secondary coverage only, `perplexity.ai` unreachable from this env). Flagging both for tomorrow's gap-scrape in case a reachable primary source turns up.
+
+**Perplexity — standing gap, now 7 days** (2026-11-11 → 2026-11-17): anonymous Jina access to `perplexity.ai` remains blocked by its own AbuseAlleviation limiter; the host is also not reachable via direct WebFetch from this env. Unchanged from yesterday's note — owner action: confirm `JINA_API_KEY` is actually set and being sent.
+
+**Linear reconnect still overdue** (now 85 days, running since 2026-08-24): reconnect via claude.ai Settings → Connectors, or authorize via `claude mcp`/`/mcp` in an interactive session. No Linear cards could be created for today's 7 new items; they are fully covered in `topics/`/`artifacts/` and should be backfilled to Linear once reconnected.
+
+No push notification sent for this run: a normal, fully-sourced +7 day with no new failure modes — the standing Linear/Perplexity blockages are unchanged and already flagged repeatedly.
+
+Commit: `news: daily run 2026-11-17 (+7 items, 3 companies fresh, Linear unavailable)`.
