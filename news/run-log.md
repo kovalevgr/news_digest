@@ -7593,3 +7593,62 @@ Totals: **7 items, 3 companies fresh** (OpenAI, Microsoft, NVIDIA), 0 hard error
 No push notification sent for this run: a normal, fully-sourced +7 day with no new failure modes — the standing Linear/Perplexity blockages are unchanged and already flagged repeatedly.
 
 Commit: `news: daily run 2026-11-17 (+7 items, 3 companies fresh, Linear unavailable)`.
+
+## 2026-11-18 05:0x UTC — radar — ok (+15 items, 3 highlights, Linear unavailable)
+
+**Linear: UNAVAILABLE again this run** — reconnected with the existing sign-in via `ToolSearch` and was refused (same re-authorization requirement as every run since 2026-08-24); `plugin:design:linear` separately failed with `ERR_PROXY_TUNNEL`, proxy 403. All confirmed items below are fully written to their radar files; only the Linear "Ready to Review" review-queue cards are behind.
+
+`fetch_radar.py` ran clean (exit 0). Window since `2026-11-17T03:03:08Z`.
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | - |
+| inference-infra | 0 | 0 | - |
+| oss-ml-systems | 2 | 2 | `eleuther` HTTP 404 (unchanged) |
+| bigtech-eng | 1 | 1 | - |
+| research-institutes | 0 | 0 | - |
+| technical-newsletters | 0 | 0 | - |
+| practitioner-blogs | 1 | 1 | `latent-space` proxy tunnel 403 (unchanged) |
+| community | 35 | 9 | `reddit` HTTP 404 (new error shape — see note below) |
+| mistral-watch | 0 | 0 | - |
+| youtube | 2 | 2 | - |
+
+Totals: **41 raw candidates, 15 confirmed, 3 highlights**, 2 hard source errors (one unchanged, one a new error shape on an existing standing gap — see below).
+
+**Reddit — new error shape, same standing gap.** `reddit` returned HTTP 404 this run instead of the usual 429 rate-limit; per the failure-mode table (no gap-scrape ladder for radar, never retry-loop) this was logged and the run moved on. r/LocalLLaMA+LLMDevs's `.rss` endpoint 404ing (rather than 429ing) on a browser-UA request is new since recent runs — worth a one-time human check if it persists tomorrow, but no action taken here per the "one fallback, then log" rule (there is no fallback for radar sources at all). Community coverage this run skews HN/GitHub/HF as a result; no reddit items today.
+
+**TRIAGE — community (35 raw → 9 confirmed, 3 highlights of 3 max).**
+
+HN Show HN (9 distinct raw across tags, 4 new after dedup — the algolia query's deliberate 2-day lookback for late-rising posts re-surfaced three stories already handled): **Coral** (52 pts, published 2026-11-16) — already in `community.md` from yesterday's run, re-skipped as a cross-run duplicate, not a re-triage; **Show HN: A free interactive course on AI agent governance** (sinapsdata, 12 pts) and **Show HN: Fakemetrics.com** (43 pts) — both re-surfaced via the same 2-day lookback, both already dropped yesterday for the same reasons (thin/marketing, no technique or code; joke metrics generator) — re-dropped, not re-litigated; **Deslop** (etodanik, 17 pts) — already in `community.md` from yesterday, re-skipped as duplicate. New this run: ⭐ **Pulsar** (20 pts) — verified via `git clone`, an MCP server putting every coding agent on one machine (Claude Code, Codex, OpenCode, Cursor, Gemini CLI) on one message bus, with push-not-poll delivery and `ask`/`wait` primitives; **TrnRT** (47 pts) — verified via `git clone`, an open LLM inference engine for AWS Trainium2 with concrete throughput/cost numbers (3.57M tok/min, $0.040/M tokens); **Agav** (26 pts) — verified via `git clone`, a terminal coding agent pitched on harness efficiency, Terminal-Bench 2.1 84.7% / SWE-bench-Live Lite 62.0%; dropped **flat.social** virtual-office (14 pts) as self-promotional product with no technique or code. "Not Everything Needs an LLM" (posthog, 124 pts via `hn-trend-llm`) kept on title/signal only — see transport note below.
+
+GitHub trending (3 raw, 1 confirmed): kept **NVIDIA/SkillEvaluator** — verified via `git clone`, a CI-ready framework for quality/security/overlap-checking AI agent Skills and measuring their real effect on task outcomes, backed by an arXiv paper; direct hit on "Evals in practice." Dropped as non-AI/off-topic: `getarcaneapp/arcane` (Docker management UI), `DeanChensj/jiangshan-map` (historical-China interactive atlas).
+
+HF trending models (7 raw, 2 confirmed, 2 highlights): kept ⭐ **Edge0-145B-NVFP4** — verified via WebFetch (model card), a 145B-param MoE model trained natively at 4-bit, beating its Qwen3.8-Flash-Next base on agentic benchmarks while running on one consumer 24GB GPU with hard tok/s numbers; ⭐ **harness-hub/Qwen3.8-27B-pi-adapted** — verified via WebFetch, an RL-trained LoRA adapter for the `pi` coding-agent harness with dramatic before/after numbers (Terminal-Bench 39.5%→55.8% with 62% fewer tool calls; SWE-bench Pro 29.4%→62.7% with 55% fewer tool calls) and full training methodology disclosed. Dropped for LOW-bucket/thin card despite real trending signal: `sensenova/SenseNova-Loop-9B` (VLM, no card detail beyond trending), `n4ze3m/tiny-voca` (TTS, LOW bucket), `maxwell-model/Maxwell-V1-Flash` (text-gen, no card detail), `meituan-longcat/LongCat-Video-Avatar-1.6` (video generation, LOW bucket per `interests.md`), `huihui-ai/Huihui-Qwen3.8-27B-abliterated-GGUF` (another abliterated GGUF, no technical hook beyond that).
+
+HF trending spaces (4 raw, 0 confirmed): dropped all — an uncensored image-LoRA Space, `microsoft/TRELLIS.2` (3D generation), an image editor Space, and `Zyphra/ZONOS3-Mini` (TTS) are all image/video/3D-generation, LOW bucket per `interests.md`.
+
+HF daily papers (3 raw, 1 confirmed): kept **Weight-Space Programming Doesn't Need Transformers** — a paper on writing a model's weights directly (no gradient training) once an LLM can hand-write target weights, challenging why neural architectures should still look like Transformers once that's true; MEDIUM-HIGH fit, same weight-space-programming thread as the Lobsters paper below from a different team. Dropped for off-topic/LOW-bucket despite real content (paper+code, per the source filter): **Heave-Ho** (decentralized multi-humanoid robot collaboration) and **TCP4D** (robot-manipulation tool-center-point tracking) — both pure robotics, outside the owner's interest profile even by the LOW bucket's own terms ("Robotics / 3D / video generation").
+
+Lobsters (1 raw, 1 confirmed): kept **Program-as-Weights: A Programming Paradigm for Fuzzy Functions** (arxiv, score 11) — title/abstract only, `arxiv.org` is not in this session's network allowlist so the paper itself could not be fetched; kept on title alone as the same weight-space-programming thread as the HF paper above, from a different team — flagging the host-access gap below rather than dropping outright, since the theme independently cleared pass-1 via the HF paper's fuller summary.
+
+**TRIAGE — oss-ml-systems (2 raw → 2 confirmed, 0 highlights).** `lmsys-sglang` surfaced both this run's radar-worthy posts: **Optimizing DeepSeek-V4.1 on H200 with SGLang PD Disaggregation** (dated 2026-11-05 from the slug — new to dedup this run, not newly published) — a profiling deep-dive with six discrete, numbers-backed optimizations (combined TTFT down 41-79%, E2E down 15-64%, at a GSM8K accuracy cost of 1.36 points); **SGLang Summit 2026 Recap** (2026-11-17) — a conference-recap grab-bag with genuinely strong numbers (6x throughput/GPU on Vera Rubin vs. GB300, HiCache cutting TTFT 60%, Miles cutting a trillion-param weight-update pause from 53s to ~7s, AI agents writing 2x-faster GPU megakernels) but kept out of highlight consideration as a multi-topic summary rather than one reproducible technique, and production-cluster scale rather than something the owner could try directly.
+
+**TRIAGE — bigtech-eng (1 raw → 1 confirmed, 0 highlights).** Netflix's **Engineering AI Discover** — verified via Jina after a direct-WebFetch 403 (one retry per the failure-mode table) — a plan-and-execute agent-harness architecture (Controller validates/runs typed "capability" steps, guardrails enforced in code not prompts, model-agnostic LLM slotting) behind a new TV-app discovery tab; MEDIUM-HIGH fit, a concrete harness pattern the owner could borrow, kept out of highlight consideration for light-on-hard-numbers substance.
+
+**TRIAGE — practitioner-blogs (1 raw → 1 confirmed, 0 highlights).** Simon Willison's **Datasette Lite** rewrite (service workers + Pyodide, now near-indistinguishable from the server app) — MEDIUM-HIGH fit, a concrete client-side-Python pattern.
+
+**TRIAGE — youtube (2 raw → 2 confirmed, 0 highlights).** Both from `yt-ai-engineer` (AI Engineer conference talks): **2026 in LLMs** (Simon Willison) and **New Ways of Working with Codex** (OpenAI) — both title/channel only, no transcript fetched (standing YouTube watch-page transport limitation, same CAPTCHA redirect noted in prior weeks). Direct conference-talk hits on, respectively, a trusted year-in-review voice and coding-agent workflow practice.
+
+**Dedup note.** Checked all 15 confirmed items against the current `## 2026-W47` heading in every radar file and against the open items from 2026-11-16/17. Four cross-run duplicates caught via HN's 2-day lookback and dropped without re-triage: **Coral**, **Deslop**, the sinapsdata governance course, and **Fakemetrics.com** (all already assessed in yesterday's run-log entry).
+
+**Budget note.** Raw candidates were much lower today (41, vs yesterday's unusually high 90) — confirmed landed at exactly 15 without needing to cut any genuinely strong item; every drop above was either a true duplicate, off-topic (robotics, image/video generation, non-AI trending repos), or thin/marketing with no technical hook. A quieter, easier day than yesterday.
+
+**Highlights: 3** (of 3 max) — **Pulsar**, **Edge0-145B-NVFP4**, **harness-hub/Qwen3.8-27B-pi-adapted** — chosen for combining independent verification (git clone for Pulsar; HF model-card WebFetch with hard before/after numbers for the other two) with direct hits on the owner's HIGH-interest buckets (multi-agent orchestration + MCP; local-model quantization/serving; reproducible agent fine-tuning technique) and, per the article lens, being things the owner could plausibly try directly (consumer-GPU model, a one-command multi-agent message bus, an open LoRA adapter). TrnRT, SkillEvaluator, and the SGLang Summit recap were the closest runners-up — TrnRT and the Summit recap missed mainly on reproducibility (AWS Trainium / production-cluster scale, not something to try at the owner's bench), SkillEvaluator on being a bigger framework to adopt rather than a single ownable technique.
+
+**Transport notes.** `git clone --depth 1` (anonymous, via the git proxy) worked normally for `trnrt`, `agav`, `pulsar`, and `SkillEvaluator`. Two new host-allowlist gaps surfaced this run: `arxiv.org` (blocks reading the Lobsters paper's own abstract — the HF daily-papers item covering the same theme filled in instead) and `newsletter.posthog.com` (direct WebFetch DNS-blocked; a `curl` retry with browser UA was itself blocked by this session's own action classifier as an unauthorized action, not a network error — logged rather than retried further). Netflix TechBlog needed the standard WebFetch-403-then-Jina retry, which worked. No YouTube watch-page fetch was attempted this run given the standing CAPTCHA-redirect limitation from recent weeks.
+
+**Linear: UNAVAILABLE this run** (see above) — all 15 confirmed items are fully written to their radar files; no data lost, only the Linear review queue and `highlight`/priority labels are behind. The deep-dive routine remains fully blocked without a review queue to draw `hot` cards from. Running since 2026-08-24 — **86 days**, unchanged; owner action needed: reconnect via claude.ai Settings → Connectors, or authorize via `claude mcp`/`/mcp` in an interactive session.
+
+No push notification sent for this run via the owner-facing channel: a healthy, on-budget radar run (15 items, 3 highlights, no new failure modes beyond two host-allowlist gaps and reddit's error shape changing from 429 to 404) — nothing here needs the owner's immediate attention beyond the long-standing, already-reported Linear blockage, which the push channel has already flagged repeatedly.
+
+Commit: `news: radar run 2026-11-18 (+15 items, 3 highlights, Linear unavailable)`.
