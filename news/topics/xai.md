@@ -4,10 +4,14 @@ aliases:
   - Grok
 sources:
   - https://x.ai/news
-updated: 2026-11-13
+updated: 2026-11-16
 ---
 
 MOC page for **xAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W47
+
+- **2026-11-16** — [Building an accounting team with Grok Bot](https://x.ai/news/grok-bot-accounting) — xAI's SpaceXSI describes running its accounting function on five scoped Grok Bots (Provisioning, Billing, Billing Support, Cash Applications, Collections), cutting invoicing from ~24h to minutes and freeing ~8h/day of accounting-team time. Found via gap-scrape (Jina — x.ai is DNS-blocked for direct WebFetch).
 
 ## 2026-W45
 

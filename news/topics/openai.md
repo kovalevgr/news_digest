@@ -11,6 +11,8 @@ MOC page for **OpenAI** — AI-news items collected daily by the news routine (s
 
 ## 2026-W47
 
+- **2026-11-17** — [Introducing GPT-6.2 Astra and Sol](https://openai.com/index/introducing-gpt-6-2-astra-sol) — OpenAI introduces GPT-6.2 Astra and Sol, with better professional outputs, coding, computer use, and efficiency at lower cost across ChatGPT Work, Codex, and the API. Live page returned HTTP 500 on fetch; detail limited to the RSS summary.
+- **2026-11-17** — [Introducing ChatGPT for Sales](https://openai.com/index/introducing-chatgpt-for-sales) — OpenAI launches ChatGPT for Sales: a new Sales plugin with seller workflows plus 30+ new/enhanced partner plugins (CRM, prospecting, call notes, quoting) for account research, call prep, and follow-ups.
 - **2026-11-16** — [Broadening access to AI for scientists](https://openai.com/index/expanding-chatgpt-for-academic-researchers) — OpenAI expands the ChatGPT for Academic Researchers program, aiming for up to 200,000 free-access researchers worldwide; next round opens Nov 23 with 50,000 first-come grants (ChatGPT Plus, recipient + 2 collaborators).
 - **2026-11-16** — [Science at the Frontier: How scientists use ChatGPT](https://openai.com/index/science-at-the-frontier) — OpenAI's Economic Research team analyzes 580,000+ messages from 1,819 scientists in the Academic Researchers pilot; surveyed participants estimated AI nearly halved (1.9x) the time for equivalent-quality research work, and 98% expect AI to accelerate discovery in their field.
 

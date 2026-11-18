@@ -7652,3 +7652,39 @@ Lobsters (1 raw, 1 confirmed): kept **Program-as-Weights: A Programming Paradigm
 No push notification sent for this run via the owner-facing channel: a healthy, on-budget radar run (15 items, 3 highlights, no new failure modes beyond two host-allowlist gaps and reddit's error shape changing from 429 to 404) — nothing here needs the owner's immediate attention beyond the long-standing, already-reported Linear blockage, which the push channel has already flagged repeatedly.
 
 Commit: `news: radar run 2026-11-18 (+15 items, 3 highlights, Linear unavailable)`.
+
+## 2026-11-18 06:0x UTC — daily run — ok (+5 items, Linear unavailable)
+
+**Linear: UNAVAILABLE this run** — `mcp__Linear__*` reconnected with the existing sign-in and was refused (re-authorization required, same as every run since 2026-08-24); `plugin:design:linear` separately failed with `ERR_PROXY_TUNNEL`, proxy 403. All 5 confirmed items below are fully written to `topics/` + `artifacts/`; only the Linear "News digest" cards are behind.
+
+`fetch_feeds.py` ran clean (exit 0) for all 11 companies except the standing `google-deepmind` rss TRAP/not-a-feed false positive; `mistral` and `huggingface` short-circuited via 304-not-modified against their stored ETags. Window since `2026-11-17T04:01:39Z`.
+
+| company | TIER-1 result | gap-scrape | outcome |
+| --- | --- | --- | --- |
+| OpenAI | 200, 2 fresh | — | **2 new** (GPT-6.2 Astra and Sol; ChatGPT for Sales), both 2026-11-17 |
+| Anthropic | n/a (fetch-only) | WebFetch `anthropic.com/news` | nothing newer than 2026-11-10 (IPO roadshow) / 2026-11-09 (Fable/Mythos 5.2) — both already captured |
+| Google DeepMind | TRAP/not-a-feed (false positive, unchanged standing issue) | WebSearch (no fetch/jina tier) | candidates found (AlphaGenome 2, Gemini 4 Hydrogen, etc.) all dated ≤2026-11-13 — already captured |
+| Google Research | 200, 0 fresh | WebSearch (no fetch/jina tier) | newest found still 2026-11-13 (Antigravity /teamwork) — already captured |
+| Microsoft | 200, 1 fresh | WebSearch (fresh candidate excluded — podcast episode, not a real announcement per the confirm rule) | search-index stale (newest Oct 21) — **0 new**; TokenEconomizer (2026-11-16) already on file from yesterday |
+| NVIDIA | 200, 2 fresh | — | **2 new** (Co-Designing Sparse Attention for long-context inference; Slurm HRES plugins for QPU integration), both 2026-11-17 |
+| xAI | n/a (jina-only) | curl `r.jina.ai/https://x.ai/news` (anonymous, works) | **1 new** (Building an accounting team with Grok Bot, 2026-11-16) — rest of the listing already captured |
+| Mistral AI | 304 not modified | WebSearch (no fetch/jina tier) | no confirmable primary-source item newer than the on-file 2026-11-05 Studio launch |
+| Hugging Face | 304 not modified | WebSearch (no fetch/jina tier) | one secondary-source-only mention ("Decision Models in Hugging Face", ~Nov 10) surfaced but no primary huggingface.co/blog URL could be confirmed — **not added**; newest confirmed still 2026-11-13 XYBench |
+| Cursor | 200, 0 fresh | WebSearch (no fetch/jina tier) | search-index stale (newest found mid-August) — no November changelog entry found beyond already-captured 2026-11-06 Voice Chat |
+| Perplexity | n/a (jina-only, no `JINA_API_KEY`) | WebSearch (anonymous Jina skipped — known AbuseAlleviation 403) | no confirmable primary-source item found; newest confirmed still 2026-10-28 FedRAMP |
+
+Totals: **5 items, 3 companies fresh** (OpenAI, NVIDIA, xAI), 0 hard errors (1 standing false-positive TRAP flag on `google-deepmind`'s rss feed, unchanged).
+
+**Confirm/dedup pass.** All 5 items verified as real announcements (not ads/hiring/roundups) via their own feed entry or a direct re-fetch of the primary post; none duplicate an existing `topics/` entry or cross-company URL. The GPT-6.2 Astra/Sol page returned HTTP 500 on both the direct WebFetch and the one Jina retry — the item rests on OpenAI's own RSS summary only, flagged in its artifact as detail-limited. Artifacts written: `2026-11-17-openai-gpt-6-2-astra-sol.md`, `2026-11-17-openai-chatgpt-for-sales.md`, `2026-11-17-nvidia-sparse-attention-long-context.md`, `2026-11-17-nvidia-qpu-slurm-hres.md`, `2026-11-16-xai-grok-bot-accounting.md`. New `## 2026-W47` heading added to `topics/xai.md` (2026-11-16 falls in ISO week 47; the file's prior top heading was W45).
+
+**Microsoft's podcast exclusion.** The sole TIER-1 fresh candidate ("Can AI help build a healthier future?") is a Research podcast episode, not a written announcement — excluded per the real-announcement confirm rule (same precedent as 2026-10-20), which also triggered Microsoft's gap-scrape; the gap-scrape found nothing else new.
+
+**One unconfirmed candidate deliberately left out** (per the never-invent-facts rule — no primary-source URL in reach): Hugging Face's presumed "Decision Models in Hugging Face" post (~Nov 10, secondary aggregator coverage only). Flagging for tomorrow's gap-scrape in case a reachable primary source turns up.
+
+**Perplexity — standing gap, unchanged.** No `JINA_API_KEY` set; anonymous Jina to `perplexity.ai` is known to AbuseAlleviation-403, so this run went straight to WebSearch per the ladder, which again found nothing confirmable. Same owner action as every prior run: set `JINA_API_KEY`.
+
+**Linear reconnect still overdue** (now 86 days, running since 2026-08-24): reconnect via claude.ai Settings → Connectors, or authorize via `claude mcp`/`/mcp` in an interactive session. No Linear cards could be created for today's 5 new items; they are fully covered in `topics/`/`artifacts/` and should be backfilled to Linear once reconnected.
+
+No push notification sent for this run: a normal, fully-sourced +5 day with no new failure modes — the standing Linear/Perplexity blockages are unchanged and already flagged repeatedly.
+
+Commit: `news: daily run 2026-11-18 (+5 items, 3 companies fresh, Linear unavailable)`.
