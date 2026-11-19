@@ -7770,3 +7770,13 @@ Totals: **11 items, 5 companies fresh** (OpenAI, Google DeepMind, NVIDIA, Huggin
 No push notification sent for this run via the owner-facing channel for the news content itself: a strong, fully-sourced +11 day (5 companies fresh, including a backfilled Perplexity item and an Anthropic IPO-pricing update) with no new failure modes — the standing Linear/Perplexity blockages are unchanged and already flagged repeatedly. A separate notification was sent flagging the detached-HEAD/unpushed-commits issue found at the start of this run, since that affects repo integrity rather than news content.
 
 Commit: `news: daily run 2026-11-19 (+11 items, 5 companies fresh, Linear unavailable)`.
+
+## 2026-11-19 07:10 UTC — deep-dive — blocked (Linear unavailable)
+
+**Blocked at step 1 (PICK): the Linear MCP server refused the session's existing sign-in (re-authorization required; one reconnect attempt made via a direct tool call, refused again). Same state as every run since 2026-08-24 — now 87 days.** The deep dive's only input is the `hot` label on cards in Linear project "Radar"; with the board unreadable there is no way to know which cards the owner approved, and no repo-side fallback exists. Cards processed: 0. Files written: 0. Leftovers: unknown (the queue is unreadable, not known-empty). The deep-dive pipeline has still produced zero documents since going live 2026-08-27.
+
+**Branch note.** Found HEAD detached at session start (at `1b08f5a`, the tip of this morning's daily run) with the local `main` ref stale at `fdcd464` — but after `git fetch`, `origin/main` was already at `1b08f5a`: this morning's fast-forward-and-push DID land; the container simply started from a stale snapshot plus a detached checkout. No commits were missing from the remote. Fixed locally by checking out `main` and fast-forwarding to `origin/main`. Pattern note for future runs: a detached HEAD at session start is not by itself evidence of unpushed work — `git fetch` first, then compare.
+
+No push notification sent: the Linear blockage is a standing, repeatedly-flagged condition (last pushed to the owner multiple times; also flagged in both of today's earlier runs), and this run surfaced nothing else new. Owner action unchanged: reconnect the Linear connector via claude.ai Settings → Connectors, or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: deep dive 2026-11-19 (0 cards, blocked — Linear unavailable)`.
