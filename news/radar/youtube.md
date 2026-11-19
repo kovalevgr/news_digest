@@ -1,6 +1,6 @@
 ---
 category: youtube
-updated: 2026-11-17
+updated: 2026-11-19
 ---
 
 # Radar: youtube
@@ -89,3 +89,5 @@ All 7 `yt-*` feeds recovered today after HTTP 404 on every channel for the 3rd r
 - **2026-11-14** — [Disaggregated Quantization: Specializing LLM Prefill and Decode](https://www.youtube.com/watch?v=UpOR8a6Pqbc) — GPU MODE lecture on using different quantization specialized for the prefill vs. decode phase of LLM inference; livestream + edited-cut duplicate (kept the edited cut, dropped the raw stream at "Lecture 122", 2026-11-13). Title/channel only, no transcript fetched. Direct hit on "Local/self-hosted models: inference engines" + GPU/kernel engineering.
 - **2026-11-17** — [2026 in LLMs — Simon Willison, Datasette](https://www.youtube.com/watch?v=9RKrSF9d2SE) — AI Engineer conference talk, Simon Willison's year-in-review of LLM developments. Title/channel only, no transcript fetched (standing YouTube watch-page transport limitation). MEDIUM-HIGH fit — a trusted practitioner voice's 2026 retrospective, likely a good `tech_explainer`/context source even unverified.
 - **2026-11-17** — [New Ways of Working with Codex — Dominik Kundel & Charlie Guo, OpenAI](https://www.youtube.com/watch?v=IPh9YsWvDQk) — AI Engineer conference talk on new workflows for OpenAI's Codex coding agent. Title/channel only, no transcript fetched. Direct hit on "AI agents in practice: coding agents."
+- **2026-11-18** — [Post-Training Gemini 4 for Real Engineering Work — Melvin Johnson, Google DeepMind](https://www.youtube.com/watch?v=fTHByDwTxGM) — AI Engineer conference talk on post-training practice for Gemini 4 targeted at real engineering tasks. Title/channel only, no transcript fetched (standing YouTube watch-page transport limitation). Direct hit on "Training & fine-tuning practice."
+- **2026-11-18** — [40x More Merged PRs With 2.7x the Engineers — Walden Yan, Cognition](https://www.youtube.com/watch?v=U92J5mCDLMc) — AI Engineer conference talk, Cognition (Devin) on scaling merged-PR throughput with a modest headcount increase. Title/channel only, no transcript fetched. Direct hit on "AI agents in practice: coding agents" — a headline claim worth checking against the talk once transcript access improves.
