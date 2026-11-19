@@ -7734,3 +7734,39 @@ Commit: `news: daily run 2026-11-18 (+5 items, 3 companies fresh, Linear unavail
 No push notification sent for this run via the owner-facing channel: a healthy, on-budget radar run (13 items, 3 highlights, no new failure modes beyond two host-allowlist gaps that resolved via Jina) — nothing here needs the owner's immediate attention beyond the long-standing, already-reported Linear blockage, which the push channel has already flagged repeatedly.
 
 Commit: `news: radar run 2026-11-19 (+13 items, 3 highlights, Linear unavailable)`.
+
+## 2026-11-19 06:0x UTC — daily run — ok (+11 items, Linear unavailable)
+
+**Branch/push note.** Before starting this run, found `HEAD` detached three commits ahead of `main`/`origin/main` — the prior three runs (radar 2026-11-18, daily 2026-11-18, radar 2026-11-19) had committed in a detached state and never actually landed on `main`. Fast-forwarded `main` to the detached tip and pushed; `origin/main` now carries all of those commits. Flagging in case the detached-HEAD-at-session-start pattern recurs — worth checking at the start of future runs.
+
+**Linear: UNAVAILABLE this run** — reconnected with the existing sign-in via `ToolSearch` and was refused (re-authorization required, same as every run since 2026-08-24). All 11 confirmed items below are fully written to `topics/` + `artifacts/`; only the Linear "News digest" cards are behind.
+
+`fetch_feeds.py` ran clean (exit 0) for all 11 companies; `mistral` short-circuited via 304-not-modified against its stored ETag. Window since `2026-11-18T04:02:09Z`.
+
+| company | TIER-1 result | gap-scrape | outcome |
+| --- | --- | --- | --- |
+| OpenAI | 200, 2 fresh | — | **2 new** (Research acceleration: The jagged frontier; Inside the Codex sandbox), both 2026-11-18 |
+| Anthropic | n/a (fetch-only) | WebFetch `anthropic.com/news` | **1 new** (Anthropic prices initial public offering, 2026-11-18) |
+| Google DeepMind | 200, 2 fresh | — | **2 new** (Introducing Gemini 4 Neon; Genie 4 is now available), both 2026-11-18 — both pages redirect to blog.google (DNS-blocked), recovered via one Jina retry each |
+| Google Research | 200, 0 fresh | WebSearch (no fetch/jina tier) | nothing newer than the on-file 2026-11-13 Antigravity /teamwork post found |
+| Microsoft | 200, 0 fresh | WebSearch (no fetch/jina tier) | no Microsoft Research blog post dated after 2026-11-16 TokenEconomizer found confirmable; John Langford's AI Frontiers departure post surfaced but is a personal blog (hunch.net), not a Microsoft primary source — excluded |
+| NVIDIA | 200, 2 fresh | — | **2 new** (Build Training-Ready Physical AI Datasets with Two Prompts in NVIDIA Cosmos; Tackling GPU Bottlenecks in Plane-Wave DFT with K-Point Batching and Mixed Precision), both 2026-11-18 |
+| xAI | n/a (jina-only) | curl `r.jina.ai/https://x.ai/news` (anonymous, works) | 0 new — newest listed (2026-11-16 Grok Bot accounting) already on file |
+| Mistral AI | 304 not modified | WebSearch (no fetch/jina tier) | no confirmable primary-source item newer than the on-file 2026-11-05 Studio launch; search results thin/conflicting, nothing with a primary mistral.ai URL |
+| Hugging Face | 200, 3 fresh | — | **3 new** (DaisyRose-27B; Why your fine-tuning job takes longer than the FLOPs say; Time-Series Models in the Streamhouse), all 2026-11-18 |
+| Cursor | 200, 0 fresh | WebSearch (no fetch/jina tier) | the two candidates found (Build Live Apps, Voice Chat with Agents) are already on file from 2026-11-05/06; nothing newer confirmed |
+| Perplexity | n/a (jina-only, no `JINA_API_KEY`) | WebSearch (anonymous Jina skipped — known AbuseAlleviation 403) | **1 new** (Teammates are agents for complex, ongoing work, 2026-11-05 — missed by prior gap-scrapes; primary blog URL confirmed via targeted search, perplexity.ai itself remains DNS-blocked for direct fetch) |
+
+Totals: **11 items, 5 companies fresh** (OpenAI, Google DeepMind, NVIDIA, Hugging Face via TIER-1; Anthropic + Perplexity via gap-scrape), 0 hard errors.
+
+**Confirm/dedup pass.** All 11 items verified as real announcements (not ads/hiring/roundups) via direct re-fetch of the primary post (OpenAI via curl after a direct-WebFetch 403; DeepMind via one Jina retry after a blog.google redirect; NVIDIA and HF's three community-org posts via direct WebFetch, consistent with the established pattern of treating HF org-blog posts — RadixArk, Dharma-AI, ibm-research — as this company's items; Anthropic via direct WebFetch of the dedicated page). None duplicate an existing `topics/` entry or cross-company URL. New `## 2026-W47` headings added to `topics/google-deepmind.md`, `topics/huggingface.md`, and `topics/anthropic.md` (prior top headings were W46); new `## 2026-W45` heading added to `topics/perplexity.md` (prior top heading was W44, since the Teammates item backfills to 2026-11-05). Artifacts written: `2026-11-18-openai-research-acceleration-jagged-frontier.md`, `2026-11-18-openai-codex-sandbox.md`, `2026-11-18-google-deepmind-gemini-4-neon.md`, `2026-11-18-google-deepmind-genie-4-available.md`, `2026-11-18-nvidia-cosmos-data-factory.md`, `2026-11-18-nvidia-plane-wave-dft-gpu.md`, `2026-11-18-huggingface-daisyrose-27b.md`, `2026-11-18-huggingface-fine-tuning-time-prediction.md`, `2026-11-18-huggingface-timeseries-streamhouse.md`, `2026-11-18-anthropic-ipo-priced.md`, `2026-11-05-perplexity-teammates.md`.
+
+**Perplexity backfill.** The Teammates launch (2026-11-05) was missed by every gap-scrape between then and today — same standing cause as other backfills on this company: `perplexity.ai` is DNS-blocked for direct WebFetch and anonymous Jina 403s. A targeted WebSearch for the exact post title surfaced the primary `perplexity.ai/hub/blog` URL and enough quoted primary-post text to write the item without inventing facts; the page itself still could not be fetched directly.
+
+**Perplexity — standing gap, unchanged.** No `JINA_API_KEY` set; same owner action as every prior run: set `JINA_API_KEY`.
+
+**Linear reconnect still overdue** (now 87 days, running since 2026-08-24): reconnect via claude.ai Settings → Connectors, or authorize via `claude mcp`/`/mcp` in an interactive session. No Linear cards could be created for today's 11 new items; they are fully covered in `topics/`/`artifacts/` and should be backfilled to Linear once reconnected.
+
+No push notification sent for this run via the owner-facing channel for the news content itself: a strong, fully-sourced +11 day (5 companies fresh, including a backfilled Perplexity item and an Anthropic IPO-pricing update) with no new failure modes — the standing Linear/Perplexity blockages are unchanged and already flagged repeatedly. A separate notification was sent flagging the detached-HEAD/unpushed-commits issue found at the start of this run, since that affects repo integrity rather than news content.
+
+Commit: `news: daily run 2026-11-19 (+11 items, 5 companies fresh, Linear unavailable)`.

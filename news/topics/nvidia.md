@@ -4,13 +4,15 @@ aliases:
   - Nvidia
 sources:
   - https://developer.nvidia.com/blog/feed
-updated: 2026-11-17
+updated: 2026-11-18
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W47
 
+- **2026-11-18** — [Build Training-Ready Physical AI Datasets with Two Prompts in NVIDIA Cosmos](https://developer.nvidia.com/blog/build-training-ready-physical-ai-datasets-with-two-prompts-in-nvidia-cosmos/) — NVIDIA launches Cosmos Data Factory, five agent-orchestrated blueprints and six composable skills turning a prompt into a training-ready physical-AI dataset, plus open-sourcing Cosmos Dataset Search under Apache 2.0.
+- **2026-11-18** — [Tackling GPU Bottlenecks in Plane-Wave DFT with K-Point Batching and Mixed Precision](https://developer.nvidia.com/blog/tackling-gpu-bottlenecks-in-plane-wave-dft-with-k-point-batching-and-mixed-precision/) — NVIDIA introduces Daviator, a k-point-batching + mixed-precision layer for VASP, delivering up to 22x faster time-to-solution than CPU and up to 75% lower cost for generating MLIP training data.
 - **2026-11-17** — [Co-Designing Sparse Attention for Efficient Long-Context Inference](https://developer.nvidia.com/blog/co-designing-sparse-attention-for-efficient-long-context-inference/) — NVIDIA publishes a practical guide to co-designing trained-in sparse attention for long-context inference, distilling eight concrete design guidelines from FP8-kernel benchmarks on indexer/Top-k design choices.
 - **2026-11-17** — [Integrating QPUs into Supercomputing Centers Using Slurm HRES Plugins](https://developer.nvidia.com/blog/integrating-qpus-into-supercomputing-centers-using-slurm-hres-plugins/) — Slurm 26.11 adds Hierarchical Resources (HRES) plugins letting supercomputing centers schedule quantum processing units as native cluster-level resources; IBM, IQM, Pasqal, and Quantinuum have announced integrations.
 - **2026-11-16** — [Accelerate Molecular Dynamics Simulations with Accurate, Flexible Primitives Using NVIDIA cuPotential](https://developer.nvidia.com/blog/accelerate-molecular-dynamics-simulations-with-accurate-flexible-primitives-using-nvidia-cupotential/) — NVIDIA open-sources cuPotential, modular MD primitives for long-range interactions (built with D. E. Shaw Research and Flatiron Institute), delivering ~2-3x+ end-to-end OpenMM speedups from T4 to RTX PRO 6000 Blackwell with order-of-magnitude accuracy gains.

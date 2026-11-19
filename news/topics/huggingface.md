@@ -5,10 +5,16 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-11-13
+updated: 2026-11-18
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W47
+
+- **2026-11-18** — [DaisyRose-27B: Pushing the Frontier of Post-Training Efficiency](https://huggingface.co/blog/RadixArk/daisyrose-27b-pushing-the-frontier-of-post-trainin) — RadixArk releases DaisyRose-27B, an RL-post-trained Qwen3.8-27B fine-tune for long-horizon agent tasks (sessions to 1M tokens) via its open-source async Miles framework; Terminal Bench 4.1 jumps 5.6 → 12.0, SWE Bench Pro v2 91.3 → 94.7. Apache 2.0.
+- **2026-11-18** — [Why your fine-tuning job takes longer than the FLOPs say](https://huggingface.co/blog/Dharma-AI/predicting-fine-tuning-time) — Dharma-AI shows FLOP-based fine-tuning-duration estimates are unreliable (R²=0.31) and a CatBoost model trained on pre-dispatch job metadata predicts GPU-cluster job time far more accurately (R²=0.98, MAE=1.71h) on 272 production H200 SFT runs.
+- **2026-11-18** — [Time-Series Models in the Streamhouse: A New Frontier and Use Cases](https://huggingface.co/blog/ibm-research/time-series-powered-streamhouse) — IBM Research and Confluent embed IBM's Granite time-series models (TTM, PatchTST-FM, TSPulse) into Confluent's Streamhouse, running CPU-only forecasting/anomaly-detection/similarity-search on live data via Flink SQL.
 
 ## 2026-W46
 

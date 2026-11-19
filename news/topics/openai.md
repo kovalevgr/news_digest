@@ -4,13 +4,15 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-11-17
+updated: 2026-11-18
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W47
 
+- **2026-11-18** — [Research acceleration: The jagged frontier](https://openai.com/index/research-acceleration-jagged-frontier) — OpenAI reports on how coding agents have accelerated its internal AI research, with new quantitative measures of uplift across research domains and continued human involvement; median researcher now spends ~$2,400/day on agentic tools (90th percentile ~$23,000/day).
+- **2026-11-18** — [Inside the Codex sandbox](https://openai.com/index/inside-the-codex-sandbox) — OpenAI details the Codex sandbox's filesystem/network permission-profile design that limits what Codex can access when running commands, enforced across macOS, Linux, and Windows.
 - **2026-11-17** — [Introducing GPT-6.2 Astra and Sol](https://openai.com/index/introducing-gpt-6-2-astra-sol) — OpenAI introduces GPT-6.2 Astra and Sol, with better professional outputs, coding, computer use, and efficiency at lower cost across ChatGPT Work, Codex, and the API. Live page returned HTTP 500 on fetch; detail limited to the RSS summary.
 - **2026-11-17** — [Introducing ChatGPT for Sales](https://openai.com/index/introducing-chatgpt-for-sales) — OpenAI launches ChatGPT for Sales: a new Sales plugin with seller workflows plus 30+ new/enhanced partner plugins (CRM, prospecting, call notes, quoting) for account research, call prep, and follow-ups.
 - **2026-11-16** — [Broadening access to AI for scientists](https://openai.com/index/expanding-chatgpt-for-academic-researchers) — OpenAI expands the ChatGPT for Academic Researchers program, aiming for up to 200,000 free-access researchers worldwide; next round opens Nov 23 with 50,000 first-come grants (ChatGPT Plus, recipient + 2 collaborators).

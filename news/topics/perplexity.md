@@ -4,10 +4,14 @@ aliases:
   - Perplexity AI
 sources:
   - https://www.perplexity.ai/hub/blog
-updated: 2026-10-30
+updated: 2026-11-18
 ---
 
 MOC page for **Perplexity** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W45
+
+- **2026-11-05** — [Teammates are agents for complex, ongoing work](https://www.perplexity.ai/hub/blog/teammates-are-agents-for-complex-ongoing-work) — Perplexity launches Teammates, persistent AI agents built on Computer that own ongoing, long-running work and check in only when a decision is needed; web-only for Max subscribers initially, iOS coming soon. Backfilled: missed by prior gap-scrapes (perplexity.ai DNS-blocked for direct WebFetch/anonymous Jina), confirmed today via WebSearch (primary blog title + secondary coverage).
 
 ## 2026-W44
 
