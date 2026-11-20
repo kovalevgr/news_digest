@@ -4,13 +4,16 @@ aliases:
   - Nvidia
 sources:
   - https://developer.nvidia.com/blog/feed
-updated: 2026-11-18
+updated: 2026-11-19
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W47
 
+- **2026-11-19** — [Reducing Rollout Bottlenecks in Reinforcement Learning with NVIDIA Dynamo](https://developer.nvidia.com/blog/reducing-rollout-bottlenecks-in-reinforcement-learning-with-nvidia-dynamo/) — NVIDIA details Dynamo's KV-aware routing, ModelExpress weight distribution, and automatic worker recovery for RL rollout bottlenecks; CoreWeave reports up to 15x faster weight updates.
+- **2026-11-19** — [Enabling Real-Time AI for Scientific Instruments with GPU-Native Data Acquisition](https://developer.nvidia.com/blog/enabling-real-time-ai-for-scientific-instruments-with-gpu-native-data-acquisition/) — NVIDIA's DAQIRI streams scientific-instrument data directly into GPU memory for real-time analysis; a Berkeley Lab EELS camera case study reports over 500 Gbps, with new ibverbs and hardware-packet-reordering release features.
+- **2026-11-19** — [Build Tool-Calling Parsers in Rust with AI Agents](https://developer.nvidia.com/blog/build-tool-calling-parsers-in-rust-with-ai-agents/) — NVIDIA open-sources frontend-crates, reusable Rust tool-call parsers behind Dynamo's parsers, plus a shared cross-model-family conformance test corpus built with an AI-agent drafting workflow.
 - **2026-11-18** — [Build Training-Ready Physical AI Datasets with Two Prompts in NVIDIA Cosmos](https://developer.nvidia.com/blog/build-training-ready-physical-ai-datasets-with-two-prompts-in-nvidia-cosmos/) — NVIDIA launches Cosmos Data Factory, five agent-orchestrated blueprints and six composable skills turning a prompt into a training-ready physical-AI dataset, plus open-sourcing Cosmos Dataset Search under Apache 2.0.
 - **2026-11-18** — [Tackling GPU Bottlenecks in Plane-Wave DFT with K-Point Batching and Mixed Precision](https://developer.nvidia.com/blog/tackling-gpu-bottlenecks-in-plane-wave-dft-with-k-point-batching-and-mixed-precision/) — NVIDIA introduces Daviator, a k-point-batching + mixed-precision layer for VASP, delivering up to 22x faster time-to-solution than CPU and up to 75% lower cost for generating MLIP training data.
 - **2026-11-17** — [Co-Designing Sparse Attention for Efficient Long-Context Inference](https://developer.nvidia.com/blog/co-designing-sparse-attention-for-efficient-long-context-inference/) — NVIDIA publishes a practical guide to co-designing trained-in sparse attention for long-context inference, distilling eight concrete design guidelines from FP8-kernel benchmarks on indexer/Top-k design choices.

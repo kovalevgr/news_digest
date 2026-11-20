@@ -7822,3 +7822,56 @@ Commit: `news: deep dive 2026-11-19 (0 cards, blocked — Linear unavailable)`.
 No push notification sent for this run via the owner-facing channel: a healthy, on-budget radar run (14 items, 3 highlights, no new failure modes beyond the already-repeatedly-flagged Linear blockage and the self-resolved stale-branch-snapshot pattern) — nothing here needs the owner's immediate attention.
 
 Commit: `news: radar run 2026-11-20 (+14 items, 3 highlights, Linear unavailable)`.
+
+## 2026-11-20 06:0x UTC — daily — ok
+
+**Branch note (same pattern as 2026-11-19/2026-11-20's other entries).** Session started with HEAD detached at `40bc8fe` and the local `main` ref stale at `fdcd464`; `git fetch origin` confirmed `origin/main` was already at `40bc8fe` — no commits missing from the remote, just a stale local snapshot plus a detached checkout. Fixed by checking out `main` and fast-forwarding before running `fetch_feeds.py`.
+
+`fetch_feeds.py` ran clean (exit 0). Window since `2026-11-19T04:01:40Z`.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss | 1 | - | - |
+| anthropic | fetch, websearch | 0 | fetch, websearch | WebFetch of anthropic.com/news → HTTP 403; WebSearch found no confirmed in-window post beyond the already-captured Nov 9/10/18 items |
+| google-deepmind | rss, fetch | 0 | fetch | rss TRAP/not-a-feed false positive (recurring, same as 2026-11-09/12/13); manual WebFetch of deepmind.google/blog/ confirmed no post newer than the already-captured 2026-11-18 items |
+| google-research | rss | 1 | - | - |
+| microsoft | rss, fetch | 0 | fetch | manual WebFetch of the MS Research blog listing confirmed no post newer than the already-captured 2026-11-16 item |
+| nvidia | rss | 3 | - | - |
+| xai | jina | 0 | jina | - |
+| mistral | rss | 0 | - | 304 not modified, no gap-scrape needed (precedent: 2026-08 entries) |
+| huggingface | rss | 0 | - | 304 not modified, no gap-scrape needed (precedent: 2026-08 entries) |
+| cursor | rss, fetch | 0 | fetch | - |
+| perplexity | jina, websearch | 0 | jina→websearch | Jina AbuseAlleviationError 403 (no JINA_API_KEY); WebSearch found no confirmed in-window post |
+
+Totals: 5 items, 3 companies fresh, 0 errors (6 gap-scrapes attempted — anthropic, google-deepmind, microsoft, xai, cursor, perplexity — all came up empty/blocked; mistral and huggingface skipped on a clean TIER-1 304-not-modified, consistent with established precedent for that signal).
+
+**OpenAI (1 item).** [How OpenAI's Performance Factory keeps ChatGPT fast](https://openai.com/index/how-openai-performance-factory-keeps-chatgpt-fast) — Codex-powered workflows that auto-detect and fix ChatGPT performance regressions. Clean RSS capture, category "Engineering".
+
+**Google Research (1 item).** [A game you cannot win unless you have a quantum computer](https://research.google/blog/a-game-you-cannot-win-unless-you-have-a-quantum-computer/) — Google Quantum AI's Willow processor wins 98.30% of magic-square contextuality-game rounds vs. an 88.89% classical limit, plus GHZ-parity (71 players) and hidden-linear-function (105 qubits) results; published in *Science*. RSS summary was a one-word stub ("Quantum") — fetched the full post for the card.
+
+**NVIDIA (3 items, kept per the "genuine announcements/major posts" bar — all three are substantive engineering writeups with concrete techniques/numbers, consistent with what prior runs have kept from this feed).**
+- [Reducing Rollout Bottlenecks in RL with NVIDIA Dynamo](https://developer.nvidia.com/blog/reducing-rollout-bottlenecks-in-reinforcement-learning-with-nvidia-dynamo/) — KV-aware routing, ModelExpress weight distribution, worker recovery; CoreWeave reports up to 15x faster weight updates.
+- [Enabling Real-Time AI for Scientific Instruments with GPU-Native Data Acquisition](https://developer.nvidia.com/blog/enabling-real-time-ai-for-scientific-instruments-with-gpu-native-data-acquisition/) — DAQIRI streams instrument data straight into GPU memory; Berkeley Lab EELS case study at 500+ Gbps, new ibverbs backend ~2x throughput on small packets.
+- [Build Tool-Calling Parsers in Rust with AI Agents](https://developer.nvidia.com/blog/build-tool-calling-parsers-in-rust-with-ai-agents/) — open-sourced `frontend-crates` Rust parsers behind Dynamo's tool-calling, plus a shared cross-model conformance test corpus built via an agent-drafts/human-reviews workflow.
+
+**Anthropic — gap-scrape came up empty.** WebFetch of `anthropic.com/news` returned HTTP 403 (no feed exists for this company; direct fetch sometimes works, blocked this run). Fell back to WebSearch ("Anthropic news announcement November 19 2026"); results only surfaced the already-captured IPO-pricing (Nov 18) and Fable/Mythos 5.2 (Nov 9) stories plus unrelated older coverage — no new in-window item confirmed, nothing added per the never-invent rule.
+
+**Google DeepMind — gap-scrape came up empty, known false-TRAP pattern.** `fetch_feeds.py` again flagged `deepmind.google/blog/rss.xml` as TRAP/not-a-feed (recurring false positive also seen 2026-11-09/12/13). Manual WebFetch of the blog listing page found no post dated after the already-captured 2026-11-18 items (Gemini 4 Neon, Genie 4 availability) — genuinely nothing new in-window, not a transport failure this time.
+
+**Microsoft — gap-scrape came up empty.** Manual WebFetch of the MS Research blog listing confirmed the newest post is still the already-captured 2026-11-16 TokenEconomizer item — nothing new in-window.
+
+**xAI — gap-scrape came up empty.** xAI has no TIER-1 rss source (jina-tier only; `fetch_feeds.py` only fetches `kind: "rss"` sources, so xAI always shows empty there by design). Jina fetch of x.ai/news succeeded cleanly (no Cloudflare block this run); newest post is still "Introducing Grok Bot 1.0" (Nov 11), older than the already-captured Nov 16 item — nothing new in-window.
+
+**Cursor — gap-scrape came up empty.** TIER-1 rss returned zero fresh with no error/304 signal, so one fallback attempt was made per the recipe: WebFetch of cursor.com/changelog confirmed the newest entry is still Nov 6 (Voice Chat with Agents), already captured — nothing new in-window.
+
+**Perplexity — gap-scrape came up empty.** Perplexity has no TIER-1 rss source (jina-tier only, same structural reason as xAI). Jina hit the expected AbuseAlleviationError 403 (no `JINA_API_KEY` — standing gap, unchanged since 2026-08-01). WebSearch fallback found no confirmable in-window post beyond the already-captured Nov 5 Teammates story.
+
+**Mistral / Hugging Face.** Both TIER-1 feeds returned a clean HTTP 304 (not modified) — no gap-scrape attempted, consistent with the established precedent (e.g. the 2026-08-19 entry) that a server-confirmed "nothing changed" signal doesn't need a fallback on top of it.
+
+**Dedup note.** All 5 confirmed items checked by canonical URL against the current `## 2026-W47` heading in their target topics files — no collisions. No cross-company same-URL overlaps.
+
+**Linear: UNAVAILABLE again this run** — reconnected with the existing sign-in via a direct tool call and was refused (re-authorization required), same as every run since 2026-08-24 — **88 days**, unchanged. All 5 confirmed items are fully written to `topics/`/`artifacts/`; no Linear cards could be created and should be backfilled once reconnected.
+
+No push notification sent for this run via the owner-facing channel for the news content itself: a modest, fully-sourced +5 day (3 companies fresh) with no new failure modes — the standing Linear blockage and the self-resolved stale-branch-snapshot pattern are both already repeatedly flagged.
+
+Commit: `news: daily run 2026-11-20 (+5 items, 3 companies fresh, Linear unavailable)`.

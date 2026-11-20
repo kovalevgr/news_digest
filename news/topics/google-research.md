@@ -4,10 +4,14 @@ aliases:
   - Google AI
 sources:
   - https://research.google/blog/rss/
-updated: 2026-11-13
+updated: 2026-11-19
 ---
 
 MOC page for **Google Research** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W47
+
+- **2026-11-19** — [A game you cannot win unless you have a quantum computer](https://research.google/blog/a-game-you-cannot-win-unless-you-have-a-quantum-computer/) — Google Quantum AI runs contextuality "games" (magic square, GHZ parity, hidden linear function) on its Willow processor, winning 98.30% of magic-square rounds vs. an 88.89% classical limit; published in Science.
 
 ## 2026-W46
 

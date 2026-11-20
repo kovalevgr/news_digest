@@ -4,13 +4,14 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-11-18
+updated: 2026-11-19
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W47
 
+- **2026-11-19** — [How OpenAI's Performance Factory keeps ChatGPT fast](https://openai.com/index/how-openai-performance-factory-keeps-chatgpt-fast) — OpenAI describes the Performance Factory, a system of Codex-powered workflows that automatically finds and fixes performance regressions to keep ChatGPT fast.
 - **2026-11-18** — [Research acceleration: The jagged frontier](https://openai.com/index/research-acceleration-jagged-frontier) — OpenAI reports on how coding agents have accelerated its internal AI research, with new quantitative measures of uplift across research domains and continued human involvement; median researcher now spends ~$2,400/day on agentic tools (90th percentile ~$23,000/day).
 - **2026-11-18** — [Inside the Codex sandbox](https://openai.com/index/inside-the-codex-sandbox) — OpenAI details the Codex sandbox's filesystem/network permission-profile design that limits what Codex can access when running commands, enforced across macOS, Linux, and Windows.
 - **2026-11-17** — [Introducing GPT-6.2 Astra and Sol](https://openai.com/index/introducing-gpt-6-2-astra-sol) — OpenAI introduces GPT-6.2 Astra and Sol, with better professional outputs, coding, computer use, and efficiency at lower cost across ChatGPT Work, Codex, and the API. Live page returned HTTP 500 on fetch; detail limited to the RSS summary.
