@@ -1,6 +1,6 @@
 ---
 category: youtube
-updated: 2026-11-19
+updated: 2026-11-20
 ---
 
 # Radar: youtube
@@ -91,3 +91,7 @@ All 7 `yt-*` feeds recovered today after HTTP 404 on every channel for the 3rd r
 - **2026-11-17** — [New Ways of Working with Codex — Dominik Kundel & Charlie Guo, OpenAI](https://www.youtube.com/watch?v=IPh9YsWvDQk) — AI Engineer conference talk on new workflows for OpenAI's Codex coding agent. Title/channel only, no transcript fetched. Direct hit on "AI agents in practice: coding agents."
 - **2026-11-18** — [Post-Training Gemini 4 for Real Engineering Work — Melvin Johnson, Google DeepMind](https://www.youtube.com/watch?v=fTHByDwTxGM) — AI Engineer conference talk on post-training practice for Gemini 4 targeted at real engineering tasks. Title/channel only, no transcript fetched (standing YouTube watch-page transport limitation). Direct hit on "Training & fine-tuning practice."
 - **2026-11-18** — [40x More Merged PRs With 2.7x the Engineers — Walden Yan, Cognition](https://www.youtube.com/watch?v=U92J5mCDLMc) — AI Engineer conference talk, Cognition (Devin) on scaling merged-PR throughput with a modest headcount increase. Title/channel only, no transcript fetched. Direct hit on "AI agents in practice: coding agents" — a headline claim worth checking against the talk once transcript access improves.
+- **2026-11-19** — [The Sweet Side of the Bitter Lesson — Thariq Shihipar, Independent](https://www.youtube.com/watch?v=xRJMiaUoD_8) — AI Engineer conference talk. Title/channel only, no transcript fetched. MEDIUM-HIGH fit — training/scaling-practice framing of the Bitter Lesson, worth checking once transcript access improves.
+- **2026-11-19** — [What it takes to set intelligence free — Fabian Hedin, CTO, Lovable](https://www.youtube.com/watch?v=pZWPq_ZAmM4) — AI Engineer conference talk, the CTO of Lovable (AI app-building platform) on agent-driven software generation. Title/channel only, no transcript fetched. Direct hit on "AI agents in practice: coding agents."
+- **2026-11-19** — [Helion: Megakernels and the CuTe backend](https://www.youtube.com/watch?v=YGLXuyaq_sI) — GPU MODE talk on PyTorch's Helion kernel DSL, megakernel fusion, and a CuTe backend. Title/channel only, no transcript fetched. Direct hit on "GPU/kernel engineering" — continues this week's recurring Helion/megakernel thread (see `oss-ml-systems.md`).
+- **2026-11-19** — [What a Squirrel Knows That Language Models Skip — Michael Tomasello](https://www.youtube.com/watch?v=io7qhEjJoik) — ML Street Talk interview with comparative-cognition researcher Michael Tomasello on gaps between animal cognition and LLM behavior. Title/channel only, no transcript fetched. LOW fit — closer to cognitive-science commentary than a reproducible technique, kept for the researcher's standing and MLST's track record of substantive interviews.

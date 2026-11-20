@@ -1,6 +1,6 @@
 ---
 category: research-institutes
-updated: 2026-11-05
+updated: 2026-11-20
 ---
 
 # Radar: research-institutes
@@ -63,3 +63,7 @@ Appended by the daily routine under weekly headings; format matches topics files
 ## 2026-W46
 
 - **2026-11-13** — ⭐ [XYBench: Helping with the problem behind the question](https://allenai.org/blog/xybench) — Verified via WebFetch: an 8,115-question benchmark (Stack Overflow, Stack Exchange, manually curated examples, WikiHow) testing whether LLMs recognize when a stated request (Y) rests on a misconception about the user's real underlying goal (X) and steer toward X instead — Claude Sonnet 4.5 both generates the WikiHow-derived questions and serves as the (human-validated) automated judge. Findings: models mention solutions to Y far more than to X (75-86% vs. 59-71% on Stack Overflow), only 35-41% of responses focus mainly on X, and models steer users away from the mistaken approach less often than human reference answers (47-60% vs. 79%); when choosing between two answers models pick the goal-focused one 71-84% of the time yet write goal-focused responses far less often — a recognize/produce gap. Won Best Resource Paper at EMNLP 2026. Direct hit on "Evals in practice: how people actually measure agents and models" — a rigorous, numbers-backed benchmark the owner could apply to their own agent's handling of underspecified requests.
+
+## 2026-W47
+
+- **2026-11-19** — [Theorizer comes to Asta](https://allenai.org/blog/theorizer-in-asta) — Verified via WebFetch: Ai2's new agent for Asta (its AI-for-science platform) searches the literature for a research question, extracts findings, and proposes explanations, each linked to its supporting papers and flagged for whether the claim looks new; open-sourced on GitHub, usable via Asta's hosted UI (token costs covered up to a limit) or the open library against the owner's own API keys. Evidence is four anecdotal case studies (driver-negative lung-cancer hypotheses tested downstream by AutoDiscovery; 50 candidate theories for VIP-interneuron behavior vs. a human researcher's 1-2; tracing implausible Peru dew-point values to a weather-station-distance data error; unresolved hypotheses for a drop in recorded potato varieties) plus a cited ACL 2026 paper for methodology — no benchmarks, accuracy rates, or tool comparisons given in the post itself. MEDIUM fit — adjacent to "evals in practice," but out of highlight consideration for the lack of any quantified evaluation.
