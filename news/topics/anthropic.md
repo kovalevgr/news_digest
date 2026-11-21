@@ -4,13 +4,14 @@ aliases:
   - Claude
 sources:
   - https://www.anthropic.com/news
-updated: 2026-11-18
+updated: 2026-11-21
 ---
 
 MOC page for **Anthropic** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W47
 
+- **2026-11-20** — [Anthropic Prices and Closes its Initial Public Offering](https://www.anthropic.com/news/ipo-close) — Anthropic closes its IPO (1.127B Class A shares at $83.00, underwriters' option fully exercised) plus a concurrent $26.0B private placement of Class N shares to AMD, Broadcom, Google, Micron, Microsoft, NVIDIA and TSMC Partners; combined gross proceeds ~$119.5B.
 - **2026-11-18** — [Anthropic prices initial public offering](https://www.anthropic.com/news/anthropic-prices-initial-public-offering) — Anthropic prices its IPO at $83.00/share (Class A), 980M shares offered, ~$79.4B implied gross proceeds; lists on Nasdaq as "ANT", trading begins 2026-11-19. Found via gap-scrape (WebFetch — Anthropic has no rss feed).
 
 ## 2026-W46

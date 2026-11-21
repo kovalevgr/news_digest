@@ -5,13 +5,15 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-11-18
+updated: 2026-11-21
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W47
 
+- **2026-11-20** — [Welcome Inkling 2 Mini, Cutting-edge Performance for your Local Setup](https://huggingface.co/blog/inkling2mini) — Hugging Face and Thinking Machines Lab release Inkling 2 Mini, an open-weight ~26B-total/3B-active MoE "looped transformer" (48 logical layers from 24 physical via middle-layer looping), 1M-token multimodal context, day-zero Transformers/llama.cpp/MLX/SGLang support.
+- **2026-11-20** — [Introducing harness adapters: adapt your favorite model to your harness to improve performance and cost](https://huggingface.co/blog/harness-adapters-at-scale) — Hugging Face introduces "harness adapters" (LoRA, RL-trained inside a specific agent harness on Qwen3.8-27B), raising Terminal-Bench 2.1 pass@1 from ~39% to 55% with the Pi harness while cutting tokens/task from ~2.9K to ~1.5K.
 - **2026-11-18** — [DaisyRose-27B: Pushing the Frontier of Post-Training Efficiency](https://huggingface.co/blog/RadixArk/daisyrose-27b-pushing-the-frontier-of-post-trainin) — RadixArk releases DaisyRose-27B, an RL-post-trained Qwen3.8-27B fine-tune for long-horizon agent tasks (sessions to 1M tokens) via its open-source async Miles framework; Terminal Bench 4.1 jumps 5.6 → 12.0, SWE Bench Pro v2 91.3 → 94.7. Apache 2.0.
 - **2026-11-18** — [Why your fine-tuning job takes longer than the FLOPs say](https://huggingface.co/blog/Dharma-AI/predicting-fine-tuning-time) — Dharma-AI shows FLOP-based fine-tuning-duration estimates are unreliable (R²=0.31) and a CatBoost model trained on pre-dispatch job metadata predicts GPU-cluster job time far more accurately (R²=0.98, MAE=1.71h) on 272 production H200 SFT runs.
 - **2026-11-18** — [Time-Series Models in the Streamhouse: A New Frontier and Use Cases](https://huggingface.co/blog/ibm-research/time-series-powered-streamhouse) — IBM Research and Confluent embed IBM's Granite time-series models (TTM, PatchTST-FM, TSPulse) into Confluent's Streamhouse, running CPU-only forecasting/anomaly-detection/similarity-search on live data via Flink SQL.

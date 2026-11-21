@@ -4,10 +4,18 @@ aliases:
   - Perplexity AI
 sources:
   - https://www.perplexity.ai/hub/blog
-updated: 2026-11-18
+updated: 2026-11-21
 ---
 
 MOC page for **Perplexity** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
+
+## 2026-W47
+
+- **2026-11-17** — [Introducing Computer's Multiagent effort level](https://www.perplexity.ai/hub/blog/introducing-computer-multiagent) — Perplexity launches Multiagent, a new top effort level for Computer: a lead agent (Claude Fable 5.2) runs up to 16 agents across Claude Opus 5.5, GPT 6.1 Sol, and Gemini 4 Carbon in parallel, sharing findings and cross-checking work; available to all Max subscribers on web. Backfilled: missed by prior runs (perplexity.ai usually DNS-blocked/Jina 403s), confirmed today via Jina.
+- **2026-11-17** — [Orchestrator: one API for reliable inference](https://www.perplexity.ai/hub/blog/orchestrator-one-api-for-reliable-inference) — Perplexity launches Orchestrator, a unified API for open-weight/proprietary models with automatic provider failover and unified billing, plus a preview "automatic routing" feature matching requests to models via plain-language task profiles. Backfilled: confirmed today via Jina.
+- **2026-11-16** — [Introducing Perplexity Frontier Research](https://www.perplexity.ai/hub/blog/introducing-perplexity-frontier-research) — Perplexity launches Frontier Research, aiming to build an "automatic research scientist" across six pillars (multi-agent orchestration, pre-training, continual learning, RL, systems, evaluations), backed by 10,000+ GPUs, publishing openly. Backfilled: confirmed today via Jina.
+- **2026-11-12** — [Perplexity Decider v1.3: Training, eval, and use cases](https://www.perplexity.ai/hub/blog/perplexity-decider) — Perplexity releases Decider v1.3 and Decider Flash v1.3, general-purpose decision models with a new "locate" span-extraction feature; v1.3 reaches 93.98% judge agreement on real production requests, beating v1.2 and the external Jev 1.14 baseline. Backfilled: confirmed today via Jina.
+- **2026-11-11** — [Escaping SPACE: Part II](https://www.perplexity.ai/hub/blog/escaping-space-part-ii) — Perplexity's follow-up red-team study of its Computer sandbox finds general-purpose frontier models outperformed a specialized cybersecurity model (GPT-5.6 Cyber) at VM-to-host network-policy bypass; explicit attack hints raised success sharply (7 of 12 models succeeding at least once). Backfilled: confirmed today via Jina.
 
 ## 2026-W45
 

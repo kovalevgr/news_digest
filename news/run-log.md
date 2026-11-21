@@ -7913,3 +7913,53 @@ Commit: `news: daily run 2026-11-20 (+5 items, 3 companies fresh, Linear unavail
 No push notification sent for this run via the owner-facing channel: a quiet, well-under-budget radar run (9 items, 2 highlights, no new failure modes beyond the standing Linear blockage, the self-resolved stale-branch-snapshot pattern, and a reddit error-code shape change not yet worth flagging on its own) — nothing here needs the owner's immediate attention.
 
 Commit: `news: radar run 2026-11-21 (+9 items, 2 highlights, Linear unavailable)`.
+
+## 2026-11-21 06:0x UTC — daily — ok (+9 items, 4 companies fresh, Linear unavailable)
+
+**Branch note (same recurring pattern).** Session started with HEAD detached at `357b99e` and the local `main` ref stale at `fdcd464`; `git fetch origin` confirmed `origin/main` was already at `357b99e` (this morning's radar-run commit) — no commits missing from the remote, just a stale local snapshot plus a detached checkout. Fixed by checking out `main` and fast-forwarding before running `fetch_feeds.py`.
+
+`fetch_feeds.py` ran clean (exit 0). Window since `2026-11-20T04:01:58Z`.
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss | 0 | no (only rss tier configured; confirmed in `sources.json` — no fetch/jina ladder step exists for this company) | - |
+| anthropic | fetch | 1 | yes (WebFetch anthropic.com/news) | - |
+| google-deepmind | rss | 0 | yes (WebFetch deepmind.google/blog/ listing) | - |
+| google-research | rss | 1 | no (TIER-1 fresh) | - |
+| microsoft | rss | 0 | yes (WebFetch microsoft.com/en-us/research/blog/ listing) | - |
+| nvidia | rss | 0 | no (confirmed HTTP 304 not-modified — see Transport notes) | - |
+| xai | jina | 0 | yes (curl Jina, no JINA_API_KEY) | - |
+| mistral | rss | 0 | no (confirmed HTTP 304 not-modified — see Transport notes) | - |
+| huggingface | rss | 2 | yes (WebFetch huggingface.co/blog listing) | - |
+| cursor | rss | 0 | yes (WebFetch cursor.com/changelog) | - |
+| perplexity | jina | 5 | yes (curl Jina — worked cleanly this run, no 403) | - |
+
+Totals: 9 items, 4 companies fresh (anthropic, google-research, huggingface, perplexity), 0 errors.
+
+**TIER-1 fetch.** `fetch_feeds.py` reported zero fresh for 9 of 11 companies and one fresh item for google-research (Google Duplex/Gemini). Two of the nine zero-fresh companies got a server-confirmed HTTP 304 (`nvidia`, `mistral` — see stderr log), so per established precedent (2026-11-20 entry) these were **not** gap-scraped — a confirmed "nothing changed" signal needs no fallback on top of it. The remaining 7 companies (openai, anthropic, google-deepmind, microsoft, xai, huggingface, cursor) returned zero fresh with no 304 confirmation, so each got exactly one gap-scrape fallback attempt per the recipe.
+
+**openai — no fallback ladder exists.** Re-checked `sources.json`: openai has only the one `rss` source entry (category-filtered `openai.com/news/rss.xml`), no `fetch`/`jina` fallback configured. Per the recipe there is no further ladder step to try; logged and moved on rather than inventing one.
+
+**Anthropic — gap-scrape found 1 new item.** WebFetch of `anthropic.com/news` surfaced "Anthropic Prices and Closes its Initial Public Offering" (Nov 20, `/news/ipo-close`) — the IPO-close announcement following the Nov 18 pricing already in `topics/anthropic.md`. Confirmed not a duplicate (new URL, new facts: underwriters' option fully exercised, concurrent $26.0B private placement to AMD/Broadcom/Google/Micron/Microsoft/NVIDIA/TSMC Partners). Written to topics + artifact.
+
+**Google DeepMind — gap-scrape came up empty.** WebFetch of `deepmind.google/blog/` listing: top 2 items (Gemini 4 Neon, Genie 4 available, both via blog.google canonical URLs) match the already-captured 2026-11-18 entries exactly by title — same stories, no new post since. Nothing added.
+
+**Microsoft — gap-scrape came up empty.** WebFetch of the MS Research blog listing confirms the newest post is still the already-captured 2026-11-16 TokenEconomizer item. Nothing new in-window.
+
+**xAI — gap-scrape came up empty.** Jina fetch of x.ai/news succeeded (HTTP 200, no Cloudflare block); newest post is still "Introducing Grok Bot 1.0" (Nov 11), already older than the already-captured Nov 16 item per the 2026-11-20 run-log entry. Nothing new.
+
+**Mistral / NVIDIA.** Both TIER-1 feeds returned a clean HTTP 304 (not modified) this run — no gap-scrape attempted, per the established 304 precedent.
+
+**Hugging Face — gap-scrape found 2 new items.** TIER-1 rss returned zero fresh with no 304 (genuine miss, not a confirmed no-change signal), so one fallback was made: WebFetch of `huggingface.co/blog` surfaced two Nov 20 posts not yet in `topics/huggingface.md`: "Welcome Inkling 2 Mini, Cutting-edge Performance for your Local Setup" (HF × Thinking Machines Lab, a looped-transformer MoE model) and "Introducing harness adapters: adapt your favorite model to your harness to improve performance and cost" (HF's own RL/LoRA-per-harness technique, Terminal-Bench 2.1 pass@1 39%→55% with Pi). Note: Inkling 2 Mini is a distinct document/angle from this morning's radar run's HF-trending-model entry for `thinkingmachines/Inkling-2-Mini` (that covered the model-card/trending signal in `radar/community.md`; this is HF's own company blog post welcoming the release) — not a cross-file duplicate under the recipe's dedup rule, which governs company-topics vs. company-topics and radar-vs-company-topics, not two independently-tracked angles on the same underlying release. Both written to topics + artifacts.
+
+**Perplexity — gap-scrape found 5 new items, a genuine backlog catch.** Jina fetch of `perplexity.ai/hub/blog` succeeded cleanly (HTTP 200) this run instead of the expected AbuseAlleviation 403 (standing gap since 2026-08-01, no `JINA_API_KEY`). The blog listing surfaced five posts dated 2026-11-11 through 2026-11-17 — entirely missed by every prior run because Jina has 403'd on this source on every previous attempt — none present in `topics/perplexity.md`. Fetched each article individually via Jina and confirmed real content (not ads/roundups): "Introducing Perplexity Frontier Research" (Nov 16, new research-org announcement), "Introducing Computer's Multiagent effort level" (Nov 17, new Computer effort tier), "Orchestrator: one API for reliable inference" (Nov 17, new unified-inference API + preview auto-routing), "Perplexity Decider v1.3: Training, eval, and use cases" (Nov 12, new decision-model release), "Escaping SPACE: Part II" (Nov 11, red-team follow-up study). One listing item, "AI memory: what it is, how it works, and what it stores" (Ideas category, Nov 9), was excluded as a generic educational guide rather than a product/research announcement — no new Perplexity-built feature is described. All five confirmed items backfilled to `topics/perplexity.md` under a new `## 2026-W47` heading + one artifact each, following the file's established "Backfilled: ..." convention for this standing-gap source.
+
+**Dedup note.** All 9 confirmed items checked by canonical URL against the current `## 2026-W47` heading in their target topics files (perplexity's required creating that heading fresh, as its file was still on `## 2026-W45`) — no collisions. No cross-company same-URL overlaps this run.
+
+**Linear: UNAVAILABLE again this run** — tool search for the Linear MCP server found no callable tools; the server requires re-authorization, consistent with every run since 2026-08-24 — **89 days**, unchanged (same count as this morning's radar-run entry; same calendar day). All 9 confirmed items are fully written to `topics/`/`artifacts/`; no Linear cards could be created and should be backfilled once reconnected.
+
+**Transport notes.** The Perplexity-Jina success this run (vs. every prior 403) looks like a transient/IP-based easing of the AbuseAlleviation block rather than a fix — no `JINA_API_KEY` was set and no config changed. Worth the owner's eye only if it holds up on subsequent runs; treating it as still a standing gap until it does.
+
+No push notification sent for this run via the owner-facing channel for the news content itself: the Perplexity backlog catch (5 items spanning Nov 11-17) is the one real anomaly, but it's a backfill of already-published Perplexity posts, not something time-sensitive the owner needs to act on today — the standing Linear blockage and stale-branch-snapshot pattern are both already repeatedly flagged.
+
+Commit: `news: daily run 2026-11-21 (+9 items, 4 companies fresh, Linear unavailable)`.
