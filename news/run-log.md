@@ -8053,3 +8053,36 @@ Totals: 4 items, 2 companies fresh (openai, perplexity), 0 errors (8 gap-scrapes
 No push notification sent for this run via the owner-facing channel: a normal-volume day (4 items, 2 companies fresh — MedChemBench and a 3-item Perplexity backlog) with nothing time-sensitive for the owner to act on today; the standing Linear blockage (90 days) and the one-off DeepMind TRAP flag are both logged here rather than escalated, consistent with how every prior run since 2026-08-24 has handled the same standing gap.
 
 Commit: `news: daily run 2026-11-22 (+4 items, 2 companies fresh, Linear unavailable)`.
+
+## 2026-11-22 07:1x UTC — weekly digest 2026-W47 — ok (Linear unavailable)
+
+**Scope.** ISO week 2026-W47 = 16–22 November. Read this week's `## 2026-W47` sections of all 12 `topics/*.md` files, all 38 matching `artifacts/2026-11-1[6-9]|2[0-2]-*.md` card blocks plus the 2 backfilled Perplexity artifacts dated 11-11/11-12, this week's sections of all 10 `radar/*.md` files, and `radar/deep/`.
+
+**Written.** `news/weeks/2026-W47/summary.md` (new — no prior file for this week, so a fresh write, not a regeneration): 40 items, 9 companies fresh, 11 tracked. Verified mechanically before commit — the 40 item URLs in the digest are a 1:1 set match against the 40 URLs under `## 2026-W47` in `topics/*.md` (no additions, no omissions, no duplicates). 22 items marked ⭐ per the Linear High(2) priority rubric (major model/product launch or major org news), each carrying 3–4 trimmed `**Деталі:**` bullets. All 12 wikilinks resolve to existing `topics/` pages.
+
+| Company | Items |
+| --- | --- |
+| NVIDIA | 11 |
+| OpenAI | 8 |
+| Perplexity | 8 |
+| Hugging Face | 5 |
+| Anthropic | 2 |
+| Google DeepMind | 2 |
+| Google Research | 2 |
+| Microsoft | 1 |
+| xAI | 1 |
+| Mistral AI / Cursor | 0 (reported silent, not padded) |
+
+**Date sanity.** 38 of 40 topics items are dated 11-16 … 11-20. The two exceptions are Perplexity items dated 11-11 (Escaping SPACE: Part II) and 11-12 (Decider v1.3) — backfill, published before the week but first collected this week because `perplexity.ai` is normally DNS-blocked for direct WebFetch and anonymous Jina 403s. Both are marked as backfill inline in the digest rather than silently reshuffled. No item is dated 11-21 or 11-22: material collected on those days had earlier publication dates. The radar W47 heading holds 22 of its 84 items dated before 11-16 (earliest 10-23) — same collected-vs-published distinction, noted explicitly in the digest's radar section.
+
+**Radar week summary.** 84 items, 18 highlights, across `community` 57 / `youtube` 17 / `oss-ml-systems` 5 / `bigtech-eng` 2 / `practitioner-blogs` 2 / `research-institutes` 1; `inference-infra`, `lab-engineering`, `mistral-watch`, `technical-newsletters` silent. Top-3 picked for spread across hardware tiers: SGLang DeepSeek-V4.1-Flash PD/colocate on H20-3e (datacenter), the `cudamemcpy-tuner` MoE-offload win on a single RTX 3090 (consumer NVIDIA), AMD Loom's Radeon 9700 support with 48-model benchmarks (consumer AMD). **Deep dives this week: 0** — `radar/deep/` still holds only `TEMPLATE.md`; the 11-16 and 11-19 deep-dive runs are logged as `blocked (Linear unavailable)`. `hot`-approved vs expired: unmeasurable, no review queue exists.
+
+**Collection health.** All 7 daily runs and all 7 radar runs for 16–22 November completed. One substantive content loss: the GPT-6.2 Astra/Sol announcement page returned HTTP 500 on both the direct fetch and the single Jina retry, so that item rests on OpenAI's RSS summary alone (no benchmarks, no pricing) — flagged as such in the digest rather than papered over. Notable positive: `perplexity.ai` opened cleanly via Jina this week for the first time in a long while, yielding 8 items, 2 of them backfill.
+
+**Linear: UNAVAILABLE this run** — reconnecting to the Linear MCP server with its existing sign-in was refused this run; the owner needs to sign in again and a non-interactive scheduled session cannot complete the OAuth flow (`plugin:design:linear` separately failed with `ERR_PROXY_TUNNEL`, proxy 403). Steps 4 (DIGEST CARD) and 5 (Close the board week) of THE WEEKLY DIGEST were therefore **not performed**: no `📰 Тижневий дайджест 2026-W47` card in "News digest", no Todo→Done close-out for this week's stories, no Radar review-queue cleanup. Running since 2026-08-24 — **90 days, almost 13 weeks**. Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors) or authorize it via `/mcp` in an interactive session. Digest delivered to the owner by push notification instead.
+
+**No week gap this time.** `news/weeks/2026-W46/summary.md` exists (written 2026-11-15), so W47 follows W46 without a hole. The W45 gap surfaced last week is still open — `news/weeks/2026-W45/` does not exist and can be backfilled by a separate run.
+
+**Git note:** session started with `HEAD` detached at `d5d7564` (this morning's daily-run commit), exactly level with `origin/main` after `git fetch origin main` (0 ahead / 0 behind), clean tree. Pushed with `git push origin HEAD:main` rather than re-attaching, since the detached commit was already built on current `origin/main`.
+
+Commit: `news: weekly digest 2026-W47`.
