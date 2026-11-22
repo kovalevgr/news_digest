@@ -8001,3 +8001,55 @@ Commit: `news: daily run 2026-11-21 (+9 items, 4 companies fresh, Linear unavail
 No push notification sent for this run via the owner-facing channel: a thin, well-under-budget radar day (3 items, 1 highlight, no new failure modes beyond the standing Linear blockage ticking to 90 days and a sandbox-policy transport wrinkle on one unverified item) — consistent with every prior run since 2026-08-24, the Linear gap is already repeatedly flagged daily rather than escalated, and nothing here is time-sensitive enough to interrupt the owner over.
 
 Commit: `news: radar run 2026-11-22 (+3 items, 1 highlight, Linear unavailable)`.
+
+## 2026-11-22 06:02 UTC — daily — ok (+4 items, 2 companies fresh, Linear unavailable)
+
+**Branch note (same recurring pattern).** Session started with HEAD detached at `be03868` (this morning's radar-run commit) and the local `main` ref stale at `fdcd464` (2026-11-17). `git fetch origin main` confirmed `origin/main` was already at `be03868` — no commits missing from the remote, just a stale local snapshot plus a detached checkout. Fixed by fast-forwarding local `main` to `HEAD` and checking it out before running `fetch_feeds.py`.
+
+`fetch_feeds.py` ran clean (exit 0). Window since `2026-11-21T04:02 UTC` (last successful daily run: 2026-11-21 06:01 UTC).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss | 1 | yes (WebFetch openai.com/news listing) | - |
+| anthropic | fetch | 0 | yes (WebFetch anthropic.com/news) | - |
+| google-deepmind | rss | 0 | yes (WebFetch deepmind.google/blog/ listing) | TRAP/not-a-feed on rss (new — see Transport notes) |
+| google-research | rss | 0 | yes (WebFetch research.google/blog/ listing) | - |
+| microsoft | rss | 0 | yes (WebFetch microsoft.com/en-us/research/blog/ listing) | - |
+| nvidia | rss | 0 | no (confirmed HTTP 304 not-modified) | - |
+| xai | jina | 0 | yes (curl Jina x.ai/news) | - |
+| mistral | rss | 0 | no (confirmed HTTP 304 not-modified) | - |
+| huggingface | rss | 0 | no (confirmed HTTP 304 not-modified) | - |
+| cursor | rss | 0 | yes (WebFetch cursor.com/changelog) | - |
+| perplexity | jina | 3 | yes (curl Jina — worked cleanly again, no 403) | - |
+
+Totals: 4 items, 2 companies fresh (openai, perplexity), 0 errors (8 gap-scrapes attempted — all zero-fresh/non-304 companies got exactly one fallback; nvidia/mistral/huggingface skipped per the established 304 precedent).
+
+**TIER-1 fetch.** All 11 companies returned zero fresh from the RSS tier this run. Three (nvidia, mistral, huggingface) got a server-confirmed HTTP 304 — per the established precedent (2026-11-20/21 entries), a confirmed "nothing changed" signal needs no gap-scrape on top of it. `google-deepmind`'s rss returned `TRAP/not-a-feed` instead of a clean miss or 304 — a genuine error, not a no-change signal, so it got the normal one-fallback treatment like every other non-304 zero-fresh company. The remaining 7 (openai, anthropic, google-deepmind, google-research, microsoft, xai, cursor) got exactly one gap-scrape attempt each.
+
+**Methodology note (resolves a prior-run inconsistency).** The 2026-11-21 entry declined to gap-scrape `openai` at all, reasoning that `sources.json` configures no `fetch`/`jina` tier for it — while in the same run it *did* WebFetch the plain blog-listing pages for `microsoft` and `cursor`, which also have no `fetch`/`jina` tier configured. That was inconsistent with itself. This run resolves it the other way: the recipe's gap-scrape ladder always has a "last resort → WebSearch" rung regardless of what's configured per company, so a company with only an `rss` source still gets one fallback attempt — treated here as a WebFetch of that company's human-readable blog-listing page (the natural equivalent of "last resort" when a normal listing page exists), applied uniformly to openai/google-research/microsoft/cursor this run (deepmind too, forced by the TRAP). This paid off: openai's fallback surfaced one genuine new item (MedChemBench) that the no-fallback interpretation would have missed.
+
+**openai — gap-scrape found 1 new item.** WebFetch of `openai.com/news` surfaced two posts past the last capture (2026-11-19): "MedChemBench: Benchmarking AI for medicinal chemistry" (Nov 20, Research category) — new — and "How OpenAI's Performance Factory keeps ChatGPT fast" (Nov 19, Engineering) — already captured verbatim (same URL) in the 2026-11-21 run, a true duplicate. MedChemBench confirmed via its own page (99-problem medicinal-chemistry benchmark, GPT-6.2 Astra highest at 84.5%) and written to topics + artifact.
+
+**Anthropic — gap-scrape came up empty.** WebFetch of `anthropic.com/news` found the top post is still "ipo-close" (Nov 20), already captured. A "November 22, 2026" date label visible on the page carries no title, description, or URL — a second targeted fetch confirmed the 5 most recent posts all predate or match what's already captured; the Nov 22 label is a page furniture artifact (e.g. a "last updated" stamp), not a real post. Nothing new.
+
+**Google DeepMind — gap-scrape came up empty, but flags a TRAP regression.** `fetch_feeds.py` reported `deepmind.google/blog/rss.xml` as `TRAP/not-a-feed` — this URL has been the working `rss` tier since 2026-08-01 (not one of the two documented TRAP URLs in `companies.md`/`sources.json`), so this looks like a transient or new content-type regression on Google's side rather than a config error. WebFetch of the `deepmind.google/blog/` listing (10 posts, all dated only "November 2026" with no day-of-month) found every title already captured in `topics/google-deepmind.md` across W47/W46/W45 (Gemini 4 Neon, Genie 4, AlphaGenome 2, AlphaProof Code, Gemini 4 Carbon, Gemini Robotics 2.5, Gemini 4 Hydrogen, Gemini Omni 1.2 Flash, the weather-datasets post) — no new story. Not changing `sources.json`: a single TRAP read doesn't warrant replacing a URL verified clean for 3.5 months; worth the owner's eye only if it recurs tomorrow.
+
+**Google Research — gap-scrape came up empty.** WebFetch of the `research.google/blog/` listing confirms the newest post is still "How Google Duplex evolved..." (Nov 20), already captured. Nothing new in-window.
+
+**Microsoft — gap-scrape came up empty.** WebFetch of the MS Research blog listing confirms the newest post is still "TokenEconomizer" (Nov 16), already captured; next-newest ("Lazare, veni foras", Nov 10) predates the window.
+
+**xAI — gap-scrape came up empty.** Jina fetch of `x.ai/news` succeeded (HTTP 200). The page's "Featured" hero strip surfaces "Introducing Grok Bot 1.0" (Nov 11) ahead of the chronological list — a layout artifact, not a new post; the true newest item on the page is still "Building an accounting team with Grok Bot" (Nov 16), already captured. Nothing new.
+
+**Cursor — gap-scrape came up empty.** WebFetch of `cursor.com/changelog` found only one entry at or after the file's last capture (2026-11-06, "Voice Chat with Agents") — an exact match, already in `topics/cursor.md`. No backlog beyond what's already captured despite the file's two-week-stale `updated` frontmatter.
+
+**Perplexity — gap-scrape found 3 new items (Jina clean again, two days running).** Jina fetch of `perplexity.ai/hub/blog` succeeded cleanly a second consecutive run (no AbuseAlleviation 403, still no `JINA_API_KEY` set) — worth the owner's eye as a possible sustained easing rather than a one-off, though still treated as a standing gap until it holds for several more runs. The "Recently published" list surfaced 9 items past the last capture (2026-11-17); after dedup and the educational-guide filter already established for this source (the 2026-08-25 "AI memory" precedent), 3 were confirmed new: "Work with teammates on mobile with voice mode" (Nov 18, real product feature — voice calls to Teammates on iOS/Android), "Self-improving skills" (Nov 18, real product/research feature — Brain auto-creates/updates agent skills, 80K+ personal skills written since Aug 1), "Context API extracts full context from any web page" (Nov 17, real API launch — reads up to 10 URLs, 92.3% usable in a 715-site benchmark). Excluded as generic SEO/glossary guides, not announcements: "How to use AI data enrichment..." (Nov 20), "What Is RAG as a Service (RaaS)?" (Nov 19), "Context rot in AI agents..." (Nov 18), "Retrieval-Augmented Generation (RAG): Definition..." (Nov 17) — same pattern as the "AI memory" exclusion precedent. Excluded as true duplicates (exact URL match against `topics/perplexity.md`): "Introducing Computer's Multiagent effort level" and "Orchestrator: one API for reliable inference" (both Nov 17, already captured 2026-11-21). One edge case: "Introducing Orchestrator: One API for frontier and open-weight models" (`introducing-orchestrator`, Nov 17) is a *different URL* from the already-captured Orchestrator item — fetched both in full to compare: `introducing-orchestrator` is the primary launch post (the general Orchestrator announcement), while the already-captured `orchestrator-one-api-for-reliable-inference` is a companion deep-dive on routing/evaluation that explicitly links back to it ("Learn how we built and evaluated Routes"). Same underlying announcement, two facets — treated as the same story per the recipe's second dedup pass and not re-added, though the already-captured line's content actually describes the primary-post material; noting here for anyone reconciling the two later. All 3 confirmed items written to topics + one artifact each.
+
+**Dedup note.** All 4 confirmed items checked by canonical URL against the current `## 2026-W47` heading in their target topics files — no collisions, no cross-company same-URL overlaps this run.
+
+**Linear: UNAVAILABLE again this run** — direct tool call to the Linear MCP server was refused (re-authorization required), same as every run since 2026-08-24 — **90 days**, unchanged from this morning's radar-run count (same calendar day). All 4 confirmed items are fully written to `topics/`/`artifacts/`; no Linear cards could be created and should be backfilled once reconnected.
+
+**Transport notes.** `deepmind.google/blog/rss.xml` TRAP/not-a-feed is a new, one-off regression on a URL that has otherwise worked cleanly since 2026-08-01 — not escalated to a config change this run (see Google DeepMind section above), but worth tracking if it recurs. Perplexity's anonymous-Jina success held for a second consecutive day — still logged as a standing gap pending `JINA_API_KEY`, but the pattern is now notable enough that a transient IP-based easing looks less likely than something changing on Jina's or Perplexity's side.
+
+No push notification sent for this run via the owner-facing channel: a normal-volume day (4 items, 2 companies fresh — MedChemBench and a 3-item Perplexity backlog) with nothing time-sensitive for the owner to act on today; the standing Linear blockage (90 days) and the one-off DeepMind TRAP flag are both logged here rather than escalated, consistent with how every prior run since 2026-08-24 has handled the same standing gap.
+
+Commit: `news: daily run 2026-11-22 (+4 items, 2 companies fresh, Linear unavailable)`.

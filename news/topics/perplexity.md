@@ -4,13 +4,16 @@ aliases:
   - Perplexity AI
 sources:
   - https://www.perplexity.ai/hub/blog
-updated: 2026-11-21
+updated: 2026-11-22
 ---
 
 MOC page for **Perplexity** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W47
 
+- **2026-11-18** — [Work with teammates on mobile with voice mode](https://www.perplexity.ai/hub/blog/work-with-teammates-on-mobile-with-voice-mode) — Perplexity launches voice mode for Teammates on iOS/Android, letting Max subscribers call a teammate to assign work or get project updates on the go. Found via gap-scrape (Jina worked cleanly this run).
+- **2026-11-18** — [Self-improving skills](https://www.perplexity.ai/hub/blog/self-improving-skills) — Perplexity extends Brain to automatically create and update agent "skills" (reusable task instructions) per-user, and via a human-reviewed pipeline, for all users' built-in skills; 80K+ personal skills written for 20K+ users since Aug 1. Found via gap-scrape (Jina worked cleanly this run).
+- **2026-11-17** — [Context API extracts full context from any web page](https://www.perplexity.ai/hub/blog/context-api-extracts-full-context-from-any-web-page) — Perplexity launches the Context API, reading up to 10 URLs and returning clean Markdown/HTML/links/query-based snippets; 92.3% usable, 87.9% fact recall vs. Firecrawl/Exa/Parallel/Keenable/Context.dev in a 715-site test. Found via gap-scrape (Jina worked cleanly this run).
 - **2026-11-17** — [Introducing Computer's Multiagent effort level](https://www.perplexity.ai/hub/blog/introducing-computer-multiagent) — Perplexity launches Multiagent, a new top effort level for Computer: a lead agent (Claude Fable 5.2) runs up to 16 agents across Claude Opus 5.5, GPT 6.1 Sol, and Gemini 4 Carbon in parallel, sharing findings and cross-checking work; available to all Max subscribers on web. Backfilled: missed by prior runs (perplexity.ai usually DNS-blocked/Jina 403s), confirmed today via Jina.
 - **2026-11-17** — [Orchestrator: one API for reliable inference](https://www.perplexity.ai/hub/blog/orchestrator-one-api-for-reliable-inference) — Perplexity launches Orchestrator, a unified API for open-weight/proprietary models with automatic provider failover and unified billing, plus a preview "automatic routing" feature matching requests to models via plain-language task profiles. Backfilled: confirmed today via Jina.
 - **2026-11-16** — [Introducing Perplexity Frontier Research](https://www.perplexity.ai/hub/blog/introducing-perplexity-frontier-research) — Perplexity launches Frontier Research, aiming to build an "automatic research scientist" across six pillars (multi-agent orchestration, pre-training, continual learning, RL, systems, evaluations), backed by 10,000+ GPUs, publishing openly. Backfilled: confirmed today via Jina.

@@ -5,25 +5,25 @@
     "last_run": "2026-08-08T16:27:06.940454+00:00"
   },
   "https://cursor.com/changelog/rss.xml": {
-    "last_run": "2026-11-21T06:01:58.724619+00:00"
+    "last_run": "2026-11-22T06:02:08.132562+00:00"
   },
   "https://deepmind.google/blog/rss.xml": {
-    "etag": "\"4Nvrpw\"",
+    "etag": "\"X4-Xdg\"",
     "last_modified": "Wed, 28 Oct 2026 17:00:58 GMT",
-    "last_run": "2026-11-21T06:01:58.724619+00:00"
+    "last_run": "2026-11-22T06:02:08.132562+00:00"
   },
   "https://developer.nvidia.com/blog/feed": {
     "etag": "\"2ad64f241025eece36e332bf4ae546de\"",
     "last_modified": "Thu, 19 Nov 2026 20:28:20 GMT",
-    "last_run": "2026-11-21T06:01:58.724619+00:00"
+    "last_run": "2026-11-22T06:02:08.132562+00:00"
   },
   "https://huggingface.co/blog/feed.xml": {
     "etag": "W/\"4217c-lsdoxghiK3DBEQ5fzRniwnuc+GU\"",
-    "last_run": "2026-11-21T06:01:58.724619+00:00"
+    "last_run": "2026-11-22T06:02:08.132562+00:00"
   },
   "https://mistral.ai/rss.xml": {
     "etag": "W/\"188b9a6783e5f60e527b88fdc61b7089-ssl\"",
-    "last_run": "2026-11-21T06:01:58.724619+00:00"
+    "last_run": "2026-11-22T06:02:08.132562+00:00"
   },
   "https://news.microsoft.com/source/feed/": {
     "etag": "W/\"76d6f012764bed16bc53f3ae441962f1\"",
@@ -31,15 +31,15 @@
     "last_run": "2026-08-08T16:27:06.940454+00:00"
   },
   "https://openai.com/news/rss.xml": {
-    "last_run": "2026-11-21T06:01:58.724619+00:00"
+    "last_run": "2026-11-22T06:02:08.132562+00:00"
   },
   "https://research.google/blog/rss/": {
     "last_modified": "Fri, 20 Nov 2026 23:30:30 GMT",
-    "last_run": "2026-11-21T06:01:58.724619+00:00"
+    "last_run": "2026-11-22T06:02:08.132562+00:00"
   },
   "https://www.microsoft.com/en-us/research/feed/": {
-    "etag": "\"34228f58c83b016a3de250ae2c08889f\"",
-    "last_modified": "Fri, 20 Nov 2026 18:26:15 GMT",
-    "last_run": "2026-11-21T06:01:58.724619+00:00"
+    "etag": "\"d8b8ac8adfa88e573fdff9c97ea54ae4\"",
+    "last_modified": "Sat, 21 Nov 2026 14:16:49 GMT",
+    "last_run": "2026-11-22T06:02:08.132562+00:00"
   }
 }
