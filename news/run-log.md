@@ -7963,3 +7963,41 @@ Totals: 9 items, 4 companies fresh (anthropic, google-research, huggingface, per
 No push notification sent for this run via the owner-facing channel for the news content itself: the Perplexity backlog catch (5 items spanning Nov 11-17) is the one real anomaly, but it's a backfill of already-published Perplexity posts, not something time-sensitive the owner needs to act on today — the standing Linear blockage and stale-branch-snapshot pattern are both already repeatedly flagged.
 
 Commit: `news: daily run 2026-11-21 (+9 items, 4 companies fresh, Linear unavailable)`.
+
+## 2026-11-22 05:0x UTC — radar — ok (+3 items, 1 highlight, Linear unavailable)
+
+**Branch note (same recurring pattern).** Session started with HEAD detached at `95f630d` and the local `main` ref stale at `fdcd464`; `git fetch origin` confirmed `origin/main` was already at `95f630d` — no commits missing from the remote, just a stale local snapshot plus a detached checkout. Fixed by checking out `main` and fast-forwarding before running `fetch_radar.py`.
+
+`fetch_radar.py` ran clean (exit 0). Window since `2026-11-21T03:03:10Z`.
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | - |
+| inference-infra | 0 | 0 | - |
+| oss-ml-systems | 0 | 0 | `eleuther` HTTP 404 (unchanged) |
+| bigtech-eng | 0 | 0 | - |
+| research-institutes | 0 | 0 | - |
+| technical-newsletters | 0 | 0 | - |
+| practitioner-blogs | 0 | 0 | `latent-space` proxy tunnel 403 (unchanged standing issue) |
+| community | 14 | 3 | `reddit` HTTP 404 (unchanged, same shape as 2026-11-21) |
+| mistral-watch | 0 | 0 | - |
+| youtube | 3 | 0 | - |
+| **Total** | **17** | **3** | |
+
+**TRIAGE — youtube (3 raw → 0 confirmed).** `yt-ai-engineer`'s "What Runs Where? Local AI in Production — Ahmad Osman, Osmantic" and `yt-gpu-mode`'s "Larger Fusions and Consistent RL: Recent Work in FlashInfer on Blackwell and Rubin" are both true duplicates already in `youtube.md` (the former confirmed 2026-11-21 under the same canonical URL; the latter is the GPU MODE livestream/edited-cut pair of the already-captured "Lecture 123: ..." entry from 2026-11-20 — same workflow precedent for "GPU MODE videos appear twice"). Dropped both. `yt-mlst`'s "Chimps Quit When Paid (Michael Tomasello)" is a behavioral-science short with no AI content — dropped on pass-1 (not AI-radar scope at all).
+
+**TRIAGE — community (14 raw → 3 confirmed, 1 highlight).** The three `hn-show-*` queries (rag/mcp/agents) collapsed to 4 distinct Show HN stories (same frontpage, overlapping search terms): kept **Show HN: agent-mcts – Monte Carlo tree search on top of Claude Code** (14 pts) — see VERIFY SUBSTANCE — as the day's one highlight. Dropped **Show HN: OpenComputer** (118 pts, up from 82) as a true duplicate already in this file dated 2026-11-20 (same canonical URL, just resurfacing on these overlapping HN queries with accumulated points). Dropped **Show HN: I made a PS1 style racing game** and **Show HN: Drive around my village in 3D** — both consumer hobby/vibe-coded projects explicitly built with ChatGPT/Claude but with no real AI-engineering content, same bar as the recurring Foolscap/AgentMall/Volcano drops. `lobsters` (1 raw, 1 confirmed, no highlight): kept the arstechnica write-up of a researcher's AI-supply-chain privacy canary study — real security-research signal per the lobste.rs `ai`+`security` tags, but LOW-MEDIUM fit (no matching `interests.md` topic) and unverified this run (see Transport notes) — kept on title/tag only. `hf-trending-models` (2 raw, 0 confirmed): dropped **AtomicChat/Inkling-2-Mini-Uncensored-GGUF** and **SulphurAI/Sulphur-3** — both verified-by-card as low-effort "uncensored" finetunes/derivatives (the latter openly derivative of MiniMax H3, no benchmarks, no training-recipe detail), same merge-farm pattern flagged in prior runs. `hf-trending-spaces` (1 raw, 1 confirmed, no highlight): kept **linoyts/qwen-image-2-1-realtime** at MEDIUM-LOW fit — a realtime Qwen-Image diffusion demo by a known HF engineer, but the Space page surfaced no technique/latency detail on WebFetch (see VERIFY SUBSTANCE), so kept on listing only, out of highlight consideration.
+
+**VERIFY SUBSTANCE.** 3 candidates checked this run (within the 5-cap): **natsu0529/agent-mcts** (`git clone` through the git proxy, README read in full — delivers on title: a real MIT-licensed MCTS harness over coding-agent CLIs, git-worktree-isolated nodes, UCT selection, and — notably — an honestly reported mixed/negative benchmark, tests-only search matching a single run 9/10 times and scoring worse on average; this transparency is itself a positive signal of real engineering rather than a marketing shell); **SulphurAI/Sulphur-3** (WebFetch model card — confirmed derivative/no-benchmark, dropped); **linoyts/qwen-image-2-1-realtime** (WebFetch — page returned only title/metadata, no technique or latency numbers surfaced; kept as a regular item, not promoted to highlight). `AtomicChat/Inkling-2-Mini-Uncensored-GGUF` was dropped on title/card-pattern alone (standing uncensored-merge-farm precedent) without spending a verification slot. Highlight awarded to **agent-mcts** alone — 1 of 3 max; no second or third pick forced on a thin day.
+
+**Dedup note.** Checked all 3 confirmed items against the current `## 2026-W47` heading in `community.md` (already present from prior runs this week) — no collisions. The OpenComputer/"What Runs Where"/FlashInfer-lecture true duplicates (detailed above) were all caught by canonical-URL match against existing entries dated 2026-11-20/2026-11-20/2026-11-21 respectively.
+
+**Budget note.** 17 raw candidates confirmed down to 3, well under the ≤15/day budget — a thin day (6 of 10 categories had zero raw candidates), nothing needed cutting for budget; every drop above was either a true duplicate, explicitly non-AI/off-topic, a thin/no-info listing, or a low-effort uncensored-merge/finetune.
+
+**Transport notes.** `eleuther` (HTTP 404) and `latent-space` (proxy-tunnel 403) are unchanged standing errors, logged and skipped per the no-fallback-ladder rule. `reddit` returned HTTP 404 again this run (unchanged from 2026-11-21's shape, still worth the owner's eye only if it persists past what first looked rate-limit-shaped). The lobsters/arstechnica item's "everything else → WebFetch, with ONE curl retry on failure" ladder hit a new transport wrinkle: WebFetch refused the host outright, and the curl retry was denied by the session's own sandbox policy (not a network/proxy error) — treated the same as any other failed verification per the recipe (kept the item, skipped the highlight), but flagging the denial shape as new since it's a sandbox-policy block rather than a site/proxy block.
+
+**Linear: UNAVAILABLE again this run** — connected with the existing sign-in via a direct tool call and was refused (re-authorization required), same as every run since 2026-08-24 — **90 days**, a round-number milestone but otherwise unchanged. All 3 confirmed items are fully written to `radar/community.md`; no Linear "Ready to Review" cards, priority/fit labels, or the `highlight` label on agent-mcts could be created and should be backfilled once reconnected. The deep-dive routine remains fully blocked without a review queue to draw `hot` cards from — today's one highlight (agent-mcts) is sitting in the radar file with no path to the owner's review queue until Linear is reconnected.
+
+No push notification sent for this run via the owner-facing channel: a thin, well-under-budget radar day (3 items, 1 highlight, no new failure modes beyond the standing Linear blockage ticking to 90 days and a sandbox-policy transport wrinkle on one unverified item) — consistent with every prior run since 2026-08-24, the Linear gap is already repeatedly flagged daily rather than escalated, and nothing here is time-sensitive enough to interrupt the owner over.
+
+Commit: `news: radar run 2026-11-22 (+3 items, 1 highlight, Linear unavailable)`.
