@@ -8164,3 +8164,13 @@ Totals: 2 items, 1 company fresh (openai), 0 errors (8 gap-scrapes attempted —
 No push notification sent for this run via the owner-facing channel: a quiet day (2 items, 1 company fresh — a Perplexity-metric position piece and a chip-design research post, neither time-sensitive), with the standing Linear blockage (91 days) logged here rather than escalated, consistent with every prior run since 2026-08-24.
 
 Commit: `news: daily run 2026-11-23 (+2 items, 1 company fresh, Linear unavailable)`.
+
+## 2026-11-23 07:12 UTC — deep-dive — blocked (Linear unavailable)
+
+**Blocked at step 1 (PICK): the Linear MCP server refused the session's existing sign-in (re-authorization required; one reconnect attempt made via a direct tool call, refused again). Same state as every run since 2026-08-24 — now 91 days.** The deep dive's only input is the `hot` label on cards in Linear project "Radar"; with the board unreadable there is no way to know which cards the owner approved, and no repo-side fallback exists. Cards processed: 0. Files written: 0. Leftovers: unknown (the queue is unreadable, not known-empty). The deep-dive pipeline has still produced zero documents since going live 2026-08-27 — this is its third consecutive fully-blocked run (11-16, 11-19, 11-23).
+
+**Branch note (recurring pattern, same as 2026-11-19/20).** Session started with HEAD detached at `f54af45` (the tip of this morning's daily run) and the local `main` ref stale at `fdcd464`; after `git fetch`, `origin/main` was already at `f54af45` — no commits missing from the remote, just a stale container snapshot plus a detached checkout. Fixed by checking out `main` and fast-forwarding.
+
+No push notification sent: the Linear blockage is a standing, repeatedly-flagged condition (flagged in both of today's earlier runs and every run since 2026-08-24), and this run surfaced nothing else new. Owner action unchanged: reconnect the Linear connector via claude.ai Settings → Connectors, or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+Commit: `news: deep dive 2026-11-23 (0 cards, blocked — Linear unavailable)`.
