@@ -8086,3 +8086,33 @@ Commit: `news: daily run 2026-11-22 (+4 items, 2 companies fresh, Linear unavail
 **Git note:** session started with `HEAD` detached at `d5d7564` (this morning's daily-run commit), exactly level with `origin/main` after `git fetch origin main` (0 ahead / 0 behind), clean tree. Pushed with `git push origin HEAD:main` rather than re-attaching, since the detached commit was already built on current `origin/main`.
 
 Commit: `news: weekly digest 2026-W47`.
+
+## 2026-11-23 05:0x UTC — radar run — ok (Linear unavailable)
+
+**Fetch.** `python3 news/scripts/fetch_radar.py` ran clean (exit 0), cursors updated. Window since 2026-11-22T03:03 UTC. 3 source errors (all in-band, no fallback per recipe): `eleuther` (HTTP 404 on `blog.eleuther.ai/index.xml`), `reddit` (HTTP 404 on the combined r/LocalLLaMA+LLMDevs RSS — likely a transient Reddit-side issue, not the known 429 pattern), `latent-space` (`latent.space/feed` outside this session's network allowlist, tunnel 403). All three logged and skipped, no retry loop.
+
+| Category | Raw candidates | Confirmed |
+| --- | --- | --- |
+| lab-engineering | 0 | 0 |
+| inference-infra | 0 | 0 |
+| oss-ml-systems | 0 (1 source errored) | 0 |
+| bigtech-eng | 0 | 0 |
+| research-institutes | 0 | 0 |
+| technical-newsletters | 0 | 0 |
+| practitioner-blogs | 0 (1 source errored) | 0 |
+| youtube | 1 | 1 |
+| community | 9 (1 source errored) | 3 |
+| mistral-watch | 0 | 0 |
+| **Total** | **10** | **4** |
+
+**Triage detail.**
+- **Kept.** `yt-ai-engineer` → "Build the Workshop Before the Software Factory — Armin Ronacher, Earendil" (youtube): HIGH fit on title/speaker (agent harnesses), transcript unreachable (YouTube bot-check page), kept title-only, out of highlight consideration. `hn-trend-llm` → "Show HN: I built a game where you are an LLM's subagent" (291 pts): verified via `git clone` of `gulivan/worker755` — a real, runnable open-source implementation of the manager/subagent tool-call loop, not a meme; direct hit on "AI agents in practice," **highlighted**. `hf-trending-models` → `RadixArk/DaisyRose-27B` (trending 102.5, 316 likes): verified via WebFetch — Qwen3.8-27B RL-only (no SFT) finetune on long-horizon agent tasks with concrete before/after benchmark deltas, Apache-2.0 weights; direct hit on "AI agents in practice" + "Reproducible techniques WITH CODE," **highlighted**. `hf-trending-models` → `facebook/sam-3d-body-dinov3` (trending 95, 1,732 likes): verified via WebFetch — Meta's promptable 3D human-mesh model, real technical substance but LOW fit ("Robotics/3D" bucket) and no quantitative benchmarks on the card; kept, not highlighted. Note: this item's own HF publish date is 2025-11-17 (over a year old) — a trending resurfacing, not a new release; dated by its own publish date per the file's existing convention (e.g. the 2026-11-03 Apple DepthPro2 entry), not today's collection date.
+- **Dropped.** `hn-show-rag`/`hn-show-mcp`/`hn-show-agents` all surfaced the same "Show HN: agent-mcts" post (16 pts, 2 comments this run) — exact URL match (`github.com/natsu0529/agent-mcts`) against the already-written 2026-11-21 entry in `radar/community.md`; true duplicate, not re-added. `hn-show-rag` → "Show HN: I made a PS1 style racing game" (47 pts): a hobby game built with ChatGPT's help, no AI technique or engineering content of its own — fails the pass-1 technical bar (consumer-app/hobby-project territory), dropped. `hf-trending-spaces` → two Qwen-Image LoRA/editing Spaces (`xyzanonimous5/Qwen-Image-2.1-Studio`, trending 38; `aet256/Qwen-Image-Edit-Rapid-AIO-Loras-Experimental`, trending 32): both verified via WebFetch — thin UI wrappers/duplicates with no README, code or benchmarks disclosed (one explicitly a duplicate of an existing Viggle Space); fail the pass-1 technical bar, dropped.
+
+**Highlights: 2 of 4 confirmed** (worker755, DaisyRose-27B) — within the ≤3/day cap; no third pick strong enough to add (sam-3d-body-dinov3 is LOW-fit by the owner's own interest profile, yt-ai-engineer unverified).
+
+**Linear: UNAVAILABLE again this run** — reconnecting with the existing sign-in was refused (same as every run since 2026-08-24 — **91 days**). No review-queue cards created for the 4 confirmed items; all 4 are fully written to `radar/community.md` / `radar/youtube.md` and should be backfilled to the "Radar" project once reconnected. Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors).
+
+**Volume note.** 4 confirmed items, well under the ≤15/day budget — a quiet day, mainly due to the youtube/practitioner-blogs/newsletter/lab-engineering/inference-infra/oss-ml-systems/bigtech-eng/research-institutes/mistral-watch sources all being silent (0 fresh) rather than any aggressive filtering.
+
+Commit: `news: radar run 2026-11-23 (+4 items, 2 highlights, Linear unavailable)`.

@@ -1,6 +1,6 @@
 ---
 category: youtube
-updated: 2026-11-20
+updated: 2026-11-23
 ---
 
 # Radar: youtube
@@ -99,3 +99,7 @@ All 7 `yt-*` feeds recovered today after HTTP 404 on every channel for the 3rd r
 - **2026-11-20** — [How to build an agent that builds the culture — Zach Bruggeman, Ramp](https://www.youtube.com/watch?v=MDI81OaZAD4) — AI Engineer conference talk, Ramp on using an internal agent to shape team culture/process. Title/channel only, no transcript fetched. MEDIUM fit — "AI agents in practice," org-process angle rather than a core technique.
 - **2026-11-20** — [Lecture 123: Larger Fusions and Consistent RL: Recent Work in FlashInfer on Blackwell and Rubin](https://www.youtube.com/watch?v=YoaSiClZtuQ) — GPU MODE lecture on recent FlashInfer kernel-fusion work targeting NVIDIA Blackwell/Rubin. Title/channel only, no transcript fetched. Direct hit on "GPU/kernel engineering."
 - **2026-11-21** — [What Runs Where? Local AI in Production — Ahmad Osman, Osmantic](https://www.youtube.com/watch?v=GKSQYbELDzw) — AI Engineer conference talk on deciding which AI workloads to run locally vs. in the cloud in production. Title/channel only, no transcript fetched. Direct hit on "Local/self-hosted models."
+
+## 2026-W48
+
+- **2026-11-22** — [Build the Workshop Before the Software Factory — Armin Ronacher, Earendil](https://www.youtube.com/watch?v=JNexz3Tbiu8) — AI Engineer-style conference talk by Armin Ronacher (known for Flask/Jinja; title credits him to Earendil) on building the tooling/scaffolding ("workshop") an agentic pipeline ("software factory") needs before it can run. Title/channel only — YouTube returned a bot-check page, blocking WebFetch; no transcript fetched. HIGH fit on title/speaker — "AI agents in practice: agent harnesses" — kept on the strength of the named speaker and topic, out of highlight consideration for the unverified content.
