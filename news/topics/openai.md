@@ -4,17 +4,19 @@ aliases:
   - Open AI
 sources:
   - https://openai.com/news/rss.xml
-updated: 2026-11-22
+updated: 2026-11-23
 ---
 
 MOC page for **OpenAI** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W47
 
+- **2026-11-22** — [Perplexity and Intelligence](https://openai.com/index/perplexity-and-intelligence/) — OpenAI Chief Scientist Jakub Pachocki proposes perplexity (cross-entropy loss) as a shared industry metric for tracking capability and grounding safety-pacing agreements between labs; publishes OpenAI's own internal perplexity curve from GPT-3.5 onward. Found via gap-scrape (WebFetch — openai.com/news listing).
 - **2026-11-20** — [MedChemBench: Benchmarking AI for medicinal chemistry](https://openai.com/index/introducing-medchembench/) — OpenAI introduces MedChemBench, a 99-problem benchmark drawn from 117 published papers/patents testing AI reasoning about medicinal chemistry; GPT-6.2 Astra scores highest at 84.5% at max reasoning effort. Found via gap-scrape (WebFetch — openai.com/news listing).
 - **2026-11-19** — [How OpenAI's Performance Factory keeps ChatGPT fast](https://openai.com/index/how-openai-performance-factory-keeps-chatgpt-fast) — OpenAI describes the Performance Factory, a system of Codex-powered workflows that automatically finds and fixes performance regressions to keep ChatGPT fast.
 - **2026-11-18** — [Research acceleration: The jagged frontier](https://openai.com/index/research-acceleration-jagged-frontier) — OpenAI reports on how coding agents have accelerated its internal AI research, with new quantitative measures of uplift across research domains and continued human involvement; median researcher now spends ~$2,400/day on agentic tools (90th percentile ~$23,000/day).
 - **2026-11-18** — [Inside the Codex sandbox](https://openai.com/index/inside-the-codex-sandbox) — OpenAI details the Codex sandbox's filesystem/network permission-profile design that limits what Codex can access when running commands, enforced across macOS, Linux, and Windows.
+- **2026-11-18** — [Advancing chip design with OpenAI models](https://openai.com/index/advancing-chip-design-with-our-models/) — OpenAI reports using its models to optimize its own Jalapeño inference chip and AMD's GPU/CPU IP (up to 14% PPA gains), plus benchmarks five models on RISC-V core-design tasks (PicoRV32, Ibex); announces a Synopsys partnership to train "GPT-Synopsys" for EDA tool use. Found via gap-scrape (WebFetch — openai.com/news listing).
 - **2026-11-17** — [Introducing GPT-6.2 Astra and Sol](https://openai.com/index/introducing-gpt-6-2-astra-sol) — OpenAI introduces GPT-6.2 Astra and Sol, with better professional outputs, coding, computer use, and efficiency at lower cost across ChatGPT Work, Codex, and the API. Live page returned HTTP 500 on fetch; detail limited to the RSS summary.
 - **2026-11-17** — [Introducing ChatGPT for Sales](https://openai.com/index/introducing-chatgpt-for-sales) — OpenAI launches ChatGPT for Sales: a new Sales plugin with seller workflows plus 30+ new/enhanced partner plugins (CRM, prospecting, call notes, quoting) for account research, call prep, and follow-ups.
 - **2026-11-16** — [Broadening access to AI for scientists](https://openai.com/index/expanding-chatgpt-for-academic-researchers) — OpenAI expands the ChatGPT for Academic Researchers program, aiming for up to 200,000 free-access researchers worldwide; next round opens Nov 23 with 50,000 first-come grants (ChatGPT Plus, recipient + 2 collaborators).

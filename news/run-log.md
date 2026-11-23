@@ -8116,3 +8116,51 @@ Commit: `news: weekly digest 2026-W47`.
 **Volume note.** 4 confirmed items, well under the ≤15/day budget — a quiet day, mainly due to the youtube/practitioner-blogs/newsletter/lab-engineering/inference-infra/oss-ml-systems/bigtech-eng/research-institutes/mistral-watch sources all being silent (0 fresh) rather than any aggressive filtering.
 
 Commit: `news: radar run 2026-11-23 (+4 items, 2 highlights, Linear unavailable)`.
+
+## 2026-11-23 06:0x UTC — daily — ok (+2 items, 1 company fresh, Linear unavailable)
+
+`fetch_feeds.py` ran clean (exit 0). Window since `2026-11-22T04:01 UTC` (last successful daily run: 2026-11-22 06:02 UTC).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss | 2 | yes (WebFetch openai.com/news listing) | - |
+| anthropic | fetch | 0 | yes (WebFetch anthropic.com/news) | - |
+| google-deepmind | rss | 0 | yes (WebFetch deepmind.google/blog/ listing) | - |
+| google-research | rss | 0 | yes (WebFetch research.google/blog/ listing) | - |
+| microsoft | rss | 0 | yes (WebFetch microsoft.com/en-us/research/blog/ listing) | - |
+| nvidia | rss | 0 | no (confirmed HTTP 304 not-modified) | - |
+| xai | jina | 0 | yes (curl Jina x.ai/news) | - |
+| mistral | rss | 0 | no (confirmed HTTP 304 not-modified) | - |
+| huggingface | rss | 0 | no (confirmed HTTP 304 not-modified) | - |
+| cursor | rss | 0 | yes (WebFetch cursor.com/changelog) | - |
+| perplexity | jina | 0 | yes (curl Jina — worked cleanly again) | - |
+
+Totals: 2 items, 1 company fresh (openai), 0 errors (8 gap-scrapes attempted — all zero-fresh/non-304 companies got exactly one fallback; nvidia/mistral/huggingface skipped per the established 304 precedent from 2026-11-20/21/22).
+
+**TIER-1 fetch.** All 11 companies returned zero fresh from the RSS tier this run (no TRAP/error this time — a clean miss, not a signal of trouble). Three (nvidia, mistral, huggingface) got a server-confirmed HTTP 304. The remaining 8 (openai, anthropic, google-deepmind, google-research, microsoft, xai, cursor, perplexity) each got exactly one gap-scrape attempt, per the established methodology (2026-11-22 entry) of always taking the "last resort" rung (a WebFetch of the human-readable listing page, or Jina for DNS-blocked hosts) even for companies with no `fetch`/`jina` tier configured.
+
+**openai — gap-scrape found 2 new items.** WebFetch of `openai.com/news` surfaced 9 posts; past the last capture (2026-11-20 MedChemBench): "Perplexity and Intelligence" (Nov 22, Research category) — new, kept. Four more dated Nov 18 not yet captured: "The Silent Consensus" (Intelligence Age), "Managing frontier AI risk: From training to deployment" (Safety), and "Le Groupe Figaro and OpenAI partner to bring Le Figaro journalism to ChatGPT" (Company) — all dropped by the category_keep filter (`{Product, Engineering, Research, Publication, Release}`); "Advancing chip design with OpenAI models" (Research) — new, kept. Both confirmed via their own pages and written to topics + one artifact each: `2026-11-22-openai-perplexity-and-intelligence.md`, `2026-11-18-openai-chip-design.md`.
+
+**Anthropic — gap-scrape came up empty.** WebFetch of `anthropic.com/news` found the top post still "Anthropic announces closing of initial public offering" (Nov 20, same URL as the already-captured `ipo-close`) — a title variant, not a new story. A bare "November 23, 2026" date header carries no post beneath it (same page-furniture pattern noted 2026-11-22). Nothing new.
+
+**Google DeepMind — gap-scrape came up empty.** `rss` returned a clean zero-fresh this time (no TRAP, unlike 2026-11-22). WebFetch of the `deepmind.google/blog/` listing (25 posts, page 1 of 20) found every title already captured in `topics/google-deepmind.md` across W47/W46/W45 (Gemini 4 Neon, Genie 4, the weather-datasets post, Gemini 4 Hydrogen, AlphaGenome 2, Gemini 4 Carbon, Gemini Robotics 2.5, AlphaProof Code, Gemini Omni 1.2 Flash, agentic cheminformatics) — no new story.
+
+**Google Research — gap-scrape came up empty.** WebFetch of the `research.google/blog/` listing confirms the newest post is still "How Google Duplex evolved..." (Nov 20), already captured. Nothing new in-window.
+
+**Microsoft — gap-scrape came up empty.** WebFetch of the MS Research blog listing confirms the newest post is still "TokenEconomizer" (Nov 16), already captured. Nothing new.
+
+**NVIDIA / Mistral / Hugging Face — skipped gap-scrape (304-confirmed, per 2026-11-20/21/22 precedent).** All three returned a server-confirmed HTTP 304 not-modified on the TIER-1 feed — a confirmed "nothing changed" signal that needs no gap-scrape on top of it.
+
+**xAI — gap-scrape came up empty.** Jina fetch of `x.ai/news` succeeded (HTTP 200, no custom User-Agent needed this run — plain `curl` without `-A` worked where it hadn't before). The "Featured" hero again surfaces an older post ("Introducing Grok Bot 1.0", Nov 11) ahead of the chronological list — the same layout artifact noted 2026-11-22. The true newest item in the "All posts" list is still "Building an accounting team with Grok Bot" (Nov 16), already captured; "Your next sales teammate should be a Grok Bot" (Oct 27) and "Introducing the SpaceX Super Intelligence Partner Network" (Oct 22) are both already in `topics/xai.md` (W44/W43). Nothing new.
+
+**Cursor — gap-scrape came up empty.** WebFetch of `cursor.com/changelog` found 5 entries, newest "Voice Chat with Agents" (Nov 6, already captured); the next two ("Agent SDK" Oct 20, "Cloud Agent Canvases and Environment Improvements" Oct 16) are already in `topics/cursor.md` (W43/W42). No backlog beyond what's already captured.
+
+**Perplexity — gap-scrape came up empty.** Jina fetch of `perplexity.ai/hub/blog` succeeded cleanly again (third consecutive run, still no `JINA_API_KEY`). "Recently published" top 10 and the "Featured"/research-team modules: four generic SEO/glossary guides excluded per the established pattern ("How to use AI data enrichment...", "What Is RAG as a Service (RaaS)?", "Context rot in AI agents...", "Retrieval-Augmented Generation (RAG): Definition..."); the rest (voice-mode Teammates, Self-improving skills, Context API, Multiagent, Orchestrator reliable-inference, Frontier Research, Decider v1.3, Escaping SPACE: Part II) are all already captured. "Introducing Orchestrator: One API for frontier and open-weight models" (`introducing-orchestrator`) reappears — already resolved as the same-story companion to the captured Orchestrator post per the 2026-11-22 dedup note, not re-added. "Teammates are agents for complex, ongoing work" (shown dated Nov 4 on this listing vs. Nov 5 in the topics file — same URL, same story) is already captured. Nothing new.
+
+**Dedup note.** Both confirmed items checked by canonical URL against the current `## 2026-W47` heading in `topics/openai.md` — no collisions, no cross-company same-URL overlaps this run.
+
+**Linear: UNAVAILABLE again this run** — reconnecting to the Linear MCP server with its existing sign-in was refused (same as every run since 2026-08-24 — **91 days**, unchanged from this morning's radar-run count). Both confirmed items are fully written to `topics/`/`artifacts/`; no Linear cards could be created and should be backfilled once reconnected. Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors).
+
+No push notification sent for this run via the owner-facing channel: a quiet day (2 items, 1 company fresh — a Perplexity-metric position piece and a chip-design research post, neither time-sensitive), with the standing Linear blockage (91 days) logged here rather than escalated, consistent with every prior run since 2026-08-24.
+
+Commit: `news: daily run 2026-11-23 (+2 items, 1 company fresh, Linear unavailable)`.
