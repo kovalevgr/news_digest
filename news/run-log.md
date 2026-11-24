@@ -8174,3 +8174,38 @@ Commit: `news: daily run 2026-11-23 (+2 items, 1 company fresh, Linear unavailab
 No push notification sent: the Linear blockage is a standing, repeatedly-flagged condition (flagged in both of today's earlier runs and every run since 2026-08-24), and this run surfaced nothing else new. Owner action unchanged: reconnect the Linear connector via claude.ai Settings → Connectors, or authorize it via `claude mcp`/`/mcp` in an interactive session.
 
 Commit: `news: deep dive 2026-11-23 (0 cards, blocked — Linear unavailable)`.
+
+## 2026-11-24 05:0x UTC — radar run — ok (Linear unavailable)
+
+**Fetch.** `python3 news/scripts/fetch_radar.py` ran clean (exit 0), cursors updated. Window since 2026-11-23T03:03 UTC. 3 source errors (all in-band, no fallback per recipe): `eleuther` (HTTP 404 on `blog.eleuther.ai/index.xml` — the feed path has now 404'd two runs running, worth a config look if it persists), `reddit` (HTTP 429 on the combined r/LocalLLaMA+LLMDevs RSS — the known rate-limit pattern, skipped, no retry loop), `latent-space` (`www.latent.space/feed` outside this session's network allowlist, tunnel 403).
+
+| Category | Raw candidates | Confirmed |
+| --- | --- | --- |
+| lab-engineering | 0 | 0 |
+| inference-infra | 0 | 0 |
+| oss-ml-systems | 2 (1 source errored) | 2 |
+| bigtech-eng | 0 | 0 |
+| research-institutes | 1 | 1 |
+| technical-newsletters | 0 | 0 |
+| practitioner-blogs | 1 (1 source errored) | 0 |
+| youtube | 2 | 2 |
+| community | 11 (1 source errored) | 3 |
+| mistral-watch | 0 | 0 |
+| **Total** | **17** | **8** |
+
+**Triage detail.**
+- **Kept — highlighted (2).** `lmsys-sglang` → "Toward the Decode Limit: ERNIE 5.5 Flash at 1074 tokens/s on SGLang": verified via WebFetch — Baidu ERNIE + SGLang teams take BS=1 decode from 102→1074 tok/s (4×Blackwell) through a stacked set of named techniques (TP, fine-grained GEMM, operator fusion, attention restructuring, a MegaLLMoE megakernel, DSpark speculative decoding), core kernels open-sourced with repro commands; direct hit on "Local/self-hosted models" + "GPU/kernel engineering" + "Reproducible techniques WITH CODE", **highlighted**. `hf-trending-models` → `inclusionAI/Ling-3.2-air`: verified via WebFetch (model card) — MIT-licensed 124B/5.5B-activated hybrid-linear MoE with concrete before/after benchmarks (Terminal-Bench 4.0 0%→27%, AA-Briefcase Elo +353) and a named SGLang/vLLM serving recipe; direct hit on the same two HIGH topics, **highlighted**.
+- **Kept — not highlighted (6).** `lmsys-sglang` → "True On-Policy RL: Bit-Exact Rollout and Training with SGLang and Miles": the lmsys.org post 307-redirects to `miles.radixark.com`, outside this session's network allowlist (WebFetch DNS failure + one curl retry, both failed) — kept on title/listing only per the recipe's "transport error → keep item, skip highlight," MEDIUM-HIGH fit by topic. `ai2` → "RoboTrack" (point-tracking benchmark/dataset/models for robotic manipulation): not WebFetched (LOW fit by `interests.md`'s explicit robotics bucket, so not a top-5 verify candidate) — kept on the feed's own summary. `yt-ai-engineer` → "12 Rules for a Software Factory That Doesn't Ship Slop — Dex Horthy, Factory": WebFetch returned only YouTube's nav shell (no transcript) — kept title/speaker-only, HIGH fit (Dex Horthy = Factory's founder, squarely "agent harnesses"), same treatment as 2026-11-22's Armin Ronacher entry. `yt-mlst` → "AI Just Pours Tokens Into the Problem (Kevin Buzzard)": a YouTube Short — kept title-only, LOW-MEDIUM fit, thin/unverified by format. `hf-trending-spaces` → `software-mansion/Reverb-TTS-runntime`: WebFetch returned only title/status, no description — kept on listing only, MEDIUM-LOW fit guessed from the name/publisher. `hf-trending-spaces` → `lewtun/from-llms-to-swarms`: WebFetch returned only the title, no description — kept on title/author-only (Lewis Tunstall, HF researcher), HIGH fit on topic ("multi-agent orchestration"), unverified content.
+- **Dropped — off-topic/non-AI (4).** `simonwillison` → "Ladybird's first alpha release": a from-scratch browser-engine project with zero AI content — judgment call to drop as out of this radar's AI-practitioner scope (flagging here in case the owner wants Simon Willison's non-AI posts kept in future). `hn-show-rag` → "Show HN: News Blocklist" (DNS blocklist of news sites) and "Show HN: Type-C" (C-language pattern-matching library): neither has any AI technique content, fail the pass-1 technical bar. `hn-show-mcp` → "Show HN: Hermit CRM" (solopreneur CRM, no AI content) and "Show HN: I used Fable to make an open source 80s-style Skyrim browser game" (an AI-assisted hobby game with no AI technique of its own — same drop pattern as the 2026-11-23 "ChatGPT-built hobby game" precedent). `hn-show-agents` resurfaced the same News Blocklist URL as `hn-show-rag` — same item, not double-dropped separately.
+- **Dropped — duplicate (1).** `hn-trend-llm` → "Show HN: I built a game where you are an LLM's subagent" (`github.com/gulivan/worker755`, 291 pts): exact URL match against the already-captured 2026-11-22 highlighted entry in `radar/community.md` — true duplicate, not re-added.
+- **Dropped — fails verification/content bar (2).** `hf-trending-models` → `Sentinel7/h3`: flagged "Not-For-All-Audiences" (potentially harmful/sensitive content) with no readable model card (README 404 via two transports) — no technical substance found, dropped. `hf-trending-spaces` → `johnnysnowblind/wan2-2-fp8da-aoti-preview-2c-finishing`: verified via WebFetch as an explicit-content LoRA for the Wan2.2 video model, itself a duplicate of another user's Space — fails the pass-1 bar on both content and originality, dropped.
+
+**Highlights: 2 of 8 confirmed** (ERNIE 5.5 Flash decode-limit, Ling-3.2-air) — within the ≤3/day cap; no third pick strong enough (the remaining kept items are either LOW-fit, unverified-by-transport, or thin Shorts/Space listings).
+
+**Linear: UNAVAILABLE again this run** — no Linear tool resolved when searched for for this run (same state as every run since 2026-08-24 — now **92 days**). No review-queue cards created for the 8 confirmed items; all 8 are fully written to `radar/oss-ml-systems.md` / `radar/research-institutes.md` / `radar/youtube.md` / `radar/community.md` and should be backfilled to the "Radar" project once reconnected. Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors).
+
+**Volume note.** 8 confirmed items, well under the ≤15/day budget — a quiet-to-moderate day, mainly from oss-ml-systems/research-institutes/youtube/community sources; lab-engineering, inference-infra, bigtech-eng, technical-newsletters, and mistral-watch were all silent (0 fresh).
+
+No push notification sent for this run via the owner-facing channel: a healthy, well-under-budget radar run (8 items, 2 highlights, no new failure modes beyond the standing Linear blockage now at 92 days and the `eleuther` feed's second straight 404) — nothing here needs the owner's immediate attention beyond what's already flagged in every recent run.
+
+Commit: `news: radar run 2026-11-24 (+8 items, 2 highlights, Linear unavailable)`.
