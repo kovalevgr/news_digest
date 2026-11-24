@@ -5,25 +5,25 @@
     "last_run": "2026-08-08T16:27:06.940454+00:00"
   },
   "https://cursor.com/changelog/rss.xml": {
-    "last_run": "2026-11-23T06:01:52.102604+00:00"
+    "last_run": "2026-11-24T06:01:58.288730+00:00"
   },
   "https://deepmind.google/blog/rss.xml": {
-    "etag": "\"pJLaPg\"",
+    "etag": "\"5yr2eQ\"",
     "last_modified": "Wed, 28 Oct 2026 17:00:58 GMT",
-    "last_run": "2026-11-23T06:01:52.102604+00:00"
+    "last_run": "2026-11-24T06:01:58.288730+00:00"
   },
   "https://developer.nvidia.com/blog/feed": {
-    "etag": "\"2ad64f241025eece36e332bf4ae546de\"",
-    "last_modified": "Thu, 19 Nov 2026 20:28:20 GMT",
-    "last_run": "2026-11-23T06:01:52.102604+00:00"
+    "etag": "\"0952dab8281ec3bbb20ae806888decba\"",
+    "last_modified": "Mon, 23 Nov 2026 19:59:49 GMT",
+    "last_run": "2026-11-24T06:01:58.288730+00:00"
   },
   "https://huggingface.co/blog/feed.xml": {
-    "etag": "W/\"4217c-lsdoxghiK3DBEQ5fzRniwnuc+GU\"",
-    "last_run": "2026-11-23T06:01:52.102604+00:00"
+    "etag": "W/\"42298-tXD2I7mC5oUSAGFcKFwWRx+ANhs\"",
+    "last_run": "2026-11-24T06:01:58.288730+00:00"
   },
   "https://mistral.ai/rss.xml": {
     "etag": "W/\"188b9a6783e5f60e527b88fdc61b7089-ssl\"",
-    "last_run": "2026-11-23T06:01:52.102604+00:00"
+    "last_run": "2026-11-24T06:01:58.288730+00:00"
   },
   "https://news.microsoft.com/source/feed/": {
     "etag": "W/\"76d6f012764bed16bc53f3ae441962f1\"",
@@ -31,11 +31,11 @@
     "last_run": "2026-08-08T16:27:06.940454+00:00"
   },
   "https://openai.com/news/rss.xml": {
-    "last_run": "2026-11-23T06:01:52.102604+00:00"
+    "last_run": "2026-11-24T06:01:58.288730+00:00"
   },
   "https://research.google/blog/rss/": {
-    "last_modified": "Fri, 20 Nov 2026 23:30:30 GMT",
-    "last_run": "2026-11-23T06:01:52.102604+00:00"
+    "last_modified": "Mon, 23 Nov 2026 17:21:12 GMT",
+    "last_run": "2026-11-24T06:01:58.288730+00:00"
   },
   "https://www.microsoft.com/en-us/research/feed/": {
     "etag": "\"1f2f8ebc12ceab5aa118c6c06afac46a\"",

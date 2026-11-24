@@ -5,13 +5,14 @@ aliases:
   - Gemini
 sources:
   - https://deepmind.google/blog/rss.xml
-updated: 2026-11-18
+updated: 2026-11-24
 ---
 
 MOC page for **Google DeepMind** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W47
 
+- **2026-11-23** — [Finding faster quantum algorithms with agents and formal verification](https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/) — Google DeepMind and Google Quantum AI use teams of Gemini 4 agents to find more efficient quantum circuits for known algorithms (fusion, molecular simulation, Grover's search), verifying every result with the Lean theorem prover; Lean library and solutions open-sourced.
 - **2026-11-18** — [Introducing Gemini 4 Neon](https://deepmind.google/blog/introducing-gemini-4-neon/) — Google DeepMind launches Gemini 4 Neon, a frontier model for fast end-to-end task completion across software engineering, knowledge work, and science; #3 overall (score 61) on the Artificial Analysis Intelligence Index, #2 on the Vals Index, #2 on steerability in the Agent Arena Index.
 - **2026-11-18** — [Genie 4 is now available](https://deepmind.google/blog/genie-4-is-now-available/) — Google DeepMind rolls out a new Project Genie experience to Google AI Ultra subscribers: first-time Genie 4 access (mid-session world edits, real-time native audio), Genie 3 upgrades (3-minute sessions, panorama seeding), a creation agent, and a community gallery.
 

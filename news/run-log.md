@@ -8209,3 +8209,55 @@ Commit: `news: deep dive 2026-11-23 (0 cards, blocked — Linear unavailable)`.
 No push notification sent for this run via the owner-facing channel: a healthy, well-under-budget radar run (8 items, 2 highlights, no new failure modes beyond the standing Linear blockage now at 92 days and the `eleuther` feed's second straight 404) — nothing here needs the owner's immediate attention beyond what's already flagged in every recent run.
 
 Commit: `news: radar run 2026-11-24 (+8 items, 2 highlights, Linear unavailable)`.
+
+## 2026-11-24 06:0x UTC — daily — ok (+5 items, 4 companies fresh, Linear unavailable)
+
+**Branch note.** Session started with HEAD detached at `b4c8681` (the tip of this morning's radar run) and the local `main` ref stale at `149b59f`; `origin/main` was already at `b4c8681` — same recurring pattern as 2026-11-19/20/23 (stale container snapshot, no commits actually missing). Fixed by checking out `main` and fast-forwarding.
+
+`fetch_feeds.py` ran clean (exit 0). Window since `2026-11-23T04:01 UTC` (last successful daily run: 2026-11-23 06:0x UTC).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss | 0 | yes (WebFetch openai.com/news listing) | - |
+| anthropic | fetch | 0 | yes (WebFetch anthropic.com/news) | - |
+| google-deepmind | rss | 1 | no | - |
+| google-research | rss | 1 | no | - |
+| microsoft | rss | 0 | yes (WebFetch microsoft.com/en-us/research/blog/ listing) | transport timeout on TIER-1 fetch |
+| nvidia | rss | 2 | no | - |
+| xai | jina | 0 | yes (curl Jina x.ai/news) | - |
+| mistral | rss | 0 | no (confirmed HTTP 304 not-modified) | - |
+| huggingface | rss | 1 | no | - |
+| cursor | rss | 0 | yes (WebFetch cursor.com/changelog) | - |
+| perplexity | jina | 0 | yes (Jina 403 AbuseAlleviation → WebSearch fallback) | Jina anonymous-rate-limited |
+
+Totals: 5 items, 4 companies fresh (google-deepmind, google-research, nvidia, huggingface), 1 soft error (microsoft TIER-1 timeout, covered by its gap-scrape) — 6 gap-scrapes attempted (openai, anthropic, microsoft, xai, cursor, perplexity); mistral skipped per the established 304 precedent.
+
+**TIER-1 fetch.** 4 of 11 companies returned fresh RSS candidates (google-deepmind, google-research, nvidia ×2, huggingface). Microsoft's feed timed out on the transport (not a 4xx/5xx — a read timeout), so it also got the gap-scrape fallback. Mistral was a clean server-confirmed 304. The remaining 6 zero-fresh companies (openai, anthropic, microsoft, xai, cursor, perplexity) each got exactly one gap-scrape attempt.
+
+**Google DeepMind — 1 new item, confirmed via TIER-1.** "Finding faster quantum algorithms with agents and formal verification" (Nov 23): Gemini 4 agent teams find more efficient quantum circuits (fusion, molecular simulation, Grover's search, arcsin), each verified with the Lean theorem prover; Lean library + solutions open-sourced on GitHub. Full detail pulled via WebFetch for the artifact card. `2026-11-23-google-deepmind-quantum-agents-formal-verification.md`.
+
+**Google Research — 1 new item, confirmed via TIER-1.** "Supercharging transformer residual connections" (Nov 23): DeepCrossAttention (DCA), a learnable depth-wise cross-attention replacement for standard residuals, matching quality in up to 5x fewer steps and retrofittable onto pre-trained models (ICML 2025 paper, arXiv 2502.06785). `2026-11-23-google-research-deepcrossattention.md`.
+
+**NVIDIA — 2 new items, confirmed via TIER-1.** "Accelerating Direct Sparse Solvers... cuDSS 1.0" (Nov 23): GA release, up to 5.9x faster factorization / ~151x faster triangular solve vs. Intel MKL, hybrid CPU+GPU memory mode. "Get Started with GPU-Accelerated DuckDB Analytics Using the Sirius Core Extension" (Nov 23): NVIDIA+DuckLabs GPU-native SQL engine as a two-command DuckDB extension, 3.25x–5.50x speedups on TPC-H-derived benchmarks up to 10TB. Both genuine technical announcements, not tutorial chaff. `2026-11-23-nvidia-cudss-1-0.md`, `2026-11-23-nvidia-sirius-duckdb.md`.
+
+**Hugging Face — 1 new item, confirmed via TIER-1.** "RoboTrack: Point tracking for real-world robotic manipulation" (Nov 23, `huggingface.co/blog/allenai/robotrack`) — Ai2's point-tracking benchmark/dataset/trackers for robotic manipulation; confirmed as a real HF-blog announcement per the established allenai-guest-post precedent (BenchMIRT, OlmoEarth-embeddings, TutorMoments). `2026-11-23-huggingface-robotrack.md`. **Cross-system note:** the same story (different URL, `allenai.org/blog/robotrack`) is already in today's `radar/research-institutes.md` entry from this morning's radar run — kept in both since they're separate systems/URLs and the dedup rule only runs one direction (radar skips items already in company topics, not vice versa); flagged here for visibility, not treated as a conflict.
+
+**OpenAI — gap-scrape found 1 new item, dropped by category filter.** WebFetch of `openai.com/news` surfaced 9 posts; newest is "OpenAI and Cisco introduce Shirudo" (Nov 23) — an open-source eBPF runtime (OpenAI + Cisco) for shielding running Linux systems against exploits while a patch is tested, tagged **Security** on its own page. `category_keep` is `{Product, Engineering, Research, Publication, Release}` — Security isn't in the keep list, so per the fail-closed design (same treatment as the Nov 18 "Managing frontier AI risk" Safety-category drop) this is filtered out, despite being genuinely technical. Flagging for the owner in case the category list should be revisited. Everything else on the listing (Perplexity and Intelligence Nov 22, MedChemBench Nov 20, and the four Nov 18 items) is already captured or already-filtered. Nothing added to topics.
+
+**Anthropic — gap-scrape came up empty.** WebFetch of `anthropic.com/news` found nothing newer than the already-captured Nov 20 IPO-close post; all other listed items (Fable 5.2/Mythos 5.2, Haiku 5.5, Opus 5.5, the IPO S-1/roadshow/pricing posts, etc.) are older and already in the file. Nothing new.
+
+**Microsoft — gap-scrape came up empty.** TIER-1 feed timed out (transport error, logged, moved on per the one-fallback rule); WebFetch of the MS Research blog listing confirms the newest post is still "TokenEconomizer" (Nov 16), already captured. Nothing new.
+
+**xAI — gap-scrape came up empty.** Jina fetch of `x.ai/news` succeeded. Same "Featured" hero layout artifact as prior runs (surfaces "Introducing Grok Bot 1.0", Nov 11, ahead of the chronological list) — that item is already captured (backfilled 2026-11-02 per `topics/xai.md`). The true newest in "All posts" is still "Building an accounting team with Grok Bot" (Nov 16), already captured. Nothing new.
+
+**Cursor — gap-scrape came up empty.** WebFetch of `cursor.com/changelog` found 5 entries, newest "Voice Chat with Agents" (Nov 6), already captured; the rest are already in `topics/cursor.md`. Nothing new.
+
+**Perplexity — Jina rate-limited, WebSearch fallback came up empty/unverifiable.** `curl r.jina.ai` returned an `AbuseAlleviationError` (403, "DDoS attack suspected: too many requests") — a different Jina failure than the usual auth-gated 403, but the failure-modes table's prescribed fallback (`JINA_API_KEY` absent → WebSearch) still applies. WebSearch for Perplexity's November announcements surfaced only thin third-party coverage (a Japanese write-up of "Teammates" — already captured 2026-11-05 — plus unconfirmed mentions of a "Monitor API" and a "new research lab" from a Latent Space roundup, with no primary-source URL reachable to verify either). Per the never-invent rule, neither unverifiable mention was added; nothing new this run.
+
+**Dedup note.** All 5 confirmed items checked by canonical URL against their companies' current `## 2026-W47` sections — no collisions, no cross-company same-URL overlaps (the HF/radar RoboTrack overlap above is cross-*system*, not cross-company, and both URLs differ).
+
+**Linear: UNAVAILABLE again this run** — reconnecting to the Linear MCP server with its existing sign-in was refused (same as every run since 2026-08-24 — **92 days**, matching this morning's radar-run count). All 5 confirmed items are fully written to `topics/`/`artifacts/`; no Linear cards could be created and should be backfilled once reconnected. Owner action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors).
+
+No push notification sent for this run via the owner-facing channel: a healthy but unremarkable day (5 items, 4 companies fresh — two solid research posts from Google, two genuine NVIDIA engineering releases, one Ai2 robotics benchmark via the HF blog), nothing time-sensitive, and the standing Linear blockage (92 days) logged here rather than escalated, consistent with every prior run since 2026-08-24. The OpenAI category-filter drop (Shirudo) is a minor config-judgment note, not something needing the owner's immediate attention.
+
+Commit: `news: daily run 2026-11-24 (+5 items, 4 companies fresh, Linear unavailable)`.
