@@ -8261,3 +8261,130 @@ Totals: 5 items, 4 companies fresh (google-deepmind, google-research, nvidia, hu
 No push notification sent for this run via the owner-facing channel: a healthy but unremarkable day (5 items, 4 companies fresh — two solid research posts from Google, two genuine NVIDIA engineering releases, one Ai2 robotics benchmark via the HF blog), nothing time-sensitive, and the standing Linear blockage (92 days) logged here rather than escalated, consistent with every prior run since 2026-08-24. The OpenAI category-filter drop (Shirudo) is a minor config-judgment note, not something needing the owner's immediate attention.
 
 Commit: `news: daily run 2026-11-24 (+5 items, 4 companies fresh, Linear unavailable)`.
+
+## 2026-11-25 05:0x UTC — radar — ok
+
+`fetch_radar.py` ran clean (exit 0). Window since `2026-11-24T03:02 UTC` (last successful radar run: 2026-11-24 05:0x UTC).
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | 0 |
+| inference-infra | 0 | 0 | 0 |
+| oss-ml-systems | 1 | 1 | 1 (eleuther HTTP 404) |
+| bigtech-eng | 0 | 0 | 0 |
+| research-institutes | 0 | 0 | 0 |
+| technical-newsletters | 0 | 0 | 0 |
+| practitioner-blogs | 1 | 1 | 1 (latent-space proxy-blocked) |
+| youtube | 3 | 3 | 0 |
+| community | 24 | 9 | 1 (reddit HTTP 404) |
+| mistral-watch | 0 | 0 | 1 (mistral-docs-changelog HTTP 404) |
+
+Totals: 29 raw candidates, 14 confirmed, 4 source errors.
+
+**New/changed failure modes this run (flagging for the owner, none actioned beyond logging):**
+`eleuther` HTTP 404 for a second straight day (matches yesterday's note — likely feed URL
+moved/retired, not a transient blip). `latent-space` (`https://www.latent.space/feed`) failed
+with a proxy tunnel 403 ("no rule or network setting allows this host") rather than its usual
+clean fetch — this looks like a change in the cloud env's network allowlist, not a site-side
+issue; no fallback ladder for radar sources, logged and moved on. `reddit` returned HTTP 404
+today instead of the usual 429 rate-limit — a different failure shape worth watching (URL/UA
+still correct per config; one fetch/day rule followed, no retry). `mistral-docs-changelog`
+returned HTTP 404 instead of its usual "page updated" single-item emission — the changelog URL
+itself may have moved; worth a manual check next run if it recurs.
+
+**oss-ml-systems (1/1 confirmed):** PyTorch's ExecuTorch-TensorRT post — verified via WebFetch,
+a real export/deploy-toolchain story (compile with TensorRT, run via ExecuTorch's portable
+runtime) — MEDIUM fit, not a highlight (toolchain announcement, not an isolated benchmarked
+technique).
+
+**practitioner-blogs (1/1 confirmed):** Simon Willison's "Three LLM inflection points in twelve
+months" — verified via WebFetch, a substantive practitioner experience report (coding-agent
+reliability → "Fable-class" brute-force agents → 3D/game-design competence) with concrete,
+checkable examples though no formal benchmarks — HIGH fit, marked `highlight`.
+
+**youtube (3/3 confirmed):** Two AI Engineer conference talks (Jarred Sumner/Anthropic on
+shipping agent-written code at scale; Steve Yegge on "software factories," continuing this
+file's recurring thread) and a sentdex home-automation video. YouTube blocked WebFetch on all
+three with its bot-check redirect (`google.com/sorry/...`) — kept on title/channel/speaker
+strength only, no transcripts verified, none promoted to highlight per the verification rule.
+
+**community (9/24 confirmed)** — heaviest-volume category today, with substantial cross-source
+duplication from the HN "Show HN" query set. Dedup first: `Show HN: Mason` (Postgres
+read-replica on DuckDB, 89 pts) appeared in both `hn-show-ai50` and `hn-show-rag` — single
+story; `Show HN: Brickie` (sandboxes) appeared in `hn-show-rag`+`hn-show-agents`; `Show HN:
+Genesis Map` appeared in `hn-show-rag`+`hn-show-mcp`+`hn-show-agents`; `Show HN: KradleBench`
+appeared in `hn-show-rag`+`hn-show-agents` — each collapsed to one item. Triage drops, in
+order: `Show HN: Mason` — real engineering (Postgres/DuckDB columnar read-replica) but not
+actually AI content, a keyword false-positive via the broad "AI"/"RAG" search terms; dropped as
+off-topic rather than low-quality. `Show HN: Hermit CRM` (49 pts) — a consumer-app/SaaS launch
+(solopreneur CRM), the pass-1 "consumer-app launches" drop criterion, MCP-access is incidental.
+`Show HN: News Blocklist` (20 pts) — a DNS blocklist for news sites, surfaced only via a false
+keyword match on "agents" in the post body; not AI content, dropped. Lobsters "9/UX: a
+Macintosh-inspired desktop for 9front" — OS/desktop tinkering mistagged `ai`; dropped, no AI
+relevance. `hf-trending-spaces` — all 4 new entrants today were Gradio-space mirrors of the same
+trending "minimax-h3" video model under unrelated throwaway usernames (`observantdistressed`,
+`wank3r`, `waitinghere`, `kulkas2pintu`) — classic trending-space clone-farming pattern, not
+original technical content; all 4 dropped. With 17 technical-bar survivors still over the
+≤15/day budget once added to the other categories' totals, three more were cut on owner-fit:
+`hf-daily-papers` "PartAgent" (3D part segmentation — LOW fit, robotics/3D bucket, weakest of
+the day's three HF papers) and `hf-trending-models` "inclusionAI/LingSante-3.1-flash" (a
+trending text-gen model with no distinguishing architecture/benchmark detail in the snapshot) —
+both dropped for volume, not quality.
+
+Confirmed, in brief: `Show HN: Brickie` (durable AWS/k8s agent sandboxes, Hatchet) — verified
+via `git clone`, real and substantial, `highlight`. `Show HN: Genesis Map` (agent-change
+visualizer) — thin signal (14 pts/1 comment), kept unverified, MEDIUM fit. `Show HN: KradleBench`
+(multi-agent Minecraft evals) — `www.kradle.ai` transport-blocked (see VERIFY SUBSTANCE below),
+kept on listing only. The HN trend item "LLM agents work for their parent companies, not for
+you" (948 pts/393 comments, by far the week's top community score) — `michaelharley.net`
+transport-blocked, kept on title/engagement only; flagging the engagement level explicitly since
+content couldn't be checked. Lobsters "Matrix Multiplication is Θ(n^2.25)" (score 3) — a raw
+preprint PDF in an `openai/math` GitHub repo claiming an exponent improvement over the
+best-known ~2.3719 bound; content not read (PDF, out of scope for a title-level triage pass) and
+no corroborating coverage found — kept as a LOW-fit radar item but flagged explicitly: an
+extraordinary claim on a near-zero-engagement post deserves a dedicated read before being
+treated as real. HF daily papers "LoopDVR" (parameter-efficient looped transformer, code) and
+"Coding4Games" (coding agents learning to play games, code) — both kept on abstract-only, LOW-MEDIUM
+and MEDIUM fit respectively. HF trending models "llamaindex/OCRia-nano-1" (OCR model) — kept on
+listing only, LOW-MEDIUM fit. HF trending models "prism-ml/Ternary-Bonsai-2.5-27B-GGUF" —
+verified via WebFetch, genuinely rich technical content (ternary+Hadamard quantization, ~9×
+size reduction, concrete before/after benchmarks including SWE-bench Verified) — HIGH fit,
+`highlight`.
+
+**VERIFY SUBSTANCE (6 candidates attempted, over the usual 5 — two were hard network/bot
+blocks resolved quickly):** Simon Willison's inflection-points essay — verified via WebFetch,
+passed, `highlight`. `prism-ml/Ternary-Bonsai-2.5-27B-GGUF` — verified via WebFetch, passed,
+`highlight`. `hatchet-dev/brickie` — verified via `git clone` (README), passed, `highlight`.
+`www.kradle.ai` (KradleBench) — WebFetch DNS failure (host outside the session's network
+allowlist), one curl retry also tunnel-403'd — transport blocked, kept as a regular item, out
+of highlight consideration. `michaelharley.net` (the 948-pt HN essay) — same DNS-failure +
+curl-403 pattern — transport blocked, kept as a regular item, out of highlight consideration.
+Jarred Sumner / Steve Yegge YouTube talks — WebFetch hit YouTube's bot-check redirect
+(`google.com/sorry/...`) on both; not followed (a CAPTCHA page, not real content) — kept as
+regular items, out of highlight consideration.
+
+3 top picks marked `highlight`: Simon Willison's "Three LLM inflection points" (deepest
+practitioner synthesis of the day, direct `tech_explainer`/trend-piece seed on the owner's core
+beat), Ternary-Bonsai-2.5-27B-GGUF (concrete quantization technique + numbers, "Local models:
+quantization" is an explicit HIGH-interest special case), Brickie (real, runnable agent-sandbox
+infra with durable snapshot/fork state — "AI agents in practice" + "agent memory"). Silent
+categories today (0 raw candidates): lab-engineering, inference-infra, bigtech-eng,
+research-institutes, technical-newsletters, mistral-watch.
+
+**Linear: UNAVAILABLE again this run** — reconnecting to the Linear MCP server with its
+existing sign-in was refused (same state as every run since 2026-08-24 — now **93 days**). No
+review-queue cards created for the 14 confirmed items; all 14 are fully written to
+`radar/oss-ml-systems.md` / `radar/practitioner-blogs.md` / `radar/youtube.md` /
+`radar/community.md` and should be backfilled to the "Radar" project once reconnected. Owner
+action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors).
+
+**Volume note.** 14 confirmed items (3 highlights), comfortably under the ≤15/day budget —
+community carried almost all of today's volume (9/14), with one real engineering strand each
+in oss-ml-systems, practitioner-blogs, and youtube.
+
+No push notification sent for this run via the owner-facing channel: a healthy, on-budget radar
+day with 3 solid highlights (none time-critical) and no failure mode the owner needs to act on
+immediately beyond the standing Linear blockage (93 days, logged every run since 2026-08-24) and
+the four source-transport notes above (worth a look if they recur, not urgent today).
+
+Commit: `news: radar run 2026-11-25 (+14 items, 3 highlights, Linear unavailable)`.
