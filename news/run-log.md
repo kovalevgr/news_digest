@@ -8388,3 +8388,123 @@ immediately beyond the standing Linear blockage (93 days, logged every run since
 the four source-transport notes above (worth a look if they recur, not urgent today).
 
 Commit: `news: radar run 2026-11-25 (+14 items, 3 highlights, Linear unavailable)`.
+
+## 2026-11-25 06:0x UTC — daily — ok (0 items, 0 companies fresh, Linear unavailable)
+
+**Branch note.** Session started with HEAD detached at `8207275` (tip of this morning's radar
+run) and local `main` stale at `149b59f`; `origin/main` already at `8207275` — same recurring
+stale-container pattern as 2026-11-19/20/22/23/24. Fixed by stashing the in-progress
+`cursors.json` update, checking out `main`, fast-forwarding, and reapplying the stash.
+
+`fetch_feeds.py` ran clean (exit 0, one transport timeout on microsoft). Window since
+`2026-11-24T04:01 UTC` (last successful daily run: 2026-11-24 06:0x UTC).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss | 0 | yes (WebFetch openai.com/news listing) | - |
+| anthropic | fetch | 0 | yes (WebFetch anthropic.com/news) | - |
+| google-deepmind | rss | 0 | no (confirmed HTTP 304 not-modified) | - |
+| google-research | rss | 0 | yes (WebFetch research.google/blog/ listing) | - |
+| microsoft | rss | 0 | yes (WebFetch microsoft.com/en-us/research/blog/ listing) | transport timeout on TIER-1 fetch |
+| nvidia | rss | 4 | no | - |
+| xai | jina | 0 | yes (WebSearch fallback) | Jina anonymous 401 (new failure shape — see note) |
+| mistral | rss | 0 | no (confirmed HTTP 304 not-modified) | - |
+| huggingface | rss | 1 | no | - |
+| cursor | rss | 0 | yes (WebFetch cursor.com/changelog) | - |
+| perplexity | jina | 0 | yes (WebSearch fallback) | Jina anonymous 401 (new failure shape — see note) |
+
+Totals: 0 items, 0 companies fresh — a clean shutout day. 7 gap-scrapes attempted (openai,
+anthropic, google-research, microsoft, xai, cursor, perplexity); google-deepmind and mistral
+skipped per the established 304 precedent. NVIDIA and Hugging Face had TIER-1 fresh candidates
+but none survived the genuineness/substance filter (detail below) — first time in recent runs
+both feeds surfaced items yet zero made it to `topics/`.
+
+**NVIDIA — 4 fresh via TIER-1, all dropped (none are genuine standalone announcements).**
+"How to Run NVIDIA Cosmos 3 on Local AI Devices Using Hugging Face Diffusers" and "Prepare
+Market Data for Forecasting with NVIDIA Megatron Core" — both how-to tutorials, no new
+release/benchmark of their own; dropped as tutorial chaff per the established NVIDIA-developer-blog
+filter. "What's New for Game Developers: AI Animation and RTX Tools" — read in full via
+WebFetch: confirmed a monthly roundup bundling six separate already-elsewhere items (War Thunder
+DLSS 5 interview, Kimodo motion gen in UE 5.9, three versioned SDK bumps, Nsight updates), with
+only a minor "Real-Time BVH Viewer 1.0" tool buried inside it — dropped as roundup-of-others, not
+a standalone story. "Q&A: How Everstone Brings Where Winds Meet to Life with NVIDIA DLSS 5" — a
+customer-studio interview piece, the same genre as excluded case-study/ad content elsewhere in
+this config; dropped. Nothing added to `topics/nvidia.md`.
+
+**Hugging Face — 1 fresh via TIER-1, dropped on substance grounds.** "Microduck Obstacle
+Avoidance: A Sim2Real Workflow with Isaac Lab and Newton" (NVIDIA guest post) — read in full via
+WebFetch: a real, reproducible engineering workflow (frozen walking policy + separate
+obstacle-avoidance policy, simulated ToF sensor, Isaac Lab/Newton training, ONNX sim-to-real
+deployment) but explicitly **no quantitative results** (no success/collision rates, no baseline
+comparison) — qualitative videos only. Unlike the kept precedents (RoboTrack, BenchMIRT,
+OlmoEarth-embeddings, TutorMoments), which each shipped a benchmark/dataset/model artifact, this
+reads as a detailed tutorial rather than a result-bearing announcement. Judgment call, flagged
+for the owner in case the bar should be lower for workflow-only posts; nothing added to
+`topics/huggingface.md`.
+
+**OpenAI — gap-scrape found 2 new items, both dropped by category filter.** WebFetch of
+`openai.com/news` surfaced two Nov 24 posts not yet captured: "GPT-6 models demonstrate
+intrinsic protein-design capabilities" and "Searching for distant planets with Astra" — both
+tagged **Science** on their own pages. `category_keep` is `{Product, Engineering, Research,
+Publication, Release}` — Science isn't in the keep list, so per the fail-closed design (same
+treatment as the Nov 18 "Managing frontier AI risk" Safety drop and the Nov 23 Shirudo Security
+drop) both are filtered out despite being genuinely technical/substantive results. Flagging
+again for the owner — this is the third distinct non-keep category (Safety, Security, now
+Science) to drop a technical post; worth revisiting `category_keep` if this keeps recurring.
+Everything else on the listing (Shirudo Nov 23, Perplexity-and-Intelligence Nov 22, and older)
+already captured or already-filtered. Nothing added to topics.
+
+**Anthropic — gap-scrape came up empty.** WebFetch of `anthropic.com/news` found nothing newer
+than the already-captured Nov 20 IPO-close post; the page showed a bare "November 25, 2026"
+date heading over the Announcements section with no post title/link under it — not treated as
+an item (no content to carry a source URL on). Nothing new.
+
+**Google Research — gap-scrape came up empty.** TIER-1 returned a clean zero-fresh (no 304, no
+error). WebFetch of `research.google/blog/` confirms the newest post is still "Supercharging
+transformer residual connections" (Nov 23), already captured. Nothing new.
+
+**Microsoft — gap-scrape came up empty.** TIER-1 feed timed out (transport error, logged, moved
+on per the one-fallback rule); WebFetch of the MS Research blog listing confirms the newest post
+is still "TokenEconomizer" (Nov 16), already captured. Nothing new.
+
+**xAI — gap-scrape came up empty/unverifiable.** Jina anonymous call failed with a **new error
+shape**: `401 AuthenticationFailedError "Invalid API key"` rather than the usual `403
+AbuseAlleviationError` — `JINA_API_KEY` remains unset either way, so the failure-modes fallback
+(WebSearch) applied regardless. WebSearch for recent xAI/Grok announcements surfaced only stale
+cached snapshots of `x.ai/news` (Oct 2026 and earlier) and third-party coverage of already-old
+releases (Grok 4.6/4.7); nothing confirmable as newer than the already-captured Nov 16 item. Per
+the never-invent rule, nothing added.
+
+**Cursor — gap-scrape came up empty.** WebFetch of `cursor.com/changelog` found 5 entries,
+newest "Voice Chat with Agents" (Nov 6), already captured; the rest are already in
+`topics/cursor.md`. Nothing new.
+
+**Perplexity — same new Jina 401 shape, WebSearch fallback came up empty/unverifiable.** Same
+`401 Invalid API key` Jina failure as xAI above (not the usual 403); WebSearch fallback applied
+per the failure-modes table. Results surfaced only secondary/aggregator coverage (a revenue
+milestone, vague mentions of a "Monitor API" and a "new research lab" with no primary-source URL
+reachable to verify either) — same unverifiable pattern as recent prior runs. Per the
+never-invent rule, nothing added.
+
+**Dedup note.** N/A this run — zero confirmed items, nothing to check against existing
+`topics/` sections.
+
+**New failure-mode note for the owner:** anonymous Jina calls today returned `401
+AuthenticationFailedError` instead of the usual `403 AbuseAlleviationError` — possibly Jina
+tightened anonymous access further (requiring a key outright rather than rate-limiting it).
+Doesn't change this run's handling (WebSearch fallback either way), but worth noting if it's a
+permanent shift — `JINA_API_KEY` is now the only route to clean Jina fetches, not just the
+faster one.
+
+**Linear: UNAVAILABLE again this run** — reconnecting to the Linear MCP server with its existing
+sign-in was refused (same as every run since 2026-08-24 — **94 days**, matching this morning's
+radar-run count). No new items this run regardless, so nothing to backfill. Owner action needed
+(unchanged): reconnect the Linear connector (claude.ai Settings → Connectors).
+
+No push notification sent for this run via the owner-facing channel: a quiet, uneventful day (0
+items — the config filters and substance checks did their job rather than anything breaking),
+nothing time-sensitive, and the standing Linear blockage (94 days) logged here rather than
+escalated. The OpenAI category-filter drops (2 Science-tagged posts) and the NVIDIA/HF substance
+drops are judgment notes worth the owner's eye on a quiet day, not urgent action items.
+
+Commit: `news: daily run 2026-11-25 (0 items, 0 companies fresh, Linear unavailable)`.
