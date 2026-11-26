@@ -8508,3 +8508,160 @@ escalated. The OpenAI category-filter drops (2 Science-tagged posts) and the NVI
 drops are judgment notes worth the owner's eye on a quiet day, not urgent action items.
 
 Commit: `news: daily run 2026-11-25 (0 items, 0 companies fresh, Linear unavailable)`.
+
+## 2026-11-26 05:0x UTC — radar — ok (+15 items, 3 highlights, Linear unavailable)
+
+`fetch_radar.py` ran clean (exit 0). Window since `2026-11-25T03:03 UTC` (last successful radar
+run: 2026-11-25 05:0x UTC).
+
+**Branch note.** Session started with HEAD detached at `8841e43` (yesterday's daily-run tip) and
+the local `main` ref stale at `149b59f`; `git fetch origin main` showed `origin/main` was actually
+at `8841e43` too (local fetch cache was stale, same recurring pattern as prior runs) — fixed by
+fetching and fast-forwarding `main` to `origin/main`.
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | 0 |
+| inference-infra | 0 | 0 | 0 |
+| oss-ml-systems | 1 | 0 | 1 (eleuther HTTP 404) |
+| bigtech-eng | 2 | 1 | 0 |
+| research-institutes | 1 | 1 | 0 |
+| technical-newsletters | 1 | 1 | 0 |
+| practitioner-blogs | 0 | 0 | 1 (latent-space proxy-blocked) |
+| youtube | 8 | 6 | 0 |
+| community | 27 | 6 | 1 (reddit HTTP 404) |
+| mistral-watch | 0 | 0 | 0 |
+
+Totals: 40 raw candidates, 15 confirmed, 3 source errors.
+
+**New/changed failure modes this run:** `eleuther` HTTP 404 again (now the third run in a row per
+recent notes — the feed URL has likely moved or been retired, not a transient blip; worth a
+manual check of `blog.eleuther.ai` if the owner has a minute). `latent-space`
+(`https://www.latent.space/feed`) failed with the same proxy tunnel 403 ("no rule or network
+setting allows this host") seen 2026-11-25 — looks like a standing cloud-env allowlist gap, not
+site-side; no fallback ladder for radar sources, logged and moved on. `reddit` returned HTTP 404
+again today (second run in this shape, after the usual 429) — still one-fetch/day, no retry.
+Two new VERIFY SUBSTANCE transport blocks today: `fzakaria.com` and `www.proofatlas.ai` both
+failed WebFetch with DNS resolution errors (host outside the session's network allowlist), and
+the one curl retry on each also tunnel-403'd — same shape as the `michaelharley.net`/`kradle.ai`
+blocks from 2026-11-25, suggesting the allowlist is scoped tightly enough that a meaningful share
+of community-linked personal/indie domains fall outside it by default.
+
+**oss-ml-systems (0/1 confirmed):** PyTorch's "Explore the PyTorch Day China 2026 Schedule" —
+a conference-schedule promo post, not engineering content; dropped per the pass-1 "product
+marketing" / conference-post criterion (the deterministic `drop_title_re` filter didn't catch
+this phrasing, judgement did).
+
+**bigtech-eng (1/2 confirmed):** GitHub's "How to choose the next safe step in application
+modernization" — tutorial-grade Copilot education, dropped per the explicit pass-1 criterion.
+Cloudflare's "Introducing Search for Agents" — verified via WebFetch, a real discoverability
+protocol (agent-advertised search endpoints, the new HTTP QUERY method per IETF RFC 10008) —
+HIGH fit on "MCP and the agent-tool ecosystem," `highlight`.
+
+**research-institutes (1/1 confirmed):** Ai2's "Where scientists draw the line on AI agents" —
+verified via WebFetch, an exploratory 17-scientist interview study on agent trust/control in
+research work. Genuinely a policy/opinion piece (no implementation, no benchmark) despite being
+labeled a "Tech Report" — kept at LOW fit for the "AI agents in practice" topic adjacency, not a
+highlight.
+
+**technical-newsletters (1/1 confirmed):** SemiAnalysis's "Evaluating Recent Model Releases on
+GDPx" — verified via WebFetch (partially paywalled), re-runs the 2026-11-02 GDPx benchmark
+against GPT-6.2 Astra/Sol, Fable 5.2, Gemini 4 Carbon/Neon, Qwen4-Max with hard per-domain and
+per-dollar numbers. Direct hit on "Evals in practice," `highlight`.
+
+**youtube (6/8 confirmed):** Two more AI Engineer-channel conference talks (Lance Martin/
+Anthropic on 1,000 Claude agents formalizing Fermat's Last Theorem; Quinn Slack/Amp on a 21-person
+$100M+ agent company) continuing this file's recurring speaker-driven thread — both YouTube
+bot-check-blocked, kept on title/speaker strength only. One Latent Space talk (Thariq Shihipar,
+OpenAI) kept at MEDIUM fit on speaker alone — the title gives no technical hook and YouTube
+returned only its nav shell. Of five ML Street Talk Shorts, three kept (mode collapse from
+reward-driven creativity training, a benchmarks-credibility short, a grokking/representations
+short — all MEDIUM to MEDIUM-HIGH fit) and two dropped on owner-fit for volume: "Why Naive PhD
+Students Beat Entrenched Experts in AI" (punditry, thinnest technical specificity of the five)
+and "One Giant AI vs. A Million Specialists: The $1 Quadrillion Problem" (same, soundbite-grade).
+
+**community (6/27 confirmed)** — heaviest-volume category again, with the same HN cross-tag
+duplication pattern as recent runs. Dedup first: `Show HN: Rust agent with an Inkling 2 Mini
+inference engine` appeared in `hn-show-inference`+`hn-show-rag`+`hn-show-agents` (one item);
+`Show HN: Brickie` and `Show HN: Genesis Map` both resurfaced today (`hn-show-rag`+
+`hn-show-agents`, `hn-show-rag`+`hn-show-mcp` respectively) but were already written to this file
+on 2026-11-24 — both dropped as file-level duplicates, not re-added. `LLM agents work for their
+parent companies, not for you` (`hn-trend-llm`) is the same URL already captured 2026-11-24 —
+dropped as a duplicate. `hf-trending-spaces` resurfaced two more already-captured entries
+(`software-mansion/Reverb-TTS-runntime`, `lewtun/from-llms-to-swarms`, both already in this file's
+2026-11-23 section) — dropped as duplicates, not re-added (the snapshot-diff source re-emits
+"new entrants" day over day independent of this file's own dedup state).
+
+Triage drops (technical bar / off-topic): `Show HN: Mason` (Postgres read-replica on DuckDB,
+103 pts) — real engineering but no AI content in the fetched summary, a keyword false-positive
+via the broad `AI`/`RAG` search terms, same pattern flagged in the 2026-11-25 log; dropped as
+off-topic. `Show HN: Keeping faces and features consistent across AI-driven comic pages`,
+`Show HN: Ribbon Architect`, `Show HN: Rchive`, `Show HN: Old Nvidia and ATI tech demos` —
+consumer-app/novelty launches with no engineering-technique substance for a technical builder;
+dropped per the pass-1 consumer-app/off-topic criterion.
+
+Owner-fit drops (volume, not quality, 17 technical-bar survivors trimmed toward the ≤15/day
+budget): `hf-daily-papers` "Sage-Med" (medical multimodal scaling laws) and "What Is Redundant at
+High Resolution?" (image-restoration efficiency) — both LOW fit, pure-academic/vision-domain
+with no agent/local-model/evals tie-in, weakest of today's three HF papers. `hf-trending-models`
+"nvidia/Nemotron-Labs-Image-30B-A3B" (text-to-image) — LOW fit, image-generation rather than the
+owner's core LLM/agent buckets. `hf-trending-spaces` "Qwen-Image-2.1-Studio" (image-gen demo) and
+"voice-isolator" (audio-separation Gradio demo) — LOW/MEDIUM-LOW fit, both practical tools but
+outside the HIGH/MEDIUM interest buckets; cut for volume.
+
+Confirmed, in brief: `Show HN: Rust agent with an Inkling 2 Mini inference engine for Apple
+Silicon` (`onatm/rustling`) — verified via `git clone`, a real Rust local-inference server +
+agent-chat harness for Thinking Machines Lab's newly released "Inkling 2 Mini," `highlight`.
+`Top open problems in mathematics ranked by LLM-assessed importance` (ProofAtlas, HN 103 pts) and
+`Browser tabs as a container runtime` (lobste.rs, score 2) — both VERIFY-SUBSTANCE transport-
+blocked (see failure-modes note above), kept on title/tags only, out of highlight consideration.
+`Agentic LongLive` (HF daily papers) — kept at LOW-MEDIUM fit for its "agentic memory" framing
+despite the video-generation application. Two more Inkling-2-Mini-adjacent HF trending models:
+`nari-labs/Qwen3.8-27B-NariQ-GGUF` — verified via WebFetch, a trellis-coded (QTIP-based)
+quantization of Qwen3.8-27B calibrated on real coding-agent traces, with per-benchmark
+before/after numbers (not promoted to highlight only for its non-stock-runtime caveat);
+`strata-engine/Inkling-2-Mini-Strata` — verified via WebFetch, a three-tier quantized build of
+Inkling 2 Mini with hard fidelity/perplexity numbers per GPU tier. Flagging the Inkling-2-Mini
+convergence explicitly for the owner: three independent community artifacts this run alone
+(rustling, NariQ by extension of the same 27B-class open-weight wave, and the Strata build) target
+the same freshly-released open-weight model from three different angles (Rust/Apple-Silicon
+serving, agent-trace-calibrated quantization, GPU-tier-portable quantization) — a real
+community-adoption signal, not three unrelated items.
+
+**VERIFY SUBSTANCE (5 candidates attempted):** Cloudflare "Search for Agents" — verified via
+WebFetch, passed, `highlight`. SemiAnalysis GDPx re-evaluation — verified via WebFetch (partial,
+paywalled sections), passed, `highlight`. Ai2 scientist-interview study — verified via WebFetch,
+passed substance-wise but reads as policy/opinion, not promoted. `onatm/rustling` — verified via
+`git clone` (README), passed, `highlight`. `fzakaria.com` (Browser tabs as a container runtime) —
+WebFetch DNS failure (host outside the session's network allowlist), one curl retry also
+tunnel-403'd — transport blocked, kept as a regular item, out of highlight consideration.
+`www.proofatlas.ai` was checked opportunistically after the cap (also transport-blocked, same
+treatment).
+
+3 top picks marked `highlight`: Cloudflare's "Search for Agents" (a concrete, adoptable
+agent-discoverability protocol — direct hit on "MCP and the agent-tool ecosystem"), SemiAnalysis's
+GDPx re-evaluation (hard per-domain, per-dollar frontier-model numbers — "Evals in practice" is a
+HIGH-interest topic and this is the deepest eval content of the day), and `onatm/rustling` (a
+real, inspectable local-inference + agent-chat implementation for a newly released open-weight
+model, with the broader Inkling-2-Mini convergence noted above as supporting context). Silent
+categories today (0 raw candidates): lab-engineering, inference-infra, mistral-watch.
+
+**Linear: UNAVAILABLE again this run** — reconnecting to the Linear MCP server with its existing
+sign-in was refused (same state as every run since 2026-08-24 — now **94 days**). No review-queue
+cards created for the 15 confirmed items; all 15 are fully written to `radar/bigtech-eng.md` /
+`radar/research-institutes.md` / `radar/technical-newsletters.md` / `radar/youtube.md` /
+`radar/community.md` and should be backfilled to the "Radar" project once reconnected. Owner
+action needed (unchanged): reconnect the Linear connector (claude.ai Settings → Connectors).
+
+**Volume note.** 15 confirmed items (3 highlights) — right at the ≤15/day budget ceiling.
+Community and youtube carried most of today's volume (6 each); one real strand apiece in
+bigtech-eng, research-institutes, and technical-newsletters.
+
+No push notification sent for this run via the owner-facing channel: a healthy, on-budget radar
+day with 3 solid, verified highlights (none time-critical), a genuinely interesting but
+non-urgent cross-source convergence (three independent projects serving the same new open-weight
+model), and no failure mode beyond the standing Linear blockage (94 days, logged every run since
+2026-08-24) and the network-allowlist transport gaps noted above (worth a look if the pattern
+keeps recurring, not urgent today).
+
+Commit: `news: radar run 2026-11-26 (+15 items, 3 highlights, Linear unavailable)`.
