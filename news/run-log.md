@@ -8731,3 +8731,29 @@ No push notification sent for this run: a normal, fully-sourced +6 day with no n
 beyond the standing Linear/Perplexity-Jina blockages, already flagged repeatedly.
 
 Commit: `news: daily run 2026-11-26 (+6 items, 4 companies fresh, Linear unavailable)`.
+
+## 2026-11-26 07:10 UTC — deep-dive — blocked (Linear unavailable)
+
+**Blocked at step 1 (PICK): the Linear MCP server refused the session's existing sign-in
+(re-authorization required; one reconnect attempt made via a ToolSearch call naming Linear,
+refused again). Same state as every run since 2026-08-24 — now 94 days.** (The separate
+`plugin:design:linear` server also failed to connect, `ERR_PROXY_TUNNEL` proxy 403, as in prior
+runs.) The deep dive's only input is the `hot` label on cards in Linear project "Radar"; with
+the board unreadable there is no way to know which cards the owner approved, and no repo-side
+fallback exists — picking items by own judgement would bypass the owner-approval gate. Cards
+processed: 0. Files written: 0 (`radar/deep/` still holds only `TEMPLATE.md`). Leftovers:
+unknown (the queue is unreadable, not known-empty). This is the fourth consecutive fully-blocked
+deep-dive run under the current Mon/Thu cadence (11-16, 11-19, 11-23, 11-26); the pipeline has
+produced zero documents since going live 2026-08-27.
+
+Radar collection itself remains healthy (this morning's 05:00 radar run added +15 items with
+3 highlights), so once Linear is reconnected the review queue can be backfilled from the radar
+files and the next Mon/Thu run picks up any `hot` backlog automatically (up to 3 cards per run,
+oldest first). Owner action needed (unchanged): reconnect the Linear connector via claude.ai
+Settings → Connectors, or authorize it via `claude mcp`/`/mcp` in an interactive session.
+
+No push notification sent: the Linear blockage is a standing, repeatedly-flagged condition
+(flagged in both of today's earlier runs and every run since 2026-08-24), and this run surfaced
+nothing else new.
+
+Commit: `news: deep dive 2026-11-26 (0 cards, blocked — Linear unavailable)`.
