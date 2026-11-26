@@ -4,13 +4,14 @@ aliases:
   - Nvidia
 sources:
   - https://developer.nvidia.com/blog/feed
-updated: 2026-11-24
+updated: 2026-11-26
 ---
 
 MOC page for **NVIDIA** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W47
 
+- **2026-11-25** — [How to Optimize NVFP4 Attention on NVIDIA RTX Blackwell Through Register Recycling](https://developer.nvidia.com/blog/how-to-optimize-nvfp4-attention-on-nvidia-rtx-blackwell-through-register-recycling/) — NVIDIA introduces "register recycling," a kernel-scheduling technique for NVFP4 attention on RTX Blackwell (SM120) GPUs, delivering up to 1.64x kernel speedup and up to 15.34% end-to-end latency reduction across world-model workloads; merged into FlashInfer.
 - **2026-11-23** — [Accelerating Direct Sparse Solvers for Computational Engineering with NVIDIA cuDSS 1.0](https://developer.nvidia.com/blog/accelerating-direct-sparse-solvers-for-computational-engineering-with-nvidia-cudss-1-0/) — NVIDIA ships cuDSS 1.0 (general availability), a GPU direct sparse solver reporting up to 5.9x faster factorization and ~151x faster triangular solve vs. Intel MKL, plus a hybrid-memory mode fitting larger problems on one GPU.
 - **2026-11-23** — [Get Started with GPU-Accelerated DuckDB Analytics Using the Sirius Core Extension](https://developer.nvidia.com/blog/get-started-with-gpu-accelerated-duckdb-analytics-using-the-sirius-core-extension/) — NVIDIA and DuckLabs release Sirius, a GPU-native SQL engine as a two-command DuckDB core extension; tuned two-GPU configs show 3.25x–5.50x speedups over CPU DuckDB on TPC-H-derived benchmarks up to 10TB.
 - **2026-11-19** — [Reducing Rollout Bottlenecks in Reinforcement Learning with NVIDIA Dynamo](https://developer.nvidia.com/blog/reducing-rollout-bottlenecks-in-reinforcement-learning-with-nvidia-dynamo/) — NVIDIA details Dynamo's KV-aware routing, ModelExpress weight distribution, and automatic worker recovery for RL rollout bottlenecks; CoreWeave reports up to 15x faster weight updates.

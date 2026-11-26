@@ -5,13 +5,16 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-11-24
+updated: 2026-11-26
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W47
 
+- **2026-11-26** — [Building on Nemotron 3.5 Parse: Open Data, Fine-Tuning, and Faster Inference](https://huggingface.co/blog/nvidia/building-on-nemotron-35-parse-open-data-fine-tunin) — NVIDIA releases follow-up resources for its 0.6B Nemotron 3.5 Parse document-to-structured-data model: three open training datasets (up to 9.98M examples), a GRPO fine-tuning recipe, and a DFlash2 speculator reaching 20.44 pages/s at concurrency 512 on one H200 (vs. 2.98 for Parse 2.0).
+- **2026-11-25** — [Where scientists draw the line on AI agents](https://huggingface.co/blog/allenai/where-scientists-draw-the-line-on-ai-agents) — Allen Institute for AI publishes an exploratory interview study of 17 US-based scientists on how AI research agents should be developed and evaluated, surfacing five "scientific trust" dimensions (validation, privacy, objectivity, accountability, transparency) and proposed future benchmarks. Same story also radar-tracked under research-institutes (different URL).
+- **2026-11-25** — [An Indic Voice Agent with CUGA](https://huggingface.co/blog/ibm-research/an-indic-voice-agent-with-cuga) — IBM Research builds a voice-based farm assistant on its open-source CUGA agent harness, answering spoken questions in Hindi/Tamil/Telugu/Gujarati/Marathi and other languages by searching a 154-page English agricultural handbook via multilingual embeddings, with source pages shown for verification.
 - **2026-11-23** — [RoboTrack: Point tracking for real-world robotic manipulation](https://huggingface.co/blog/allenai/robotrack) — Allen Institute for AI introduces RoboTrack (benchmark + synthetic training data) and two new trackers for robotic manipulation, finding leading trackers perform notably worse on real manipulation video than on existing robotics benchmarks. Same story also radar-tracked under research-institutes (different URL).
 - **2026-11-20** — [Welcome Inkling 2 Mini, Cutting-edge Performance for your Local Setup](https://huggingface.co/blog/inkling2mini) — Hugging Face and Thinking Machines Lab release Inkling 2 Mini, an open-weight ~26B-total/3B-active MoE "looped transformer" (48 logical layers from 24 physical via middle-layer looping), 1M-token multimodal context, day-zero Transformers/llama.cpp/MLX/SGLang support.
 - **2026-11-20** — [Introducing harness adapters: adapt your favorite model to your harness to improve performance and cost](https://huggingface.co/blog/harness-adapters-at-scale) — Hugging Face introduces "harness adapters" (LoRA, RL-trained inside a specific agent harness on Qwen3.8-27B), raising Terminal-Bench 2.1 pass@1 from ~39% to 55% with the Pi harness while cutting tokens/task from ~2.9K to ~1.5K.

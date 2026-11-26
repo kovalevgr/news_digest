@@ -8665,3 +8665,69 @@ model), and no failure mode beyond the standing Linear blockage (94 days, logged
 keeps recurring, not urgent today).
 
 Commit: `news: radar run 2026-11-26 (+15 items, 3 highlights, Linear unavailable)`.
+
+## 2026-11-26 06:0x UTC — daily run — ok (+6 items, 4 companies fresh, Linear unavailable)
+
+**Linear: UNAVAILABLE this run** — `mcp__Linear__*` reconnected with the existing sign-in and was
+refused (re-authorization required, same as every run since 2026-08-24 — **95 days**, matching
+this morning's radar-run count). All 6 confirmed items below are fully written to `topics/` +
+`artifacts/`; only the Linear "News digest" cards are behind.
+
+`fetch_feeds.py` ran clean (exit 0) for all 11 companies. Window since `2026-11-25T04:02 UTC`
+(26h default; last successful daily run was 2026-11-25).
+
+| company | TIER-1 result | gap-scrape | outcome |
+| --- | --- | --- | --- |
+| OpenAI | 200, 0 fresh | WebFetch `openai.com/news` | 3 candidates seen (Shirudo Nov23/Security, GPT-6 protein-design Nov24/Science, distant-planets-with-Astra Nov24/Science) — all three already evaluated and category-filtered yesterday (Science/Security not in `category_keep`); nothing new |
+| Anthropic | n/a (fetch-only) | WebFetch `anthropic.com/news` | nothing newer than 2026-11-20 (IPO close) — already captured; bare "November 26" date heading, no post under it |
+| Google DeepMind | 200, 0 fresh (etag changed, no in-window item) | WebFetch `deepmind.google/blog/` listing | **1 new** (Mass Spec Skills for Google Antigravity), 2026-11-25; other listed items (Hydrogen, AlphaGenome 2, weather datasets) already captured |
+| Google Research | 200, 1 fresh | — | **1 new** (Verifiable Social Reasoning for LLM Assistants), 2026-11-25 |
+| Microsoft | 200, 0 fresh | WebFetch MS Research blog listing | newest still 2026-11-16 (TokenEconomizer) — already captured |
+| NVIDIA | 200, 1 fresh | — | **1 new** (NVFP4 attention register recycling on RTX Blackwell), 2026-11-25 |
+| xAI | n/a (jina-only) | curl `r.jina.ai/https://x.ai/news` (anonymous, 200) | newest still 2026-11-16 (Grok Bot accounting) — already captured |
+| Mistral AI | 304 not modified | WebFetch `mistral.ai/news` listing | newest still 2026-11-05 (Studio) — already captured |
+| Hugging Face | 200, 3 fresh | — | **3 new** (Nemotron 3.5 Parse follow-up; Ai2 scientist-interview study; IBM Research Indic voice agent with CUGA) |
+| Cursor | 200, 0 fresh | WebFetch `cursor.com/changelog` listing | newest still 2026-11-06 (Voice Chat with Agents) — already captured |
+| Perplexity | n/a (jina-only) | curl `r.jina.ai/.../hub/blog` → `403 AbuseAlleviationError` (unchanged, standing); WebSearch fallback | only secondary coverage (ARR >$1B milestone, vague "Monitor API"/"new research lab" mentions) with no traceable primary `perplexity.ai` URL — **not added**; standing gap now extends past the 2026-11-17 Escaping-SPACE-II gap, still no `JINA_API_KEY` |
+
+Totals: **6 items, 4 companies fresh** (Google DeepMind via gap-scrape, Google Research, NVIDIA,
+Hugging Face), 0 hard errors.
+
+**Confirm/dedup pass.** All 6 items verified as real announcements (not ads/hiring/roundups) via
+their own feed entries or a WebFetch re-fetch of the primary post; none duplicate an existing
+`topics/` entry. One cross-system note: the Ai2 "Where scientists draw the line on AI agents"
+piece is the same story this morning's radar run already captured under
+`radar/research-institutes.md` at a different URL (`allenai.org/blog/...` vs. the
+`huggingface.co/blog/allenai/...` URL the company feed carried) — kept in `topics/huggingface.md`
+per the established cross-tracking precedent (same treatment as the 2026-11-23 RoboTrack entry),
+with a note pointing to the radar copy; no `[duplicate]` marker since these are genuinely
+different company-vs-radar tracks, not the same list. Artifacts written:
+`2026-11-25-google-research-verifiable-social-reasoning.md`,
+`2026-11-25-nvidia-nvfp4-register-recycling.md`,
+`2026-11-25-google-deepmind-mass-spec-skills.md`,
+`2026-11-26-huggingface-nemotron-3-5-parse.md`,
+`2026-11-25-huggingface-scientists-ai-agents.md`,
+`2026-11-25-huggingface-indic-voice-agent-cuga.md`. All filed under the still-open `## 2026-W47`
+heading in each topics file, matching how 2026-11-23/24/25 items were filed (continuing that
+established precedent rather than rolling to a strict-ISO `## 2026-W48` unilaterally).
+
+**OpenAI category-filter note (repeat, third/fourth occurrence).** Two more Science-tagged posts
+(protein-design capabilities, distant-planets-with-Astra) joined yesterday's Shirudo
+(Security)/Managing-frontier-AI-risk (Safety) drops — all genuinely substantive technical content
+filtered purely by category label. Still flagging for the owner that `category_keep` (currently
+`{Product, Engineering, Research, Publication, Release}`) may be worth revisiting if Science
+keeps recurring as a home for real results.
+
+**Perplexity — standing gap, Jina still key-less.** Same `403 AbuseAlleviationError` on anonymous
+Jina as every recent run; `JINA_API_KEY` remains unset. WebSearch fallback surfaced only
+secondary/aggregator coverage with no confirmable primary-source URL, so nothing added — same
+never-invent-facts call as prior runs.
+
+**Linear reconnect still overdue** (now 95 days, running since 2026-08-24): reconnect via
+claude.ai Settings → Connectors. No Linear cards could be created for today's 6 new items; they
+are fully covered in `topics/`/`artifacts/` and should be backfilled to Linear once reconnected.
+
+No push notification sent for this run: a normal, fully-sourced +6 day with no new failure modes
+beyond the standing Linear/Perplexity-Jina blockages, already flagged repeatedly.
+
+Commit: `news: daily run 2026-11-26 (+6 items, 4 companies fresh, Linear unavailable)`.
