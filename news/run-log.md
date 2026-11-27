@@ -8864,3 +8864,92 @@ failure mode beyond the standing Linear/eleuther/latent-space/reddit/personal-do
 blockages, all already flagged repeatedly in prior runs.
 
 Commit: `news: radar run 2026-11-27 (+11 items, 2 highlights, Linear unavailable)`.
+
+## 2026-11-27 06:0x UTC — daily — ok (+3 items, 2 companies fresh, Linear unavailable)
+
+**Branch note.** Session started with HEAD detached at `e87addd` (tip of this morning's radar
+run) and local `main` stale at `149b59f`; `origin/main` was already at `e87addd` — same
+recurring stale-container-snapshot pattern as every daily/deep-dive run since 2026-11-19. Fixed
+by checking out `main` and fast-forwarding to `origin/main`. No commits missing from the remote.
+
+`fetch_feeds.py` ran clean (exit 0, one confirmed HTTP 304 on nvidia). Window since
+`2026-11-26T04:02 UTC` (last successful daily run: 2026-11-26 06:0x UTC).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss | 0 | yes (WebFetch openai.com/news listing) | - |
+| anthropic | fetch | 0 | yes (WebFetch anthropic.com/news) | - |
+| google-deepmind | rss | 0 | yes (WebFetch deepmind.google/blog/ listing) | - |
+| google-research | rss | 0 | yes (WebFetch research.google/blog/ listing) | - |
+| microsoft | rss | 0 | yes (WebFetch microsoft.com/en-us/research/blog/ listing) | - |
+| nvidia | rss | 0 | no (confirmed HTTP 304 not-modified) | - |
+| xai | jina | 0 | yes (anonymous Jina — worked cleanly this run) | - |
+| mistral | rss | 0 | yes (WebFetch mistral.ai/news listing) | - |
+| huggingface | rss | 1 | no | - |
+| cursor | rss | 0 | yes (WebFetch cursor.com/changelog listing) | - |
+| perplexity | jina | 0 | yes (anonymous Jina — worked cleanly this run) | - |
+
+Totals: 3 items, 2 companies fresh (huggingface, perplexity) — 9 gap-scrapes attempted (openai,
+anthropic, google-deepmind, google-research, microsoft, xai, mistral, cursor, perplexity);
+nvidia skipped per the established 304 precedent.
+
+**Hugging Face — 1 new item via TIER-1, confirmed.** "Introducing the llama.cpp benchmark
+dashboard for AMD Ryzen and Radeon" (`ggml-org`, Nov 26) — a public HF-hosted dashboard tracking
+llama.cpp prompt-processing/text-generation throughput across builds, models and quantizations
+on AMD Radeon GPUs (8060S, R9700S), weekly automated benchmarks via `llama-bench`, raw data
+published openly in an HF Storage Bucket. A genuine tool release with concrete methodology —
+written to topics + artifact.
+
+**Perplexity — gap-scrape found 7 new posts on the blog listing, 2 confirmed, 5 dropped as
+non-announcement SEO/glossary content.** Anonymous Jina worked cleanly this run (no 401/403,
+unlike 2026-11-25's new failure shape). Dropped: "How do you create an internal search engine?"
+(Nov 24, tagged **Ideas**), "Context compaction: what happens when your AI chat runs out of
+room" (Nov 25), "An AI orchestration layer for enterprises" (Nov 23), "How to use AI data
+enrichment and verify the results" (Nov 20), "What Is RAG as a Service (RaaS)?" (Nov 19) —
+all explainer/glossary-style content-marketing posts with no new product, feature, or result of
+Perplexity's own; same genre as ads/roundup exclusions, never genuinely "announcing" anything.
+Confirmed, both Nov 25: **"Freeze the web with Perplexity Time Machine"** (Developers) — a
+`snapshot_as_of` cutoff (up to 365 days back) for the Search API and Context API, restricting
+retrieval to stored page copies as of a chosen date; ships with an RL-forecasting experiment
+(GLM-5.3 Flash on Polymarket questions, held-out reward 0.77→0.80 with Time Machine vs. 0.94
+with the live web "cheating") and a benchmark against Exa Snapshot (0.25-0.5% of Time Machine
+pages leaked post-cutoff info vs. 1.10% for Exa on the random sample); priced at standard
+Search/Context API rates, no surcharge. **"Perplexity Pro now includes weekly Computer usage"**
+(News) — all paid Pro plans get a weekly included-usage meter for Computer (previously zero
+Computer credits on Pro), resetting 7 days after first use, falling back to paid credits when
+exhausted; Max/Enterprise/promo plans unchanged. Both written to topics + artifacts.
+
+**OpenAI — gap-scrape found the same 3 known non-keep-category posts, still correctly
+filtered.** "GPT-6 models demonstrate intrinsic protein-design capabilities" and "Searching for
+distant planets with Astra" (both Nov 24, category **Science**) and "OpenAI and Cisco introduce
+Shirudo" (Nov 23, category **Security**) — none in `category_keep`
+({Product, Engineering, Research, Publication, Release}), so all three are fail-closed dropped
+per config, same as every run since they first surfaced (2026-11-25 log). Nothing new to flag
+beyond the standing note that Science/Security keep recurring as the dropped categories.
+
+**Anthropic, Google DeepMind, Google Research, Microsoft, xAI, Mistral AI, Cursor — gap-scrapes
+all came up empty.** Each listing's newest post matches what's already captured (Google
+DeepMind's "Introducing Gemini 4 Neon" surfaced again near the top of the blog listing — already
+captured 2026-11-18, not new despite appearing prominently). Mistral in particular remains
+silent since 2026-11-05 (22 days) — genuinely quiet, not a fetch artifact: today's TIER-1 pass
+got no 304 (a real miss, not a confirmed no-change signal per the script's diagnostics), and the
+gap-scrape listing's newest item is still "Le Chonk brings the brains. Studio puts it to work."
+xAI's gap-scrape (anonymous Jina, worked cleanly) confirms the newest post is still the Nov 16
+accounting-bot piece. Nothing new for any of these seven.
+
+**Dedup note.** No cross-company same-URL collisions this run; no collisions with this week's
+radar files either (all 3 confirmed items are company-blog-only content, not practitioner/radar
+material).
+
+**Linear: UNAVAILABLE again this run** — reconnecting to the Linear MCP server with its existing
+sign-in was refused again (same state as every run since 2026-08-24 — now **95 days**, matching
+this morning's radar run). No issues created; today's 3 items (1 HF, 2 Perplexity) should be
+backfilled to Linear project "News digest" once reconnected. Owner action needed (unchanged):
+reconnect the Linear connector (claude.ai Settings → Connectors).
+
+No push notification sent for this run via the owner-facing channel: a quiet, fully-sourced day
+(3 items, both companies' items fully grounded with primary-source detail) and no new failure
+mode beyond the standing Linear blockage already flagged repeatedly. The Perplexity SEO/glossary
+filtering judgment call (5 posts dropped) is worth the owner's eye on a quiet day, not urgent.
+
+Commit: `news: daily run 2026-11-27 (+3 items, 2 companies fresh, Linear unavailable)`.

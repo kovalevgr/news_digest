@@ -5,13 +5,14 @@ aliases:
   - HuggingFace
 sources:
   - https://huggingface.co/blog/feed.xml
-updated: 2026-11-26
+updated: 2026-11-27
 ---
 
 MOC page for **Hugging Face** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W47
 
+- **2026-11-26** — [Introducing the llama.cpp benchmark dashboard for AMD Ryzen and Radeon](https://huggingface.co/blog/ggml-org/llamacpp-amd-bench) — The ggml-org team (llama.cpp) publishes a public Hugging Face-hosted dashboard tracking prompt-processing (PP512) and text-generation (TG128) throughput across llama.cpp builds, models, and quantizations on AMD Radeon GPUs (8060S, R9700S); weekly automated runs, raw data published openly.
 - **2026-11-26** — [Building on Nemotron 3.5 Parse: Open Data, Fine-Tuning, and Faster Inference](https://huggingface.co/blog/nvidia/building-on-nemotron-35-parse-open-data-fine-tunin) — NVIDIA releases follow-up resources for its 0.6B Nemotron 3.5 Parse document-to-structured-data model: three open training datasets (up to 9.98M examples), a GRPO fine-tuning recipe, and a DFlash2 speculator reaching 20.44 pages/s at concurrency 512 on one H200 (vs. 2.98 for Parse 2.0).
 - **2026-11-25** — [Where scientists draw the line on AI agents](https://huggingface.co/blog/allenai/where-scientists-draw-the-line-on-ai-agents) — Allen Institute for AI publishes an exploratory interview study of 17 US-based scientists on how AI research agents should be developed and evaluated, surfacing five "scientific trust" dimensions (validation, privacy, objectivity, accountability, transparency) and proposed future benchmarks. Same story also radar-tracked under research-institutes (different URL).
 - **2026-11-25** — [An Indic Voice Agent with CUGA](https://huggingface.co/blog/ibm-research/an-indic-voice-agent-with-cuga) — IBM Research builds a voice-based farm assistant on its open-source CUGA agent harness, answering spoken questions in Hindi/Tamil/Telugu/Gujarati/Marathi and other languages by searching a 154-page English agricultural handbook via multilingual embeddings, with source pages shown for verification.

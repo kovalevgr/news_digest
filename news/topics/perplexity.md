@@ -4,13 +4,15 @@ aliases:
   - Perplexity AI
 sources:
   - https://www.perplexity.ai/hub/blog
-updated: 2026-11-22
+updated: 2026-11-27
 ---
 
 MOC page for **Perplexity** — AI-news items collected daily by the news routine (see [[workflow]]); newest week on top, one line per item.
 
 ## 2026-W47
 
+- **2026-11-25** — [Freeze the web with Perplexity Time Machine](https://www.perplexity.ai/hub/blog/freeze-the-web-with-perplexity-time-machine) — Perplexity launches Time Machine for the Search API and Context API, a `snapshot_as_of` cutoff (up to 365 days back) restricting retrieval to stored page copies as of a chosen date; an RL-forecasting experiment and a vs.-Exa-Snapshot benchmark are included. Found via gap-scrape (Jina worked cleanly this run).
+- **2026-11-25** — [Perplexity Pro now includes weekly Computer usage](https://www.perplexity.ai/hub/blog/perplexity-pro-now-includes-weekly-computer-usage) — Perplexity gives all paid Pro subscribers a weekly included-usage meter for Computer (previously zero Computer credits/usage on Pro); resets 7 days after first use, falls back to paid credits when exhausted. Found via gap-scrape (Jina worked cleanly this run).
 - **2026-11-18** — [Work with teammates on mobile with voice mode](https://www.perplexity.ai/hub/blog/work-with-teammates-on-mobile-with-voice-mode) — Perplexity launches voice mode for Teammates on iOS/Android, letting Max subscribers call a teammate to assign work or get project updates on the go. Found via gap-scrape (Jina worked cleanly this run).
 - **2026-11-18** — [Self-improving skills](https://www.perplexity.ai/hub/blog/self-improving-skills) — Perplexity extends Brain to automatically create and update agent "skills" (reusable task instructions) per-user, and via a human-reviewed pipeline, for all users' built-in skills; 80K+ personal skills written for 20K+ users since Aug 1. Found via gap-scrape (Jina worked cleanly this run).
 - **2026-11-17** — [Context API extracts full context from any web page](https://www.perplexity.ai/hub/blog/context-api-extracts-full-context-from-any-web-page) — Perplexity launches the Context API, reading up to 10 URLs and returning clean Markdown/HTML/links/query-based snippets; 92.3% usable, 87.9% fact recall vs. Firecrawl/Exa/Parallel/Keenable/Context.dev in a 715-site test. Found via gap-scrape (Jina worked cleanly this run).
