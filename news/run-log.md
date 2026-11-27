@@ -8757,3 +8757,110 @@ No push notification sent: the Linear blockage is a standing, repeatedly-flagged
 nothing else new.
 
 Commit: `news: deep dive 2026-11-26 (0 cards, blocked — Linear unavailable)`.
+
+## 2026-11-27 05:0x UTC — radar — ok (+11 items, 2 highlights, Linear unavailable)
+
+`fetch_radar.py` ran clean (exit 0). Window since `2026-11-26T03:03 UTC` (last successful radar
+run: 2026-11-26 05:0x UTC).
+
+**Branch note.** Session started with HEAD detached at `6fc8339` (yesterday's deep-dive tip);
+`git fetch origin main` confirmed `origin/main` was also at `6fc8339` (no divergence this time) —
+fast-forwarded the local `main` ref to match and checked it out.
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | 0 |
+| inference-infra | 0 | 0 | 0 |
+| oss-ml-systems | 0 | 0 | 1 (eleuther HTTP 404) |
+| bigtech-eng | 0 | 0 | 0 |
+| research-institutes | 0 | 0 | 0 |
+| technical-newsletters | 0 | 0 | 0 |
+| practitioner-blogs | 0 | 0 | 1 (latent-space proxy-tunnel 403) |
+| youtube | 5 | 4 | 0 |
+| community | 13 | 7 | 1 (reddit HTTP 404) |
+| mistral-watch | 0 | 0 | 0 |
+
+Totals: 18 raw candidates, 11 confirmed, 3 source errors.
+
+**A genuinely quiet day on the lab/bigtech/research/newsletter side** — all seven of those
+categories returned zero raw candidates (including `mistral-watch`, silent again). All signal
+today came from HF trending (community), lobste.rs, HN Show, and conference-talk YouTube.
+
+**Repeat failure modes, no new ones:** `eleuther` HTTP 404 again (now the fourth run in a row —
+the feed URL has very likely moved/retired, still worth the owner's manual check of
+`blog.eleuther.ai`). `latent-space` (`https://www.latent.space/feed`) failed with the same
+proxy-tunnel 403 as the last two runs — standing allowlist gap, not site-side. `reddit` HTTP 404
+again (third run in this specific shape) — one-fetch/day, no retry per policy. Two VERIFY
+SUBSTANCE transport blocks today on personal domains outside the allowlist:
+`blainehansen.me` and `janlukas.blog`, both WebFetch DNS failures with the one curl retry also
+tunnel-403'ing — same recurring shape as the `fzakaria.com`/`michaelharley.net`/`kradle.ai`/
+`proofatlas.ai` blocks from the last several runs.
+
+**Dedup.** `Show HN: Rust agent with an Inkling 2 Mini inference engine for Apple Silicon`
+(`onatm/rustling`) resurfaced across three HN feeds today (`hn-show-agents`, `hn-show-inference`,
+`hn-show-rag`) — already written to `community.md` on 2026-11-25 (as a highlight) — dropped as a
+file-level duplicate, not re-added, in all three occurrences. `briaai/BRIA-RMBG-3.0`
+(HF trending Spaces, a demo of the same background-removal model) is the same underlying release
+already captured as `briaai/RMBG-3.0` (HF trending models) on 2026-11-19 — judged the same story
+and dropped, not re-added.
+
+**community (7/13 confirmed).** Triage drops (technical bar/off-topic): `Show HN: SimDrop –
+Running iOS simulators in the macOS Finder sidebar` and `Show HN: I wrote an entire Vim manual
+over 4 years` — both real engineering/writing efforts but no AI content, keyword false-positives
+via the broad `AI`/`RAG` search terms (same pattern as the 2026-11-25/26 `Show HN: Mason` drop);
+dropped as off-topic.
+
+Confirmed, in brief: `orcarouter/Inkling-2-Mini-abliterated-GGUF` — verified via WebFetch, a
+refusal-reduced ("abliterated") quantized build of Inkling 2 Mini with hard before/after refusal
+and capability numbers, `highlight`; this is now the **fourth** independent community artifact
+targeting Inkling 2 Mini since its release (after rustling 11-25, NariQ 11-20, Strata 11-21) —
+flagging the convergence again for the owner. `Aleph-Alpha/Kolibri-1.1` — verified via WebFetch,
+a sparse-attention successor to Kolibri 1 (covered 2026-10-03) with a full before/after benchmark
+table that honestly reports regressions (agentic, Tau3-Bench Banking, RULER@256k, pretraining)
+alongside large wins (safety, AgentDojo ASR 69.7→0.9, ~3.4× cheaper serving), `highlight`.
+`HuggingFaceSwarms/scaling-swarms` — HIGH fit by title ("Scaling swarms to thousands of agents",
+direct hit on multi-agent orchestration) but WebFetch returned only nav/metadata from what is a
+JS-rendered interactive article — kept as a regular item, out of highlight consideration, worth a
+second look if the owner can open it directly. `KRAFTON/Raon-1-mini` and `sand-ai/MAGI-2-preview`
+— both unverified this run (outside the 5-candidate verification cap); the latter is a stale
+(2026-08-03) trending resurface with no new claim, kept at LOW fit for budget headroom since
+nothing stronger needed cutting today. Two lobste.rs posts — `The need for a formally verifiable
+mainstream programming language` (score 8, tagged `building-ai-tooling`) and `AI made
+self-hosting fun again` (score 4) — both transport-blocked (see failure modes above), kept on
+title/tags only.
+
+**youtube (4/5 confirmed).** Dropped `AI Engineering Is a Decade Ahead of the Maths #shorts`
+(ML Street Talk) per the pass-1 technical bar — a punditry/soundbite title with no concrete
+technique or claim, same treatment as the 2026-11-19/25 MLST-Shorts drops. Confirmed: two more
+AI Engineer-channel conference talks (`Execution Is Free` — Jason Liu, OpenAI; `Stop Building
+Software Factories` — Justin McCarthy, Diffusion, the latter continuing this file's recurring
+"software factory" thread from a contrarian angle), one Latent Space talk (`How Clay Builds GTM
+Agents` — Jeff Barg, Clay, a direct agents-in-practice hit), and one MLST Short (`The Paradox of
+Random Noise and Algorithmic Statistics`) kept at LOW-MEDIUM for genuine theoretical-ML content
+despite the Shorts format — none promoted to highlight, consistent with this file never having
+verified YouTube substance (bot-check/nav-shell blocks every run to date).
+
+**VERIFY SUBSTANCE (5 candidates attempted, the day's cap):** `HuggingFaceSwarms/scaling-swarms`
+— WebFetch succeeded but surfaced no body content (JS-rendered page), out of highlight.
+`orcarouter/Inkling-2-Mini-abliterated-GGUF` — WebFetch succeeded, full numbers, `highlight`.
+`blainehansen.me` (lobsters) — WebFetch DNS failure, curl retry tunnel-403'd, transport blocked.
+`Aleph-Alpha/Kolibri-1.1` — WebFetch succeeded, full benchmark table, `highlight`.
+`janlukas.blog` (lobsters) — WebFetch DNS failure, curl retry tunnel-403'd, transport blocked.
+
+2 top picks marked `highlight` today (a quieter day than most recently, no padding to 3):
+`orcarouter/Inkling-2-Mini-abliterated-GGUF` (continues the Inkling-2-Mini community-adoption
+thread with concrete refusal/capability numbers) and `Aleph-Alpha/Kolibri-1.1` (a transparent
+before/after release that reports real regressions, not just wins — direct hit on "Local/
+self-hosted models"). Silent categories today (0 raw candidates): lab-engineering,
+inference-infra, bigtech-eng, research-institutes, technical-newsletters, mistral-watch.
+
+**Linear: UNAVAILABLE again this run** — reconnecting to the Linear MCP server with its existing
+sign-in was refused again (same state as every run since 2026-08-24 — now **95 days**). No
+review-queue cards created; today's 11 items are fully covered in `radar/community.md` and
+`radar/youtube.md` and should be backfilled to Linear once reconnected.
+
+No push notification sent: a normal, fully-sourced day with 2 solid highlights and no new
+failure mode beyond the standing Linear/eleuther/latent-space/reddit/personal-domain-allowlist
+blockages, all already flagged repeatedly in prior runs.
+
+Commit: `news: radar run 2026-11-27 (+11 items, 2 highlights, Linear unavailable)`.
