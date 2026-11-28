@@ -9064,3 +9064,75 @@ mode beyond the standing Linear blockage already flagged repeatedly. The Perplex
 filtering judgment call (5 posts dropped) is worth the owner's eye on a quiet day, not urgent.
 
 Commit: `news: daily run 2026-11-27 (+3 items, 2 companies fresh, Linear unavailable)`.
+
+## 2026-11-28 06:0x UTC — daily — ok (+0 items, 0 companies fresh, Linear unavailable)
+
+**Branch note.** Session started with HEAD detached at `65c4289` (tip of this morning's radar
+run) and local `main` stale at `149b59f`; `git fetch origin main` confirmed `origin/main` was
+already at `65c4289` (same recurring stale-container-snapshot pattern as every daily/deep-dive
+run since 2026-11-19). Fixed by checking out `main` and fast-forwarding. No commits missing from
+the remote.
+
+`fetch_feeds.py` ran clean (exit 0). Window since `2026-11-27T04:02 UTC`. One new TIER-1 source
+error: `google-deepmind`'s `deepmind.google/blog/rss.xml` returned **TRAP/not-a-feed** this run
+(previously a working rss feed per `cursors.json`'s stored etag/last-modified) — a new,
+unexplained failure shape, not one of the two known TRAP URLs in `companies.md`. Logged here for
+the owner's attention; not added to the TRAP warning list since it may be transient (worth
+re-checking tomorrow before treating as a permanent swap).
+
+| company | searched | found | fell-back | errors |
+| --- | --- | --- | --- | --- |
+| openai | rss | 0 | yes (WebFetch openai.com/news listing) | - |
+| anthropic | fetch | 0 | yes (WebFetch anthropic.com/news) | - |
+| google-deepmind | rss | 0 | yes (WebFetch deepmind.google/blog/ listing) | TRAP/not-a-feed on rss.xml (new, see above) |
+| google-research | rss | 0 | yes (WebFetch research.google/blog/ listing) | - |
+| microsoft | rss | 0 | yes (WebFetch microsoft.com/en-us/research/blog/ listing) | - |
+| nvidia | rss | 0 | yes (WebFetch developer.nvidia.com/blog/ listing) | - |
+| xai | jina | 0 | yes (anonymous Jina — worked cleanly this run) | - |
+| mistral | rss | 0 | yes (WebFetch mistral.ai/news listing) | - |
+| huggingface | rss | 0 | yes (WebFetch huggingface.co/blog listing) | - |
+| cursor | rss | 0 | yes (WebFetch cursor.com/changelog listing) | - |
+| perplexity | jina | 0 | yes (anonymous Jina — worked cleanly this run) | - |
+
+Totals: 0 items, 0 companies fresh — all 11 companies gap-scraped (TIER-1 zero fresh across the
+board, plus the new deepmind rss TRAP); zero new confirmed stories.
+
+**All eleven gap-scrapes came up empty — every listing's newest post was already captured.**
+- **openai**: newest posts are the same three non-keep-category items flagged every run since
+  2026-11-25 ("GPT-6 models demonstrate intrinsic protein-design capabilities" and "Searching for
+  distant planets with Astra", both Science, Nov 24; "OpenAI and Cisco introduce Shirudo",
+  Security, Nov 23) — fail-closed dropped per `category_keep` config, same as yesterday.
+- **anthropic**: newest is still the Nov 20 IPO-close post (captured 2026-11-27).
+- **google-deepmind**: listing shows no post newer than the Nov 25 items already captured
+  (Mass Spec Skills, quantum-algorithms-with-formal-verification).
+- **google-research**: newest is still the Nov 25 "Verifiable Social Reasoning" post (captured).
+- **microsoft**: newest is still the Nov 16 TokenEconomizer post (captured).
+- **nvidia**: newest dated post on the (high-volume, non-chronological) dev-blog listing is still
+  the Nov 25 NVFP4-register-recycling post (captured); Nov 23-24 items already captured or
+  filtered as routine tutorials per the config's volume note.
+- **mistral**: newest is still the Nov 5 Studio launch (captured); silent 23 days running —
+  genuinely quiet, not a fetch artifact.
+- **huggingface**: TIER-1 rss found nothing new in-window; gap-scrape listing's two newest posts
+  ("Taking Trainium3 to the Track…", Nov 27; "Swarms, Flocks, Gangs…", Nov 26) turned out to
+  already be covered — checked against the file, both already appear verbatim in `## 2026-W47`
+  from yesterday's run (the 2026-11-27 commit's merge brought them in); no genuinely new item.
+- **cursor**: newest is still the Nov 6 "Voice Chat with Agents" entry (captured).
+- **perplexity**: Jina listing's visible posts (Frontier Research Nov 16, voice-mode-on-mobile
+  Nov 18, Computer-usage-for-Pro Nov 25, Time Machine Nov 25, internal-search-engine Ideas post
+  Nov 24) are all already captured or already correctly dropped as SEO/glossary content per
+  2026-11-27's filtering call — nothing new.
+
+**Dedup note.** No cross-company same-URL collisions this run (no new items to collide); no
+radar overlaps either.
+
+**Linear: UNAVAILABLE again this run** — reconnecting to the Linear MCP server with its existing
+sign-in was refused again (same state as every run since 2026-08-24 — now **96 days**). No
+issues to create today regardless (zero new items). Owner action needed (unchanged): reconnect
+the Linear connector (claude.ai Settings → Connectors).
+
+No push notification sent for this run via the owner-facing channel: a genuinely empty day across
+all 11 companies, and no new failure mode beyond the standing Linear blockage and the one
+new-but-likely-transient deepmind rss TRAP (worth a human glance, not urgent — gap-scrape fully
+covered the company this run).
+
+Commit: `news: daily run 2026-11-28 (+0 items, 0 companies fresh, Linear unavailable)`.
