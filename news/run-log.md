@@ -8865,6 +8865,117 @@ blockages, all already flagged repeatedly in prior runs.
 
 Commit: `news: radar run 2026-11-27 (+11 items, 2 highlights, Linear unavailable)`.
 
+## 2026-11-28 05:0x UTC — radar — ok (+11 items, 1 highlight, Linear unavailable)
+
+`fetch_radar.py` ran clean (exit 0). Window since `2026-11-27T03:03 UTC` (last successful radar
+run: 2026-11-27 05:0x UTC).
+
+**Branch note.** Session started with HEAD detached at `6805716` (yesterday's daily-run tip);
+local `main` was stale at `149b59f` while `origin/main` was already at `6805716` — same recurring
+stale-container-snapshot pattern as recent runs. Fixed by checking out `main` and
+fast-forwarding to `origin/main` (10 commits, no divergence/missing work).
+
+| category | raw candidates | confirmed | errors |
+| --- | --- | --- | --- |
+| lab-engineering | 0 | 0 | 0 |
+| inference-infra | 0 | 0 | 0 |
+| oss-ml-systems | 1 | 1 | 1 (eleuther HTTP 404) |
+| bigtech-eng | 0 | 0 | 0 |
+| research-institutes | 0 | 0 | 0 |
+| technical-newsletters | 1 | 1 | 0 |
+| practitioner-blogs | 0 | 0 | 1 (latent-space proxy-tunnel 403) |
+| youtube | 4 | 4 | 0 |
+| community | 12 | 5 | 1 (reddit HTTP 404) |
+| mistral-watch | 0 | 0 | 0 |
+
+Totals: 18 raw candidates, 11 confirmed, 3 source errors.
+
+**Repeat failure modes, no new ones.** `eleuther` HTTP 404 again (now a fifth run in a row — the
+feed URL has very likely moved/retired; still worth the owner's manual check of
+`blog.eleuther.ai`). `latent-space` (`https://www.latent.space/feed`) failed with the same
+proxy-tunnel 403 as recent runs — standing allowlist gap, not site-side. `reddit` HTTP 404 again
+(same shape as 2026-11-27) — one-fetch/day, no retry per policy.
+
+**Dedup.** `Show HN: bouncemarket – a live prediction market game for a bouncing ball` surfaced
+across two HN feeds today (`hn-show-ai50`, `hn-show-rag`) — the same off-topic story, dropped as
+a cross-feed duplicate rather than re-triaged twice.
+
+**community (5/12 confirmed).** Triage drops (technical bar/off-topic, all keyword
+false-positives via the broad `AI`/`RAG` search terms — same recurring pattern as prior
+`SimDrop`/Vim-manual drops): `Show HN: bouncemarket` (prediction-market game, no AI content),
+`Show HN: DragDropMath – Learn math by feel` (math-learning tool, no AI content), `Show HN:
+SimDrop – Running iOS simulators in the macOS Finder sidebar`, `Show HN: I wrote an entire Vim
+manual over 4 years` — none are AI/technical content, all dropped. One lobste.rs post, `Curb
+impacts of AI on programming to maintain EU sovereignty` (score 8) — a policy/opinion essay, not
+real engineering content; dropped per the technical bar, not the "never filter by score" rule
+(that rule is about score as a signal, not genre). `rdata92/qwen-image-21-uncensored` (HF
+trending Spaces) — an "uncensored" Qwen-Image finetune with no technical framing beyond the
+jailbreak angle; dropped as low-effort, not builder-relevant content.
+
+Confirmed, in brief: `ISTA-DASLab/Inkling-2-Mini-GSQ-RCO-GGUF` — verified via WebFetch, a
+GSQ+RCO non-uniform quantization with hard retention numbers (IQ3_S ~99.2%, IQ2_S ~94.3%),
+`highlight` — the **fifth** independent community artifact targeting Inkling-2-Mini since release
+(after rustling 11-25, NariQ 11-20, Strata 11-21, the abliterated build 11-27), and from the same
+ISTA-DASLab lab this file has tracked since October's capy-flash/DeepSeek-V4.1-Flash-1017-GSQ-RCO
+entries. `baidu/ERNIE-5.5-Flash-Preview` — unverified (outside the 5-candidate cap), MEDIUM fit,
+same model family as `oss-ml-systems.md`'s SGLang BS=1 decode post. `kandinskylab/Kandinsky-
+ImageSR-2.0` and `Lakonik/pi-H3` — both unverified, LOW fit (image SR / video-gen), kept for
+budget headroom since nothing stronger needed cutting today. `dlouapre/looped-transformers` (HF
+trending Spaces) — WebFetch returned only a "Fetching metadata" loading page, no description or
+code surfaced; HIGH fit by title (continues this file's and `practitioner-blogs.md`'s
+looped-transformer thread) but out of highlight consideration, substance unconfirmed.
+
+**youtube (4/4 confirmed).** All four fresh items kept: two AI Engineer-channel talks (`Stop
+Paying LLM Prices for Yes-or-No Answers` — Chinmay Goyal, Glean, a named agent-cost-engineering
+technique; `Why Cloudflare Became a Neolab` — Michelle Chen, Cloudflare), one GPU MODE lecture
+(`Lecture 124: Helion High-Level Kernel Programming Meets Agents and Megakernels` — direct hit on
+GPU/kernel engineering + agents), one Latent Space talk (`Inside the AI Training Data Market` —
+Gabe Greenberg, G2i, LOW-MEDIUM as a market/business account rather than a technique). YouTube
+blocked WebFetch with a bot-check redirect on all four as usual; tried one curl retry (browser
+UA) on the GPU MODE video, which Google's bot-check ("/sorry/") also blocked — consistent with
+this file never having verified YouTube substance to date. None promoted to highlight on that
+basis, despite HIGH topic fit on two of the four.
+
+**oss-ml-systems (1/1 confirmed).** `SGLang on Intel Xeon CPUs and Intel GPUs as First-Class
+Platforms` — verified via WebFetch, real execution-path detail (AMX/W8A8 on Xeon; FlashAttention/
+MLA/grouped-GEMM-MoE/FP8+MXFP4/EAGLE on Intel GPU) but zero throughput/latency/accuracy numbers
+anywhere in the post — kept at MEDIUM-HIGH fit, out of highlight consideration for giving no
+performance numbers (the house bar for this file's highlights to date).
+
+**technical-newsletters (1/1 confirmed).** `AWS Challenger: Trainium3 Inference and
+Microarchitecture Deep Dive` (SemiAnalysis) — unverified this run (outside the 5-candidate cap,
+also typically partial-paywalled); kept at MEDIUM fit as a hardware-microarchitecture piece
+rather than this newsletter's more common finance angle, per the config's "finance-vs-tech
+triage is the agent's job" note.
+
+**VERIFY SUBSTANCE (5 candidates attempted, the day's cap):** `SGLang on Intel Xeon/GPU` —
+WebFetch succeeded, full technical detail, no highlight (no numbers). `ISTA-DASLab/Inkling-2-
+Mini-GSQ-RCO-GGUF` — WebFetch succeeded, full retention numbers, `highlight`.
+`dlouapre/looped-transformers` — WebFetch succeeded but surfaced no body content (loading-page
+only), out of highlight. Two YouTube items (`Stop Paying LLM Prices`, `Lecture 124: Helion`) —
+WebFetch returned only YouTube's nav shell on both; one curl retry on the GPU MODE video also
+blocked by Google's bot-check, transport blocked on both.
+
+1 top pick marked `highlight` today (a quieter highlight day than the last two runs, no
+padding): `ISTA-DASLab/Inkling-2-Mini-GSQ-RCO-GGUF` (continues the Inkling-2-Mini
+community-adoption thread with hard retention numbers). Two strong HIGH-fit candidates (the SGLang
+Intel post, the GPU MODE Helion lecture) stayed out of highlight purely on the no-numbers/
+no-transport bar, not on topic fit — worth the owner's eye regardless. Silent categories today (0
+raw candidates): lab-engineering, inference-infra, bigtech-eng, research-institutes,
+mistral-watch (silent again).
+
+**Linear: UNAVAILABLE again this run** — reconnecting to the Linear MCP server with its existing
+sign-in was refused again (same state as every run since 2026-08-24 — now **96 days**). No
+review-queue cards created; today's 11 items are fully covered in `radar/oss-ml-systems.md`,
+`radar/technical-newsletters.md`, `radar/youtube.md` and `radar/community.md` and should be
+backfilled to Linear once reconnected.
+
+No push notification sent via the owner-facing channel for this run: a normal, fully-sourced day
+with 1 solid highlight and no new failure mode beyond the standing Linear/eleuther/
+latent-space/reddit blockages, all already flagged repeatedly in prior runs.
+
+Commit: `news: radar run 2026-11-28 (+11 items, 1 highlight, Linear unavailable)`.
+
 ## 2026-11-27 06:0x UTC — daily — ok (+3 items, 2 companies fresh, Linear unavailable)
 
 **Branch note.** Session started with HEAD detached at `e87addd` (tip of this morning's radar
